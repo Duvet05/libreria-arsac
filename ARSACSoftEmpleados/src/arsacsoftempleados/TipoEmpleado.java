@@ -14,5 +14,6 @@ public enum TipoEmpleado {
     Contable,
     Vendedor,
     Gerente,
-    Logistica
+    Logistica,
+    Ventas
 }
