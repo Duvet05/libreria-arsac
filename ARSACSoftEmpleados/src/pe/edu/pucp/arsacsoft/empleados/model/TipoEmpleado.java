@@ -6,5 +6,6 @@ public enum TipoEmpleado {
     ALMACENERO,
     CONTABLE,
     LOGISTICA,
-    GERENTE
+    GERENTE,
+    VENDEDOR
 }
