@@ -1,4 +1,3 @@
-
 package pe.edu.pucp.arsacsoft.empresa.model;
 
 public class Empresa {
