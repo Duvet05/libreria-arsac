@@ -1,21 +1,23 @@
-
 package pe.edu.pucp.arsacsoft.empleados.model;
 
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.arsacsoft.compras.model.OrdenDeCompra;
 
+public class Empleado extends Persona {
 
-public class Empleado extends Persona{
     private TipoEmpleado cargo;
     private Date fechaContratacion;
     private double salario;
     private String direccion;
     private String contrasena;
     private ArrayList<OrdenDeCompra> ordenesDeCompra;
-    public Empleado(){}
-    public Empleado(TipoEmpleado cargo, Date fechaContratacion, double salario, String direccion, String contrasena,int idPersona, String nombre, String apellidos, String DNI, String correo, int telefono) {
-        super(idPersona,nombre, apellidos, DNI, correo, telefono);
+
+    public Empleado() {
+    }
+
+    public Empleado(TipoEmpleado cargo, Date fechaContratacion, double salario, String direccion, String contrasena, int idPersona, String nombre, String apellidos, String DNI, String correo, int telefono) {
+        super(idPersona, nombre, apellidos, DNI, correo, telefono);
         this.cargo = cargo;
         this.fechaContratacion = fechaContratacion;
         this.salario = salario;
@@ -30,7 +32,7 @@ public class Empleado extends Persona{
     public void setOrdenesDeCompra(ArrayList<OrdenDeCompra> ordenesDeCompra) {
         this.ordenesDeCompra = ordenesDeCompra;
     }
-    
+
     public TipoEmpleado getCargo() {
         return cargo;
     }
@@ -70,6 +72,5 @@ public class Empleado extends Persona{
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    
-    
+
 }
