@@ -3,10 +3,9 @@ package pe.edu.pucp.arsacsoft.empresa.model;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
-import pe.edu.pucp.arsacsoft.empleados.model.Empleado;
 import pe.edu.pucp.arsacsoft.productos.model.Producto;
 import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
-
+import pe.edu.pucp.arsacsoft.empleados.model.Empleado;
 
 public class Sede {
     private int idSede;
