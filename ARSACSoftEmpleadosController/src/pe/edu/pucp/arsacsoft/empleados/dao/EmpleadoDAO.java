@@ -9,5 +9,6 @@ public interface EmpleadoDAO {
     ArrayList<Empleado> listarTodas();
     int insertar(Empleado empleado);
     int modificar(Empleado empleado);
-    int eliminar(int idempleado);       
+    int eliminar(int idempleado);    
+    boolean verificarCredenciales(String correo, String contrasena); 
 }
