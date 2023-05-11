@@ -1,73 +1,62 @@
 
 package pe.edu.pucp.arsacsoft.empresa.model;
 
-import java.util.ArrayList;
-
-
 public class Empresa {
-    private int idEmpresa;
+    private String nombre;
     private String RUC;
-    private int telefono;
-    private String correo;
-    private String razonSocial;
-    private ArrayList<Sede> sedes;
-    public Empresa(){}
-    public Empresa(int idEmpresa, String RUC, int telefono, String correo, String razonSocial) {
-        this.idEmpresa = idEmpresa;
-        this.RUC = RUC;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.razonSocial = razonSocial;
+    private String direccion;
+    private String telefono;
+    private String email;
+
+    public String getNombre() {
+        return nombre;
     }
 
-    public int getIdEmpresa() {
-        return idEmpresa;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public ArrayList<Sede> getSedes() {
-        return sedes;
+    public void setNombre(String aNombre) {
+        nombre = aNombre;
     }
 
-    public void setSedes(ArrayList<Sede> sedes) {
-        this.sedes = sedes;
+    public void setDireccion(String aDireccion) {
+        direccion = aDireccion;
     }
 
- 
+    public void setTelefono(String aTelefono) {
+        telefono = aTelefono;
+    }
+
+    /**
+     * @return the RUC
+     */
     public String getRUC() {
         return RUC;
     }
 
-    public void setRUC(String RUC) {
-        this.RUC = RUC;
+    /**
+     * @param aRUC the RUC to set
+     */
+    public void setRUC(String aRUC) {
+        RUC = aRUC;
     }
 
-    public int getTelefono() {
-        return telefono;
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+    /**
+     * @param aEmail the email to set
+     */
+    public void setEmail(String aEmail) {
+        email = aEmail;
     }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getRazonSocial() {
-        return razonSocial;
-    }
-
-    public void setRazonSocial(String razonSocial) {
-        this.razonSocial = razonSocial;
-    }
-    
-    
 }

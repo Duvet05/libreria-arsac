@@ -18,10 +18,7 @@ public class Sede {
     private boolean esPrincipal;
     private ArrayList<Empleado> empleados;
     private ArrayList<Proveedor> proveedores;
-    private ArrayList<Producto> productos;
-    private Empresa empresa;
-
-   
+    private ArrayList<Producto> productos;   
    
     public Sede(){}
     public Sede(int idSede, String direccion, int telefono, String correo, LocalTime horaIniAtencion, LocalTime horaFinAtencion, String descripcion, boolean esPrincipal) {
@@ -121,13 +118,5 @@ public class Sede {
 
     public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
-    }
-   
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
     }
 }
