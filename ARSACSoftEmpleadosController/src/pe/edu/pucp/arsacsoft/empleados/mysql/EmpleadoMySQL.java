@@ -24,11 +24,14 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         ArrayList<Empleado> empleados = new ArrayList<>();
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("");
+            cs = con.prepareCall("{CALL LISTAR_EMPLEADOS()}");
             rs = cs.executeQuery();
             while (rs.next()) {
                 Empleado empleado = new Empleado();
-
+                empleado.setIdUsuario(rs.getInt("idEmpleado"));
+                empleado.setDNI(rs.getString("DNI"));
+                empleado.setNombre(rs.getString("nombre"));
+                empleado.setApellidos(rs.getString("apellidos"));
                 empleados.add(empleado);
             }
         } catch (Exception ex) {
@@ -48,12 +51,21 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("");
-            cs.registerOutParameter("", java.sql.Types.INTEGER);
-
+            cs = con.prepareCall("{CALL INSERTAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?)}");
+            cs.registerOutParameter("_id_cliente", java.sql.Types.INTEGER);
+            cs.setString("_DNI",empleado.getDNI());
+            cs.setString("_nombre",empleado.getNombre());
+            cs.setString("_apellidos",empleado.getApellidos());
+            cs.setString("_correo",empleado.getCorreo());
+            cs.setString("_telefono",String.valueOf(empleado.getTelefono()));
+            cs.setString("_cargo", empleado.getCargo().toString());
+            cs.setDate("_fechaContratacion", new java.sql.Date(empleado.getFechaContratacion().getTime()));
+            cs.setDouble("_salario", empleado.getSalario());
+            cs.setString("_direccion", empleado.getDireccion());
+            cs.setString("_contrasena", empleado.getContrasena());
             cs.executeUpdate();
-            empleado.setIdUsuario(cs.getInt(""));
-            resultado = 1;
+            empleado.setIdUsuario(cs.getInt("_id_empleado"));
+            resultado = empleado.getIdUsuario();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -92,8 +104,8 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("");
-            cs.setInt("", idempleado);
+            cs = con.prepareCall("{CALL ELIMINAR_EMPLEADO(?)}");
+            cs.setInt(1, idempleado);
             cs.executeUpdate();
             resultado = 1;
         } catch (Exception ex) {
@@ -130,5 +142,4 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         }
         return resultado;
     }
-
 }
