@@ -15,6 +15,15 @@ DROP TABLE IF EXISTS sede;
 DROP TABLE IF EXISTS clienteMayorista;
 DROP TABLE IF EXISTS persona;
 
+CREATE TABLE parametros (
+  nombre_empresa VARCHAR(100) NOT NULL,
+  ruc VARCHAR(20) NOT NULL,
+  direccion VARCHAR(200) NOT NULL,
+  telefono VARCHAR(20) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  CONSTRAINT parametros_pk PRIMARY KEY (nombre_empresa)
+);
+
 CREATE TABLE persona (
 	idUsuario INT AUTO_INCREMENT,
     nombre VARCHAR(50),
