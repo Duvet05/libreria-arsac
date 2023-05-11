@@ -1,3 +1,7 @@
+-- INSERTS para la tabla parametros
+INSERT INTO parametros (nombre_empresa, ruc, direccion, telefono, email)
+VALUES ('LIBRERIAS ARENALES S.A.C.', '20123456789', 'Av. Lima 1234, San Juan de Lurigancho, Perú', '01-2345678', 'libArenales@miempresa.com');
+
 -- INSERTS para la tabla persona
 INSERT INTO persona (nombre, apellidos, DNI, correo, telefono)
 VALUES ('Juan', 'Pérez González', '12345678A', 'juanperez@email.com', '987654321');
