@@ -4,6 +4,8 @@ DROP PROCEDURE IF EXISTS ACTUALIZAR_EMPLEADO;
 DROP PROCEDURE IF EXISTS ELIMINAR_EMPLEADO;
 DROP PROCEDURE IF EXISTS LISTAR_EMPLEADOS;
 DROP PROCEDURE IF EXISTS OBTENER_EMPLEADO;
+DROP PROCEDURE IF EXISTS BUSCAR_EMPLEADO;
+DROP PROCEDURE IF EXISTS VERIFICAR_EMPLEADO;
 
 DROP PROCEDURE IF EXISTS INSERTAR_VENDEDOR;
 
@@ -26,9 +28,9 @@ DELIMITER $
 
 CREATE PROCEDURE INSERTAR_EMPLEADO(
     OUT _id_empleado INT,
+    IN _DNI VARCHAR(8),
     IN _nombre VARCHAR(70),
     IN _apellidos VARCHAR(70),
-    IN _DNI VARCHAR(8),
     IN _correo VARCHAR(70),
     IN _telefono VARCHAR(70),
     IN _cargo VARCHAR(70),
@@ -80,6 +82,37 @@ BEGIN
     WHERE p.activo = true AND p.idUsuario = _idEmpleado;
 END $
 
+CREATE PROCEDURE BUSCAR_EMPLEADO(IN nombre VARCHAR(50))
+BEGIN
+    SELECT e.idEmpleado, p.nombre, p.apellidos, p.DNI, p.correo, e.contrasena, p.telefono, e.cargo, e.fechaContratacion, e.salario, e.direccion
+    FROM persona p
+    INNER JOIN empleado e ON p.idUsuario = e.idEmpleado
+    WHERE p.nombre LIKE CONCAT('%', nombre, '%') AND p.activo = 1;
+END $
+
+
+CREATE PROCEDURE VERIFICAR_EMPLEADO(
+    IN email VARCHAR(50),
+    IN _password VARCHAR(50),
+    OUT empleadoEncontrado BOOLEAN
+)
+BEGIN
+    DECLARE empleadoID INT;
+    DECLARE empleadoPassword VARCHAR(50);
+    DECLARE empleadoActivo BOOLEAN;
+    
+    SELECT idEmpleado, contrasena, activo
+    INTO empleadoID, empleadoPassword, empleadoActivo
+    FROM empleado e
+    JOIN persona p ON e.idEmpleado = p.idUsuario
+    WHERE p.correo = email;
+    
+    IF empleadoID IS NOT NULL AND empleadoPassword = _password AND empleadoActivo THEN
+        SET empleadoEncontrado = TRUE;
+    ELSE
+        SET empleadoEncontrado = FALSE;
+    END IF;
+END $
 
 
 -- Vendedor
