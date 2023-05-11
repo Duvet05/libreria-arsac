@@ -1,18 +1,19 @@
-
 package pe.edu.pucp.arsacsoft.empleados.model;
 
 abstract public class Persona {
+
     private int idUsuario;
     private String nombre;
     private String apellidos;
     private String DNI;
     private String correo;
     private int telefono;
-    
-    public Persona(){}
-    
-    public Persona(int idUsuario,String nombre, String apellidos, String DNI, String correo, int telefono) {
-        this.idUsuario= idUsuario;
+
+    public Persona() {
+    }
+
+    public Persona(int idUsuario, String nombre, String apellidos, String DNI, String correo, int telefono) {
+        this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.DNI = DNI;
@@ -67,6 +68,5 @@ abstract public class Persona {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-    
-    
+
 }
