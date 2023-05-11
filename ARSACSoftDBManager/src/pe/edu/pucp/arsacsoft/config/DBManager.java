@@ -7,9 +7,9 @@ import java.sql.DriverManager;
  */
 public class DBManager {
     private static DBManager dbManager;
-    private String url = "";
+    private String url = "arsac-database.cxnwwqi3a0be.us-east-1.rds.amazonaws.com";
     private String user = "admin";
-    private String password = "";
+    private String password = "4L9b1mb0cqld01nfh2720b";
     private Connection con;
     
     private synchronized static void createInstance(){
