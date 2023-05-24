@@ -17,7 +17,7 @@
 ## RF’s de Logística
 
 - RF7: El sistema permitirá al usuario de logística la consulta de información estadística relevante basado en las actividades económicas de la entidad.
-- RF8: El sistema permitirá al usuario de logística generar un reporte basado en información estadística basado en las actividades económicas de la entidad.
+- RF8: El sistema permitirá al usuario de logística generar un reporte pronistico de demanda.
 
 ## RF’s de Contabilidad
 
