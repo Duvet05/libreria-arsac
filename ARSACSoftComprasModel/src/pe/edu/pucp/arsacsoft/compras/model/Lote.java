@@ -1,78 +1,26 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package pe.edu.pucp.arsacsoft.compras.model;
 
-import java.util.Date;
 import pe.edu.pucp.arsacsoft.productos.model.Producto;
 
-
+/**
+ *
+ * @author duvet
+ */
 public class Lote {
-    private int idLote;
-    private Date fechaObtencion;
-    private Date fechaVenc;
-    private int cantProduct;
-    private String descripcion;
-    private int stockDisponible;
+
     private Producto producto;
-    
+    private int cantProducto;
+
     public Lote() {
-
     }
-    public Lote(int idLote, Date fechaObtencion, Date fechaVenc, int cantProduct, String descripcion, int stockDisponible, Producto producto) {
-        this.idLote = idLote;
-        this.fechaObtencion = fechaObtencion;
-        this.fechaVenc = fechaVenc;
-        this.cantProduct = cantProduct;
-        this.descripcion = descripcion;
-        this.stockDisponible = stockDisponible;
+
+    public Lote(Producto producto, int cantProducto) {
         this.producto = producto;
-    }
-
-    public int getIdLote() {
-        return idLote;
-    }
-
-    public void setIdLote(int idLote) {
-        this.idLote = idLote;
-    }
-
-    public Date getFechaObtencion() {
-        return fechaObtencion;
-    }
-
-    public void setFechaObtencion(Date fechaObtencion) {
-        this.fechaObtencion = fechaObtencion;
-    }
-
-    public Date getFechaVenc() {
-        return fechaVenc;
-    }
-
-    public void setFechaVenc(Date fechaVenc) {
-        this.fechaVenc = fechaVenc;
-    }
-
-    public int getCantProduct() {
-        return cantProduct;
-    }
-
-    public void setCantProduct(int cantProduct) {
-        this.cantProduct = cantProduct;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public int getStockDisponible() {
-        return stockDisponible;
-    }
-
-    public void setStockDisponible(int stockDisponible) {
-        this.stockDisponible = stockDisponible;
+        this.cantProducto = cantProducto;
     }
 
     public Producto getProducto() {
@@ -82,6 +30,13 @@ public class Lote {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
-    
-    
+
+    public int getCantProducto() {
+        return cantProducto;
+    }
+
+    public void setCantProducto(int cantProducto) {
+        this.cantProducto = cantProducto;
+    }
+
 }
