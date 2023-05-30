@@ -114,35 +114,35 @@ CREATE TABLE producto (
 )ENGINE=InnoDB;
 
 CREATE TABLE sedeXproducto (
-	idSede INT,
-    idProducto INT,
-    PRIMARY KEY (idSede, idProducto),
+    	idSede INT,
+	idProducto INT,
+	stock INT,
+	stockBase INT,
+	stockMaximo INT,
+	estado INT,
+	activo BOOLEAN,
+    	PRIMARY KEY (idSede, idProducto),
 	FOREIGN KEY (idSede) REFERENCES sede(idSede),
 	FOREIGN KEY (idProducto) REFERENCES producto(idProducto) 
 )ENGINE=InnoDB;
 
 CREATE TABLE ordenDeCompra (
 	idOrden INT AUTO_INCREMENT,
-    idEmpleado INT,
-    idProveedor INT,
-    fechadeOrden DATE,
-    precioTotalCompra DECIMAL(10, 2),
-    estado BOOLEAN,
-    PRIMARY KEY (idOrden),
-    FOREIGN KEY (idEmpleado) REFERENCES empleado(idEmpleado),
-    FOREIGN KEY (idProveedor) REFERENCES proveedor(idProveedor)
+    	idEmpleado INT,
+    	idProveedor INT,
+    	fechadeOrden DATE,
+	fechaEntrega DATE,
+    	precioTotalCompra DECIMAL(10, 2),
+    	estado TINYINT,
+    	PRIMARY KEY (idOrden),
+    	FOREIGN KEY (idEmpleado) REFERENCES empleado(idEmpleado),
+    	FOREIGN KEY (idProveedor) REFERENCES proveedor(idProveedor)
 )ENGINE=InnoDB;
 
 CREATE TABLE lote (
-    idLote INT AUTO_INCREMENT,
 	idOrden INT,
     idProducto INT,
-    fechaObtencion DATE,
-    fechaVenc DATE,
     cantProduct INT,
-    descripcion VARCHAR(100),
-    stockDisponible INT,
-    PRIMARY KEY (idLote),
     FOREIGN KEY (idOrden) REFERENCES ordenDeCompra(idOrden),
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto) 
 )ENGINE=InnoDB;
@@ -202,3 +202,26 @@ CREATE TABLE boleta (
     PRIMARY KEY (idBoleta),
     FOREIGN KEY (idBoleta) REFERENCES pedido(idPedido)
 )ENGINE=InnoDB;
+
+CREATE TABLE ordenDeAbastecimiento(
+	idOrdenDeAbastecimiento INT,
+	idEmpleado INT,
+	idSede INT,
+	fechaOrden DATE,
+	fechaEntrega DATE,
+	estado TINYINT,
+	PRIMARY KEY (idOrdenDeAbastecimiento),
+    	FOREIGN KEY (idEmpleado) REFERENCES empleado(idEmpleado),
+    	FOREIGN KEY (idSede) REFERENCES sede(idSede)
+)ENGINE=InnoDB;
+
+CREATE TABLE ordenDeAbastecimientoXproducto (
+	idOrdenDeAbastecimiento INT,
+	idProducto INT,
+	cantidad INT,
+	PRIMARY KEY (idOrdenDeAbastecimiento, idProducto),
+    	FOREIGN KEY (idOrdenDeAbastecimiento) REFERENCES ordenDeAbastecimiento(idOrdenDeAbastecimiento),
+    	FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
+)ENGINE=InnoDB;
+
+
