@@ -1,7 +1,7 @@
 # LIBRERIA_ARENALES SAC
 
 # Catálogo de Requisitos Funcionales:
-
+![WhatsApp Image 2023-05-29 at 10 56 31 PM](https://github.com/Duvet05/LIBRERIA_ARENALES/assets/69012359/b95f747f-8075-43c4-af08-dcab2bea094a)
 ## RF’s de Administración de sistema
 
 - RF1: El sistema permitirá al gerente y administrador del sistema el manejo de empleados como usuarios del sistema, como por ejemplo: añadir empleados al sistema, modificar sus datos o darlos de baja.
