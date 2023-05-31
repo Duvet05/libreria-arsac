@@ -11,12 +11,13 @@
 ## RF’s del Almacén
 - RF4: El sistema permitirá al almecenero del sistema la administracion de las Ordenes de Compra.
 - RF5: El sistema permitirá al usuario vendedor el CRUD de los proveedores.
-- RF6: El sistema permitirá al almacenero el CRUD de los productos en el almacen.
-- RF7: El sistema permitirá al almacenero del sistema la administras de las ordenes de de abastacimiento de las sedes.
+- RF6: El sistema permitirá al almacenero el CRUD de los productos.
+- RF7: El sistema permitirá al almacenero la administras de las ordenes de de abastacimiento de las sedes.
+- RF8: El sistema solicitara permitira el manejo CRUD de los stocks que se usaran.
 
 ## RF’s Contabilidad
 - RF8: El sistema permitirá al usuario de logística la creacion de reportes.
-- RF9: El sistema permitirá al usuario de logística administrar promociones para cada producto.
+- RF9: El sistema permitirá al usuario de logística el manejo CRUD de promociones para cada producto.
 - RF10: El sistema permitirá al usuario contador la lectura del historial de todas las compras y ventas realizadas por la empresa.
 - RF11: El sistema permitira al usuario contador ver el libro diario y mayor.
 
@@ -27,16 +28,10 @@
 - RF15: El sistema permitirá al usuario vendedor el CRUD de los clientes mayoristas.
 
 ## RF’s Compartidos
-- RF16: El sistema permitirá al usuario vendedor, de logística y gerente visualizar el listado de los productos que más y menos se venden dado una fecha o un periodo de tiempo.
+- RF16: 
 - RF17:
 - RF18: El sistema permitirá al usuario vendedor y contador la gestión de pedidos por prioridad en base a la fecha de pedido y el costo total de este así como también en caso de que sea un cliente más recurrente.
 - RF19: El sistema permitirá a los usuarios acceder a un historial de la mercadería ingresada por cada proveedor.
-- RF20:
+- RF20: 
 - RF21:
-
-
-
-
-
-
 
