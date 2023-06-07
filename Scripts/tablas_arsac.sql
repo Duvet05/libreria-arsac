@@ -132,7 +132,7 @@ CREATE TABLE sedeXproducto (
 	idSede INT,
 	idProducto INT,
 	stock INT,
-	stockBase INT,
+	stockMinimo INT,
 	stockMaximo INT,
 	activo boolean not null default 1,
 	PRIMARY KEY (idSede, idProducto),
