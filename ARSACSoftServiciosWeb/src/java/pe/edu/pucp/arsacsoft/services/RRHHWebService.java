@@ -21,8 +21,7 @@ public class RRHHWebService {
 
     @WebMethod(operationName = "listarporNombreDNI")
     public ArrayList<Empleado> listarporNombreDNI(String cadena) {
-
-        ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+        ArrayList<Empleado> empleados = null;
         try {
             empleados = daoEmpleado.listarporNombreDNI(cadena);
         } catch (Exception ex) {

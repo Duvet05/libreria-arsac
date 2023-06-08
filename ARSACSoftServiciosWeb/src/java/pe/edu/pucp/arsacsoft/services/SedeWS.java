@@ -7,6 +7,9 @@ package pe.edu.pucp.arsacsoft.services;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
+import pe.edu.pucp.arsacsoft.RRHH.dao.EmpleadoDAO;
+import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
+import pe.edu.pucp.arsacsoft.RRHH.mysql.EmpleadoMySQL;
 import pe.edu.pucp.arsacsoft.sedes.dao.SedeDAO;
 import pe.edu.pucp.arsacsoft.sedes.model.Sede;
 import pe.edu.pucp.arsacsoft.sedes.mysql.SedeMySQL;
@@ -19,7 +22,8 @@ import pe.edu.pucp.arsacsoft.sedes.mysql.SedeMySQL;
 public class SedeWS {
     
     private SedeDAO daoSede = new SedeMySQL();
-    
+    private EmpleadoDAO daoEmpleado = new EmpleadoMySQL();
+
     @WebMethod(operationName = "insertarSede")
     public int insertarSede(Sede sede)
     {
@@ -68,5 +72,16 @@ public class SedeWS {
             System.out.println(ex.getMessage());
         }
         return resultado;
+    }
+    
+    @WebMethod(operationName = "listarporNombreDNI")
+    public ArrayList<Empleado> listarporNombreDNI(String cadena) {
+        ArrayList<Empleado> empleados = null;
+        try {
+            empleados = daoEmpleado.listarporNombreDNI(cadena);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return empleados;
     }
 }

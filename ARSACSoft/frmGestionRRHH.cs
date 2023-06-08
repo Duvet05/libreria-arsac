@@ -64,7 +64,7 @@ namespace ARSACSoft
             frmBuscarEmpleado formBuscarEmpleado = new frmBuscarEmpleado();
             if (formBuscarEmpleado.ShowDialog() == DialogResult.OK)
             {
-                empleado empleadito = formBuscarEmpleado.SedeSeleccionada;
+                empleado empleadito = formBuscarEmpleado.EmpleadoSeleccionado;
                 textNombre1.Text = empleadito.nombre;
                 textApellido1.Text = empleadito.apellidos;
                 textDNI1.Text = empleadito.DNI;

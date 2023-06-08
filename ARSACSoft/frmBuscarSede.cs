@@ -1,12 +1,5 @@
 ﻿using ARSACSoft.SedeWS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -14,7 +7,6 @@ namespace ARSACSoft
     public partial class frmBuscarSede : Form
     {
         private SedeWSClient daoSede;
-        private BindingList<sede> sedes;
         private sede sedeSeleccionada;
 
 

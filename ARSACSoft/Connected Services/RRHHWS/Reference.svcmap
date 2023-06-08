@@ -19,7 +19,7 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="	http://localhost:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address=" http://localhost:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="RRHHWebService.wsdl" MetadataType="Wsdl" ID="83e9b890-0966-4b7d-ab74-88defc1ae9f7" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" />

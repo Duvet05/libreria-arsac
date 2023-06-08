@@ -125,34 +125,39 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             rs = cs.executeQuery();
             while (rs.next()) {
                 Empleado emp = new Empleado();
-                emp.setIdPersona(rs.getInt("id_persona"));
-                emp.setTipo(new TipoDeEmpleado());
-                emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
-                emp.getTipo().setDescripcion(rs.getString("descripcion"));
-                emp.setFechaContratacion(rs.getDate("fecha_contratacion"));
-                emp.setSalario(rs.getDouble("salario"));
-                emp.setDireccion(rs.getString("direccion"));
-                emp.setUsuario(rs.getString("usuario"));
-                emp.setContrasenha(rs.getString("contrasenha"));
+                emp.setIdPersona(rs.getInt("id_personita"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApellidos(rs.getString("apellidos"));
                 emp.setDNI(rs.getString("DNI"));
                 emp.setCorreo(rs.getString("correo"));
                 emp.setTelefono(rs.getString("telefono"));
+                emp.setFechaContratacion(rs.getDate("fecha_contratacion"));
+                emp.setSalario(rs.getDouble("salario"));
+                emp.setDireccion(rs.getString("direccion"));
+                emp.setUsuario(rs.getString("usuario"));
+                emp.setContrasenha(rs.getString("contrasenha"));
+                emp.setTipo(new TipoDeEmpleado());
+                emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
+                emp.getTipo().setDescripcion(rs.getString("descripcion"));
+
                 emp.setActivo(true);
                 empleados.add(emp);
             }
         } catch (Exception ex) {
+            System.out.println("Se muere 1");
             System.out.println(ex.getMessage());
         } finally {
             try {
+                System.out.println("Se muere 2");
                 rs.close();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
             try {
+                System.out.println("Se muere 3");
                 con.close();
             } catch (Exception ex) {
+                System.out.println("Se muere 4");
                 System.out.println(ex.getMessage());
             }
         }
