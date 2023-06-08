@@ -106,7 +106,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button4.Location = new System.Drawing.Point(797, 76);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(105, 28);
             this.button4.TabIndex = 98;
@@ -118,7 +118,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button5.Location = new System.Drawing.Point(663, 76);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(105, 28);
             this.button5.TabIndex = 97;
@@ -139,7 +139,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.dataGridView1.Location = new System.Drawing.Point(31, 116);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -190,15 +190,15 @@
             this.label1.Location = new System.Drawing.Point(34, 86);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 18);
+            this.label1.Size = new System.Drawing.Size(224, 18);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Ingrese el nombre del producto:";
+            this.label1.Text = "Ingrese el nombre del proveedor:";
             // 
             // txtNombreDNI
             // 
             this.txtNombreDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtNombreDNI.Location = new System.Drawing.Point(281, 82);
-            this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreDNI.Name = "txtNombreDNI";
             this.txtNombreDNI.Size = new System.Drawing.Size(316, 24);
             this.txtNombreDNI.TabIndex = 10;
@@ -207,7 +207,7 @@
             // 
             this.cbCafeteria.AutoSize = true;
             this.cbCafeteria.Location = new System.Drawing.Point(1189, 446);
-            this.cbCafeteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCafeteria.Margin = new System.Windows.Forms.Padding(4);
             this.cbCafeteria.Name = "cbCafeteria";
             this.cbCafeteria.Size = new System.Drawing.Size(89, 22);
             this.cbCafeteria.TabIndex = 41;
@@ -218,7 +218,7 @@
             // 
             this.cbSalasEstudio.AutoSize = true;
             this.cbSalasEstudio.Location = new System.Drawing.Point(956, 446);
-            this.cbSalasEstudio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSalasEstudio.Margin = new System.Windows.Forms.Padding(4);
             this.cbSalasEstudio.Name = "cbSalasEstudio";
             this.cbSalasEstudio.Size = new System.Drawing.Size(139, 22);
             this.cbSalasEstudio.TabIndex = 39;
@@ -313,7 +313,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(794, 36);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 28);
             this.button1.TabIndex = 102;
@@ -323,7 +323,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(659, 36);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 28);
             this.button2.TabIndex = 101;
@@ -345,7 +345,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(257, 36);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(338, 24);
             this.textBox1.TabIndex = 99;
@@ -364,7 +364,7 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
             this.dataGridView2.Location = new System.Drawing.Point(25, 69);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;

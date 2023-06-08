@@ -84,10 +84,19 @@ namespace ARSACSoft
             form.Visible = true;
         }
 
+
         private void btnAlmacen_Click(object sender, EventArgs e)
         {
             frmGestionAlmacen frmGestAlmac = new frmGestionAlmacen();
             mostrarFormulario(frmGestAlmac);
+
+            btnPedidos.ForeColor = System.Drawing.Color.Gray;
+            btnAlmacen.ForeColor = System.Drawing.Color.Black;
+            btnProveedores.ForeColor = System.Drawing.Color.Gray;
+            btnSede.ForeColor = System.Drawing.Color.Gray;
+            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
+            btnRRHH.ForeColor = System.Drawing.Color.Gray;
+            btnReportes.ForeColor = System.Drawing.Color.Gray;
         }
 
         private void pbAlmacen_Click(object sender, EventArgs e)
@@ -108,40 +117,91 @@ namespace ARSACSoft
             SendMessage(this.Handle, 0xA1, 0x2, 0);
         }
 
+        public void SetButtonColor(Button selectedButton)
+        {
+            // Establecer todos los botones en gris
+            btnPedidos.ForeColor = Color.Gray;
+            btnAlmacen.ForeColor = Color.Gray;
+            btnProveedores.ForeColor = Color.Gray;
+            btnSede.ForeColor = Color.Gray;
+            btnContabilidad.ForeColor = Color.Gray;
+            btnRRHH.ForeColor = Color.Gray;
+            btnReportes.ForeColor = Color.Gray;
+
+            // Establecer el botón seleccionado en negro
+            selectedButton.ForeColor = Color.Black;
+        }
+
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             frmGestionPedidos frmGestPed = new frmGestionPedidos();
             mostrarFormulario(frmGestPed);
+
+            SetButtonColor(btnPedidos);
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             frmGestionProveedores frmGestProveedores = new frmGestionProveedores();
             mostrarFormulario(frmGestProveedores);
+
+            SetButtonColor(btnProveedores);
         }
 
         private void btnSede_Click(object sender, EventArgs e)
         {
             frmGestionSedes frmGestSedes = new frmGestionSedes();
             mostrarFormulario(frmGestSedes);
+
+            btnPedidos.ForeColor = System.Drawing.Color.Gray;
+            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
+            btnProveedores.ForeColor = System.Drawing.Color.Gray;
+            btnSede.ForeColor = System.Drawing.Color.Black;
+            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
+            btnRRHH.ForeColor = System.Drawing.Color.Gray;
+            btnReportes.ForeColor = System.Drawing.Color.Gray;
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)
         {
             frmContabilidad frmContab = new frmContabilidad();
             mostrarFormulario(frmContab);
+
+            btnPedidos.ForeColor = System.Drawing.Color.Gray;
+            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
+            btnProveedores.ForeColor = System.Drawing.Color.Gray;
+            btnSede.ForeColor = System.Drawing.Color.Gray;
+            btnContabilidad.ForeColor = System.Drawing.Color.Black;
+            btnRRHH.ForeColor = System.Drawing.Color.Gray;
+            btnReportes.ForeColor = System.Drawing.Color.Gray;
         }
 
         private void btnRRHH_Click(object sender, EventArgs e)
         {
             frmGestionRRHH frmGestRRHH = new frmGestionRRHH();
             mostrarFormulario(frmGestRRHH);
+
+            btnPedidos.ForeColor = System.Drawing.Color.Gray;
+            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
+            btnProveedores.ForeColor = System.Drawing.Color.Gray;
+            btnSede.ForeColor = System.Drawing.Color.Gray;
+            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
+            btnRRHH.ForeColor = System.Drawing.Color.Black;
+            btnReportes.ForeColor = System.Drawing.Color.Gray;
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
             frmReportes frmReports = new frmReportes();
             mostrarFormulario(frmReports);
+
+            btnPedidos.ForeColor = System.Drawing.Color.Gray;
+            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
+            btnProveedores.ForeColor = System.Drawing.Color.Gray;
+            btnSede.ForeColor = System.Drawing.Color.Gray;
+            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
+            btnRRHH.ForeColor = System.Drawing.Color.Gray;
+            btnReportes.ForeColor = System.Drawing.Color.Black;
         }
     }
 }
