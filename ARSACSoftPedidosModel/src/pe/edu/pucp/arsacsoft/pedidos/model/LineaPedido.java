@@ -1,7 +1,7 @@
 
 package pe.edu.pucp.arsacsoft.pedidos.model;
 
-import pe.edu.pucp.arsacsoft.productos.model.Producto;
+import pe.edu.pucp.arsacsoft.almacen.model.Producto;
 
 
 public class LineaPedido {
