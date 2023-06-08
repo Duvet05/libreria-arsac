@@ -1,24 +1,18 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package pe.edu.pucp.arsacsoft.proveedores.model;
 
+import java.util.ArrayList;
+
+/**
+ *
+ * @author User
+ */
 public class Proveedor {
-    private int idProveedor;
-    private String nombre;
-    private int RUC;
-    private String direccion1;
-    private String direccion2;
-    private String correo;
-    private int telefono;
-    private String descripcion;
-    public Proveedor(){}
-    public Proveedor(int idProveedor, String nombre, int RUC, String direccion1, String direccion2, String correo, int telefono, String descripcion) {
-        this.idProveedor = idProveedor;
-        this.nombre = nombre;
-        this.RUC = RUC;
-        this.direccion1 = direccion1;
-        this.direccion2 = direccion2;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.descripcion = descripcion;
+
+    public Proveedor() {
     }
 
     public int getIdProveedor() {
@@ -29,54 +23,6 @@ public class Proveedor {
         this.idProveedor = idProveedor;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getRUC() {
-        return RUC;
-    }
-
-    public void setRUC(int RUC) {
-        this.RUC = RUC;
-    }
-
-    public String getDireccion1() {
-        return direccion1;
-    }
-
-    public void setDireccion1(String direccion1) {
-        this.direccion1 = direccion1;
-    }
-
-    public String getDireccion2() {
-        return direccion2;
-    }
-
-    public void setDireccion2(String direccion2) {
-        this.direccion2 = direccion2;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -84,6 +30,50 @@ public class Proveedor {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
+
+    public String getRUC() {
+        return RUC;
+    }
+
+    public void setRUC(String RUC) {
+        this.RUC = RUC;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public ArrayList<ProductoXProveedor> getProducosPorProveedor() {
+        return producosPorProveedor;
+    }
+
+    public void setProducosPorProveedor(ArrayList<ProductoXProveedor> producosPorProveedor) {
+        this.producosPorProveedor = producosPorProveedor;
+    }
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }     
+    private int idProveedor;
+    private String descripcion;
+    private String RUC;
+    private String direccion;
+    private String telefono;
+    private boolean activo;
+    private ArrayList<ProductoXProveedor> producosPorProveedor;
 }
