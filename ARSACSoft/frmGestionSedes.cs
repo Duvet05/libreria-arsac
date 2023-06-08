@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARSACSoft.SedeWS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace ARSACSoft
     public partial class frmGestionSedes : Form
     {
         private Estado estado;
+        private SedeWSClient daoSede;
+        private sede sede;
         public frmGestionSedes()
         {
             InitializeComponent();
@@ -200,22 +203,15 @@ namespace ARSACSoft
             frmBuscarSede formBuscarSede = new frmBuscarSede();
             if (formBuscarSede.ShowDialog() == DialogResult.OK)
             {
-                /*
-                this.empleado = formBusqEmp.EmpleadoSeleccionado;
-                txtIDEmpleado.Text = empleado.IdPersona.ToString();
-                txtNombre.Text = empleado.Nombre;
-                txtApellidoPaterno.Text = empleado.ApellidoPaterno;
-                txtDNI.Text = empleado.DNI;
-                dtpFechaNacimiento.Value = empleado.FechaNacimiento;
-                if (empleado.Genero == 'M') rbMasculino.Checked = true;
-                else rbFemenino.Checked = true;
-                cboArea.SelectedValue = empleado.Area.IdArea;
-                txtCargo.Text = empleado.Cargo;
-                txtSueldo.Text = empleado.Sueldo.ToString("N2");
-                */
+                sede = formBuscarSede.SedeSeleccionada;
+                txtIDSede.Text = sede.idSede.ToString();
+                txtCorreoSede.Text = sede.correo;
+                txtDireccionSede.Text = sede.direccion;
+                txtTelefonoSede.Text = sede.telefono;
+                rbSiSedePrincipal.Checked = sede.esAlmacen;
+                rbNoSedePrincipal.Checked = !sede.esAlmacen;
 
-                //estado = Estado.Buscar;
-                //establecerEstadoFormulario();
+
                 estado = Estado.Buscar;
                 establecerEstadoTabSedes();
             }
@@ -243,6 +239,23 @@ namespace ARSACSoft
 
         private void btnGuardarSede_Click(object sender, EventArgs e)
         {
+            sede.direccion = txtDireccionSede.Text;
+            sede.telefono = txtTelefonoSede.Text;
+            sede.correo = txtCorreoSede.Text;
+            sede.esAlmacen = rbSiSedePrincipal.Checked;
+
+            int resultado = daoSede.insertarSede(sede);
+
+            if (resultado != 0)
+            {
+                MessageBox.Show("Se ha registrado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtIDSede.Text = resultado.ToString();
+                estado = Estado.Inicial;
+                establecerEstadoFormulario();
+            }
+            else
+                MessageBox.Show("Ha ocurrido un error con el registro", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 
         }
 

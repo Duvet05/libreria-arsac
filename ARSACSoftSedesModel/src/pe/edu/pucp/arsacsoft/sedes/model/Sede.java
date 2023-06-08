@@ -4,8 +4,6 @@
  */
 package pe.edu.pucp.arsacsoft.sedes.model;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author User
