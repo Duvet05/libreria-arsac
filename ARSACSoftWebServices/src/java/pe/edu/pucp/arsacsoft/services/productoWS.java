@@ -7,9 +7,9 @@ package pe.edu.pucp.arsacsoft.services;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import pe.edu.pucp.arsacsoft.productos.dao.ProductoDAO;
-import pe.edu.pucp.arsacsoft.productos.model.Producto;
-import pe.edu.pucp.arsacsoft.productos.mysql.ProductoMySQL;
+import pe.edu.pucp.arsacsoft.almacen.dao.ProductoDAO;
+import pe.edu.pucp.arsacsoft.almacen.model.Producto;
+import pe.edu.pucp.arsacsoft.almacen.mysql.ProductoMySQL;
 /**
  *
  * @author Gonzalo
@@ -24,5 +24,6 @@ public class productoWS {
     @WebMethod(operationName = "listarProductosTodas")
     public ArrayList<Producto> listarProductosTodas() {
         ArrayList<Producto> prod = new ArrayList<Producto>();
+        return prod;
     }
 }
