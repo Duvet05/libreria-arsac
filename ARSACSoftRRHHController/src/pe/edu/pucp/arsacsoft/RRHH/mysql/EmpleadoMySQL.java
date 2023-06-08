@@ -17,93 +17,113 @@ import pe.edu.pucp.arsacsoft.config.DBManager;
  *
  * @author User
  */
-public class EmpleadoMySQL implements EmpleadoDAO{
+public class EmpleadoMySQL implements EmpleadoDAO {
+
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
-    @Override    
+
+    @Override
     public int insertar(Empleado empleado) {
         int resultado = 0;
-        try{
+        try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?,?)}");
-            cs.registerOutParameter("_id_empleado", java.sql.Types.INTEGER);
-            cs.setInt("_fid_tipo_empleado", empleado.getTipo().getIdTipoDeEmpleado());
-            cs.setDate("_fecha_contratacion",new java.sql.Date(empleado.getFechaContratacion().getTime()));
-            cs.setDouble("_salario",empleado.getSalario());
-            cs.setString("_direccion",empleado.getDireccion());
-            cs.setString("_usuario",empleado.getUsuario());
-            cs.setString("_contrasenha",empleado.getContrasenha());
-            cs.setString("_nombre",empleado.getNombre());
-            cs.setString("_apellidos",empleado.getApellidos());
-            cs.setString("_DNI",empleado.getDNI());
-            cs.setString("_correo",empleado.getCorreo());
-            cs.setString("_telefono",empleado.getTelefono());
+            cs = con.prepareCall("{CALL INSERTAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            cs.registerOutParameter(1, java.sql.Types.INTEGER);
+            cs.setString(2, empleado.getDNI());
+            cs.setString(3, empleado.getNombre());
+            cs.setString(4, empleado.getApellidos());
+            cs.setString(5, empleado.getCorreo());
+            cs.setString(6, empleado.getTelefono());
+            cs.setInt(7, empleado.getTipo().getIdTipoDeEmpleado());
+            cs.setDate(8, new java.sql.Date(empleado.getFechaContratacion().getTime()));
+            cs.setDouble(9, empleado.getSalario());
+            cs.setString(10, empleado.getDireccion());
+            cs.setString(11, empleado.getUsuario());
+            cs.setString(12, empleado.getContrasenha());
+            cs.setInt(13, 1);
             cs.executeUpdate();
-            empleado.setIdPersona(cs.getInt("_id_empleado"));
-            resultado = empleado.getIdPersona();   
-        }catch(Exception ex){
+            empleado.setIdPersona(cs.getInt(1));
+            resultado = empleado.getIdPersona();
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
+        } finally {
+            try {
+                if (cs != null) {
+                    cs.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        return resultado;             
+        return resultado;
     }
 
     @Override
     public int modificar(Empleado empleado) {
         int resultado = 0;
-        try{
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call MODIFICAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_empleado", empleado.getIdPersona());
             cs.setInt("_fid_tipo_empleado", empleado.getTipo().getIdTipoDeEmpleado());
-            cs.setDate("_fecha_contratacion",new java.sql.Date(empleado.getFechaContratacion().getTime()));
-            cs.setDouble("_salario",empleado.getSalario());
-            cs.setString("_direccion",empleado.getDireccion());
-            cs.setString("_usuario",empleado.getUsuario());
-            cs.setString("_contrasenha",empleado.getContrasenha());
-            cs.setString("_nombre",empleado.getNombre());
-            cs.setString("_apellidos",empleado.getApellidos());
-            cs.setString("_DNI",empleado.getDNI());
-            cs.setString("_correo",empleado.getCorreo());
-            cs.setString("_telefono",empleado.getTelefono());
+            cs.setDate("_fecha_contratacion", new java.sql.Date(empleado.getFechaContratacion().getTime()));
+            cs.setDouble("_salario", empleado.getSalario());
+            cs.setString("_direccion", empleado.getDireccion());
+            cs.setString("_usuario", empleado.getUsuario());
+            cs.setString("_contrasenha", empleado.getContrasenha());
+            cs.setString("_nombre", empleado.getNombre());
+            cs.setString("_apellidos", empleado.getApellidos());
+            cs.setString("_DNI", empleado.getDNI());
+            cs.setString("_correo", empleado.getCorreo());
+            cs.setString("_telefono", empleado.getTelefono());
             cs.executeUpdate();
             resultado = 1;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        } finally {
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        return resultado;        
+        return resultado;
     }
 
     @Override
     public int eliminar(int idEmpleado) {
         int resultado = 0;
-        try{
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_EMPLEADO(?)}");
             cs.setInt("_id_empleado", idEmpleado);
             cs.executeUpdate();
             resultado = 1;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        } finally {
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        return resultado;        
+        return resultado;
     }
 
     @Override
     public ArrayList<Empleado> listarporNombreDNI(String DNINombre) {
         ArrayList<Empleado> empleados = new ArrayList<>();
-        try{
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call LISTAR_EMPLEADO_POR_NOMBRE_DNI(?)}");
             cs.setString("_NOMBRE_DNI", DNINombre);
             rs = cs.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Empleado emp = new Empleado();
                 emp.setIdPersona(rs.getInt("id_persona"));
                 emp.setTipo(new TipoDeEmpleado());
@@ -120,15 +140,23 @@ public class EmpleadoMySQL implements EmpleadoDAO{
                 emp.setCorreo(rs.getString("correo"));
                 emp.setTelefono(rs.getString("telefono"));
                 emp.setActivo(true);
-                empleados.add(emp);               
+                empleados.add(emp);
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        } finally {
+            try {
+                rs.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        return empleados;        
+        return empleados;
     }
-    
+
 }

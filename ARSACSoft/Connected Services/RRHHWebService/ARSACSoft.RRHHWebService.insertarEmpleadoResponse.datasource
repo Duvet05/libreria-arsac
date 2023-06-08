@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="insertarEmpleadoResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse, Connected Services.ServiciosRRHH.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>ARSACSoft.RRHHWebService.insertarEmpleadoResponse, Connected Services.RRHHWebService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

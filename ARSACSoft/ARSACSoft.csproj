@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\ServiciosRRHH\Reference.cs">
+    <Compile Include="Connected Services\RRHHWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -173,17 +173,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\ServiciosRRHH\ARSACSoft.ServiciosRRHH.empleado.datasource">
+    <None Include="Connected Services\RRHHWebService\ARSACSoft.RRHHWebService.empleado.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiciosRRHH\ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse.datasource">
+    <None Include="Connected Services\RRHHWebService\ARSACSoft.RRHHWebService.insertarEmpleadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiciosRRHH\ARSACSoft.ServiciosRRHH.listarporNombreDNIResponse.datasource">
+    <None Include="Connected Services\RRHHWebService\ARSACSoft.RRHHWebService.listarporNombreDNIResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiciosRRHH\RRHHWebService.wsdl" />
-    <None Include="Connected Services\ServiciosRRHH\RRHHWebService.xsd">
+    <None Include="Connected Services\RRHHWebService\RRHHWebService.wsdl" />
+    <None Include="Connected Services\RRHHWebService\RRHHWebService.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -302,16 +302,16 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiciosRRHH\" />
+    <WCFMetadataStorage Include="Connected Services\RRHHWebService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiciosRRHH\configuration91.svcinfo" />
+    <None Include="Connected Services\RRHHWebService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiciosRRHH\configuration.svcinfo" />
+    <None Include="Connected Services\RRHHWebService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiciosRRHH\Reference.svcmap">
+    <None Include="Connected Services\RRHHWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

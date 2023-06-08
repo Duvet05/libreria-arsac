@@ -15,6 +15,16 @@ public class Empleado extends Persona{
     public Empleado() {
     }
 
+    public Empleado(Date fechaContratacion, double salario, String direccion, String usuario, String contrasenha, TipoDeEmpleado tipo, int idPersona, String nombre, String apellidos, String DNI, String correo, String telefono, boolean activo) {
+        super(idPersona, nombre, apellidos, DNI, correo, telefono, activo);
+        this.fechaContratacion = fechaContratacion;
+        this.salario = salario;
+        this.direccion = direccion;
+        this.usuario = usuario;
+        this.contrasenha = contrasenha;
+        this.tipo = tipo;
+    }
+
     public Date getFechaContratacion() {
         return fechaContratacion;
     }

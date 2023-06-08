@@ -13,6 +13,16 @@ public class Persona {
     public Persona() {
     }
 
+    public Persona(int idPersona, String nombre, String apellidos, String DNI, String correo, String telefono, boolean activo) {
+        this.idPersona = idPersona;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.DNI = DNI;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.activo = activo;
+    }
+
     public int getIdPersona() {
         return idPersona;
     }

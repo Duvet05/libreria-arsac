@@ -8,32 +8,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARSACSoft.ServiciosRRHH {
+namespace ARSACSoft.RRHHWebService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="ServiciosRRHH.RRHHWebService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="RRHHWebService.RRHHWebService")]
     public interface RRHHWebService {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.ServiciosRRHH.listarporNombreDNIResponse listarporNombreDNI(ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest request);
+        ARSACSoft.RRHHWebService.insertarEmpleadoResponse insertarEmpleado(ARSACSoft.RRHHWebService.insertarEmpleadoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.ServiciosRRHH.listarporNombreDNIResponse> listarporNombreDNIAsync(ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWebService.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.RRHHWebService.insertarEmpleadoRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse insertarEmpleado(ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest request);
+        ARSACSoft.RRHHWebService.listarporNombreDNIResponse listarporNombreDNI(ARSACSoft.RRHHWebService.listarporNombreDNIRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/insertarEmpleadoResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWebService/listarporNombreDNIResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWebService.listarporNombreDNIResponse> listarporNombreDNIAsync(ARSACSoft.RRHHWebService.listarporNombreDNIRequest request);
     }
     
     /// <remarks/>
@@ -323,6 +323,42 @@ namespace ARSACSoft.ServiciosRRHH {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.RRHHWebService.empleado arg0;
+        
+        public insertarEmpleadoRequest() {
+        }
+        
+        public insertarEmpleadoRequest(ARSACSoft.RRHHWebService.empleado arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarEmpleadoResponse() {
+        }
+        
+        public insertarEmpleadoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarporNombreDNI", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
     public partial class listarporNombreDNIRequest {
         
@@ -346,59 +382,23 @@ namespace ARSACSoft.ServiciosRRHH {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.ServiciosRRHH.empleado[] @return;
+        public ARSACSoft.RRHHWebService.empleado[] @return;
         
         public listarporNombreDNIResponse() {
         }
         
-        public listarporNombreDNIResponse(ARSACSoft.ServiciosRRHH.empleado[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEmpleadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.ServiciosRRHH.empleado arg0;
-        
-        public insertarEmpleadoRequest() {
-        }
-        
-        public insertarEmpleadoRequest(ARSACSoft.ServiciosRRHH.empleado arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarEmpleadoResponse() {
-        }
-        
-        public insertarEmpleadoResponse(int @return) {
+        public listarporNombreDNIResponse(ARSACSoft.RRHHWebService.empleado[] @return) {
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface RRHHWebServiceChannel : ARSACSoft.ServiciosRRHH.RRHHWebService, System.ServiceModel.IClientChannel {
+    public interface RRHHWebServiceChannel : ARSACSoft.RRHHWebService.RRHHWebService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RRHHWebServiceClient : System.ServiceModel.ClientBase<ARSACSoft.ServiciosRRHH.RRHHWebService>, ARSACSoft.ServiciosRRHH.RRHHWebService {
+    public partial class RRHHWebServiceClient : System.ServiceModel.ClientBase<ARSACSoft.RRHHWebService.RRHHWebService>, ARSACSoft.RRHHWebService.RRHHWebService {
         
         public RRHHWebServiceClient() {
         }
@@ -420,49 +420,49 @@ namespace ARSACSoft.ServiciosRRHH {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ServiciosRRHH.listarporNombreDNIResponse ARSACSoft.ServiciosRRHH.RRHHWebService.listarporNombreDNI(ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest request) {
-            return base.Channel.listarporNombreDNI(request);
-        }
-        
-        public ARSACSoft.ServiciosRRHH.empleado[] listarporNombreDNI(string arg0) {
-            ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest inValue = new ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.ServiciosRRHH.listarporNombreDNIResponse retVal = ((ARSACSoft.ServiciosRRHH.RRHHWebService)(this)).listarporNombreDNI(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ServiciosRRHH.listarporNombreDNIResponse> ARSACSoft.ServiciosRRHH.RRHHWebService.listarporNombreDNIAsync(ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest request) {
-            return base.Channel.listarporNombreDNIAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.ServiciosRRHH.listarporNombreDNIResponse> listarporNombreDNIAsync(string arg0) {
-            ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest inValue = new ARSACSoft.ServiciosRRHH.listarporNombreDNIRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.ServiciosRRHH.RRHHWebService)(this)).listarporNombreDNIAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse ARSACSoft.ServiciosRRHH.RRHHWebService.insertarEmpleado(ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest request) {
+        ARSACSoft.RRHHWebService.insertarEmpleadoResponse ARSACSoft.RRHHWebService.RRHHWebService.insertarEmpleado(ARSACSoft.RRHHWebService.insertarEmpleadoRequest request) {
             return base.Channel.insertarEmpleado(request);
         }
         
-        public int insertarEmpleado(ARSACSoft.ServiciosRRHH.empleado arg0) {
-            ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest inValue = new ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest();
+        public int insertarEmpleado(ARSACSoft.RRHHWebService.empleado arg0) {
+            ARSACSoft.RRHHWebService.insertarEmpleadoRequest inValue = new ARSACSoft.RRHHWebService.insertarEmpleadoRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse retVal = ((ARSACSoft.ServiciosRRHH.RRHHWebService)(this)).insertarEmpleado(inValue);
+            ARSACSoft.RRHHWebService.insertarEmpleadoResponse retVal = ((ARSACSoft.RRHHWebService.RRHHWebService)(this)).insertarEmpleado(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse> ARSACSoft.ServiciosRRHH.RRHHWebService.insertarEmpleadoAsync(ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest request) {
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWebService.insertarEmpleadoResponse> ARSACSoft.RRHHWebService.RRHHWebService.insertarEmpleadoAsync(ARSACSoft.RRHHWebService.insertarEmpleadoRequest request) {
             return base.Channel.insertarEmpleadoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.ServiciosRRHH.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.ServiciosRRHH.empleado arg0) {
-            ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest inValue = new ARSACSoft.ServiciosRRHH.insertarEmpleadoRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWebService.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.RRHHWebService.empleado arg0) {
+            ARSACSoft.RRHHWebService.insertarEmpleadoRequest inValue = new ARSACSoft.RRHHWebService.insertarEmpleadoRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.ServiciosRRHH.RRHHWebService)(this)).insertarEmpleadoAsync(inValue);
+            return ((ARSACSoft.RRHHWebService.RRHHWebService)(this)).insertarEmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWebService.listarporNombreDNIResponse ARSACSoft.RRHHWebService.RRHHWebService.listarporNombreDNI(ARSACSoft.RRHHWebService.listarporNombreDNIRequest request) {
+            return base.Channel.listarporNombreDNI(request);
+        }
+        
+        public ARSACSoft.RRHHWebService.empleado[] listarporNombreDNI(string arg0) {
+            ARSACSoft.RRHHWebService.listarporNombreDNIRequest inValue = new ARSACSoft.RRHHWebService.listarporNombreDNIRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWebService.listarporNombreDNIResponse retVal = ((ARSACSoft.RRHHWebService.RRHHWebService)(this)).listarporNombreDNI(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWebService.listarporNombreDNIResponse> ARSACSoft.RRHHWebService.RRHHWebService.listarporNombreDNIAsync(ARSACSoft.RRHHWebService.listarporNombreDNIRequest request) {
+            return base.Channel.listarporNombreDNIAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWebService.listarporNombreDNIResponse> listarporNombreDNIAsync(string arg0) {
+            ARSACSoft.RRHHWebService.listarporNombreDNIRequest inValue = new ARSACSoft.RRHHWebService.listarporNombreDNIRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWebService.RRHHWebService)(this)).listarporNombreDNIAsync(inValue);
         }
     }
 }
