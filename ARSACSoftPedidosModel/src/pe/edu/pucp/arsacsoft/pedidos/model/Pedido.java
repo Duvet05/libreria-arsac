@@ -1,10 +1,11 @@
-
 package pe.edu.pucp.arsacsoft.pedidos.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import pe.edu.pucp.arsacsoft.empleados.model.Vendedor;
+import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
+
 public class Pedido {
+
     private int idPedido;
     private double montoTotal;
     private boolean estado;
@@ -15,13 +16,16 @@ public class Pedido {
     private double descTotal;
     private ArrayList<LineaPedido> lineasPedido;
     private EstadoPedido estadoPedido;
-    
+
     private boolean ventaConBoleta;
     private Factura factura;
     private Boleta boleta;
-    private Vendedor vendedor;
-    public Pedido(){}
-    public Pedido(int idPedido, double montoTotal, boolean estado, Date fechaPedido, Date fechaEntrega, String direccionEnvio, boolean clienteMinor, double descTotal, ArrayList<LineaPedido> lineasPedido, EstadoPedido estadoPedido, boolean ventaConBoleta, Factura factura, Boleta boleta, Vendedor vendedor) {
+    private Empleado vendedor;
+
+    public Pedido() {
+    }
+
+    public Pedido(int idPedido, double montoTotal, boolean estado, Date fechaPedido, Date fechaEntrega, String direccionEnvio, boolean clienteMinor, double descTotal, ArrayList<LineaPedido> lineasPedido, EstadoPedido estadoPedido, boolean ventaConBoleta, Factura factura, Boleta boleta, Empleado vendedor) {
         this.idPedido = idPedido;
         this.montoTotal = montoTotal;
         this.estado = estado;
@@ -37,9 +41,7 @@ public class Pedido {
         this.boleta = boleta;
         this.vendedor = vendedor;
     }
-    
-    
-    
+
     public int getIdPedido() {
         return idPedido;
     }
@@ -151,5 +153,5 @@ public class Pedido {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
-    
+
 }
