@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="productoWS">
-      <implementation-class>pe.edu.pucp.arsacsoft.services.productoWS</implementation-class>
+    <service name="RRHHWebService">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.RRHHWebService</implementation-class>
+    </service>
+    <service name="ProveedoresWebService">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.ProveedoresWebService</implementation-class>
+    </service>
+    <service name="SedesWebService">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.SedesWebService</implementation-class>
+    </service>
+    <service name="AlmacenWebService">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.AlmacenWebService</implementation-class>
     </service>
   </services>
   <clients/>
