@@ -4,22 +4,25 @@
  */
 package pe.edu.pucp.arsacsoft.services;
 
+import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
-
+import pe.edu.pucp.arsacsoft.productos.dao.ProductoDAO;
+import pe.edu.pucp.arsacsoft.productos.model.Producto;
+import pe.edu.pucp.arsacsoft.productos.mysql.ProductoMySQL;
 /**
  *
  * @author Gonzalo
  */
 @WebService(serviceName = "productoWS")
 public class productoWS {
-
     /**
      * This is a sample web service operation
      */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    private ProductoDAO daoProducto = new ProductoMySQL();
+    
+    @WebMethod(operationName = "listarProductosTodas")
+    public ArrayList<Producto> listarProductosTodas() {
+        ArrayList<Producto> prod = new ArrayList<Producto>();
     }
 }
