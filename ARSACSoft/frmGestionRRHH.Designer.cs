@@ -46,10 +46,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbDatosEmpleado = new System.Windows.Forms.GroupBox();
             this.textCorreo1 = new System.Windows.Forms.TextBox();
@@ -71,11 +67,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtIDPersona1 = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tcRRHH = new System.Windows.Forms.TabControl();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.tcRRHH = new System.Windows.Forms.TabControl();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarSede = new System.Windows.Forms.ToolStripButton();
             this.tabPage3.SuspendLayout();
             this.gbDatosCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -125,7 +126,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(127, 197);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(173, 21);
             this.textBox1.TabIndex = 9;
@@ -152,7 +153,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(127, 174);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(173, 21);
             this.textBox2.TabIndex = 8;
@@ -161,7 +162,7 @@
             // 
             this.txtRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRUC.Location = new System.Drawing.Point(127, 91);
-            this.txtRUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRUC.Margin = new System.Windows.Forms.Padding(2);
             this.txtRUC.Name = "txtRUC";
             this.txtRUC.Size = new System.Drawing.Size(173, 21);
             this.txtRUC.TabIndex = 7;
@@ -180,7 +181,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(127, 149);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(173, 21);
             this.textBox3.TabIndex = 7;
@@ -199,7 +200,7 @@
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(127, 123);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(173, 21);
             this.textBox4.TabIndex = 6;
@@ -270,46 +271,6 @@
             this.toolStrip1.TabIndex = 14;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(70, 24);
-            this.toolStripButton1.Text = "&Nuevo";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(80, 24);
-            this.toolStripButton2.Text = "&Guardar";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(82, 24);
-            this.toolStripButton3.Text = "Modificar";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(82, 24);
-            this.toolStripButton4.Text = "&Cancelar";
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.gbDatosEmpleado);
@@ -355,7 +316,7 @@
             // 
             this.textCorreo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCorreo1.Location = new System.Drawing.Point(154, 171);
-            this.textCorreo1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textCorreo1.Margin = new System.Windows.Forms.Padding(2);
             this.textCorreo1.Name = "textCorreo1";
             this.textCorreo1.Size = new System.Drawing.Size(173, 21);
             this.textCorreo1.TabIndex = 23;
@@ -392,7 +353,7 @@
             // 
             this.textDNI1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDNI1.Location = new System.Drawing.Point(154, 148);
-            this.textDNI1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textDNI1.Margin = new System.Windows.Forms.Padding(2);
             this.textDNI1.Name = "textDNI1";
             this.textDNI1.Size = new System.Drawing.Size(173, 21);
             this.textDNI1.TabIndex = 22;
@@ -411,7 +372,7 @@
             // 
             this.textApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textApellido1.Location = new System.Drawing.Point(154, 123);
-            this.textApellido1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textApellido1.Margin = new System.Windows.Forms.Padding(2);
             this.textApellido1.Name = "textApellido1";
             this.textApellido1.Size = new System.Drawing.Size(173, 21);
             this.textApellido1.TabIndex = 21;
@@ -420,7 +381,7 @@
             // 
             this.textSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalario.Location = new System.Drawing.Point(154, 230);
-            this.textSalario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textSalario.Margin = new System.Windows.Forms.Padding(2);
             this.textSalario.Name = "textSalario";
             this.textSalario.Size = new System.Drawing.Size(173, 21);
             this.textSalario.TabIndex = 7;
@@ -429,7 +390,7 @@
             // 
             this.textNombre1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombre1.Location = new System.Drawing.Point(154, 97);
-            this.textNombre1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textNombre1.Margin = new System.Windows.Forms.Padding(2);
             this.textNombre1.Name = "textNombre1";
             this.textNombre1.Size = new System.Drawing.Size(173, 21);
             this.textNombre1.TabIndex = 20;
@@ -438,7 +399,7 @@
             // 
             this.textContrasenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textContrasenha.Location = new System.Drawing.Point(154, 201);
-            this.textContrasenha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textContrasenha.Margin = new System.Windows.Forms.Padding(2);
             this.textContrasenha.Name = "textContrasenha";
             this.textContrasenha.Size = new System.Drawing.Size(173, 21);
             this.textContrasenha.TabIndex = 9;
@@ -457,7 +418,7 @@
             // 
             this.textDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDireccion.Location = new System.Drawing.Point(154, 258);
-            this.textDireccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textDireccion.Margin = new System.Windows.Forms.Padding(2);
             this.textDireccion.Name = "textDireccion";
             this.textDireccion.Size = new System.Drawing.Size(173, 21);
             this.textDireccion.TabIndex = 8;
@@ -531,12 +492,25 @@
             this.toolStripButton7,
             this.toolStripButton8,
             this.toolStripButton10,
-            this.toolStripButton11});
+            this.toolStripButton11,
+            this.btnBuscarSede});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(689, 27);
             this.toolStrip2.TabIndex = 6;
             this.toolStrip2.Text = "toolStrip1";
+            // 
+            // tcRRHH
+            // 
+            this.tcRRHH.Controls.Add(this.tabPage2);
+            this.tcRRHH.Controls.Add(this.tabPage3);
+            this.tcRRHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcRRHH.Location = new System.Drawing.Point(9, 10);
+            this.tcRRHH.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tcRRHH.Name = "tcRRHH";
+            this.tcRRHH.SelectedIndex = 0;
+            this.tcRRHH.Size = new System.Drawing.Size(697, 451);
+            this.tcRRHH.TabIndex = 5;
             // 
             // toolStripButton7
             // 
@@ -558,6 +532,7 @@
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Size = new System.Drawing.Size(80, 24);
             this.toolStripButton8.Text = "&Guardar";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // toolStripButton10
             // 
@@ -579,17 +554,55 @@
             this.toolStripButton11.Size = new System.Drawing.Size(82, 24);
             this.toolStripButton11.Text = "&Cancelar";
             // 
-            // tcRRHH
+            // toolStripButton1
             // 
-            this.tcRRHH.Controls.Add(this.tabPage2);
-            this.tcRRHH.Controls.Add(this.tabPage3);
-            this.tcRRHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcRRHH.Location = new System.Drawing.Point(9, 10);
-            this.tcRRHH.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.tcRRHH.Name = "tcRRHH";
-            this.tcRRHH.SelectedIndex = 0;
-            this.tcRRHH.Size = new System.Drawing.Size(697, 451);
-            this.tcRRHH.TabIndex = 5;
+            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(70, 24);
+            this.toolStripButton1.Text = "&Nuevo";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(80, 24);
+            this.toolStripButton2.Text = "&Guardar";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(82, 24);
+            this.toolStripButton3.Text = "Modificar";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(82, 24);
+            this.toolStripButton4.Text = "&Cancelar";
+            // 
+            // btnBuscarSede
+            // 
+            this.btnBuscarSede.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarSede.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarSede.Name = "btnBuscarSede";
+            this.btnBuscarSede.Size = new System.Drawing.Size(66, 24);
+            this.btnBuscarSede.Text = "Buscar";
+            this.btnBuscarSede.Click += new System.EventHandler(this.btnBuscarSede_Click);
             // 
             // frmGestionRRHH
             // 
@@ -598,7 +611,7 @@
             this.ClientSize = new System.Drawing.Size(715, 470);
             this.Controls.Add(this.tcRRHH);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmGestionRRHH";
             this.Text = "frmGestionEmpleados";
             this.tabPage3.ResumeLayout(false);
@@ -667,5 +680,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtIDPersona1;
+        private System.Windows.Forms.ToolStripButton btnBuscarSede;
     }
 }
