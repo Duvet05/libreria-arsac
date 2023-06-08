@@ -23,7 +23,8 @@ public class productoWS {
     
     @WebMethod(operationName = "listarProductosTodas")
     public ArrayList<Producto> listarProductosTodas() {
-        ArrayList<Producto> prod = new ArrayList<Producto>();
-        return prod;
+        ArrayList<Producto> productos = new ArrayList<Producto>();
+        
+        return productos;
     }
 }
