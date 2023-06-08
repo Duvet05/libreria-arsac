@@ -146,11 +146,11 @@ public class Pedido {
         this.boleta = boleta;
     }
 
-    public Vendedor getVendedor() {
+    public Empleado getVendedor() {
         return vendedor;
     }
 
-    public void setVendedor(Vendedor vendedor) {
+    public void setVendedor(Empleado vendedor) {
         this.vendedor = vendedor;
     }
 
