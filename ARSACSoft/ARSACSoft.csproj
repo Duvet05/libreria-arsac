@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94077EFD-E7D4-44B2-9EC5-FC85C8CE7B25}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ARSACSoft</RootNamespace>
+    <AssemblyName>ARSACSoft</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmBienvenida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBienvenida.Designer.cs">
+      <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarOrdenDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarOrdenDeCompra.Designer.cs">
+      <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarProducto.Designer.cs">
+      <DependentUpon>frmBuscarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmContabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContabilidad.Designer.cs">
+      <DependentUpon>frmContabilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionAlmacen.Designer.cs">
+      <DependentUpon>frmGestionAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionProveedores.Designer.cs">
+      <DependentUpon>frmGestionProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionRRHH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionRRHH.Designer.cs">
+      <DependentUpon>frmGestionRRHH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionPedidos.Designer.cs">
+      <DependentUpon>frmGestionPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionSedes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionSedes.Designer.cs">
+      <DependentUpon>frmGestionSedes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIniciarSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIniciarSesion.Designer.cs">
+      <DependentUpon>frmIniciarSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportes.Designer.cs">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBienvenida.resx">
+      <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarOrdenDeCompra.resx">
+      <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarProducto.resx">
+      <DependentUpon>frmBuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContabilidad.resx">
+      <DependentUpon>frmContabilidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionAlmacen.resx">
+      <DependentUpon>frmGestionAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionProveedores.resx">
+      <DependentUpon>frmGestionProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionRRHH.resx">
+      <DependentUpon>frmGestionRRHH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionPedidos.resx">
+      <DependentUpon>frmGestionPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionSedes.resx">
+      <DependentUpon>frmGestionSedes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIniciarSesion.resx">
+      <DependentUpon>frmIniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportes.resx">
+      <DependentUpon>frmReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\35-356107_close-button-icon-png-clipart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoARSAC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimalist-desktop-131.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoARSAC_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoARSAC_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hombre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoEmpleados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoVentas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoAlmacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoCompras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgSalir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgSalir2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagenBienvenida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagenBienvenida2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sede.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contabilidad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte-de-negocios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computacion-en-la-nube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\52591499_324854351365572_1830050582316974080_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-editar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comentario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flecha-hacia-abajo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flecha-hacia-arriba.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

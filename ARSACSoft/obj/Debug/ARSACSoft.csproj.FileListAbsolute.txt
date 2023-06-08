@@ -1,0 +1,88 @@
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\bin\Debug\ARSACSoft.exe.config
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\bin\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\bin\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.csproj.AssemblyReference.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.csproj.SuggestedBindingRedirects.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.frmIniciarSesion.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.Properties.Resources.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.csproj.GenerateResource.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\ARSACSoft\obj\Debug\ARSACSoft.frmPrincipal.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.AssemblyReference.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.SuggestedBindingRedirects.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmIniciarSesion.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmPrincipal.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.Properties.Resources.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.GenerateResource.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe.config
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe.config
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.AssemblyReference.cache
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.SuggestedBindingRedirects.cache
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmIniciarSesion.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmPrincipal.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.Properties.Resources.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.GenerateResource.cache
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmBienvenida.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionAlmacen.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmContabilidad.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionProveedores.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionRRHH.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionPedidos.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionSedes.resources
+C:\Users\a2018\Desktop\1. A. S. Tanenbaum, H. Boss. Modern Operating Systems, 4E (MOS4E)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmReportes.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.AssemblyReference.cache
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.SuggestedBindingRedirects.cache
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmBienvenida.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmContabilidad.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionAlmacen.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionProveedores.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionRRHH.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionPedidos.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionSedes.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmIniciarSesion.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmPrincipal.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmReportes.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.Properties.Resources.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.GenerateResource.cache
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe.config
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.pdb
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmBuscarProducto.resources
+C:\Users\a2018\Desktop\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmBuscarOrdenDeCompra.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe.config
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.exe
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\bin\Debug\ARSACSoft.pdb
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.AssemblyReference.cache
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmBienvenida.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmBuscarOrdenDeCompra.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmBuscarProducto.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmContabilidad.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionAlmacen.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionProveedores.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionRRHH.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionPedidos.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmGestionSedes.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmIniciarSesion.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmPrincipal.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.frmReportes.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.Properties.Resources.resources
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.GenerateResource.cache
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.exe
+C:\Users\Gonzalo\Desktop\LIBRERIA_ARENALES-Mauricio(4)\LIBRERIA_ARENALES-Mauricio\ARSACSoft\obj\Debug\ARSACSoft.pdb
