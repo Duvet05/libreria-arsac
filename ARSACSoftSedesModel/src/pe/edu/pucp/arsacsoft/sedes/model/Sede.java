@@ -12,6 +12,12 @@ import java.util.ArrayList;
  */
 public class Sede {
 
+    private int idSede;
+    private boolean esAlmacen;
+    private String direccion;
+    private String telefono;
+    private String correo;
+
     public Sede() {
     }
 
@@ -55,28 +61,4 @@ public class Sede {
         this.correo = correo;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    public ArrayList<SedexProducto> getProductosPorSede() {
-        return productosPorSede;
-    }
-
-    public void setProductosPorSede(ArrayList<SedexProducto> productosPorSede) {
-        this.productosPorSede = productosPorSede;
-    }
-    
-    private int idSede;
-    private boolean esAlmacen;
-    private String direccion;
-    private String telefono;
-    private String correo;
-    private boolean activo;
-    private ArrayList<SedexProducto> productosPorSede;
-    
 }
