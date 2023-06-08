@@ -15,7 +15,7 @@ import pe.edu.pucp.arsacsoft.sedes.mysql.SedeMySQL;
  *
  * @author Gino
  */
-@WebService(serviceName = "SedeWS")
+@WebService(serviceName = "SedeWebService")
 public class SedeWebService {
 
     private SedeDAO daoSede = new SedeMySQL();
