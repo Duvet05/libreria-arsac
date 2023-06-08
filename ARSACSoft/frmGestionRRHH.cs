@@ -65,11 +65,14 @@ namespace ARSACSoft
             if (formBuscarEmpleado.ShowDialog() == DialogResult.OK)
             {
                 empleado empleadito = formBuscarEmpleado.EmpleadoSeleccionado;
+                txtIDPersona1.Text = empleadito.idPersona.ToString();
                 textNombre1.Text = empleadito.nombre;
                 textApellido1.Text = empleadito.apellidos;
                 textDNI1.Text = empleadito.DNI;
                 textCorreo1.Text = empleadito.correo;
                 textContrasenha.Text = empleadito.contrasenha;
+                textSalario.Text = empleadito.salario.ToString();
+                textDireccion.Text = empleadito.direccion;
                 estado = Estado.Buscar;
                 //establecerEstadoTabSedes();
             }

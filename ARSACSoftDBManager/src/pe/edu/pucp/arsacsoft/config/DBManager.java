@@ -12,7 +12,7 @@ public class DBManager {
     private static DBManager dbManager;
     private String url = "jdbc:mysql://" +
     "lp2-loshackersdelurin.cszyz9dgmmp6.us-east-1.rds.amazonaws.com" +
-            ":3306/lp2-gino?useSSL=false";
+            ":3306/lp2?useSSL=false";
     private String user = "admin";
     private String password = "Q1dpio1tu4kS4hYdmD2R";
     private Connection con;

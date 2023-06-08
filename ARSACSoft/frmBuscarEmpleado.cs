@@ -15,7 +15,7 @@ namespace ARSACSoft
             daoEmpleado = new RRHHWebServiceClient();
 
             dgvEmpleados.AutoGenerateColumns = false;
-            //dgvEmpleados.DataSource = daoEmpleado.listarporNombreDNI("12345");
+            dgvEmpleados.DataSource = daoEmpleado.listarporNombreDNI("12345");
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
