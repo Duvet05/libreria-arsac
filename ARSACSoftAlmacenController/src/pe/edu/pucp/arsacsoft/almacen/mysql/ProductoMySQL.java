@@ -14,13 +14,14 @@ import pe.edu.pucp.arsacsoft.config.DBManager;
 
 /**
  *
- * @author User
+ * @author User 
  */
 
 public class ProductoMySQL implements ProductoDAO{
     private Connection con;
     private ResultSet rs;
     private CallableStatement cs;
+    
     @Override
     public ArrayList<Producto> listarTodas() {
         ArrayList<Producto> productos = new ArrayList<>();
