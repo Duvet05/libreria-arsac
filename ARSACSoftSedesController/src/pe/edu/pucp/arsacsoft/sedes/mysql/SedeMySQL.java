@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.sedes.dao.SedeDAO;
 import pe.edu.pucp.arsacsoft.sedes.model.Sede;
-import pe.edu.pucp.arsacsoft.config;
+import pe.edu.pucp.arsacsoft.config.DBManager;
 /**
  *
  * @author User
