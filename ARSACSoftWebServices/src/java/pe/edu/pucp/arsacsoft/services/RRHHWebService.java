@@ -36,7 +36,7 @@ public class RRHHWebService {
         }
         return empleados;
     }
-
+//No funciona!
     @WebMethod(operationName = "insertarEmpleado")
     public int insertarEmpleado(Empleado empleado) {
         int resultado = 0;

@@ -7,11 +7,11 @@
     <service name="ProveedoresWebService">
       <implementation-class>pe.edu.pucp.arsacsoft.services.ProveedoresWebService</implementation-class>
     </service>
-    <service name="SedesWebService">
-      <implementation-class>pe.edu.pucp.arsacsoft.services.SedesWebService</implementation-class>
-    </service>
     <service name="AlmacenWebService">
       <implementation-class>pe.edu.pucp.arsacsoft.services.AlmacenWebService</implementation-class>
+    </service>
+    <service name="SedeWebService">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.SedeWebService</implementation-class>
     </service>
   </services>
   <clients/>
