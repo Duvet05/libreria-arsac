@@ -4,9 +4,14 @@
   <xs:element name="insertarEmpleadoResponse" type="tns:insertarEmpleadoResponse" />
   <xs:element name="listarporNombreDNI" type="tns:listarporNombreDNI" />
   <xs:element name="listarporNombreDNIResponse" type="tns:listarporNombreDNIResponse" />
-  <xs:complexType name="insertarEmpleado">
+  <xs:complexType name="listarporNombreDNI">
     <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:empleado" />
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarporNombreDNIResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="empleado">
@@ -41,19 +46,14 @@
       <xs:element name="idTipoDeEmpleado" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarEmpleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:empleado" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="insertarEmpleadoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarporNombreDNI">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarporNombreDNIResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

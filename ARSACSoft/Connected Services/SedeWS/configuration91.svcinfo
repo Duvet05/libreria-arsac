@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="/Qgo9idXFcxGfm1ApyE2TerUlNHnGgTpSOGhbY55qos=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="j60ICILgKE7mBnablk14t+R+aIn4ahw0uywiYAQEUCE=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="SedeWSPortBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="SedeWSPort" contract="SedeWS.SedeWS" bindingType="basicHttpBinding" address="http://localhost:8080/ARSACSoftServiciosWeb/SedeWS" bindingConfiguration="SedeWSPortBinding">
+    <endpoint name="SedeWSPort" contract="SedeWS.SedeWS" bindingType="basicHttpBinding" address="http://44.203.255.161:8080/ARSACSoftServiciosWeb/SedeWS" bindingConfiguration="SedeWSPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/ARSACSoftServiciosWeb/SedeWS</serializedValue>
+          <serializedValue>http://44.203.255.161:8080/ARSACSoftServiciosWeb/SedeWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -206,13 +206,23 @@
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.listarporNombreDNIResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\RRHHWS\RRHHWebService1.wsdl" />
+    <None Include="Connected Services\RRHHWS\RRHHWebService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.actualizarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.empleado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.insertarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarporNombreDNIResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarSedesResponse.datasource">
@@ -221,12 +231,8 @@
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sede.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\SedeWS.wsdl" />
-    <None Include="Connected Services\SedeWS\SedeWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\RRHHWS\RRHHWebService.wsdl" />
-    <None Include="Connected Services\RRHHWS\RRHHWebService.xsd">
+    <None Include="Connected Services\SedeWS\SedeWS1.wsdl" />
+    <None Include="Connected Services\SedeWS\SedeWS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">

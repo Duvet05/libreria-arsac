@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address=" http://localhost:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://44.203.255.161:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RRHHWebService.wsdl" MetadataType="Wsdl" ID="83e9b890-0966-4b7d-ab74-88defc1ae9f7" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" />
-    <MetadataFile FileName="RRHHWebService.xsd" MetadataType="Schema" ID="620db86b-a181-415a-9618-59db250affc2" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftServiciosWeb/RRHHWebService?xsd=1" />
+    <MetadataFile FileName="RRHHWebService1.xsd" MetadataType="Schema" ID="77ef4cda-f105-4153-a276-b1fc857c2230" SourceId="1" SourceUrl="http://44.203.255.161:8080/ARSACSoftServiciosWeb/RRHHWebService?xsd=1" />
+    <MetadataFile FileName="RRHHWebService1.wsdl" MetadataType="Wsdl" ID="0db760aa-1cc1-4a7e-8e85-c7c9a5f9cf85" SourceId="1" SourceUrl="http://44.203.255.161:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
