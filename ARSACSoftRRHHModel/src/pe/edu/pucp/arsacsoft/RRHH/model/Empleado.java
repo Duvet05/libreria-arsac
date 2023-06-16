@@ -11,15 +11,16 @@ import pe.edu.pucp.arsacsoft.sedes.model.Sede;
  *
  * @author User
  */
-public class Empleado extends Persona{
+public class Empleado extends Persona {
 
     private Date fechaContratacion;
     private double salario;
     private String direccion;
     private TipoDeEmpleado tipo;
     private Sede sede;
-    
-    public Empleado(){}
+
+    public Empleado() {
+    }
 
     public Date getFechaContratacion() {
         return fechaContratacion;
@@ -51,7 +52,7 @@ public class Empleado extends Persona{
 
     public void setTipo(TipoDeEmpleado tipo) {
         this.tipo = tipo;
-    }  
+    }
 
     public Sede getSede() {
         return sede;
@@ -60,8 +61,5 @@ public class Empleado extends Persona{
     public void setSede(Sede sede) {
         this.sede = sede;
     }
-    
-    
-    
 
 }
