@@ -72,7 +72,7 @@ END$
 CREATE PROCEDURE LISTAR_TIPOS_DE_EMPLEADOS(
 )
 BEGIN
-	SELECT idTipoEmpleado, descripcion from tipoEmpleado where activo = 1;
+	SELECT id_tipo_empleado, descripcion from tipoEmpleado where activo = 1;
 END $
 
 
@@ -93,7 +93,7 @@ BEGIN
     INSERT INTO persona(nombre, apellidos, DNI, correo, telefono, activo)
     VALUES(_nombre,_apellidos,_DNI,_correo, _telefono, true);
     SET _id_empleado = LAST_INSERT_ID();
-    INSERT INTO empleado(id_empleado, fid_sede, fid_tipo_empleado, fecha_contratacion, salario, direccion) 
+    INSERT INTO empleado(id_empleado, id_sede, id_tipo_empleado, fecha_contratacion, salario, direccion) 
 	VALUES(_id_empleado, _fid_sede, _fid_tipo_empleado, _fecha_contratacion, _salario, _direccion);
 END $
 
@@ -103,9 +103,9 @@ CREATE PROCEDURE LISTAR_EMPLEADOS_POR_SEDE_NOMBRE_DNI(
     IN _nombre_DNI VARCHAR(1000)
 )
 BEGIN
-	SELECT e.idEmpleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
-    s.idSede, s.direccion as direccion_de_sede,
-    te.idTipoEmpleado, te.descripcion as tipo_empleado,
+	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
+    s.id_sede, s.direccion as direccion_de_sede,
+    te.id_tipo_empleado, te.descripcion as tipo_empleado,
     e.fechaContratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.id_empleado = p.id_persona and p.activo = 1
@@ -118,9 +118,9 @@ CREATE PROCEDURE LISTAR_EMPLEADOS_POR_NOMBRE_DNI(
     IN _nombre_DNI VARCHAR(255)
 )
 BEGIN
-	SELECT e.idEmpleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
-    s.idSede, s.direccion as direccion_de_sede,
-    te.idTipoEmpleado, te.descripcion as tipo_empleado,
+	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
+    s.id_sede, s.direccion as direccion_de_sede,
+    te.id_tipo_empleado, te.descripcion as tipo_empleado,
     e.fechaContratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.id_empleado = p.id_persona and p.activo = 1
@@ -133,15 +133,15 @@ CREATE PROCEDURE BUSCAR_EMPLEADO_ID(
     IN _idEmpleado INT
 )
 BEGIN
-	SELECT e.idEmpleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
-    s.idSede, s.direccion as direccion_de_sede,
-    te.idTipoEmpleado, te.descripcion as tipo_empleado,
+	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
+    s.id_sede, s.direccion as direccion_de_sede,
+    te.id_tipo_empleado, te.descripcion as tipo_empleado,
     e.fechaContratacion, e.salario, e.direccion
     FROM empleado e
-    inner join persona p on e.idEmpleado = p.idPersona and p.activo = 1
-    inner join tipoEmpleado te on te.idTipoEmpleado = e.idTipoEmpleado
-    inner join sede s on s.idSede = e.idSede
-    where _idEmpleado = idEmpleado;
+    inner join persona p on e.id_empleado = p.id_persona and p.activo = 1
+    inner join tipoEmpleado te on te.id_tipo_empleado = e.id_tipo_empleado
+    inner join sede s on s.id_sede = e.id_sede
+    where _idEmpleado = id_empleado;
 END $
 
 
@@ -226,7 +226,6 @@ CREATE PROCEDURE ACTUALIZAR_CLIENTE_MAYORISTA(
     IN _razon_social VARCHAR(50)
 )
 BEGIN
-
 	UPDATE persona
     SET
     nombre = _nombre, apellidos = _apellidos, DNI = _DNI, correo = _correo, telefono = _telefono
