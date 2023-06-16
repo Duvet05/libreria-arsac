@@ -1,6 +1,8 @@
 package pe.edu.pucp.arsacsoft.RRHH.dao;
 
+import pe.edu.pucp.arsacsoft.RRHH.model.CuentaUsuario;
+
 
 public interface CuentaUsuarioDAO {
-    int verificar(String usuario, String contrasenha);
+    int verificar(CuentaUsuario cuenta);
 }

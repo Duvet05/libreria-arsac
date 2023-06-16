@@ -4,23 +4,23 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import pe.edu.pucp.arsacsoft.RRHH.dao.CuentaUsuarioDAO;
+import pe.edu.pucp.arsacsoft.RRHH.model.CuentaUsuario;
 import pe.edu.pucp.arsacsoft.config.DBManager;
 
 public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
-
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
     
     @Override
-    public int verificar(String usuario, String contrasenha) {
+    public int verificar(CuentaUsuario cuenta) {
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call VERIFICAR_CUENTA_USUARIO"
                     + "(?,?)}");
-            cs.setString("_username", usuario);
-            cs.setString("_contrasenha", contrasenha);
+            cs.setString("_username", cuenta.getUsername());
+            cs.setString("_contrasenha", cuenta.getPassword());
             rs = cs.executeQuery();
             if(rs.next()){
                 resultado = rs.getInt("id_empleado");

@@ -14,7 +14,7 @@ DROP PROCEDURE IF EXISTS ELIMNAR_CLIENTE_MAYORISTA;
 
 DELIMITER $
 
--- EMPLEADO
+-- CUENTA DE USUARIO
 
 CREATE PROCEDURE EncryptPassword(
 	IN password VARCHAR(255), 
@@ -35,22 +35,27 @@ BEGIN
 END $
 
 
-CREATE PROCEDURE VERIFICAR_CUENTA_DE_USUARIO(
-	IN _username VARCHAR(1000),
-    IN _contrasenha VARCHAR(1000)
+CREATE PROCEDURE INSERTAR_CUENTA_USUARIO(
+	OUT _id_cuenta_usuario INT,
+    IN _fid_empleado INT,
+    IN _username VARCHAR(100),
+    IN _password VARCHAR(100)
+)BEGIN
+	INSERT INTO cuenta_usuario(fid_empleado,username,password,activo) 
+    VALUES(_fid_empleado,_username,EncryptPassword(_password),1);
+END$
+
+CREATE PROCEDURE VERIFICAR_CUENTA_USUARIO(
+	_username VARCHAR(100),
+    _password VARCHAR(100)
 )
 BEGIN
-	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
-    s.id_sede, s.es_principal as trabaja_en_sede_principal,
-    te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fecha_contratacion, e.salario, e.direccion
-    FROM empleado e
-    inner join persona p on e.id_empleado = p.id_persona
-    inner join tipoEmpleado te on te.id_tipo_empleado = e.id_tipo_empleado
-    inner join sede s on s.id_sede = e.id_sede
-    where p.activo = 1 and e.username = _username AND e.contrasenha =  EncryptPassword(_contrasenha);
-END $
+	SELECT id_cuenta_usuario, fid_empleado, username, 
+    password FROM cuenta_usuario WHERE username = _username AND password = 
+    MD5(_password) AND activo = 1;
+END$
 
+-- EMPLEADO
 
 CREATE PROCEDURE LISTAR_TIPOS_DE_EMPLEADOS(
 )
