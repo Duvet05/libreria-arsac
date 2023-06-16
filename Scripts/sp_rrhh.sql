@@ -21,7 +21,7 @@ CREATE PROCEDURE EncryptPassword(
     OUT encrypted_password VARBINARY(255)
 )
 BEGIN
-    SET @key = 'your_encryption_key';
+    SET @key = 'arsac';
     SET encrypted_password = AES_ENCRYPT(password, @key);
 END $
 
@@ -30,7 +30,7 @@ CREATE PROCEDURE DecryptPassword(
     OUT decrypted_password VARCHAR(255)
 )
 BEGIN
-    SET @key = 'your_encryption_key';
+    SET @key = 'arsac';
     SET decrypted_password = CAST(AES_DECRYPT(encrypted_password, @key) AS CHAR);
 END $
 

@@ -6,7 +6,6 @@ package pe.edu.pucp.arsacsoft.RRHH.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
-import pe.edu.pucp.arsacsoft.RRHH.model.Persona;
 
 /**
  *
