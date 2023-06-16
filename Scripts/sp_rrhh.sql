@@ -12,6 +12,7 @@ DROP PROCEDURE IF EXISTS INSERTAR_CLIENTE_MAYORISTA;
 DROP PROCEDURE IF EXISTS LISTAR_CLIENTES_MAYORISTAS_POR_NOMBRE_DNI;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_CLIENTE_MAYORISTA;
 DROP PROCEDURE IF EXISTS ELIMNAR_CLIENTE_MAYORISTA;
+DROP PROCEDURE IF EXISTS BUSCAR_EMPLEADO_ID;
 
 DELIMITER $
 
@@ -102,10 +103,10 @@ CREATE PROCEDURE LISTAR_EMPLEADOS_POR_SEDE_NOMBRE_DNI(
     IN _nombre_DNI VARCHAR(1000)
 )
 BEGIN
-	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
-    s.id_sede, s.es_principal as trabaja_en_sede_principal,
-    te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fecha_contratacion, e.salario, e.direccion
+	SELECT e.idEmpleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
+    s.idSede, s.direccion as direccion_de_sede,
+    te.idTipoEmpleado, te.descripcion as tipo_empleado,
+    e.fechaContratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.id_empleado = p.id_persona and p.activo = 1
     inner join tipoEmpleado te on te.id_tipo_empleado = e.fid_tipo_empleado
@@ -114,13 +115,13 @@ BEGIN
 END $
 
 CREATE PROCEDURE LISTAR_EMPLEADOS_POR_NOMBRE_DNI(
-    IN _nombre_DNI VARCHAR(1000)
+    IN _nombre_DNI VARCHAR(255)
 )
 BEGIN
-	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
-    s.id_sede, s.direccion as direccion_de_sede, s.es_principal as trabaja_en_sede_principal,
-    te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fecha_contratacion, e.salario, e.direccion
+	SELECT e.idEmpleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
+    s.idSede, s.direccion as direccion_de_sede,
+    te.idTipoEmpleado, te.descripcion as tipo_empleado,
+    e.fechaContratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.id_empleado = p.id_persona and p.activo = 1
     inner join tipoEmpleado te on te.id_tipo_empleado = e.fid_tipo_empleado
@@ -128,9 +129,24 @@ BEGIN
     where (CONCAT(p.nombre,' ',p.apellidos) LIKE CONCAT('%',_nombre_DNI,'%')) OR (p.DNI LIKE CONCAT('%',_nombre_DNI,'%'));
 END $
 
+CREATE PROCEDURE BUSCAR_EMPLEADO_ID(
+    IN _idEmpleado INT
+)
+BEGIN
+	SELECT e.idEmpleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
+    s.idSede, s.direccion as direccion_de_sede,
+    te.idTipoEmpleado, te.descripcion as tipo_empleado,
+    e.fechaContratacion, e.salario, e.direccion
+    FROM empleado e
+    inner join persona p on e.idEmpleado = p.idPersona and p.activo = 1
+    inner join tipoEmpleado te on te.idTipoEmpleado = e.idTipoEmpleado
+    inner join sede s on s.idSede = e.idSede
+    where _idEmpleado = idEmpleado;
+END $
+
 
 CREATE PROCEDURE ACTUALIZAR_EMPLEADO(
-	IN _id_empleado INT,
+	IN _idEmpleado INT,
     IN _DNI VARCHAR(8),
     IN _nombre VARCHAR(70),
     IN _apellidos VARCHAR(70),
@@ -146,13 +162,13 @@ BEGIN
 	UPDATE persona
     SET
     nombre = _nombre, apellidos = _apellidos, DNI = _DNI, correo = _correo, telefono = _telefono
-    where id_persona = _id_empleado;
+    where id_persona = _idEmpleado;
     
     UPDATE empleado
     SET
     fid_sede = _fid_sede, fid_tipo_empleado = _fid_tipo_empleado,
     fecha_contratacion = _fecha_contratacion, salario = _salario, direccion = _direccion
-    where id_empleado = _id_empleado;
+    where id_empleado = _idEmpleado;
 END $
 
 
