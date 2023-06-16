@@ -64,9 +64,9 @@ public class LineadeordenDeventa {
     }
 
     private int idLineadeordenDeventa;
+    private Producto producto;        
     private int cantidad;
     private double descuento;
     private double subtotal;
     private boolean activo;   
-    private Producto producto;        
 }
