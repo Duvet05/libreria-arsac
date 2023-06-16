@@ -13,6 +13,9 @@ DROP procedure IF exists INSERTAR_TIPO_EMPLEADO;
 
 -- SEDE
 DROP procedure IF exists INSERTAR_SEDE;
+DROP PROCEDURE IF EXISTS LISTAR_SEDES;
+DROP PROCEDURE IF EXISTS ACTUALIZAR_SEDE;
+DROP PROCEDURE IF EXISTS ELIMINAR_SEDE;
 
 -- EMPLEADO
 DROP PROCEDURE IF EXISTS INSERTAR_EMPLEADO;
@@ -35,6 +38,12 @@ DROP PROCEDURE IF EXISTS ACTUALIZAR_ORDEN_DE_VENTA_MAYORISTA;
 -- LINEA DE ORDEN DE VENTA
 DROP PROCEDURE IF EXISTS INSERTAR_LINEA_DE_ORDEN_DE_VENTA;
 DROP PROCEDURE IF EXISTS LISTAR_LINEAS_DE_ORDEN_DE_VENTA;
+
+-- PROVEEDOR
+DROP PROCEDURE IF EXISTS INSERTAR_PROVEEDOR;
+DROP PROCEDURE IF EXISTS LISTAR_PROVEEDORES;
+DROP PROCEDURE IF EXISTS ACTUALIZAR_PROVEEDOR;
+DROP PROCEDURE IF EXISTS ELIMINAR_PROVEEDOR;
 
 DELIMITER $
 -- MARCA
@@ -106,6 +115,34 @@ BEGIN
     VALUES(_esAlmacen, _direccion, _telefono, _correo, true);
 	SET _idSede = last_insert_id();
 END $
+CREATE PROCEDURE LISTAR_SEDES()
+BEGIN
+	SELECT idSede, esAlmacen, direccion, telefono, correo from sede WHERE activo = true;
+END $
+CREATE PROCEDURE ACTUALIZAR_SEDE(
+	IN _idSede INT,
+    IN _esAlmacen BOOLEAN,
+	IN _direccion VARCHAR(100),
+    IN _telefono VARCHAR(100),
+    IN _correo VARCHAR(100)
+)
+BEGIN
+	UPDATE sede set
+    esAlmacen = _esAlmacen,
+    direccion = _direccion,
+    telefono = _telefono,
+	correo = _correo
+    WHERE idSede = _idSede;
+END $
+CREATE PROCEDURE ELIMINAR_SEDE(
+	IN _idSede INT
+)
+BEGIN
+	UPDATE sede set
+	activo = false
+    WHERE idSede = _idSede;
+END $
+
 
 -- EMPLEADO
 CREATE PROCEDURE INSERTAR_EMPLEADO(
@@ -237,5 +274,50 @@ BEGIN
     where lov.idOrdenDeVenta = _idOrdenDeVenta;
 END $
 
+-- PROVEEDOR
+
+CREATE PROCEDURE INSERTAR_PROVEEDOR(
+	OUT _idProveedor INT,
+    IN _nombre VARCHAR(100),
+    IN _direccion VARCHAR(100),
+    IN _telefono VARCHAR(100),
+    IN _RUC VARCHAR(100)
+)
+BEGIN
+	INSERT INTO proveedor(nombre, direccion, telefono, RUC, activo)
+    VALUES(_nombre, _direccion, _telefono, _RUC, true);
+	SET _idProveedor = last_insert_id();
+END $
+
+CREATE PROCEDURE LISTAR_PROVEEDORES()
+BEGIN
+	SELECT idProveedor, nombre, direccion, RUC, telefono
+    from proveedor where activo = 1;
+END $
+
+CREATE PROCEDURE ACTUALIZAR_PROVEEDOR(
+	IN _idProveedor INT,
+	IN _nombre VARCHAR(100),
+    IN _direccion VARCHAR(100),
+    IN _telefono VARCHAR(100),
+    IN _RUC VARCHAR(100)
+)
+BEGIN
+	UPDATE proveedor set
+    nombre = _nombre,
+    direccion = _direccion,
+    telefono = _telefono,
+    RUC = _RUC
+    where idProveedor = _idProveedor;
+END $
+
+CREATE PROCEDURE ELIMINAR_PROVEEDOR(
+	IN _idProveedor INT
+)
+BEGIN
+	UPDATE proveedor set
+	activo = false
+    where idProveedor = _idProveedor;
+END $
 
 
