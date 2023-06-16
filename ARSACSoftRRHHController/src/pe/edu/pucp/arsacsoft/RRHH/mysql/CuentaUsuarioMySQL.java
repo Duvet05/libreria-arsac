@@ -22,7 +22,7 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
             cs.setString("_usuario", cuenta.getUsername());
             cs.setString("_contrasena", cuenta.getPassword());
             rs = cs.executeQuery();
-            if(rs.next()){
+            while(rs.next()){
                 resultado = rs.getInt("fid_empleado");
             }
         }catch(Exception ex){
