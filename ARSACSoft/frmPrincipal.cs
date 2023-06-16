@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARSACSoft.RRHHWS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,8 @@ namespace ARSACSoft
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
-        public frmPrincipal()
+        
+        public frmPrincipal(cuentaUsuario _cuenta)
         {
             InitializeComponent();
             frmBienvenida formularioBienvenida = new frmBienvenida();

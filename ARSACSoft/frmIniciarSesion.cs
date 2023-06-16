@@ -20,7 +20,7 @@ namespace ARSACSoft
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
 
         RRHHWSClient daoRRHWSClient = new RRHHWSClient();
-        //cuentaUsuario _cuenta;
+        cuentaUsuario _cuenta;
         public frmIniciarSesion()
         {
             InitializeComponent();
@@ -35,9 +35,10 @@ namespace ARSACSoft
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //_cuenta.username = txtUsername.Text;
-            //_cuenta.password = txtPassword.Text;
-            int verificar = daoRRHWSClient.verificarCuenta(txtUsuario.Text, txtContrasenha.Text);
+            _cuenta = new cuentaUsuario();
+            _cuenta.username = txtUsuario.Text.Trim();
+            _cuenta.password = txtContrasenha.Text;
+            int verificar = daoRRHWSClient.verificarCuenta(_cuenta);
             if (verificar == 0)
             {
                 MessageBox.Show("Las credenciales no son correctas", "Ups",
@@ -45,7 +46,7 @@ namespace ARSACSoft
             }
             else
             {
-                frmPrincipal formPrincipal = new frmPrincipal();
+                frmPrincipal formPrincipal = new frmPrincipal(_cuenta);
                 this.Hide();
                 //Verificamos roles
                 //formPrincipal.BtnGestionarEmpleados.Visible = false;

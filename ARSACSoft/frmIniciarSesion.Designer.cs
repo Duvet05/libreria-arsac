@@ -122,6 +122,7 @@
             this.txtContrasenha.Name = "txtContrasenha";
             this.txtContrasenha.Size = new System.Drawing.Size(190, 28);
             this.txtContrasenha.TabIndex = 4;
+            this.txtContrasenha.UseSystemPasswordChar = true;
             // 
             // label5
             // 

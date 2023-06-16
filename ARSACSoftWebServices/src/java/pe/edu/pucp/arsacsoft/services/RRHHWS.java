@@ -92,12 +92,9 @@ public class RRHHWS {
 
     /**/
     @WebMethod(operationName = "verificarCuenta")
-    public int verificarCuenta(String user, String contra) {
+    public int verificarCuenta(CuentaUsuario cuentaUsuario) {
         int resultado = 0;
         try {
-            CuentaUsuario cuentaUsuario = new CuentaUsuario();
-            cuentaUsuario.setUsername(user);
-            cuentaUsuario.setPassword(contra);
             resultado = daoCuentaUsuario.verificar(cuentaUsuario);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
