@@ -268,5 +268,20 @@ namespace ARSACSoft
             establecerEstadoFormularioEmpleado();
             limpiarComponentesEmpleado();
         }
+
+        private void gbDatosEmpleado_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIDEmpleado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
