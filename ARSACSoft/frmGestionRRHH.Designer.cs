@@ -68,11 +68,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDNIEmpleado = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtApellidoEmpleado = new System.Windows.Forms.TextBox();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
-            this.txtContrasenha = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -373,11 +371,9 @@
             this.gbDatosEmpleado.Controls.Add(this.label8);
             this.gbDatosEmpleado.Controls.Add(this.label10);
             this.gbDatosEmpleado.Controls.Add(this.txtDNIEmpleado);
-            this.gbDatosEmpleado.Controls.Add(this.label5);
             this.gbDatosEmpleado.Controls.Add(this.txtApellidoEmpleado);
             this.gbDatosEmpleado.Controls.Add(this.txtSalario);
             this.gbDatosEmpleado.Controls.Add(this.txtNombreEmpleado);
-            this.gbDatosEmpleado.Controls.Add(this.txtContrasenha);
             this.gbDatosEmpleado.Controls.Add(this.label4);
             this.gbDatosEmpleado.Controls.Add(this.txtDireccion);
             this.gbDatosEmpleado.Controls.Add(this.label3);
@@ -451,7 +447,7 @@
             // cboTipoDeEmpleado
             // 
             this.cboTipoDeEmpleado.FormattingEnabled = true;
-            this.cboTipoDeEmpleado.Location = new System.Drawing.Point(470, 138);
+            this.cboTipoDeEmpleado.Location = new System.Drawing.Point(470, 107);
             this.cboTipoDeEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboTipoDeEmpleado.Name = "cboTipoDeEmpleado";
             this.cboTipoDeEmpleado.Size = new System.Drawing.Size(173, 23);
@@ -461,7 +457,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(347, 141);
+            this.label16.Location = new System.Drawing.Point(347, 111);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(113, 15);
@@ -534,16 +530,6 @@
             this.txtDNIEmpleado.Size = new System.Drawing.Size(173, 21);
             this.txtDNIEmpleado.TabIndex = 22;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(387, 111);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 15);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Contraseña:";
-            // 
             // txtApellidoEmpleado
             // 
             this.txtApellidoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -570,15 +556,6 @@
             this.txtNombreEmpleado.Name = "txtNombreEmpleado";
             this.txtNombreEmpleado.Size = new System.Drawing.Size(173, 21);
             this.txtNombreEmpleado.TabIndex = 20;
-            // 
-            // txtContrasenha
-            // 
-            this.txtContrasenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenha.Location = new System.Drawing.Point(470, 108);
-            this.txtContrasenha.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txtContrasenha.Name = "txtContrasenha";
-            this.txtContrasenha.Size = new System.Drawing.Size(173, 21);
-            this.txtContrasenha.TabIndex = 9;
             // 
             // label4
             // 
@@ -809,10 +786,8 @@
         private System.Windows.Forms.GroupBox gbDatosEmpleado;
         private System.Windows.Forms.DateTimePicker dtpFechaContratacion;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtContrasenha;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtSalario;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStrip toolStrip2;
