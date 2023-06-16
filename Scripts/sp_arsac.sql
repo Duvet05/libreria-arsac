@@ -81,19 +81,21 @@ BEGIN
     VALUES(_id_categoria, __id_marca, _nombre, _precio, _precioPorMayor, true);
     SET _id_producto = LAST_INSERT_ID();
 END $
+
+
 CREATE PROCEDURE LISTAR_PRODUCTOS()
 BEGIN
     SELECT 	c.descripcion as categoria, m.descripcion as marca,
 			p.nombre, p.precio, p.precioPorMayor
-            from producto p
-            inner join categoria c on p.id_categoria = c.id_categoria
-            inner join marca m on p._id_marca = m.id_marca
-            where p.activo = 1;
+    FROM producto p
+    INNER JOIN categoria c ON p.id_categoria = c.id_categoria
+    INNER JOIN marca m ON p.id_marca = m.id_marca
+    WHERE p.activo = 1;
 END $
 
 -- TIPO DE EMPLEADO
 CREATE PROCEDURE INSERTAR_TIPO_EMPLEADO(
-	out _id_tipo_empleado INT,
+	OUT _id_tipo_empleado INT,
     IN _descripcion VARCHAR(50)
 )
 BEGIN
