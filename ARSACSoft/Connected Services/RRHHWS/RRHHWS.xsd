@@ -20,6 +20,8 @@
   <xs:element name="modificarClienteMayoristaResponse" type="tns:modificarClienteMayoristaResponse" />
   <xs:element name="modificarEmpleado" type="tns:modificarEmpleado" />
   <xs:element name="modificarEmpleadoResponse" type="tns:modificarEmpleadoResponse" />
+  <xs:element name="verificarCuenta" type="tns:verificarCuenta" />
+  <xs:element name="verificarCuentaResponse" type="tns:verificarCuentaResponse" />
   <xs:complexType name="modificarEmpleado">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:empleado" />
@@ -29,13 +31,11 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:persona">
         <xs:sequence>
-          <xs:element minOccurs="0" name="contrasenha" type="xs:string" />
           <xs:element minOccurs="0" name="direccion" type="xs:string" />
           <xs:element minOccurs="0" name="fechaContratacion" type="xs:dateTime" />
           <xs:element name="salario" type="xs:double" />
           <xs:element minOccurs="0" name="sede" type="tns:sede" />
           <xs:element minOccurs="0" name="tipo" type="tns:tipoDeEmpleado" />
-          <xs:element minOccurs="0" name="usuario" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -155,6 +155,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarClienteMayoristaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verificarCuentaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

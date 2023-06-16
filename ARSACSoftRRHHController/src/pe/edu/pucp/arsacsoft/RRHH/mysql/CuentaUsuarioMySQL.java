@@ -19,11 +19,11 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call VERIFICAR_CUENTA_USUARIO"
                     + "(?,?)}");
-            cs.setString("_username", cuenta.getUsername());
-            cs.setString("_contrasenha", cuenta.getPassword());
+            cs.setString("_usuario", cuenta.getUsername());
+            cs.setString("_contrasena", cuenta.getPassword());
             rs = cs.executeQuery();
             if(rs.next()){
-                resultado = rs.getInt("id_empleado");
+                resultado = rs.getInt("fid_empleado");
             }
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -33,5 +33,4 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
         }
         return resultado;
     }
-    
 }

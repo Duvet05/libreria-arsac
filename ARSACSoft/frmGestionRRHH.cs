@@ -178,7 +178,6 @@ namespace ARSACSoft
                 txtDireccion.Text = empleado.direccion;
 
                 txtUsuario.Text = empleado.usuario;
-                txtContrasenha.Text = empleado.contrasenha;
                 txtDireccionSede.Text = empleado.sede.direccion;
 
                 estadoEmpleado = Estado.Buscar;

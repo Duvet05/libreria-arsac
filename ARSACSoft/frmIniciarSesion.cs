@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARSACSoft.RRHHWS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,9 @@ namespace ARSACSoft
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+
+        RRHHWSClient daoRRHWSClient;
+        cuentaUsuario _cuenta;
         public frmIniciarSesion()
         {
             InitializeComponent();
@@ -31,9 +35,9 @@ namespace ARSACSoft
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            /*
-            int verificar = daoEmpleado.verificarUsuarioEmpleado(txtUsername.Text,
-                txtPassword.Text);
+            _cuenta.username = txtUsername.Text;
+            _cuenta.password = txtPassword.Text;
+            int verificar = daoRRHWSClient.verificarCuenta(txtUsername.Text, txtPassword.Text);
             if (verificar == 0)
             {
                 MessageBox.Show("Las credenciales no son correctas", "Ups",

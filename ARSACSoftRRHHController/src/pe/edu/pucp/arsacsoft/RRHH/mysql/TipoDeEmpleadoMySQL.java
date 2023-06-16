@@ -29,7 +29,7 @@ public class TipoDeEmpleadoMySQL implements TipoDeEmpleadoDAO{
             rs = cs.executeQuery();
             while(rs.next()){
                 TipoDeEmpleado tipo = new TipoDeEmpleado();
-                tipo.setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
+                tipo.setIdTipoDeEmpleado(rs.getInt("idTipoEmpleado"));
                 tipo.setDescripcion(rs.getString("descripcion"));
                 tipo.setActivo(true);
                 tipos.add(tipo);

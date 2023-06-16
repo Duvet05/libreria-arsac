@@ -1,6 +1,7 @@
-DROP PROCEDURE IF EXISTS VERIFICAR_CUENTA_DE_USUARIO;
+DROP PROCEDURE IF EXISTS VERIFICAR_CUENTA_USUARIO;
 DROP PROCEDURE IF EXISTS EncryptPassword;
 DROP PROCEDURE IF EXISTS DecryptPassword;
+DROP PROCEDURE IF EXISTS INSERTAR_CUENTA_USUARIO;
 DROP PROCEDURE IF EXISTS LISTAR_TIPOS_DE_EMPLEADOS;
 DROP PROCEDURE IF EXISTS INSERTAR_EMPLEADO;
 DROP PROCEDURE IF EXISTS LISTAR_EMPLEADOS_POR_SEDE_NOMBRE_DNI;
@@ -21,8 +22,9 @@ CREATE PROCEDURE EncryptPassword(
     OUT encrypted_password VARBINARY(255)
 )
 BEGIN
-    SET @key = 'arsac';
-    SET encrypted_password = AES_ENCRYPT(password, @key);
+    DECLARE key_var CHAR(16);
+    SET key_var = 'arsac';
+    SET encrypted_password = AES_ENCRYPT(password, key_var);
 END $
 
 CREATE PROCEDURE DecryptPassword(
@@ -30,29 +32,38 @@ CREATE PROCEDURE DecryptPassword(
     OUT decrypted_password VARCHAR(255)
 )
 BEGIN
-    SET @key = 'arsac';
-    SET decrypted_password = CAST(AES_DECRYPT(encrypted_password, @key) AS CHAR);
+    DECLARE key_var CHAR(16);
+    SET key_var = 'arsac';
+    SET decrypted_password = CAST(AES_DECRYPT(encrypted_password, key_var) AS CHAR);
 END $
-
 
 CREATE PROCEDURE INSERTAR_CUENTA_USUARIO(
 	OUT _id_cuenta_usuario INT,
     IN _fid_empleado INT,
-    IN _username VARCHAR(100),
-    IN _password VARCHAR(100)
-)BEGIN
-	INSERT INTO cuenta_usuario(fid_empleado,username,password,activo) 
-    VALUES(_fid_empleado,_username,EncryptPassword(_password),1);
-END$
-
-CREATE PROCEDURE VERIFICAR_CUENTA_USUARIO(
-	_username VARCHAR(100),
-    _password VARCHAR(100)
+    IN _usuario VARCHAR(50),
+    IN _contrasena VARCHAR(50)
 )
 BEGIN
-	SELECT id_cuenta_usuario, fid_empleado, username, 
-    password FROM cuenta_usuario WHERE username = _username AND password = 
-    MD5(_password) AND activo = 1;
+    DECLARE encrypted_password VARBINARY(255);
+    CALL EncryptPassword(_contrasena, encrypted_password);
+    
+    INSERT INTO cuentaUsuario (fid_empleado, usuario, contrasena, activo)
+    VALUES (_fid_empleado, _usuario, encrypted_password, 1);
+    
+    SET _id_cuenta_usuario = LAST_INSERT_ID();
+END $
+
+CREATE PROCEDURE VERIFICAR_CUENTA_USUARIO(
+	_usuario VARCHAR(50),
+    _contrasena VARCHAR(50)
+)
+BEGIN
+    DECLARE _encrypted_password VARBINARY(255);
+    CALL EncryptPassword(_contrasena, _encrypted_password);
+    
+    SELECT id_cuenta_usuario, fid_empleado, usuario, contrasena
+    FROM cuentaUsuario
+    WHERE usuario = _usuario AND contrasena = _encrypted_password AND activo = 1;
 END$
 
 -- EMPLEADO
@@ -60,7 +71,7 @@ END$
 CREATE PROCEDURE LISTAR_TIPOS_DE_EMPLEADOS(
 )
 BEGIN
-	SELECT id_tipo_empleado, descripcion from tipoEmpleado where activo = 1;
+	SELECT idTipoEmpleado, descripcion from tipoEmpleado where activo = 1;
 END $
 
 

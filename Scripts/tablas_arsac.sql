@@ -97,11 +97,12 @@ CREATE TABLE cuentaUsuario(
 	id_cuenta_usuario INT AUTO_INCREMENT,
     fid_empleado INT UNIQUE,
 	usuario VARCHAR(50) NOT NULL UNIQUE,
-    contrasena VARCHAR(50) NOT NULL UNIQUE,
-    activo TINYINT,
+    contrasena VARBINARY(255) NOT NULL UNIQUE,
+    activo BOOLEAN NOT NULL DEFAULT 1,
     PRIMARY KEY(id_cuenta_usuario),
     FOREIGN KEY(fid_empleado) REFERENCES empleado(idEmpleado)
 )ENGINE = InnoDB;
+
 
 CREATE TABLE clienteMayorista (
 	idClienteMayorista INT,
