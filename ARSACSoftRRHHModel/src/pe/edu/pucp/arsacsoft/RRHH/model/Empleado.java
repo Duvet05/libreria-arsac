@@ -5,6 +5,7 @@
 package pe.edu.pucp.arsacsoft.RRHH.model;
 
 import java.util.Date;
+import pe.edu.pucp.arsacsoft.sedes.model.Sede;
 
 /**
  *
@@ -12,18 +13,15 @@ import java.util.Date;
  */
 public class Empleado extends Persona{
 
-    public Empleado() {
-    }
-
-    public Empleado(Date fechaContratacion, double salario, String direccion, String usuario, String contrasenha, TipoDeEmpleado tipo, int idPersona, String nombre, String apellidos, String DNI, String correo, String telefono, boolean activo) {
-        super(idPersona, nombre, apellidos, DNI, correo, telefono, activo);
-        this.fechaContratacion = fechaContratacion;
-        this.salario = salario;
-        this.direccion = direccion;
-        this.usuario = usuario;
-        this.contrasenha = contrasenha;
-        this.tipo = tipo;
-    }
+    private Date fechaContratacion;
+    private double salario;
+    private String direccion;
+    private String usuario;
+    private String contrasenha;
+    private TipoDeEmpleado tipo;
+    private Sede sede;
+    
+    public Empleado(){}
 
     public Date getFechaContratacion() {
         return fechaContratacion;
@@ -72,10 +70,16 @@ public class Empleado extends Persona{
     public void setTipo(TipoDeEmpleado tipo) {
         this.tipo = tipo;
     }  
-    private Date fechaContratacion;
-    private double salario;
-    private String direccion;
-    private String usuario;
-    private String contrasenha;
-    private TipoDeEmpleado tipo;
+
+    public Sede getSede() {
+        return sede;
+    }
+
+    public void setSede(Sede sede) {
+        this.sede = sede;
+    }
+    
+    
+    
+
 }

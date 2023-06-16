@@ -6,6 +6,7 @@ package pe.edu.pucp.arsacsoft.RRHH.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.RRHH.model.ClienteMayorista;
+import pe.edu.pucp.arsacsoft.RRHH.model.Persona;
 
 /**
  *
@@ -15,5 +16,5 @@ public interface ClienteMayoristaDAO {
     int insertar(ClienteMayorista cliente);
     int modificar(ClienteMayorista cliente);
     int eliminar(int idclientemayorista);
-    ArrayList<ClienteMayorista> listarporNombreDNI(String DNINombre);     
+    ArrayList<Persona> listarPorNombreDNI(String DNINombre);     
 }

@@ -38,14 +38,14 @@ public class SedeMySQL implements SedeDAO {
             */
             
             cs = con.prepareCall("{call INSERTAR_SEDE(?,?,?,?,?)}");
-            cs.registerOutParameter("_idSede", java.sql.Types.INTEGER);
-            cs.setBoolean("_esAlmacen", sede.isEsAlmacen());
-            cs.setString("_direccion", sede.getDireccion());
-            cs.setString("_telefono", sede.getTelefono());
-            cs.setString("_correo", sede.getCorreo());
+            cs.registerOutParameter(1, java.sql.Types.INTEGER);
+            cs.setBoolean(2, sede.isEsPrincipal());
+            cs.setString(3, sede.getDireccion());
+            cs.setString(4, sede.getTelefono());
+            cs.setString(5, sede.getCorreo());
             
             cs.executeUpdate();
-            sede.setIdSede(cs.getInt("_idSede"));
+            sede.setIdSede(cs.getInt("_id_sede"));
             resultado = sede.getIdSede();
             
         }
@@ -60,7 +60,7 @@ public class SedeMySQL implements SedeDAO {
 
     @Override
     public ArrayList<Sede> listarTodas() {
-        ArrayList<Sede> sedes = new ArrayList<Sede>();
+        ArrayList<Sede> sedes = new ArrayList<>();
         try
         {
             con = DBManager.getInstance().getConnection();
@@ -71,13 +71,11 @@ public class SedeMySQL implements SedeDAO {
             {
                 Sede sede = new Sede();
                 
-                sede.setIdSede(rs.getInt("idSede"));
-                sede.setEsAlmacen(rs.getBoolean("esAlmacen"));
+                sede.setIdSede(rs.getInt("id_sede"));
+                sede.setEsPrincipal(rs.getBoolean("es_principal"));
                 sede.setCorreo(rs.getString("correo"));
                 sede.setDireccion(rs.getString("direccion"));
                 sede.setTelefono(rs.getString("telefono"));
-                
-                System.out.println(sede.getIdSede());
                 
                 sedes.add(sede);
             }
@@ -96,7 +94,7 @@ public class SedeMySQL implements SedeDAO {
     }
 
     @Override
-    public int actualizar(Sede sede) {
+    public int modificar(Sede sede) {
         int resultado = 0;
         
         try
@@ -104,11 +102,11 @@ public class SedeMySQL implements SedeDAO {
             con = DBManager.getInstance().getConnection();
             
             cs = con.prepareCall("{call ACTUALIZAR_SEDE(?,?,?,?,?)}");
-            cs.setInt("_idSede", sede.getIdSede());
-            cs.setBoolean("_esAlmacen", sede.isEsAlmacen());
-            cs.setString("_direccion", sede.getDireccion());
-            cs.setString("_telefono", sede.getTelefono());
-            cs.setString("_correo", sede.getCorreo());
+            cs.setInt(1, sede.getIdSede());
+            cs.setBoolean(2, sede.isEsPrincipal());
+            cs.setString(3, sede.getDireccion());
+            cs.setString(4, sede.getTelefono());
+            cs.setString(5, sede.getCorreo());
             
             cs.executeUpdate();
             resultado = 1;
@@ -130,7 +128,7 @@ public class SedeMySQL implements SedeDAO {
             con = DBManager.getInstance().getConnection();
             
             cs = con.prepareCall("{call ELIMINAR_SEDE(?)}");
-            cs.setInt("_idSede", idSede);
+            cs.setInt(1, idSede);
             
             cs.executeUpdate();
             resultado = 1;

@@ -25,7 +25,7 @@ public class TipoDeEmpleadoMySQL implements TipoDeEmpleadoDAO{
         ArrayList<TipoDeEmpleado> tipos = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_TIPO_EMPLEADO_TODOS()}");
+            cs = con.prepareCall("{call LISTAR_TIPOS_DE_EMPLEADOS()}");
             rs = cs.executeQuery();
             while(rs.next()){
                 TipoDeEmpleado tipo = new TipoDeEmpleado();

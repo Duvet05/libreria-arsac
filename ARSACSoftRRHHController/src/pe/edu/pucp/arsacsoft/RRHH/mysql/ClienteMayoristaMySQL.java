@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.RRHH.dao.ClienteMayoristaDAO;
 import pe.edu.pucp.arsacsoft.RRHH.model.ClienteMayorista;
+import pe.edu.pucp.arsacsoft.RRHH.model.Persona;
 import pe.edu.pucp.arsacsoft.config.DBManager;
 
 /**
@@ -87,16 +88,16 @@ public class ClienteMayoristaMySQL implements ClienteMayoristaDAO{
     }
 
     @Override
-    public ArrayList<ClienteMayorista> listarporNombreDNI(String DNINombre) {
-        ArrayList<ClienteMayorista> clientes = new ArrayList<>();
+    public ArrayList<Persona> listarPorNombreDNI(String DNINombre) {
+        ArrayList<Persona> clientes = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_CLIENTE_MAYORISTA_POR_NOMBRE_DNI(?)}");
-            cs.setString("_NOMBRE_DNI", DNINombre);
+            cs = con.prepareCall("{call LISTAR_CLIENTES_MAYORISTAS_POR_NOMBRE_DNI(?)}");
+            cs.setString("_nombre_DNI", DNINombre);
             rs = cs.executeQuery();
             while(rs.next()){
                 ClienteMayorista cli = new ClienteMayorista();
-                cli.setIdPersona(rs.getInt("id_persona"));
+                cli.setIdPersona(rs.getInt("id_cliente_mayorista"));
                 cli.setNombre(rs.getString("nombre"));
                 cli.setApellidos(rs.getString("apellidos"));
                 cli.setDNI(rs.getString("DNI"));
@@ -110,7 +111,6 @@ public class ClienteMayoristaMySQL implements ClienteMayoristaDAO{
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
-            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return clientes;              

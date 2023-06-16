@@ -14,6 +14,6 @@ import pe.edu.pucp.arsacsoft.sedes.model.Sede;
 public interface SedeDAO {
     ArrayList<Sede> listarTodas();
     int insertar(Sede sede);
-    int actualizar(Sede sede);
+    int modificar(Sede sede);
     int eliminar(int idsede);      
 }

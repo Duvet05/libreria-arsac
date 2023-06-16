@@ -6,6 +6,7 @@ package pe.edu.pucp.arsacsoft.RRHH.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
+import pe.edu.pucp.arsacsoft.RRHH.model.Persona;
 
 /**
  *
@@ -15,5 +16,7 @@ public interface EmpleadoDAO {
     int insertar(Empleado empleado);
     int modificar(Empleado empleado);
     int eliminar(int idEmpleado);
-    ArrayList<Empleado> listarporNombreDNI(String DNINombre);    
+    ArrayList<Empleado> listarPorSedeNombreDNI(int idSede, String DNINombre);    
+    ArrayList<Empleado> listarPorNombreDNI( String DNINombre);
+
 }

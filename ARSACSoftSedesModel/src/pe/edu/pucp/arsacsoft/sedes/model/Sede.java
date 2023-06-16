@@ -4,6 +4,9 @@
  */
 package pe.edu.pucp.arsacsoft.sedes.model;
 
+import java.util.ArrayList;
+import pe.edu.pucp.arsacsoft.producto.model.Producto;
+
 /**
  *
  * @author User
@@ -11,12 +14,29 @@ package pe.edu.pucp.arsacsoft.sedes.model;
 public class Sede {
 
     private int idSede;
-    private boolean esAlmacen;
+    private boolean esPrincipal;
     private String direccion;
     private String telefono;
     private String correo;
-
+    private ArrayList<Producto> productos;
+    
     public Sede() {
+    }
+
+    public boolean isEsPrincipal() {
+        return esPrincipal;
+    }
+
+    public void setEsPrincipal(boolean esPrincipal) {
+        this.esPrincipal = esPrincipal;
+    }
+
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
     }
 
     public int getIdSede() {
@@ -25,14 +45,6 @@ public class Sede {
 
     public void setIdSede(int idSede) {
         this.idSede = idSede;
-    }
-
-    public boolean isEsAlmacen() {
-        return esAlmacen;
-    }
-
-    public void setEsAlmacen(boolean esAlmacen) {
-        this.esAlmacen = esAlmacen;
     }
 
     public String getDireccion() {

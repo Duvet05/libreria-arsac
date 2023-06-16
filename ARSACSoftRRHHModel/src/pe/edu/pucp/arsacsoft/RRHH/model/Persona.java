@@ -9,20 +9,17 @@ package pe.edu.pucp.arsacsoft.RRHH.model;
  * @author User
  */
 public class Persona {
-
-    public Persona() {
-    }
-
-    public Persona(int idPersona, String nombre, String apellidos, String DNI, String correo, String telefono, boolean activo) {
-        this.idPersona = idPersona;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.DNI = DNI;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.activo = activo;
-    }
-
+    
+    private int idPersona;
+    private String nombre;
+    private String apellidos;
+    private String DNI;
+    private String correo;
+    private String telefono;
+    private boolean activo;
+    
+    public Persona(){}
+    
     public int getIdPersona() {
         return idPersona;
     }
@@ -78,11 +75,5 @@ public class Persona {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    private int idPersona;
-    private String nombre;
-    private String apellidos;
-    private String DNI;
-    private String correo;
-    private String telefono;
-    private boolean activo;
+
 }

@@ -5,6 +5,7 @@
 package pe.edu.pucp.arsacsoft.proveedores.model;
 
 import java.util.ArrayList;
+import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
 /**
  *
@@ -55,13 +56,15 @@ public class Proveedor {
         this.activo = activo;
     }
 
-    public ArrayList<ProductoXProveedor> getProducosPorProveedor() {
-        return producosPorProveedor;
+    public ArrayList<Producto> getProductos() {
+        return productos;
     }
 
-    public void setProducosPorProveedor(ArrayList<ProductoXProveedor> producosPorProveedor) {
-        this.producosPorProveedor = producosPorProveedor;
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
     }
+
+
     public String getDireccion() {
         return direccion;
     }
@@ -75,5 +78,5 @@ public class Proveedor {
     private String direccion;
     private String telefono;
     private boolean activo;
-    private ArrayList<ProductoXProveedor> producosPorProveedor;
+    private ArrayList<Producto> productos;
 }
