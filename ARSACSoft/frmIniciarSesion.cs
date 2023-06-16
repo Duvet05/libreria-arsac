@@ -19,8 +19,8 @@ namespace ARSACSoft
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
 
-        RRHHWSClient daoRRHWSClient;
-        cuentaUsuario _cuenta;
+        RRHHWSClient daoRRHWSClient = new RRHHWSClient();
+        //cuentaUsuario _cuenta;
         public frmIniciarSesion()
         {
             InitializeComponent();
@@ -35,9 +35,9 @@ namespace ARSACSoft
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            _cuenta.username = txtUsername.Text;
-            _cuenta.password = txtPassword.Text;
-            int verificar = daoRRHWSClient.verificarCuenta(txtUsername.Text, txtPassword.Text);
+            //_cuenta.username = txtUsername.Text;
+            //_cuenta.password = txtPassword.Text;
+            int verificar = daoRRHWSClient.verificarCuenta(txtUsuario.Text, txtContrasenha.Text);
             if (verificar == 0)
             {
                 MessageBox.Show("Las credenciales no son correctas", "Ups",
@@ -51,24 +51,10 @@ namespace ARSACSoft
                 //formPrincipal.BtnGestionarEmpleados.Visible = false;
 
                 formPrincipal.ShowDialog();
-                txtPassword.Text = "";
-                txtUsername.Text = "";
+                txtUsuario.Text = "";
+                txtContrasenha.Text = "";
                 this.Visible = true;
             }
-            */
-            frmPrincipal formPrinc = new frmPrincipal();
-            this.Hide();
-            //Verificamos roles
-            //formPrincipal.BtnGestionarEmpleados.Visible = false;
-
-            //Código para desactivar páginas dados sus privilegios
-            //TabPage page2 = formPrinc.TcPrincipal.TabPages[0];
-            //formPrinc.TcPrincipal.TabPages.Remove(page2);
-
-            formPrinc.ShowDialog();
-            txtPassword.Text = "";
-            txtUsername.Text = "";
-            this.Visible = true;
         }
 
         private void frmIniciarSesion_MouseDown(object sender, MouseEventArgs e)

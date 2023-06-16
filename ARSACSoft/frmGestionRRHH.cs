@@ -57,7 +57,6 @@ namespace ARSACSoft
                     txtDireccion.Enabled = false;
 
                     txtUsuario.Enabled = false;
-                    txtContrasenha.Enabled = false;
                     btnBuscarSede.Enabled = false;
 
                     break;
@@ -83,7 +82,6 @@ namespace ARSACSoft
                     btnBuscarSede.Enabled = true;
 
                     txtUsuario.Enabled = true;
-                    txtContrasenha.Enabled = true;
                     txtDireccionSede.Enabled = true;
 
                     break;
@@ -108,7 +106,6 @@ namespace ARSACSoft
                     btnBuscarSede.Enabled = false;
 
                     txtUsuario.Enabled = false;
-                    txtContrasenha.Enabled = false;
                     txtDireccionSede.Enabled = false;
                     break;
             }
@@ -127,7 +124,6 @@ namespace ARSACSoft
             txtDireccion.Text = "";
 
             txtUsuario.Text = "";
-            txtContrasenha.Text = "";
             txtDireccionSede.Text = "";
         }
 
@@ -177,7 +173,6 @@ namespace ARSACSoft
                 txtSalario.Text = empleado.salario.ToString();
                 txtDireccion.Text = empleado.direccion;
 
-                txtUsuario.Text = empleado.usuario;
                 txtDireccionSede.Text = empleado.sede.direccion;
 
                 estadoEmpleado = Estado.Buscar;
@@ -206,8 +201,6 @@ namespace ARSACSoft
 
             empleado.salario = Double.Parse(txtSalario.Text);
             empleado.direccion = txtDireccion.Text;
-            empleado.usuario = txtUsuario.Text;
-            empleado.contrasenha = txtContrasenha.Text;
 
             if (estadoEmpleado == Estado.Nuevo)
             {
