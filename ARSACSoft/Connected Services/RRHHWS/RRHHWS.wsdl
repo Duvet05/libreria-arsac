@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="RRHHWS" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ARSACSoftWebServices/RRHHWS?xsd=1" namespace="http://services.arsacsoft.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="listarClientesMayoristasPorNombreDNI">
+    <part name="parameters" element="tns:listarClientesMayoristasPorNombreDNI" />
+  </message>
+  <message name="listarClientesMayoristasPorNombreDNIResponse">
+    <part name="parameters" element="tns:listarClientesMayoristasPorNombreDNIResponse" />
+  </message>
+  <message name="eliminarEmpleado">
+    <part name="parameters" element="tns:eliminarEmpleado" />
+  </message>
+  <message name="eliminarEmpleadoResponse">
+    <part name="parameters" element="tns:eliminarEmpleadoResponse" />
+  </message>
+  <message name="insertarEmpleado">
+    <part name="parameters" element="tns:insertarEmpleado" />
+  </message>
+  <message name="insertarEmpleadoResponse">
+    <part name="parameters" element="tns:insertarEmpleadoResponse" />
+  </message>
+  <message name="listarTiposDeEmpleados">
+    <part name="parameters" element="tns:listarTiposDeEmpleados" />
+  </message>
+  <message name="listarTiposDeEmpleadosResponse">
+    <part name="parameters" element="tns:listarTiposDeEmpleadosResponse" />
+  </message>
+  <message name="insertarClienteMayorista">
+    <part name="parameters" element="tns:insertarClienteMayorista" />
+  </message>
+  <message name="insertarClienteMayoristaResponse">
+    <part name="parameters" element="tns:insertarClienteMayoristaResponse" />
+  </message>
+  <message name="modificarClienteMayorista">
+    <part name="parameters" element="tns:modificarClienteMayorista" />
+  </message>
+  <message name="modificarClienteMayoristaResponse">
+    <part name="parameters" element="tns:modificarClienteMayoristaResponse" />
+  </message>
+  <message name="eliminarClienteMayorista">
+    <part name="parameters" element="tns:eliminarClienteMayorista" />
+  </message>
+  <message name="eliminarClienteMayoristaResponse">
+    <part name="parameters" element="tns:eliminarClienteMayoristaResponse" />
+  </message>
+  <message name="modificarEmpleado">
+    <part name="parameters" element="tns:modificarEmpleado" />
+  </message>
+  <message name="modificarEmpleadoResponse">
+    <part name="parameters" element="tns:modificarEmpleadoResponse" />
+  </message>
+  <message name="listarEmpleadosPorSedeNombreDNI">
+    <part name="parameters" element="tns:listarEmpleadosPorSedeNombreDNI" />
+  </message>
+  <message name="listarEmpleadosPorSedeNombreDNIResponse">
+    <part name="parameters" element="tns:listarEmpleadosPorSedeNombreDNIResponse" />
+  </message>
+  <message name="listarEmpleadosPorNombreDNI">
+    <part name="parameters" element="tns:listarEmpleadosPorNombreDNI" />
+  </message>
+  <message name="listarEmpleadosPorNombreDNIResponse">
+    <part name="parameters" element="tns:listarEmpleadosPorNombreDNIResponse" />
+  </message>
+  <portType name="RRHHWS">
+    <operation name="listarClientesMayoristasPorNombreDNI">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarClientesMayoristasPorNombreDNIRequest" message="tns:listarClientesMayoristasPorNombreDNI" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarClientesMayoristasPorNombreDNIResponse" message="tns:listarClientesMayoristasPorNombreDNIResponse" />
+    </operation>
+    <operation name="eliminarEmpleado">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoRequest" message="tns:eliminarEmpleado" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoResponse" message="tns:eliminarEmpleadoResponse" />
+    </operation>
+    <operation name="insertarEmpleado">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoRequest" message="tns:insertarEmpleado" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoResponse" message="tns:insertarEmpleadoResponse" />
+    </operation>
+    <operation name="listarTiposDeEmpleados">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarTiposDeEmpleadosRequest" message="tns:listarTiposDeEmpleados" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarTiposDeEmpleadosResponse" message="tns:listarTiposDeEmpleadosResponse" />
+    </operation>
+    <operation name="insertarClienteMayorista">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarClienteMayoristaRequest" message="tns:insertarClienteMayorista" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarClienteMayoristaResponse" message="tns:insertarClienteMayoristaResponse" />
+    </operation>
+    <operation name="modificarClienteMayorista">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarClienteMayoristaRequest" message="tns:modificarClienteMayorista" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarClienteMayoristaResponse" message="tns:modificarClienteMayoristaResponse" />
+    </operation>
+    <operation name="eliminarClienteMayorista">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaRequest" message="tns:eliminarClienteMayorista" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaResponse" message="tns:eliminarClienteMayoristaResponse" />
+    </operation>
+    <operation name="modificarEmpleado">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoRequest" message="tns:modificarEmpleado" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoResponse" message="tns:modificarEmpleadoResponse" />
+    </operation>
+    <operation name="listarEmpleadosPorSedeNombreDNI">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorSedeNombreDNIRequest" message="tns:listarEmpleadosPorSedeNombreDNI" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorSedeNombreDNIResponse" message="tns:listarEmpleadosPorSedeNombreDNIResponse" />
+    </operation>
+    <operation name="listarEmpleadosPorNombreDNI">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorNombreDNIRequest" message="tns:listarEmpleadosPorNombreDNI" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorNombreDNIResponse" message="tns:listarEmpleadosPorNombreDNIResponse" />
+    </operation>
+  </portType>
+  <binding name="RRHHWSPortBinding" type="tns:RRHHWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarClientesMayoristasPorNombreDNI">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarTiposDeEmpleados">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarClienteMayorista">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarClienteMayorista">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarClienteMayorista">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEmpleadosPorSedeNombreDNI">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEmpleadosPorNombreDNI">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="RRHHWS">
+    <port name="RRHHWSPort" binding="tns:RRHHWSPortBinding">
+      <soap:address location="http://localhost:8080/ARSACSoftWebServices/RRHHWS" />
+    </port>
+  </service>
+</definitions>

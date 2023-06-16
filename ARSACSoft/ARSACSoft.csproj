@@ -48,28 +48,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\SedeWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\RRHHWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SedesWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Estado.cs" />
-    <Compile Include="frmBuscarEmpleado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscarEmpleado.Designer.cs">
-      <DependentUpon>frmBuscarEmpleado.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBienvenida.Designer.cs">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarEmpleados.Designer.cs">
+      <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBuscarOrdenDeCompra.cs">
       <SubType>Form</SubType>
@@ -145,11 +145,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmBuscarEmpleado.resx">
-      <DependentUpon>frmBuscarEmpleado.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBienvenida.resx">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarEmpleados.resx">
+      <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarOrdenDeCompra.resx">
       <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
@@ -197,42 +197,66 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.eliminarClienteMayoristaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.eliminarEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.empleado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.insertarClienteMayoristaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.insertarEmpleadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.listarporNombreDNIResponse.datasource">
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.listarClientesMayoristasPorNombreDNIResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\RRHHWS\RRHHWebService1.wsdl" />
-    <None Include="Connected Services\RRHHWS\RRHHWebService1.xsd">
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.listarEmpleadosPorNombreDNIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.listarEmpleadosPorSedeNombreDNIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.listarTiposDeEmpleadosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.modificarClienteMayoristaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.modificarEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.persona.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.tipoDeEmpleado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\RRHHWS.wsdl" />
+    <None Include="Connected Services\RRHHWS\RRHHWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.actualizarSedeResponse.datasource">
+    <None Include="Connected Services\SedesWS\ARSACSoft.SedesWS.eliminarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarSedeResponse.datasource">
+    <None Include="Connected Services\SedesWS\ARSACSoft.SedesWS.insertarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.empleado.datasource">
+    <None Include="Connected Services\SedesWS\ARSACSoft.SedesWS.listarSedesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.insertarSedeResponse.datasource">
+    <None Include="Connected Services\SedesWS\ARSACSoft.SedesWS.modificarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarporNombreDNIResponse.datasource">
+    <None Include="Connected Services\SedesWS\ARSACSoft.SedesWS.sede.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarSedesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sede.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SedeWS\SedeWS1.wsdl" />
-    <None Include="Connected Services\SedeWS\SedeWS1.xsd">
+    <None Include="Connected Services\SedesWS\SedesWS.wsdl" />
+    <None Include="Connected Services\SedesWS\SedesWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -351,20 +375,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\SedeWS\" />
     <WCFMetadataStorage Include="Connected Services\RRHHWS\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SedeWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SedeWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\SedeWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <WCFMetadataStorage Include="Connected Services\SedesWS\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\RRHHWS\configuration91.svcinfo" />
@@ -374,6 +386,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\RRHHWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SedesWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SedesWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SedesWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

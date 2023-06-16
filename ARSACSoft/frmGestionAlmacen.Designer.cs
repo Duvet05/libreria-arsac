@@ -78,8 +78,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbLineasCompra = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
@@ -92,11 +90,6 @@
             this.lblCodProducto = new System.Windows.Forms.Label();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.gbDatosOrdenCompra = new System.Windows.Forms.GroupBox();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.lblNombreCliente = new System.Windows.Forms.Label();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.txtDNICliente = new System.Windows.Forms.TextBox();
-            this.lblDNICliente = new System.Windows.Forms.Label();
             this.dtpFechaOrdenVenta = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -137,6 +130,13 @@
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.ofdImagenProducto = new System.Windows.Forms.OpenFileDialog();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.lblNombreCliente = new System.Windows.Forms.Label();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.txtDNICliente = new System.Windows.Forms.TextBox();
+            this.lblDNICliente = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.tcAlmacen.SuspendLayout();
             this.tpProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
@@ -651,28 +651,6 @@
             this.gbLineasCompra.TabStop = false;
             this.gbLineasCompra.Text = "Líneas de Orden de Compra";
             // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(798, 72);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(105, 28);
-            this.button4.TabIndex = 98;
-            this.button4.Text = "Quitar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(677, 72);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 28);
-            this.button5.TabIndex = 97;
-            this.button5.Text = "Agregar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -769,7 +747,6 @@
             this.btnBuscarProducto.TabIndex = 3;
             this.btnBuscarProducto.Text = "...";
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // lblCodProducto
             // 
@@ -813,60 +790,6 @@
             this.gbDatosOrdenCompra.TabIndex = 11;
             this.gbDatosOrdenCompra.TabStop = false;
             this.gbDatosOrdenCompra.Text = "Datos de la Orden de Compra";
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.Location = new System.Drawing.Point(851, 56);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 28);
-            this.btnBuscarCliente.TabIndex = 9;
-            this.btnBuscarCliente.Text = "...";
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
-            // 
-            // lblNombreCliente
-            // 
-            this.lblNombreCliente.AutoSize = true;
-            this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(271, 61);
-            this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombreCliente.Name = "lblNombreCliente";
-            this.lblNombreCliente.Size = new System.Drawing.Size(99, 18);
-            this.lblNombreCliente.TabIndex = 8;
-            this.lblNombreCliente.Text = "Razón social:";
-            // 
-            // txtNombreCliente
-            // 
-            this.txtNombreCliente.Enabled = false;
-            this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCliente.Location = new System.Drawing.Point(413, 59);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(381, 23);
-            this.txtNombreCliente.TabIndex = 7;
-            // 
-            // txtDNICliente
-            // 
-            this.txtDNICliente.Enabled = false;
-            this.txtDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNICliente.Location = new System.Drawing.Point(81, 59);
-            this.txtDNICliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDNICliente.Name = "txtDNICliente";
-            this.txtDNICliente.ReadOnly = true;
-            this.txtDNICliente.Size = new System.Drawing.Size(172, 23);
-            this.txtDNICliente.TabIndex = 6;
-            // 
-            // lblDNICliente
-            // 
-            this.lblDNICliente.AutoSize = true;
-            this.lblDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNICliente.Location = new System.Drawing.Point(30, 61);
-            this.lblDNICliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDNICliente.Name = "lblDNICliente";
-            this.lblDNICliente.Size = new System.Drawing.Size(45, 18);
-            this.lblDNICliente.TabIndex = 5;
-            this.lblDNICliente.Text = "RUC:";
             // 
             // dtpFechaOrdenVenta
             // 
@@ -1281,6 +1204,82 @@
             // ofdImagenProducto
             // 
             this.ofdImagenProducto.FileName = "openFileDialog1";
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Location = new System.Drawing.Point(851, 56);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 28);
+            this.btnBuscarCliente.TabIndex = 9;
+            this.btnBuscarCliente.Text = "...";
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            // 
+            // lblNombreCliente
+            // 
+            this.lblNombreCliente.AutoSize = true;
+            this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreCliente.Location = new System.Drawing.Point(271, 61);
+            this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreCliente.Name = "lblNombreCliente";
+            this.lblNombreCliente.Size = new System.Drawing.Size(99, 18);
+            this.lblNombreCliente.TabIndex = 8;
+            this.lblNombreCliente.Text = "Razón social:";
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Enabled = false;
+            this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreCliente.Location = new System.Drawing.Point(413, 59);
+            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.ReadOnly = true;
+            this.txtNombreCliente.Size = new System.Drawing.Size(381, 23);
+            this.txtNombreCliente.TabIndex = 7;
+            // 
+            // txtDNICliente
+            // 
+            this.txtDNICliente.Enabled = false;
+            this.txtDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNICliente.Location = new System.Drawing.Point(81, 59);
+            this.txtDNICliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDNICliente.Name = "txtDNICliente";
+            this.txtDNICliente.ReadOnly = true;
+            this.txtDNICliente.Size = new System.Drawing.Size(172, 23);
+            this.txtDNICliente.TabIndex = 6;
+            // 
+            // lblDNICliente
+            // 
+            this.lblDNICliente.AutoSize = true;
+            this.lblDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDNICliente.Location = new System.Drawing.Point(30, 61);
+            this.lblDNICliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDNICliente.Name = "lblDNICliente";
+            this.lblDNICliente.Size = new System.Drawing.Size(45, 18);
+            this.lblDNICliente.TabIndex = 5;
+            this.lblDNICliente.Text = "RUC:";
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(798, 72);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(105, 28);
+            this.button4.TabIndex = 98;
+            this.button4.Text = "Quitar";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(677, 72);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(105, 28);
+            this.button5.TabIndex = 97;
+            this.button5.Text = "Agregar";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // frmGestionAlmacen
             // 

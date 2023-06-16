@@ -57,12 +57,13 @@
             this.Marca,
             this.Categoria,
             this.Precio});
-            this.dgvSedes.Location = new System.Drawing.Point(19, 26);
+            this.dgvSedes.Location = new System.Drawing.Point(28, 40);
+            this.dgvSedes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvSedes.Name = "dgvSedes";
             this.dgvSedes.ReadOnly = true;
             this.dgvSedes.RowHeadersWidth = 51;
             this.dgvSedes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSedes.Size = new System.Drawing.Size(668, 234);
+            this.dgvSedes.Size = new System.Drawing.Size(1001, 360);
             this.dgvSedes.TabIndex = 14;
             this.dgvSedes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSedes_CellFormatting);
             // 
@@ -103,9 +104,10 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(19, 276);
+            this.btnSeleccionar.Location = new System.Drawing.Point(28, 425);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(668, 26);
+            this.btnSeleccionar.Size = new System.Drawing.Size(1001, 40);
             this.btnSeleccionar.TabIndex = 12;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -113,12 +115,12 @@
             // 
             // frmBuscarSede
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 319);
+            this.ClientSize = new System.Drawing.Size(1059, 491);
             this.Controls.Add(this.dgvSedes);
             this.Controls.Add(this.btnSeleccionar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmBuscarSede";
             this.Text = "frmBuscarSede";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSedes)).EndInit();

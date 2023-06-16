@@ -1,26 +1,39 @@
-﻿using ARSACSoft.SedeWS;
+﻿
+
+using ARSACSoft.SedesWS;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ARSACSoft
 {
     public partial class frmBuscarSede : Form
     {
-        private SedeWSClient daoSede;
+        private SedesWSClient daoSede;
         private sede sedeSeleccionada;
 
 
         public frmBuscarSede()
         {
             InitializeComponent();
-            daoSede = new SedeWSClient();
+            daoSede = new SedesWSClient();
 
             dgvSedes.AutoGenerateColumns = false;
             dgvSedes.DataSource = daoSede.listarSedes();
 
         }
+
+        public sede SedeSeleccionada { get => sedeSeleccionada; set => sedeSeleccionada = value; }
+
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
+
             if (dgvSedes.CurrentRow != null)
             {
                 sedeSeleccionada = (sede)dgvSedes.CurrentRow.DataBoundItem;
@@ -28,8 +41,6 @@ namespace ARSACSoft
             }
 
         }
-        public sede SedeSeleccionada { get => sedeSeleccionada; set => sedeSeleccionada = value; }
-
 
         private void dgvSedes_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -40,7 +51,7 @@ namespace ARSACSoft
             dgvSedes.Rows[e.RowIndex].Cells[1].Value =
                 sede.direccion;
             dgvSedes.Rows[e.RowIndex].Cells[2].Value =
-                sede.esAlmacen ? "SI" : "NO";
+                sede.esPrincipal ? "SI" : "NO";
             dgvSedes.Rows[e.RowIndex].Cells[3].Value =
                 sede.correo;
         }

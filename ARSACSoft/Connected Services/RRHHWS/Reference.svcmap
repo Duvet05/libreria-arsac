@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="ea58e877-d2f2-4249-89b8-da3a1dbec6df" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="90024256-2a79-4625-8c48-eadebb638632" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://44.203.255.161:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/RRHHWS?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RRHHWebService1.xsd" MetadataType="Schema" ID="77ef4cda-f105-4153-a276-b1fc857c2230" SourceId="1" SourceUrl="http://44.203.255.161:8080/ARSACSoftServiciosWeb/RRHHWebService?xsd=1" />
-    <MetadataFile FileName="RRHHWebService1.wsdl" MetadataType="Wsdl" ID="0db760aa-1cc1-4a7e-8e85-c7c9a5f9cf85" SourceId="1" SourceUrl="http://44.203.255.161:8080/ARSACSoftServiciosWeb/RRHHWebService?wsdl" />
+    <MetadataFile FileName="RRHHWS.xsd" MetadataType="Schema" ID="078307fa-4a0f-435e-b750-1dd46c6fc5de" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/RRHHWS?xsd=1" />
+    <MetadataFile FileName="RRHHWS.wsdl" MetadataType="Wsdl" ID="e51589d0-5e3a-4b0b-b242-03f6fcdf386a" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/RRHHWS?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
