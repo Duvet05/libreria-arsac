@@ -101,5 +101,16 @@ public class RRHHWS {
         }
         return resultado;
     }
+    
+    @WebMethod(operationName = "buscarEmpleado")
+    public Empleado buscarEmpleado(int idEmpleado) {
+        Empleado resultado = new Empleado();
+        try {
+            resultado = daoEmpleado.buscarPorID(idEmpleado);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
 
 }

@@ -19,11 +19,14 @@ namespace ARSACSoft
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
         
+        private RRHHWSClient daoRRHH;
+        empleado _empleado;
         public frmPrincipal(cuentaUsuario _cuenta)
         {
             InitializeComponent();
             frmBienvenida formularioBienvenida = new frmBienvenida();
             mostrarFormulario(formularioBienvenida);
+            daoRRHH = new RRHHWSClient();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

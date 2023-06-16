@@ -17,4 +17,5 @@ public interface EmpleadoDAO {
     int eliminar(int idEmpleado);
     ArrayList<Empleado> listarPorSedeNombreDNI(int idSede, String DNINombre);    
     ArrayList<Empleado> listarPorNombreDNI( String DNINombre);
+    Empleado buscarPorID(int idEmpleado);
 }
