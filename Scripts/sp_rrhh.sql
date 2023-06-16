@@ -70,16 +70,14 @@ CREATE PROCEDURE INSERTAR_EMPLEADO(
     IN _fid_tipo_empleado INT,
     IN _fecha_contratacion DATE,
     IN _salario DECIMAL(10,2),
-    IN _direccion VARCHAR(100),
-    IN _usuario VARCHAR(50),
-    IN _contrasenha VARCHAR(50)    
+    IN _direccion VARCHAR(100)  
 )
 BEGIN
     INSERT INTO persona(nombre, apellidos, DNI, correo, telefono, activo)
     VALUES(_nombre,_apellidos,_DNI,_correo, _telefono, true);
     SET _id_empleado = LAST_INSERT_ID();
-    INSERT INTO empleado(id_empleado, fid_sede, fid_tipo_empleado, fecha_contratacion, salario, direccion, usuario, contrasenha) 
-	VALUES(_id_empleado, _fid_sede, _fid_tipo_empleado, _fecha_contratacion, _salario, _direccion, _usuario, MD5(_contrasenha));
+    INSERT INTO empleado(id_empleado, fid_sede, fid_tipo_empleado, fecha_contratacion, salario, direccion) 
+	VALUES(_id_empleado, _fid_sede, _fid_tipo_empleado, _fecha_contratacion, _salario, _direccion);
 END $
 
 
@@ -91,7 +89,7 @@ BEGIN
 	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
     s.id_sede, s.es_principal as trabaja_en_sede_principal,
     te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fecha_contratacion, e.salario, e.direccion, e.usuario, e.contrasenha
+    e.fecha_contratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.id_empleado = p.id_persona and p.activo = 1
     inner join tipoEmpleado te on te.id_tipo_empleado = e.fid_tipo_empleado
@@ -106,7 +104,7 @@ BEGIN
 	SELECT e.id_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
     s.id_sede, s.direccion as direccion_de_sede, s.es_principal as trabaja_en_sede_principal,
     te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fecha_contratacion, e.salario, e.direccion, e.usuario, e.contrasenha
+    e.fecha_contratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.id_empleado = p.id_persona and p.activo = 1
     inner join tipoEmpleado te on te.id_tipo_empleado = e.fid_tipo_empleado
@@ -126,9 +124,7 @@ CREATE PROCEDURE ACTUALIZAR_EMPLEADO(
     IN _fid_tipo_empleado INT,
     IN _fecha_contratacion DATE,
     IN _salario DECIMAL(10,2),
-    IN _direccion VARCHAR(100),
-    IN _usuario VARCHAR(50),
-    IN _contrasenha VARCHAR(50)   
+    IN _direccion VARCHAR(100)
 )
 BEGIN
 	UPDATE persona
@@ -139,8 +135,7 @@ BEGIN
     UPDATE empleado
     SET
     fid_sede = _fid_sede, fid_tipo_empleado = _fid_tipo_empleado,
-    fecha_contratacion = _fecha_contratacion, salario = _salario, direccion = _direccion,
-    usuario = _usuario, contrasenha = _contrasenha
+    fecha_contratacion = _fecha_contratacion, salario = _salario, direccion = _direccion
     where id_empleado = _id_empleado;
 END $
 

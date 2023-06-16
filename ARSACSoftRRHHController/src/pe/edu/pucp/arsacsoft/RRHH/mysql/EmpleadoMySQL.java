@@ -30,7 +30,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{CALL INSERTAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{CALL INSERTAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter(1, java.sql.Types.INTEGER);
             cs.setString(2, empleado.getDNI());
             cs.setString(3, empleado.getNombre());
@@ -42,8 +42,6 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             cs.setDate(9, new java.sql.Date(empleado.getFechaContratacion().getTime()));
             cs.setDouble(10, empleado.getSalario());
             cs.setString(11, empleado.getDireccion());
-            cs.setString(12, empleado.getUsuario());
-            cs.setString(13, empleado.getContrasenha());
             cs.executeUpdate();
             empleado.setIdPersona(cs.getInt(1));
             resultado = empleado.getIdPersona();
@@ -69,7 +67,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call MODIFICAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{call MODIFICAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt(1, empleado.getIdPersona());
             cs.setString(2, empleado.getDNI());
             cs.setString(3, empleado.getNombre());
@@ -77,14 +75,12 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             cs.setString(5, empleado.getCorreo());
             cs.setString(6, empleado.getTelefono());
 
-                cs.setInt(7, empleado.getSede().getIdSede());
-                cs.setInt(8, empleado.getTipo().getIdTipoDeEmpleado());
-                cs.setDate(9, new java.sql.Date(empleado.getFechaContratacion().getTime()));
-                cs.setDouble(10, empleado.getSalario());
-                cs.setString(11, empleado.getDireccion());
-                cs.setString(12, empleado.getUsuario());
-                cs.setString(13, empleado.getContrasenha());
-            
+            cs.setInt(7, empleado.getSede().getIdSede());
+            cs.setInt(8, empleado.getTipo().getIdTipoDeEmpleado());
+            cs.setDate(9, new java.sql.Date(empleado.getFechaContratacion().getTime()));
+            cs.setDouble(10, empleado.getSalario());
+            cs.setString(11, empleado.getDireccion());
+
             cs.executeUpdate();
             resultado = 1;
         } catch (Exception ex) {
@@ -131,30 +127,27 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             rs = cs.executeQuery();
             while (rs.next()) {
                 Empleado emp = new Empleado();
-                
+
                 emp.setIdPersona(rs.getInt("id_empleado"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApellidos(rs.getString("apellidos"));
                 emp.setDNI(rs.getString("DNI"));
                 emp.setCorreo(rs.getString("correo"));
                 emp.setTelefono(rs.getString("telefono"));
-                
+
                 emp.setSede(new Sede());
                 emp.getSede().setIdSede(rs.getInt("id_sede"));
                 emp.getSede().setDireccion(rs.getString("direccion_de_sede"));
                 emp.getSede().setEsPrincipal(rs.getBoolean("trabaja_en_sede_principal"));
-                
+
                 emp.setFechaContratacion(rs.getDate("fecha_contratacion"));
                 emp.setSalario(rs.getDouble("salario"));
                 emp.setDireccion(rs.getString("direccion"));
-                
+
                 emp.setTipo(new TipoDeEmpleado());
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
-                
-                emp.setUsuario(rs.getString("usuario"));
-                emp.setContrasenha(rs.getString("contrasenha"));
-                
+
                 emp.setActivo(true);
                 empleados.add(emp);
             }
@@ -169,8 +162,9 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         }
         return empleados;
     }
-@Override
-    public ArrayList<Empleado> listarPorNombreDNI( String DNINombre) {
+
+    @Override
+    public ArrayList<Empleado> listarPorNombreDNI(String DNINombre) {
         ArrayList<Empleado> empleados = new ArrayList<>();
         try {
             con = DBManager.getInstance().getConnection();
@@ -179,30 +173,27 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             rs = cs.executeQuery();
             while (rs.next()) {
                 Empleado emp = new Empleado();
-                
+
                 emp.setIdPersona(rs.getInt("id_empleado"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApellidos(rs.getString("apellidos"));
                 emp.setDNI(rs.getString("DNI"));
                 emp.setCorreo(rs.getString("correo"));
                 emp.setTelefono(rs.getString("telefono"));
-                
+
                 emp.setSede(new Sede());
                 emp.getSede().setIdSede(rs.getInt("id_sede"));
                 emp.getSede().setDireccion(rs.getString("direccion_de_sede"));
                 emp.getSede().setEsPrincipal(rs.getBoolean("trabaja_en_sede_principal"));
-                
+
                 emp.setFechaContratacion(rs.getDate("fecha_contratacion"));
                 emp.setSalario(rs.getDouble("salario"));
                 emp.setDireccion(rs.getString("direccion"));
-                
+
                 emp.setTipo(new TipoDeEmpleado());
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
 
-                emp.setUsuario(rs.getString("usuario"));
-                emp.setContrasenha(rs.getString("contrasenha"));
-                
                 emp.setActivo(true);
                 empleados.add(emp);
             }

@@ -1,22 +1,21 @@
-DROP TABLE IF EXISTS ordenDeCompraXproveedorXproducto;
-DROP TABLE IF EXISTS ordenDeCompraXproveedor;
-DROP TABLE IF EXISTS ordenDeCompra;
-DROP TABLE IF EXISTS ordenDeVentaMayorista;
 DROP TABLE IF EXISTS lineaOrdenDeVenta;
-DROP TABLE IF EXISTS ordenDeVenta;
+DROP TABLE IF EXISTS lineaOrdenDeCompra;
 DROP TABLE IF EXISTS lineaOrdenDeAbastecimiento;
+DROP TABLE IF EXISTS ordenDeVenta;
+DROP TABLE IF EXISTS ordenDeCompra;
 DROP TABLE IF EXISTS ordenDeAbastecimiento;
 DROP TABLE IF EXISTS productoXproveedor;
 DROP TABLE IF EXISTS sedeXproducto;
 DROP TABLE IF EXISTS promocion;
 DROP TABLE IF EXISTS producto;
 DROP TABLE IF EXISTS clienteMayorista;
+DROP TABLE IF EXISTS cuentaUsuario;
 DROP TABLE IF EXISTS empleado;
+DROP TABLE IF EXISTS sede;
 DROP TABLE IF EXISTS tipoEmpleado;
 DROP TABLE IF EXISTS proveedor;
 DROP TABLE IF EXISTS categoria;
 DROP TABLE IF EXISTS marca;
-DROP TABLE IF EXISTS sede;
 DROP TABLE IF EXISTS persona;
 DROP TABLE IF EXISTS parametros;
 
@@ -31,10 +30,10 @@ CREATE TABLE parametros (
 
 CREATE TABLE persona (
 	idPersona INT AUTO_INCREMENT,
-    nombre VARCHAR(50),
-    apellidos VARCHAR(100),
-    DNI CHAR(8),
-    correo VARCHAR(50),
+    nombre VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    DNI CHAR(8) NOT NULL,
+    correo VARCHAR(50) NOT NULL UNIQUE,
     telefono VARCHAR(20),
     activo boolean not null default 1,
     PRIMARY KEY(idPersona)
@@ -66,8 +65,8 @@ CREATE TABLE categoria(
 
 CREATE TABLE proveedor (
 	idProveedor INT AUTO_INCREMENT,
-    nombre VARCHAR(50),
-    RUC VARCHAR(50),
+    nombre VARCHAR(50) NOT NULL,
+    RUC VARCHAR(50) NOT NULL UNIQUE,
     direccion VARCHAR(100),
     telefono VARCHAR(20),
     activo boolean not null default 1,
@@ -87,14 +86,22 @@ CREATE TABLE empleado (
     fechaContratacion DATE,
     salario DECIMAL(10, 2),
     direccion VARCHAR(100),
-	usuario VARCHAR(50),
-    contrasena VARCHAR(50),
     idTipoEmpleado INT,
     PRIMARY KEY (idEmpleado),
     FOREIGN KEY (idEmpleado) REFERENCES persona(idPersona),
 	FOREIGN KEY (idSede) REFERENCES sede(idSede),
     FOREIGN KEY (idTipoEmpleado) REFERENCES tipoEmpleado(idTipoEmpleado)
 )ENGINE=InnoDB;
+
+CREATE TABLE cuentaUsuario(
+	id_cuenta_usuario INT AUTO_INCREMENT,
+    fid_empleado INT UNIQUE,
+	usuario VARCHAR(50) NOT NULL UNIQUE,
+    contrasena VARCHAR(50) NOT NULL UNIQUE,
+    activo TINYINT,
+    PRIMARY KEY(id_cuenta_usuario),
+    FOREIGN KEY(fid_empleado) REFERENCES empleado(idEmpleado)
+)ENGINE = InnoDB;
 
 CREATE TABLE clienteMayorista (
 	idClienteMayorista INT,
@@ -195,14 +202,6 @@ CREATE TABLE lineaOrdenDeVenta (
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto) 
 )ENGINE=InnoDB;
 
-CREATE TABLE ordenDeVentaMayorista(
-	idOrdenDeVenta INT,
-    idClienteMayorista INT,
-    fechaEntrega DATE,
-    PRIMARY KEY (idOrdenDeVenta),
-    FOREIGN KEY (idOrdenDeVenta) REFERENCES ordenDeVenta(idOrdenDeVenta),
-    FOREIGN KEY (idClienteMayorista) REFERENCES clienteMayorista(idClienteMayorista)
-)ENGINE=InnoDB;
 
 CREATE TABLE ordenDeCompra (
 	idOrdenDeCompra INT AUTO_INCREMENT,
@@ -214,25 +213,15 @@ CREATE TABLE ordenDeCompra (
 	FOREIGN KEY (idEmpleado) REFERENCES empleado(idEmpleado)
 )ENGINE=InnoDB;
 
-CREATE TABLE ordenDeCompraXproveedor (
-    idOrdenDeCompra INT,
-	idProveedor INT,
-    fechaLlegada DATE,
-    costo DECIMAL(10, 2),
-    primary key (idOrdenDeCompra, idProveedor),
-    FOREIGN KEY (idOrdenDeCompra) REFERENCES ordenDeCompra(idOrdenDeCompra),
-    FOREIGN KEY (idProveedor) REFERENCES proveedor(idProveedor)
-)ENGINE=InnoDB;
-
-CREATE TABLE ordenDeCompraXproveedorXproducto (
+CREATE TABLE lineaOrdenDeCompra (
 	idOrdenDeCompra INT,
 	idProveedor INT,
     idProducto INT,
     cantidad INT,
     costo DECIMAL(10, 2),
     PRIMARY KEY (idOrdenDeCompra, idProveedor, idProducto),
-    FOREIGN KEY (idOrdenDeCompra) REFERENCES ordenDeCompraXproveedor(idOrdenDeCompra),
-    FOREIGN KEY (idProveedor) REFERENCES ordenDeCompraXproveedor(idProveedor),
+    FOREIGN KEY (idOrdenDeCompra) REFERENCES ordenDeCompra(idOrdenDeCompra),
+    FOREIGN KEY (idProveedor) REFERENCES proveedor(idProveedor),
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto) 
 )Engine=InnoDB;
 
