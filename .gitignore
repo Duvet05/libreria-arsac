@@ -1,3 +1,15 @@
+# Class Files #
+*.class
+
+# NetBeans specific #
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
 /ARSACSoft/nbproject/private/
 /ARSACSoftEmpleados/nbproject/private/
 /ARSACSoftPedidos/nbproject/private/
@@ -68,3 +80,5 @@
 /ARSACSoftServiciosWeb/nbproject/private/
 /ARSACSoftServiciosWeb/build/
 /ARSACSoftServiciosWeb/dist/
+/ARSACSoftProveedoresController/build/
+/ARSACSoftProveedoresController/dist/
