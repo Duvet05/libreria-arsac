@@ -28,6 +28,7 @@ CREATE TABLE parametros (
   CONSTRAINT parametros_pk PRIMARY KEY (nombre_empresa)
 );
 
+
 CREATE TABLE persona (
 	idPersona INT AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
