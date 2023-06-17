@@ -1,4 +1,5 @@
 ﻿
+using ARSACSoft.SedesWS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,21 +14,21 @@ namespace ARSACSoft
 {
     public partial class frmGestionSedes : Form
     {
-        //private Estado estado;
-        //private SedeWSClient daoSede;
-        //private sede sede;
+        private Estado estado;
+        private SedesWSClient daoSede;
+        private sede sede;
 
         public frmGestionSedes()
         {
             InitializeComponent();
-            //estado = Estado.Inicial;
-            //establecerEstadoFormulario();
-            //limpiarComponentes();
+            estado = Estado.Inicial;
+            establecerEstadoFormulario();
+            limpiarComponentes();
 
-            //daoSede = new SedeWSClient();
-            ////Para sedes
-            //establecerEstadoTabSedes();
-            //limpiarComponentesSedes();
+            daoSede = new SedesWSClient();
+            //Para sedes
+            establecerEstadoTabSedes();
+            limpiarComponentesSedes();
         }
 
         public void establecerEstadoFormulario()
