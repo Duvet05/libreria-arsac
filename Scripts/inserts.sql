@@ -32,16 +32,29 @@ VALUES ('Proveedor A', '1234567890', 'Calle Proveedor 123', '987654321', true);
 -- INSERT para la tabla tipoEmpleado
 INSERT INTO tipoEmpleado (descripcion, activo)
 VALUES ('Gerente', true);
+/*
+	todo
+*/
 INSERT INTO tipoEmpleado (descripcion, activo)
 VALUES ('Vendedor', true);
-
+/*
+	pedidos, reportes
+*/
 INSERT INTO tipoEmpleado (descripcion, activo)
 VALUES ('Logistica', true);
+/*
+	sedes,proveedores, reportes, rrhh
+*/
 INSERT INTO tipoEmpleado (descripcion, activo)
 VALUES ('Almacen', true);
+/*
+	almacen, sedes, provee
+*/
 INSERT INTO tipoEmpleado (descripcion, activo)
 VALUES ('Contabilidad', true);
-
+/*
+	rrhh, reporte
+*/
 
 
 -- INSERT para la tabla empleado
