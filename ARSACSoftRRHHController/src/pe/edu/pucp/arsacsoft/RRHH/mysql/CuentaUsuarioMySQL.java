@@ -19,8 +19,9 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call VERIFICAR_CUENTA_USUARIO"
                     + "(?,?)}");
-            cs.setString("_usuario", cuenta.getUsername());
-            cs.setString("_contrasena", cuenta.getPassword());
+            cs.setString(1, cuenta.getUsername());
+            cs.setString(2, cuenta.getPassword());
+            System.out.println(cuenta.getUsername());
             rs = cs.executeQuery();
             while(rs.next()){
                 resultado = rs.getInt("fid_empleado");

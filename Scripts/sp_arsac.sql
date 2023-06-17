@@ -197,7 +197,7 @@ $
 
 -- EMPLEADO
 
-CREATE PROCEDURE INSERTAR_EMPLEADO(OUT _ID_EMPLEADO 
+CREATE PROCEDURE INSERTAR_EMPLEADO(OUT _fid_empleado 
 INT, IN _DNI CHAR(8), IN _NOMBRE VARCHAR(100), IN 
 _APELLIDOS VARCHAR(100), IN _CORREO VARCHAR(50), IN 
 _TELEFONO VARCHAR(20), IN _ID_TIPO_EMPLEADO INT, IN 
@@ -222,10 +222,10 @@ _FECHA_CONTRATACION DATE, IN _SALARIO DECIMAL(10,
 	        _telefono,
 	        true
 	    );
-	SET _id_empleado = LAST_INSERT_ID();
+	SET _fid_empleado = LAST_INSERT_ID();
 	INSERT INTO
 	    empleado(
-	        fid_empleado,
+	        ffid_empleado,
 	        fid_tipo_empleado,
 	        fid_sede,
 	        fecha_contratacion,
@@ -234,7 +234,7 @@ _FECHA_CONTRATACION DATE, IN _SALARIO DECIMAL(10,
 	        foto
 	    )
 	VALUES (
-	        _id_empleado,
+	        _fid_empleado,
 	        _id_tipo_empleado,
 	        _id_sede,
 	        _fecha_contratacion,
@@ -244,13 +244,13 @@ _FECHA_CONTRATACION DATE, IN _SALARIO DECIMAL(10,
 	    );
 	INSERT INTO
 	    cuentaUsuario(
-	        fid_empleado,
+	        ffid_empleado,
 	        usuario,
 	        contrasena,
 	        activo
 	    )
 	VALUES (
-	        _id_empleado,
+	        _fid_empleado,
 	        _usuario,
 	        _contrasena,
 	        true
@@ -355,17 +355,17 @@ $
 -- ORDEN DE VENTA
 
 CREATE PROCEDURE INSERTAR_ORDEN_DE_VENTA(OUT _ID_ORDEN_DE_VENTA 
-INT, IN _ID_EMPLEADO INT, IN _PRECIOTOTAL DECIMAL(
+INT, IN _fid_empleado INT, IN _PRECIOTOTAL DECIMAL(
 10, 2)) BEGIN 
 	INSERT INTO
 	    ordenDeVenta(
-	        fid_empleado,
+	        ffid_empleado,
 	        fecha_orden,
 	        total,
 	        activo
 	    )
 	VALUES (
-	        _id_empleado,
+	        _fid_empleado,
 	        CURDATE(),
 	        _precioTotal,
 	        true

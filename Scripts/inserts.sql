@@ -80,3 +80,5 @@ VALUES (1, 1, '2023-06-16', 500.00, true);
 -- INSERT para la tabla lineaOrdenDeCompra
 INSERT INTO lineaOrdenDeCompra (fid_orden_de_compra, fid_producto, cantidad, subtotal)
 VALUES (1, 1, 10, 100.00);
+
+CALL `lp2`.`INSERTAR_CUENTA_USUARIO`(@x, 1, 'usuario1', 'contrasena1');

@@ -128,7 +128,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             while (rs.next()) {
                 Empleado emp = new Empleado();
 
-                emp.setIdPersona(rs.getInt("id_empleado"));
+                emp.setIdPersona(rs.getInt("fid_empleado"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApellidos(rs.getString("apellidos"));
                 emp.setDNI(rs.getString("DNI"));
@@ -174,7 +174,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             while (rs.next()) {
                 Empleado emp = new Empleado();
 
-                emp.setIdPersona(rs.getInt("id_empleado"));
+                emp.setIdPersona(rs.getInt("fid_empleado"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApellidos(rs.getString("apellidos"));
                 emp.setDNI(rs.getString("DNI"));
