@@ -138,7 +138,6 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.setSede(new Sede());
                 emp.getSede().setIdSede(rs.getInt("id_sede"));
                 emp.getSede().setDireccion(rs.getString("direccion_de_sede"));
-                emp.getSede().setEsPrincipal(rs.getBoolean("trabaja_en_sede_principal"));
 
                 emp.setFechaContratacion(rs.getDate("fecha_contratacion"));
                 emp.setSalario(rs.getDouble("salario"));
@@ -184,7 +183,6 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.setSede(new Sede());
                 emp.getSede().setIdSede(rs.getInt("id_sede"));
                 emp.getSede().setDireccion(rs.getString("direccion_de_sede"));
-                emp.getSede().setEsPrincipal(rs.getBoolean("trabaja_en_sede_principal"));
 
                 emp.setFechaContratacion(rs.getDate("fecha_contratacion"));
                 emp.setSalario(rs.getDouble("salario"));

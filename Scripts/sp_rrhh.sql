@@ -121,7 +121,7 @@ BEGIN
 	SELECT e.fid_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
     s.id_sede, s.direccion as direccion_de_sede,
     te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fechaContratacion, e.salario, e.direccion
+    e.fecha_contratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.fid_empleado = p.id_persona and p.activo = 1
     inner join tipoEmpleado te on te.id_tipo_empleado = e.fid_tipo_empleado
@@ -136,7 +136,7 @@ BEGIN
 	SELECT e.fid_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
     s.id_sede, s.direccion as direccion_de_sede,
     te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fechaContratacion, e.salario, e.direccion
+    e.fecha_contratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.fid_empleado = p.id_persona and p.activo = 1
     inner join tipoEmpleado te on te.id_tipo_empleado = e.id_tipo_empleado
