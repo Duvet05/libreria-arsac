@@ -445,11 +445,11 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(289, 244);
+            this.label23.Location = new System.Drawing.Point(211, 244);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(14, 15);
+            this.label23.Size = new System.Drawing.Size(31, 15);
             this.label23.TabIndex = 39;
-            this.label23.Text = "$";
+            this.label23.Text = "US$";
             // 
             // btnSubirPortada
             // 
@@ -628,7 +628,7 @@
             this.txtSalario.Location = new System.Drawing.Point(130, 241);
             this.txtSalario.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(154, 21);
+            this.txtSalario.Size = new System.Drawing.Size(76, 21);
             this.txtSalario.TabIndex = 7;
             this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
             // 
