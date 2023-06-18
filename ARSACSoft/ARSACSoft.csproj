@@ -212,6 +212,9 @@
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.insertarClienteMayoristaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.insertarCuentaUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.insertarEmpleadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

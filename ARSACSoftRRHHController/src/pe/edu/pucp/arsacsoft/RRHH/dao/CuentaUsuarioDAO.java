@@ -5,4 +5,5 @@ import pe.edu.pucp.arsacsoft.RRHH.model.CuentaUsuario;
 
 public interface CuentaUsuarioDAO {
     int verificar(CuentaUsuario cuenta);
+    int insertarCuenta(CuentaUsuario cuenta);
 }

@@ -22,6 +22,10 @@ namespace ARSACSoft
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvEmpleados.DataSource = daoRRHH.listarEmpleadosPorNombreDNI(txtNombreDNI.Text);
+            //OJOOOOOOOOOOOOO!!!!!!!!!!!!!!!!!!!!!!!!!11111
+            //no trae información de las fotos
+            //Hay un tema con las sedes que seleccionados. Indicamos una principal pero en el dgv
+            //muestra que no es principal
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)

@@ -16,24 +16,6 @@ namespace ARSACSoft.RRHHWS {
     public interface RRHHWS {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse obtenerEmpleadoPorID(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse> obtenerEmpleadoPorIDAsync(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.RRHHWS.buscarEmpleadoResponse buscarEmpleado(ARSACSoft.RRHHWS.buscarEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.buscarEmpleadoResponse> buscarEmpleadoAsync(ARSACSoft.RRHHWS.buscarEmpleadoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -63,33 +45,6 @@ namespace ARSACSoft.RRHHWS {
             "Request", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarClientesMayoristasPorNombreDNI" +
             "Response")]
         System.Threading.Tasks.Task<ARSACSoft.RRHHWS.listarClientesMayoristasPorNombreDNIResponse> listarClientesMayoristasPorNombreDNIAsync(ARSACSoft.RRHHWS.listarClientesMayoristasPorNombreDNIRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.RRHHWS.verificarCuentaResponse verificarCuenta(ARSACSoft.RRHHWS.verificarCuentaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.verificarCuentaResponse> verificarCuentaAsync(ARSACSoft.RRHHWS.verificarCuentaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.RRHHWS.eliminarEmpleadoResponse eliminarEmpleado(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.eliminarEmpleadoResponse> eliminarEmpleadoAsync(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.RRHHWS.insertarEmpleadoResponse insertarEmpleado(ARSACSoft.RRHHWS.insertarEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.RRHHWS.insertarEmpleadoRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarTiposDeEmpleadosRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarTiposDeEmpleadosResponse")]
@@ -132,6 +87,15 @@ namespace ARSACSoft.RRHHWS {
         System.Threading.Tasks.Task<ARSACSoft.RRHHWS.modificarClienteMayoristaResponse> modificarClienteMayoristaAsync(ARSACSoft.RRHHWS.modificarClienteMayoristaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse obtenerEmpleadoPorID(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse> obtenerEmpleadoPorIDAsync(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -139,6 +103,51 @@ namespace ARSACSoft.RRHHWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaResponse")]
         System.Threading.Tasks.Task<ARSACSoft.RRHHWS.eliminarClienteMayoristaResponse> eliminarClienteMayoristaAsync(ARSACSoft.RRHHWS.eliminarClienteMayoristaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarCuentaUsuarioRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarCuentaUsuarioResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.RRHHWS.insertarCuentaUsuarioResponse insertarCuentaUsuario(ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarCuentaUsuarioRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarCuentaUsuarioResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarCuentaUsuarioResponse> insertarCuentaUsuarioAsync(ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.RRHHWS.buscarEmpleadoResponse buscarEmpleado(ARSACSoft.RRHHWS.buscarEmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.buscarEmpleadoResponse> buscarEmpleadoAsync(ARSACSoft.RRHHWS.buscarEmpleadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.RRHHWS.verificarCuentaResponse verificarCuenta(ARSACSoft.RRHHWS.verificarCuentaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.verificarCuentaResponse> verificarCuentaAsync(ARSACSoft.RRHHWS.verificarCuentaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.RRHHWS.insertarEmpleadoResponse insertarEmpleado(ARSACSoft.RRHHWS.insertarEmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.RRHHWS.insertarEmpleadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.RRHHWS.eliminarEmpleadoResponse eliminarEmpleado(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.eliminarEmpleadoResponse> eliminarEmpleadoAsync(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request);
     }
     
     /// <remarks/>
@@ -1036,78 +1045,6 @@ namespace ARSACSoft.RRHHWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEmpleadoPorID", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerEmpleadoPorIDRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
-        
-        public obtenerEmpleadoPorIDRequest() {
-        }
-        
-        public obtenerEmpleadoPorIDRequest(int arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEmpleadoPorIDResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class obtenerEmpleadoPorIDResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.RRHHWS.empleado @return;
-        
-        public obtenerEmpleadoPorIDResponse() {
-        }
-        
-        public obtenerEmpleadoPorIDResponse(ARSACSoft.RRHHWS.empleado @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarEmpleadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
-        
-        public buscarEmpleadoRequest() {
-        }
-        
-        public buscarEmpleadoRequest(int arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.RRHHWS.empleado @return;
-        
-        public buscarEmpleadoResponse() {
-        }
-        
-        public buscarEmpleadoResponse(ARSACSoft.RRHHWS.empleado @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="modificarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
     public partial class modificarEmpleadoRequest {
         
@@ -1209,114 +1146,6 @@ namespace ARSACSoft.RRHHWS {
         }
         
         public listarClientesMayoristasPorNombreDNIResponse(ARSACSoft.RRHHWS.persona[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarCuenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class verificarCuentaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.RRHHWS.cuentaUsuario arg0;
-        
-        public verificarCuentaRequest() {
-        }
-        
-        public verificarCuentaRequest(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarCuentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class verificarCuentaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public verificarCuentaResponse() {
-        }
-        
-        public verificarCuentaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarEmpleadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
-        
-        public eliminarEmpleadoRequest() {
-        }
-        
-        public eliminarEmpleadoRequest(int arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarEmpleadoResponse() {
-        }
-        
-        public eliminarEmpleadoResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEmpleadoRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.RRHHWS.empleado arg0;
-        
-        public insertarEmpleadoRequest() {
-        }
-        
-        public insertarEmpleadoRequest(ARSACSoft.RRHHWS.empleado arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarEmpleadoResponse() {
-        }
-        
-        public insertarEmpleadoResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -1465,6 +1294,42 @@ namespace ARSACSoft.RRHHWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEmpleadoPorID", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerEmpleadoPorIDRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg0;
+        
+        public obtenerEmpleadoPorIDRequest() {
+        }
+        
+        public obtenerEmpleadoPorIDRequest(int arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerEmpleadoPorIDResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerEmpleadoPorIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.RRHHWS.empleado @return;
+        
+        public obtenerEmpleadoPorIDResponse() {
+        }
+        
+        public obtenerEmpleadoPorIDResponse(ARSACSoft.RRHHWS.empleado @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarClienteMayorista", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
     public partial class eliminarClienteMayoristaRequest {
         
@@ -1498,6 +1363,186 @@ namespace ARSACSoft.RRHHWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCuentaUsuario", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarCuentaUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.RRHHWS.cuentaUsuario arg0;
+        
+        public insertarCuentaUsuarioRequest() {
+        }
+        
+        public insertarCuentaUsuarioRequest(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCuentaUsuarioResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarCuentaUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarCuentaUsuarioResponse() {
+        }
+        
+        public insertarCuentaUsuarioResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg0;
+        
+        public buscarEmpleadoRequest() {
+        }
+        
+        public buscarEmpleadoRequest(int arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.RRHHWS.empleado @return;
+        
+        public buscarEmpleadoResponse() {
+        }
+        
+        public buscarEmpleadoResponse(ARSACSoft.RRHHWS.empleado @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarCuenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarCuentaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.RRHHWS.cuentaUsuario arg0;
+        
+        public verificarCuentaRequest() {
+        }
+        
+        public verificarCuentaRequest(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarCuentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarCuentaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public verificarCuentaResponse() {
+        }
+        
+        public verificarCuentaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.RRHHWS.empleado arg0;
+        
+        public insertarEmpleadoRequest() {
+        }
+        
+        public insertarEmpleadoRequest(ARSACSoft.RRHHWS.empleado arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarEmpleadoResponse() {
+        }
+        
+        public insertarEmpleadoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg0;
+        
+        public eliminarEmpleadoRequest() {
+        }
+        
+        public eliminarEmpleadoRequest(int arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarEmpleadoResponse() {
+        }
+        
+        public eliminarEmpleadoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface RRHHWSChannel : ARSACSoft.RRHHWS.RRHHWS, System.ServiceModel.IClientChannel {
     }
@@ -1523,52 +1568,6 @@ namespace ARSACSoft.RRHHWS {
         
         public RRHHWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse ARSACSoft.RRHHWS.RRHHWS.obtenerEmpleadoPorID(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request) {
-            return base.Channel.obtenerEmpleadoPorID(request);
-        }
-        
-        public ARSACSoft.RRHHWS.empleado obtenerEmpleadoPorID(int arg0) {
-            ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest inValue = new ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).obtenerEmpleadoPorID(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse> ARSACSoft.RRHHWS.RRHHWS.obtenerEmpleadoPorIDAsync(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request) {
-            return base.Channel.obtenerEmpleadoPorIDAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse> obtenerEmpleadoPorIDAsync(int arg0) {
-            ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest inValue = new ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).obtenerEmpleadoPorIDAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.RRHHWS.buscarEmpleadoResponse ARSACSoft.RRHHWS.RRHHWS.buscarEmpleado(ARSACSoft.RRHHWS.buscarEmpleadoRequest request) {
-            return base.Channel.buscarEmpleado(request);
-        }
-        
-        public ARSACSoft.RRHHWS.empleado buscarEmpleado(int arg0) {
-            ARSACSoft.RRHHWS.buscarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.buscarEmpleadoRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.RRHHWS.buscarEmpleadoResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).buscarEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.buscarEmpleadoResponse> ARSACSoft.RRHHWS.RRHHWS.buscarEmpleadoAsync(ARSACSoft.RRHHWS.buscarEmpleadoRequest request) {
-            return base.Channel.buscarEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.buscarEmpleadoResponse> buscarEmpleadoAsync(int arg0) {
-            ARSACSoft.RRHHWS.buscarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.buscarEmpleadoRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).buscarEmpleadoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1638,75 +1637,6 @@ namespace ARSACSoft.RRHHWS {
             ARSACSoft.RRHHWS.listarClientesMayoristasPorNombreDNIRequest inValue = new ARSACSoft.RRHHWS.listarClientesMayoristasPorNombreDNIRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.RRHHWS.RRHHWS)(this)).listarClientesMayoristasPorNombreDNIAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.RRHHWS.verificarCuentaResponse ARSACSoft.RRHHWS.RRHHWS.verificarCuenta(ARSACSoft.RRHHWS.verificarCuentaRequest request) {
-            return base.Channel.verificarCuenta(request);
-        }
-        
-        public int verificarCuenta(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
-            ARSACSoft.RRHHWS.verificarCuentaRequest inValue = new ARSACSoft.RRHHWS.verificarCuentaRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.RRHHWS.verificarCuentaResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).verificarCuenta(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.verificarCuentaResponse> ARSACSoft.RRHHWS.RRHHWS.verificarCuentaAsync(ARSACSoft.RRHHWS.verificarCuentaRequest request) {
-            return base.Channel.verificarCuentaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.verificarCuentaResponse> verificarCuentaAsync(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
-            ARSACSoft.RRHHWS.verificarCuentaRequest inValue = new ARSACSoft.RRHHWS.verificarCuentaRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).verificarCuentaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.RRHHWS.eliminarEmpleadoResponse ARSACSoft.RRHHWS.RRHHWS.eliminarEmpleado(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request) {
-            return base.Channel.eliminarEmpleado(request);
-        }
-        
-        public int eliminarEmpleado(int arg0) {
-            ARSACSoft.RRHHWS.eliminarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.eliminarEmpleadoRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.RRHHWS.eliminarEmpleadoResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).eliminarEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.eliminarEmpleadoResponse> ARSACSoft.RRHHWS.RRHHWS.eliminarEmpleadoAsync(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request) {
-            return base.Channel.eliminarEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.eliminarEmpleadoResponse> eliminarEmpleadoAsync(int arg0) {
-            ARSACSoft.RRHHWS.eliminarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.eliminarEmpleadoRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).eliminarEmpleadoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.RRHHWS.insertarEmpleadoResponse ARSACSoft.RRHHWS.RRHHWS.insertarEmpleado(ARSACSoft.RRHHWS.insertarEmpleadoRequest request) {
-            return base.Channel.insertarEmpleado(request);
-        }
-        
-        public int insertarEmpleado(ARSACSoft.RRHHWS.empleado arg0) {
-            ARSACSoft.RRHHWS.insertarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.insertarEmpleadoRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.RRHHWS.insertarEmpleadoResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).insertarEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarEmpleadoResponse> ARSACSoft.RRHHWS.RRHHWS.insertarEmpleadoAsync(ARSACSoft.RRHHWS.insertarEmpleadoRequest request) {
-            return base.Channel.insertarEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.RRHHWS.empleado arg0) {
-            ARSACSoft.RRHHWS.insertarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.insertarEmpleadoRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).insertarEmpleadoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1802,6 +1732,29 @@ namespace ARSACSoft.RRHHWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse ARSACSoft.RRHHWS.RRHHWS.obtenerEmpleadoPorID(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request) {
+            return base.Channel.obtenerEmpleadoPorID(request);
+        }
+        
+        public ARSACSoft.RRHHWS.empleado obtenerEmpleadoPorID(int arg0) {
+            ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest inValue = new ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).obtenerEmpleadoPorID(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse> ARSACSoft.RRHHWS.RRHHWS.obtenerEmpleadoPorIDAsync(ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest request) {
+            return base.Channel.obtenerEmpleadoPorIDAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse> obtenerEmpleadoPorIDAsync(int arg0) {
+            ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest inValue = new ARSACSoft.RRHHWS.obtenerEmpleadoPorIDRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).obtenerEmpleadoPorIDAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         ARSACSoft.RRHHWS.eliminarClienteMayoristaResponse ARSACSoft.RRHHWS.RRHHWS.eliminarClienteMayorista(ARSACSoft.RRHHWS.eliminarClienteMayoristaRequest request) {
             return base.Channel.eliminarClienteMayorista(request);
         }
@@ -1822,6 +1775,121 @@ namespace ARSACSoft.RRHHWS {
             ARSACSoft.RRHHWS.eliminarClienteMayoristaRequest inValue = new ARSACSoft.RRHHWS.eliminarClienteMayoristaRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.RRHHWS.RRHHWS)(this)).eliminarClienteMayoristaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWS.insertarCuentaUsuarioResponse ARSACSoft.RRHHWS.RRHHWS.insertarCuentaUsuario(ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest request) {
+            return base.Channel.insertarCuentaUsuario(request);
+        }
+        
+        public int insertarCuentaUsuario(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
+            ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest inValue = new ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWS.insertarCuentaUsuarioResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).insertarCuentaUsuario(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarCuentaUsuarioResponse> ARSACSoft.RRHHWS.RRHHWS.insertarCuentaUsuarioAsync(ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest request) {
+            return base.Channel.insertarCuentaUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarCuentaUsuarioResponse> insertarCuentaUsuarioAsync(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
+            ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest inValue = new ARSACSoft.RRHHWS.insertarCuentaUsuarioRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).insertarCuentaUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWS.buscarEmpleadoResponse ARSACSoft.RRHHWS.RRHHWS.buscarEmpleado(ARSACSoft.RRHHWS.buscarEmpleadoRequest request) {
+            return base.Channel.buscarEmpleado(request);
+        }
+        
+        public ARSACSoft.RRHHWS.empleado buscarEmpleado(int arg0) {
+            ARSACSoft.RRHHWS.buscarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.buscarEmpleadoRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWS.buscarEmpleadoResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).buscarEmpleado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.buscarEmpleadoResponse> ARSACSoft.RRHHWS.RRHHWS.buscarEmpleadoAsync(ARSACSoft.RRHHWS.buscarEmpleadoRequest request) {
+            return base.Channel.buscarEmpleadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.buscarEmpleadoResponse> buscarEmpleadoAsync(int arg0) {
+            ARSACSoft.RRHHWS.buscarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.buscarEmpleadoRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).buscarEmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWS.verificarCuentaResponse ARSACSoft.RRHHWS.RRHHWS.verificarCuenta(ARSACSoft.RRHHWS.verificarCuentaRequest request) {
+            return base.Channel.verificarCuenta(request);
+        }
+        
+        public int verificarCuenta(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
+            ARSACSoft.RRHHWS.verificarCuentaRequest inValue = new ARSACSoft.RRHHWS.verificarCuentaRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWS.verificarCuentaResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).verificarCuenta(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.verificarCuentaResponse> ARSACSoft.RRHHWS.RRHHWS.verificarCuentaAsync(ARSACSoft.RRHHWS.verificarCuentaRequest request) {
+            return base.Channel.verificarCuentaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.verificarCuentaResponse> verificarCuentaAsync(ARSACSoft.RRHHWS.cuentaUsuario arg0) {
+            ARSACSoft.RRHHWS.verificarCuentaRequest inValue = new ARSACSoft.RRHHWS.verificarCuentaRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).verificarCuentaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWS.insertarEmpleadoResponse ARSACSoft.RRHHWS.RRHHWS.insertarEmpleado(ARSACSoft.RRHHWS.insertarEmpleadoRequest request) {
+            return base.Channel.insertarEmpleado(request);
+        }
+        
+        public int insertarEmpleado(ARSACSoft.RRHHWS.empleado arg0) {
+            ARSACSoft.RRHHWS.insertarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.insertarEmpleadoRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWS.insertarEmpleadoResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).insertarEmpleado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarEmpleadoResponse> ARSACSoft.RRHHWS.RRHHWS.insertarEmpleadoAsync(ARSACSoft.RRHHWS.insertarEmpleadoRequest request) {
+            return base.Channel.insertarEmpleadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.insertarEmpleadoResponse> insertarEmpleadoAsync(ARSACSoft.RRHHWS.empleado arg0) {
+            ARSACSoft.RRHHWS.insertarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.insertarEmpleadoRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).insertarEmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWS.eliminarEmpleadoResponse ARSACSoft.RRHHWS.RRHHWS.eliminarEmpleado(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request) {
+            return base.Channel.eliminarEmpleado(request);
+        }
+        
+        public int eliminarEmpleado(int arg0) {
+            ARSACSoft.RRHHWS.eliminarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.eliminarEmpleadoRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWS.eliminarEmpleadoResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).eliminarEmpleado(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.eliminarEmpleadoResponse> ARSACSoft.RRHHWS.RRHHWS.eliminarEmpleadoAsync(ARSACSoft.RRHHWS.eliminarEmpleadoRequest request) {
+            return base.Channel.eliminarEmpleadoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.eliminarEmpleadoResponse> eliminarEmpleadoAsync(int arg0) {
+            ARSACSoft.RRHHWS.eliminarEmpleadoRequest inValue = new ARSACSoft.RRHHWS.eliminarEmpleadoRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).eliminarEmpleadoAsync(inValue);
         }
     }
 }

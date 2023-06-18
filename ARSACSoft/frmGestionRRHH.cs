@@ -167,6 +167,8 @@ namespace ARSACSoft
                 txtCorreoEmpleado.Text = empleado.correo;
                 txtSalario.Text = empleado.salario.ToString();
                 txtDireccion.Text = empleado.direccion;
+                //MemoryStream ms = new MemoryStream(empleado.foto);
+                //pbFotoEmpleado.Image = new Bitmap(ms);
 
                 txtDireccionSede.Text = empleado.sede.direccion;
 
@@ -196,6 +198,7 @@ namespace ARSACSoft
 
             empleado.salario = Double.Parse(txtSalario.Text);
             empleado.direccion = txtDireccion.Text;
+            
 
             if (_rutaFotoEmpleado != "")
             {
@@ -210,6 +213,13 @@ namespace ARSACSoft
                 int resultado = daoRRHH.insertarEmpleado(empleado);
                 if (resultado != 0)
                 {
+                    /*Guardar cuenta de usuario*/
+                    cuentaUsuario nuevaCuentaUsuario = new cuentaUsuario();
+                    nuevaCuentaUsuario.username = txtUsuario.Text;
+                    nuevaCuentaUsuario.password = txtContrasena.Text;
+                    nuevaCuentaUsuario.idCuentaUsuario = resultado;
+                    daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
+                    /*Fin GuardarCuentaUsuario*/
                     MessageBox.Show("Se ha registrado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtIDEmpleado.Text = resultado.ToString();
                     estadoEmpleado = Estado.Inicial;
@@ -230,6 +240,8 @@ namespace ARSACSoft
                 else
                     MessageBox.Show("Ha ocurrido un error con la modificación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void btnModificarEmpleado_Click(object sender, EventArgs e)

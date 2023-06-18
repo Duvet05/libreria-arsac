@@ -59,7 +59,9 @@ public class RRHHWS {
         }
         return resultado;
     }
-
+    
+    
+    
     @WebMethod(operationName = "modificarEmpleado")
     public int modificarEmpleado(Empleado empleado) {
         return daoEmpleado.modificar(empleado);
@@ -105,6 +107,17 @@ public class RRHHWS {
         int resultado = 0;
         try {
             resultado = daoCuentaUsuario.verificar(cuentaUsuario);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    @WebMethod(operationName = "insertarCuentaUsuario")
+    public int insertarCuentaUsuario(CuentaUsuario cuentaUsuario) {
+        int resultado = 0;
+        try {
+            resultado = daoCuentaUsuario.insertarCuenta(cuentaUsuario);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
