@@ -51,7 +51,7 @@ public class ClienteMayoristaMySQL implements ClienteMayoristaDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call MODIFICAR_CLIENTE_MAYORISTA(?,?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{call ACTUALIZAR_CLIENTE_MAYORISTA(?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_cliente_mayorista", cliente.getIdPersona());
             cs.setString("_RUC", cliente.getRUC());
             cs.setString("_razon_social",cliente.getRazonSocial());
@@ -97,7 +97,7 @@ public class ClienteMayoristaMySQL implements ClienteMayoristaDAO{
             rs = cs.executeQuery();
             while(rs.next()){
                 ClienteMayorista cli = new ClienteMayorista();
-                cli.setIdPersona(rs.getInt("id_cliente_mayorista"));
+                cli.setIdPersona(rs.getInt("fid_cliente_mayorista"));
                 cli.setNombre(rs.getString("nombre"));
                 cli.setApellidos(rs.getString("apellidos"));
                 cli.setDNI(rs.getString("DNI"));

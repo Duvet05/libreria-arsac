@@ -205,3 +205,4 @@ C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSof
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.exe
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.pdb
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmBuscarClienteMayorista.resources
+C:\Users\a2018\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmBuscarClienteMayorista.resources

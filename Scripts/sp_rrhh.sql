@@ -116,6 +116,8 @@ BEGIN
     where (CONCAT(p.nombre,' ',p.apellidos) LIKE CONCAT('%',_nombre_DNI,'%')) OR (p.DNI LIKE CONCAT('%',_nombre_DNI,'%'));
 END $
 
+drop procedure if exists LISTAR_EMPLEADOS_POR_NOMBRE_DNI;
+delimiter $
 CREATE PROCEDURE LISTAR_EMPLEADOS_POR_NOMBRE_DNI(
     IN _nombre_DNI VARCHAR(255)
 )
@@ -123,7 +125,7 @@ BEGIN
 	SELECT e.fid_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
     s.id_sede, s.direccion as direccion_de_sede,
     te.id_tipo_empleado, te.descripcion as tipo_empleado,
-    e.fecha_contratacion, e.salario, e.direccion
+    e.fecha_contratacion, e.salario, e.direccion, e.foto
     FROM empleado e
     inner join persona p on e.fid_empleado = p.id_persona and p.activo = 1
     inner join tipoEmpleado te on te.id_tipo_empleado = e.fid_tipo_empleado
@@ -206,13 +208,15 @@ BEGIN
     VALUES(_RUC, _razon_social);
 END $
 
+drop procedure if exists LISTAR_CLIENTES_MAYORISTAS_POR_NOMBRE_DNI;
+delimiter $
 CREATE PROCEDURE LISTAR_CLIENTES_MAYORISTAS_POR_NOMBRE_DNI(
 	IN _nombre_DNI varchar(1000)
 )
 BEGIN
-	SELECT c.id_cliente_mayorista, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono, c.RUC, c.razon_social
+	SELECT c.fid_cliente_mayorista, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono, c.RUC, c.razon_social
 	from clienteMayorista c
-	inner join persona p on p.id_persona = c.id_cliente_mayorista
+	inner join persona p on p.id_persona = c.fid_cliente_mayorista
 	where p.activo = 1 and
     (CONCAT(p.nombre,' ',p.apellidos) LIKE CONCAT('%',_nombre_DNI,'%')) OR (p.DNI LIKE CONCAT('%',_nombre_DNI,'%'));
 END $

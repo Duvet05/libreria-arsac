@@ -101,7 +101,7 @@ namespace ARSACSoft
                     btnModificarEmpleado.Enabled = true;
                     btnEliminarEmpleado.Enabled = true;
                     btnCancelarEmpleado.Enabled = true;
-
+                    
                     txtIDEmpleado.Enabled = false;
                     txtDNIEmpleado.Enabled = false;
                     txtNombreEmpleado.Enabled = false;
@@ -113,7 +113,7 @@ namespace ARSACSoft
                     txtSalario.Enabled = false;
                     txtDireccion.Enabled = false;
                     btnBuscarSede.Enabled = false;
-
+                    txtContrasena.Enabled = false;
                     txtUsuario.Enabled = false;
                     txtDireccionSede.Enabled = false;
                     break;
@@ -250,8 +250,8 @@ namespace ARSACSoft
                 txtCorreoEmpleado.Text = empleado.correo;
                 txtSalario.Text = empleado.salario.ToString();
                 txtDireccion.Text = empleado.direccion;
-                //MemoryStream ms = new MemoryStream(empleado.foto);
-                //pbFotoEmpleado.Image = new Bitmap(ms);
+                MemoryStream ms = new MemoryStream(empleado.foto);
+                pbFotoEmpleado.Image = new Bitmap(ms);
 
                 txtDireccionSede.Text = empleado.sede.direccion;
 
@@ -320,7 +320,7 @@ namespace ARSACSoft
                     cuentaUsuario nuevaCuentaUsuario = new cuentaUsuario();
                     nuevaCuentaUsuario.username = txtUsuario.Text;
                     nuevaCuentaUsuario.password = txtContrasena.Text;
-                    nuevaCuentaUsuario.idCuentaUsuario = resultado;
+                    nuevaCuentaUsuario.idEmpleado = resultado;
                     daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
                     /*Fin GuardarCuentaUsuario*/
                     txtIDEmpleado.Text = resultado.ToString();
