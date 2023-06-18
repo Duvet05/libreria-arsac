@@ -65,6 +65,12 @@
     <Compile Include="frmBienvenida.Designer.cs">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarClienteMayorista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarClienteMayorista.designer.cs">
+      <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBienvenida.resx">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarClienteMayorista.resx">
+      <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarEmpleados.resx">
       <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>

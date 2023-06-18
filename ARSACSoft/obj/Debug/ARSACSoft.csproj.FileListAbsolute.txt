@@ -204,3 +204,4 @@ C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSof
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.exe
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.pdb
+C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmBuscarClienteMayorista.resources
