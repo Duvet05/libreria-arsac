@@ -52,7 +52,59 @@ namespace ARSACSoft
                 frmPrincipal formPrincipal = new frmPrincipal(empleadoLogeado);
                 this.Hide();
                 //Verificamos roles
-                //formPrincipal.BtnGestionarEmpleados.Visible = false;
+                if(empleadoLogeado.tipo.descripcion == "RECURSOS HUMANOS")
+                {
+                    formPrincipal.BtnPedidos.Visible = false;
+                    formPrincipal.BtnAlmacen.Visible = false;
+                    formPrincipal.BtnProveedores.Visible = false;
+                    //formPrincipal.BtnSede.Visible = false;
+                    formPrincipal.BtnContabilidad.Visible = false;
+                    //formPrincipal.BtnRRHH.Visible = false;
+                    //formPrincipal.BtnReportes.Visible = false;
+                }
+                if (empleadoLogeado.tipo.descripcion == "VENTAS")
+                {
+                    //formPrincipal.BtnPedidos.Visible = false;
+                    formPrincipal.BtnAlmacen.Visible = false;
+                    formPrincipal.BtnProveedores.Visible = false;
+                    formPrincipal.BtnSede.Visible = false;
+                    formPrincipal.BtnContabilidad.Visible = false;
+                    formPrincipal.BtnRRHH.Visible = false;
+                    //formPrincipal.BtnReportes.Visible = false;
+                }
+
+                if (empleadoLogeado.tipo.descripcion == "ALMACEN")
+                {
+                    formPrincipal.BtnPedidos.Visible = false;
+                    //formPrincipal.BtnAlmacen.Visible = false;
+                    //formPrincipal.BtnProveedores.Visible = false;
+                    //formPrincipal.BtnSede.Visible = false;
+                    formPrincipal.BtnContabilidad.Visible = false;
+                    formPrincipal.BtnRRHH.Visible = false;
+                    formPrincipal.BtnReportes.Visible = false;
+                }
+                if (empleadoLogeado.tipo.descripcion == "LOGISTICA")
+                {
+                    formPrincipal.BtnPedidos.Visible = false;
+                    formPrincipal.BtnAlmacen.Visible = false;
+                    //formPrincipal.BtnProveedores.Visible = false;
+                    //formPrincipal.BtnSede.Visible = false;
+                    formPrincipal.BtnContabilidad.Visible = false;
+                    //formPrincipal.BtnRRHH.Visible = false;
+                    //formPrincipal.BtnReportes.Visible = false;
+                }
+                if (empleadoLogeado.tipo.descripcion == "CONTABILIDAD")
+                {
+                    formPrincipal.BtnPedidos.Visible = false;
+                    formPrincipal.BtnAlmacen.Visible = false;
+                    formPrincipal.BtnProveedores.Visible = false;
+                    formPrincipal.BtnSede.Visible = false;
+                    formPrincipal.BtnContabilidad.Visible = false;
+                    //formPrincipal.BtnRRHH.Visible = false;
+                    //formPrincipal.BtnReportes.Visible = false;
+                }
+
+
 
                 formPrincipal.ShowDialog();
                 txtUsuario.Text = "";

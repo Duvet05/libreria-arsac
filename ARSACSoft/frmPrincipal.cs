@@ -23,6 +23,48 @@ namespace ARSACSoft
         private RRHHWSClient daoRRHH;
         empleado _empleado;
         private empleado empleadoLogeado;
+
+        public GroupBox BtnPedidos
+        {
+            get => grupoPedidos;
+            set => grupoPedidos = value;
+        }
+
+        public GroupBox BtnAlmacen
+        {
+            get => grupoAlmacen;
+            set => grupoAlmacen = value;
+        }
+
+        public GroupBox BtnProveedores
+        {
+            get => grupoProveedores;
+            set => grupoProveedores = value;
+        }
+
+        public GroupBox BtnSede
+        {
+            get => grupoSede;
+            set => grupoSede = value;
+        }
+
+        public GroupBox BtnContabilidad
+        {
+            get => grupoContabilidad;
+            set => grupoContabilidad = value;
+        }
+
+        public GroupBox BtnRRHH
+        {
+            get => grupoRRHH;
+            set => grupoRRHH = value;
+        }
+
+        public GroupBox BtnReportes
+        {
+            get => grupoReportes;
+            set => grupoReportes = value;
+        }
         public frmPrincipal(empleado empleadoLogeado)
         {
             
@@ -220,6 +262,16 @@ namespace ARSACSoft
             btnContabilidad.ForeColor = System.Drawing.Color.Gray;
             btnRRHH.ForeColor = System.Drawing.Color.Gray;
             btnReportes.ForeColor = System.Drawing.Color.Black;
+        }
+
+        private void panelMenuPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
