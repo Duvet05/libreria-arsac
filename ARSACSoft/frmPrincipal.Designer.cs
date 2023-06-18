@@ -136,7 +136,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Image = global::ARSACSoft.Properties.Resources.eliminar;
-            this.btnCerrar.Location = new System.Drawing.Point(910, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(908, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(40, 40);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +169,7 @@
             this.lblSedeUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblSedeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSedeUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblSedeUsuario.Location = new System.Drawing.Point(184, 103);
+            this.lblSedeUsuario.Location = new System.Drawing.Point(186, 103);
             this.lblSedeUsuario.Name = "lblSedeUsuario";
             this.lblSedeUsuario.Size = new System.Drawing.Size(108, 18);
             this.lblSedeUsuario.TabIndex = 21;
