@@ -429,20 +429,19 @@
             this.gbDatosEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosEmpleado.Location = new System.Drawing.Point(20, 40);
             this.gbDatosEmpleado.Name = "gbDatosEmpleado";
-            this.gbDatosEmpleado.Size = new System.Drawing.Size(653, 347);
+            this.gbDatosEmpleado.Size = new System.Drawing.Size(653, 360);
             this.gbDatosEmpleado.TabIndex = 13;
             this.gbDatosEmpleado.TabStop = false;
             this.gbDatosEmpleado.Text = "Datos del Empleado";
-            this.gbDatosEmpleado.Enter += new System.EventHandler(this.gbDatosEmpleado_Enter);
             // 
             // btnSubirPortada
             // 
             this.btnSubirPortada.BackgroundImage = global::ARSACSoft.Properties.Resources.Upload;
             this.btnSubirPortada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSubirPortada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubirPortada.Location = new System.Drawing.Point(589, 202);
+            this.btnSubirPortada.Location = new System.Drawing.Point(607, 221);
             this.btnSubirPortada.Name = "btnSubirPortada";
-            this.btnSubirPortada.Size = new System.Drawing.Size(45, 46);
+            this.btnSubirPortada.Size = new System.Drawing.Size(27, 27);
             this.btnSubirPortada.TabIndex = 35;
             this.btnSubirPortada.UseVisualStyleBackColor = true;
             this.btnSubirPortada.Click += new System.EventHandler(this.btnSubirPortada_Click);
@@ -450,6 +449,7 @@
             // pbFotoEmpleado
             // 
             this.pbFotoEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFotoEmpleado.Image = global::ARSACSoft.Properties.Resources.hombre;
             this.pbFotoEmpleado.Location = new System.Drawing.Point(447, 69);
             this.pbFotoEmpleado.Name = "pbFotoEmpleado";
             this.pbFotoEmpleado.Size = new System.Drawing.Size(187, 179);
@@ -467,12 +467,11 @@
             this.label21.Size = new System.Drawing.Size(34, 15);
             this.label21.TabIndex = 33;
             this.label21.Text = "Foto:";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(338, 19);
+            this.label5.Location = new System.Drawing.Point(326, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(3, 325);
             this.label5.TabIndex = 32;
@@ -480,7 +479,7 @@
             // btnBuscarSede
             // 
             this.btnBuscarSede.Enabled = false;
-            this.btnBuscarSede.Location = new System.Drawing.Point(272, 299);
+            this.btnBuscarSede.Location = new System.Drawing.Point(275, 299);
             this.btnBuscarSede.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarSede.Name = "btnBuscarSede";
             this.btnBuscarSede.Size = new System.Drawing.Size(28, 23);
@@ -494,7 +493,7 @@
             this.txtDireccionSede.BackColor = System.Drawing.SystemColors.Control;
             this.txtDireccionSede.Enabled = false;
             this.txtDireccionSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionSede.Location = new System.Drawing.Point(128, 300);
+            this.txtDireccionSede.Location = new System.Drawing.Point(130, 300);
             this.txtDireccionSede.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtDireccionSede.Name = "txtDireccionSede";
             this.txtDireccionSede.Size = new System.Drawing.Size(141, 21);
@@ -524,7 +523,7 @@
             // txtTelefonoEmpleado
             // 
             this.txtTelefonoEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoEmpleado.Location = new System.Drawing.Point(128, 211);
+            this.txtTelefonoEmpleado.Location = new System.Drawing.Point(130, 211);
             this.txtTelefonoEmpleado.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtTelefonoEmpleado.Name = "txtTelefonoEmpleado";
             this.txtTelefonoEmpleado.Size = new System.Drawing.Size(173, 21);
@@ -532,6 +531,7 @@
             // 
             // cboTipoDeEmpleado
             // 
+            this.cboTipoDeEmpleado.Enabled = false;
             this.cboTipoDeEmpleado.FormattingEnabled = true;
             this.cboTipoDeEmpleado.Location = new System.Drawing.Point(447, 32);
             this.cboTipoDeEmpleado.Margin = new System.Windows.Forms.Padding(2);
@@ -608,7 +608,7 @@
             // txtSalario
             // 
             this.txtSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalario.Location = new System.Drawing.Point(128, 241);
+            this.txtSalario.Location = new System.Drawing.Point(130, 241);
             this.txtSalario.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(173, 21);
@@ -691,7 +691,6 @@
             this.label6.Size = new System.Drawing.Size(22, 15);
             this.label6.TabIndex = 15;
             this.label6.Text = "ID:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtIDEmpleado
             // 
@@ -702,7 +701,6 @@
             this.txtIDEmpleado.ReadOnly = true;
             this.txtIDEmpleado.Size = new System.Drawing.Size(76, 21);
             this.txtIDEmpleado.TabIndex = 14;
-            this.txtIDEmpleado.TextChanged += new System.EventHandler(this.txtIDEmpleado_TextChanged);
             // 
             // groupBox1
             // 

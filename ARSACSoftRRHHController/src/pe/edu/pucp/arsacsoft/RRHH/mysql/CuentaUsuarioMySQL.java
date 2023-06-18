@@ -44,7 +44,7 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
             cs = con.prepareCall("{call INSERTAR_CUENTA_USUARIO"
                     + "(?,?,?,?)}");
             cs.registerOutParameter("_id_cuenta_usuario", java.sql.Types.INTEGER);
-            cs.setInt("_fid_empleado", cuenta.getIdCuentaUsuario());
+            cs.setInt("_fid_empleado", cuenta.getIdEmpleado());
             cs.setString("_usuario", cuenta.getUsername());
             cs.setString("_contrasena", cuenta.getPassword());
             rs = cs.executeQuery();

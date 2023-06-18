@@ -10,17 +10,17 @@ package pe.edu.pucp.arsacsoft.RRHH.model;
  */
 public class CuentaUsuario {
 
-    private int idCuentaUsuario;
+    private int idEmpleado;
     private String username;
     private String password;
     private boolean activo;
 
-    public int getIdCuentaUsuario() {
-        return idCuentaUsuario;
+    public int getIdEmpleado() {
+        return idEmpleado;
     }
 
-    public void setIdCuentaUsuario(int idCuentaUsuario) {
-        this.idCuentaUsuario = idCuentaUsuario;
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getUsername() {

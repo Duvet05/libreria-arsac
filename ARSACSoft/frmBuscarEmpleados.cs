@@ -6,50 +6,66 @@ namespace ARSACSoft
 {
     public partial class frmBuscarEmpleados : Form
     {
-        private RRHHWSClient daoRRHH;
-        private empleado empleadoSeleccionado;
+        private RRHHWSClient _daoRRHH;
+        private empleado _empleadoSeleccionado;
 
         public frmBuscarEmpleados()
         {
             InitializeComponent();
-            daoRRHH = new RRHHWSClient();
+            _daoRRHH = new RRHHWSClient();
             dgvEmpleados.AutoGenerateColumns = false;
-
         }
 
-        public empleado EmpleadoSeleccionado { get => empleadoSeleccionado; set => empleadoSeleccionado = value; }
+        public empleado EmpleadoSeleccionado { get => _empleadoSeleccionado; set => _empleadoSeleccionado = value; }
+
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvEmpleados.DataSource = daoRRHH.listarEmpleadosPorNombreDNI(txtNombreDNI.Text);
-            //OJOOOOOOOOOOOOO!!!!!!!!!!!!!!!!!!!!!!!!!11111
-            //no trae información de las fotos
-            //Hay un tema con las sedes que seleccionados. Indicamos una principal pero en el dgv
-            //muestra que no es principal
+            try
+            {
+                var empleados = _daoRRHH.listarEmpleadosPorNombreDNI(txtNombreDNI.Text);
+                if (empleados != null)
+                {
+                    dgvEmpleados.DataSource = empleados;
+                }
+                else
+                {
+                    // Manejo de error cuando no hay datos
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones del servicio web
+            }
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            empleadoSeleccionado = (empleado)dgvEmpleados.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
+            if (dgvEmpleados.CurrentRow != null)
+            {
+                _empleadoSeleccionado = (empleado)dgvEmpleados.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                // Manejo de error cuando no hay fila seleccionada
+            }
         }
 
         private void dgvEmpleados_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-
-            empleado empleado = (empleado)dgvEmpleados.Rows[e.RowIndex].DataBoundItem;
-
-            dgvEmpleados.Rows[e.RowIndex].Cells[0].Value =
-                empleado.idPersona.ToString();
-            dgvEmpleados.Rows[e.RowIndex].Cells[1].Value =
-                empleado.nombre + " " + empleado.apellidos;
-            dgvEmpleados.Rows[e.RowIndex].Cells[2].Value =
-                empleado.tipo.descripcion;
-            dgvEmpleados.Rows[e.RowIndex].Cells[3].Value =
-                empleado.sede.direccion;
-            dgvEmpleados.Rows[e.RowIndex].Cells[4].Value =
-                empleado.sede.esPrincipal ? "SI" : "NO";
-
+            if (dgvEmpleados.Rows[e.RowIndex].DataBoundItem is empleado empleado)
+            {
+                dgvEmpleados.Rows[e.RowIndex].Cells[0].Value = empleado.idPersona.ToString();
+                dgvEmpleados.Rows[e.RowIndex].Cells[1].Value = empleado.nombre + " " + empleado.apellidos;
+                dgvEmpleados.Rows[e.RowIndex].Cells[2].Value = empleado.tipo.descripcion;
+                dgvEmpleados.Rows[e.RowIndex].Cells[3].Value = empleado.sede.direccion;
+                dgvEmpleados.Rows[e.RowIndex].Cells[4].Value = empleado.sede.esPrincipal ? "SI" : "NO";
+            }
+            else
+            {
+                // Manejo de error cuando el objeto enlazado no es un empleado
+            }
         }
     }
 }

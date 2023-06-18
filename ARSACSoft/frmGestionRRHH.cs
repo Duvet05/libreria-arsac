@@ -19,21 +19,27 @@ namespace ARSACSoft
         public frmGestionRRHH()
         {
             InitializeComponent();
+            ConfigureForm();
+            InitializeServiceClient();
+        }
 
+        private void ConfigureForm()
+        {
             estadoEmpleado = Estado.Inicial;
             establecerEstadoFormularioEmpleado();
             estadoCliente = Estado.Inicial;
             establecerEstadoFormularioCliente();
 
-            daoRRHH = new RRHHWSClient();
-
             cboTipoDeEmpleado.ValueMember = "idTipoDeEmpleado";
             cboTipoDeEmpleado.DisplayMember = "descripcion";
-            cboTipoDeEmpleado.DataSource = daoRRHH.listarTiposDeEmpleados();
-
 
             limpiarComponentesCliente();
             limpiarComponentesEmpleado();
+        }
+        private void InitializeServiceClient()
+        {
+            daoRRHH = new RRHHWSClient();
+            cboTipoDeEmpleado.DataSource = daoRRHH.listarTiposDeEmpleados();
         }
 
         public void establecerEstadoFormularioEmpleado()
@@ -46,6 +52,7 @@ namespace ARSACSoft
                     btnBuscarEmpleado.Enabled = true;
                     btnModificarEmpleado.Enabled = false;
                     btnEliminarEmpleado.Enabled = false;
+                    btnGuardarEmpleado.Enabled = false;
 
                     txtIDEmpleado.Enabled = false;
                     txtDNIEmpleado.Enabled = false;
@@ -173,7 +180,6 @@ namespace ARSACSoft
                     break;
             }
         }
-
         public void limpiarComponentesEmpleado()
         {
             txtIDEmpleado.Text = "";
@@ -190,7 +196,6 @@ namespace ARSACSoft
             txtUsuario.Text = "";
             txtDireccionSede.Text = "";
         }
-
         public void limpiarComponentesCliente()
         {
             txtIDCliente.Text = "";
@@ -202,6 +207,7 @@ namespace ARSACSoft
             txtRazonSocial.Text = "";
             txtNombreCliente.Text = "";
         }
+
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
             estadoEmpleado = Estado.Nuevo;
@@ -219,11 +225,8 @@ namespace ARSACSoft
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-
                 empleado.sede.idSede = frm.SedeSeleccionada.idSede;
                 txtDireccionSede.Text = frm.SedeSeleccionada.direccion;
-
-
             }
 
         }
@@ -256,13 +259,20 @@ namespace ARSACSoft
                 establecerEstadoFormularioEmpleado();
 
             }
-
-
-
         }
 
         private void btnGuardarEmpleado_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtNombreEmpleado.Text) ||
+                string.IsNullOrEmpty(txtApellidoEmpleado.Text) ||
+                string.IsNullOrEmpty(txtDNIEmpleado.Text) ||
+                string.IsNullOrEmpty(txtCorreoEmpleado.Text) ||
+                string.IsNullOrEmpty(txtTelefonoEmpleado.Text))
+            {
+                MessageBox.Show("Todos los campos deben estar llenos", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             empleado.nombre = txtNombreEmpleado.Text;
             empleado.apellidos = txtApellidoEmpleado.Text;
             empleado.DNI = txtDNIEmpleado.Text;
@@ -270,28 +280,41 @@ namespace ARSACSoft
             empleado.telefono = txtTelefonoEmpleado.Text;
 
             empleado.tipo = new tipoDeEmpleado();
-
             empleado.tipo.idTipoDeEmpleado = (int)cboTipoDeEmpleado.SelectedValue;
 
             empleado.fechaContratacion = dtpFechaContratacion.Value;
             empleado.fechaContratacionSpecified = true;
 
-            empleado.salario = Double.Parse(txtSalario.Text);
+            if (!double.TryParse(txtSalario.Text, out double salario))
+            {
+                MessageBox.Show("El salario debe ser un número válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            empleado.salario = salario;
             empleado.direccion = txtDireccion.Text;
 
-
-            if (_rutaFotoEmpleado != "")
+            if (!string.IsNullOrEmpty(_rutaFotoEmpleado))
             {
-                FileStream fs = new FileStream(_rutaFotoEmpleado, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                empleado.foto = br.ReadBytes((int)fs.Length);
-                fs.Close();
+                try
+                {
+                    using (FileStream fs = new FileStream(_rutaFotoEmpleado, FileMode.Open, FileAccess.Read))
+                    using (BinaryReader br = new BinaryReader(fs))
+                    {
+                        empleado.foto = br.ReadBytes((int)fs.Length);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al leer el archivo: {ex.Message}", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
-            if (estadoEmpleado == Estado.Nuevo)
+            int resultado = estadoEmpleado == Estado.Nuevo ? daoRRHH.insertarEmpleado(empleado) : daoRRHH.modificarEmpleado(empleado);
+
+            if (resultado != 0)
             {
-                int resultado = daoRRHH.insertarEmpleado(empleado);
-                if (resultado != 0)
+                if (estadoEmpleado == Estado.Nuevo)
                 {
                     /*Guardar cuenta de usuario*/
                     cuentaUsuario nuevaCuentaUsuario = new cuentaUsuario();
@@ -300,28 +323,19 @@ namespace ARSACSoft
                     nuevaCuentaUsuario.idCuentaUsuario = resultado;
                     daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
                     /*Fin GuardarCuentaUsuario*/
-                    MessageBox.Show("Se ha registrado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtIDEmpleado.Text = resultado.ToString();
-                    estadoEmpleado = Estado.Inicial;
-                    establecerEstadoFormularioEmpleado();
                 }
-                else
-                    MessageBox.Show("Ha ocurrido un error con el registro", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                estadoEmpleado = Estado.Inicial;
+                establecerEstadoFormularioEmpleado();
+
+                string mensaje = estadoEmpleado == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
+                MessageBox.Show(mensaje, "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (estadoEmpleado == Estado.Modificar)
+            else
             {
-                int resultado = daoRRHH.modificarEmpleado(empleado);
-                if (resultado != 0)
-                {
-                    MessageBox.Show("Se ha modificado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    estadoEmpleado = Estado.Inicial;
-                    establecerEstadoFormularioEmpleado();
-                }
-                else
-                    MessageBox.Show("Ha ocurrido un error con la modificación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void btnModificarEmpleado_Click(object sender, EventArgs e)
@@ -356,26 +370,6 @@ namespace ARSACSoft
             limpiarComponentesEmpleado();
         }
 
-        private void gbDatosEmpleado_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtIDEmpleado_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSubirPortada_Click(object sender, EventArgs e)
         {
             try
@@ -403,6 +397,18 @@ namespace ARSACSoft
 
         private void btnGuardarCliente_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtNombreCliente.Text) ||
+                string.IsNullOrEmpty(txtApellidoCliente.Text) ||
+                string.IsNullOrEmpty(txtDNICliente.Text) ||
+                string.IsNullOrEmpty(txtCorreoCliente.Text) ||
+                string.IsNullOrEmpty(txtTelefonoCliente.Text) ||
+                string.IsNullOrEmpty(txtRUC.Text) ||
+                string.IsNullOrEmpty(txtRazonSocial.Text))
+            {
+                MessageBox.Show("Todos los campos deben estar llenos", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             clienteMayorista.nombre = txtNombreCliente.Text;
             clienteMayorista.apellidos = txtApellidoCliente.Text;
             clienteMayorista.DNI = txtDNICliente.Text;
@@ -411,32 +417,25 @@ namespace ARSACSoft
             clienteMayorista.RUC = txtRUC.Text;
             clienteMayorista.razonSocial = txtRazonSocial.Text;
 
-            if (estadoCliente == Estado.Nuevo)
-            {
-                int resultado = daoRRHH.insertarClienteMayorista(clienteMayorista);
-                if (resultado != 0)
-                {
-                    MessageBox.Show("Se ha registrado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtIDCliente.Text = resultado.ToString();
-                    estadoCliente = Estado.Inicial;
-                    establecerEstadoFormularioCliente();
-                }
-                else
-                    MessageBox.Show("Ha ocurrido un error con el registro", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (estadoCliente == Estado.Modificar)
-            {
-                int resultado = daoRRHH.modificarClienteMayorista(clienteMayorista);
-                if (resultado != 0)
-                {
-                    MessageBox.Show("Se ha modificado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    estadoCliente = Estado.Inicial;
-                    establecerEstadoFormularioCliente();
-                }
-                else
-                    MessageBox.Show("Ha ocurrido un error con la modificación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            int resultado = estadoCliente == Estado.Nuevo ? daoRRHH.insertarClienteMayorista(clienteMayorista) : daoRRHH.modificarClienteMayorista(clienteMayorista);
 
+            if (resultado != 0)
+            {
+                string mensaje = estadoCliente == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
+                MessageBox.Show(mensaje, "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (estadoCliente == Estado.Nuevo)
+                {
+                    txtIDCliente.Text = resultado.ToString();
+                }
+
+                estadoCliente = Estado.Inicial;
+                establecerEstadoFormularioCliente();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
