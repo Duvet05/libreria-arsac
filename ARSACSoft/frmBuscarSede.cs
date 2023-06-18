@@ -9,7 +9,6 @@ namespace ARSACSoft
         private SedesWSClient daoSede;
         private sede sedeSeleccionada;
 
-
         public frmBuscarSede()
         {
             InitializeComponent();
