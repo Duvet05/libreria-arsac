@@ -170,7 +170,6 @@ C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSof
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmGestionAlmacen.resources
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmGestionProveedores.resources
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmGestionRRHH.resources
-C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmGestionPedidos.resources
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmGestionSedes.resources
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmIniciarSesion.resources
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmPrincipal.resources
@@ -204,3 +203,4 @@ C:\Users\a2018\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.
 C:\Users\a2018\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
 C:\Users\a2018\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.exe
 C:\Users\a2018\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.pdb
+C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.frmGestionsPedidos.resources

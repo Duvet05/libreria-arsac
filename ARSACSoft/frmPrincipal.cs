@@ -194,7 +194,7 @@ namespace ARSACSoft
 
         private void btnPedidos_Click(object sender, EventArgs e)
         {
-            frmGestionPedidos frmGestPed = new frmGestionPedidos();
+            frmGestionsPedidos frmGestPed = new frmGestionsPedidos();
             mostrarFormulario(frmGestPed);
 
             SetButtonColor(btnPedidos);
