@@ -56,6 +56,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbDatosEmpleado = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.btnSubirPortada = new System.Windows.Forms.Button();
             this.pbFotoEmpleado = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -84,6 +85,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtIDEmpleado = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -97,9 +99,6 @@
             this.btnCancelarEmpleado = new System.Windows.Forms.ToolStripButton();
             this.tcRRHH = new System.Windows.Forms.TabControl();
             this.ofdFotoEmpleado = new System.Windows.Forms.OpenFileDialog();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gbDatosCliente.SuspendLayout();
@@ -442,12 +441,22 @@
             this.gbDatosEmpleado.TabStop = false;
             this.gbDatosEmpleado.Text = "Datos del Empleado";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(289, 244);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(14, 15);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "$";
+            // 
             // btnSubirPortada
             // 
             this.btnSubirPortada.BackgroundImage = global::ARSACSoft.Properties.Resources.Upload;
             this.btnSubirPortada.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSubirPortada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubirPortada.Location = new System.Drawing.Point(608, 188);
+            this.btnSubirPortada.Location = new System.Drawing.Point(552, 154);
             this.btnSubirPortada.Name = "btnSubirPortada";
             this.btnSubirPortada.Size = new System.Drawing.Size(27, 27);
             this.btnSubirPortada.TabIndex = 35;
@@ -460,7 +469,7 @@
             this.pbFotoEmpleado.Image = global::ARSACSoft.Properties.Resources.hombre;
             this.pbFotoEmpleado.Location = new System.Drawing.Point(447, 69);
             this.pbFotoEmpleado.Name = "pbFotoEmpleado";
-            this.pbFotoEmpleado.Size = new System.Drawing.Size(187, 146);
+            this.pbFotoEmpleado.Size = new System.Drawing.Size(132, 113);
             this.pbFotoEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFotoEmpleado.TabIndex = 34;
             this.pbFotoEmpleado.TabStop = false;
@@ -713,26 +722,37 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtContrasena);
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.txtUsuario);
-            this.groupBox1.Location = new System.Drawing.Point(356, 233);
+            this.groupBox1.Location = new System.Drawing.Point(351, 200);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(292, 108);
+            this.groupBox1.Size = new System.Drawing.Size(284, 118);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la cuenta";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.checkBox1.Location = new System.Drawing.Point(98, 87);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(134, 19);
+            this.checkBox1.TabIndex = 42;
+            this.checkBox1.Text = "Mostrar Contraseña";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(14, 55);
+            this.label22.Location = new System.Drawing.Point(12, 59);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(73, 15);
@@ -742,17 +762,18 @@
             // txtContrasena
             // 
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(91, 52);
+            this.txtContrasena.Location = new System.Drawing.Point(96, 56);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(188, 21);
+            this.txtContrasena.Size = new System.Drawing.Size(162, 21);
             this.txtContrasena.TabIndex = 40;
+            this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(14, 25);
+            this.lblUsuario.Location = new System.Drawing.Point(12, 30);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(53, 15);
@@ -762,10 +783,10 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(91, 22);
+            this.txtUsuario.Location = new System.Drawing.Point(96, 27);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(188, 21);
+            this.txtUsuario.Size = new System.Drawing.Size(162, 21);
             this.txtUsuario.TabIndex = 38;
             // 
             // toolStrip2
@@ -868,36 +889,6 @@
             // 
             this.ofdFotoEmpleado.FileName = "openFileDialog1";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(289, 244);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(14, 15);
-            this.label23.TabIndex = 39;
-            this.label23.Text = "$";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(14, 84);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(73, 15);
-            this.label24.TabIndex = 43;
-            this.label24.Text = "Contraseña:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(91, 81);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 21);
-            this.textBox1.TabIndex = 42;
-            // 
             // frmGestionRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -999,7 +990,6 @@
         private System.Windows.Forms.TextBox txtApellidoCliente;
         private System.Windows.Forms.TextBox txtIDCliente;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
