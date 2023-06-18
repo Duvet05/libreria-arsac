@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ARSACSoft
 {
-    public partial class frmGestionsPedidos : Form
+    public partial class frmGestionPedidos : Form
     {
-        public frmGestionsPedidos()
+        public frmGestionPedidos()
         {
             InitializeComponent();
         }

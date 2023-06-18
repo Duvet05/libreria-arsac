@@ -119,11 +119,11 @@
     <Compile Include="frmGestionSedes.Designer.cs">
       <DependentUpon>frmGestionSedes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGestionsPedidos.cs">
+    <Compile Include="frmGestionPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGestionsPedidos.Designer.cs">
-      <DependentUpon>frmGestionsPedidos.cs</DependentUpon>
+    <Compile Include="frmGestionPedidos.Designer.cs">
+      <DependentUpon>frmGestionPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmIniciarSesion.cs">
       <SubType>Form</SubType>
@@ -175,8 +175,8 @@
     <EmbeddedResource Include="frmGestionSedes.resx">
       <DependentUpon>frmGestionSedes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGestionsPedidos.resx">
-      <DependentUpon>frmGestionsPedidos.cs</DependentUpon>
+    <EmbeddedResource Include="frmGestionPedidos.resx">
+      <DependentUpon>frmGestionPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIniciarSesion.resx">
       <DependentUpon>frmIniciarSesion.cs</DependentUpon>
