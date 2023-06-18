@@ -320,7 +320,7 @@ namespace ARSACSoft
                     cuentaUsuario nuevaCuentaUsuario = new cuentaUsuario();
                     nuevaCuentaUsuario.username = txtUsuario.Text;
                     nuevaCuentaUsuario.password = txtContrasena.Text;
-                    nuevaCuentaUsuario.idCuentaUsuario = resultado;
+                    nuevaCuentaUsuario.idEmpleado = resultado;
                     daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
                     /*Fin GuardarCuentaUsuario*/
                     txtIDEmpleado.Text = resultado.ToString();
