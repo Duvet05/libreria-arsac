@@ -1,6 +1,6 @@
 ﻿namespace ARSACSoft
 {
-    partial class frmGestionsPedidos
+    partial class frmGestionPedidos
     {
         /// <summary>
         /// Required designer variable.

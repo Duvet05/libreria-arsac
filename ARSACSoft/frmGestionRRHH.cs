@@ -1,13 +1,7 @@
 ﻿using ARSACSoft.RRHHWS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -45,7 +39,7 @@ namespace ARSACSoft
                     btnBuscarEmpleado.Enabled = true;
                     btnModificarEmpleado.Enabled = false;
                     btnEliminarEmpleado.Enabled = false;
-                    
+
                     txtIDEmpleado.Enabled = false;
                     txtDNIEmpleado.Enabled = false;
                     txtNombreEmpleado.Enabled = false;
@@ -145,7 +139,7 @@ namespace ARSACSoft
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                
+
                 empleado.sede.idSede = frm.SedeSeleccionada.idSede;
                 txtDireccionSede.Text = frm.SedeSeleccionada.direccion;
 
@@ -158,7 +152,7 @@ namespace ARSACSoft
         {
             frmBuscarEmpleados frm = new frmBuscarEmpleados();
 
-            if (frm.ShowDialog()  == DialogResult.OK)
+            if (frm.ShowDialog() == DialogResult.OK)
             {
                 empleado = frm.EmpleadoSeleccionado;
 
@@ -207,7 +201,7 @@ namespace ARSACSoft
             {
                 FileStream fs = new FileStream(_rutaFotoEmpleado, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
-                empleado.foto= br.ReadBytes((int)fs.Length);
+                empleado.foto = br.ReadBytes((int)fs.Length);
                 fs.Close();
             }
 

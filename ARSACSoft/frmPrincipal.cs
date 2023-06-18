@@ -1,14 +1,8 @@
 ﻿using ARSACSoft.RRHHWS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -19,7 +13,7 @@ namespace ARSACSoft
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
-        
+
         private RRHHWSClient daoRRHH;
         empleado _empleado;
         private empleado empleadoLogeado;
@@ -67,7 +61,7 @@ namespace ARSACSoft
         }
         public frmPrincipal(empleado empleadoLogeado)
         {
-            
+
             InitializeComponent();
             frmBienvenida formularioBienvenida = new frmBienvenida();
             mostrarFormulario(formularioBienvenida);
@@ -271,7 +265,7 @@ namespace ARSACSoft
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
