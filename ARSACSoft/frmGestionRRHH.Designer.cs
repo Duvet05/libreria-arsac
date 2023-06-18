@@ -97,6 +97,7 @@
             this.btnCancelarEmpleado = new System.Windows.Forms.ToolStripButton();
             this.tcRRHH = new System.Windows.Forms.TabControl();
             this.ofdFotoEmpleado = new System.Windows.Forms.OpenFileDialog();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabPage3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gbDatosCliente.SuspendLayout();
@@ -402,6 +403,7 @@
             // gbDatosEmpleado
             // 
             this.gbDatosEmpleado.BackColor = System.Drawing.Color.White;
+            this.gbDatosEmpleado.Controls.Add(this.label23);
             this.gbDatosEmpleado.Controls.Add(this.btnSubirPortada);
             this.gbDatosEmpleado.Controls.Add(this.pbFotoEmpleado);
             this.gbDatosEmpleado.Controls.Add(this.label21);
@@ -615,8 +617,9 @@
             this.txtSalario.Location = new System.Drawing.Point(130, 241);
             this.txtSalario.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(173, 21);
+            this.txtSalario.Size = new System.Drawing.Size(154, 21);
             this.txtSalario.TabIndex = 7;
+            this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
             // 
             // txtNombreEmpleado
             // 
@@ -861,6 +864,16 @@
             // 
             this.ofdFotoEmpleado.FileName = "openFileDialog1";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(289, 244);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(14, 15);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "$";
+            // 
             // frmGestionRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -961,5 +974,6 @@
         private System.Windows.Forms.TextBox txtDNICliente;
         private System.Windows.Forms.TextBox txtApellidoCliente;
         private System.Windows.Forms.TextBox txtIDCliente;
+        private System.Windows.Forms.Label label23;
     }
 }
