@@ -66,6 +66,7 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.tsMenu.SuspendLayout();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -98,7 +98,7 @@
             this.btnCancelar});
             this.tsMenu.Location = new System.Drawing.Point(0, 0);
             this.tsMenu.Name = "tsMenu";
-            this.tsMenu.Size = new System.Drawing.Size(699, 27);
+            this.tsMenu.Size = new System.Drawing.Size(715, 27);
             this.tsMenu.TabIndex = 102;
             this.tsMenu.Text = "toolStrip1";
             // 
@@ -493,6 +493,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lista de Productos";
             // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Location = new System.Drawing.Point(9, 206);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(180, 3);
+            this.label10.TabIndex = 110;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -585,19 +593,11 @@
             this.button2.Text = "Emitir Factura";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label10
-            // 
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label10.Location = new System.Drawing.Point(9, 206);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(180, 3);
-            this.label10.TabIndex = 110;
-            // 
-            // frmGestionsVentas
+            // frmGestionsPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 431);
+            this.ClientSize = new System.Drawing.Size(715, 470);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button10);
@@ -606,7 +606,7 @@
             this.Controls.Add(this.gbProveedor);
             this.Controls.Add(this.tsMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmGestionsVentas";
+            this.Name = "frmGestionsPedidos";
             this.ShowInTaskbar = false;
             this.Text = "frmGestionsVentas";
             this.tsMenu.ResumeLayout(false);
