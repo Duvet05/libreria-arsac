@@ -18,8 +18,16 @@ public class Empleado extends Persona {
     private String direccion;
     private TipoDeEmpleado tipo;
     private Sede sede;
-
+    private byte[] foto;
     public Empleado() {
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     public Date getFechaContratacion() {

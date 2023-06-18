@@ -69,7 +69,16 @@ public class RRHHWS {
     public int eliminarEmpleado(int idEmpleado) {
         return daoEmpleado.eliminar(idEmpleado);
     }
-
+    @WebMethod(operationName = "obtenerEmpleadoPorID")
+    public Empleado obtenerEmpleadoPorID(int idEmpleado){
+        Empleado empleado = new Empleado();
+        try{
+            empleado = daoEmpleado.buscarPorID(idEmpleado);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return empleado;
+    }
     @WebMethod(operationName = "listarClientesMayoristasPorNombreDNI")
     public ArrayList<Persona> listarClientesMayoristasPorNombreDNI(String nombreDNI) {
         return daoCliente.listarPorNombreDNI(nombreDNI);

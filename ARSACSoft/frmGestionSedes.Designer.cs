@@ -30,8 +30,37 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionSedes));
             this.tcAlmacen = new System.Windows.Forms.TabControl();
+            this.tpSede = new System.Windows.Forms.TabPage();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnNuevoSede = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarSede = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarSede = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarSede = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarSede = new System.Windows.Forms.ToolStripButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtpHoraFinAtencion = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraInicioAtencion = new System.Windows.Forms.DateTimePicker();
+            this.txtCorreoSede = new System.Windows.Forms.TextBox();
+            this.txtTelefonoSede = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.rbNoSedePrincipal = new System.Windows.Forms.RadioButton();
+            this.rbSiSedePrincipal = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtDescripcionSede = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtDireccionSede = new System.Windows.Forms.TextBox();
+            this.txtIDSede = new System.Windows.Forms.TextBox();
+            this.lblIDSede = new System.Windows.Forms.Label();
             this.tpProductos = new System.Windows.Forms.TabPage();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
+            this.btnModificar = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -60,6 +89,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarOrdenes = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -76,37 +106,10 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.btnBuscarOrdenes = new System.Windows.Forms.Button();
-            this.tpSede = new System.Windows.Forms.TabPage();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtpHoraFinAtencion = new System.Windows.Forms.DateTimePicker();
-            this.dtpHoraInicioAtencion = new System.Windows.Forms.DateTimePicker();
-            this.txtCorreoSede = new System.Windows.Forms.TextBox();
-            this.txtTelefonoSede = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.rbNoSedePrincipal = new System.Windows.Forms.RadioButton();
-            this.rbSiSedePrincipal = new System.Windows.Forms.RadioButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtDescripcionSede = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtDireccionSede = new System.Windows.Forms.TextBox();
-            this.txtIDSede = new System.Windows.Forms.TextBox();
-            this.lblIDSede = new System.Windows.Forms.Label();
-            this.btnNuevoSede = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardarSede = new System.Windows.Forms.ToolStripButton();
-            this.btnModificarSede = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelarSede = new System.Windows.Forms.ToolStripButton();
-            this.btnBuscarSede = new System.Windows.Forms.ToolStripButton();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
-            this.btnModificar = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
             this.tcAlmacen.SuspendLayout();
+            this.tpSede.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tpProductos.SuspendLayout();
             this.tsMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,9 +117,6 @@
             this.tpEntradasYSalidas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tpSede.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAlmacen
@@ -131,6 +131,304 @@
             this.tcAlmacen.SelectedIndex = 0;
             this.tcAlmacen.Size = new System.Drawing.Size(929, 555);
             this.tcAlmacen.TabIndex = 2;
+            // 
+            // tpSede
+            // 
+            this.tpSede.Controls.Add(this.toolStrip1);
+            this.tpSede.Controls.Add(this.groupBox3);
+            this.tpSede.Location = new System.Drawing.Point(4, 34);
+            this.tpSede.Name = "tpSede";
+            this.tpSede.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSede.Size = new System.Drawing.Size(921, 517);
+            this.tpSede.TabIndex = 2;
+            this.tpSede.Text = "Sede";
+            this.tpSede.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNuevoSede,
+            this.btnGuardarSede,
+            this.btnModificarSede,
+            this.btnCancelarSede,
+            this.btnBuscarSede});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(915, 30);
+            this.toolStrip1.TabIndex = 93;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnNuevoSede
+            // 
+            this.btnNuevoSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNuevoSede.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoSede.Image")));
+            this.btnNuevoSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoSede.Name = "btnNuevoSede";
+            this.btnNuevoSede.Size = new System.Drawing.Size(84, 27);
+            this.btnNuevoSede.Text = "&Nuevo";
+            this.btnNuevoSede.Click += new System.EventHandler(this.btnNuevoSede_Click);
+            // 
+            // btnGuardarSede
+            // 
+            this.btnGuardarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardarSede.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarSede.Image")));
+            this.btnGuardarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarSede.Name = "btnGuardarSede";
+            this.btnGuardarSede.Size = new System.Drawing.Size(96, 27);
+            this.btnGuardarSede.Text = "&Guardar";
+            this.btnGuardarSede.Click += new System.EventHandler(this.btnGuardarSede_Click);
+            // 
+            // btnModificarSede
+            // 
+            this.btnModificarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnModificarSede.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarSede.Name = "btnModificarSede";
+            this.btnModificarSede.Size = new System.Drawing.Size(105, 27);
+            this.btnModificarSede.Text = "&Modificar";
+            this.btnModificarSede.Click += new System.EventHandler(this.btnModificarSede_Click);
+            // 
+            // btnCancelarSede
+            // 
+            this.btnCancelarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelarSede.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarSede.Name = "btnCancelarSede";
+            this.btnCancelarSede.Size = new System.Drawing.Size(100, 27);
+            this.btnCancelarSede.Text = "&Can&cela&r";
+            this.btnCancelarSede.Click += new System.EventHandler(this.btnCancelarSede_Click);
+            // 
+            // btnBuscarSede
+            // 
+            this.btnBuscarSede.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarSede.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarSede.Name = "btnBuscarSede";
+            this.btnBuscarSede.Size = new System.Drawing.Size(76, 27);
+            this.btnBuscarSede.Text = "Buscar";
+            this.btnBuscarSede.Click += new System.EventHandler(this.btnBuscarSede_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dtpHoraFinAtencion);
+            this.groupBox3.Controls.Add(this.dtpHoraInicioAtencion);
+            this.groupBox3.Controls.Add(this.txtCorreoSede);
+            this.groupBox3.Controls.Add(this.txtTelefonoSede);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.rbNoSedePrincipal);
+            this.groupBox3.Controls.Add(this.rbSiSedePrincipal);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.txtDescripcionSede);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.lblNombre);
+            this.groupBox3.Controls.Add(this.txtDireccionSede);
+            this.groupBox3.Controls.Add(this.txtIDSede);
+            this.groupBox3.Controls.Add(this.lblIDSede);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(38, 53);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(680, 458);
+            this.groupBox3.TabIndex = 124;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Información de sede";
+            // 
+            // dtpHoraFinAtencion
+            // 
+            this.dtpHoraFinAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraFinAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraFinAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraFinAtencion.Location = new System.Drawing.Point(237, 240);
+            this.dtpHoraFinAtencion.Name = "dtpHoraFinAtencion";
+            this.dtpHoraFinAtencion.Size = new System.Drawing.Size(163, 24);
+            this.dtpHoraFinAtencion.TabIndex = 140;
+            // 
+            // dtpHoraInicioAtencion
+            // 
+            this.dtpHoraInicioAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraInicioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraInicioAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicioAtencion.Location = new System.Drawing.Point(237, 195);
+            this.dtpHoraInicioAtencion.Name = "dtpHoraInicioAtencion";
+            this.dtpHoraInicioAtencion.Size = new System.Drawing.Size(163, 24);
+            this.dtpHoraInicioAtencion.TabIndex = 139;
+            // 
+            // txtCorreoSede
+            // 
+            this.txtCorreoSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreoSede.Location = new System.Drawing.Point(237, 154);
+            this.txtCorreoSede.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorreoSede.Name = "txtCorreoSede";
+            this.txtCorreoSede.Size = new System.Drawing.Size(286, 24);
+            this.txtCorreoSede.TabIndex = 138;
+            // 
+            // txtTelefonoSede
+            // 
+            this.txtTelefonoSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefonoSede.Location = new System.Drawing.Point(237, 117);
+            this.txtTelefonoSede.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefonoSede.Name = "txtTelefonoSede";
+            this.txtTelefonoSede.Size = new System.Drawing.Size(286, 24);
+            this.txtTelefonoSede.TabIndex = 137;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label16.Location = new System.Drawing.Point(41, 287);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(164, 18);
+            this.label16.TabIndex = 136;
+            this.label16.Text = "¿Es una sede principal?";
+            // 
+            // rbNoSedePrincipal
+            // 
+            this.rbNoSedePrincipal.AutoSize = true;
+            this.rbNoSedePrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNoSedePrincipal.Location = new System.Drawing.Point(295, 287);
+            this.rbNoSedePrincipal.Name = "rbNoSedePrincipal";
+            this.rbNoSedePrincipal.Size = new System.Drawing.Size(49, 22);
+            this.rbNoSedePrincipal.TabIndex = 135;
+            this.rbNoSedePrincipal.TabStop = true;
+            this.rbNoSedePrincipal.Text = "No";
+            this.rbNoSedePrincipal.UseVisualStyleBackColor = true;
+            // 
+            // rbSiSedePrincipal
+            // 
+            this.rbSiSedePrincipal.AutoSize = true;
+            this.rbSiSedePrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSiSedePrincipal.Location = new System.Drawing.Point(237, 287);
+            this.rbSiSedePrincipal.Name = "rbSiSedePrincipal";
+            this.rbSiSedePrincipal.Size = new System.Drawing.Size(42, 22);
+            this.rbSiSedePrincipal.TabIndex = 134;
+            this.rbSiSedePrincipal.TabStop = true;
+            this.rbSiSedePrincipal.Text = "Sí";
+            this.rbSiSedePrincipal.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(41, 242);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(164, 18);
+            this.label15.TabIndex = 133;
+            this.label15.Text = "Hora de fin de atención:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(26, 195);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(183, 18);
+            this.label14.TabIndex = 132;
+            this.label14.Text = "Hora de inicio de atención:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(150, 154);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 18);
+            this.label13.TabIndex = 131;
+            this.label13.Text = "Correo:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(139, 119);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 18);
+            this.label11.TabIndex = 130;
+            this.label11.Text = "Teléfono:";
+            // 
+            // txtDescripcionSede
+            // 
+            this.txtDescripcionSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcionSede.Location = new System.Drawing.Point(237, 329);
+            this.txtDescripcionSede.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescripcionSede.Multiline = true;
+            this.txtDescripcionSede.Name = "txtDescripcionSede";
+            this.txtDescripcionSede.Size = new System.Drawing.Size(371, 91);
+            this.txtDescripcionSede.TabIndex = 129;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(114, 329);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(91, 18);
+            this.label12.TabIndex = 128;
+            this.label12.Text = "Descripción:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNombre.Location = new System.Drawing.Point(63, 79);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(146, 18);
+            this.lblNombre.TabIndex = 127;
+            this.lblNombre.Text = "Dirección de la sede:";
+            // 
+            // txtDireccionSede
+            // 
+            this.txtDireccionSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionSede.Location = new System.Drawing.Point(237, 77);
+            this.txtDireccionSede.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccionSede.Name = "txtDireccionSede";
+            this.txtDireccionSede.Size = new System.Drawing.Size(371, 24);
+            this.txtDireccionSede.TabIndex = 126;
+            // 
+            // txtIDSede
+            // 
+            this.txtIDSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDSede.Location = new System.Drawing.Point(237, 40);
+            this.txtIDSede.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIDSede.Name = "txtIDSede";
+            this.txtIDSede.ReadOnly = true;
+            this.txtIDSede.Size = new System.Drawing.Size(92, 24);
+            this.txtIDSede.TabIndex = 125;
+            this.txtIDSede.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblIDSede
+            // 
+            this.lblIDSede.AutoSize = true;
+            this.lblIDSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblIDSede.Location = new System.Drawing.Point(145, 40);
+            this.lblIDSede.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIDSede.Name = "lblIDSede";
+            this.lblIDSede.Size = new System.Drawing.Size(64, 18);
+            this.lblIDSede.TabIndex = 124;
+            this.lblIDSede.Text = "ID Sede:";
             // 
             // tpProductos
             // 
@@ -165,6 +463,49 @@
             this.tsMenu.Size = new System.Drawing.Size(915, 30);
             this.tsMenu.TabIndex = 92;
             this.tsMenu.Text = "toolStrip1";
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(84, 27);
+            this.btnNuevo.Text = "&Nuevo";
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(96, 27);
+            this.btnGuardar.Text = "&Guardar";
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnModificar.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(105, 27);
+            this.btnModificar.Text = "&Modificar";
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelar.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(100, 27);
+            this.btnCancelar.Text = "&Can&cela&r";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // groupBox2
             // 
@@ -500,7 +841,18 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
-            
+            // 
+            // btnBuscarOrdenes
+            // 
+            this.btnBuscarOrdenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnBuscarOrdenes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBuscarOrdenes.Location = new System.Drawing.Point(737, 87);
+            this.btnBuscarOrdenes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarOrdenes.Name = "btnBuscarOrdenes";
+            this.btnBuscarOrdenes.Size = new System.Drawing.Size(105, 28);
+            this.btnBuscarOrdenes.TabIndex = 106;
+            this.btnBuscarOrdenes.Text = "Buscar";
+            this.btnBuscarOrdenes.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
@@ -647,359 +999,6 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
-            // btnBuscarOrdenes
-            // 
-            this.btnBuscarOrdenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnBuscarOrdenes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarOrdenes.Location = new System.Drawing.Point(737, 87);
-            this.btnBuscarOrdenes.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarOrdenes.Name = "btnBuscarOrdenes";
-            this.btnBuscarOrdenes.Size = new System.Drawing.Size(105, 28);
-            this.btnBuscarOrdenes.TabIndex = 106;
-            this.btnBuscarOrdenes.Text = "Buscar";
-            this.btnBuscarOrdenes.UseVisualStyleBackColor = true;
-            // 
-            // tpSede
-            // 
-            this.tpSede.Controls.Add(this.toolStrip1);
-            this.tpSede.Controls.Add(this.groupBox3);
-            this.tpSede.Location = new System.Drawing.Point(4, 34);
-            this.tpSede.Name = "tpSede";
-            this.tpSede.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSede.Size = new System.Drawing.Size(921, 517);
-            this.tpSede.TabIndex = 2;
-            this.tpSede.Text = "Sede";
-            this.tpSede.UseVisualStyleBackColor = true;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevoSede,
-            this.btnGuardarSede,
-            this.btnModificarSede,
-            this.btnCancelarSede,
-            this.btnBuscarSede});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(915, 30);
-            this.toolStrip1.TabIndex = 93;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dtpHoraFinAtencion);
-            this.groupBox3.Controls.Add(this.dtpHoraInicioAtencion);
-            this.groupBox3.Controls.Add(this.txtCorreoSede);
-            this.groupBox3.Controls.Add(this.txtTelefonoSede);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.rbNoSedePrincipal);
-            this.groupBox3.Controls.Add(this.rbSiSedePrincipal);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.txtDescripcionSede);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.lblNombre);
-            this.groupBox3.Controls.Add(this.txtDireccionSede);
-            this.groupBox3.Controls.Add(this.txtIDSede);
-            this.groupBox3.Controls.Add(this.lblIDSede);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(38, 53);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(680, 458);
-            this.groupBox3.TabIndex = 124;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Información de sede";
-            // 
-            // dtpHoraFinAtencion
-            // 
-            this.dtpHoraFinAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpHoraFinAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpHoraFinAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraFinAtencion.Location = new System.Drawing.Point(237, 240);
-            this.dtpHoraFinAtencion.Name = "dtpHoraFinAtencion";
-            this.dtpHoraFinAtencion.Size = new System.Drawing.Size(163, 24);
-            this.dtpHoraFinAtencion.TabIndex = 140;
-            // 
-            // dtpHoraInicioAtencion
-            // 
-            this.dtpHoraInicioAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpHoraInicioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpHoraInicioAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicioAtencion.Location = new System.Drawing.Point(237, 195);
-            this.dtpHoraInicioAtencion.Name = "dtpHoraInicioAtencion";
-            this.dtpHoraInicioAtencion.Size = new System.Drawing.Size(163, 24);
-            this.dtpHoraInicioAtencion.TabIndex = 139;
-            // 
-            // txtCorreoSede
-            // 
-            this.txtCorreoSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoSede.Location = new System.Drawing.Point(237, 154);
-            this.txtCorreoSede.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCorreoSede.Name = "txtCorreoSede";
-            this.txtCorreoSede.Size = new System.Drawing.Size(286, 24);
-            this.txtCorreoSede.TabIndex = 138;
-            // 
-            // txtTelefonoSede
-            // 
-            this.txtTelefonoSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoSede.Location = new System.Drawing.Point(237, 117);
-            this.txtTelefonoSede.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefonoSede.Name = "txtTelefonoSede";
-            this.txtTelefonoSede.Size = new System.Drawing.Size(286, 24);
-            this.txtTelefonoSede.TabIndex = 137;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(41, 287);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(164, 18);
-            this.label16.TabIndex = 136;
-            this.label16.Text = "¿Es una sede principal?";
-            // 
-            // rbNoSedePrincipal
-            // 
-            this.rbNoSedePrincipal.AutoSize = true;
-            this.rbNoSedePrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNoSedePrincipal.Location = new System.Drawing.Point(295, 287);
-            this.rbNoSedePrincipal.Name = "rbNoSedePrincipal";
-            this.rbNoSedePrincipal.Size = new System.Drawing.Size(49, 22);
-            this.rbNoSedePrincipal.TabIndex = 135;
-            this.rbNoSedePrincipal.TabStop = true;
-            this.rbNoSedePrincipal.Text = "No";
-            this.rbNoSedePrincipal.UseVisualStyleBackColor = true;
-            // 
-            // rbSiSedePrincipal
-            // 
-            this.rbSiSedePrincipal.AutoSize = true;
-            this.rbSiSedePrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSiSedePrincipal.Location = new System.Drawing.Point(237, 287);
-            this.rbSiSedePrincipal.Name = "rbSiSedePrincipal";
-            this.rbSiSedePrincipal.Size = new System.Drawing.Size(42, 22);
-            this.rbSiSedePrincipal.TabIndex = 134;
-            this.rbSiSedePrincipal.TabStop = true;
-            this.rbSiSedePrincipal.Text = "Sí";
-            this.rbSiSedePrincipal.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(41, 242);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(164, 18);
-            this.label15.TabIndex = 133;
-            this.label15.Text = "Hora de fin de atención:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(26, 195);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(183, 18);
-            this.label14.TabIndex = 132;
-            this.label14.Text = "Hora de inicio de atención:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(150, 154);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 18);
-            this.label13.TabIndex = 131;
-            this.label13.Text = "Correo:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(139, 119);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 18);
-            this.label11.TabIndex = 130;
-            this.label11.Text = "Teléfono:";
-            // 
-            // txtDescripcionSede
-            // 
-            this.txtDescripcionSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionSede.Location = new System.Drawing.Point(237, 329);
-            this.txtDescripcionSede.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDescripcionSede.Multiline = true;
-            this.txtDescripcionSede.Name = "txtDescripcionSede";
-            this.txtDescripcionSede.Size = new System.Drawing.Size(371, 91);
-            this.txtDescripcionSede.TabIndex = 129;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(114, 329);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 18);
-            this.label12.TabIndex = 128;
-            this.label12.Text = "Descripción:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNombre.Location = new System.Drawing.Point(63, 79);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(146, 18);
-            this.lblNombre.TabIndex = 127;
-            this.lblNombre.Text = "Dirección de la sede:";
-            // 
-            // txtDireccionSede
-            // 
-            this.txtDireccionSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionSede.Location = new System.Drawing.Point(237, 77);
-            this.txtDireccionSede.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDireccionSede.Name = "txtDireccionSede";
-            this.txtDireccionSede.Size = new System.Drawing.Size(371, 24);
-            this.txtDireccionSede.TabIndex = 126;
-            // 
-            // txtIDSede
-            // 
-            this.txtIDSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDSede.Location = new System.Drawing.Point(237, 40);
-            this.txtIDSede.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIDSede.Name = "txtIDSede";
-            this.txtIDSede.ReadOnly = true;
-            this.txtIDSede.Size = new System.Drawing.Size(92, 24);
-            this.txtIDSede.TabIndex = 125;
-            this.txtIDSede.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblIDSede
-            // 
-            this.lblIDSede.AutoSize = true;
-            this.lblIDSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblIDSede.Location = new System.Drawing.Point(145, 40);
-            this.lblIDSede.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIDSede.Name = "lblIDSede";
-            this.lblIDSede.Size = new System.Drawing.Size(64, 18);
-            this.lblIDSede.TabIndex = 124;
-            this.lblIDSede.Text = "ID Sede:";
-            // 
-            // btnNuevoSede
-            // 
-            this.btnNuevoSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevoSede.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoSede.Image")));
-            this.btnNuevoSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevoSede.Name = "btnNuevoSede";
-            this.btnNuevoSede.Size = new System.Drawing.Size(84, 27);
-            this.btnNuevoSede.Text = "&Nuevo";
-            this.btnNuevoSede.Click += new System.EventHandler(this.btnNuevoSede_Click);
-            // 
-            // btnGuardarSede
-            // 
-            this.btnGuardarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardarSede.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarSede.Image")));
-            this.btnGuardarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardarSede.Name = "btnGuardarSede";
-            this.btnGuardarSede.Size = new System.Drawing.Size(96, 27);
-            this.btnGuardarSede.Text = "&Guardar";
-            this.btnGuardarSede.Click += new System.EventHandler(this.btnGuardarSede_Click);
-            // 
-            // btnModificarSede
-            // 
-            this.btnModificarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificarSede.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
-            this.btnModificarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificarSede.Name = "btnModificarSede";
-            this.btnModificarSede.Size = new System.Drawing.Size(105, 27);
-            this.btnModificarSede.Text = "&Modificar";
-            this.btnModificarSede.Click += new System.EventHandler(this.btnModificarSede_Click);
-            // 
-            // btnCancelarSede
-            // 
-            this.btnCancelarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarSede.Image = global::ARSACSoft.Properties.Resources.Cancel;
-            this.btnCancelarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelarSede.Name = "btnCancelarSede";
-            this.btnCancelarSede.Size = new System.Drawing.Size(100, 27);
-            this.btnCancelarSede.Text = "&Can&cela&r";
-            this.btnCancelarSede.Click += new System.EventHandler(this.btnCancelarSede_Click);
-            // 
-            // btnBuscarSede
-            // 
-            this.btnBuscarSede.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarSede.Image = global::ARSACSoft.Properties.Resources.Search;
-            this.btnBuscarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscarSede.Name = "btnBuscarSede";
-            this.btnBuscarSede.Size = new System.Drawing.Size(76, 27);
-            this.btnBuscarSede.Text = "Buscar";
-            this.btnBuscarSede.Click += new System.EventHandler(this.btnBuscarSede_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(84, 27);
-            this.btnNuevo.Text = "&Nuevo";
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(96, 27);
-            this.btnGuardar.Text = "&Guardar";
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificar.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
-            this.btnModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(105, 27);
-            this.btnModificar.Text = "&Modificar";
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelar.Image = global::ARSACSoft.Properties.Resources.Cancel;
-            this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 27);
-            this.btnCancelar.Text = "&Can&cela&r";
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // frmGestionSedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1011,6 +1010,12 @@
             this.Name = "frmGestionSedes";
             this.Text = "frmGestionSedes";
             this.tcAlmacen.ResumeLayout(false);
+            this.tpSede.ResumeLayout(false);
+            this.tpSede.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tpProductos.ResumeLayout(false);
             this.tpProductos.PerformLayout();
             this.tsMenu.ResumeLayout(false);
@@ -1022,12 +1027,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tpSede.ResumeLayout(false);
-            this.tpSede.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

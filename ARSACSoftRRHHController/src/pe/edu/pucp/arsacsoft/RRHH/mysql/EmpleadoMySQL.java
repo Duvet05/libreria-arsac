@@ -30,7 +30,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{CALL INSERTAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{CALL INSERTAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter(1, java.sql.Types.INTEGER);
             cs.setString(2, empleado.getDNI());
             cs.setString(3, empleado.getNombre());
@@ -42,6 +42,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             cs.setDate(9, new java.sql.Date(empleado.getFechaContratacion().getTime()));
             cs.setDouble(10, empleado.getSalario());
             cs.setString(11, empleado.getDireccion());
+            cs.setBytes("_foto",empleado.getFoto());
             cs.executeUpdate();
             empleado.setIdPersona(cs.getInt(1));
             resultado = empleado.getIdPersona();
@@ -209,6 +210,39 @@ public class EmpleadoMySQL implements EmpleadoDAO {
 
     @Override
     public Empleado buscarPorID(int idEmpleado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Empleado emp = new Empleado();
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_EMPLEADO_ID(?)}");
+            cs.setInt("_idEmpleado", idEmpleado);
+            rs = cs.executeQuery();
+            if (rs.next()) {
+                emp.setIdPersona(rs.getInt("fid_empleado"));
+                emp.setNombre(rs.getString("nombre"));
+                emp.setApellidos(rs.getString("apellidos"));
+                emp.setDNI(rs.getString("DNI"));
+                emp.setCorreo(rs.getString("correo"));
+                emp.setTelefono(rs.getString("telefono"));
+
+                emp.setSede(new Sede());
+                emp.getSede().setIdSede(rs.getInt("id_sede"));
+                emp.getSede().setDireccion(rs.getString("direccion_de_sede"));
+
+                emp.setFechaContratacion(rs.getDate("fecha_contratacion"));
+                emp.setSalario(rs.getDouble("salario"));
+                emp.setDireccion(rs.getString("direccion"));
+
+                emp.setTipo(new TipoDeEmpleado());
+                emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
+                emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
+
+                emp.setActivo(true);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
+        }
+        return emp;
     }
 }

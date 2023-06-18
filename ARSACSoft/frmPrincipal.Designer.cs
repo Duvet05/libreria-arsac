@@ -53,7 +53,7 @@
             this.pbAlmacen = new System.Windows.Forms.PictureBox();
             this.btnAlmacen = new System.Windows.Forms.Button();
             this.lblCargoUsuario = new System.Windows.Forms.Label();
-            this.lblDatosUsuario = new System.Windows.Forms.Label();
+            this.lblNombreApellidoUsuario = new System.Windows.Forms.Label();
             this.pbFotoUsuario = new System.Windows.Forms.PictureBox();
             this.panelBarraVentana.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoARSAC)).BeginInit();
@@ -150,7 +150,7 @@
             this.panel1.Controls.Add(this.pbAlmacen);
             this.panel1.Controls.Add(this.btnAlmacen);
             this.panel1.Controls.Add(this.lblCargoUsuario);
-            this.panel1.Controls.Add(this.lblDatosUsuario);
+            this.panel1.Controls.Add(this.lblNombreApellidoUsuario);
             this.panel1.Controls.Add(this.pbFotoUsuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -163,11 +163,11 @@
             // 
             this.lblSedeUsuario.AutoSize = true;
             this.lblSedeUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblSedeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSedeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSedeUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblSedeUsuario.Location = new System.Drawing.Point(201, 103);
+            this.lblSedeUsuario.Location = new System.Drawing.Point(198, 103);
             this.lblSedeUsuario.Name = "lblSedeUsuario";
-            this.lblSedeUsuario.Size = new System.Drawing.Size(122, 20);
+            this.lblSedeUsuario.Size = new System.Drawing.Size(108, 18);
             this.lblSedeUsuario.TabIndex = 21;
             this.lblSedeUsuario.Text = "lblSedeUsuario";
             // 
@@ -175,11 +175,11 @@
             // 
             this.lblSede.AutoSize = true;
             this.lblSede.BackColor = System.Drawing.Color.Transparent;
-            this.lblSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSede.ForeColor = System.Drawing.Color.Black;
             this.lblSede.Location = new System.Drawing.Point(140, 103);
             this.lblSede.Name = "lblSede";
-            this.lblSede.Size = new System.Drawing.Size(52, 20);
+            this.lblSede.Size = new System.Drawing.Size(46, 18);
             this.lblSede.TabIndex = 20;
             this.lblSede.Text = "Sede:";
             // 
@@ -381,25 +381,25 @@
             // 
             this.lblCargoUsuario.AutoSize = true;
             this.lblCargoUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblCargoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCargoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCargoUsuario.ForeColor = System.Drawing.Color.Black;
             this.lblCargoUsuario.Location = new System.Drawing.Point(140, 81);
             this.lblCargoUsuario.Name = "lblCargoUsuario";
-            this.lblCargoUsuario.Size = new System.Drawing.Size(144, 20);
+            this.lblCargoUsuario.Size = new System.Drawing.Size(130, 18);
             this.lblCargoUsuario.TabIndex = 2;
             this.lblCargoUsuario.Text = "lblCargoUsuario";
             // 
-            // lblDatosUsuario
+            // lblNombreApellidoUsuario
             // 
-            this.lblDatosUsuario.AutoSize = true;
-            this.lblDatosUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblDatosUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosUsuario.ForeColor = System.Drawing.Color.Black;
-            this.lblDatosUsuario.Location = new System.Drawing.Point(140, 58);
-            this.lblDatosUsuario.Name = "lblDatosUsuario";
-            this.lblDatosUsuario.Size = new System.Drawing.Size(152, 20);
-            this.lblDatosUsuario.TabIndex = 1;
-            this.lblDatosUsuario.Text = "lblNombresUsuario";
+            this.lblNombreApellidoUsuario.AutoSize = true;
+            this.lblNombreApellidoUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombreApellidoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreApellidoUsuario.ForeColor = System.Drawing.Color.Black;
+            this.lblNombreApellidoUsuario.Location = new System.Drawing.Point(140, 58);
+            this.lblNombreApellidoUsuario.Name = "lblNombreApellidoUsuario";
+            this.lblNombreApellidoUsuario.Size = new System.Drawing.Size(152, 20);
+            this.lblNombreApellidoUsuario.TabIndex = 1;
+            this.lblNombreApellidoUsuario.Text = "lblNombresUsuario";
             // 
             // pbFotoUsuario
             // 
@@ -448,7 +448,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pbFotoUsuario;
         private System.Windows.Forms.Label lblCargoUsuario;
-        private System.Windows.Forms.Label lblDatosUsuario;
+        private System.Windows.Forms.Label lblNombreApellidoUsuario;
         private System.Windows.Forms.Button btnAlmacen;
         private System.Windows.Forms.PictureBox pbAlmacen;
         private System.Windows.Forms.PictureBox pbCompras;

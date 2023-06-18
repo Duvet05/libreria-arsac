@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace ARSACSoft
         private Estado estadoEmpleado;
         private empleado empleado;
         private RRHHWSClient daoRRHH;
-
+        private string _rutaFotoEmpleado;
         public frmGestionRRHH()
         {
             InitializeComponent();
@@ -202,6 +203,14 @@ namespace ARSACSoft
             empleado.salario = Double.Parse(txtSalario.Text);
             empleado.direccion = txtDireccion.Text;
 
+            if (_rutaFotoEmpleado != "")
+            {
+                FileStream fs = new FileStream(_rutaFotoEmpleado, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                empleado.foto= br.ReadBytes((int)fs.Length);
+                fs.Close();
+            }
+
             if (estadoEmpleado == Estado.Nuevo)
             {
                 int resultado = daoRRHH.insertarEmpleado(empleado);
@@ -279,6 +288,22 @@ namespace ARSACSoft
         private void label21_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSubirPortada_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ofdFotoEmpleado.ShowDialog() == DialogResult.OK)
+                {
+                    _rutaFotoEmpleado = ofdFotoEmpleado.FileName;
+                    pbFotoEmpleado.Image = Image.FromFile(_rutaFotoEmpleado);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido");
+            }
         }
     }
 }

@@ -55,8 +55,8 @@ BEGIN
 END $
 
 CREATE PROCEDURE VERIFICAR_CUENTA_USUARIO(
-	_usuario VARCHAR(50),
-    _contrasena VARCHAR(50)
+    in _usuario VARCHAR(50),
+    in _contrasena VARCHAR(50)
 )
 BEGIN
     DECLARE _encrypted_password VARBINARY(255);
@@ -65,6 +65,7 @@ BEGIN
     SELECT id_cuenta_usuario, fid_empleado, usuario, contrasena
     FROM cuentaUsuario
     WHERE usuario = _usuario AND contrasena = _encrypted_password AND activo = 1;
+    
 END$
 
 -- EMPLEADO
@@ -74,8 +75,8 @@ CREATE PROCEDURE LISTAR_TIPOS_DE_EMPLEADOS(
 BEGIN
 	SELECT id_tipo_empleado, descripcion from tipoEmpleado where activo = 1;
 END $
-
-
+drop procedure if exists INSERTAR_EMPLEADO;
+delimiter $
 CREATE PROCEDURE INSERTAR_EMPLEADO(
     OUT _fid_empleado INT,
     IN _DNI VARCHAR(8),
@@ -87,14 +88,15 @@ CREATE PROCEDURE INSERTAR_EMPLEADO(
     IN _fid_tipo_empleado INT,
     IN _fecha_contratacion DATE,
     IN _salario DECIMAL(10,2),
-    IN _direccion VARCHAR(100)  
+    IN _direccion VARCHAR(100), 
+    IN _foto LONGBLOB
 )
 BEGIN
     INSERT INTO persona(nombre, apellidos, DNI, correo, telefono, activo)
     VALUES(_nombre,_apellidos,_DNI,_correo, _telefono, true);
     SET _fid_empleado = LAST_INSERT_ID();
-    INSERT INTO empleado(fid_empleado, id_sede, id_tipo_empleado, fecha_contratacion, salario, direccion) 
-	VALUES(_fid_empleado, _fid_sede, _fid_tipo_empleado, _fecha_contratacion, _salario, _direccion);
+    INSERT INTO empleado(fid_empleado, fid_sede, fid_tipo_empleado, fecha_contratacion, salario, direccion,foto) 
+	VALUES(_fid_empleado, _fid_sede, _fid_tipo_empleado, _fecha_contratacion, _salario, _direccion, _foto);
 END $
 
 
@@ -128,7 +130,8 @@ BEGIN
     inner join sede s on s.id_sede = e.fid_sede
     where (CONCAT(p.nombre,' ',p.apellidos) LIKE CONCAT('%',_nombre_DNI,'%')) OR (p.DNI LIKE CONCAT('%',_nombre_DNI,'%'));
 END $
-
+drop procedure if exists BUSCAR_EMPLEADO_ID;
+delimiter $
 CREATE PROCEDURE BUSCAR_EMPLEADO_ID(
     IN _idEmpleado INT
 )
@@ -139,8 +142,8 @@ BEGIN
     e.fecha_contratacion, e.salario, e.direccion
     FROM empleado e
     inner join persona p on e.fid_empleado = p.id_persona and p.activo = 1
-    inner join tipoEmpleado te on te.id_tipo_empleado = e.id_tipo_empleado
-    inner join sede s on s.id_sede = e.id_sede
+    inner join tipoEmpleado te on te.id_tipo_empleado = e.fid_tipo_empleado
+    inner join sede s on s.id_sede = e.fid_sede
     where _idEmpleado = fid_empleado;
 END $
 

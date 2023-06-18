@@ -38,15 +38,18 @@ namespace ARSACSoft
             _cuenta = new cuentaUsuario();
             _cuenta.username = txtUsuario.Text.Trim();
             _cuenta.password = txtContrasenha.Text;
-            int verificar = daoRRHWSClient.verificarCuenta(_cuenta);
-            if (verificar == 0)
+            int resultado = daoRRHWSClient.verificarCuenta(_cuenta);
+
+            if (resultado == 0)
             {
                 MessageBox.Show("Las credenciales no son correctas", "Ups",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                frmPrincipal formPrincipal = new frmPrincipal(_cuenta);
+                empleado empleadoLogeado = daoRRHWSClient.obtenerEmpleadoPorID(resultado);
+
+                frmPrincipal formPrincipal = new frmPrincipal(empleadoLogeado);
                 this.Hide();
                 //Verificamos roles
                 //formPrincipal.BtnGestionarEmpleados.Visible = false;

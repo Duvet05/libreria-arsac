@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -21,11 +22,23 @@ namespace ARSACSoft
         
         private RRHHWSClient daoRRHH;
         empleado _empleado;
-        public frmPrincipal(cuentaUsuario _cuenta)
+        private empleado empleadoLogeado;
+        public frmPrincipal(empleado empleadoLogeado)
         {
+            
             InitializeComponent();
             frmBienvenida formularioBienvenida = new frmBienvenida();
             mostrarFormulario(formularioBienvenida);
+
+            this.empleadoLogeado = empleadoLogeado;
+            lblNombreApellidoUsuario.Text = empleadoLogeado.nombre + " " + empleadoLogeado.apellidos;
+            lblCargoUsuario.Text = empleadoLogeado.tipo.descripcion;
+            lblSedeUsuario.Text = empleadoLogeado.sede.direccion;
+
+            MemoryStream ms = new MemoryStream(empleadoLogeado.foto);
+            pbFotoUsuario.Image = new Bitmap(ms);
+
+
             daoRRHH = new RRHHWSClient();
         }
 

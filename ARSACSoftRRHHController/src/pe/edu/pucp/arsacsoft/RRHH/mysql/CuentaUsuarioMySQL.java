@@ -24,6 +24,7 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
             System.out.println(cuenta.getUsername());
             rs = cs.executeQuery();
             while(rs.next()){
+                
                 resultado = rs.getInt("fid_empleado");
             }
         }catch(Exception ex){
