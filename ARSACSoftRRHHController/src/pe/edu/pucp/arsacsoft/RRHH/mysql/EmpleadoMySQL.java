@@ -235,7 +235,10 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.setTipo(new TipoDeEmpleado());
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
-
+                
+                if(rs.getBytes("foto") != null)
+                    emp.setFoto(rs.getBytes("foto"));
+                
                 emp.setActivo(true);
             }
         }catch(Exception ex){
