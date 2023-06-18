@@ -227,9 +227,6 @@ namespace ARSACSoft
         {
             estado = Estado.Modificar;
             establecerEstadoTabSedes();
-
-
-
         }
 
         private void btnGuardarSede_Click(object sender, EventArgs e)
@@ -239,19 +236,28 @@ namespace ARSACSoft
             sede.correo = txtCorreoSede.Text;
             sede.esPrincipal = rbSiSedePrincipal.Checked;
 
-            int resultado = daoSede.insertarSede(sede);
+            int resultado = 0;
+
+            if (estado == Estado.Nuevo)
+            {
+                resultado = daoSede.insertarSede(sede);
+            }
+            else if (estado == Estado.Modificar)
+            {
+                resultado = daoSede.modificarSede(sede);
+            }
 
             if (resultado != 0)
             {
-                MessageBox.Show("Se ha registrado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se ha realizado la operación con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtIDSede.Text = resultado.ToString();
                 estado = Estado.Inicial;
                 establecerEstadoFormulario();
             }
             else
-                MessageBox.Show("Ha ocurrido un error con el registro", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
+            {
+                MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
