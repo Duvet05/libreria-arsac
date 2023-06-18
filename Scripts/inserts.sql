@@ -18,12 +18,17 @@ INSERT INTO sede (direccion, telefono, correo, es_principal, activo)
 VALUES ('Calle Principal 123', '987654321', 'sede@example.com', true, true);
 
 -- INSERT para la tabla marca
-INSERT INTO marca (descripcion, activo)
-VALUES ('Marca A', true);
+INSERT INTO marca (descripcion) VALUES ('ARTESCO');
+INSERT INTO marca (descripcion) VALUES ('FABER_CASTELL');
+INSERT INTO marca (descripcion) VALUES ('STANDFORD');
+INSERT INTO marca (descripcion) VALUES ('ALPHA');
 
 -- INSERT para la tabla categoria
-INSERT INTO categoria (descripcion, activo)
-VALUES ('Categoría A', true);
+INSERT INTO categoria (descripcion) VALUES ('LAPICEROS');
+INSERT INTO categoria (descripcion) VALUES ('BORRADORES');
+INSERT INTO categoria (descripcion) VALUES ('CUADERNOS');
+INSERT INTO categoria (descripcion) VALUES ('CINTAS');
+INSERT INTO categoria (descripcion) VALUES ('REGLAS');
 
 -- INSERT para la tabla proveedor
 INSERT INTO proveedor (nombre, RUC, direccion, telefono, activo)
