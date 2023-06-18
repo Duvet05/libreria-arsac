@@ -1,13 +1,6 @@
 ﻿using ARSACSoft.RRHHWS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -52,7 +45,7 @@ namespace ARSACSoft
                 frmPrincipal formPrincipal = new frmPrincipal(empleadoLogeado);
                 this.Hide();
                 //Verificamos roles
-                if(empleadoLogeado.tipo.descripcion == "RECURSOS HUMANOS")
+                if (empleadoLogeado.tipo.descripcion == "RECURSOS HUMANOS")
                 {
                     formPrincipal.BtnPedidos.Visible = false;
                     formPrincipal.BtnAlmacen.Visible = false;
