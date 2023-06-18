@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ARSACSoft
 {
-    public partial class frmGestionsVentas : Form
+    public partial class frmGestionsPedidos : Form
     {
-        public frmGestionsVentas()
+        public frmGestionsPedidos()
         {
             InitializeComponent();
         }
