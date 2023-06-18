@@ -110,6 +110,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackgroundImage = global::ARSACSoft.Properties.Resources.minimalist_desktop_131;
             this.tabPage3.Controls.Add(this.toolStrip1);
             this.tabPage3.Controls.Add(this.gbDatosCliente);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
@@ -122,7 +123,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.BackColor = System.Drawing.Color.White;
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -207,6 +208,7 @@
             // 
             // gbDatosCliente
             // 
+            this.gbDatosCliente.BackColor = System.Drawing.Color.White;
             this.gbDatosCliente.Controls.Add(this.txtRazonSocial);
             this.gbDatosCliente.Controls.Add(this.txtRUC);
             this.gbDatosCliente.Controls.Add(this.txtTelefonoCliente);
@@ -226,7 +228,7 @@
             this.gbDatosCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosCliente.Location = new System.Drawing.Point(20, 40);
             this.gbDatosCliente.Name = "gbDatosCliente";
-            this.gbDatosCliente.Size = new System.Drawing.Size(653, 347);
+            this.gbDatosCliente.Size = new System.Drawing.Size(653, 360);
             this.gbDatosCliente.TabIndex = 15;
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Datos del Cliente";
@@ -386,6 +388,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackgroundImage = global::ARSACSoft.Properties.Resources.minimalist_desktop_131;
             this.tabPage2.Controls.Add(this.gbDatosEmpleado);
             this.tabPage2.Controls.Add(this.toolStrip2);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
@@ -398,6 +401,7 @@
             // 
             // gbDatosEmpleado
             // 
+            this.gbDatosEmpleado.BackColor = System.Drawing.Color.White;
             this.gbDatosEmpleado.Controls.Add(this.btnSubirPortada);
             this.gbDatosEmpleado.Controls.Add(this.pbFotoEmpleado);
             this.gbDatosEmpleado.Controls.Add(this.label21);
@@ -688,9 +692,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(32, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 15);
+            this.label6.Size = new System.Drawing.Size(49, 15);
             this.label6.TabIndex = 15;
-            this.label6.Text = "ID:";
+            this.label6.Text = "Codigo:";
             // 
             // txtIDEmpleado
             // 
@@ -708,11 +712,11 @@
             this.groupBox1.Controls.Add(this.txtContrasena);
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.txtUsuario);
-            this.groupBox1.Location = new System.Drawing.Point(356, 258);
+            this.groupBox1.Location = new System.Drawing.Point(356, 253);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(292, 83);
+            this.groupBox1.Size = new System.Drawing.Size(292, 88);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la cuenta";
@@ -721,7 +725,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(14, 50);
+            this.label22.Location = new System.Drawing.Point(14, 55);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(73, 15);
@@ -731,7 +735,7 @@
             // txtContrasena
             // 
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(91, 47);
+            this.txtContrasena.Location = new System.Drawing.Point(91, 52);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(188, 21);
@@ -741,7 +745,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(14, 20);
+            this.lblUsuario.Location = new System.Drawing.Point(14, 25);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(53, 15);
@@ -751,7 +755,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(91, 17);
+            this.txtUsuario.Location = new System.Drawing.Point(91, 22);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(188, 21);
@@ -759,7 +763,7 @@
             // 
             // toolStrip2
             // 
-            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.BackColor = System.Drawing.Color.White;
             this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
