@@ -358,6 +358,7 @@
             this.btnProveedores.TabIndex = 24;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = false;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // btnSede
             // 
@@ -371,6 +372,7 @@
             this.btnSede.TabIndex = 26;
             this.btnSede.Text = "Sede";
             this.btnSede.UseVisualStyleBackColor = false;
+            this.btnSede.Click += new System.EventHandler(this.btnSede_Click);
             // 
             // btnContabilidad
             // 
@@ -384,6 +386,7 @@
             this.btnContabilidad.TabIndex = 28;
             this.btnContabilidad.Text = "Contabilidad";
             this.btnContabilidad.UseVisualStyleBackColor = false;
+            this.btnContabilidad.Click += new System.EventHandler(this.btnContabilidad_Click);
             // 
             // btnRRHH
             // 
@@ -397,6 +400,7 @@
             this.btnRRHH.TabIndex = 30;
             this.btnRRHH.Text = "RRHH";
             this.btnRRHH.UseVisualStyleBackColor = false;
+            this.btnRRHH.Click += new System.EventHandler(this.btnRRHH_Click);
             // 
             // btnReportes
             // 
@@ -410,6 +414,7 @@
             this.btnReportes.TabIndex = 32;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnAlmacen
             // 
@@ -423,6 +428,7 @@
             this.btnAlmacen.TabIndex = 21;
             this.btnAlmacen.Text = "Almacén";
             this.btnAlmacen.UseVisualStyleBackColor = false;
+            this.btnAlmacen.Click += new System.EventHandler(this.btnAlmacen_Click);
             // 
             // btnPedidos
             // 
@@ -436,6 +442,7 @@
             this.btnPedidos.TabIndex = 34;
             this.btnPedidos.Text = "Pedidos";
             this.btnPedidos.UseVisualStyleBackColor = false;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // pbVentas
             // 

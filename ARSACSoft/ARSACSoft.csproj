@@ -113,12 +113,6 @@
     <Compile Include="frmGestionRRHH.Designer.cs">
       <DependentUpon>frmGestionRRHH.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGestionPedidos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGestionPedidos.Designer.cs">
-      <DependentUpon>frmGestionPedidos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGestionSedes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,9 +165,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionRRHH.resx">
       <DependentUpon>frmGestionRRHH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmGestionPedidos.resx">
-      <DependentUpon>frmGestionPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionSedes.resx">
       <DependentUpon>frmGestionSedes.cs</DependentUpon>
