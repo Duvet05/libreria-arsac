@@ -63,6 +63,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelBarraVentana.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoARSAC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -271,7 +272,7 @@
             this.grupoPedidos.Size = new System.Drawing.Size(354, 60);
             this.grupoPedidos.TabIndex = 1;
             this.grupoPedidos.TabStop = false;
-            this.grupoPedidos.Text = "groupBox1";
+            this.grupoPedidos.Text = " ";
             // 
             // grupoAlmacen
             // 
@@ -283,7 +284,7 @@
             this.grupoAlmacen.Size = new System.Drawing.Size(354, 60);
             this.grupoAlmacen.TabIndex = 2;
             this.grupoAlmacen.TabStop = false;
-            this.grupoAlmacen.Text = "groupBox2";
+            this.grupoAlmacen.Text = " ";
             // 
             // grupoProveedores
             // 
@@ -295,7 +296,7 @@
             this.grupoProveedores.Size = new System.Drawing.Size(354, 60);
             this.grupoProveedores.TabIndex = 3;
             this.grupoProveedores.TabStop = false;
-            this.grupoProveedores.Text = "groupBox3";
+            this.grupoProveedores.Text = " ";
             // 
             // grupoSede
             // 
@@ -307,7 +308,7 @@
             this.grupoSede.Size = new System.Drawing.Size(354, 60);
             this.grupoSede.TabIndex = 4;
             this.grupoSede.TabStop = false;
-            this.grupoSede.Text = "groupBox4";
+            this.grupoSede.Text = " ";
             // 
             // grupoContabilidad
             // 
@@ -319,7 +320,7 @@
             this.grupoContabilidad.Size = new System.Drawing.Size(354, 60);
             this.grupoContabilidad.TabIndex = 5;
             this.grupoContabilidad.TabStop = false;
-            this.grupoContabilidad.Text = "groupBox5";
+            this.grupoContabilidad.Text = " ";
             // 
             // grupoRRHH
             // 
@@ -331,7 +332,7 @@
             this.grupoRRHH.Size = new System.Drawing.Size(354, 60);
             this.grupoRRHH.TabIndex = 6;
             this.grupoRRHH.TabStop = false;
-            this.grupoRRHH.Text = "groupBox6";
+            this.grupoRRHH.Text = " ";
             // 
             // grupoReportes
             // 
@@ -343,7 +344,7 @@
             this.grupoReportes.Size = new System.Drawing.Size(354, 60);
             this.grupoReportes.TabIndex = 7;
             this.grupoReportes.TabStop = false;
-            this.grupoReportes.Text = "groupBox7";
+            this.grupoReportes.Text = " ";
             // 
             // btnProveedores
             // 
@@ -589,5 +590,6 @@
         private System.Windows.Forms.PictureBox pbEmpleados;
         private System.Windows.Forms.PictureBox pbAlmacen;
         private System.Windows.Forms.PictureBox pbVentas;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
