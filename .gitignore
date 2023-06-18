@@ -113,3 +113,4 @@ nb-configuration.xml
 /ARSACSoftProveedoresController/dist/
 /ARSACSoftOrdenesController/nbproject/private/
 .vs/Interfaces/v17/.suo
+*.exe

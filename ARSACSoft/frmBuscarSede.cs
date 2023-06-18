@@ -1,6 +1,4 @@
-﻿
-
-using ARSACSoft.SedesWS;
+﻿using ARSACSoft.SedesWS;
 using System;
 using System.Windows.Forms;
 

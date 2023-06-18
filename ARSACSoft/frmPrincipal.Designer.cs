@@ -260,7 +260,6 @@
             this.panelMenuPrincipal.Name = "panelMenuPrincipal";
             this.panelMenuPrincipal.Size = new System.Drawing.Size(354, 427);
             this.panelMenuPrincipal.TabIndex = 22;
-            this.panelMenuPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuPrincipal_Paint);
             // 
             // grupoReportes
             // 

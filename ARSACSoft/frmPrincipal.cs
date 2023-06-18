@@ -15,80 +15,107 @@ namespace ARSACSoft
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
 
         private RRHHWSClient daoRRHH;
-        empleado _empleado;
-        private empleado empleadoLogeado;
-
+        private empleado _empleadoLogeado;
         public GroupBox BtnPedidos
         {
             get => grupoPedidos;
             set => grupoPedidos = value;
         }
-
         public GroupBox BtnAlmacen
         {
             get => grupoAlmacen;
             set => grupoAlmacen = value;
         }
-
         public GroupBox BtnProveedores
         {
             get => grupoProveedores;
             set => grupoProveedores = value;
         }
-
         public GroupBox BtnSede
         {
             get => grupoSede;
             set => grupoSede = value;
         }
-
         public GroupBox BtnContabilidad
         {
             get => grupoContabilidad;
             set => grupoContabilidad = value;
         }
-
         public GroupBox BtnRRHH
         {
             get => grupoRRHH;
             set => grupoRRHH = value;
         }
-
         public GroupBox BtnReportes
         {
             get => grupoReportes;
             set => grupoReportes = value;
         }
-        public frmPrincipal(empleado empleadoLogeado)
+        public frmPrincipal(int idEmpleado)
         {
-
             InitializeComponent();
-            frmBienvenida formularioBienvenida = new frmBienvenida();
-            mostrarFormulario(formularioBienvenida);
-
-            this.empleadoLogeado = empleadoLogeado;
-            lblNombreApellidoUsuario.Text = empleadoLogeado.nombre + " " + empleadoLogeado.apellidos;
-            lblCargoUsuario.Text = empleadoLogeado.tipo.descripcion;
-            lblSedeUsuario.Text = empleadoLogeado.sede.direccion;
-
-            MemoryStream ms = new MemoryStream(empleadoLogeado.foto);
-            pbFotoUsuario.Image = new Bitmap(ms);
-
+            DisplayForm(new frmBienvenida());
 
             daoRRHH = new RRHHWSClient();
+            _empleadoLogeado = daoRRHH.obtenerEmpleadoPorID(idEmpleado);
+            UpdateEmployeeInfo();
+
+            switch (_empleadoLogeado.tipo.idTipoDeEmpleado)
+            {
+                case 1:
+                    OcultarBotones(this.BtnPedidos, this.BtnAlmacen, this.BtnProveedores, this.BtnContabilidad);
+                    break;
+                case 2:
+                    OcultarBotones(this.BtnAlmacen, this.BtnProveedores, this.BtnSede, this.BtnContabilidad, this.BtnRRHH);
+                    break;
+                case 3:
+                    OcultarBotones(this.BtnPedidos, this.BtnContabilidad, this.BtnRRHH, this.BtnReportes);
+                    break;
+                case 4:
+                    OcultarBotones(this.BtnPedidos, this.BtnAlmacen, this.BtnContabilidad);
+                    break;
+                case 5:
+                    OcultarBotones(this.BtnPedidos, this.BtnAlmacen, this.BtnProveedores, this.BtnSede, this.BtnContabilidad);
+                    break;
+                case 6:
+                    //Gerencia
+                    break;
+            }
+        }
+
+        private void OcultarBotones(params GroupBox[] botones)
+        {
+            foreach (var boton in botones)
+            {
+                boton.Visible = false;
+            }
+        }
+
+
+        private void UpdateEmployeeInfo()
+        {
+            lblNombreApellidoUsuario.Text = $"{_empleadoLogeado.nombre} {_empleadoLogeado.apellidos}";
+            lblCargoUsuario.Text = _empleadoLogeado.tipo.descripcion;
+            lblSedeUsuario.Text = _empleadoLogeado.sede.direccion;
+            if (this._empleadoLogeado.foto != null)
+            {
+                MemoryStream ms = new MemoryStream(_empleadoLogeado.foto);
+                pbFotoUsuario.Image = new Bitmap(ms);
+            }
+        }
+
+        private void DisplayForm(Form form)
+        {
+            panelContenedor.Controls.Clear();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            panelContenedor.Controls.Add(form);
+            form.Visible = true;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                // Realiza cualquier limpieza o reinicio necesario para cerrar la sesión
-                // Por ejemplo, puedes reiniciar los valores de las variables o limpiar el estado de la aplicación
-
-                // Muestra el formulario de inicio de sesión y oculta el formulario principal
-                this.Close();
-            }
+            LogOut();
         }
 
         private void frmPrincipal_MouseDown(object sender, MouseEventArgs e)
@@ -99,26 +126,18 @@ namespace ARSACSoft
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                // Realiza cualquier limpieza o reinicio necesario para cerrar la sesión
-                // Por ejemplo, puedes reiniciar los valores de las variables o limpiar el estado de la aplicación
-
-                // Muestra el formulario de inicio de sesión y oculta el formulario principal
-                this.Close();
-            }
+            LogOut();
         }
 
         private void pbCerrarSesion_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                // Realiza cualquier limpieza o reinicio necesario para cerrar la sesión
-                // Por ejemplo, puedes reiniciar los valores de las variables o limpiar el estado de la aplicación
+            LogOut();
+        }
 
-                // Muestra el formulario de inicio de sesión y oculta el formulario principal
+        private void LogOut()
+        {
+            if (MessageBox.Show("¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 this.Close();
             }
         }
@@ -129,20 +148,11 @@ namespace ARSACSoft
             SendMessage(this.Handle, 0xA1, 0x2, 0);
         }
 
-        public void mostrarFormulario(Form form)
-        {
-            panelContenedor.Controls.Clear();
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            panelContenedor.Controls.Add(form);
-            form.Visible = true;
-        }
-
 
         private void btnAlmacen_Click(object sender, EventArgs e)
         {
             frmGestionAlmacen frmGestAlmac = new frmGestionAlmacen();
-            mostrarFormulario(frmGestAlmac);
+            DisplayForm(frmGestAlmac);
 
             btnPedidos.ForeColor = System.Drawing.Color.Gray;
             btnAlmacen.ForeColor = System.Drawing.Color.Black;
@@ -156,7 +166,7 @@ namespace ARSACSoft
         private void pbAlmacen_Click(object sender, EventArgs e)
         {
             frmGestionAlmacen frmGestAlmac = new frmGestionAlmacen();
-            mostrarFormulario(frmGestAlmac);
+            DisplayForm(frmGestAlmac);
         }
 
         private void lblTituloARSAC_MouseDown(object sender, MouseEventArgs e)
@@ -189,7 +199,7 @@ namespace ARSACSoft
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             frmGestionPedidos frmGestPed = new frmGestionPedidos();
-            mostrarFormulario(frmGestPed);
+            DisplayForm(frmGestPed);
 
             SetButtonColor(btnPedidos);
         }
@@ -197,7 +207,7 @@ namespace ARSACSoft
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             frmGestionProveedores frmGestProveedores = new frmGestionProveedores();
-            mostrarFormulario(frmGestProveedores);
+            DisplayForm(frmGestProveedores);
 
             SetButtonColor(btnProveedores);
         }
@@ -205,7 +215,7 @@ namespace ARSACSoft
         private void btnSede_Click(object sender, EventArgs e)
         {
             frmGestionSedes frmGestSedes = new frmGestionSedes();
-            mostrarFormulario(frmGestSedes);
+            DisplayForm(frmGestSedes);
 
             btnPedidos.ForeColor = System.Drawing.Color.Gray;
             btnAlmacen.ForeColor = System.Drawing.Color.Gray;
@@ -219,7 +229,7 @@ namespace ARSACSoft
         private void btnContabilidad_Click(object sender, EventArgs e)
         {
             frmContabilidad frmContab = new frmContabilidad();
-            mostrarFormulario(frmContab);
+            DisplayForm(frmContab);
 
             btnPedidos.ForeColor = System.Drawing.Color.Gray;
             btnAlmacen.ForeColor = System.Drawing.Color.Gray;
@@ -233,7 +243,7 @@ namespace ARSACSoft
         private void btnRRHH_Click(object sender, EventArgs e)
         {
             frmGestionRRHH frmGestRRHH = new frmGestionRRHH();
-            mostrarFormulario(frmGestRRHH);
+            DisplayForm(frmGestRRHH);
 
             btnPedidos.ForeColor = System.Drawing.Color.Gray;
             btnAlmacen.ForeColor = System.Drawing.Color.Gray;
@@ -247,7 +257,7 @@ namespace ARSACSoft
         private void btnReportes_Click(object sender, EventArgs e)
         {
             frmReportes frmReports = new frmReportes();
-            mostrarFormulario(frmReports);
+            DisplayForm(frmReports);
 
             btnPedidos.ForeColor = System.Drawing.Color.Gray;
             btnAlmacen.ForeColor = System.Drawing.Color.Gray;
@@ -258,14 +268,5 @@ namespace ARSACSoft
             btnReportes.ForeColor = System.Drawing.Color.Black;
         }
 
-        private void panelMenuPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
