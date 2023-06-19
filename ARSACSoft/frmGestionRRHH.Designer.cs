@@ -102,6 +102,7 @@
             this.btnCancelarEmpleado = new System.Windows.Forms.ToolStripButton();
             this.tcRRHH = new System.Windows.Forms.TabControl();
             this.ofdFotoEmpleado = new System.Windows.Forms.OpenFileDialog();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabPage3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gbDatosCliente.SuspendLayout();
@@ -214,6 +215,7 @@
             // gbDatosCliente
             // 
             this.gbDatosCliente.BackColor = System.Drawing.Color.White;
+            this.gbDatosCliente.Controls.Add(this.label24);
             this.gbDatosCliente.Controls.Add(this.botonUbicacion);
             this.gbDatosCliente.Controls.Add(this.textDireccion);
             this.gbDatosCliente.Controls.Add(this.gMapControl1);
@@ -243,7 +245,7 @@
             // 
             // botonUbicacion
             // 
-            this.botonUbicacion.Location = new System.Drawing.Point(372, 246);
+            this.botonUbicacion.Location = new System.Drawing.Point(372, 286);
             this.botonUbicacion.Name = "botonUbicacion";
             this.botonUbicacion.Size = new System.Drawing.Size(92, 23);
             this.botonUbicacion.TabIndex = 24;
@@ -254,7 +256,7 @@
             // textDireccion
             // 
             this.textDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDireccion.Location = new System.Drawing.Point(469, 247);
+            this.textDireccion.Location = new System.Drawing.Point(469, 287);
             this.textDireccion.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.textDireccion.Name = "textDireccion";
             this.textDireccion.Size = new System.Drawing.Size(128, 21);
@@ -268,7 +270,7 @@
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(372, 46);
+            this.gMapControl1.Location = new System.Drawing.Point(372, 80);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -304,6 +306,7 @@
             this.txtRUC.Name = "txtRUC";
             this.txtRUC.Size = new System.Drawing.Size(173, 21);
             this.txtRUC.TabIndex = 20;
+            this.txtRUC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRUC_KeyPress);
             // 
             // txtTelefonoCliente
             // 
@@ -313,6 +316,7 @@
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.Size = new System.Drawing.Size(173, 21);
             this.txtTelefonoCliente.TabIndex = 19;
+            this.txtTelefonoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoCliente_KeyPress);
             // 
             // txtCorreoCliente
             // 
@@ -340,6 +344,7 @@
             this.txtDNICliente.Name = "txtDNICliente";
             this.txtDNICliente.Size = new System.Drawing.Size(173, 21);
             this.txtDNICliente.TabIndex = 17;
+            this.txtDNICliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNICliente_KeyPress);
             // 
             // txtApellidoCliente
             // 
@@ -597,6 +602,7 @@
             this.txtTelefonoEmpleado.Name = "txtTelefonoEmpleado";
             this.txtTelefonoEmpleado.Size = new System.Drawing.Size(173, 21);
             this.txtTelefonoEmpleado.TabIndex = 27;
+            this.txtTelefonoEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoEmpleado_KeyPress);
             // 
             // cboTipoDeEmpleado
             // 
@@ -664,6 +670,7 @@
             this.txtDNIEmpleado.Name = "txtDNIEmpleado";
             this.txtDNIEmpleado.Size = new System.Drawing.Size(173, 21);
             this.txtDNIEmpleado.TabIndex = 22;
+            this.txtDNIEmpleado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNIEmpleado_KeyPress);
             // 
             // txtApellidoEmpleado
             // 
@@ -941,6 +948,16 @@
             // 
             this.ofdFotoEmpleado.FileName = "openFileDialog1";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(374, 51);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(62, 15);
+            this.label24.TabIndex = 25;
+            this.label24.Text = "Direccion:";
+            // 
             // frmGestionRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1046,5 +1063,6 @@
         private System.Windows.Forms.TextBox textDireccion;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private System.Windows.Forms.Button botonUbicacion;
+        private System.Windows.Forms.Label label24;
     }
 }

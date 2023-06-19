@@ -582,6 +582,105 @@ namespace ARSACSoft
             txtContrasena.UseSystemPasswordChar = !checkBox1.Checked;
         }
 
+        private void txtDNIEmpleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
 
+            if (txtDNIEmpleado.Text.Length >= 8 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefonoEmpleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                TextBox textBox = (TextBox)sender;
+                int selectionStart = textBox.SelectionStart;
+                string currentText = textBox.Text;
+
+                // Eliminar espacios en blanco
+                string strippedText = currentText.Replace(" ", "");
+
+                // Insertar espacios cada 3 dígitos
+                string formattedText = string.Empty;
+                for (int i = 0; i < strippedText.Length; i++)
+                {
+                    formattedText += strippedText[i];
+                    if ((i + 1) % 3 == 0 && (i + 1) < strippedText.Length)
+                    {
+                        formattedText += " ";
+                    }
+                }
+
+                textBox.Text = formattedText;
+                textBox.SelectionStart = selectionStart + 1;
+            }
+            else if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDNICliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (txtDNICliente.Text.Length >= 8 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefonoCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                TextBox textBox = (TextBox)sender;
+                int selectionStart = textBox.SelectionStart;
+                string currentText = textBox.Text;
+
+                // Eliminar espacios en blanco
+                string strippedText = currentText.Replace(" ", "");
+
+                // Insertar espacios cada 3 dígitos
+                string formattedText = string.Empty;
+                for (int i = 0; i < strippedText.Length; i++)
+                {
+                    formattedText += strippedText[i];
+                    if ((i + 1) % 3 == 0 && (i + 1) < strippedText.Length)
+                    {
+                        formattedText += " ";
+                    }
+                }
+
+                textBox.Text = formattedText;
+                textBox.SelectionStart = selectionStart + 1;
+            }
+            else if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRUC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (txtRUC.Text.Length >= 20 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
