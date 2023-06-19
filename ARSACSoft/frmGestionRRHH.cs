@@ -137,6 +137,7 @@ namespace ARSACSoft
                     txtUsuario.Enabled = false;
                     btnBuscarSede.Enabled = false;
                     checkBox1.Enabled = false;
+                    txtDireccionSede.Enabled = false;
                     break;
                 case Estado.Nuevo:
                 case Estado.Modificar:
@@ -331,9 +332,11 @@ namespace ARSACSoft
                 txtDireccionSede.Text = empleado.sede.direccion;
 
                 cuentaUsuario cuenta = daoRRHH.buscarCuenta(empleado.idPersona);
-                txtUsuario.Text = cuenta.username;
-                txtContrasena.Text = cuenta.password;
-
+                if (cuenta != null)
+                {
+                    txtUsuario.Text = cuenta.username;
+                    txtContrasena.Text = cuenta.password;
+                }
                 estadoEmpleado = Estado.Buscar;
                 establecerEstadoFormularioEmpleado();
 

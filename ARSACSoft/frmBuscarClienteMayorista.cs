@@ -1,39 +1,44 @@
 ﻿using ARSACSoft.RRHHWS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ARSACSoft
 {
     public partial class frmBuscarClienteMayorista : Form
     {
-        private RRHHWSClient daoRRHH;
+        private RRHHWSClient _daoRRHH;
         private clienteMayorista clienteMayoristaSeleccionado;
 
         public frmBuscarClienteMayorista()
         {
             InitializeComponent();
             dgvClientes.AutoGenerateColumns = false;
-            daoRRHH = new RRHHWSClient();
+            _daoRRHH = new RRHHWSClient();
+
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.DataSource = _daoRRHH.listarClientesMayoristasPorNombreDNI("");
+            // Configurar el estilo de selección
         }
 
         public clienteMayorista ClienteMayoristaSeleccionado { get => clienteMayoristaSeleccionado; set => clienteMayoristaSeleccionado = value; }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtNombreDNI.Text))
+            try
             {
-                dgvClientes.DataSource = daoRRHH.listarClientesMayoristasPorNombreDNI(txtNombreDNI.Text);
+                var clientes = _daoRRHH.listarClientesMayoristasPorNombreDNI(txtNombreDNI.Text);
+                if (clientes != null)
+                {
+                    dgvClientes.DataSource = clientes;
+                }
+                else
+                {
+                    // Manejo de error cuando no hay datos
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Por favor, introduzca el nombre o DNI del cliente para buscar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Manejo de excepciones del servicio web
             }
         }
 

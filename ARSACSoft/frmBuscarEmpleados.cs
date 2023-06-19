@@ -12,8 +12,11 @@ namespace ARSACSoft
         public frmBuscarEmpleados()
         {
             InitializeComponent();
-            _daoRRHH = new RRHHWSClient();
             dgvEmpleados.AutoGenerateColumns = false;
+            _daoRRHH = new RRHHWSClient();
+            
+            dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEmpleados.DataSource = _daoRRHH.listarEmpleadosPorNombreDNI("");
         }
 
         public empleado EmpleadoSeleccionado { get => _empleadoSeleccionado; set => _empleadoSeleccionado = value; }
