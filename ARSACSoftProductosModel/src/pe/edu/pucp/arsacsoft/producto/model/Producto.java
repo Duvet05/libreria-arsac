@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pe.edu.pucp.arsacsoft.producto.model;
-
 /**
  *
- * @author Gino
+ * @author User
  */
 public class Producto {
-public int getIdProducto() {
+
+    public int getIdProducto() {
         return idProducto;
     }
 
@@ -72,18 +72,22 @@ public int getIdProducto() {
     public void setPromocion(Promocion promocion) {
         this.promocion = promocion;
     }
+    public byte[] getFoto() {
+        return foto;
+    }
 
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
     private int idProducto;
     private String nombre;
     private double precioPorMenor;
     private double precioPorMayor;
     private boolean activo;
-    
+    private byte[] foto;
     private Marca marca;
     private Categoria categoria;
     private Promocion promocion;
-    
-    
     
     public Producto() {
     }

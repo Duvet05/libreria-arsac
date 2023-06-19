@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.arsacsoft.almacen.mysql;
+package pe.edu.pucp.arsacsoft.productos.mysql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import pe.edu.pucp.arsacsoft.almacen.dao.ProductoDAO;
-import pe.edu.pucp.arsacsoft.almacen.model.Categoria;
-import pe.edu.pucp.arsacsoft.almacen.model.Producto;
+import pe.edu.pucp.arsacsoft.productos.dao.ProductoDAO;
 import pe.edu.pucp.arsacsoft.config.DBManager;
+import pe.edu.pucp.arsacsoft.producto.model.Categoria;
+import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
 /**
  *

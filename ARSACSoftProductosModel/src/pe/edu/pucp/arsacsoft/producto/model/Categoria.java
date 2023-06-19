@@ -6,10 +6,10 @@ package pe.edu.pucp.arsacsoft.producto.model;
 
 /**
  *
- * @author Gino
+ * @author User
  */
 public class Categoria {
-        private int idCategoria;
+    private int idCategoria;
     private String descripcion;
     private boolean activo;
     public Categoria() {

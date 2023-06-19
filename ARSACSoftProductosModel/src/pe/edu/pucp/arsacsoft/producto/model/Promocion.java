@@ -8,10 +8,10 @@ import java.util.Date;
 
 /**
  *
- * @author Gino
+ * @author User
  */
 public class Promocion {
-private int idPromocion;
+    private int idPromocion;
     private double porcentaje;
     private int cantidadminima;
     private Date fechaInicio;

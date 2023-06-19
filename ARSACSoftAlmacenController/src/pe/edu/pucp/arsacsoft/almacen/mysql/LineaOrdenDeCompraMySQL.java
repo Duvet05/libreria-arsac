@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.almacen.dao.LineaOrdenDeCompraDAO;
 import pe.edu.pucp.arsacsoft.almacen.model.LineaOrdenDeCompra;
-import pe.edu.pucp.arsacsoft.almacen.model.Producto;
 import pe.edu.pucp.arsacsoft.config.DBManager;
+import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
 /**
  *

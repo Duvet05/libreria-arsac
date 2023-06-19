@@ -6,10 +6,10 @@ package pe.edu.pucp.arsacsoft.producto.model;
 
 /**
  *
- * @author Gino
+ * @author User
  */
 public class Marca {
-private int idMarca;
+    private int idMarca;
     private String descripcion;
     private boolean activo;
     public Marca() {
@@ -36,5 +36,5 @@ private int idMarca;
 
     public void setActivo(boolean activo) {
         this.activo = activo;
-    }  
+    }    
 }

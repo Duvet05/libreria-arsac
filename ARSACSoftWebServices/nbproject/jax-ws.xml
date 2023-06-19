@@ -10,6 +10,9 @@
     <service name="AlmacenWS">
       <implementation-class>pe.edu.pucp.arsacsoft.services.AlmacenWS</implementation-class>
     </service>
+    <service name="ProductosWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.ProductosWS</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

@@ -2,38 +2,38 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.arsacsoft.almacen.mysql;
+package pe.edu.pucp.arsacsoft.productos.mysql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import pe.edu.pucp.arsacsoft.almacen.dao.CategoriaDAO;
-import pe.edu.pucp.arsacsoft.almacen.model.Categoria;
 import pe.edu.pucp.arsacsoft.config.DBManager;
+import pe.edu.pucp.arsacsoft.producto.model.Marca;
+import pe.edu.pucp.arsacsoft.productos.dao.MarcaDAO;
 
 /**
  *
  * @author User
  */
-public class CategoriaMySQL implements CategoriaDAO{
+public class MarcaMySQL implements MarcaDAO{
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
     @Override
-    public ArrayList<Categoria> listarTodas() {
-            ArrayList<Categoria> categorias = new ArrayList<>();
+    public ArrayList<Marca> listarTodas() {
+            ArrayList<Marca> marcas = new ArrayList<>();
             try
             {
                 con = DBManager.getInstance().getConnection();
-                cs = con.prepareCall("{call LISTAR_CATEGORIA_TODAS()}");
+                cs = con.prepareCall("{call LISTAR_MARCA_TODAS()}");
                 rs = cs.executeQuery();
                 while (rs.next())
                 {
-                    Categoria categoria = new Categoria();
-                    categoria.setIdCategoria(rs.getInt(" _id_categoria"));
-                    categoria.setDescripcion(rs.getString("_descripcion"));
-                    categorias.add(categoria);
+                    Marca marca = new Marca();
+                    marca.setIdMarca(rs.getInt("id_marca"));
+                    marca.setDescripcion(rs.getString("descripcion"));
+                    marcas.add(marca);
                 }
             }catch (Exception ex){
                 System.out.println(ex.getMessage());
@@ -42,7 +42,7 @@ public class CategoriaMySQL implements CategoriaDAO{
                 try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
                 try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
             }
-            return categorias;        
+            return marcas;            
     }
     
 }

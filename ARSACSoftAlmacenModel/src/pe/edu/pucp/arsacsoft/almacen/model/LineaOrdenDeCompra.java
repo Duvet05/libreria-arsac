@@ -4,6 +4,8 @@
  */
 package pe.edu.pucp.arsacsoft.almacen.model;
 
+import pe.edu.pucp.arsacsoft.producto.model.Producto;
+
 /**
  *
  * @author User
