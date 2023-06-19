@@ -402,6 +402,7 @@ namespace ARSACSoft
                 {
                     try
                     {
+                        //metodo de busqueda de nombre de usuario
                         /*Guardar cuenta de usuario*/
                         daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
                         /*Fin GuardarCuentaUsuario*/

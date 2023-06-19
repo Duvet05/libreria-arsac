@@ -53,8 +53,8 @@ CREATE PROCEDURE LISTAR_PRODUCTO_POR_NOMBRE(
 	IN _nombre VARCHAR(100)
 )
 BEGIN
-	SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, m.id_marca , m.descripcion AS nombre_marca
-	p.precio_por_mayor,p.precio_por_menor 
+	SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, m.id_marca , m.descripcion AS nombre_marca,
+	p.precio_por_mayor,p.precio_por_menor
 	FROM producto p
 	INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
 	INNER JOIN marca m ON p.fid_marca = m.id_marca
