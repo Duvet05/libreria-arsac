@@ -1,0 +1,22 @@
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\bin\Debug\Interfaces.exe.config
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\bin\Debug\Interfaces.exe
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.csproj.AssemblyReference.cache
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.frmLogin.resources
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.Properties.Resources.resources
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.csproj.GenerateResource.cache
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.exe
+C:\Users\Gino\Documents\PUCP\Lenguaje de programación 2\Trabajo Grupal\Interfaces\Interfaces\obj\Debug\Interfaces.pdb
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\bin\Debug\Interfaces.exe.config
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\bin\Debug\Interfaces.exe
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\bin\Debug\Interfaces.pdb
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.csproj.AssemblyReference.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.csproj.SuggestedBindingRedirects.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.frmLogin.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.Properties.Resources.resources
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.csproj.GenerateResource.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.exe
+C:\Users\a2018\Desktop\Nueva carpeta\LIBRERIA_ARENALES-master\Interfaces\obj\Debug\Interfaces.pdb

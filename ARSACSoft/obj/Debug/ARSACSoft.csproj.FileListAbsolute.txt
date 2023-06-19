@@ -200,6 +200,7 @@ C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\bin\Debug\System.D
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\bin\Debug\System.Data.SQLite.xml
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.csproj.CopyComplete
+<<<<<<< HEAD
 D:\Descargas\Clases\Clases\ARSACSoft\obj\Debug\ARSACSoft.csproj.AssemblyReference.cache
 D:\Descargas\Clases\Clases\ARSACSoft\obj\Debug\ARSACSoft.csproj.SuggestedBindingRedirects.cache
 D:\Descargas\Clases\Clases\ARSACSoft\obj\Debug\ARSACSoft.exe
@@ -270,3 +271,5 @@ C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSof
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.csproj.CoreCompileInputs.cache
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.exe
 C:\Users\Gonzalo\Documents\GitHub\LIBRERIA_ARENALES\ARSACSoft\obj\Debug\ARSACSoft.pdb
+=======
+>>>>>>> parent of fda6bd3 (ROOT)
