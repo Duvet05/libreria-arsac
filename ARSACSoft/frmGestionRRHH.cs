@@ -29,7 +29,12 @@ namespace ARSACSoft
             InitializeComponent();
             ConfigureForm();
             InitializeServiceClient();
+            InitializeMaps();
+            
+        }
 
+        private void InitializeMaps()
+        {
             GMapProviders.GoogleMap.ApiKey = "AIzaSyBgyKAoWNGBGh8QkqYaxlsiale87i-sstI";
             gMapControl1.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;
             gMapControl1.DragButton = MouseButtons.Left;
