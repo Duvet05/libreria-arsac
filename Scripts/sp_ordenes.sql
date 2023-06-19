@@ -135,9 +135,11 @@ END;$
 -- lISTAR CLIENTE
 -- #######################################################################
 DELIMITER $
-CREATE PROCEDURE LISTAR_ORDEN_MAYORISTA_POR_VENDEDOR()
+CREATE PROCEDURE LISTAR_ORDEN_MAYORISTA_POR_VENDEDOR(
+IN _fid_empleado INT
+)
 BEGIN
     SELECT *
-    FROM ordenDeVenta
-    ORDER BY fid_empleado DESC;
+	FROM ordenDeVenta
+	WHERE fid_empleado = _fid_empleado;
 END;$
