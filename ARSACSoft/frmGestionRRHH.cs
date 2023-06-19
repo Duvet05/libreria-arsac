@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using static GMap.NET.Entity.OpenStreetMapGraphHopperGeocodeEntity;
 using static GMap.NET.Entity.OpenStreetMapRouteEntity;
 using System.Linq;
+using ARSACSoft.Properties;
+using System.Xml.Linq;
 
 namespace ARSACSoft
 {
@@ -109,7 +111,6 @@ namespace ARSACSoft
             daoRRHH = new RRHHWSClient();
             cboTipoDeEmpleado.DataSource = daoRRHH.listarTiposDeEmpleados();
         }
-
         public void establecerEstadoFormularioEmpleado()
         {
             switch (estadoEmpleado)
@@ -121,7 +122,7 @@ namespace ARSACSoft
                     btnModificarEmpleado.Enabled = false;
                     btnEliminarEmpleado.Enabled = false;
                     btnGuardarEmpleado.Enabled = false;
-
+                    btnSubirPortada.Enabled = false;
                     txtIDEmpleado.Enabled = false;
                     txtDNIEmpleado.Enabled = false;
                     txtNombreEmpleado.Enabled = false;
@@ -135,7 +136,7 @@ namespace ARSACSoft
                     txtContrasena.Enabled = false;
                     txtUsuario.Enabled = false;
                     btnBuscarSede.Enabled = false;
-
+                    checkBox1.Enabled = false;
                     break;
                 case Estado.Nuevo:
                 case Estado.Modificar:
@@ -157,10 +158,10 @@ namespace ARSACSoft
                     txtSalario.Enabled = true;
                     txtDireccion.Enabled = true;
                     btnBuscarSede.Enabled = true;
-
+                    checkBox1.Enabled = true;
                     txtUsuario.Enabled = true;
                     txtDireccionSede.Enabled = true;
-
+                    btnSubirPortada.Enabled = true;
                     break;
                 case Estado.Buscar:
                     btnNuevoEmpleado.Enabled = false;
@@ -263,7 +264,7 @@ namespace ARSACSoft
             txtCorreoEmpleado.Text = "";
             txtSalario.Text = "";
             txtDireccion.Text = "";
-
+            pbFotoEmpleado.Image = Resources.hombre;
             txtUsuario.Text = "";
             txtDireccionSede.Text = "";
         }
@@ -321,10 +322,17 @@ namespace ARSACSoft
                 txtCorreoEmpleado.Text = empleado.correo;
                 txtSalario.Text = empleado.salario.ToString();
                 txtDireccion.Text = empleado.direccion;
-                //MemoryStream ms = new MemoryStream(empleado.foto);
-                //pbFotoEmpleado.Image = new Bitmap(ms);
-
+                
+                if (empleado.foto != null)
+                {
+                    MemoryStream ms = new MemoryStream(empleado.foto);
+                    pbFotoEmpleado.Image = new Bitmap(ms);
+                }
                 txtDireccionSede.Text = empleado.sede.direccion;
+
+                cuentaUsuario cuenta = daoRRHH.buscarCuenta(empleado.idPersona);
+                txtUsuario.Text = cuenta.username;
+                txtContrasena.Text = cuenta.password;
 
                 estadoEmpleado = Estado.Buscar;
                 establecerEstadoFormularioEmpleado();
@@ -385,23 +393,43 @@ namespace ARSACSoft
 
             if (resultado != 0)
             {
+                cuentaUsuario nuevaCuentaUsuario = new cuentaUsuario();
+                nuevaCuentaUsuario.username = txtUsuario.Text;
+                nuevaCuentaUsuario.password = txtContrasena.Text;
+                nuevaCuentaUsuario.idEmpleado = resultado;
+
                 if (estadoEmpleado == Estado.Nuevo)
                 {
-                    /*Guardar cuenta de usuario*/
-                    cuentaUsuario nuevaCuentaUsuario = new cuentaUsuario();
-                    nuevaCuentaUsuario.username = txtUsuario.Text;
-                    nuevaCuentaUsuario.password = txtContrasena.Text;
-                    nuevaCuentaUsuario.idEmpleado = resultado;
-                    daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
-                    /*Fin GuardarCuentaUsuario*/
-                    txtIDEmpleado.Text = resultado.ToString();
+                    try
+                    {
+                        /*Guardar cuenta de usuario*/
+                        daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
+                        /*Fin GuardarCuentaUsuario*/
+                        txtIDEmpleado.Text = resultado.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al crear la cuenta de usuario: {ex.Message}", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+                else if (estadoEmpleado == Estado.Modificar)
+                {
+                    try
+                    {
+                        daoRRHH.actualizarCuenta(nuevaCuentaUsuario);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al modificar la contraseña: {ex.Message}", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                string mensaje = estadoEmpleado == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
+                MessageBox.Show(mensaje, "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 estadoEmpleado = Estado.Inicial;
                 establecerEstadoFormularioEmpleado();
-
-                string mensaje = estadoEmpleado == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
-                MessageBox.Show(mensaje, "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

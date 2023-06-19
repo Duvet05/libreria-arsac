@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="actualizarCuenta" type="tns:actualizarCuenta" />
+  <xs:element name="actualizarCuentaResponse" type="tns:actualizarCuentaResponse" />
+  <xs:element name="buscarCuenta" type="tns:buscarCuenta" />
+  <xs:element name="buscarCuentaResponse" type="tns:buscarCuentaResponse" />
   <xs:element name="buscarEmpleado" type="tns:buscarEmpleado" />
   <xs:element name="buscarEmpleadoResponse" type="tns:buscarEmpleadoResponse" />
   <xs:element name="eliminarClienteMayorista" type="tns:eliminarClienteMayorista" />
@@ -135,9 +139,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarCuentaUsuario">
+  <xs:complexType name="buscarCuenta">
     <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarCuentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="cuentaUsuario">
@@ -148,11 +157,6 @@
       <xs:element minOccurs="0" name="username" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarCuentaUsuarioResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarEmpleadosPorNombreDNI">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
@@ -161,6 +165,16 @@
   <xs:complexType name="listarEmpleadosPorNombreDNIResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCuentaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarCuentaUsuarioResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarClientesMayoristasPorNombreDNI">
@@ -181,6 +195,16 @@
   <xs:complexType name="buscarEmpleadoResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:empleado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuentaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarClienteMayorista">
@@ -234,22 +258,22 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarEmpleado">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:empleado" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarEmpleadoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="modificarClienteMayorista">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:clienteMayorista" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="modificarClienteMayoristaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarEmpleado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:empleado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarEmpleadoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

@@ -59,9 +59,7 @@ public class RRHHWS {
         }
         return resultado;
     }
-    
-    
-    
+
     @WebMethod(operationName = "modificarEmpleado")
     public int modificarEmpleado(Empleado empleado) {
         return daoEmpleado.modificar(empleado);
@@ -71,16 +69,18 @@ public class RRHHWS {
     public int eliminarEmpleado(int idEmpleado) {
         return daoEmpleado.eliminar(idEmpleado);
     }
+
     @WebMethod(operationName = "obtenerEmpleadoPorID")
-    public Empleado obtenerEmpleadoPorID(int idEmpleado){
+    public Empleado obtenerEmpleadoPorID(int idEmpleado) {
         Empleado empleado = new Empleado();
-        try{
+        try {
             empleado = daoEmpleado.buscarPorID(idEmpleado);
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return empleado;
     }
+
     @WebMethod(operationName = "listarClientesMayoristasPorNombreDNI")
     public ArrayList<Persona> listarClientesMayoristasPorNombreDNI(String nombreDNI) {
         return daoCliente.listarPorNombreDNI(nombreDNI);
@@ -112,7 +112,7 @@ public class RRHHWS {
         }
         return resultado;
     }
-    
+
     @WebMethod(operationName = "insertarCuentaUsuario")
     public int insertarCuentaUsuario(CuentaUsuario cuentaUsuario) {
         int resultado = 0;
@@ -123,7 +123,7 @@ public class RRHHWS {
         }
         return resultado;
     }
-    
+
     @WebMethod(operationName = "buscarEmpleado")
     public Empleado buscarEmpleado(int idEmpleado) {
         Empleado resultado = new Empleado();
@@ -133,5 +133,15 @@ public class RRHHWS {
             System.out.println(ex.getMessage());
         }
         return resultado;
+    }
+
+    @WebMethod(operationName = "actualizarCuenta")
+    public int actualizarCuenta(CuentaUsuario cuentaUsuario) {
+        return daoCuentaUsuario.actualizar(cuentaUsuario);
+    }
+
+    @WebMethod(operationName = "buscarCuenta")
+    public CuentaUsuario buscarCuenta(int idEmpleado) {
+        return daoCuentaUsuario.buscar(idEmpleado);
     }
 }

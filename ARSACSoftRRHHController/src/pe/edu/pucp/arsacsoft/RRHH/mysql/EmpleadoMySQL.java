@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.RRHH.dao.EmpleadoDAO;
 import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
-import pe.edu.pucp.arsacsoft.RRHH.model.Persona;
 import pe.edu.pucp.arsacsoft.RRHH.model.TipoDeEmpleado;
 import pe.edu.pucp.arsacsoft.config.DBManager;
 import pe.edu.pucp.arsacsoft.sedes.model.Sede;
@@ -43,7 +42,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             cs.setDouble(10, empleado.getSalario());
             cs.setString(11, empleado.getDireccion());
             cs.setBytes(12, empleado.getFoto());
-            
+
             cs.executeUpdate();
             empleado.setIdPersona(cs.getInt(1));
             resultado = empleado.getIdPersona();
@@ -83,7 +82,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             cs.setDouble(10, empleado.getSalario());
             cs.setString(11, empleado.getDireccion());
             cs.setBytes(12, empleado.getFoto());
-            
+
             cs.executeUpdate();
             resultado = 1;
         } catch (Exception ex) {
@@ -150,7 +149,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
                 emp.setFoto(rs.getBytes("foto"));
-                
+
                 emp.setActivo(true);
                 empleados.add(emp);
             }
@@ -196,7 +195,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
                 emp.setFoto(rs.getBytes("foto"));
-                
+
                 emp.setActivo(true);
                 empleados.add(emp);
             }
@@ -242,9 +241,9 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
                 emp.setFoto(rs.getBytes("foto"));
-                
+
                 emp.setActivo(true);
-                
+
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

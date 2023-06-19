@@ -57,4 +57,67 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
         }
         return resultado;
     }
+    
+        @Override
+    public CuentaUsuario buscar(int idEmpleado) {
+        CuentaUsuario cuenta = null;
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{CALL BUSCAR_CUENTA_POR_EMPLEADO(?)}");
+            cs.setInt(1, idEmpleado);
+            
+
+            rs = cs.executeQuery();
+            if (rs.next())
+            {
+                cuenta = new CuentaUsuario();
+                cuenta.setUsername(rs.getString("usuario"));
+                byte[] contrasena = rs.getBytes("contrasena");
+                
+                cs = con.prepareCall("{CALL DecryptPassword(?,?)}");
+                cs.clearParameters();
+                cs.setBytes(1, contrasena);
+                cs.registerOutParameter(2, java.sql.Types.VARCHAR);
+                
+                rs = cs.executeQuery();
+                cuenta.setPassword(cs.getString(2));
+                
+            }
+            
+            
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        } 
+        return cuenta;
+    }
+
+    @Override
+    public int actualizar(CuentaUsuario cuenta) {
+        int resultado = 0;
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{CALL ACTUALIZAR_CUENTA_USUARIO(?,?,?)}");
+            cs.setInt(1, cuenta.getIdEmpleado());
+            cs.setString(2, cuenta.getUsername());
+            cs.setString(3, cuenta.getPassword());
+            
+            cs.executeUpdate();
+            resultado = 1;
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }  
+        
+        return resultado;
+    }
+
 }

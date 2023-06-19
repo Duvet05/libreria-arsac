@@ -126,7 +126,7 @@ CREATE TABLE
         id_cuenta_usuario INT AUTO_INCREMENT,
         fid_empleado INT UNIQUE,
         usuario VARCHAR(50) NOT NULL UNIQUE,
-        contrasena VARBINARY(255) NOT NULL UNIQUE,
+        contrasena VARBINARY(255) NOT NULL,
         activo BOOLEAN NOT NULL DEFAULT 1,
         PRIMARY KEY(id_cuenta_usuario),
         FOREIGN KEY(fid_empleado) REFERENCES empleado(fid_empleado)
@@ -170,24 +170,26 @@ CREATE TABLE
 
 CREATE TABLE
     sedeXproducto (
+		id_sede_x_producto INT auto_increment,
         fid_sede INT,
         fid_producto INT,
         stock INT,
         activo boolean not null default 1,
-        PRIMARY KEY (fid_sede, fid_producto),
+        PRIMARY KEY (id_sede_x_producto),
         FOREIGN KEY (fid_sede) REFERENCES sede(id_sede),
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
 
 CREATE TABLE
     productoXproveedor(
+		id_producto_x_proveedor INT auto_increment,
         fid_producto INT,
         fid_proveedor INT,
         costo DECIMAL(10, 2),
         activo boolean not null default 1,
-        PRIMARY KEY (fid_producto, fid_proveedor),
-        FOREIGN KEY (fid_proveedor) REFERENCES proveedor(id_proveedor),
-        FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
+        PRIMARY KEY (id_producto_x_proveedor),
+        FOREIGN KEY (fid_producto) REFERENCES proveedor(id_producto),
+        FOREIGN KEY (fid_proveedor) REFERENCES producto(id_proveedor)
     ) ENGINE = InnoDB;
 
 CREATE TABLE
@@ -204,13 +206,12 @@ CREATE TABLE
 
 CREATE TABLE
     lineaOrdenDeAbastecimiento (
+		id_linea_orden_abastecimiento INT AUTO_INCREMENT,
         fid_orden_de_abastecimiento INT,
         fid_producto INT,
         cantidad INT,
-        PRIMARY KEY (
-            fid_orden_de_abastecimiento,
-            fid_producto
-        ),
+		activo BOOLEAN NOT NULL DEFAULT 1,
+        PRIMARY KEY (id_linea_orden_abastecimiento),
         FOREIGN KEY (fid_orden_de_abastecimiento) REFERENCES ordenDeAbastecimiento(id_orden_de_abastecimiento),
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
@@ -230,16 +231,14 @@ CREATE TABLE
 
 CREATE TABLE
     lineaOrdenDeVenta (
+		id_linea_orden_venta INT AUTO_INCREMENT,
         fid_orden_de_venta INT,
         fid_producto INT,
         cantidad INT,
         descuento DECIMAL(10, 2),
         subtotal DECIMAL(10, 2),
         activo BOOLEAN NOT NULL DEFAULT 1,
-        PRIMARY KEY (
-            fid_orden_de_venta,
-            fid_producto
-        ),
+        PRIMARY KEY (id_linea_orden_venta),
         FOREIGN KEY (fid_orden_de_venta) REFERENCES ordenDeVenta(id_orden_de_venta),
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
@@ -259,14 +258,14 @@ CREATE TABLE
 
 CREATE TABLE
     lineaOrdenDeCompra (
+		id_linea_orden_compra INT AUTO_INCREMENT,
         fid_orden_de_compra INT,
         fid_producto INT,
         cantidad INT,
         subtotal DECIMAL(10, 2),
-        PRIMARY KEY (
-            fid_orden_de_compra,
-            fid_producto
-        ),
+		activo BOOLEAN NOT NULL DEFAULT 1,
+        PRIMARY KEY (id_linea_orden_compra),
         FOREIGN KEY (fid_orden_de_compra) REFERENCES ordenDeCompra(id_orden_de_compra),
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) Engine = InnoDB;
+
