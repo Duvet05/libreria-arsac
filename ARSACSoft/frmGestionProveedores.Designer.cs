@@ -74,7 +74,7 @@
             this.tcAlmacen.Controls.Add(this.tpHistorialCompras);
             this.tcAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.tcAlmacen.Location = new System.Drawing.Point(9, 10);
-            this.tcAlmacen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tcAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.tcAlmacen.Name = "tcAlmacen";
             this.tcAlmacen.SelectedIndex = 0;
             this.tcAlmacen.Size = new System.Drawing.Size(697, 451);
@@ -93,9 +93,9 @@
             this.tpAdministrar.Controls.Add(this.lblGestionSedes);
             this.tpAdministrar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.tpAdministrar.Location = new System.Drawing.Point(4, 24);
-            this.tpAdministrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpAdministrar.Margin = new System.Windows.Forms.Padding(2);
             this.tpAdministrar.Name = "tpAdministrar";
-            this.tpAdministrar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpAdministrar.Padding = new System.Windows.Forms.Padding(2);
             this.tpAdministrar.Size = new System.Drawing.Size(689, 423);
             this.tpAdministrar.TabIndex = 0;
             this.tpAdministrar.Text = "Administrar";
@@ -193,9 +193,9 @@
             // txtNombreDNI
             // 
             this.txtNombreDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtNombreDNI.Location = new System.Drawing.Point(211, 67);
+            this.txtNombreDNI.Location = new System.Drawing.Point(220, 67);
             this.txtNombreDNI.Name = "txtNombreDNI";
-            this.txtNombreDNI.Size = new System.Drawing.Size(238, 21);
+            this.txtNombreDNI.Size = new System.Drawing.Size(229, 21);
             this.txtNombreDNI.TabIndex = 10;
             // 
             // cbCafeteria
@@ -294,9 +294,9 @@
             this.tpHistorialCompras.Controls.Add(this.textBox1);
             this.tpHistorialCompras.Controls.Add(this.dataGridView2);
             this.tpHistorialCompras.Location = new System.Drawing.Point(4, 24);
-            this.tpHistorialCompras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpHistorialCompras.Margin = new System.Windows.Forms.Padding(2);
             this.tpHistorialCompras.Name = "tpHistorialCompras";
-            this.tpHistorialCompras.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpHistorialCompras.Padding = new System.Windows.Forms.Padding(2);
             this.tpHistorialCompras.Size = new System.Drawing.Size(689, 423);
             this.tpHistorialCompras.TabIndex = 1;
             this.tpHistorialCompras.Text = "Historial de compras";
@@ -401,7 +401,7 @@
             this.ClientSize = new System.Drawing.Size(715, 470);
             this.Controls.Add(this.tcAlmacen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmGestionProveedores";
             this.Text = "frmGestionCompras";
             this.tcAlmacen.ResumeLayout(false);
