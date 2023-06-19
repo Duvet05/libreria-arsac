@@ -1,45 +1,3 @@
-# User-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-.vs/
-
-# User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
-
-# Tools pulled down during build
-.tools/
-.dotnet/
-.packages/
-
-# Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-
-# Visual Studio 2015/2017 cache/options directory
-.vs/
-
-# Class Files #
-*.class
-
-# NetBeans specific #
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-
 /ARSACSoft/nbproject/private/
 /ARSACSoftEmpleados/nbproject/private/
 /ARSACSoftPedidos/nbproject/private/
@@ -113,5 +71,82 @@ nb-configuration.xml
 /ARSACSoftProveedoresController/build/
 /ARSACSoftProveedoresController/dist/
 /ARSACSoftOrdenesController/nbproject/private/
-.vs/Interfaces/v17/.suo
-*.exe
+
+
+# Java
+# Compiled class file
+*.class
+
+# Package Files #
+*.war
+*.ear
+
+# Maven specific
+target/
+
+# Eclipse specific
+.classpath
+.project
+.settings/
+
+# IntelliJ specific
+.idea/
+*.iml
+*.iws
+out/
+
+# C#
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio specific
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# MonoDevelop specific
+*.userprefs
+
+# NuGet
+packages/
+
+# Xamarin Studio specific
+*.userprefs
+*.pidb
+*.iOSDesigner.cs
+*.iOSDesigner.csproj
+*.mdb
+
+# Unity3D specific
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/Assets/AssetStoreTools*
+
+# Miscellaneous
+/.idea/
+*.swp
+*~
+*.tmp
+*.bak
+*.cache
+*.log
+*.DS_Store
+*.tmp
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+UserInterfaceState.xcuserstate
