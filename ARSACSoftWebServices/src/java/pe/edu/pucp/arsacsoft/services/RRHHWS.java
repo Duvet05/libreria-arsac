@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.services;
 
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
+import javax.xml.ws.WebServiceException;
 import pe.edu.pucp.arsacsoft.RRHH.dao.ClienteMayoristaDAO;
 import pe.edu.pucp.arsacsoft.RRHH.dao.CuentaUsuarioDAO;
 import pe.edu.pucp.arsacsoft.RRHH.dao.EmpleadoDAO;
@@ -22,10 +18,6 @@ import pe.edu.pucp.arsacsoft.RRHH.mysql.CuentaUsuarioMySQL;
 import pe.edu.pucp.arsacsoft.RRHH.mysql.EmpleadoMySQL;
 import pe.edu.pucp.arsacsoft.RRHH.mysql.TipoDeEmpleadoMySQL;
 
-/**
- *
- * @author Gino
- */
 @WebService(serviceName = "RRHHWS")
 public class RRHHWS {
 
@@ -101,7 +93,6 @@ public class RRHHWS {
         return daoCliente.eliminar(idClienteMayorista);
     }
 
-    /**/
     @WebMethod(operationName = "verificarCuenta")
     public int verificarCuenta(CuentaUsuario cuentaUsuario) {
         int resultado = 0;
@@ -137,11 +128,22 @@ public class RRHHWS {
 
     @WebMethod(operationName = "actualizarCuenta")
     public int actualizarCuenta(CuentaUsuario cuentaUsuario) {
-        return daoCuentaUsuario.actualizar(cuentaUsuario);
+        try {
+            return daoCuentaUsuario.actualizar(cuentaUsuario);
+        } catch (Exception ex) {
+            System.out.println("Error al actualizar la cuenta de usuario: " + ex.getMessage());
+            throw new WebServiceException("Error al actualizar la cuenta de usuario", ex);
+        }
     }
 
     @WebMethod(operationName = "buscarCuenta")
     public CuentaUsuario buscarCuenta(int idEmpleado) {
-        return daoCuentaUsuario.buscar(idEmpleado);
+        try {
+            return daoCuentaUsuario.buscar(idEmpleado);
+        } catch (Exception ex) {
+            System.out.println("Error al buscar la cuenta de usuario: " + ex.getMessage());
+            throw new WebServiceException("Error al buscar la cuenta de usuario", ex);
+        }
     }
+
 }
