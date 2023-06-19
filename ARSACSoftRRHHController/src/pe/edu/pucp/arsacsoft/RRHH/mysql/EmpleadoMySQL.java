@@ -42,7 +42,8 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             cs.setDate(9, new java.sql.Date(empleado.getFechaContratacion().getTime()));
             cs.setDouble(10, empleado.getSalario());
             cs.setString(11, empleado.getDireccion());
-            cs.setBytes("_foto",empleado.getFoto());
+            cs.setBytes(12, empleado.getFoto());
+            
             cs.executeUpdate();
             empleado.setIdPersona(cs.getInt(1));
             resultado = empleado.getIdPersona();
@@ -68,7 +69,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call MODIFICAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{call ACTUALIZAR_EMPLEADO(?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setInt(1, empleado.getIdPersona());
             cs.setString(2, empleado.getDNI());
             cs.setString(3, empleado.getNombre());
@@ -81,7 +82,8 @@ public class EmpleadoMySQL implements EmpleadoDAO {
             cs.setDate(9, new java.sql.Date(empleado.getFechaContratacion().getTime()));
             cs.setDouble(10, empleado.getSalario());
             cs.setString(11, empleado.getDireccion());
-
+            cs.setBytes(12, empleado.getFoto());
+            
             cs.executeUpdate();
             resultado = 1;
         } catch (Exception ex) {
@@ -102,7 +104,7 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ELIMINAR_EMPLEADO(?)}");
-            cs.setInt("_id_empleado", idEmpleado);
+            cs.setInt(1, idEmpleado);
             cs.executeUpdate();
             resultado = 1;
         } catch (Exception ex) {
@@ -147,7 +149,8 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.setTipo(new TipoDeEmpleado());
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
-
+                emp.setFoto(rs.getBytes("foto"));
+                
                 emp.setActivo(true);
                 empleados.add(emp);
             }
@@ -192,7 +195,6 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.setTipo(new TipoDeEmpleado());
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
-                
                 emp.setFoto(rs.getBytes("foto"));
                 
                 emp.setActivo(true);
@@ -212,13 +214,15 @@ public class EmpleadoMySQL implements EmpleadoDAO {
 
     @Override
     public Empleado buscarPorID(int idEmpleado) {
-        Empleado emp = new Empleado();
+        Empleado emp = null;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call BUSCAR_EMPLEADO_ID(?)}");
-            cs.setInt("_idEmpleado", idEmpleado);
+            cs = con.prepareCall("{call BUSCAR_EMPLEADO_POR_ID(?)}");
+            cs.setInt(1, idEmpleado);
             rs = cs.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
+                emp = new Empleado();
+
                 emp.setIdPersona(rs.getInt("fid_empleado"));
                 emp.setNombre(rs.getString("nombre"));
                 emp.setApellidos(rs.getString("apellidos"));
@@ -237,16 +241,19 @@ public class EmpleadoMySQL implements EmpleadoDAO {
                 emp.setTipo(new TipoDeEmpleado());
                 emp.getTipo().setIdTipoDeEmpleado(rs.getInt("id_tipo_empleado"));
                 emp.getTipo().setDescripcion(rs.getString("tipo_empleado"));
-                
-                if(rs.getBytes("foto") != null)
-                    emp.setFoto(rs.getBytes("foto"));
+                emp.setFoto(rs.getBytes("foto"));
                 
                 emp.setActivo(true);
+                
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
+        } finally {
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         }
         return emp;
     }

@@ -21,7 +21,6 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
                     + "(?,?)}");
             cs.setString(1, cuenta.getUsername());
             cs.setString(2, cuenta.getPassword());
-            System.out.println(cuenta.getUsername());
             rs = cs.executeQuery();
             while(rs.next()){
                 
