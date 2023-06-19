@@ -114,6 +114,7 @@ bld/
 *.user
 *.userosscache
 *.sln.docstates
+obj/
 
 # MonoDevelop specific
 *.userprefs
@@ -150,3 +151,4 @@ packages/
 *.sublime-workspace
 Thumbs.db
 UserInterfaceState.xcuserstate
+ARSACSoft/obj/Debug/ARSACSoft.csproj.FileListAbsolute.txt
