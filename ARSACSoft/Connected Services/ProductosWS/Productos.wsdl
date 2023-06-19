@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Productos" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ARSACSoftWebServices/Productos?xsd=1" namespace="http://services.arsacsoft.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
+  <portType name="ProductosWS">
+    <operation name="hello">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/helloResponse" message="tns:helloResponse" />
+    </operation>
+  </portType>
+  <binding name="ProductosWSPortBinding" type="tns:ProductosWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="hello">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Productos">
+    <port name="ProductosWSPort" binding="tns:ProductosWSPortBinding">
+      <soap:address location="http://localhost:8080/ARSACSoftWebServices/Productos" />
+    </port>
+  </service>
+</definitions>

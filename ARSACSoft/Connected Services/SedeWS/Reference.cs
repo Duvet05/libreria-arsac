@@ -8,48 +8,48 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARSACSoft.SedesWS {
+namespace ARSACSoft.SedeWS {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="SedesWS.SedesWS")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="SedeWS.SedesWS")]
     public interface SedesWS {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.SedesWS.eliminarSedeResponse eliminarSede(ARSACSoft.SedesWS.eliminarSedeRequest request);
+        ARSACSoft.SedeWS.eliminarSedeResponse eliminarSede(ARSACSoft.SedeWS.eliminarSedeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.eliminarSedeResponse> eliminarSedeAsync(ARSACSoft.SedesWS.eliminarSedeRequest request);
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.eliminarSedeResponse> eliminarSedeAsync(ARSACSoft.SedeWS.eliminarSedeRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.SedesWS.insertarSedeResponse insertarSede(ARSACSoft.SedesWS.insertarSedeRequest request);
+        ARSACSoft.SedeWS.insertarSedeResponse insertarSede(ARSACSoft.SedeWS.insertarSedeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedesWS.insertarSedeRequest request);
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedeWS.insertarSedeRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.SedesWS.listarSedesResponse listarSedes(ARSACSoft.SedesWS.listarSedesRequest request);
+        ARSACSoft.SedeWS.listarSedesResponse listarSedes(ARSACSoft.SedeWS.listarSedesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.listarSedesResponse> listarSedesAsync(ARSACSoft.SedesWS.listarSedesRequest request);
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarSedesResponse> listarSedesAsync(ARSACSoft.SedeWS.listarSedesRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/modificarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/modificarSedeResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.SedesWS.modificarSedeResponse modificarSede(ARSACSoft.SedesWS.modificarSedeRequest request);
+        ARSACSoft.SedeWS.modificarSedeResponse modificarSede(ARSACSoft.SedeWS.modificarSedeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/modificarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/modificarSedeResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.modificarSedeResponse> modificarSedeAsync(ARSACSoft.SedesWS.modificarSedeRequest request);
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.modificarSedeResponse> modificarSedeAsync(ARSACSoft.SedeWS.modificarSedeRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -592,12 +592,12 @@ namespace ARSACSoft.SedesWS {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.SedesWS.sede arg0;
+        public ARSACSoft.SedeWS.sede arg0;
         
         public insertarSedeRequest() {
         }
         
-        public insertarSedeRequest(ARSACSoft.SedesWS.sede arg0) {
+        public insertarSedeRequest(ARSACSoft.SedeWS.sede arg0) {
             this.arg0 = arg0;
         }
     }
@@ -638,12 +638,12 @@ namespace ARSACSoft.SedesWS {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.SedesWS.sede[] @return;
+        public ARSACSoft.SedeWS.sede[] @return;
         
         public listarSedesResponse() {
         }
         
-        public listarSedesResponse(ARSACSoft.SedesWS.sede[] @return) {
+        public listarSedesResponse(ARSACSoft.SedeWS.sede[] @return) {
             this.@return = @return;
         }
     }
@@ -656,12 +656,12 @@ namespace ARSACSoft.SedesWS {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.SedesWS.sede arg0;
+        public ARSACSoft.SedeWS.sede arg0;
         
         public modificarSedeRequest() {
         }
         
-        public modificarSedeRequest(ARSACSoft.SedesWS.sede arg0) {
+        public modificarSedeRequest(ARSACSoft.SedeWS.sede arg0) {
             this.arg0 = arg0;
         }
     }
@@ -685,12 +685,12 @@ namespace ARSACSoft.SedesWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface SedesWSChannel : ARSACSoft.SedesWS.SedesWS, System.ServiceModel.IClientChannel {
+    public interface SedesWSChannel : ARSACSoft.SedeWS.SedesWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SedesWSClient : System.ServiceModel.ClientBase<ARSACSoft.SedesWS.SedesWS>, ARSACSoft.SedesWS.SedesWS {
+    public partial class SedesWSClient : System.ServiceModel.ClientBase<ARSACSoft.SedeWS.SedesWS>, ARSACSoft.SedeWS.SedesWS {
         
         public SedesWSClient() {
         }
@@ -712,93 +712,93 @@ namespace ARSACSoft.SedesWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.SedesWS.eliminarSedeResponse ARSACSoft.SedesWS.SedesWS.eliminarSede(ARSACSoft.SedesWS.eliminarSedeRequest request) {
+        ARSACSoft.SedeWS.eliminarSedeResponse ARSACSoft.SedeWS.SedesWS.eliminarSede(ARSACSoft.SedeWS.eliminarSedeRequest request) {
             return base.Channel.eliminarSede(request);
         }
         
         public int eliminarSede(int arg0) {
-            ARSACSoft.SedesWS.eliminarSedeRequest inValue = new ARSACSoft.SedesWS.eliminarSedeRequest();
+            ARSACSoft.SedeWS.eliminarSedeRequest inValue = new ARSACSoft.SedeWS.eliminarSedeRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.SedesWS.eliminarSedeResponse retVal = ((ARSACSoft.SedesWS.SedesWS)(this)).eliminarSede(inValue);
+            ARSACSoft.SedeWS.eliminarSedeResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).eliminarSede(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.eliminarSedeResponse> ARSACSoft.SedesWS.SedesWS.eliminarSedeAsync(ARSACSoft.SedesWS.eliminarSedeRequest request) {
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.eliminarSedeResponse> ARSACSoft.SedeWS.SedesWS.eliminarSedeAsync(ARSACSoft.SedeWS.eliminarSedeRequest request) {
             return base.Channel.eliminarSedeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.SedesWS.eliminarSedeResponse> eliminarSedeAsync(int arg0) {
-            ARSACSoft.SedesWS.eliminarSedeRequest inValue = new ARSACSoft.SedesWS.eliminarSedeRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.eliminarSedeResponse> eliminarSedeAsync(int arg0) {
+            ARSACSoft.SedeWS.eliminarSedeRequest inValue = new ARSACSoft.SedeWS.eliminarSedeRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.SedesWS.SedesWS)(this)).eliminarSedeAsync(inValue);
+            return ((ARSACSoft.SedeWS.SedesWS)(this)).eliminarSedeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.SedesWS.insertarSedeResponse ARSACSoft.SedesWS.SedesWS.insertarSede(ARSACSoft.SedesWS.insertarSedeRequest request) {
+        ARSACSoft.SedeWS.insertarSedeResponse ARSACSoft.SedeWS.SedesWS.insertarSede(ARSACSoft.SedeWS.insertarSedeRequest request) {
             return base.Channel.insertarSede(request);
         }
         
-        public int insertarSede(ARSACSoft.SedesWS.sede arg0) {
-            ARSACSoft.SedesWS.insertarSedeRequest inValue = new ARSACSoft.SedesWS.insertarSedeRequest();
+        public int insertarSede(ARSACSoft.SedeWS.sede arg0) {
+            ARSACSoft.SedeWS.insertarSedeRequest inValue = new ARSACSoft.SedeWS.insertarSedeRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.SedesWS.insertarSedeResponse retVal = ((ARSACSoft.SedesWS.SedesWS)(this)).insertarSede(inValue);
+            ARSACSoft.SedeWS.insertarSedeResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).insertarSede(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.insertarSedeResponse> ARSACSoft.SedesWS.SedesWS.insertarSedeAsync(ARSACSoft.SedesWS.insertarSedeRequest request) {
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> ARSACSoft.SedeWS.SedesWS.insertarSedeAsync(ARSACSoft.SedeWS.insertarSedeRequest request) {
             return base.Channel.insertarSedeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.SedesWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedesWS.sede arg0) {
-            ARSACSoft.SedesWS.insertarSedeRequest inValue = new ARSACSoft.SedesWS.insertarSedeRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedeWS.sede arg0) {
+            ARSACSoft.SedeWS.insertarSedeRequest inValue = new ARSACSoft.SedeWS.insertarSedeRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.SedesWS.SedesWS)(this)).insertarSedeAsync(inValue);
+            return ((ARSACSoft.SedeWS.SedesWS)(this)).insertarSedeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.SedesWS.listarSedesResponse ARSACSoft.SedesWS.SedesWS.listarSedes(ARSACSoft.SedesWS.listarSedesRequest request) {
+        ARSACSoft.SedeWS.listarSedesResponse ARSACSoft.SedeWS.SedesWS.listarSedes(ARSACSoft.SedeWS.listarSedesRequest request) {
             return base.Channel.listarSedes(request);
         }
         
-        public ARSACSoft.SedesWS.sede[] listarSedes() {
-            ARSACSoft.SedesWS.listarSedesRequest inValue = new ARSACSoft.SedesWS.listarSedesRequest();
-            ARSACSoft.SedesWS.listarSedesResponse retVal = ((ARSACSoft.SedesWS.SedesWS)(this)).listarSedes(inValue);
+        public ARSACSoft.SedeWS.sede[] listarSedes() {
+            ARSACSoft.SedeWS.listarSedesRequest inValue = new ARSACSoft.SedeWS.listarSedesRequest();
+            ARSACSoft.SedeWS.listarSedesResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).listarSedes(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.listarSedesResponse> ARSACSoft.SedesWS.SedesWS.listarSedesAsync(ARSACSoft.SedesWS.listarSedesRequest request) {
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarSedesResponse> ARSACSoft.SedeWS.SedesWS.listarSedesAsync(ARSACSoft.SedeWS.listarSedesRequest request) {
             return base.Channel.listarSedesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.SedesWS.listarSedesResponse> listarSedesAsync() {
-            ARSACSoft.SedesWS.listarSedesRequest inValue = new ARSACSoft.SedesWS.listarSedesRequest();
-            return ((ARSACSoft.SedesWS.SedesWS)(this)).listarSedesAsync(inValue);
+        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarSedesResponse> listarSedesAsync() {
+            ARSACSoft.SedeWS.listarSedesRequest inValue = new ARSACSoft.SedeWS.listarSedesRequest();
+            return ((ARSACSoft.SedeWS.SedesWS)(this)).listarSedesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.SedesWS.modificarSedeResponse ARSACSoft.SedesWS.SedesWS.modificarSede(ARSACSoft.SedesWS.modificarSedeRequest request) {
+        ARSACSoft.SedeWS.modificarSedeResponse ARSACSoft.SedeWS.SedesWS.modificarSede(ARSACSoft.SedeWS.modificarSedeRequest request) {
             return base.Channel.modificarSede(request);
         }
         
-        public int modificarSede(ARSACSoft.SedesWS.sede arg0) {
-            ARSACSoft.SedesWS.modificarSedeRequest inValue = new ARSACSoft.SedesWS.modificarSedeRequest();
+        public int modificarSede(ARSACSoft.SedeWS.sede arg0) {
+            ARSACSoft.SedeWS.modificarSedeRequest inValue = new ARSACSoft.SedeWS.modificarSedeRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.SedesWS.modificarSedeResponse retVal = ((ARSACSoft.SedesWS.SedesWS)(this)).modificarSede(inValue);
+            ARSACSoft.SedeWS.modificarSedeResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).modificarSede(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.SedesWS.modificarSedeResponse> ARSACSoft.SedesWS.SedesWS.modificarSedeAsync(ARSACSoft.SedesWS.modificarSedeRequest request) {
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.modificarSedeResponse> ARSACSoft.SedeWS.SedesWS.modificarSedeAsync(ARSACSoft.SedeWS.modificarSedeRequest request) {
             return base.Channel.modificarSedeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.SedesWS.modificarSedeResponse> modificarSedeAsync(ARSACSoft.SedesWS.sede arg0) {
-            ARSACSoft.SedesWS.modificarSedeRequest inValue = new ARSACSoft.SedesWS.modificarSedeRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.modificarSedeResponse> modificarSedeAsync(ARSACSoft.SedeWS.sede arg0) {
+            ARSACSoft.SedeWS.modificarSedeRequest inValue = new ARSACSoft.SedeWS.modificarSedeRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.SedesWS.SedesWS)(this)).modificarSedeAsync(inValue);
+            return ((ARSACSoft.SedeWS.SedesWS)(this)).modificarSedeAsync(inValue);
         }
     }
 }
