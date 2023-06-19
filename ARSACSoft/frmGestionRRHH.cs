@@ -3,6 +3,14 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using static GMap.NET.Entity.OpenStreetMapGraphHopperGeocodeEntity;
+using static GMap.NET.Entity.OpenStreetMapRouteEntity;
+using System.Linq;
 
 namespace ARSACSoft
 {
@@ -21,7 +29,63 @@ namespace ARSACSoft
             InitializeComponent();
             ConfigureForm();
             InitializeServiceClient();
+
+            GMapProviders.GoogleMap.ApiKey = "AIzaSyBgyKAoWNGBGh8QkqYaxlsiale87i-sstI";
+            gMapControl1.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;
+            gMapControl1.DragButton = MouseButtons.Left;
+            gMapControl1.CanDragMap = true;
+            gMapControl1.Position = new GMap.NET.PointLatLng(-23.973875, -46.391510); // Puedes ajustar estas coordenadas a la ubicación que deseas mostrar inicialmente
+            gMapControl1.MinZoom = 0;
+            gMapControl1.MaxZoom = 24;
+            gMapControl1.Zoom = 9;
+            gMapControl1.AutoScroll = true;
+            gMapControl1.ShowCenter = true; // Muestra el control de centrado
         }
+
+        private async Task<string> GetAddressAsync(double lat, double lng)
+        {
+            string apiKey = "AIzaSyBgyKAoWNGBGh8QkqYaxlsiale87i-sstI";
+            string requestUrl = $"https://maps.googleapis.com/maps/api/geocode/json?latlng={lat},{lng}&key={apiKey}";
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(requestUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    JObject jsonResult = JObject.Parse(content);
+                    if (jsonResult["results"].Count() > 0)
+                    {
+                        string address = jsonResult["results"][0]["formatted_address"].ToString();
+                        return address;
+                    }
+                }
+                else
+                {
+                    // Manejar el caso de respuesta no exitosa
+                    // ...
+                }
+            }
+
+            return null;
+        }
+
+        private async void gMapControl1_OnMapClick(GMap.NET.PointLatLng point, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                string address = await GetAddressAsync(point.Lat, point.Lng);
+                // Hacer algo con la dirección...
+                textBox1.Text = address;
+            }
+        }
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            GMap.NET.PointLatLng point = gMapControl1.Position;
+            string address = await GetAddressAsync(point.Lat, point.Lng);
+            textBox1.Text = address;
+        }
+
 
         private void ConfigureForm()
         {
@@ -510,6 +574,7 @@ namespace ARSACSoft
         {
             txtContrasena.UseSystemPasswordChar = !checkBox1.Checked;
         }
+
 
     }
 }

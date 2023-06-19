@@ -38,6 +38,9 @@
             this.btnEliminarCliente = new System.Windows.Forms.ToolStripButton();
             this.btnCancelarCliente = new System.Windows.Forms.ToolStripButton();
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
             this.txtTelefonoCliente = new System.Windows.Forms.TextBox();
@@ -211,6 +214,9 @@
             // gbDatosCliente
             // 
             this.gbDatosCliente.BackColor = System.Drawing.Color.White;
+            this.gbDatosCliente.Controls.Add(this.button1);
+            this.gbDatosCliente.Controls.Add(this.textBox1);
+            this.gbDatosCliente.Controls.Add(this.gMapControl1);
             this.gbDatosCliente.Controls.Add(this.txtRazonSocial);
             this.gbDatosCliente.Controls.Add(this.txtRUC);
             this.gbDatosCliente.Controls.Add(this.txtTelefonoCliente);
@@ -234,6 +240,52 @@
             this.gbDatosCliente.TabIndex = 15;
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Datos del Cliente";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(372, 246);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Seleccionar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(469, 247);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(128, 21);
+            this.textBox1.TabIndex = 23;
+            // 
+            // gMapControl1
+            // 
+            this.gMapControl1.Bearing = 0F;
+            this.gMapControl1.CanDragMap = true;
+            this.gMapControl1.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapControl1.GrayScaleMode = false;
+            this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapControl1.LevelsKeepInMemory = 5;
+            this.gMapControl1.Location = new System.Drawing.Point(372, 46);
+            this.gMapControl1.MarkersEnabled = true;
+            this.gMapControl1.MaxZoom = 2;
+            this.gMapControl1.MinZoom = 2;
+            this.gMapControl1.MouseWheelZoomEnabled = true;
+            this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapControl1.Name = "gMapControl1";
+            this.gMapControl1.NegativeMode = false;
+            this.gMapControl1.PolygonsEnabled = true;
+            this.gMapControl1.RetryLoadTile = 0;
+            this.gMapControl1.RoutesEnabled = true;
+            this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapControl1.ShowTileGridLines = false;
+            this.gMapControl1.Size = new System.Drawing.Size(225, 194);
+            this.gMapControl1.TabIndex = 22;
+            this.gMapControl1.Zoom = 0D;
+            this.gMapControl1.OnMapClick += new GMap.NET.WindowsForms.MapClick(this.gMapControl1_OnMapClick);
             // 
             // txtRazonSocial
             // 
@@ -991,5 +1043,8 @@
         private System.Windows.Forms.TextBox txtIDCliente;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private System.Windows.Forms.Button button1;
     }
 }
