@@ -7,6 +7,9 @@
     <service name="SedesWS">
       <implementation-class>pe.edu.pucp.arsacsoft.services.SedesWS</implementation-class>
     </service>
+    <service name="AlmacenWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.AlmacenWS</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
