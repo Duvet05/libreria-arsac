@@ -687,7 +687,15 @@
             this.txtSalario.Location = new System.Drawing.Point(130, 241);
             this.txtSalario.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtSalario.Name = "txtSalario";
+<<<<<<< Updated upstream
             this.txtSalario.Size = new System.Drawing.Size(76, 21);
+=======
+
+            this.txtSalario.Size = new System.Drawing.Size(229, 24);
+
+            this.txtSalario.Size = new System.Drawing.Size(154, 21);
+
+>>>>>>> Stashed changes
             this.txtSalario.TabIndex = 7;
             this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
             // 
