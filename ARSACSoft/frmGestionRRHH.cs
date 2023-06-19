@@ -81,16 +81,15 @@ namespace ARSACSoft
             {
                 string address = await GetAddressAsync(point.Lat, point.Lng);
                 // Hacer algo con la dirección...
-                textBox1.Text = address;
+                textDireccion.Text = address;
             }
         }
         private async void button1_Click(object sender, EventArgs e)
         {
             GMap.NET.PointLatLng point = gMapControl1.Position;
             string address = await GetAddressAsync(point.Lat, point.Lng);
-            textBox1.Text = address;
+            textDireccion.Text = address;
         }
-
 
         private void ConfigureForm()
         {
@@ -133,7 +132,7 @@ namespace ARSACSoft
                     txtCorreoEmpleado.Enabled = false;
                     txtSalario.Enabled = false;
                     txtDireccion.Enabled = false;
-
+                    txtContrasena.Enabled = false;
                     txtUsuario.Enabled = false;
                     btnBuscarSede.Enabled = false;
 
@@ -146,7 +145,7 @@ namespace ARSACSoft
                     btnModificarEmpleado.Enabled = false;
                     btnEliminarEmpleado.Enabled = false;
                     btnCancelarEmpleado.Enabled = true;
-
+                    txtContrasena.Enabled = true;
                     txtIDEmpleado.Enabled = true;
                     txtDNIEmpleado.Enabled = true;
                     txtNombreEmpleado.Enabled = true;
@@ -199,7 +198,8 @@ namespace ARSACSoft
                     btnModificarCliente.Enabled = false;
                     btnEliminarCliente.Enabled = false;
                     btnGuardarCliente.Enabled = false;
-
+                    gMapControl1.Enabled = false;
+                    botonUbicacion.Enabled = false;
                     txtIDCliente.Enabled = false;
                     txtDNICliente.Enabled = false;
                     txtNombreCliente.Enabled = false;
@@ -208,6 +208,7 @@ namespace ARSACSoft
                     txtCorreoCliente.Enabled = false;
                     txtRUC.Enabled = false;
                     txtRazonSocial.Enabled = false;
+                    textDireccion.Enabled = false;
 
                     break;
                 case Estado.Nuevo:
@@ -219,7 +220,8 @@ namespace ARSACSoft
                     btnEliminarCliente.Enabled = false;
                     btnCancelarCliente.Enabled = true;
                     btnGuardarCliente.Enabled = true;
-
+                    gMapControl1.Enabled = true;
+                    botonUbicacion.Enabled = true;
                     txtIDCliente.Enabled = true;
                     txtDNICliente.Enabled = true;
                     txtNombreCliente.Enabled = true;
@@ -228,7 +230,7 @@ namespace ARSACSoft
                     txtCorreoCliente.Enabled = true;
                     txtRUC.Enabled = true;
                     txtRazonSocial.Enabled = true;
-
+                    textDireccion.Enabled = true;
                     break;
                 case Estado.Buscar:
                     btnNuevoCliente.Enabled = false;

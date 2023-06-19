@@ -38,8 +38,8 @@
             this.btnEliminarCliente = new System.Windows.Forms.ToolStripButton();
             this.btnCancelarCliente = new System.Windows.Forms.ToolStripButton();
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.botonUbicacion = new System.Windows.Forms.Button();
+            this.textDireccion = new System.Windows.Forms.TextBox();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
@@ -214,8 +214,8 @@
             // gbDatosCliente
             // 
             this.gbDatosCliente.BackColor = System.Drawing.Color.White;
-            this.gbDatosCliente.Controls.Add(this.button1);
-            this.gbDatosCliente.Controls.Add(this.textBox1);
+            this.gbDatosCliente.Controls.Add(this.botonUbicacion);
+            this.gbDatosCliente.Controls.Add(this.textDireccion);
             this.gbDatosCliente.Controls.Add(this.gMapControl1);
             this.gbDatosCliente.Controls.Add(this.txtRazonSocial);
             this.gbDatosCliente.Controls.Add(this.txtRUC);
@@ -241,24 +241,24 @@
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Datos del Cliente";
             // 
-            // button1
+            // botonUbicacion
             // 
-            this.button1.Location = new System.Drawing.Point(372, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.botonUbicacion.Location = new System.Drawing.Point(372, 246);
+            this.botonUbicacion.Name = "botonUbicacion";
+            this.botonUbicacion.Size = new System.Drawing.Size(92, 23);
+            this.botonUbicacion.TabIndex = 24;
+            this.botonUbicacion.Text = "Seleccionar";
+            this.botonUbicacion.UseVisualStyleBackColor = true;
+            this.botonUbicacion.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textDireccion
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(469, 247);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 21);
-            this.textBox1.TabIndex = 23;
+            this.textDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDireccion.Location = new System.Drawing.Point(469, 247);
+            this.textDireccion.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.textDireccion.Name = "textDireccion";
+            this.textDireccion.Size = new System.Drawing.Size(128, 21);
+            this.textDireccion.TabIndex = 23;
             // 
             // gMapControl1
             // 
@@ -1043,8 +1043,8 @@
         private System.Windows.Forms.TextBox txtIDCliente;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textDireccion;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button botonUbicacion;
     }
 }
