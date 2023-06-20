@@ -146,6 +146,7 @@ namespace ARSACSoft
             cboCategoria.SelectedIndex = -1;
             txtPrecioXMayor.Text = "";
             txtPrecioXMenor.Text = "";
+            pbFoto.Image = null;
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)

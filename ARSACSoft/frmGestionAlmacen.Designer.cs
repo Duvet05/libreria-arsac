@@ -257,6 +257,7 @@
             this.txtPrecioXMayor.Name = "txtPrecioXMayor";
             this.txtPrecioXMayor.Size = new System.Drawing.Size(264, 30);
             this.txtPrecioXMayor.TabIndex = 49;
+            this.txtPrecioXMayor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -276,6 +277,7 @@
             this.txtPrecioXMenor.Name = "txtPrecioXMenor";
             this.txtPrecioXMenor.Size = new System.Drawing.Size(264, 30);
             this.txtPrecioXMenor.TabIndex = 47;
+            this.txtPrecioXMenor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblDireccion
             // 
@@ -341,6 +343,7 @@
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(371, 30);
             this.txtNombreProducto.TabIndex = 25;
+            this.txtNombreProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtIDProducto
             // 
@@ -350,7 +353,7 @@
             this.txtIDProducto.ReadOnly = true;
             this.txtIDProducto.Size = new System.Drawing.Size(92, 30);
             this.txtIDProducto.TabIndex = 23;
-            this.txtIDProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIDProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // pbFoto
             // 
