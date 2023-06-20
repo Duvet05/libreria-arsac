@@ -1,3 +1,4 @@
+@@ -1,260 +0,0 @@
 
 INSERT INTO parametros (nombre_empresa, ruc, direccion, telefono, email)
 VALUES ('ARSAC S.A.', '12345678901', 'Av. Los Girasoles 789, Miraflores, Lima', '923456789', 'ARSAC_SA@gmail.com');
