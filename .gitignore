@@ -118,7 +118,6 @@ obj/
 
 # MonoDevelop specific
 *.userprefs
-
 # NuGet
 packages/
 
