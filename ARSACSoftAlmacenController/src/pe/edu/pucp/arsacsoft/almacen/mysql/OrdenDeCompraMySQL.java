@@ -12,7 +12,6 @@ import pe.edu.pucp.arsacsoft.almacen.dao.OrdenDeCompraDAO;
 import pe.edu.pucp.arsacsoft.almacen.model.OrdenDeCompra;
 import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
 import pe.edu.pucp.arsacsoft.almacen.model.LineaOrdenDeCompra;
-import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
 import pe.edu.pucp.arsacsoft.config.DBManager;
 
 /**
