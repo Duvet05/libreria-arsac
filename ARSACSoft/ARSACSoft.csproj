@@ -54,7 +54,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -86,11 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connected Services\ProductosWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ProveedoresWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -258,13 +255,6 @@
     </None>
     <None Include="Connected Services\ProductosWS\Productos.wsdl" />
     <None Include="Connected Services\ProductosWS\Productos.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.helloResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ProveedoresWS\ProveedoresWebService.wsdl" />
-    <None Include="Connected Services\ProveedoresWS\ProveedoresWebService.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.actualizarCuentaResponse.datasource">
@@ -468,7 +458,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ProductosWS\" />
-    <WCFMetadataStorage Include="Connected Services\ProveedoresWS\" />
     <WCFMetadataStorage Include="Connected Services\RRHHWS\" />
     <WCFMetadataStorage Include="Connected Services\SedeWS\" />
   </ItemGroup>
@@ -501,18 +490,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Upload.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ProveedoresWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ProveedoresWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ProveedoresWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProductosWS\configuration91.svcinfo" />
