@@ -62,4 +62,15 @@ public class ProductosWS {
         }
         return resultado;
     }
+    
+    @WebMethod(operationName = "listarProductosXNombre")
+    public ArrayList<Producto> listarProductosXNombre(String nombre) {
+        ArrayList<Producto> productos = null;
+        try {
+            productos = daoProducto.listarxnombre(nombre);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return productos;
+    }
 }

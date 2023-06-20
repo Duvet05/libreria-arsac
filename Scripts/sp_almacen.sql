@@ -26,6 +26,8 @@ begin
     where activo = 1;
 end $
 
+
+delimiter $
 CREATE PROCEDURE INSERTAR_PRODUCTO(
 	OUT _id_producto INT,
     IN _fid_categoria INT,
@@ -71,13 +73,13 @@ CREATE PROCEDURE LISTAR_PRODUCTO_POR_NOMBRE(
 )
 BEGIN
 	SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, m.id_marca , m.descripcion AS nombre_marca,
-	p.precio_por_mayor,p.precio_por_menor
+	p.precio_por_mayor,p.precio
 	FROM producto p
 	INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
 	INNER JOIN marca m ON p.fid_marca = m.id_marca
 	WHERE p.activo = 1 AND 
     nombre LIKE CONCAT('%',_nombre,'%');
-END$
+END
 -- ORDEN DE COMPRA
 DELIMITER $
 CREATE PROCEDURE INSERTAR_ORDEN_COMPRA(

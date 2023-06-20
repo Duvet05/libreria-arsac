@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.productos.dao.ProductoDAO;
 import pe.edu.pucp.arsacsoft.config.DBManager;
 import pe.edu.pucp.arsacsoft.producto.model.Categoria;
+import pe.edu.pucp.arsacsoft.producto.model.Marca;
 import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
 /**
@@ -37,6 +38,9 @@ public class ProductoMySQL implements ProductoDAO{
                 producto.setCategoria(new Categoria());
                 producto.getCategoria().setIdCategoria(rs.getInt("id_categoria"));
                 producto.getCategoria().setDescripcion(rs.getString("nombre_categoria"));
+                producto.setMarca(new Marca());
+                producto.getMarca().setIdMarca(rs.getInt("id_marca"));
+                producto.getMarca().setDescripcion(rs.getString("nombre_marca"));
                 producto.setNombre(rs.getString("nombre"));
                 producto.setPrecioPorMayor(rs.getDouble("precio_por_mayor"));
                 producto.setPrecioPorMenor(rs.getDouble("precio"));

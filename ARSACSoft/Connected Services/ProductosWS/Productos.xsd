@@ -6,6 +6,8 @@
   <xs:element name="listarCategoriasTodasResponse" type="tns:listarCategoriasTodasResponse" />
   <xs:element name="listarMarcaTodas" type="tns:listarMarcaTodas" />
   <xs:element name="listarMarcaTodasResponse" type="tns:listarMarcaTodasResponse" />
+  <xs:element name="listarProductosXNombre" type="tns:listarProductosXNombre" />
+  <xs:element name="listarProductosXNombreResponse" type="tns:listarProductosXNombreResponse" />
   <xs:complexType name="listarMarcaTodas">
     <xs:sequence />
   </xs:complexType>
@@ -21,24 +23,14 @@
       <xs:element name="idMarca" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarCategoriasTodas">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarCategoriasTodasResponse">
+  <xs:complexType name="listarProductosXNombre">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:categoria" />
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="categoria">
+  <xs:complexType name="listarProductosXNombreResponse">
     <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
-      <xs:element name="idCategoria" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarProducto">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:producto" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="producto">
@@ -54,6 +46,13 @@
       <xs:element minOccurs="0" name="promocion" type="tns:promocion" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="categoria">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="idCategoria" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="promocion">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
@@ -63,6 +62,19 @@
       <xs:element name="idPromocion" type="xs:int" />
       <xs:element name="porcentaje" type="xs:double" />
       <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCategoriasTodas">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarCategoriasTodasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:categoria" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarProductoResponse">
