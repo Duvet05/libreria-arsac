@@ -87,11 +87,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\AlmacenWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\ProductosWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -265,17 +260,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\AlmacenWS\AlmacenWS.wsdl" />
-    <None Include="Connected Services\AlmacenWS\AlmacenWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.helloResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.insertarProductoResponse.datasource">
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.insertarProductoResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarCategoriasTodasResponse.datasource">
@@ -381,7 +369,7 @@
     <None Include="Connected Services\SedeWS\SedesWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.helloResponse.datasource">
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.helloResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />
@@ -505,7 +493,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\AlmacenWS\" />
     <WCFMetadataStorage Include="Connected Services\ProductosWS\" />
     <WCFMetadataStorage Include="Connected Services\ProveedoresWS\" />
     <WCFMetadataStorage Include="Connected Services\RRHHWS\" />
@@ -543,13 +530,13 @@
     <None Include="Resources\Upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ProveedoresWS\configuration91.svcinfo" />
+    <None Include="Connected Services\ProductosWS\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ProveedoresWS\configuration.svcinfo" />
+    <None Include="Connected Services\ProductosWS\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ProveedoresWS\Reference.svcmap">
+    <None Include="Connected Services\ProductosWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -567,25 +554,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AlmacenWS\configuration91.svcinfo" />
+    <None Include="Connected Services\ProveedoresWS\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AlmacenWS\configuration.svcinfo" />
+    <None Include="Connected Services\ProveedoresWS\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AlmacenWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ProductosWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ProductosWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ProductosWS\Reference.svcmap">
+    <None Include="Connected Services\ProveedoresWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

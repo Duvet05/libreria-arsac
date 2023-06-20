@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="295daab0-4fad-430f-b49f-83d0527f43b2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="b3baf567-2f1e-4162-b657-63c42760327e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/VentasWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/AlmacenWS?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VentasWS.xsd" MetadataType="Schema" ID="51579bd4-8700-4142-8ceb-ff1be036d114" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/VentasWS?xsd=1" />
-    <MetadataFile FileName="VentasWS.wsdl" MetadataType="Wsdl" ID="408a4770-83ed-4afd-a62c-67c3d69d28f2" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/VentasWS?wsdl" />
+    <MetadataFile FileName="AlmacenWS.xsd" MetadataType="Schema" ID="71d43223-c625-4159-8571-5430f888dc29" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/AlmacenWS?xsd=1" />
+    <MetadataFile FileName="AlmacenWS.wsdl" MetadataType="Wsdl" ID="2bf0865e-08cf-4221-b047-2f5698ce7fd0" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/AlmacenWS?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

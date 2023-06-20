@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0e613b50-6d9c-4367-b5c0-c35b2ceee60d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="0c814f4d-91fd-47b4-98bc-78ec163fc9c8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProveedoresWS.wsdl" MetadataType="Wsdl" ID="de4cfd51-4c1e-4672-9cbe-f814d5bc9ef0" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?WSDL" />
-    <MetadataFile FileName="ProveedoresWS.xsd" MetadataType="Schema" ID="ee739257-2e71-4321-b617-0f6d23e59bdd" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?xsd=1" />
+    <MetadataFile FileName="ProveedoresWS.wsdl" MetadataType="Wsdl" ID="72348763-3054-46b5-80e4-fb743dc191e4" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?wsdl" />
+    <MetadataFile FileName="ProveedoresWS.xsd" MetadataType="Schema" ID="90f2adb2-887f-4ae7-8756-f385111a4d2d" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
