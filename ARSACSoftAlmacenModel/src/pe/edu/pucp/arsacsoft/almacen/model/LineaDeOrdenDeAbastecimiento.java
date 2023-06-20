@@ -1,49 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.almacen.model;
 
-import pe.edu.pucp.arsacsoft.producto.model.Producto;
+import java.util.ArrayList;
+import java.util.Date;
+import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
+import pe.edu.pucp.arsacsoft.sedes.model.Sede;
 
-/**
- *
- * @author Gino
- */
-public class LineaDeOrdenDeAbastecimiento {
-        private int idLineaOrdenDeAbastecimiento;
-    private int cantidad;
-    private double costo;
+public class OrdenDeAbastecimiento {
+
+    private int idOrdenDeCompra;
+    private Date fechaOrden;
     private boolean activo;
-    private Producto producto;
+    private Sede sede;
+    private Empleado empleado;
+    private ArrayList<LineaDeOrdenDeAbastecimiento> lineas;
 
-    public LineaDeOrdenDeAbastecimiento() {
+    public OrdenDeAbastecimiento() {
     }
 
-    
-    
-    public int getIdLineaOrdenDeAbastecimiento() {
-        return idLineaOrdenDeAbastecimiento;
+    public int getIdOrdenDeCompra() {
+        return idOrdenDeCompra;
     }
 
-    public void setIdLineaOrdenDeAbastecimiento(int idLineaOrdenDeAbastecimiento) {
-        this.idLineaOrdenDeAbastecimiento = idLineaOrdenDeAbastecimiento;
+    public void setIdOrdenDeCompra(int idOrdenDeCompra) {
+        this.idOrdenDeCompra = idOrdenDeCompra;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public Date getFechaOrden() {
+        return fechaOrden;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public double getCosto() {
-        return costo;
-    }
-
-    public void setCosto(double costo) {
-        this.costo = costo;
+    public void setFechaOrden(Date fechaOrden) {
+        this.fechaOrden = fechaOrden;
     }
 
     public boolean isActivo() {
@@ -54,11 +41,27 @@ public class LineaDeOrdenDeAbastecimiento {
         this.activo = activo;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public Sede getSede() {
+        return sede;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setSede(Sede sede) {
+        this.sede = sede;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public ArrayList<LineaDeOrdenDeAbastecimiento> getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(ArrayList<LineaDeOrdenDeAbastecimiento> lineas) {
+        this.lineas = lineas;
     }
 }

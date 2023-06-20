@@ -1,17 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.proveedores.model;
 
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
-/**
- *
- * @author User
- */
 public class Proveedor {
+
+    private int idProveedor;
+    private String descripcion;
+    private String RUC;
+    private String direccion;
+    private String telefono;
+    private boolean activo;
+    private ArrayList<Producto> productos;
 
     public Proveedor() {
     }
@@ -40,6 +40,14 @@ public class Proveedor {
         this.RUC = RUC;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -63,20 +71,4 @@ public class Proveedor {
     public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
     }
-
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }     
-    private int idProveedor;
-    private String descripcion;
-    private String RUC;
-    private String direccion;
-    private String telefono;
-    private boolean activo;
-    private ArrayList<Producto> productos;
 }
