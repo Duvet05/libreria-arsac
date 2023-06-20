@@ -4,6 +4,7 @@
  */
 package pe.edu.pucp.arsacsoft.ordenes.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.arsacsoft.RRHH.model.ClienteMayorista;
 import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
@@ -19,7 +20,16 @@ public class OrdenDeVenta {
     private boolean activo;
     private Empleado empleado;
     private ClienteMayorista clienteMayorista;
+    private ArrayList<LineaDeOrdenDeVenta> lineaDeOrdenDeVenta;
 
+    public ArrayList<LineaDeOrdenDeVenta> getLineaDeOrdenDeVenta() {
+        return lineaDeOrdenDeVenta;
+    }
+
+    public void setLineaDeOrdenDeVenta(ArrayList<LineaDeOrdenDeVenta> lineaDeOrdenDeVenta) {
+        this.lineaDeOrdenDeVenta = lineaDeOrdenDeVenta;
+    }
+    
     public int getIdOrdenDeVenta() {
         return idOrdenDeVenta;
     }

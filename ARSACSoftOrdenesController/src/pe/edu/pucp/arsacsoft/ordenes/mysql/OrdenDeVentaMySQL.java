@@ -1,6 +1,5 @@
 package pe.edu.pucp.arsacsoft.ordenes.mysql;
 
-
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,46 +16,49 @@ import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
 import pe.edu.pucp.arsacsoft.config.DBManager;
 import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
-public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
+public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
 
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
+
     //INSERTAR ORDEN DE VENTA CON TODAS LAS LINEAS EN ELLA
-    @Override 
+    @Override
     public int insertar(OrdenDeVenta ordenV) {
         int resultado = 0;
-        try{
+        try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call INSERTAR_ORDEN_DE_VENTA_MAYORISTA(?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_orden_de_venta", java.sql.Types.INTEGER);
-            cs.setInt("_fid_empleado",ordenV.getEmpleadoID());
-            cs.setInt("_fid_cliente_mayorista",ordenV.getClienteMayoristaID());
-            cs.setDouble("_total",ordenV.getPrecioTotal());
-            cs.setDate("_fecha_orden",new java.sql.Date(ordenV.getFechaOrden().getTime()));
-            cs.setBoolean("_activo",ordenV.isActivo());
+            cs.setInt("_fid_empleado", ordenV.getEmpleado().getIdPersona());
+            cs.setInt("_fid_cliente_mayorista", ordenV.getClienteMayorista().getIdPersona());
+            cs.setDouble("_total", ordenV.getPrecioTotal());
+            cs.setDate("_fecha_orden", new java.sql.Date(ordenV.getFechaOrden().getTime()));
+            cs.setBoolean("_activo", ordenV.isActivo());
             cs.executeUpdate();
             ordenV.setIdOrdenDeVenta(cs.getInt("_id_orden_de_venta"));
-            resultado = ordenV.getIdOrdenDeVenta();  
-        }catch(Exception ex){
+            resultado = ordenV.getIdOrdenDeVenta();
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        }finally{
-            try{
+        } finally {
+            try {
                 if (cs != null) {
                     cs.close();
                 }
                 if (con != null) {
                     con.close();
                 }
-            } catch(Exception ex) {System.out.println(ex.getMessage());}
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        
-        try{
+
+        try {
             LineaDeOrdenDeVentaDAO daoLinea = new LineaOrdenDeVentaMySQL();
-            for(LineaDeOrdenDeVenta linea: ordenV.getLineas()){
+            for (LineaDeOrdenDeVenta linea : ordenV.getLineaDeOrdenDeVenta()) {
                 daoLinea.insertar(linea, ordenV.getIdOrdenDeVenta());
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return resultado;
@@ -65,14 +67,14 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
     //ACTUALIZA TODOS LOS DATOS CON OTRO OBJETO SIMILAR
     @Override
     public int modificar(OrdenDeVenta ordenV) {
-       int resultado = 0;
+        int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call ACTUALIZAR_ORDEN_DE_VENTA(?,?,?,?)}");
             cs.setInt("_id_orden_de_venta", ordenV.getIdOrdenDeVenta());
-            cs.setInt("_fid_cliente_mayorista", ordenV.getClienteMayoristaID());
+            cs.setInt("_fid_cliente_mayorista", ordenV.getClienteMayorista().getIdPersona());
             cs.setDouble("_total", ordenV.getPrecioTotal());
-            cs.setDate("_fecha_orden", 
+            cs.setDate("_fecha_orden",
                     new java.sql.Date(ordenV.getFechaOrden().getTime()));
             cs.executeUpdate();
             resultado = 1;
@@ -90,14 +92,14 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
                 System.out.println(ex.getMessage());
             }
         }
-        
-        try{
+
+        try {
             LineaDeOrdenDeVentaDAO daoLinea = new LineaOrdenDeVentaMySQL();
-            for(LineaDeOrdenDeVenta linea: ordenV.getLineas()){
-                daoLinea.modificar(linea, ordenV.getIdOrdenDeVenta()
-                        , linea.getProductoID());
+            for (LineaDeOrdenDeVenta linea : ordenV.getLineaDeOrdenDeVenta()) {
+                daoLinea.modificar(linea, ordenV.getIdOrdenDeVenta(),
+                         linea.getProducto().getIdProducto());
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return resultado;
@@ -129,9 +131,10 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
         }
         return resultado;
     }
+
     //DEVUELVE LA LISTA DE PRODUCTOS DE UNA ORDEN DE VENTA
     @Override
-    public ArrayList<LineaDeOrdenDeVenta> ListarProductos(int idOrdenDeVenta){
+    public ArrayList<LineaDeOrdenDeVenta> ListarProductos(int idOrdenDeVenta) {
         ArrayList<LineaDeOrdenDeVenta> lineaVenta = new ArrayList<>();
         try {
             con = DBManager.getInstance().getConnection();
@@ -144,7 +147,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
                 lineaN.setCantidad(rs.getInt("cantidad"));
                 lineaN.setDescuento(rs.getDouble("descuento"));
                 lineaN.setPrecio(rs.getDouble("subtotal"));
-                
+
                 lineaN.setProducto(new Producto());
                 lineaN.getProducto().setIdProducto(
                         rs.getInt("fid_producto"));
@@ -177,10 +180,10 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
                         "id_orden_de_venta"));
                 ordenN.setFechaOrden(rs.getDate("fecha_orden"));
                 ordenN.setPrecioTotal(rs.getDouble("total"));
-                
+
                 ordenN.setClienteMayorista(new ClienteMayorista());
                 ordenN.setEmpleado(new Empleado());
-                ordenN.setLineas(new ArrayList<>());
+                ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
                 ordenVentas.add(ordenN);
             }
         } catch (Exception ex) {
@@ -191,9 +194,10 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }   
+        }
         return ordenVentas;
     }
+
     //DEVUELVE UNA LISTA DE LAS ORDENES POR CLIENTE
     @Override
     public ArrayList<OrdenDeVenta> listarPorClienteMayorista() {
@@ -209,10 +213,10 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
                         "id_orden_de_venta"));
                 ordenN.setFechaOrden(rs.getDate("fecha_orden"));
                 ordenN.setPrecioTotal(rs.getDouble("total"));
-                
+
                 ordenN.setClienteMayorista(new ClienteMayorista());
                 ordenN.setEmpleado(new Empleado());
-                ordenN.setLineas(new ArrayList<>());
+                ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
                 ordenVentas.add(ordenN);
             }
         } catch (Exception ex) {
@@ -223,9 +227,10 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }   
+        }
         return ordenVentas;
     }
+
     //DEVUELVE UNA LISTA DE LAS ORDENES POR VENDEDOR
     @Override
     public ArrayList<OrdenDeVenta> listarPorVendedor(int idPersona) {
@@ -241,10 +246,10 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
                         "id_orden_de_venta"));
                 ordenN.setFechaOrden(rs.getDate("fecha_orden"));
                 ordenN.setPrecioTotal(rs.getDouble("total"));
-                
+
                 ordenN.setClienteMayorista(new ClienteMayorista());
                 ordenN.setEmpleado(new Empleado());
-                ordenN.setLineas(new ArrayList<>());
+                ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
                 ordenVentas.add(ordenN);
             }
         } catch (Exception ex) {
@@ -255,7 +260,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }   
+        }
         return ordenVentas;
     }
 
@@ -271,14 +276,14 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
 
             ordenN.setActivo(rs.getBoolean("activo"));
             ordenN.setIdOrdenDeVenta(rs.getInt(
-                        "id_orden_de_venta"));
+                    "id_orden_de_venta"));
             ordenN.setFechaOrden(rs.getDate("fecha_orden"));
             ordenN.setPrecioTotal(rs.getDouble("total"));
-                
+
             ordenN.setClienteMayorista(new ClienteMayorista());
             ordenN.setEmpleado(new Empleado());
-            ordenN.setLineas(new ArrayList<>());
-            
+            ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
+
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -287,8 +292,13 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO{
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }   
+        }
         return ordenN;
     }
-    
+
+    @Override
+    public int eliminar(int idOrdenDeVenta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
