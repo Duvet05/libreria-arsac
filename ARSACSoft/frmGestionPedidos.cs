@@ -1,10 +1,14 @@
-﻿using System;
+﻿using ARSACSoft.ProductosWS;
+using ARSACSoft.RRHHWS;
+using System;
 using System.Windows.Forms;
 
 namespace ARSACSoft
 {
     public partial class frmGestionPedidos : Form
     {
+        private ProductosWS.producto _producto;
+        private RRHHWS.clienteMayorista _clienteMayorista;
         public frmGestionPedidos()
         {
             InitializeComponent();
@@ -78,6 +82,29 @@ namespace ARSACSoft
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmBuscarProducto frm = new frmBuscarProducto();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _producto = frm.ProductoSeleccionado;
+                textNombreProducto.Text = _producto.nombre.ToString();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmBuscarClienteMayorista frm = new frmBuscarClienteMayorista();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _clienteMayorista = frm.ClienteMayoristaSeleccionado;
+                txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
+                txtRazonSocial.Text = _clienteMayorista.razonSocial;
+                txtRUC.Text = _clienteMayorista.RUC;
+
+            }
         }
     }
 }

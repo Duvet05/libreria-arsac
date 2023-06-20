@@ -34,11 +34,6 @@ namespace ARSACSoft
             this.DialogResult = DialogResult.OK;
         }
 
-        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvProductos.DataSource = daoProductosWS.listarProductosXNombre(txtNombreProd.Text);
