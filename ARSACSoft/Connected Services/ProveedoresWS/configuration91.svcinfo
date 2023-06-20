@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="kAtQL78DnGlgw7pmBN9nMhrwZgrcsba1H4q1K/NeuQo=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="9gfHFCsMuOb9k7040C0gfSAkd6X2LR5prE3ybpfo9fE=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="ProveedoresWSPortBinding1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="ProveedoresWSPortBinding">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedoresWSPortBinding1</serializedValue>
+          <serializedValue>ProveedoresWSPortBinding</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ProveedoresWSPort1" contract="ProveedorWS.ProveedoresWS" bindingType="basicHttpBinding" address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS" bindingConfiguration="ProveedoresWSPortBinding1">
+    <endpoint name="ProveedoresWSPort" contract="ProveedoresWS.ProveedoresWS" bindingType="basicHttpBinding" address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS" bindingConfiguration="ProveedoresWSPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8080/ARSACSoftWebServices/ProveedoresWS</serializedValue>
@@ -124,10 +124,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedoresWSPortBinding1</serializedValue>
+          <serializedValue>ProveedoresWSPortBinding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedorWS.ProveedoresWS</serializedValue>
+          <serializedValue>ProveedoresWS.ProveedoresWS</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedoresWSPort1</serializedValue>
+          <serializedValue>ProveedoresWSPort</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

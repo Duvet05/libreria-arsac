@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="7ba2f312-03cb-449d-b7a4-2a5a943de77a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fde36b84-d5fc-4be1-bcfc-59bf59bf9d16" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/Productos?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/Productos?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Productos.xsd" MetadataType="Schema" ID="0a3f852c-0468-4c64-aab7-9cd082372fb1" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/Productos?xsd=1" />
-    <MetadataFile FileName="Productos.wsdl" MetadataType="Wsdl" ID="dd840748-1e77-4872-af95-689d9e68362e" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/Productos?wsdl" />
+    <MetadataFile FileName="Productos.xsd" MetadataType="Schema" ID="980966c8-81cc-49c8-a68c-6b480bb53307" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/Productos?xsd=1" />
+    <MetadataFile FileName="Productos.wsdl" MetadataType="Wsdl" ID="08d1c49d-97c0-419e-8ac3-a73bfcf95ca7" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/Productos?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

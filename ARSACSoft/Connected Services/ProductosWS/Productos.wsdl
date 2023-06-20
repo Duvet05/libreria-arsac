@@ -5,12 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/ARSACSoftWebServices/Productos?xsd=1" namespace="http://services.arsacsoft.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarCategoriasTodas">
-    <part name="parameters" element="tns:listarCategoriasTodas" />
-  </message>
-  <message name="listarCategoriasTodasResponse">
-    <part name="parameters" element="tns:listarCategoriasTodasResponse" />
-  </message>
   <message name="listarMarcaTodas">
     <part name="parameters" element="tns:listarMarcaTodas" />
   </message>
@@ -23,11 +17,13 @@
   <message name="insertarProductoResponse">
     <part name="parameters" element="tns:insertarProductoResponse" />
   </message>
+  <message name="listarCategoriasTodas">
+    <part name="parameters" element="tns:listarCategoriasTodas" />
+  </message>
+  <message name="listarCategoriasTodasResponse">
+    <part name="parameters" element="tns:listarCategoriasTodasResponse" />
+  </message>
   <portType name="ProductosWS">
-    <operation name="listarCategoriasTodas">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest" message="tns:listarCategoriasTodas" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasResponse" message="tns:listarCategoriasTodasResponse" />
-    </operation>
     <operation name="listarMarcaTodas">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasRequest" message="tns:listarMarcaTodas" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasResponse" message="tns:listarMarcaTodasResponse" />
@@ -36,18 +32,13 @@
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest" message="tns:insertarProducto" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse" message="tns:insertarProductoResponse" />
     </operation>
+    <operation name="listarCategoriasTodas">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest" message="tns:listarCategoriasTodas" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasResponse" message="tns:listarCategoriasTodasResponse" />
+    </operation>
   </portType>
   <binding name="ProductosWSPortBinding" type="tns:ProductosWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarCategoriasTodas">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarMarcaTodas">
       <soap:operation soapAction="" />
       <input>
@@ -58,6 +49,15 @@
       </output>
     </operation>
     <operation name="insertarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarCategoriasTodas">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="RRHHWS">
-      <implementation-class>pe.edu.pucp.arsacsoft.services.RRHHWS</implementation-class>
-    </service>
-    <service name="SedesWS">
-      <implementation-class>pe.edu.pucp.arsacsoft.services.SedesWS</implementation-class>
+    <service name="ProveedoresWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.ProveedoresWS</implementation-class>
     </service>
     <service name="AlmacenWS">
       <implementation-class>pe.edu.pucp.arsacsoft.services.AlmacenWS</implementation-class>
     </service>
+    <service name="SedesWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.SedesWS</implementation-class>
+    </service>
     <service name="ProductosWS">
       <implementation-class>pe.edu.pucp.arsacsoft.services.ProductosWS</implementation-class>
     </service>
-    <service name="ProveedoresWS">
-      <implementation-class>pe.edu.pucp.arsacsoft.services.ProveedoresWS</implementation-class>
-    </service>
     <service name="VentasWS">
       <implementation-class>pe.edu.pucp.arsacsoft.services.VentasWS</implementation-class>
+    </service>
+    <service name="RRHHWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.RRHHWS</implementation-class>
     </service>
   </services>
   <clients/>

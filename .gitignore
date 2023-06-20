@@ -163,3 +163,5 @@ ARSACSoft/Connected Services/ProveedoresWS/ProveedoresWebService.wsdl
 *.TXT
 /ARSACSoftVentasModel/build/
 /ARSACSoftVentasModel/dist/
+/ARSACSoftVentasController/build/
+/ARSACSoftVentasController/dist/

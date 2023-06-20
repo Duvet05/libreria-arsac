@@ -19,19 +19,11 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsgen-RRHHWS" depends="wsgen-init">
+    <target name="wsgen-ProveedoresWS" depends="wsgen-init">
         <copy todir="${build.classes.dir}/META-INF">
-            <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.RRHHWS.xml"/>
+            <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.ProveedoresWS.xml"/>
         </copy>
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="pe.edu.pucp.arsacsoft.services.RRHHWS" xendorsed="true">
-            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
-        </wsgen>
-    </target>
-    <target name="wsgen-SedesWS" depends="wsgen-init">
-        <copy todir="${build.classes.dir}/META-INF">
-            <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.SedesWS.xml"/>
-        </copy>
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="pe.edu.pucp.arsacsoft.services.SedesWS" xendorsed="true">
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="pe.edu.pucp.arsacsoft.services.ProveedoresWS" xendorsed="true">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
@@ -43,6 +35,14 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
+    <target name="wsgen-SedesWS" depends="wsgen-init">
+        <copy todir="${build.classes.dir}/META-INF">
+            <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.SedesWS.xml"/>
+        </copy>
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="pe.edu.pucp.arsacsoft.services.SedesWS" xendorsed="true">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
     <target name="wsgen-ProductosWS" depends="wsgen-init">
         <copy todir="${build.classes.dir}/META-INF">
             <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.ProductosWS.xml"/>
@@ -51,19 +51,19 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
-    <target name="wsgen-ProveedoresWS" depends="wsgen-init">
-        <copy todir="${build.classes.dir}/META-INF">
-            <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.ProveedoresWS.xml"/>
-        </copy>
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="pe.edu.pucp.arsacsoft.services.ProveedoresWS" xendorsed="true">
-            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
-        </wsgen>
-    </target>
     <target name="wsgen-VentasWS" depends="wsgen-init">
         <copy todir="${build.classes.dir}/META-INF">
             <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.VentasWS.xml"/>
         </copy>
         <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="pe.edu.pucp.arsacsoft.services.VentasWS" xendorsed="true">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <target name="wsgen-RRHHWS" depends="wsgen-init">
+        <copy todir="${build.classes.dir}/META-INF">
+            <fileset dir="${webinf.dir}" includes="wsit-pe.edu.pucp.arsacsoft.services.RRHHWS.xml"/>
+        </copy>
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="pe.edu.pucp.arsacsoft.services.RRHHWS" xendorsed="true">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>

@@ -8,19 +8,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARSACSoft.ProveedorWS {
+namespace ARSACSoft.ProveedoresWS {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="ProveedorWS.ProveedoresWS")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="ProveedoresWS.ProveedoresWS")]
     public interface ProveedoresWS {
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/helloRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/helloResponse")]
-        ARSACSoft.ProveedorWS.helloResponse hello(ARSACSoft.ProveedorWS.helloRequest request);
+        ARSACSoft.ProveedoresWS.helloResponse hello(ARSACSoft.ProveedoresWS.helloRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/helloRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/helloResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedorWS.helloResponse> helloAsync(ARSACSoft.ProveedorWS.helloRequest request);
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.helloResponse> helloAsync(ARSACSoft.ProveedoresWS.helloRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -30,12 +30,12 @@ namespace ARSACSoft.ProveedorWS {
     public partial class helloRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="hello", Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        public ARSACSoft.ProveedorWS.helloRequestBody Body;
+        public ARSACSoft.ProveedoresWS.helloRequestBody Body;
         
         public helloRequest() {
         }
         
-        public helloRequest(ARSACSoft.ProveedorWS.helloRequestBody Body) {
+        public helloRequest(ARSACSoft.ProveedoresWS.helloRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -64,12 +64,12 @@ namespace ARSACSoft.ProveedorWS {
     public partial class helloResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="helloResponse", Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        public ARSACSoft.ProveedorWS.helloResponseBody Body;
+        public ARSACSoft.ProveedoresWS.helloResponseBody Body;
         
         public helloResponse() {
         }
         
-        public helloResponse(ARSACSoft.ProveedorWS.helloResponseBody Body) {
+        public helloResponse(ARSACSoft.ProveedoresWS.helloResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -92,12 +92,12 @@ namespace ARSACSoft.ProveedorWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ProveedoresWSChannel : ARSACSoft.ProveedorWS.ProveedoresWS, System.ServiceModel.IClientChannel {
+    public interface ProveedoresWSChannel : ARSACSoft.ProveedoresWS.ProveedoresWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProveedoresWSClient : System.ServiceModel.ClientBase<ARSACSoft.ProveedorWS.ProveedoresWS>, ARSACSoft.ProveedorWS.ProveedoresWS {
+    public partial class ProveedoresWSClient : System.ServiceModel.ClientBase<ARSACSoft.ProveedoresWS.ProveedoresWS>, ARSACSoft.ProveedoresWS.ProveedoresWS {
         
         public ProveedoresWSClient() {
         }
@@ -119,28 +119,28 @@ namespace ARSACSoft.ProveedorWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ProveedorWS.helloResponse ARSACSoft.ProveedorWS.ProveedoresWS.hello(ARSACSoft.ProveedorWS.helloRequest request) {
+        ARSACSoft.ProveedoresWS.helloResponse ARSACSoft.ProveedoresWS.ProveedoresWS.hello(ARSACSoft.ProveedoresWS.helloRequest request) {
             return base.Channel.hello(request);
         }
         
         public string hello(string name) {
-            ARSACSoft.ProveedorWS.helloRequest inValue = new ARSACSoft.ProveedorWS.helloRequest();
-            inValue.Body = new ARSACSoft.ProveedorWS.helloRequestBody();
+            ARSACSoft.ProveedoresWS.helloRequest inValue = new ARSACSoft.ProveedoresWS.helloRequest();
+            inValue.Body = new ARSACSoft.ProveedoresWS.helloRequestBody();
             inValue.Body.name = name;
-            ARSACSoft.ProveedorWS.helloResponse retVal = ((ARSACSoft.ProveedorWS.ProveedoresWS)(this)).hello(inValue);
+            ARSACSoft.ProveedoresWS.helloResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).hello(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedorWS.helloResponse> ARSACSoft.ProveedorWS.ProveedoresWS.helloAsync(ARSACSoft.ProveedorWS.helloRequest request) {
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.helloResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.helloAsync(ARSACSoft.ProveedoresWS.helloRequest request) {
             return base.Channel.helloAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.ProveedorWS.helloResponse> helloAsync(string name) {
-            ARSACSoft.ProveedorWS.helloRequest inValue = new ARSACSoft.ProveedorWS.helloRequest();
-            inValue.Body = new ARSACSoft.ProveedorWS.helloRequestBody();
+        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.helloResponse> helloAsync(string name) {
+            ARSACSoft.ProveedoresWS.helloRequest inValue = new ARSACSoft.ProveedoresWS.helloRequest();
+            inValue.Body = new ARSACSoft.ProveedoresWS.helloRequestBody();
             inValue.Body.name = name;
-            return ((ARSACSoft.ProveedorWS.ProveedoresWS)(this)).helloAsync(inValue);
+            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).helloAsync(inValue);
         }
     }
 }

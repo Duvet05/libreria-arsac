@@ -16,15 +16,6 @@ namespace ARSACSoft.ProductosWS {
     public interface ProductosWS {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.ProductosWS.listarCategoriasTodasResponse listarCategoriasTodas(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarCategoriasTodasResponse> listarCategoriasTodasAsync(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -41,6 +32,15 @@ namespace ARSACSoft.ProductosWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse")]
         System.Threading.Tasks.Task<ARSACSoft.ProductosWS.insertarProductoResponse> insertarProductoAsync(ARSACSoft.ProductosWS.insertarProductoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.ProductosWS.listarCategoriasTodasResponse listarCategoriasTodas(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarCategoriasTodasResponse> listarCategoriasTodasAsync(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request);
     }
     
     /// <remarks/>
@@ -49,13 +49,13 @@ namespace ARSACSoft.ProductosWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class categoria : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class marca : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool activoField;
         
         private string descripcionField;
         
-        private int idCategoriaField;
+        private int idMarcaField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -83,13 +83,13 @@ namespace ARSACSoft.ProductosWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idCategoria {
+        public int idMarca {
             get {
-                return this.idCategoriaField;
+                return this.idMarcaField;
             }
             set {
-                this.idCategoriaField = value;
-                this.RaisePropertyChanged("idCategoria");
+                this.idMarcaField = value;
+                this.RaisePropertyChanged("idMarca");
             }
         }
         
@@ -397,13 +397,13 @@ namespace ARSACSoft.ProductosWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class marca : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class categoria : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool activoField;
         
         private string descripcionField;
         
-        private int idMarcaField;
+        private int idCategoriaField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -431,13 +431,13 @@ namespace ARSACSoft.ProductosWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idMarca {
+        public int idCategoria {
             get {
-                return this.idMarcaField;
+                return this.idCategoriaField;
             }
             set {
-                this.idMarcaField = value;
-                this.RaisePropertyChanged("idMarca");
+                this.idCategoriaField = value;
+                this.RaisePropertyChanged("idCategoria");
             }
         }
         
@@ -448,34 +448,6 @@ namespace ARSACSoft.ProductosWS {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCategoriasTodas", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarCategoriasTodasRequest {
-        
-        public listarCategoriasTodasRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCategoriasTodasResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarCategoriasTodasResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.ProductosWS.categoria[] @return;
-        
-        public listarCategoriasTodasResponse() {
-        }
-        
-        public listarCategoriasTodasResponse(ARSACSoft.ProductosWS.categoria[] @return) {
-            this.@return = @return;
         }
     }
     
@@ -543,6 +515,34 @@ namespace ARSACSoft.ProductosWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCategoriasTodas", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarCategoriasTodasRequest {
+        
+        public listarCategoriasTodasRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarCategoriasTodasResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarCategoriasTodasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.ProductosWS.categoria[] @return;
+        
+        public listarCategoriasTodasResponse() {
+        }
+        
+        public listarCategoriasTodasResponse(ARSACSoft.ProductosWS.categoria[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductosWSChannel : ARSACSoft.ProductosWS.ProductosWS, System.ServiceModel.IClientChannel {
     }
@@ -568,27 +568,6 @@ namespace ARSACSoft.ProductosWS {
         
         public ProductosWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ProductosWS.listarCategoriasTodasResponse ARSACSoft.ProductosWS.ProductosWS.listarCategoriasTodas(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request) {
-            return base.Channel.listarCategoriasTodas(request);
-        }
-        
-        public ARSACSoft.ProductosWS.categoria[] listarCategoriasTodas() {
-            ARSACSoft.ProductosWS.listarCategoriasTodasRequest inValue = new ARSACSoft.ProductosWS.listarCategoriasTodasRequest();
-            ARSACSoft.ProductosWS.listarCategoriasTodasResponse retVal = ((ARSACSoft.ProductosWS.ProductosWS)(this)).listarCategoriasTodas(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarCategoriasTodasResponse> ARSACSoft.ProductosWS.ProductosWS.listarCategoriasTodasAsync(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request) {
-            return base.Channel.listarCategoriasTodasAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarCategoriasTodasResponse> listarCategoriasTodasAsync() {
-            ARSACSoft.ProductosWS.listarCategoriasTodasRequest inValue = new ARSACSoft.ProductosWS.listarCategoriasTodasRequest();
-            return ((ARSACSoft.ProductosWS.ProductosWS)(this)).listarCategoriasTodasAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -633,6 +612,27 @@ namespace ARSACSoft.ProductosWS {
             ARSACSoft.ProductosWS.insertarProductoRequest inValue = new ARSACSoft.ProductosWS.insertarProductoRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.ProductosWS.ProductosWS)(this)).insertarProductoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.ProductosWS.listarCategoriasTodasResponse ARSACSoft.ProductosWS.ProductosWS.listarCategoriasTodas(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request) {
+            return base.Channel.listarCategoriasTodas(request);
+        }
+        
+        public ARSACSoft.ProductosWS.categoria[] listarCategoriasTodas() {
+            ARSACSoft.ProductosWS.listarCategoriasTodasRequest inValue = new ARSACSoft.ProductosWS.listarCategoriasTodasRequest();
+            ARSACSoft.ProductosWS.listarCategoriasTodasResponse retVal = ((ARSACSoft.ProductosWS.ProductosWS)(this)).listarCategoriasTodas(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarCategoriasTodasResponse> ARSACSoft.ProductosWS.ProductosWS.listarCategoriasTodasAsync(ARSACSoft.ProductosWS.listarCategoriasTodasRequest request) {
+            return base.Channel.listarCategoriasTodasAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarCategoriasTodasResponse> listarCategoriasTodasAsync() {
+            ARSACSoft.ProductosWS.listarCategoriasTodasRequest inValue = new ARSACSoft.ProductosWS.listarCategoriasTodasRequest();
+            return ((ARSACSoft.ProductosWS.ProductosWS)(this)).listarCategoriasTodasAsync(inValue);
         }
     }
 }
