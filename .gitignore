@@ -159,3 +159,5 @@ ARSACSoft/Connected Services/ProveedoresWS/ProveedoresWebService.wsdl
 *.properties
 /ARSACSoftProductosController/build/
 /ARSACSoftProductosController/dist/
+*.class
+*.TXT

@@ -13,6 +13,12 @@
     <service name="ProductosWS">
       <implementation-class>pe.edu.pucp.arsacsoft.services.ProductosWS</implementation-class>
     </service>
+    <service name="ProveedoresWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.ProveedoresWS</implementation-class>
+    </service>
+    <service name="VentasWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.VentasWS</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
