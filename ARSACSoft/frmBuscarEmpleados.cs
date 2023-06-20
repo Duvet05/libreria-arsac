@@ -1,5 +1,6 @@
 ﻿using ARSACSoft.RRHHWS;
 using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -8,6 +9,9 @@ namespace ARSACSoft
     {
         private RRHHWSClient _daoRRHH;
         private empleado _empleadoSeleccionado;
+        
+        //llama
+        X500DistinguishedName x;
 
         public frmBuscarEmpleados()
         {
