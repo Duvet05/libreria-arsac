@@ -52,15 +52,7 @@ DROP PROCEDURE IF EXISTS INSERTAR_LINEA_DE_ORDEN_DE_VENTA;
 
 DROP PROCEDURE IF EXISTS LISTAR_LINEAS_DE_ORDEN_DE_VENTA;
 
--- PROVEEDOR
 
-DROP PROCEDURE IF EXISTS INSERTAR_PROVEEDOR;
-
-DROP PROCEDURE IF EXISTS LISTAR_PROVEEDORES;
-
-DROP PROCEDURE IF EXISTS ACTUALIZAR_PROVEEDOR;
-
-DROP PROCEDURE IF EXISTS ELIMINAR_PROVEEDOR;
 
 DELIMITER $
 
@@ -413,66 +405,5 @@ _ID_ORDEN_DE_VENTA INT) BEGIN
 	    INNER JOIN producto p ON p.id_producto = lov.fid_producto
 	WHERE
 	    lov.fid_orden_de_venta = _id_orden_de_venta;
-	END 
-$ 
-
--- PROVEEDOR
-
-CREATE PROCEDURE INSERTAR_PROVEEDOR(OUT _ID_PROVEEDOR 
-INT, IN _NOMBRE VARCHAR(100), IN _DIRECCION VARCHAR
-(100), IN _TELEFONO VARCHAR(20), IN _RUC VARCHAR(50
-)) BEGIN 
-	INSERT INTO
-	    proveedor(
-	        nombre,
-	        direccion,
-	        telefono,
-	        RUC,
-	        activo
-	    )
-	VALUES (
-	        _nombre,
-	        _direccion,
-	        _telefono,
-	        _RUC,
-	        true
-	    );
-	SET _id_proveedor = LAST_INSERT_ID();
-	END 
-$ 
-
-CREATE PROCEDURE LISTAR_PROVEEDORES() BEGIN 
-	SELECT
-	    id_proveedor,
-	    nombre,
-	    direccion,
-	    RUC,
-	    telefono
-	FROM proveedor
-	WHERE activo = 1;
-	END 
-$ 
-
-CREATE PROCEDURE ACTUALIZAR_PROVEEDOR(IN _ID_PROVEEDOR 
-INT, IN _NOMBRE VARCHAR(100), IN _DIRECCION VARCHAR
-(100), IN _TELEFONO VARCHAR(20), IN _RUC VARCHAR(50
-)) BEGIN 
-	UPDATE proveedor
-	SET
-	    nombre = _nombre,
-	    direccion = _direccion,
-	    telefono = _telefono,
-	    RUC = _RUC
-	WHERE
-	    id_proveedor = _id_proveedor;
-	END 
-$ 
-
-CREATE PROCEDURE ELIMINAR_PROVEEDOR(IN _ID_PROVEEDOR 
-INT) BEGIN 
-	UPDATE proveedor
-	SET activo = false
-	WHERE
-	    id_proveedor = _id_proveedor;
 	END 
 $ 
