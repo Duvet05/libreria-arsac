@@ -32,30 +32,19 @@ namespace ARSACSoft
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
-            MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedIndex + ", Categoria: " + cboCategoria.SelectedIndex , "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedIndex + ", Categoria: " + cboCategoria.SelectedIndex , "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //System.Console.WriteLine(cboMarca.SelectedIndex +  " " + cboCategoria.SelectedIndex);
             this.DialogResult = DialogResult.OK;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (cboMarca.SelectedValue == null && cboCategoria.SelectedValue != null)
-            {
-                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, (int)cboCategoria.SelectedValue, -1);
-            }
-            else if(cboCategoria.SelectedValue == null && cboMarca.SelectedValue != null)
-            {
-                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, -1, (int)cboMarca.SelectedValue);
-            }
-            else if(cboCategoria.SelectedValue == null && cboMarca.SelectedValue == null)
-            {
-                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, -1, -1);
-            }
-            else
-            {
-                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, (int)cboCategoria.SelectedValue, (int)cboMarca.SelectedValue);
-            }
-            
+            int categoriaSeleccionada = cboCategoria.SelectedValue != null ? (int)cboCategoria.SelectedValue : -1;
+            int marcaSeleccionada = cboMarca.SelectedValue != null ? (int)cboMarca.SelectedValue : -1;
+
+            dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, categoriaSeleccionada, marcaSeleccionada);
+
+
             //MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedValue + ", Categoria: " + cboCategoria.SelectedValue, "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
