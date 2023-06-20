@@ -250,7 +250,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.helloResponse.datasource">
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarCategoriasTodasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarMarcaTodasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.marca.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\Productos.wsdl" />

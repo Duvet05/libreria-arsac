@@ -845,6 +845,9 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.ARSACSoftOrdenesModel}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
+        <ant antfile="${project.ARSACSoftProductosController}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
         <ant antfile="${project.ARSACSoftProductosModel}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
@@ -869,6 +872,9 @@ exists or setup the property manually. For example like this:
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.ARSACSoftOrdenesModel}/build.xml" inheritall="false" target="jar">
+            <property name="deploy.on.save" value="false"/>
+        </ant>
+        <ant antfile="${project.ARSACSoftProductosController}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.ARSACSoftProductosModel}/build.xml" inheritall="false" target="jar">
@@ -1042,6 +1048,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.ARSACSoftOrdenesModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.ARSACSoftProveedoresModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.ARSACSoftSedesController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.ARSACSoftProductosController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
@@ -1055,6 +1062,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.ARSACSoftOrdenesModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.ARSACSoftProveedoresModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.ARSACSoftSedesController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.ARSACSoftProductosController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
@@ -1471,6 +1479,7 @@ exists or setup the property manually. For example like this:
     <target depends="init" name="deps-clean" unless="no.deps">
         <ant antfile="${project.ARSACSoftDBManager}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftOrdenesModel}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.ARSACSoftProductosController}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProductosModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProveedoresModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftRRHHController}/build.xml" inheritall="false" target="clean"/>

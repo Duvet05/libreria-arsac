@@ -1,4 +1,5 @@
-﻿using ARSACSoft.Properties;
+﻿using ARSACSoft.ProductosWS;
+using ARSACSoft.Properties;
 using ARSACSoft.RRHHWS;
 using System;
 using System.ComponentModel;
@@ -12,12 +13,22 @@ namespace ARSACSoft
     {
         private Estado _estadoPagProducto;
         private string _rutaFotoLocal;
-
+        private ProductosWSClient daoProductosWS;
         public frmGestionAlmacen()
         {
             InitializeComponent();
             _estadoPagProducto = Estado.Inicial;
             establecerEstadoFormularioProducto();
+            daoProductosWS = new ProductosWSClient();
+            
+
+            cboCategoria.DisplayMember = "descripcion";
+            cboCategoria.ValueMember = "idCategoria";
+            cboCategoria.DataSource = daoProductosWS.listarCategoriasTodas();
+
+            cboMarca.DisplayMember = "descripcion";
+            cboMarca.ValueMember = "idMarca";
+            cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
         }
 
         private void btnSubirFoto_Click(object sender, EventArgs e)
@@ -134,7 +145,7 @@ namespace ARSACSoft
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
 
-            //producto = new pelicula();
+            //ProductosWS producto = new ();
             //pelicula.actores = new BindingList<actor>().ToArray();
             //pelicula.actores = _actores.ToArray();
             //pelicula.titulo = txtTitulo.Text;

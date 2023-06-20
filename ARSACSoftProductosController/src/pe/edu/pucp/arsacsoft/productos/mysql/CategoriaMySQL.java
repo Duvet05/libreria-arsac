@@ -31,8 +31,8 @@ public class CategoriaMySQL implements CategoriaDAO{
                 while (rs.next())
                 {
                     Categoria categoria = new Categoria();
-                    categoria.setIdCategoria(rs.getInt(" _id_categoria"));
-                    categoria.setDescripcion(rs.getString("_descripcion"));
+                    categoria.setIdCategoria(rs.getInt("id_categoria"));
+                    categoria.setDescripcion(rs.getString("descripcion"));
                     categorias.add(categoria);
                 }
             }catch (Exception ex){

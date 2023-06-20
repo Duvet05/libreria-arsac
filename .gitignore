@@ -157,3 +157,5 @@ ARSACSoft/Connected Services/ProveedoresWS/ARSACSoft.ProveedoresWS.helloResponse
 ARSACSoft/Connected Services/ProveedoresWS/ProveedoresWebService.wsdl
 *.wsdl
 *.properties
+/ARSACSoftProductosController/build/
+/ARSACSoftProductosController/dist/

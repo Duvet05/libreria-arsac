@@ -8,8 +8,24 @@ DROP PROCEDURE IF exists ELIMINAR_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_ORDENES_COMPRA_X_ID_NOMBRE_DNI_EMPLEADO;
 DROP PROCEDURE IF exists INSERTAR_LINEA_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA;
+DROP PROCEDURE IF exists LISTAR_CATEGORIA_TODAS;
+DROP PROCEDURE IF exists LISTAR_MARCA_TODAS;
 
 DELIMITER $
+create procedure LISTAR_CATEGORIA_TODAS()
+begin
+	select id_categoria, descripcion
+    from categoria
+    where activo = 1;
+end $
+
+create procedure LISTAR_MARCA_TODAS()
+begin
+	select id_marca, descripcion
+    from marca
+    where activo = 1;
+end $
+
 CREATE PROCEDURE INSERTAR_PRODUCTO(
 	OUT _id_producto INT,
     IN _fid_categoria INT,
