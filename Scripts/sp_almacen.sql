@@ -38,6 +38,7 @@ CREATE PROCEDURE INSERTAR_PRODUCTO(
 BEGIN
     INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor, foto)
     VALUES (_fid_categoria, _fid_marca, _nombre, _precio, _precio_por_mayor, _foto);
+    set _id_producto = @@last_insert_id;
 END$
 DELIMITER $
 

@@ -194,6 +194,8 @@ namespace ARSACSoft
             {
                 MessageBox.Show("Ha ocurrido un error al momento de guardar", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            txtIDProducto.Text = resultado.ToString();
         }
     }
 }

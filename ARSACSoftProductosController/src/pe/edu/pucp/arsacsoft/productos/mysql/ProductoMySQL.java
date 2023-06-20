@@ -65,7 +65,7 @@ public class ProductoMySQL implements ProductoDAO{
             cs.setBytes("_foto", producto.getFoto());
             cs.executeUpdate();
             producto.setIdProducto(cs.getInt("_id_producto"));                
-            resultado = 1;
+            resultado = producto.getIdProducto();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
