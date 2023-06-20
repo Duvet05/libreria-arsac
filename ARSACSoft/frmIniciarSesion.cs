@@ -59,7 +59,7 @@ namespace ARSACSoft
             if (idEmpleado == 0)
             {
                 MessageBox.Show("Las credenciales no son correctas", "Ups",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

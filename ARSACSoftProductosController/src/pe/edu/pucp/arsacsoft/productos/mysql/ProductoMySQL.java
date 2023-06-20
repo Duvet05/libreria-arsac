@@ -44,6 +44,8 @@ public class ProductoMySQL implements ProductoDAO{
                 producto.setNombre(rs.getString("nombre"));
                 producto.setPrecioPorMayor(rs.getDouble("precio_por_mayor"));
                 producto.setPrecioPorMenor(rs.getDouble("precio"));
+                producto.setFoto(rs.getBytes("foto"));
+                
                 productos.add(producto);
             }
         }catch(Exception ex){

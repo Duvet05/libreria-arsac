@@ -66,20 +66,20 @@ CREATE PROCEDURE ELIMINAR_PRODUCTO(
 BEGIN
 	UPDATE producto SET activo = 0 where id_producto = _id_producto;
 END$
-
+drop procedure LISTAR_PRODUCTO_POR_NOMBRE;
 DELIMITER $
 CREATE PROCEDURE LISTAR_PRODUCTO_POR_NOMBRE(
 	IN _nombre VARCHAR(100)
 )
 BEGIN
 	SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, m.id_marca , m.descripcion AS nombre_marca,
-	p.precio_por_mayor,p.precio
+	p.precio_por_mayor,p.precio, p.foto
 	FROM producto p
 	INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
 	INNER JOIN marca m ON p.fid_marca = m.id_marca
 	WHERE p.activo = 1 AND 
     nombre LIKE CONCAT('%',_nombre,'%');
-END
+END $
 -- ORDEN DE COMPRA
 DELIMITER $
 CREATE PROCEDURE INSERTAR_ORDEN_COMPRA(

@@ -63,6 +63,17 @@ public class ProductosWS {
         return resultado;
     }
     
+    @WebMethod(operationName = "modificarProducto")
+    public int modificarProducto(Producto prod) {
+        int resultado = 0;
+        try {
+            resultado = daoProducto.modificar(prod);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
     @WebMethod(operationName = "listarProductosXNombre")
     public ArrayList<Producto> listarProductosXNombre(String nombre) {
         ArrayList<Producto> productos = null;

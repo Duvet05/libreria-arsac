@@ -8,6 +8,8 @@
   <xs:element name="listarMarcaTodasResponse" type="tns:listarMarcaTodasResponse" />
   <xs:element name="listarProductosXNombre" type="tns:listarProductosXNombre" />
   <xs:element name="listarProductosXNombreResponse" type="tns:listarProductosXNombreResponse" />
+  <xs:element name="modificarProducto" type="tns:modificarProducto" />
+  <xs:element name="modificarProductoResponse" type="tns:modificarProductoResponse" />
   <xs:complexType name="listarMarcaTodas">
     <xs:sequence />
   </xs:complexType>
@@ -78,6 +80,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarProductoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarProductoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

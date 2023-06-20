@@ -14,11 +14,13 @@ namespace ARSACSoft
         private Estado _estadoPagProducto;
         private string _rutaFotoProducto = "";
         private ProductosWSClient daoProductosWS;
+        private ProductosWS.producto prodSeleccionado;
         public frmGestionAlmacen()
         {
             InitializeComponent();
             _estadoPagProducto = Estado.Inicial;
             establecerEstadoFormularioProducto();
+            limpiarComponentesProducto();
             daoProductosWS = new ProductosWSClient();
             
 
@@ -63,12 +65,23 @@ namespace ARSACSoft
 
             if (frmBuscProd.ShowDialog() == DialogResult.OK)
             {
-                /*
-                _producto = formBusqProd.ProductoSeleccionado;
-                txtNombreProducto.Text = _producto.Nombre + " " + _producto.UnidadMedida;
-                txtCodigoProducto.Text = _producto.IdProducto.ToString();
-                txtPrecioUnitario.Text = _producto.Precio.ToString("N2");
-                */
+                
+                prodSeleccionado = frmBuscProd.ProductoSeleccionado;
+
+                txtNombreProducto.Text = prodSeleccionado.nombre;
+                txtIDProducto.Text = prodSeleccionado.idProducto.ToString();
+
+                cboMarca.SelectedValue = prodSeleccionado.marca.idMarca;
+                cboCategoria.SelectedValue = prodSeleccionado.categoria.idCategoria;
+                txtPrecioXMayor.Text = prodSeleccionado.precioPorMayor.ToString("N2");
+                txtPrecioXMenor.Text = prodSeleccionado.precioPorMenor.ToString("N2");
+
+                MemoryStream ms = new MemoryStream(prodSeleccionado.foto);
+                pbFoto.Image = new Bitmap(ms);
+
+                _estadoPagProducto = Estado.Buscar;
+                establecerEstadoFormularioProducto();
+
             }
 
         }
@@ -111,10 +124,10 @@ namespace ARSACSoft
                     break;
                 case Estado.Buscar:
                     btnNuevoProducto.Enabled = false;
-                    btnGuardarProducto.Enabled = true;
-                    btnBuscarProducto.Enabled = false;
+                    btnGuardarProducto.Enabled = false;
+                    btnBuscarProducto.Enabled = true;
                     btnModificarProducto.Enabled = true;
-                    btnCancelarProducto.Enabled = false;
+                    btnCancelarProducto.Enabled = true;
                     txtIDProducto.Enabled = false;
                     txtNombreProducto.Enabled = false;
                     cboMarca.Enabled = false;
@@ -125,21 +138,29 @@ namespace ARSACSoft
                     break;
             }
         }
-        public void limpiarComponentesEmpleado()
+        public void limpiarComponentesProducto()
         {
-
+            txtIDProducto.Text = "";
+            txtNombreProducto.Text = "";
+            cboMarca.SelectedIndex = -1;
+            cboCategoria.SelectedIndex = -1;
+            txtPrecioXMayor.Text = "";
+            txtPrecioXMenor.Text = "";
         }
 
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
             _estadoPagProducto = Estado.Nuevo;
             establecerEstadoFormularioProducto();
+            limpiarComponentesProducto();
         }
 
         private void btnCancelarProducto_Click(object sender, EventArgs e)
         {
              _estadoPagProducto= Estado.Inicial;
             establecerEstadoFormularioProducto();
+            limpiarComponentesProducto();
+
         }
 
         private void btnGuardarProducto_Click(object sender, EventArgs e)
@@ -162,40 +183,42 @@ namespace ARSACSoft
                 fs.Close();
             }
 
-            //pelicula.actores = new BindingList<actor>().ToArray();
-            //pelicula.actores = _actores.ToArray();
-            //pelicula.titulo = txtTitulo.Text;
-            //pelicula.fechaEstreno = dtpFechaEstreno.Value;
-            //pelicula.fechaEstrenoSpecified = true;
-            //pelicula.genero = new genero();
-            //pelicula.genero.idGenero = (int)cboGenero.SelectedValue;
-            //pelicula.duracion = dtpDuracion.Value.ToString("hh:mm");
-            //pelicula.disponibleSubtitulada = cbSubtitulada.Checked;
-            //pelicula.disponibleDoblada = cbDoblada.Checked;
-            //pelicula.sinopsis = txtSinopsis.Text;
-
-            //if (_rutaFotoPortada != "")
-            //{
-            //    FileStream fs = new FileStream(_rutaFotoPortada, FileMode.Open, FileAccess.Read);
-            //    BinaryReader br = new BinaryReader(fs);
-            //    pelicula.portada = br.ReadBytes((int)fs.Length);
-            //    fs.Close();
-            //}
-
-            int resultado = daoProductosWS.insertarProducto(prod);
-
-            if (resultado != 0)
+            if (_estadoPagProducto == Estado.Nuevo)
             {
-                MessageBox.Show("Se ha agregado pelicula correctamente", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _estadoPagProducto = Estado.Inicial;
-                establecerEstadoFormularioProducto();
-            }
-            else
-            {
-                MessageBox.Show("Ha ocurrido un error al momento de guardar", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                int resultado = daoProductosWS.insertarProducto(prod);
 
-            txtIDProducto.Text = resultado.ToString();
+                if (resultado != 0)
+                {
+                    MessageBox.Show("Se ha agregado el producto correctamente", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _estadoPagProducto = Estado.Inicial;
+                    establecerEstadoFormularioProducto();
+                    txtIDProducto.Text = resultado.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error al momento de guardar", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (_estadoPagProducto == Estado.Modificar)
+            {
+                prod.idProducto = Int32.Parse(txtIDProducto.Text);
+                int resultado = daoProductosWS.modificarProducto(prod);
+                if (resultado != 0)
+                {
+                    MessageBox.Show("Se ha modificado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _estadoPagProducto = Estado.Inicial;
+                    establecerEstadoFormularioProducto();
+                }
+                else
+                    MessageBox.Show("Ha ocurrido un error con la modificación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void btnModificarProducto_Click(object sender, EventArgs e)
+        {
+            _estadoPagProducto = Estado.Modificar;
+            establecerEstadoFormularioProducto();
         }
     }
 }

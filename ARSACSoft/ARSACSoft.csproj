@@ -290,6 +290,9 @@
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.marca.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.modificarProductoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.producto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

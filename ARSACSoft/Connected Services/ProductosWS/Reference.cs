@@ -50,6 +50,15 @@ namespace ARSACSoft.ProductosWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreResponse")]
         System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarProductosXNombreResponse> listarProductosXNombreAsync(ARSACSoft.ProductosWS.listarProductosXNombreRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.ProductosWS.modificarProductoResponse modificarProducto(ARSACSoft.ProductosWS.modificarProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.modificarProductoResponse> modificarProductoAsync(ARSACSoft.ProductosWS.modificarProductoRequest request);
     }
     
     /// <remarks/>
@@ -588,6 +597,42 @@ namespace ARSACSoft.ProductosWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarProducto", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class modificarProductoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.ProductosWS.producto arg0;
+        
+        public modificarProductoRequest() {
+        }
+        
+        public modificarProductoRequest(ARSACSoft.ProductosWS.producto arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarProductoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class modificarProductoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificarProductoResponse() {
+        }
+        
+        public modificarProductoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductosWSChannel : ARSACSoft.ProductosWS.ProductosWS, System.ServiceModel.IClientChannel {
     }
@@ -701,6 +746,29 @@ namespace ARSACSoft.ProductosWS {
             ARSACSoft.ProductosWS.listarProductosXNombreRequest inValue = new ARSACSoft.ProductosWS.listarProductosXNombreRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.ProductosWS.ProductosWS)(this)).listarProductosXNombreAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.ProductosWS.modificarProductoResponse ARSACSoft.ProductosWS.ProductosWS.modificarProducto(ARSACSoft.ProductosWS.modificarProductoRequest request) {
+            return base.Channel.modificarProducto(request);
+        }
+        
+        public int modificarProducto(ARSACSoft.ProductosWS.producto arg0) {
+            ARSACSoft.ProductosWS.modificarProductoRequest inValue = new ARSACSoft.ProductosWS.modificarProductoRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.ProductosWS.modificarProductoResponse retVal = ((ARSACSoft.ProductosWS.ProductosWS)(this)).modificarProducto(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.modificarProductoResponse> ARSACSoft.ProductosWS.ProductosWS.modificarProductoAsync(ARSACSoft.ProductosWS.modificarProductoRequest request) {
+            return base.Channel.modificarProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.ProductosWS.modificarProductoResponse> modificarProductoAsync(ARSACSoft.ProductosWS.producto arg0) {
+            ARSACSoft.ProductosWS.modificarProductoRequest inValue = new ARSACSoft.ProductosWS.modificarProductoRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.ProductosWS.ProductosWS)(this)).modificarProductoAsync(inValue);
         }
     }
 }
