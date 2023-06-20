@@ -26,17 +26,37 @@ namespace ARSACSoft
 
             cboCategoria.SelectedIndex = -1;
             cboMarca.SelectedIndex = -1;
+            txtNombreProd.Text = string.Empty;
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
+            MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedIndex + ", Categoria: " + cboCategoria.SelectedIndex , "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //System.Console.WriteLine(cboMarca.SelectedIndex +  " " + cboCategoria.SelectedIndex);
             this.DialogResult = DialogResult.OK;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvProductos.DataSource = daoProductosWS.listarProductosXNombre(txtNombreProd.Text);
+            if (cboMarca.SelectedValue == null && cboCategoria.SelectedValue != null)
+            {
+                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, (int)cboCategoria.SelectedValue, -1);
+            }
+            else if(cboCategoria.SelectedValue == null && cboMarca.SelectedValue != null)
+            {
+                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, -1, (int)cboMarca.SelectedValue);
+            }
+            else if(cboCategoria.SelectedValue == null && cboMarca.SelectedValue == null)
+            {
+                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, -1, -1);
+            }
+            else
+            {
+                dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, (int)cboCategoria.SelectedValue, (int)cboMarca.SelectedValue);
+            }
+            
+            //MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedValue + ", Categoria: " + cboCategoria.SelectedValue, "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

@@ -191,21 +191,23 @@
             // 
             // cboMarca
             // 
+            this.cboMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(537, 135);
+            this.cboMarca.Location = new System.Drawing.Point(536, 156);
             this.cboMarca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMarca.Name = "cboMarca";
-            this.cboMarca.Size = new System.Drawing.Size(369, 33);
+            this.cboMarca.Size = new System.Drawing.Size(297, 26);
             this.cboMarca.TabIndex = 56;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(317, 181);
+            this.label9.Location = new System.Drawing.Point(316, 202);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(103, 25);
+            this.label9.Size = new System.Drawing.Size(76, 18);
             this.label9.TabIndex = 55;
             this.label9.Text = "Categoría:";
             // 
@@ -232,61 +234,65 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(537, 173);
+            this.cboCategoria.Location = new System.Drawing.Point(536, 194);
             this.cboCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(369, 33);
+            this.cboCategoria.Size = new System.Drawing.Size(297, 26);
             this.cboCategoria.TabIndex = 52;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(317, 265);
+            this.label3.Location = new System.Drawing.Point(316, 275);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 25);
+            this.label3.Size = new System.Drawing.Size(127, 18);
             this.label3.TabIndex = 50;
             this.label3.Text = "Precio por mayor:";
             // 
             // txtPrecioXMayor
             // 
-            this.txtPrecioXMayor.Location = new System.Drawing.Point(537, 265);
+            this.txtPrecioXMayor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioXMayor.Location = new System.Drawing.Point(536, 275);
             this.txtPrecioXMayor.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioXMayor.Name = "txtPrecioXMayor";
-            this.txtPrecioXMayor.Size = new System.Drawing.Size(264, 30);
+            this.txtPrecioXMayor.Size = new System.Drawing.Size(297, 24);
             this.txtPrecioXMayor.TabIndex = 49;
-            this.txtPrecioXMayor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(317, 227);
+            this.label2.Location = new System.Drawing.Point(316, 237);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 25);
+            this.label2.Size = new System.Drawing.Size(128, 18);
             this.label2.TabIndex = 48;
             this.label2.Text = "Precio por menor:";
             // 
             // txtPrecioXMenor
             // 
-            this.txtPrecioXMenor.Location = new System.Drawing.Point(537, 227);
+            this.txtPrecioXMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioXMenor.Location = new System.Drawing.Point(536, 237);
             this.txtPrecioXMenor.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioXMenor.Name = "txtPrecioXMenor";
-            this.txtPrecioXMenor.Size = new System.Drawing.Size(264, 30);
+            this.txtPrecioXMenor.Size = new System.Drawing.Size(297, 24);
             this.txtPrecioXMenor.TabIndex = 47;
-            this.txtPrecioXMenor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDireccion.Location = new System.Drawing.Point(317, 142);
+            this.lblDireccion.Location = new System.Drawing.Point(316, 165);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(73, 25);
+            this.lblDireccion.Size = new System.Drawing.Size(54, 18);
             this.lblDireccion.TabIndex = 43;
             this.lblDireccion.Text = "Marca:";
             // 
@@ -328,32 +334,34 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNombre.Location = new System.Drawing.Point(317, 100);
+            this.lblNombre.Location = new System.Drawing.Point(316, 126);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(199, 25);
+            this.lblNombre.Size = new System.Drawing.Size(152, 18);
             this.lblNombre.TabIndex = 26;
             this.lblNombre.Text = "Nombre del producto:";
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(535, 96);
+            this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreProducto.Location = new System.Drawing.Point(534, 122);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(371, 30);
+            this.txtNombreProducto.Size = new System.Drawing.Size(299, 24);
             this.txtNombreProducto.TabIndex = 25;
-            this.txtNombreProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtIDProducto
             // 
-            this.txtIDProducto.Location = new System.Drawing.Point(536, 62);
+            this.txtIDProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDProducto.Location = new System.Drawing.Point(535, 90);
             this.txtIDProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDProducto.Name = "txtIDProducto";
             this.txtIDProducto.ReadOnly = true;
-            this.txtIDProducto.Size = new System.Drawing.Size(92, 30);
+            this.txtIDProducto.Size = new System.Drawing.Size(92, 24);
             this.txtIDProducto.TabIndex = 23;
-            this.txtIDProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtIDProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pbFoto
             // 
@@ -369,11 +377,12 @@
             // lblIDSede
             // 
             this.lblIDSede.AutoSize = true;
+            this.lblIDSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblIDSede.Location = new System.Drawing.Point(317, 62);
+            this.lblIDSede.Location = new System.Drawing.Point(316, 90);
             this.lblIDSede.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIDSede.Name = "lblIDSede";
-            this.lblIDSede.Size = new System.Drawing.Size(149, 25);
+            this.lblIDSede.Size = new System.Drawing.Size(112, 18);
             this.lblIDSede.TabIndex = 22;
             this.lblIDSede.Text = "ID del producto:";
             // 

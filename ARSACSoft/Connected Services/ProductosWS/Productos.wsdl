@@ -23,11 +23,11 @@
   <message name="insertarProductoResponse">
     <part name="parameters" element="tns:insertarProductoResponse" />
   </message>
-  <message name="listarProductosXNombre">
-    <part name="parameters" element="tns:listarProductosXNombre" />
+  <message name="listarProductosXNombreXCategoriaXMarca">
+    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarca" />
   </message>
-  <message name="listarProductosXNombreResponse">
-    <part name="parameters" element="tns:listarProductosXNombreResponse" />
+  <message name="listarProductosXNombreXCategoriaXMarcaResponse">
+    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
   </message>
   <message name="modificarProducto">
     <part name="parameters" element="tns:modificarProducto" />
@@ -48,9 +48,9 @@
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest" message="tns:insertarProducto" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse" message="tns:insertarProductoResponse" />
     </operation>
-    <operation name="listarProductosXNombre">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreRequest" message="tns:listarProductosXNombre" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreResponse" message="tns:listarProductosXNombreResponse" />
+    <operation name="listarProductosXNombreXCategoriaXMarca">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaRequest" message="tns:listarProductosXNombreXCategoriaXMarca" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaResponse" message="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
     </operation>
     <operation name="modificarProducto">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoRequest" message="tns:modificarProducto" />
@@ -86,7 +86,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarProductosXNombre">
+    <operation name="listarProductosXNombreXCategoriaXMarca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

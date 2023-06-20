@@ -284,7 +284,7 @@
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarMarcaTodasResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXNombreResponse.datasource">
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXNombreXCategoriaXMarcaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.marca.datasource">

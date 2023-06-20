@@ -25,12 +25,15 @@ public class ProductoMySQL implements ProductoDAO{
     private CallableStatement cs;
     
     @Override
-    public ArrayList<Producto> listarxnombre(String nombre) {
+    public ArrayList<Producto> listarXnombreXcategoriaXmarca(String nombre, int _fid_categoria, int _fid_marca) {
         ArrayList<Producto> productos = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_PRODUCTO_POR_NOMBRE(?)}");
+            cs = con.prepareCall("{call LISTAR_PRODUCTO_POR_NOMBRE_CATEGORIA_MARCA(?, ?, ?)}");
             cs.setString("_nombre", nombre);
+            cs.setInt("_fid_categoria", _fid_categoria);
+            cs.setInt("_fid_marca", _fid_marca);
+            
             rs = cs.executeQuery();
             while(rs.next()){
                 Producto producto = new Producto();

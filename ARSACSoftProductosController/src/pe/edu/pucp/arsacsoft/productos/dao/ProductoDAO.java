@@ -10,7 +10,7 @@ import pe.edu.pucp.arsacsoft.producto.model.Producto;
  * @author User
  */
 public interface ProductoDAO {
-    ArrayList<Producto> listarxnombre(String nombre);
+    ArrayList<Producto> listarXnombreXcategoriaXmarca(String nombre, int _fid_categoria, int _fid_marca);
     int insertar(Producto producto);
     int modificar(Producto producto);
     int eliminar(int idproducto);      

@@ -74,11 +74,11 @@ public class ProductosWS {
         return resultado;
     }
     
-    @WebMethod(operationName = "listarProductosXNombre")
-    public ArrayList<Producto> listarProductosXNombre(String nombre) {
+    @WebMethod(operationName = "listarProductosXNombreXCategoriaXMarca")
+    public ArrayList<Producto> listarProductosXNombreXCategoriaXMarca(String nombre, int _fid_categoria, int _fid_marca) {
         ArrayList<Producto> productos = null;
         try {
-            productos = daoProducto.listarxnombre(nombre);
+            productos = daoProducto.listarXnombreXcategoriaXmarca(nombre, _fid_categoria, _fid_marca);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
