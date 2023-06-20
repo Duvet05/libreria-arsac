@@ -152,3 +152,8 @@ packages/
 Thumbs.db
 UserInterfaceState.xcuserstate
 ARSACSoft/obj/Debug/ARSACSoft.csproj.FileListAbsolute.txt
+ARSACSoft/App.config
+ARSACSoft/Connected Services/ProveedoresWS/ARSACSoft.ProveedoresWS.helloResponse.datasource
+ARSACSoft/Connected Services/ProveedoresWS/ProveedoresWebService.wsdl
+*.wsdl
+*.properties
