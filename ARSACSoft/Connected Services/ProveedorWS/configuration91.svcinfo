@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="1pId8MwC5L3wyI2AvGOaNNr53mR7Zg+k97ojpkCL0gc=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="kAtQL78DnGlgw7pmBN9nMhrwZgrcsba1H4q1K/NeuQo=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="ProveedoresWebServicePortBinding">
+    <bindingConfiguration bindingType="basicHttpBinding" name="ProveedoresWSPortBinding1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedoresWebServicePortBinding</serializedValue>
+          <serializedValue>ProveedoresWSPortBinding1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ProveedoresWebServicePort" contract="ProveedoresWS.ProveedoresWebService" bindingType="basicHttpBinding" address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWebService" bindingConfiguration="ProveedoresWebServicePortBinding">
+    <endpoint name="ProveedoresWSPort1" contract="ProveedorWS.ProveedoresWS" bindingType="basicHttpBinding" address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS" bindingConfiguration="ProveedoresWSPortBinding1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/ARSACSoftWebServices/ProveedoresWebService</serializedValue>
+          <serializedValue>http://localhost:8080/ARSACSoftWebServices/ProveedoresWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -124,10 +124,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedoresWebServicePortBinding</serializedValue>
+          <serializedValue>ProveedoresWSPortBinding1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedoresWS.ProveedoresWebService</serializedValue>
+          <serializedValue>ProveedorWS.ProveedoresWS</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ProveedoresWebServicePort</serializedValue>
+          <serializedValue>ProveedoresWSPort1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
