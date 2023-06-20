@@ -1,5 +1,5 @@
 ﻿
-using ARSACSoft.SedeWS;
+using ARSACSoft.SedesWS;
 using System;
 using System.Windows.Forms;
 
@@ -37,7 +37,7 @@ namespace ARSACSoft
                     btnQuitar.Enabled = false;
                     txtNombreProducto.Enabled = false;
                     txtStockActual.Enabled = false;
-                    txtStockBase.Enabled = false;
+                    //txtStockBase.Enabled = false;
                     btnBuscarProducto.Enabled = true;
                     btnGuardar.Enabled = false;
                     btnGenerarOrden.Enabled = false;
@@ -53,7 +53,7 @@ namespace ARSACSoft
                     btnQuitar.Enabled = true;
                     txtNombreProducto.Enabled = true;
                     txtStockActual.Enabled = true;
-                    txtStockBase.Enabled = true;
+                    //txtStockBase.Enabled = true;
                     btnBuscarProducto.Enabled = true;
                     btnGuardar.Enabled = true;
                     btnGenerarOrden.Enabled = true;
@@ -68,7 +68,7 @@ namespace ARSACSoft
                     btnQuitar.Enabled = false;
                     txtNombreProducto.Enabled = false;
                     txtStockActual.Enabled = false;
-                    txtStockBase.Enabled = false;
+                    //txtStockBase.Enabled = false;
                     btnBuscarProducto.Enabled = false;
                     btnGuardar.Enabled = false;
                     btnGenerarOrden.Enabled = false;
@@ -93,9 +93,9 @@ namespace ARSACSoft
                     txtCorreoSede.Enabled = false;
                     dtpHoraFinAtencion.Enabled = false;
                     dtpHoraInicioAtencion.Enabled = false;
-                    rbNoSedePrincipal.Enabled = false;
-                    rbSiSedePrincipal.Enabled = false;
-                    txtDescripcionSede.Enabled = false;
+                    //rbNoSedePrincipal.Enabled = false;
+                    //rbSiSedePrincipal.Enabled = false;
+                    //txtDescripcionSede.Enabled = false;
 
                     break;
                 case Estado.Nuevo:
@@ -112,9 +112,9 @@ namespace ARSACSoft
                     txtCorreoSede.Enabled = true;
                     dtpHoraFinAtencion.Enabled = true;
                     dtpHoraInicioAtencion.Enabled = true;
-                    rbNoSedePrincipal.Enabled = true;
-                    rbSiSedePrincipal.Enabled = true;
-                    txtDescripcionSede.Enabled = true;
+                    //rbNoSedePrincipal.Enabled = true;
+                    //rbSiSedePrincipal.Enabled = true;
+                    //txtDescripcionSede.Enabled = true;
 
                     break;
                 case Estado.Buscar:
@@ -130,9 +130,9 @@ namespace ARSACSoft
                     txtCorreoSede.Enabled = false;
                     dtpHoraFinAtencion.Enabled = false;
                     dtpHoraInicioAtencion.Enabled = false;
-                    rbNoSedePrincipal.Enabled = false;
-                    rbSiSedePrincipal.Enabled = false;
-                    txtDescripcionSede.Enabled = false;
+                    //rbNoSedePrincipal.Enabled = false;
+                    //rbSiSedePrincipal.Enabled = false;
+                    //txtDescripcionSede.Enabled = false;
 
                     break;
             }
@@ -143,7 +143,7 @@ namespace ARSACSoft
             cboSedeEmitidora.SelectedIndex = -1;
             txtNombreProducto.Text = "";
             txtStockActual.Text = "";
-            txtStockBase.Text = "";
+            //txtStockBase.Text = "";
             txtCantidad.Text = "";
         }
 
@@ -155,9 +155,9 @@ namespace ARSACSoft
             txtCorreoSede.Text = string.Empty;
             dtpHoraFinAtencion.Value = DateTime.Now;
             dtpHoraInicioAtencion.Value = DateTime.Now;
-            rbNoSedePrincipal.Checked = false;
-            rbSiSedePrincipal.Checked = false;
-            txtDescripcionSede.Text = "";
+            //rbNoSedePrincipal.Checked = false;
+            //rbSiSedePrincipal.Checked = false;
+            //txtDescripcionSede.Text = "";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -198,8 +198,8 @@ namespace ARSACSoft
                 txtCorreoSede.Text = sede.correo;
                 txtDireccionSede.Text = sede.direccion;
                 txtTelefonoSede.Text = sede.telefono;
-                rbSiSedePrincipal.Checked = sede.esPrincipal;
-                rbNoSedePrincipal.Checked = !sede.esPrincipal;
+                //rbSiSedePrincipal.Checked = sede.esPrincipal;
+                //rbNoSedePrincipal.Checked = !sede.esPrincipal;
 
 
                 estado = Estado.Buscar;
@@ -234,7 +234,7 @@ namespace ARSACSoft
             sede.direccion = txtDireccionSede.Text;
             sede.telefono = txtTelefonoSede.Text;
             sede.correo = txtCorreoSede.Text;
-            sede.esPrincipal = rbSiSedePrincipal.Checked;
+            //sede.esPrincipal = rbSiSedePrincipal.Checked;
 
             int resultado = 0;
 
