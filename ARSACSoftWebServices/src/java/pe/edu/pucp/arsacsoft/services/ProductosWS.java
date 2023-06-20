@@ -10,10 +10,13 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import pe.edu.pucp.arsacsoft.producto.model.Categoria;
 import pe.edu.pucp.arsacsoft.producto.model.Marca;
+import pe.edu.pucp.arsacsoft.producto.model.Producto;
 import pe.edu.pucp.arsacsoft.productos.dao.CategoriaDAO;
 import pe.edu.pucp.arsacsoft.productos.dao.MarcaDAO;
+import pe.edu.pucp.arsacsoft.productos.dao.ProductoDAO;
 import pe.edu.pucp.arsacsoft.productos.mysql.CategoriaMySQL;
 import pe.edu.pucp.arsacsoft.productos.mysql.MarcaMySQL;
+import pe.edu.pucp.arsacsoft.productos.mysql.ProductoMySQL;
 
 /**
  *
@@ -23,6 +26,9 @@ import pe.edu.pucp.arsacsoft.productos.mysql.MarcaMySQL;
 public class ProductosWS {
 
     CategoriaDAO daoCategoria = new CategoriaMySQL();
+    ProductoDAO daoProducto = new ProductoMySQL();
+    
+    
     @WebMethod(operationName = "listarCategoriasTodas")
     public ArrayList<Categoria> listarCategoriasTodas() {
         ArrayList<Categoria> categorias = null;
@@ -44,5 +50,16 @@ public class ProductosWS {
             System.out.println(ex.getMessage());
         }
         return marcas;
+    }
+    
+    @WebMethod(operationName = "insertarProducto")
+    public int insertarProducto(Producto prod) {
+        int resultado = 0;
+        try {
+            resultado = daoProducto.insertar(prod);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
     }
 }

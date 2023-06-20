@@ -12,7 +12,7 @@ namespace ARSACSoft
     public partial class frmGestionAlmacen : Form
     {
         private Estado _estadoPagProducto;
-        private string _rutaFotoLocal;
+        private string _rutaFotoProducto;
         private ProductosWSClient daoProductosWS;
         public frmGestionAlmacen()
         {
@@ -37,8 +37,8 @@ namespace ARSACSoft
             {
                 if (ofdImagenProducto.ShowDialog() == DialogResult.OK)
                 {
-                    _rutaFotoLocal = ofdImagenProducto.FileName;
-                    pbFoto.Image = Image.FromFile(_rutaFotoLocal);
+                    _rutaFotoProducto = ofdImagenProducto.FileName;
+                    pbFoto.Image = Image.FromFile(_rutaFotoProducto);
                 }
             }
             catch (Exception ex)
@@ -145,9 +145,23 @@ namespace ARSACSoft
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
 
-            //producto prod = new producto();
-            //prod.nombre = txtNombreProducto.Text;
-            //prod.marca = new ProductosWS.marca();
+            RRHHWS.producto prod = new RRHHWS.producto();
+            prod.nombre = txtNombreProducto.Text;
+            prod.marca = new RRHHWS.marca();
+            prod.marca.idMarca = (int)cboMarca.SelectedValue;
+            prod.categoria  = new RRHHWS.categoria();
+            prod.categoria.idCategoria = (int)cboCategoria.SelectedValue;
+            prod.precioPorMayor = Double.Parse(txtPrecioXMayor.Text);
+            prod.precioPorMenor = Double.Parse(txtPrecioXMenor.Text);
+
+            if (_rutaFotoProducto != "")
+            {
+                FileStream fs = new FileStream(_rutaFotoProducto, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                //prod. = br.ReadBytes((int)fs.Length);
+                fs.Close();
+            }
+
             //pelicula.actores = new BindingList<actor>().ToArray();
             //pelicula.actores = _actores.ToArray();
             //pelicula.titulo = txtTitulo.Text;

@@ -17,6 +17,12 @@
   <message name="listarMarcaTodasResponse">
     <part name="parameters" element="tns:listarMarcaTodasResponse" />
   </message>
+  <message name="insertarProducto">
+    <part name="parameters" element="tns:insertarProducto" />
+  </message>
+  <message name="insertarProductoResponse">
+    <part name="parameters" element="tns:insertarProductoResponse" />
+  </message>
   <portType name="ProductosWS">
     <operation name="listarCategoriasTodas">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest" message="tns:listarCategoriasTodas" />
@@ -25,6 +31,10 @@
     <operation name="listarMarcaTodas">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasRequest" message="tns:listarMarcaTodas" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasResponse" message="tns:listarMarcaTodasResponse" />
+    </operation>
+    <operation name="insertarProducto">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest" message="tns:insertarProducto" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse" message="tns:insertarProductoResponse" />
     </operation>
   </portType>
   <binding name="ProductosWSPortBinding" type="tns:ProductosWS">
@@ -39,6 +49,15 @@
       </output>
     </operation>
     <operation name="listarMarcaTodas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -1478,7 +1478,7 @@ exists or setup the property manually. For example like this:
             -->
     <target depends="init" name="deps-clean" unless="no.deps">
         <ant antfile="${project.ARSACSoftDBManager}/build.xml" inheritall="false" target="clean"/>
-        <ant antfile="${project.ARSACSoftOrdenesModel}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.ARSACSoftVentasModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProductosController}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProductosModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProveedoresModel}/build.xml" inheritall="false" target="clean"/>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="insertarProducto" type="tns:insertarProducto" />
+  <xs:element name="insertarProductoResponse" type="tns:insertarProductoResponse" />
   <xs:element name="listarCategoriasTodas" type="tns:listarCategoriasTodas" />
   <xs:element name="listarCategoriasTodasResponse" type="tns:listarCategoriasTodasResponse" />
   <xs:element name="listarMarcaTodas" type="tns:listarMarcaTodas" />
@@ -32,6 +34,40 @@
       <xs:element name="activo" type="xs:boolean" />
       <xs:element minOccurs="0" name="descripcion" type="xs:string" />
       <xs:element name="idCategoria" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="producto">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="categoria" type="tns:categoria" />
+      <xs:element minOccurs="0" name="foto" type="xs:base64Binary" />
+      <xs:element name="idProducto" type="xs:int" />
+      <xs:element minOccurs="0" name="marca" type="tns:marca" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element name="precioPorMayor" type="xs:double" />
+      <xs:element name="precioPorMenor" type="xs:double" />
+      <xs:element minOccurs="0" name="promocion" type="tns:promocion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="promocion">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="cantidadminima" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaFin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
+      <xs:element name="idPromocion" type="xs:int" />
+      <xs:element name="porcentaje" type="xs:double" />
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarProductoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

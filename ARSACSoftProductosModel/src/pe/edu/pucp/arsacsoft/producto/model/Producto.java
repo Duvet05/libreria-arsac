@@ -8,7 +8,16 @@ package pe.edu.pucp.arsacsoft.producto.model;
  * @author User
  */
 public class Producto {
-
+    private int idProducto;
+    private String nombre;
+    private double precioPorMenor;
+    private double precioPorMayor;
+    private boolean activo;
+    private byte[] foto;
+    private Marca marca;
+    private Categoria categoria;
+    private Promocion promocion;
+    
     public int getIdProducto() {
         return idProducto;
     }
@@ -79,15 +88,6 @@ public class Producto {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-    private int idProducto;
-    private String nombre;
-    private double precioPorMenor;
-    private double precioPorMayor;
-    private boolean activo;
-    private byte[] foto;
-    private Marca marca;
-    private Categoria categoria;
-    private Promocion promocion;
     
     public Producto() {
     }

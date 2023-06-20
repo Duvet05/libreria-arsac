@@ -32,6 +32,15 @@ namespace ARSACSoft.ProductosWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasResponse")]
         System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarMarcaTodasResponse> listarMarcaTodasAsync(ARSACSoft.ProductosWS.listarMarcaTodasRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.ProductosWS.insertarProductoResponse insertarProducto(ARSACSoft.ProductosWS.insertarProductoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.insertarProductoResponse> insertarProductoAsync(ARSACSoft.ProductosWS.insertarProductoRequest request);
     }
     
     /// <remarks/>
@@ -81,6 +90,294 @@ namespace ARSACSoft.ProductosWS {
             set {
                 this.idCategoriaField = value;
                 this.RaisePropertyChanged("idCategoria");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class promocion : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private int cantidadminimaField;
+        
+        private System.DateTime fechaFinField;
+        
+        private bool fechaFinFieldSpecified;
+        
+        private System.DateTime fechaInicioField;
+        
+        private bool fechaInicioFieldSpecified;
+        
+        private int idPromocionField;
+        
+        private double porcentajeField;
+        
+        private producto productoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int cantidadminima {
+            get {
+                return this.cantidadminimaField;
+            }
+            set {
+                this.cantidadminimaField = value;
+                this.RaisePropertyChanged("cantidadminima");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public System.DateTime fechaFin {
+            get {
+                return this.fechaFinField;
+            }
+            set {
+                this.fechaFinField = value;
+                this.RaisePropertyChanged("fechaFin");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaFinSpecified {
+            get {
+                return this.fechaFinFieldSpecified;
+            }
+            set {
+                this.fechaFinFieldSpecified = value;
+                this.RaisePropertyChanged("fechaFinSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public System.DateTime fechaInicio {
+            get {
+                return this.fechaInicioField;
+            }
+            set {
+                this.fechaInicioField = value;
+                this.RaisePropertyChanged("fechaInicio");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaInicioSpecified {
+            get {
+                return this.fechaInicioFieldSpecified;
+            }
+            set {
+                this.fechaInicioFieldSpecified = value;
+                this.RaisePropertyChanged("fechaInicioSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public int idPromocion {
+            get {
+                return this.idPromocionField;
+            }
+            set {
+                this.idPromocionField = value;
+                this.RaisePropertyChanged("idPromocion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public double porcentaje {
+            get {
+                return this.porcentajeField;
+            }
+            set {
+                this.porcentajeField = value;
+                this.RaisePropertyChanged("porcentaje");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public producto producto {
+            get {
+                return this.productoField;
+            }
+            set {
+                this.productoField = value;
+                this.RaisePropertyChanged("producto");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class producto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private categoria categoriaField;
+        
+        private byte[] fotoField;
+        
+        private int idProductoField;
+        
+        private marca marcaField;
+        
+        private string nombreField;
+        
+        private double precioPorMayorField;
+        
+        private double precioPorMenorField;
+        
+        private promocion promocionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public categoria categoria {
+            get {
+                return this.categoriaField;
+            }
+            set {
+                this.categoriaField = value;
+                this.RaisePropertyChanged("categoria");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=2)]
+        public byte[] foto {
+            get {
+                return this.fotoField;
+            }
+            set {
+                this.fotoField = value;
+                this.RaisePropertyChanged("foto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int idProducto {
+            get {
+                return this.idProductoField;
+            }
+            set {
+                this.idProductoField = value;
+                this.RaisePropertyChanged("idProducto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public marca marca {
+            get {
+                return this.marcaField;
+            }
+            set {
+                this.marcaField = value;
+                this.RaisePropertyChanged("marca");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public double precioPorMayor {
+            get {
+                return this.precioPorMayorField;
+            }
+            set {
+                this.precioPorMayorField = value;
+                this.RaisePropertyChanged("precioPorMayor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public double precioPorMenor {
+            get {
+                return this.precioPorMenorField;
+            }
+            set {
+                this.precioPorMenorField = value;
+                this.RaisePropertyChanged("precioPorMenor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public promocion promocion {
+            get {
+                return this.promocionField;
+            }
+            set {
+                this.promocionField = value;
+                this.RaisePropertyChanged("promocion");
             }
         }
         
@@ -210,6 +507,42 @@ namespace ARSACSoft.ProductosWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProducto", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarProductoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.ProductosWS.producto arg0;
+        
+        public insertarProductoRequest() {
+        }
+        
+        public insertarProductoRequest(ARSACSoft.ProductosWS.producto arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarProductoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarProductoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarProductoResponse() {
+        }
+        
+        public insertarProductoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductosWSChannel : ARSACSoft.ProductosWS.ProductosWS, System.ServiceModel.IClientChannel {
     }
@@ -277,6 +610,29 @@ namespace ARSACSoft.ProductosWS {
         public System.Threading.Tasks.Task<ARSACSoft.ProductosWS.listarMarcaTodasResponse> listarMarcaTodasAsync() {
             ARSACSoft.ProductosWS.listarMarcaTodasRequest inValue = new ARSACSoft.ProductosWS.listarMarcaTodasRequest();
             return ((ARSACSoft.ProductosWS.ProductosWS)(this)).listarMarcaTodasAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.ProductosWS.insertarProductoResponse ARSACSoft.ProductosWS.ProductosWS.insertarProducto(ARSACSoft.ProductosWS.insertarProductoRequest request) {
+            return base.Channel.insertarProducto(request);
+        }
+        
+        public int insertarProducto(ARSACSoft.ProductosWS.producto arg0) {
+            ARSACSoft.ProductosWS.insertarProductoRequest inValue = new ARSACSoft.ProductosWS.insertarProductoRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.ProductosWS.insertarProductoResponse retVal = ((ARSACSoft.ProductosWS.ProductosWS)(this)).insertarProducto(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.ProductosWS.insertarProductoResponse> ARSACSoft.ProductosWS.ProductosWS.insertarProductoAsync(ARSACSoft.ProductosWS.insertarProductoRequest request) {
+            return base.Channel.insertarProductoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.ProductosWS.insertarProductoResponse> insertarProductoAsync(ARSACSoft.ProductosWS.producto arg0) {
+            ARSACSoft.ProductosWS.insertarProductoRequest inValue = new ARSACSoft.ProductosWS.insertarProductoRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.ProductosWS.ProductosWS)(this)).insertarProductoAsync(inValue);
         }
     }
 }

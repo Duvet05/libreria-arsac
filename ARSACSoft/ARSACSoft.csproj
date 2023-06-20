@@ -92,7 +92,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ProveedorWS\Reference.cs">
+    <Compile Include="Connected Services\ProveedoresWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -103,11 +103,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\SedeWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\AlmacenesWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -265,9 +260,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\AlmacenesWS\ARSACSoft.AlmacenesWS.helloResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -284,11 +276,11 @@
     <None Include="Connected Services\ProductosWS\Productos.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ProveedorWS\ARSACSoft.ProveedorWS.helloResponse.datasource">
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.helloResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ProveedorWS\ProveedoresWS.wsdl" />
-    <None Include="Connected Services\ProveedorWS\ProveedoresWS.xsd">
+    <None Include="Connected Services\ProveedoresWS\ProveedoresWS.wsdl" />
+    <None Include="Connected Services\ProveedoresWS\ProveedoresWS.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.actualizarCuentaResponse.datasource">
@@ -374,11 +366,7 @@
     <None Include="Connected Services\SedeWS\SedesWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\AlmacenesWS\AlmacenWS.wsdl" />
-    <None Include="Connected Services\AlmacenesWS\AlmacenWS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.helloResponse.datasource">
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.helloResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />
@@ -503,10 +491,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ProductosWS\" />
-    <WCFMetadataStorage Include="Connected Services\ProveedorWS\" />
+    <WCFMetadataStorage Include="Connected Services\ProveedoresWS\" />
     <WCFMetadataStorage Include="Connected Services\RRHHWS\" />
     <WCFMetadataStorage Include="Connected Services\SedeWS\" />
-    <WCFMetadataStorage Include="Connected Services\AlmacenesWS\" />
     <WCFMetadataStorage Include="Connected Services\VentasWS\" />
   </ItemGroup>
   <ItemGroup>
@@ -552,18 +539,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AlmacenesWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AlmacenesWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\AlmacenesWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\VentasWS\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -576,13 +551,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ProveedorWS\configuration91.svcinfo" />
+    <None Include="Connected Services\ProveedoresWS\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ProveedorWS\configuration.svcinfo" />
+    <None Include="Connected Services\ProveedoresWS\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ProveedorWS\Reference.svcmap">
+    <None Include="Connected Services\ProveedoresWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
