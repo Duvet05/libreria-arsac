@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pe.edu.pucp.arsacsoft.ordenes.model;
+package pe.edu.pucp.arsacsoft.almacen.model;
 
 import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
@@ -10,19 +10,24 @@ import pe.edu.pucp.arsacsoft.producto.model.Producto;
  *
  * @author Gino
  */
-public class LineaDeOrdenDeCompra {
-    private int idLineaDeOrdenDeCompra;
+public class LineaDeOrdenDeAbastecimiento {
+        private int idLineaOrdenDeAbastecimiento;
     private int cantidad;
     private double costo;
     private boolean activo;
     private Producto producto;
 
-    public int getIdLineaDeOrdenDeCompra() {
-        return idLineaDeOrdenDeCompra;
+    public LineaDeOrdenDeAbastecimiento() {
     }
 
-    public void setIdLineaDeOrdenDeCompra(int idLineaDeOrdenDeCompra) {
-        this.idLineaDeOrdenDeCompra = idLineaDeOrdenDeCompra;
+    
+    
+    public int getIdLineaOrdenDeAbastecimiento() {
+        return idLineaOrdenDeAbastecimiento;
+    }
+
+    public void setIdLineaOrdenDeAbastecimiento(int idLineaOrdenDeAbastecimiento) {
+        this.idLineaOrdenDeAbastecimiento = idLineaOrdenDeAbastecimiento;
     }
 
     public int getCantidad() {
@@ -56,7 +61,4 @@ public class LineaDeOrdenDeCompra {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
-    
-    
-    
 }

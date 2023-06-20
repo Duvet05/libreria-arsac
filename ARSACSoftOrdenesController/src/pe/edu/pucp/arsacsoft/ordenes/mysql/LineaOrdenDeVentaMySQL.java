@@ -78,10 +78,9 @@ public class LineaOrdenDeVentaMySQL implements LineaDeOrdenDeVentaDAO {
         }
         return resultado;
     }
-    /*
+    
     @Override
     public int eliminar(int idOrdenVenta,int idProducto) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    */
 }
