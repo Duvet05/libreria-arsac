@@ -145,7 +145,9 @@ namespace ARSACSoft
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
 
-            //ProductosWS producto = new ();
+            //producto prod = new producto();
+            //prod.nombre = txtNombreProducto.Text;
+            //prod.marca = new ProductosWS.marca();
             //pelicula.actores = new BindingList<actor>().ToArray();
             //pelicula.actores = _actores.ToArray();
             //pelicula.titulo = txtTitulo.Text;
