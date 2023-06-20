@@ -12,7 +12,7 @@ namespace ARSACSoft
     public partial class frmGestionAlmacen : Form
     {
         private Estado _estadoPagProducto;
-        private string _rutaFotoProducto;
+        private string _rutaFotoProducto = "";
         private ProductosWSClient daoProductosWS;
         public frmGestionAlmacen()
         {
@@ -145,11 +145,11 @@ namespace ARSACSoft
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
 
-            RRHHWS.producto prod = new RRHHWS.producto();
+            ProductosWS.producto prod = new ProductosWS.producto();
             prod.nombre = txtNombreProducto.Text;
-            prod.marca = new RRHHWS.marca();
+            prod.marca = new ProductosWS.marca();
             prod.marca.idMarca = (int)cboMarca.SelectedValue;
-            prod.categoria  = new RRHHWS.categoria();
+            prod.categoria  = new ProductosWS.categoria();
             prod.categoria.idCategoria = (int)cboCategoria.SelectedValue;
             prod.precioPorMayor = Double.Parse(txtPrecioXMayor.Text);
             prod.precioPorMenor = Double.Parse(txtPrecioXMenor.Text);
@@ -158,7 +158,7 @@ namespace ARSACSoft
             {
                 FileStream fs = new FileStream(_rutaFotoProducto, FileMode.Open, FileAccess.Read);
                 BinaryReader br = new BinaryReader(fs);
-                //prod. = br.ReadBytes((int)fs.Length);
+                prod.foto = br.ReadBytes((int)fs.Length);
                 fs.Close();
             }
 
@@ -182,18 +182,18 @@ namespace ARSACSoft
             //    fs.Close();
             //}
 
-            //int resultado = daoServiceWS.insertarPelicula(pelicula);
+            int resultado = daoProductosWS.insertarProducto(prod);
 
-            //if (resultado != 0)
-            //{
-            //    MessageBox.Show("Se ha agregado pelicula correctamente", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    _estado = Estado.Inicial;
-            //    establecerEstadoComponentes();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Ha ocurrido un error al momento de guardar", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            if (resultado != 0)
+            {
+                MessageBox.Show("Se ha agregado pelicula correctamente", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _estadoPagProducto = Estado.Inicial;
+                establecerEstadoFormularioProducto();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error al momento de guardar", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
