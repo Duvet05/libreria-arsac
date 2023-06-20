@@ -448,9 +448,9 @@
             this.button10.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
             this.button10.Location = new System.Drawing.Point(484, 394);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(200, 22);
+            this.button10.Size = new System.Drawing.Size(200, 29);
             this.button10.TabIndex = 108;
-            this.button10.Text = "Emitir Factura";
+            this.button10.Text = "Procesar Pedido";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // textBox8
@@ -588,12 +588,12 @@
             this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
             this.button2.Location = new System.Drawing.Point(484, 355);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 27);
+            this.button2.Size = new System.Drawing.Size(200, 33);
             this.button2.TabIndex = 109;
-            this.button2.Text = "Emitir Factura";
+            this.button2.Text = "Emitir Factura por Correo";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // frmGestionsPedidos
+            // frmGestionPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -606,7 +606,7 @@
             this.Controls.Add(this.gbProveedor);
             this.Controls.Add(this.tsMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmGestionsPedidos";
+            this.Name = "frmGestionPedidos";
             this.ShowInTaskbar = false;
             this.Text = "frmGestionsVentas";
             this.tsMenu.ResumeLayout(false);
