@@ -47,7 +47,6 @@ public class LineaOrdenDeVentaMySQL implements LineaDeOrdenDeVentaDAO {
         }
         return resultado;
     }
-\
     
     @Override
     public int modificar(LineaDeOrdenDeVenta lineaOrden,int idOrdenVenta,int idProducto) {

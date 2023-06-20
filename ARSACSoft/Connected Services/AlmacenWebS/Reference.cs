@@ -8,19 +8,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARSACSoft.AlmacenesWS {
+namespace ARSACSoft.AlmacenWebS {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="AlmacenesWS.AlmacenWS")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="AlmacenWebS.AlmacenWS")]
     public interface AlmacenWS {
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloResponse")]
-        ARSACSoft.AlmacenesWS.helloResponse hello(ARSACSoft.AlmacenesWS.helloRequest request);
+        ARSACSoft.AlmacenWebS.helloResponse hello(ARSACSoft.AlmacenWebS.helloRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenesWS.helloResponse> helloAsync(ARSACSoft.AlmacenesWS.helloRequest request);
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWebS.helloResponse> helloAsync(ARSACSoft.AlmacenWebS.helloRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -30,12 +30,12 @@ namespace ARSACSoft.AlmacenesWS {
     public partial class helloRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="hello", Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        public ARSACSoft.AlmacenesWS.helloRequestBody Body;
+        public ARSACSoft.AlmacenWebS.helloRequestBody Body;
         
         public helloRequest() {
         }
         
-        public helloRequest(ARSACSoft.AlmacenesWS.helloRequestBody Body) {
+        public helloRequest(ARSACSoft.AlmacenWebS.helloRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -64,12 +64,12 @@ namespace ARSACSoft.AlmacenesWS {
     public partial class helloResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="helloResponse", Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        public ARSACSoft.AlmacenesWS.helloResponseBody Body;
+        public ARSACSoft.AlmacenWebS.helloResponseBody Body;
         
         public helloResponse() {
         }
         
-        public helloResponse(ARSACSoft.AlmacenesWS.helloResponseBody Body) {
+        public helloResponse(ARSACSoft.AlmacenWebS.helloResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -92,12 +92,12 @@ namespace ARSACSoft.AlmacenesWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface AlmacenWSChannel : ARSACSoft.AlmacenesWS.AlmacenWS, System.ServiceModel.IClientChannel {
+    public interface AlmacenWSChannel : ARSACSoft.AlmacenWebS.AlmacenWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AlmacenWSClient : System.ServiceModel.ClientBase<ARSACSoft.AlmacenesWS.AlmacenWS>, ARSACSoft.AlmacenesWS.AlmacenWS {
+    public partial class AlmacenWSClient : System.ServiceModel.ClientBase<ARSACSoft.AlmacenWebS.AlmacenWS>, ARSACSoft.AlmacenWebS.AlmacenWS {
         
         public AlmacenWSClient() {
         }
@@ -119,28 +119,28 @@ namespace ARSACSoft.AlmacenesWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.AlmacenesWS.helloResponse ARSACSoft.AlmacenesWS.AlmacenWS.hello(ARSACSoft.AlmacenesWS.helloRequest request) {
+        ARSACSoft.AlmacenWebS.helloResponse ARSACSoft.AlmacenWebS.AlmacenWS.hello(ARSACSoft.AlmacenWebS.helloRequest request) {
             return base.Channel.hello(request);
         }
         
         public string hello(string name) {
-            ARSACSoft.AlmacenesWS.helloRequest inValue = new ARSACSoft.AlmacenesWS.helloRequest();
-            inValue.Body = new ARSACSoft.AlmacenesWS.helloRequestBody();
+            ARSACSoft.AlmacenWebS.helloRequest inValue = new ARSACSoft.AlmacenWebS.helloRequest();
+            inValue.Body = new ARSACSoft.AlmacenWebS.helloRequestBody();
             inValue.Body.name = name;
-            ARSACSoft.AlmacenesWS.helloResponse retVal = ((ARSACSoft.AlmacenesWS.AlmacenWS)(this)).hello(inValue);
+            ARSACSoft.AlmacenWebS.helloResponse retVal = ((ARSACSoft.AlmacenWebS.AlmacenWS)(this)).hello(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenesWS.helloResponse> ARSACSoft.AlmacenesWS.AlmacenWS.helloAsync(ARSACSoft.AlmacenesWS.helloRequest request) {
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWebS.helloResponse> ARSACSoft.AlmacenWebS.AlmacenWS.helloAsync(ARSACSoft.AlmacenWebS.helloRequest request) {
             return base.Channel.helloAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.AlmacenesWS.helloResponse> helloAsync(string name) {
-            ARSACSoft.AlmacenesWS.helloRequest inValue = new ARSACSoft.AlmacenesWS.helloRequest();
-            inValue.Body = new ARSACSoft.AlmacenesWS.helloRequestBody();
+        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWebS.helloResponse> helloAsync(string name) {
+            ARSACSoft.AlmacenWebS.helloRequest inValue = new ARSACSoft.AlmacenWebS.helloRequest();
+            inValue.Body = new ARSACSoft.AlmacenWebS.helloRequestBody();
             inValue.Body.name = name;
-            return ((ARSACSoft.AlmacenesWS.AlmacenWS)(this)).helloAsync(inValue);
+            return ((ARSACSoft.AlmacenWebS.AlmacenWS)(this)).helloAsync(inValue);
         }
     }
 }

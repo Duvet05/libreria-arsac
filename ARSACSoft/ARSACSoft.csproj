@@ -263,6 +263,9 @@
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.insertarProductoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarCategoriasTodasResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -276,7 +279,7 @@
     <None Include="Connected Services\ProductosWS\Productos.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.helloResponse1.datasource">
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.helloResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProveedoresWS\ProveedoresWS.wsdl" />
