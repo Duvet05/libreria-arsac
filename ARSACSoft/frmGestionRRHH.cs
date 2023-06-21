@@ -683,6 +683,13 @@ namespace ARSACSoft
                 // Eliminar espacios en blanco
                 string strippedText = currentText.Replace(" ", "");
 
+                // Verificar longitud máxima (11 caracteres)
+                if (strippedText.Length >= 11)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
                 // Insertar espacios cada 3 dígitos
                 string formattedText = string.Empty;
                 for (int i = 0; i < strippedText.Length; i++)
@@ -702,6 +709,7 @@ namespace ARSACSoft
                 e.Handled = true;
             }
         }
+
 
         private void txtRUC_KeyPress(object sender, KeyPressEventArgs e)
         {
