@@ -37,7 +37,7 @@ public class OrdenDeCompraMySQL implements OrdenDeCompraDAO{
             cs.executeUpdate();
             ordenCompra.setIdOrdenDeCompra(cs.getInt("_id_orden_de_compra"));
             for(LineaOrdenDeCompra lineaOrdenCompra : ordenCompra.getLineas()){
-                cs = con.prepareCall("{INSERTAR_LINEA_ORDEN_COMPRA(?,?,?,?,?)}");
+                cs = con.prepareCall("{CALL INSERTAR_LINEA_ORDEN_COMPRA(?,?,?,?,?)}");
                 cs.registerOutParameter("_id_linea_orden_compra", java.sql.Types.INTEGER);
                 cs.setInt("_fid_orden_de_compra", ordenCompra.getIdOrdenDeCompra());
                 cs.setInt("_fid_producto", lineaOrdenCompra.getProductoProveedor().getProducto().getIdProducto());
