@@ -43,10 +43,10 @@
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(768, 10);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSeleccionar.Location = new System.Drawing.Point(576, 8);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(144, 28);
+            this.btnSeleccionar.Size = new System.Drawing.Size(108, 23);
             this.btnSeleccionar.TabIndex = 9;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -54,10 +54,10 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(535, 10);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscar.Location = new System.Drawing.Point(401, 8);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(79, 31);
+            this.btnBuscar.Size = new System.Drawing.Size(59, 25);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -66,19 +66,20 @@
             // txtNombreRUC
             // 
             this.txtNombreRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreRUC.Location = new System.Drawing.Point(300, 16);
-            this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombreRUC.Location = new System.Drawing.Point(225, 13);
+            this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombreRUC.Name = "txtNombreRUC";
-            this.txtNombreRUC.Size = new System.Drawing.Size(229, 24);
+            this.txtNombreRUC.Size = new System.Drawing.Size(173, 21);
             this.txtNombreRUC.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 16);
+            this.label1.Location = new System.Drawing.Point(8, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 18);
+            this.label1.Size = new System.Drawing.Size(227, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Ingrese el nombre o RUC del proveedor:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -87,6 +88,7 @@
             // 
             this.dgvProveedores.AllowUserToAddRows = false;
             this.dgvProveedores.AllowUserToDeleteRows = false;
+            this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdEmpleado,
@@ -94,13 +96,13 @@
             this.Tipo,
             this.Sede,
             this.SedePrincipal});
-            this.dgvProveedores.Location = new System.Drawing.Point(11, 52);
-            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProveedores.Location = new System.Drawing.Point(8, 42);
+            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.ReadOnly = true;
             this.dgvProveedores.RowHeadersWidth = 62;
             this.dgvProveedores.RowTemplate.Height = 28;
-            this.dgvProveedores.Size = new System.Drawing.Size(901, 315);
+            this.dgvProveedores.Size = new System.Drawing.Size(676, 256);
             this.dgvProveedores.TabIndex = 5;
             this.dgvProveedores.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProveedores_CellFormatting);
             // 
@@ -110,7 +112,6 @@
             this.IdEmpleado.MinimumWidth = 8;
             this.IdEmpleado.Name = "IdEmpleado";
             this.IdEmpleado.ReadOnly = true;
-            this.IdEmpleado.Width = 50;
             // 
             // NombreCompleto
             // 
@@ -118,7 +119,6 @@
             this.NombreCompleto.MinimumWidth = 8;
             this.NombreCompleto.Name = "NombreCompleto";
             this.NombreCompleto.ReadOnly = true;
-            this.NombreCompleto.Width = 300;
             // 
             // Tipo
             // 
@@ -126,7 +126,6 @@
             this.Tipo.MinimumWidth = 8;
             this.Tipo.Name = "Tipo";
             this.Tipo.ReadOnly = true;
-            this.Tipo.Width = 200;
             // 
             // Sede
             // 
@@ -134,7 +133,6 @@
             this.Sede.MinimumWidth = 8;
             this.Sede.Name = "Sede";
             this.Sede.ReadOnly = true;
-            this.Sede.Width = 250;
             // 
             // SedePrincipal
             // 
@@ -142,18 +140,18 @@
             this.SedePrincipal.MinimumWidth = 8;
             this.SedePrincipal.Name = "SedePrincipal";
             this.SedePrincipal.ReadOnly = true;
-            this.SedePrincipal.Width = 125;
             // 
             // frmBuscarProveedores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 377);
+            this.ClientSize = new System.Drawing.Size(692, 306);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNombreRUC);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProveedores);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmBuscarProveedores";
             this.Text = "frmBuscarProveedores";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();

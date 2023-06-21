@@ -45,6 +45,7 @@
             // 
             this.dgvEmpleados.AllowUserToAddRows = false;
             this.dgvEmpleados.AllowUserToDeleteRows = false;
+            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdEmpleado,
@@ -53,7 +54,7 @@
             this.Sede,
             this.SedePrincipal});
             this.dgvEmpleados.Location = new System.Drawing.Point(8, 42);
-            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.ReadOnly = true;
             this.dgvEmpleados.RowHeadersWidth = 62;
@@ -75,7 +76,6 @@
             this.NombreCompleto.MinimumWidth = 8;
             this.NombreCompleto.Name = "NombreCompleto";
             this.NombreCompleto.ReadOnly = true;
-            this.NombreCompleto.Width = 300;
             // 
             // Tipo
             // 
@@ -83,7 +83,6 @@
             this.Tipo.MinimumWidth = 8;
             this.Tipo.Name = "Tipo";
             this.Tipo.ReadOnly = true;
-            this.Tipo.Width = 200;
             // 
             // Sede
             // 
@@ -91,7 +90,6 @@
             this.Sede.MinimumWidth = 8;
             this.Sede.Name = "Sede";
             this.Sede.ReadOnly = true;
-            this.Sede.Width = 250;
             // 
             // SedePrincipal
             // 
@@ -115,7 +113,7 @@
             // 
             this.txtNombreDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreDNI.Location = new System.Drawing.Point(225, 13);
-            this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreDNI.Name = "txtNombreDNI";
             this.txtNombreDNI.Size = new System.Drawing.Size(173, 21);
             this.txtNombreDNI.TabIndex = 2;
@@ -123,7 +121,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(401, 8);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(59, 25);
             this.btnBuscar.TabIndex = 3;
@@ -134,7 +132,7 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.Location = new System.Drawing.Point(576, 8);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(108, 23);
             this.btnSeleccionar.TabIndex = 4;
@@ -152,7 +150,7 @@
             this.Controls.Add(this.txtNombreDNI);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvEmpleados);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscarEmpleados";
             this.Text = "frmBuscarEmpleados";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();

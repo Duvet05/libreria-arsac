@@ -44,26 +44,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(8, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(376, 22);
+            this.label1.Size = new System.Drawing.Size(259, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese el nombre o DNI del cliente mayorista:";
             // 
             // txtNombreDNI
             // 
             this.txtNombreDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreDNI.Location = new System.Drawing.Point(394, 17);
+            this.txtNombreDNI.Location = new System.Drawing.Point(263, 11);
+            this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombreDNI.Name = "txtNombreDNI";
-            this.txtNombreDNI.Size = new System.Drawing.Size(230, 28);
+            this.txtNombreDNI.Size = new System.Drawing.Size(155, 21);
             this.txtNombreDNI.TabIndex = 1;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(640, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(427, 8);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(85, 38);
+            this.btnBuscar.Size = new System.Drawing.Size(57, 25);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -72,9 +75,10 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(840, 12);
+            this.btnSeleccionar.Location = new System.Drawing.Point(560, 8);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(117, 38);
+            this.btnSeleccionar.Size = new System.Drawing.Size(78, 25);
             this.btnSeleccionar.TabIndex = 3;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -84,18 +88,20 @@
             // 
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idCliente,
             this.DNI,
             this.Nombre,
             this.RazonSocial});
-            this.dgvClientes.Location = new System.Drawing.Point(16, 70);
+            this.dgvClientes.Location = new System.Drawing.Point(11, 46);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersWidth = 62;
             this.dgvClientes.RowTemplate.Height = 28;
-            this.dgvClientes.Size = new System.Drawing.Size(941, 368);
+            this.dgvClientes.Size = new System.Drawing.Size(627, 239);
             this.dgvClientes.TabIndex = 4;
             this.dgvClientes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvClientes_CellFormatting);
             // 
@@ -119,7 +125,6 @@
             this.Nombre.MinimumWidth = 8;
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 150;
             // 
             // RazonSocial
             // 
@@ -127,18 +132,18 @@
             this.RazonSocial.MinimumWidth = 8;
             this.RazonSocial.Name = "RazonSocial";
             this.RazonSocial.ReadOnly = true;
-            this.RazonSocial.Width = 150;
             // 
             // frmBuscarClienteMayorista
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 450);
+            this.ClientSize = new System.Drawing.Size(646, 292);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNombreDNI);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmBuscarClienteMayorista";
             this.Text = "Busqueda de Cliente Mayorista";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
