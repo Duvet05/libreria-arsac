@@ -13,6 +13,8 @@ namespace ARSACSoft
         public frmGestionPedidos()
         {
             InitializeComponent();
+            estado = Estado.Inicial;
+            establecerEstadoFormulario();
             limpiarComponentes();
         }
 
@@ -150,6 +152,33 @@ namespace ARSACSoft
                 txtRUC.Text = _clienteMayorista.RUC;
 
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            estado = Estado.Inicial;
+            limpiarComponentes();
+            establecerEstadoFormulario();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            estado = Estado.Nuevo;
+            limpiarComponentes();
+            establecerEstadoFormulario();
+        }
+
+
+        private void btnBuscarPedido_Click(object sender, EventArgs e)
+        {
+            estado = Estado.Buscar;
+            establecerEstadoFormulario();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            estado = Estado.Inicial;
+            establecerEstadoFormulario();
         }
     }
 }
