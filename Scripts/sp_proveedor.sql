@@ -5,6 +5,8 @@ DROP PROCEDURE IF EXISTS LISTAR_PROVEEDORES_POR_NOMBRE_RUC;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PROVEEDOR;
 DROP PROCEDURE IF EXISTS ELIMINAR_PROVEEDOR;
 
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_X_PROVEEDOR;
+
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PROVEEDOR(
 	OUT _id_proveedor INT,
@@ -55,3 +57,61 @@ BEGIN
 END $
 
 -- PRODUCTO X PROVEEDOR
+drop procedure if exists LISTAR_PRODUCTO_PROVEEDOR;
+delimiter $
+CREATE PROCEDURE LISTAR_PRODUCTO_PROVEEDOR(
+	IN _nombre VARCHAR(100),
+    IN _fid_categoria int,
+    IN _fid_marca int,
+    IN _fid_proveedor int
+)
+BEGIN
+	if (_fid_categoria = -1 and _fid_marca = -1) then
+		
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca, pxp.costo,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN productoXproveedor pxp ON pxp.fid_producto = p.id_producto
+        INNER JOIN proveedor prov ON prov.id_proveedor = pxp.fid_proveedor
+		WHERE pxp.activo = 1 AND 
+		p.nombre LIKE CONCAT('%',_nombre,'%') and _fid_proveedor = prov.id_proveedor;
+	elseif (_fid_categoria = -1 and _fid_marca != -1) then
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca, pxp.costo,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN productoXproveedor pxp ON pxp.fid_producto = p.id_producto
+        INNER JOIN proveedor prov ON prov.id_proveedor = pxp.fid_proveedor
+		WHERE pxp.activo = 1 AND 
+		p.nombre LIKE CONCAT('%',_nombre,'%') and _fid_proveedor = prov.id_proveedor and m.id_marca = _fid_marca;
+		
+    elseif (_fid_categoria != -1 and _fid_marca = -1) then
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca, pxp.costo,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN productoXproveedor pxp ON pxp.fid_producto = p.id_producto
+        INNER JOIN proveedor prov ON prov.id_proveedor = pxp.fid_proveedor
+		WHERE pxp.activo = 1 AND 
+		p.nombre LIKE CONCAT('%',_nombre,'%') and _fid_proveedor = prov.id_proveedor and c.id_categoria= _fid_categoria;
+    
+    elseif (_fid_categoria != -1 and _fid_marca != -1) then
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca, pxp.costo,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN productoXproveedor pxp ON pxp.fid_producto = p.id_producto
+        INNER JOIN proveedor prov ON prov.id_proveedor = pxp.fid_proveedor
+		WHERE pxp.activo = 1 AND 
+		p.nombre LIKE CONCAT('%',_nombre,'%') and _fid_proveedor = prov.id_proveedor and m.id_marca = _fid_marca and c.id_categoria = _fid_categoria;
+    end if;
+END $

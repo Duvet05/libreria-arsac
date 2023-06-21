@@ -2,6 +2,7 @@
 using ARSACSoft.Properties;
 using ARSACSoft.ProveedoresWS;
 using ARSACSoft.RRHHWS;
+using ARSACSoft.SedeWS;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -233,6 +234,18 @@ namespace ARSACSoft
                 this._proveedorSeleccionado= frmBuscProvee.ProveedorSeleccionado;
                 txtRUCProveedorOC.Text = _proveedorSeleccionado.RUC;
                 txtRazonSocialProveedorOC.Text = _proveedorSeleccionado.descripcion;
+            }
+        }
+
+        private void btnBuscarProductoOC_Click(object sender, EventArgs e)
+        {
+            frmBuscarProductoXProveedor formBusqProdProv = new frmBuscarProductoXProveedor(_proveedorSeleccionado);
+            if (formBusqProdProv.ShowDialog() == DialogResult.OK)
+            {
+                //_producto = formBusqProd.ProductoSeleccionado;
+                //txtNombreProducto.Text = _producto.nombre + " " + _producto.unidadMedida;
+                //txtCodigoProducto.Text = _producto.idProducto.ToString();
+                //txtPrecioUnitario.Text = _producto.precio.ToString("N2");
             }
         }
     }

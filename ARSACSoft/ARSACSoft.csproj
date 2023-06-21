@@ -148,6 +148,12 @@
     <Compile Include="frmBuscarProducto.Designer.cs">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarProductoXProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarProductoXProveedor.Designer.cs">
+      <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProducto.resx">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarProductoXProveedor.resx">
+      <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProveedores.resx">
       <DependentUpon>frmBuscarProveedores.cs</DependentUpon>
