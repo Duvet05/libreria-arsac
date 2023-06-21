@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -19,7 +20,7 @@ namespace ARSACSoft
         private frmContabilidad frmContab;
         private frmGestionRRHH frmGestRRHH;
         private frmReportes frmReports;
-
+        
         public frmPrincipal(int idEmpleado)
         {
             InitializeComponent();
@@ -29,13 +30,7 @@ namespace ARSACSoft
             _empleadoLogeado = daoRRHH.obtenerEmpleadoPorID(idEmpleado);
             UpdateEmployeeInfo();
 
-            frmAlmacen = new frmGestionAlmacen();
-            frmPedidos = new frmGestionPedidos();
-            frmProveedores = new frmGestionProveedores();
-            frmSedes = new frmGestionSedes();
-            frmContab = new frmContabilidad();
-            frmGestRRHH = new frmGestionRRHH();
-            frmReports = new frmReportes();
+            InitializeForms();
 
             switch (_empleadoLogeado.tipo.idTipoDeEmpleado)
             {
@@ -58,6 +53,17 @@ namespace ARSACSoft
                     //Gerencia
                     break;
             }
+        }
+
+        private void InitializeForms()
+        {
+            frmAlmacen = new frmGestionAlmacen();
+            frmPedidos = new frmGestionPedidos();
+            frmProveedores = new frmGestionProveedores();
+            frmSedes = new frmGestionSedes();
+            frmContab = new frmContabilidad();
+            frmGestRRHH = new frmGestionRRHH();
+            frmReports = new frmReportes();
         }
 
         private void OcultarBotones(params GroupBox[] botones)
@@ -196,5 +202,9 @@ namespace ARSACSoft
             SetButtonColor(btnReportes);
         }
 
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+        }
     }
 }
