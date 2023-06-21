@@ -66,19 +66,55 @@ CREATE PROCEDURE ELIMINAR_PRODUCTO(
 BEGIN
 	UPDATE producto SET activo = 0 where id_producto = _id_producto;
 END$
-drop procedure LISTAR_PRODUCTO_POR_NOMBRE;
+
+drop procedure IF EXISTS LISTAR_PRODUCTO_POR_NOMBRE_CATEGORIA_MARCA;
 DELIMITER $
-CREATE PROCEDURE LISTAR_PRODUCTO_POR_NOMBRE(
-	IN _nombre VARCHAR(100)
+CREATE PROCEDURE LISTAR_PRODUCTO_POR_NOMBRE_CATEGORIA_MARCA(
+	IN _nombre VARCHAR(100),
+    IN _fid_categoria int,
+    IN _fid_marca int
 )
 BEGIN
-	SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, m.id_marca , m.descripcion AS nombre_marca,
-	p.precio_por_mayor,p.precio, p.foto
-	FROM producto p
-	INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
-	INNER JOIN marca m ON p.fid_marca = m.id_marca
-	WHERE p.activo = 1 AND 
-    nombre LIKE CONCAT('%',_nombre,'%');
+	if (_fid_categoria = -1 and _fid_marca = -1) then
+		
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+		WHERE p.activo = 1 AND 
+		nombre LIKE CONCAT('%',_nombre,'%');
+	elseif (_fid_categoria = -1 and _fid_marca != -1) then
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+		WHERE p.activo = 1 AND 
+		nombre LIKE CONCAT('%',_nombre,'%') and m.id_marca = _fid_marca;
+		
+    elseif (_fid_categoria != -1 and _fid_marca = -1) then
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+		WHERE p.activo = 1 AND 
+		nombre LIKE CONCAT('%',_nombre,'%') and c.id_categoria= _fid_categoria;
+    
+    elseif (_fid_categoria != -1 and _fid_marca != -1) then
+		SELECT p.id_producto,p.nombre ,c.id_categoria, c.descripcion AS nombre_categoria, 
+			m.id_marca , m.descripcion AS nombre_marca,
+			p.precio_por_mayor,p.precio, p.foto
+		FROM producto p
+		INNER JOIN categoria c ON p.fid_categoria = c.id_categoria 
+		INNER JOIN marca m ON p.fid_marca = m.id_marca
+		WHERE p.activo = 1 AND 
+		nombre LIKE CONCAT('%',_nombre,'%') and m.id_marca = _fid_marca and c.id_categoria = _fid_categoria;
+    end if;
 END $
 -- ORDEN DE COMPRA
 DELIMITER $

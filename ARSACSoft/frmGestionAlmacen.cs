@@ -1,5 +1,6 @@
 ﻿using ARSACSoft.ProductosWS;
 using ARSACSoft.Properties;
+using ARSACSoft.ProveedoresWS;
 using ARSACSoft.RRHHWS;
 using System;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace ARSACSoft
         private string _rutaFotoProducto = "";
         private ProductosWSClient daoProductosWS;
         private ProductosWS.producto prodSeleccionado;
+        private proveedor _proveedorSeleccionado;
         public frmGestionAlmacen()
         {
             InitializeComponent();
@@ -220,6 +222,18 @@ namespace ARSACSoft
         {
             _estadoPagProducto = Estado.Modificar;
             establecerEstadoFormularioProducto();
+        }
+
+        private void btnBuscarProveedorOC_Click(object sender, EventArgs e)
+        {
+            frmBuscarProveedores frmBuscProvee = new frmBuscarProveedores();
+
+            if (frmBuscProvee.ShowDialog() == DialogResult.OK)
+            {
+                this._proveedorSeleccionado= frmBuscProvee.ProveedorSeleccionado;
+                txtRUCProveedorOC.Text = _proveedorSeleccionado.RUC;
+                txtRazonSocialProveedorOC.Text = _proveedorSeleccionado.descripcion;
+            }
         }
     }
 }

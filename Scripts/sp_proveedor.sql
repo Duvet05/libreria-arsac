@@ -1,6 +1,7 @@
 -- PROVEEDOR
 DROP PROCEDURE IF EXISTS INSERTAR_PROVEEDOR;
-DROP PROCEDURE IF EXISTS LISTAR_PROVEEDORES_POR_NOMBRE;
+DROP PROCEDURE IF EXISTS LISTAR_PROVEEDORES_POR_NOMBRE_RUC;
+
 DROP PROCEDURE IF EXISTS ACTUALIZAR_PROVEEDOR;
 DROP PROCEDURE IF EXISTS ELIMINAR_PROVEEDOR;
 
@@ -15,15 +16,17 @@ CREATE PROCEDURE INSERTAR_PROVEEDOR(
 BEGIN
 	INSERT INTO proveedor(nombre, direccion, telefono, RUC, activo)
     VALUES(_nombre, _direccion, _telefono, _RUC, true);
-	SET _id_proveedor = last_insert_id();
+	SET _id_proveedor = @@last_insert_id;
 END $
 
-CREATE PROCEDURE LISTAR_PROVEEDORES_POR_NOMBRE(
+delimiter $
+CREATE PROCEDURE LISTAR_PROVEEDORES_POR_NOMBRE_RUC(
 	IN _nombre VARCHAR(1000)
 )
 BEGIN
 	SELECT id_proveedor, nombre, direccion, RUC, telefono
-    from proveedor where nombre = _nombre and activo = 1;
+    from proveedor
+    where (nombre LIKE CONCAT('%',_nombre,'%') or RUC LIKE CONCAT('%',_nombre,'%'))and activo = 1;
 END $
 
 CREATE PROCEDURE ACTUALIZAR_PROVEEDOR(

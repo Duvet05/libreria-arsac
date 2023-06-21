@@ -63,7 +63,7 @@
             this.btnCancelarProducto = new System.Windows.Forms.ToolStripButton();
             this.lblGestionSedes = new System.Windows.Forms.Label();
             this.tpEntradasYSalidas = new System.Windows.Forms.TabPage();
-            this.dgvListaLotes = new System.Windows.Forms.DataGridView();
+            this.dgvListaProductosOC = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,35 +72,33 @@
             this.gbLineasCompra = new System.Windows.Forms.GroupBox();
             this.btnQuitarProductoOC = new System.Windows.Forms.Button();
             this.btnAgregarProductoOC = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtCantidadOC = new System.Windows.Forms.TextBox();
+            this.txtCantidadProdOC = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtPrecioUnitarioOC = new System.Windows.Forms.TextBox();
+            this.txtPrecioUnitarioProdOC = new System.Windows.Forms.TextBox();
             this.lblPrecioUnitario = new System.Windows.Forms.Label();
             this.txtNombreProductoOC = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnBuscarProductoOC = new System.Windows.Forms.Button();
             this.lblCodProducto = new System.Windows.Forms.Label();
-            this.txtCodigoProducto = new System.Windows.Forms.TextBox();
+            this.txtCodigoProductoOC = new System.Windows.Forms.TextBox();
             this.gbDatosOrdenCompra = new System.Windows.Forms.GroupBox();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.btnBuscarProveedorOC = new System.Windows.Forms.Button();
             this.lblNombreCliente = new System.Windows.Forms.Label();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.txtDNICliente = new System.Windows.Forms.TextBox();
+            this.txtRazonSocialProveedorOC = new System.Windows.Forms.TextBox();
+            this.txtRUCProveedorOC = new System.Windows.Forms.TextBox();
             this.lblDNICliente = new System.Windows.Forms.Label();
-            this.dtpFechaOrdenVenta = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaOrdenCompra = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtIDOrdenVenta = new System.Windows.Forms.TextBox();
+            this.txtIDOrdenCompra = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.btnModificar = new System.Windows.Forms.ToolStripButton();
-            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevoOC = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnEliminarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnImprimirOC = new System.Windows.Forms.ToolStripButton();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -135,7 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.tsMenu.SuspendLayout();
             this.tpEntradasYSalidas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaLotes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductosOC)).BeginInit();
             this.gbLineasCompra.SuspendLayout();
             this.gbDatosOrdenCompra.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -472,7 +470,7 @@
             // 
             // tpEntradasYSalidas
             // 
-            this.tpEntradasYSalidas.Controls.Add(this.dgvListaLotes);
+            this.tpEntradasYSalidas.Controls.Add(this.dgvListaProductosOC);
             this.tpEntradasYSalidas.Controls.Add(this.gbLineasCompra);
             this.tpEntradasYSalidas.Controls.Add(this.gbDatosOrdenCompra);
             this.tpEntradasYSalidas.Controls.Add(this.toolStrip1);
@@ -483,31 +481,31 @@
             this.tpEntradasYSalidas.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEntradasYSalidas.Size = new System.Drawing.Size(921, 517);
             this.tpEntradasYSalidas.TabIndex = 1;
-            this.tpEntradasYSalidas.Text = "Entradas y salidas";
+            this.tpEntradasYSalidas.Text = "Entradas";
             this.tpEntradasYSalidas.UseVisualStyleBackColor = true;
             // 
-            // dgvListaLotes
+            // dgvListaProductosOC
             // 
-            this.dgvListaLotes.AllowUserToAddRows = false;
-            this.dgvListaLotes.AllowUserToDeleteRows = false;
+            this.dgvListaProductosOC.AllowUserToAddRows = false;
+            this.dgvListaProductosOC.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaLotes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvListaLotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaLotes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvListaProductosOC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaProductosOC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Unidad,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvListaLotes.Location = new System.Drawing.Point(3, 277);
-            this.dgvListaLotes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvListaLotes.Name = "dgvListaLotes";
-            this.dgvListaLotes.RowHeadersWidth = 51;
+            this.dgvListaProductosOC.Location = new System.Drawing.Point(3, 277);
+            this.dgvListaProductosOC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvListaProductosOC.Name = "dgvListaProductosOC";
+            this.dgvListaProductosOC.RowHeadersWidth = 51;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaLotes.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvListaLotes.RowTemplate.Height = 24;
-            this.dgvListaLotes.Size = new System.Drawing.Size(907, 252);
-            this.dgvListaLotes.TabIndex = 14;
+            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvListaProductosOC.RowTemplate.Height = 24;
+            this.dgvListaProductosOC.Size = new System.Drawing.Size(907, 252);
+            this.dgvListaProductosOC.TabIndex = 14;
             // 
             // Column1
             // 
@@ -556,17 +554,15 @@
             // 
             this.gbLineasCompra.Controls.Add(this.btnQuitarProductoOC);
             this.gbLineasCompra.Controls.Add(this.btnAgregarProductoOC);
-            this.gbLineasCompra.Controls.Add(this.textBox5);
-            this.gbLineasCompra.Controls.Add(this.label10);
-            this.gbLineasCompra.Controls.Add(this.txtCantidadOC);
+            this.gbLineasCompra.Controls.Add(this.txtCantidadProdOC);
             this.gbLineasCompra.Controls.Add(this.label7);
-            this.gbLineasCompra.Controls.Add(this.txtPrecioUnitarioOC);
+            this.gbLineasCompra.Controls.Add(this.txtPrecioUnitarioProdOC);
             this.gbLineasCompra.Controls.Add(this.lblPrecioUnitario);
             this.gbLineasCompra.Controls.Add(this.txtNombreProductoOC);
             this.gbLineasCompra.Controls.Add(this.label8);
             this.gbLineasCompra.Controls.Add(this.btnBuscarProductoOC);
             this.gbLineasCompra.Controls.Add(this.lblCodProducto);
-            this.gbLineasCompra.Controls.Add(this.txtCodigoProducto);
+            this.gbLineasCompra.Controls.Add(this.txtCodigoProductoOC);
             this.gbLineasCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLineasCompra.Location = new System.Drawing.Point(7, 159);
             this.gbLineasCompra.Margin = new System.Windows.Forms.Padding(4);
@@ -591,7 +587,7 @@
             // btnAgregarProductoOC
             // 
             this.btnAgregarProductoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarProductoOC.Location = new System.Drawing.Point(677, 71);
+            this.btnAgregarProductoOC.Location = new System.Drawing.Point(672, 71);
             this.btnAgregarProductoOC.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarProductoOC.Name = "btnAgregarProductoOC";
             this.btnAgregarProductoOC.Size = new System.Drawing.Size(105, 28);
@@ -599,35 +595,14 @@
             this.btnAgregarProductoOC.Text = "Agregar";
             this.btnAgregarProductoOC.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // txtCantidadProdOC
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(557, 75);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(87, 23);
-            this.textBox5.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(483, 78);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 18);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Unidad:";
-            // 
-            // txtCantidadOC
-            // 
-            this.txtCantidadOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadOC.Location = new System.Drawing.Point(357, 75);
-            this.txtCantidadOC.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCantidadOC.Name = "txtCantidadOC";
-            this.txtCantidadOC.Size = new System.Drawing.Size(87, 23);
-            this.txtCantidadOC.TabIndex = 9;
+            this.txtCantidadProdOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidadProdOC.Location = new System.Drawing.Point(357, 75);
+            this.txtCantidadProdOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCantidadProdOC.Name = "txtCantidadProdOC";
+            this.txtCantidadProdOC.Size = new System.Drawing.Size(152, 23);
+            this.txtCantidadProdOC.TabIndex = 9;
             // 
             // label7
             // 
@@ -640,16 +615,16 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Cantidad:";
             // 
-            // txtPrecioUnitarioOC
+            // txtPrecioUnitarioProdOC
             // 
-            this.txtPrecioUnitarioOC.Enabled = false;
-            this.txtPrecioUnitarioOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioUnitarioOC.Location = new System.Drawing.Point(131, 75);
-            this.txtPrecioUnitarioOC.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrecioUnitarioOC.Name = "txtPrecioUnitarioOC";
-            this.txtPrecioUnitarioOC.ReadOnly = true;
-            this.txtPrecioUnitarioOC.Size = new System.Drawing.Size(132, 23);
-            this.txtPrecioUnitarioOC.TabIndex = 7;
+            this.txtPrecioUnitarioProdOC.Enabled = false;
+            this.txtPrecioUnitarioProdOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioUnitarioProdOC.Location = new System.Drawing.Point(131, 75);
+            this.txtPrecioUnitarioProdOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioUnitarioProdOC.Name = "txtPrecioUnitarioProdOC";
+            this.txtPrecioUnitarioProdOC.ReadOnly = true;
+            this.txtPrecioUnitarioProdOC.Size = new System.Drawing.Size(132, 23);
+            this.txtPrecioUnitarioProdOC.TabIndex = 7;
             // 
             // lblPrecioUnitario
             // 
@@ -705,28 +680,28 @@
             this.lblCodProducto.TabIndex = 1;
             this.lblCodProducto.Text = "Código del Producto:";
             // 
-            // txtCodigoProducto
+            // txtCodigoProductoOC
             // 
-            this.txtCodigoProducto.Enabled = false;
-            this.txtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoProducto.Location = new System.Drawing.Point(153, 28);
-            this.txtCodigoProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCodigoProducto.Name = "txtCodigoProducto";
-            this.txtCodigoProducto.ReadOnly = true;
-            this.txtCodigoProducto.Size = new System.Drawing.Size(100, 23);
-            this.txtCodigoProducto.TabIndex = 0;
+            this.txtCodigoProductoOC.Enabled = false;
+            this.txtCodigoProductoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoProductoOC.Location = new System.Drawing.Point(153, 28);
+            this.txtCodigoProductoOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigoProductoOC.Name = "txtCodigoProductoOC";
+            this.txtCodigoProductoOC.ReadOnly = true;
+            this.txtCodigoProductoOC.Size = new System.Drawing.Size(100, 23);
+            this.txtCodigoProductoOC.TabIndex = 0;
             // 
             // gbDatosOrdenCompra
             // 
-            this.gbDatosOrdenCompra.Controls.Add(this.btnBuscarCliente);
+            this.gbDatosOrdenCompra.Controls.Add(this.btnBuscarProveedorOC);
             this.gbDatosOrdenCompra.Controls.Add(this.lblNombreCliente);
-            this.gbDatosOrdenCompra.Controls.Add(this.txtNombreCliente);
-            this.gbDatosOrdenCompra.Controls.Add(this.txtDNICliente);
+            this.gbDatosOrdenCompra.Controls.Add(this.txtRazonSocialProveedorOC);
+            this.gbDatosOrdenCompra.Controls.Add(this.txtRUCProveedorOC);
             this.gbDatosOrdenCompra.Controls.Add(this.lblDNICliente);
-            this.gbDatosOrdenCompra.Controls.Add(this.dtpFechaOrdenVenta);
+            this.gbDatosOrdenCompra.Controls.Add(this.dtpFechaOrdenCompra);
             this.gbDatosOrdenCompra.Controls.Add(this.label5);
             this.gbDatosOrdenCompra.Controls.Add(this.label6);
-            this.gbDatosOrdenCompra.Controls.Add(this.txtIDOrdenVenta);
+            this.gbDatosOrdenCompra.Controls.Add(this.txtIDOrdenCompra);
             this.gbDatosOrdenCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosOrdenCompra.Location = new System.Drawing.Point(7, 48);
             this.gbDatosOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
@@ -737,15 +712,16 @@
             this.gbDatosOrdenCompra.TabStop = false;
             this.gbDatosOrdenCompra.Text = "Datos de la Orden de Compra";
             // 
-            // btnBuscarCliente
+            // btnBuscarProveedorOC
             // 
-            this.btnBuscarCliente.Location = new System.Drawing.Point(851, 57);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 28);
-            this.btnBuscarCliente.TabIndex = 9;
-            this.btnBuscarCliente.Text = "...";
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedorOC.Location = new System.Drawing.Point(851, 57);
+            this.btnBuscarProveedorOC.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarProveedorOC.Name = "btnBuscarProveedorOC";
+            this.btnBuscarProveedorOC.Size = new System.Drawing.Size(40, 28);
+            this.btnBuscarProveedorOC.TabIndex = 9;
+            this.btnBuscarProveedorOC.Text = "...";
+            this.btnBuscarProveedorOC.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedorOC.Click += new System.EventHandler(this.btnBuscarProveedorOC_Click);
             // 
             // lblNombreCliente
             // 
@@ -758,27 +734,27 @@
             this.lblNombreCliente.TabIndex = 8;
             this.lblNombreCliente.Text = "Razón social:";
             // 
-            // txtNombreCliente
+            // txtRazonSocialProveedorOC
             // 
-            this.txtNombreCliente.Enabled = false;
-            this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCliente.Location = new System.Drawing.Point(413, 59);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(381, 23);
-            this.txtNombreCliente.TabIndex = 7;
+            this.txtRazonSocialProveedorOC.Enabled = false;
+            this.txtRazonSocialProveedorOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRazonSocialProveedorOC.Location = new System.Drawing.Point(413, 59);
+            this.txtRazonSocialProveedorOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRazonSocialProveedorOC.Name = "txtRazonSocialProveedorOC";
+            this.txtRazonSocialProveedorOC.ReadOnly = true;
+            this.txtRazonSocialProveedorOC.Size = new System.Drawing.Size(381, 23);
+            this.txtRazonSocialProveedorOC.TabIndex = 7;
             // 
-            // txtDNICliente
+            // txtRUCProveedorOC
             // 
-            this.txtDNICliente.Enabled = false;
-            this.txtDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNICliente.Location = new System.Drawing.Point(81, 59);
-            this.txtDNICliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDNICliente.Name = "txtDNICliente";
-            this.txtDNICliente.ReadOnly = true;
-            this.txtDNICliente.Size = new System.Drawing.Size(172, 23);
-            this.txtDNICliente.TabIndex = 6;
+            this.txtRUCProveedorOC.Enabled = false;
+            this.txtRUCProveedorOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRUCProveedorOC.Location = new System.Drawing.Point(81, 59);
+            this.txtRUCProveedorOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRUCProveedorOC.Name = "txtRUCProveedorOC";
+            this.txtRUCProveedorOC.ReadOnly = true;
+            this.txtRUCProveedorOC.Size = new System.Drawing.Size(172, 23);
+            this.txtRUCProveedorOC.TabIndex = 6;
             // 
             // lblDNICliente
             // 
@@ -791,14 +767,14 @@
             this.lblDNICliente.TabIndex = 5;
             this.lblDNICliente.Text = "RUC:";
             // 
-            // dtpFechaOrdenVenta
+            // dtpFechaOrdenCompra
             // 
-            this.dtpFechaOrdenVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaOrdenVenta.Location = new System.Drawing.Point(413, 25);
-            this.dtpFechaOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpFechaOrdenVenta.Name = "dtpFechaOrdenVenta";
-            this.dtpFechaOrdenVenta.Size = new System.Drawing.Size(469, 24);
-            this.dtpFechaOrdenVenta.TabIndex = 3;
+            this.dtpFechaOrdenCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaOrdenCompra.Location = new System.Drawing.Point(413, 25);
+            this.dtpFechaOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaOrdenCompra.Name = "dtpFechaOrdenCompra";
+            this.dtpFechaOrdenCompra.Size = new System.Drawing.Size(469, 24);
+            this.dtpFechaOrdenCompra.TabIndex = 3;
             // 
             // label5
             // 
@@ -822,89 +798,89 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "ID Orden Compra:";
             // 
-            // txtIDOrdenVenta
+            // txtIDOrdenCompra
             // 
-            this.txtIDOrdenVenta.Enabled = false;
-            this.txtIDOrdenVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDOrdenVenta.Location = new System.Drawing.Point(181, 27);
-            this.txtIDOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
-            this.txtIDOrdenVenta.ReadOnly = true;
-            this.txtIDOrdenVenta.Size = new System.Drawing.Size(72, 24);
-            this.txtIDOrdenVenta.TabIndex = 0;
+            this.txtIDOrdenCompra.Enabled = false;
+            this.txtIDOrdenCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDOrdenCompra.Location = new System.Drawing.Point(181, 27);
+            this.txtIDOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIDOrdenCompra.Name = "txtIDOrdenCompra";
+            this.txtIDOrdenCompra.ReadOnly = true;
+            this.txtIDOrdenCompra.Size = new System.Drawing.Size(72, 24);
+            this.txtIDOrdenCompra.TabIndex = 0;
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.btnModificar,
-            this.btnEliminar,
-            this.toolStripButton5,
-            this.toolStripButton6});
+            this.btnNuevoOC,
+            this.btnGuardarOC,
+            this.btnBuscarOC,
+            this.btnModificarOC,
+            this.btnEliminarOC,
+            this.btnCancelarOC,
+            this.btnImprimirOC});
             this.toolStrip1.Location = new System.Drawing.Point(3, 2);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(915, 27);
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton2
+            // btnNuevoOC
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(198, 24);
-            this.toolStripButton2.Text = "&Nueva Orden de Compra";
+            this.btnNuevoOC.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoOC.Image")));
+            this.btnNuevoOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoOC.Name = "btnNuevoOC";
+            this.btnNuevoOC.Size = new System.Drawing.Size(198, 24);
+            this.btnNuevoOC.Text = "&Nueva Orden de Compra";
             // 
-            // toolStripButton3
+            // btnGuardarOC
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(86, 24);
-            this.toolStripButton3.Text = "&Guardar";
+            this.btnGuardarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarOC.Image")));
+            this.btnGuardarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarOC.Name = "btnGuardarOC";
+            this.btnGuardarOC.Size = new System.Drawing.Size(86, 24);
+            this.btnGuardarOC.Text = "&Guardar";
             // 
-            // toolStripButton4
+            // btnBuscarOC
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(76, 24);
-            this.toolStripButton4.Text = "&Buscar";
+            this.btnBuscarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarOC.Image")));
+            this.btnBuscarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarOC.Name = "btnBuscarOC";
+            this.btnBuscarOC.Size = new System.Drawing.Size(76, 24);
+            this.btnBuscarOC.Text = "&Buscar";
             // 
-            // btnModificar
+            // btnModificarOC
             // 
-            this.btnModificar.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
-            this.btnModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(97, 24);
-            this.btnModificar.Text = "&Modificar";
+            this.btnModificarOC.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarOC.Name = "btnModificarOC";
+            this.btnModificarOC.Size = new System.Drawing.Size(97, 24);
+            this.btnModificarOC.Text = "&Modificar";
             // 
-            // btnEliminar
+            // btnEliminarOC
             // 
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(87, 24);
-            this.btnEliminar.Text = "&Eliminar";
+            this.btnEliminarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarOC.Image")));
+            this.btnEliminarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminarOC.Name = "btnEliminarOC";
+            this.btnEliminarOC.Size = new System.Drawing.Size(87, 24);
+            this.btnEliminarOC.Text = "&Eliminar";
             // 
-            // toolStripButton5
+            // btnCancelarOC
             // 
-            this.toolStripButton5.Image = global::ARSACSoft.Properties.Resources.Cancel;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(90, 24);
-            this.toolStripButton5.Text = "&Cancelar";
+            this.btnCancelarOC.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarOC.Name = "btnCancelarOC";
+            this.btnCancelarOC.Size = new System.Drawing.Size(90, 24);
+            this.btnCancelarOC.Text = "&Cancelar";
             // 
-            // toolStripButton6
+            // btnImprimirOC
             // 
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(90, 24);
-            this.toolStripButton6.Text = "Imprimir";
+            this.btnImprimirOC.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirOC.Image")));
+            this.btnImprimirOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImprimirOC.Name = "btnImprimirOC";
+            this.btnImprimirOC.Size = new System.Drawing.Size(90, 24);
+            this.btnImprimirOC.Text = "Imprimir";
             // 
             // tpPromociones
             // 
@@ -1227,7 +1203,7 @@
             this.tsMenu.PerformLayout();
             this.tpEntradasYSalidas.ResumeLayout(false);
             this.tpEntradasYSalidas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaLotes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductosOC)).EndInit();
             this.gbLineasCompra.ResumeLayout(false);
             this.gbLineasCompra.PerformLayout();
             this.gbDatosOrdenCompra.ResumeLayout(false);
@@ -1274,32 +1250,30 @@
         private System.Windows.Forms.PictureBox pbNotificacion;
         private System.Windows.Forms.Label lblNotificacion;
         private System.Windows.Forms.GroupBox gbDatosOrdenCompra;
-        private System.Windows.Forms.DateTimePicker dtpFechaOrdenVenta;
+        private System.Windows.Forms.DateTimePicker dtpFechaOrdenCompra;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtIDOrdenVenta;
+        private System.Windows.Forms.TextBox txtIDOrdenCompra;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton btnModificar;
-        private System.Windows.Forms.ToolStripButton btnEliminar;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton btnNuevoOC;
+        private System.Windows.Forms.ToolStripButton btnGuardarOC;
+        private System.Windows.Forms.ToolStripButton btnBuscarOC;
+        private System.Windows.Forms.ToolStripButton btnModificarOC;
+        private System.Windows.Forms.ToolStripButton btnEliminarOC;
+        private System.Windows.Forms.ToolStripButton btnCancelarOC;
         private System.Windows.Forms.GroupBox gbLineasCompra;
-        private System.Windows.Forms.TextBox txtCantidadOC;
+        private System.Windows.Forms.TextBox txtCantidadProdOC;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPrecioUnitarioOC;
+        private System.Windows.Forms.TextBox txtPrecioUnitarioProdOC;
         private System.Windows.Forms.TextBox txtNombreProductoOC;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnBuscarProductoOC;
         private System.Windows.Forms.Label lblCodProducto;
-        private System.Windows.Forms.TextBox txtCodigoProducto;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dgvListaLotes;
+        private System.Windows.Forms.TextBox txtCodigoProductoOC;
+        private System.Windows.Forms.DataGridView dgvListaProductosOC;
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripButton btnImprimirOC;
         private System.Windows.Forms.Label lblPrecioUnitario;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label16;
@@ -1332,10 +1306,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Button btnBuscarProveedorOC;
         private System.Windows.Forms.Label lblNombreCliente;
-        private System.Windows.Forms.TextBox txtNombreCliente;
-        private System.Windows.Forms.TextBox txtDNICliente;
+        private System.Windows.Forms.TextBox txtRazonSocialProveedorOC;
+        private System.Windows.Forms.TextBox txtRUCProveedorOC;
         private System.Windows.Forms.Label lblDNICliente;
         private System.Windows.Forms.Button btnQuitarProductoOC;
         private System.Windows.Forms.Button btnAgregarProductoOC;

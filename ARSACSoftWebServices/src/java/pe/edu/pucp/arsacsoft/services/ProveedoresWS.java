@@ -4,10 +4,13 @@
  */
 package pe.edu.pucp.arsacsoft.services;
 
+import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
-
+import pe.edu.pucp.arsacsoft.proveedores.dao.ProveedorDAO;
+import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
+import pe.edu.pucp.arsacsoft.proveedores.mysql.ProveedorMySQL;
 /**
  *
  * @author Gonzalo
@@ -15,11 +18,15 @@ import javax.jws.WebParam;
 @WebService(serviceName = "ProveedoresWS")
 public class ProveedoresWS {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    ProveedorDAO daoProveedor = new ProveedorMySQL();
+    @WebMethod
+    public ArrayList<Proveedor> listarProveedoresXNombreRUC(String nombre) {
+        ArrayList<Proveedor> proveedores = null;
+        try {
+            proveedores = daoProveedor.listarProveedoresXNombreRUC(nombre);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return proveedores;
     }
 }
