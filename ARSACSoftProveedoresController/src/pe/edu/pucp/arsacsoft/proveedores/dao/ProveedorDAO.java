@@ -4,13 +4,17 @@
  */
 package pe.edu.pucp.arsacsoft.proveedores.dao;
 
-import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
+import java.util.ArrayList;
 
 /**
  *
  * @author User
  */
 public interface ProveedorDAO {
-    ArrayList<Proveedor> listarProveedoresXNombreRUC(String nombre);
+    int insertar(Proveedor proveedor);
+    int modificar(Proveedor proveedor);
+    int eliminar(int idProveedor);
+    ArrayList<Proveedor> listarAlfabeticamente();    
+    ArrayList<Proveedor> listarPorCategoriaDeProducto(int idCategoria);
 }
