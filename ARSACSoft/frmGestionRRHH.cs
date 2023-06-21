@@ -8,21 +8,22 @@ using GMap.NET.MapProviders;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using static GMap.NET.Entity.OpenStreetMapGraphHopperGeocodeEntity;
-using static GMap.NET.Entity.OpenStreetMapRouteEntity;
 using System.Linq;
 using ARSACSoft.Properties;
-using System.Xml.Linq;
+using System.Collections.Generic;
+using System.Globalization;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.WindowsForms;
 
 namespace ARSACSoft
 {
     public partial class frmGestionRRHH : Form
     {
-        private Estado estadoEmpleado;
-        private empleado empleado;
+        private Estado _estadoEmpleado;
+        private empleado _empleado;
 
-        private Estado estadoCliente;
-        private clienteMayorista clienteMayorista;
+        private Estado _estadoCliente;
+        private clienteMayorista _clienteMayorista;
 
         private RRHHWSClient daoRRHH;
         private string _rutaFotoEmpleado;
@@ -32,7 +33,6 @@ namespace ARSACSoft
             ConfigureForm();
             InitializeServiceClient();
             InitializeMaps();
-            
         }
 
         private void InitializeMaps()
@@ -41,7 +41,7 @@ namespace ARSACSoft
             gMapControl1.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.CanDragMap = true;
-            gMapControl1.Position = new GMap.NET.PointLatLng(-23.973875, -46.391510); // Puedes ajustar estas coordenadas a la ubicación que deseas mostrar inicialmente
+            gMapControl1.Position = new GMap.NET.PointLatLng(-12.046374, -77.042793); // Puedes ajustar estas coordenadas a la ubicación que deseas mostrar inicialmente
             gMapControl1.MinZoom = 0;
             gMapControl1.MaxZoom = 24;
             gMapControl1.Zoom = 9;
@@ -61,9 +61,10 @@ namespace ARSACSoft
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     JObject jsonResult = JObject.Parse(content);
-                    if (jsonResult["results"].Count() > 0)
+
+                    if (jsonResult.TryGetValue("results", out var results) && results.Any())
                     {
-                        string address = jsonResult["results"][0]["formatted_address"].ToString();
+                        string address = results[0]?.Value<string>("formatted_address");
                         return address;
                     }
                 }
@@ -73,7 +74,6 @@ namespace ARSACSoft
                     // ...
                 }
             }
-
             return null;
         }
 
@@ -95,9 +95,9 @@ namespace ARSACSoft
 
         private void ConfigureForm()
         {
-            estadoEmpleado = Estado.Inicial;
+            _estadoEmpleado = Estado.Inicial;
             establecerEstadoFormularioEmpleado();
-            estadoCliente = Estado.Inicial;
+            _estadoCliente = Estado.Inicial;
             establecerEstadoFormularioCliente();
 
             cboTipoDeEmpleado.ValueMember = "idTipoDeEmpleado";
@@ -113,7 +113,7 @@ namespace ARSACSoft
         }
         public void establecerEstadoFormularioEmpleado()
         {
-            switch (estadoEmpleado)
+            switch (_estadoEmpleado)
             {
                 case Estado.Inicial:
                     btnNuevoEmpleado.Enabled = true;
@@ -191,7 +191,7 @@ namespace ARSACSoft
         }
         public void establecerEstadoFormularioCliente()
         {
-            switch (estadoCliente)
+            switch (_estadoCliente)
             {
                 case Estado.Inicial:
                     btnNuevoCliente.Enabled = true;
@@ -283,12 +283,12 @@ namespace ARSACSoft
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
-            estadoEmpleado = Estado.Nuevo;
+            _estadoEmpleado = Estado.Nuevo;
             limpiarComponentesEmpleado();
             establecerEstadoFormularioEmpleado();
 
-            empleado = new empleado();
-            empleado.sede = new sede();
+            _empleado = new empleado();
+            _empleado.sede = new sede();
 
         }
 
@@ -298,7 +298,7 @@ namespace ARSACSoft
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                empleado.sede.idSede = frm.SedeSeleccionada.idSede;
+                _empleado.sede.idSede = frm.SedeSeleccionada.idSede;
                 txtDireccionSede.Text = frm.SedeSeleccionada.direccion;
             }
 
@@ -310,34 +310,34 @@ namespace ARSACSoft
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                empleado = frm.EmpleadoSeleccionado;
+                _empleado = frm.EmpleadoSeleccionado;
 
 
-                txtIDEmpleado.Text = empleado.idPersona.ToString();
-                txtDNIEmpleado.Text = empleado.DNI;
-                txtNombreEmpleado.Text = empleado.nombre;
-                txtApellidoEmpleado.Text = empleado.apellidos;
-                txtTelefonoEmpleado.Text = empleado.telefono;
-                dtpFechaContratacion.Value = empleado.fechaContratacion;
-                cboTipoDeEmpleado.SelectedValue = empleado.tipo.idTipoDeEmpleado;
-                txtCorreoEmpleado.Text = empleado.correo;
-                txtSalario.Text = empleado.salario.ToString();
-                txtDireccion.Text = empleado.direccion;
-                
-                if (empleado.foto != null)
+                txtIDEmpleado.Text = _empleado.idPersona.ToString();
+                txtDNIEmpleado.Text = _empleado.DNI;
+                txtNombreEmpleado.Text = _empleado.nombre;
+                txtApellidoEmpleado.Text = _empleado.apellidos;
+                txtTelefonoEmpleado.Text = _empleado.telefono;
+                dtpFechaContratacion.Value = _empleado.fechaContratacion;
+                cboTipoDeEmpleado.SelectedValue = _empleado.tipo.idTipoDeEmpleado;
+                txtCorreoEmpleado.Text = _empleado.correo;
+                txtSalario.Text = _empleado.salario.ToString(CultureInfo.InvariantCulture);
+                txtDireccion.Text = _empleado.direccion;
+
+                if (_empleado.foto != null)
                 {
-                    MemoryStream ms = new MemoryStream(empleado.foto);
+                    MemoryStream ms = new MemoryStream(_empleado.foto);
                     pbFotoEmpleado.Image = new Bitmap(ms);
                 }
-                txtDireccionSede.Text = empleado.sede.direccion;
+                txtDireccionSede.Text = _empleado.sede.direccion;
 
-                cuentaUsuario cuenta = daoRRHH.buscarCuenta(empleado.idPersona);
+                cuentaUsuario cuenta = daoRRHH.buscarCuenta(_empleado.idPersona);
                 if (cuenta != null)
                 {
                     txtUsuario.Text = cuenta.username;
                     txtContrasena.Text = cuenta.password;
                 }
-                estadoEmpleado = Estado.Buscar;
+                _estadoEmpleado = Estado.Buscar;
                 establecerEstadoFormularioEmpleado();
 
             }
@@ -355,25 +355,25 @@ namespace ARSACSoft
                 return;
             }
 
-            empleado.nombre = txtNombreEmpleado.Text;
-            empleado.apellidos = txtApellidoEmpleado.Text;
-            empleado.DNI = txtDNIEmpleado.Text;
-            empleado.correo = txtCorreoEmpleado.Text;
-            empleado.telefono = txtTelefonoEmpleado.Text;
+            _empleado.nombre = txtNombreEmpleado.Text;
+            _empleado.apellidos = txtApellidoEmpleado.Text;
+            _empleado.DNI = txtDNIEmpleado.Text;
+            _empleado.correo = txtCorreoEmpleado.Text;
+            _empleado.telefono = txtTelefonoEmpleado.Text;
 
-            empleado.tipo = new tipoDeEmpleado();
-            empleado.tipo.idTipoDeEmpleado = (int)cboTipoDeEmpleado.SelectedValue;
+            _empleado.tipo = new tipoDeEmpleado();
+            _empleado.tipo.idTipoDeEmpleado = (int)cboTipoDeEmpleado.SelectedValue;
 
-            empleado.fechaContratacion = dtpFechaContratacion.Value;
-            empleado.fechaContratacionSpecified = true;
+            _empleado.fechaContratacion = dtpFechaContratacion.Value;
+            _empleado.fechaContratacionSpecified = true;
 
             if (!double.TryParse(txtSalario.Text, out double salario))
             {
                 MessageBox.Show("El salario debe ser un número válido", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            empleado.salario = salario;
-            empleado.direccion = txtDireccion.Text;
+            _empleado.salario = salario;
+            _empleado.direccion = txtDireccion.Text;
 
             if (!string.IsNullOrEmpty(_rutaFotoEmpleado))
             {
@@ -382,7 +382,7 @@ namespace ARSACSoft
                     using (FileStream fs = new FileStream(_rutaFotoEmpleado, FileMode.Open, FileAccess.Read))
                     using (BinaryReader br = new BinaryReader(fs))
                     {
-                        empleado.foto = br.ReadBytes((int)fs.Length);
+                        _empleado.foto = br.ReadBytes((int)fs.Length);
                     }
                 }
                 catch (Exception ex)
@@ -392,7 +392,7 @@ namespace ARSACSoft
                 }
             }
 
-            int resultado = estadoEmpleado == Estado.Nuevo ? daoRRHH.insertarEmpleado(empleado) : daoRRHH.modificarEmpleado(empleado);
+            int resultado = _estadoEmpleado == Estado.Nuevo ? daoRRHH.insertarEmpleado(_empleado) : daoRRHH.modificarEmpleado(_empleado);
 
             if (resultado != 0)
             {
@@ -401,7 +401,7 @@ namespace ARSACSoft
                 nuevaCuentaUsuario.password = txtContrasena.Text;
                 nuevaCuentaUsuario.idEmpleado = resultado;
 
-                if (estadoEmpleado == Estado.Nuevo)
+                if (_estadoEmpleado == Estado.Nuevo)
                 {
                     try
                     {
@@ -417,7 +417,7 @@ namespace ARSACSoft
                         return;
                     }
                 }
-                else if (estadoEmpleado == Estado.Modificar)
+                else if (_estadoEmpleado == Estado.Modificar)
                 {
                     try
                     {
@@ -429,10 +429,10 @@ namespace ARSACSoft
                         return;
                     }
                 }
-                string mensaje = estadoEmpleado == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
+                string mensaje = _estadoEmpleado == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
                 MessageBox.Show(mensaje, "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                estadoEmpleado = Estado.Inicial;
+                _estadoEmpleado = Estado.Inicial;
                 establecerEstadoFormularioEmpleado();
             }
             else
@@ -443,7 +443,7 @@ namespace ARSACSoft
 
         private void btnModificarEmpleado_Click(object sender, EventArgs e)
         {
-            estadoEmpleado = Estado.Modificar;
+            _estadoEmpleado = Estado.Modificar;
             establecerEstadoFormularioEmpleado();
         }
 
@@ -452,11 +452,11 @@ namespace ARSACSoft
             DialogResult resultadoInteraccion = MessageBox.Show("¿Está seguro de que desea eliminar a este empleado", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resultadoInteraccion == DialogResult.Yes)
             {
-                int resultado = daoRRHH.eliminarEmpleado(empleado.idPersona);
+                int resultado = daoRRHH.eliminarEmpleado(_empleado.idPersona);
                 if (resultado != 0)
                 {
                     MessageBox.Show("Se ha eliminado correctamente", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    estadoEmpleado = Estado.Inicial;
+                    _estadoEmpleado = Estado.Inicial;
                     establecerEstadoFormularioEmpleado();
                 }
                 else
@@ -468,7 +468,7 @@ namespace ARSACSoft
 
         private void btnCancelarEmpleado_Click(object sender, EventArgs e)
         {
-            estadoEmpleado = Estado.Inicial;
+            _estadoEmpleado = Estado.Inicial;
             establecerEstadoFormularioEmpleado();
             limpiarComponentesEmpleado();
         }
@@ -491,11 +491,12 @@ namespace ARSACSoft
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
-            estadoCliente = Estado.Nuevo;
+            _estadoCliente = Estado.Nuevo;
             limpiarComponentesCliente();
             establecerEstadoFormularioCliente();
+            CargarCiudades();
 
-            clienteMayorista = new clienteMayorista();
+            _clienteMayorista = new clienteMayorista();
         }
 
         private void btnGuardarCliente_Click(object sender, EventArgs e)
@@ -512,27 +513,28 @@ namespace ARSACSoft
                 return;
             }
 
-            clienteMayorista.nombre = txtNombreCliente.Text;
-            clienteMayorista.apellidos = txtApellidoCliente.Text;
-            clienteMayorista.DNI = txtDNICliente.Text;
-            clienteMayorista.correo = txtCorreoCliente.Text;
-            clienteMayorista.telefono = txtTelefonoCliente.Text;
-            clienteMayorista.RUC = txtRUC.Text;
-            clienteMayorista.razonSocial = txtRazonSocial.Text;
+            _clienteMayorista.nombre = txtNombreCliente.Text;
+            _clienteMayorista.apellidos = txtApellidoCliente.Text;
+            _clienteMayorista.DNI = txtDNICliente.Text;
+            _clienteMayorista.correo = txtCorreoCliente.Text;
+            _clienteMayorista.telefono = txtTelefonoCliente.Text;
+            _clienteMayorista.RUC = txtRUC.Text;
+            _clienteMayorista.razonSocial = txtRazonSocial.Text;
+            _clienteMayorista.direccion = textDireccion.Text;
 
-            int resultado = estadoCliente == Estado.Nuevo ? daoRRHH.insertarClienteMayorista(clienteMayorista) : daoRRHH.modificarClienteMayorista(clienteMayorista);
+            int resultado = _estadoCliente == Estado.Nuevo ? daoRRHH.insertarClienteMayorista(_clienteMayorista) : daoRRHH.modificarClienteMayorista(_clienteMayorista);
 
             if (resultado != 0)
             {
-                string mensaje = estadoCliente == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
+                string mensaje = _estadoCliente == Estado.Nuevo ? "Se ha registrado con éxito" : "Se ha modificado con éxito";
                 MessageBox.Show(mensaje, "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (estadoCliente == Estado.Nuevo)
+                if (_estadoCliente == Estado.Nuevo)
                 {
                     txtIDCliente.Text = resultado.ToString();
                 }
 
-                estadoCliente = Estado.Inicial;
+                _estadoCliente = Estado.Inicial;
                 establecerEstadoFormularioCliente();
             }
             else
@@ -546,17 +548,17 @@ namespace ARSACSoft
             frmBuscarClienteMayorista frm = new frmBuscarClienteMayorista();
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                clienteMayorista = frm.ClienteMayoristaSeleccionado;
-                txtIDCliente.Text = clienteMayorista.idPersona.ToString();
-                txtNombreCliente.Text = clienteMayorista.nombre;
-                txtApellidoCliente.Text = clienteMayorista.apellidos;
-                txtDNICliente.Text = clienteMayorista.DNI;
-                txtCorreoCliente.Text = clienteMayorista.correo;
-                txtTelefonoCliente.Text = clienteMayorista.telefono;
-                txtRazonSocial.Text = clienteMayorista.razonSocial;
-                txtRUC.Text = clienteMayorista.RUC;
-
-                estadoCliente = Estado.Buscar;
+                _clienteMayorista = frm.ClienteMayoristaSeleccionado;
+                txtIDCliente.Text = _clienteMayorista.idPersona.ToString();
+                txtNombreCliente.Text = _clienteMayorista.nombre;
+                txtApellidoCliente.Text = _clienteMayorista.apellidos;
+                txtDNICliente.Text = _clienteMayorista.DNI;
+                txtCorreoCliente.Text = _clienteMayorista.correo;
+                txtTelefonoCliente.Text = _clienteMayorista.telefono;
+                txtRazonSocial.Text = _clienteMayorista.razonSocial;
+                txtRUC.Text = _clienteMayorista.RUC;
+                textDireccion.Text = _clienteMayorista.direccion;
+                _estadoCliente = Estado.Buscar;
                 establecerEstadoFormularioCliente();
             }
 
@@ -565,7 +567,7 @@ namespace ARSACSoft
 
         private void btnModificarCliente_Click(object sender, EventArgs e)
         {
-            estadoCliente = Estado.Modificar;
+            _estadoCliente = Estado.Modificar;
             establecerEstadoFormularioCliente();
         }
 
@@ -574,11 +576,11 @@ namespace ARSACSoft
             DialogResult resultadoInteraccion = MessageBox.Show("¿Está seguro de que desea eliminar a este cliente mayorista?", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resultadoInteraccion == DialogResult.Yes)
             {
-                int resultado = daoRRHH.eliminarClienteMayorista(clienteMayorista.idPersona);
+                int resultado = daoRRHH.eliminarClienteMayorista(_clienteMayorista.idPersona);
                 if (resultado != 0)
                 {
                     MessageBox.Show("Se ha eliminado correctamente", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    estadoCliente = Estado.Inicial;
+                    _estadoCliente = Estado.Inicial;
                     establecerEstadoFormularioCliente();
                 }
                 else
@@ -590,20 +592,19 @@ namespace ARSACSoft
 
         private void btnCancelarCliente_Click(object sender, EventArgs e)
         {
-            estadoCliente = Estado.Inicial;
+            _estadoCliente = Estado.Inicial;
             establecerEstadoFormularioCliente();
             limpiarComponentesEmpleado();
         }
 
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
 
-            // solo permite un punto decimal
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
             {
                 e.Handled = true;
             }
@@ -682,6 +683,13 @@ namespace ARSACSoft
                 // Eliminar espacios en blanco
                 string strippedText = currentText.Replace(" ", "");
 
+                // Verificar longitud máxima (11 caracteres)
+                if (strippedText.Length >= 11)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
                 // Insertar espacios cada 3 dígitos
                 string formattedText = string.Empty;
                 for (int i = 0; i < strippedText.Length; i++)
@@ -702,6 +710,7 @@ namespace ARSACSoft
             }
         }
 
+
         private void txtRUC_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -714,5 +723,49 @@ namespace ARSACSoft
                 e.Handled = true;
             }
         }
+
+
+        private List<City> ciudades;
+
+        private void CargarCiudades()
+        {
+            ciudades = new List<City>
+                {
+                new City("Lima", -12.046374, -77.042793),
+                new City("Arequipa", -16.409047, -71.537450),
+                new City("Trujillo", -8.109052, -79.024452),
+                new City("Cusco", -13.531950, -71.967463),
+                new City("Piura", -5.194490, -80.632683),
+                new City("Huancayo", -12.065194, -75.204873),
+                new City("Tacna", -18.014647, -70.253738),
+                new City("Chimbote", -9.085518, -78.578083),
+                new City("Ica", -14.068023, -75.725402)
+                };
+            cmbCiudades.DataSource = ciudades;
+            cmbCiudades.DisplayMember = "Nombre";
+            cmbCiudades.ValueMember = "Coordenadas";
+        }
+
+        private void cmbCiudades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            City ciudadSeleccionada = (City)cmbCiudades.SelectedItem;
+            ActualizarMapa(ciudadSeleccionada.Coordenadas);
+        }
+
+        private void ActualizarMapa(Coordenadas coordenadas)
+        {
+            gMapControl1.Overlays.Clear();
+
+            PointLatLng ubicacion = new PointLatLng(coordenadas.Latitud, coordenadas.Longitud);
+            GMapMarker marker = new GMarkerGoogle(ubicacion, GMarkerGoogleType.red_dot);
+
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            markersOverlay.Markers.Add(marker);
+            gMapControl1.Overlays.Add(markersOverlay);
+
+            gMapControl1.Position = ubicacion;
+            gMapControl1.Zoom = 10;
+        }
+
     }
 }

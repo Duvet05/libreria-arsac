@@ -1,6 +1,4 @@
-﻿
-
-
+﻿using ARSACSoft.ProductosWS;
 using ARSACSoft.SedeWS;
 using System;
 using System.Windows.Forms;
@@ -12,7 +10,7 @@ namespace ARSACSoft
         private Estado estado;
         private SedesWSClient daoSede;
         private sede sede;
-
+        private ProductosWS.producto _producto;
         public frmGestionSedes()
         {
             InitializeComponent();
@@ -23,6 +21,7 @@ namespace ARSACSoft
             daoSede = new SedesWSClient();
             establecerEstadoTabSedes();
             limpiarComponentesSedes();
+            dataGridView3.AutoGenerateColumns = false;
         }
 
         public void establecerEstadoFormulario()
@@ -260,6 +259,27 @@ namespace ARSACSoft
             {
                 MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmBuscarProducto frm = new frmBuscarProducto();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _producto = frm.ProductoSeleccionado;
+                txtCodigoProducto.Text = _producto.idProducto.ToString();
+                textNombreProducto.Text = _producto.nombre.ToString();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -43,6 +43,7 @@
             // 
             this.dgvSedes.AllowUserToAddRows = false;
             this.dgvSedes.AllowUserToDeleteRows = false;
+            this.dgvSedes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -57,13 +58,13 @@
             this.Marca,
             this.Categoria,
             this.Precio});
-            this.dgvSedes.Location = new System.Drawing.Point(28, 40);
-            this.dgvSedes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvSedes.Location = new System.Drawing.Point(19, 26);
             this.dgvSedes.Name = "dgvSedes";
             this.dgvSedes.ReadOnly = true;
+            this.dgvSedes.RowHeadersVisible = false;
             this.dgvSedes.RowHeadersWidth = 51;
             this.dgvSedes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSedes.Size = new System.Drawing.Size(1001, 360);
+            this.dgvSedes.Size = new System.Drawing.Size(667, 234);
             this.dgvSedes.TabIndex = 14;
             this.dgvSedes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSedes_CellFormatting);
             // 
@@ -73,7 +74,6 @@
             this.Producto.MinimumWidth = 6;
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
-            this.Producto.Width = 90;
             // 
             // Marca
             // 
@@ -81,7 +81,6 @@
             this.Marca.MinimumWidth = 6;
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
-            this.Marca.Width = 400;
             // 
             // Categoria
             // 
@@ -89,7 +88,6 @@
             this.Categoria.MinimumWidth = 6;
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 150;
             // 
             // Precio
             // 
@@ -99,15 +97,13 @@
             this.Precio.MinimumWidth = 6;
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
-            this.Precio.Width = 400;
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(28, 425);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSeleccionar.Location = new System.Drawing.Point(19, 276);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(1001, 40);
+            this.btnSeleccionar.Size = new System.Drawing.Size(667, 26);
             this.btnSeleccionar.TabIndex = 12;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -115,12 +111,12 @@
             // 
             // frmBuscarSede
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 491);
+            this.ClientSize = new System.Drawing.Size(706, 319);
             this.Controls.Add(this.dgvSedes);
             this.Controls.Add(this.btnSeleccionar);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmBuscarSede";
             this.Text = "frmBuscarSede";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSedes)).EndInit();

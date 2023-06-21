@@ -7,22 +7,15 @@ import pe.edu.pucp.arsacsoft.sedes.model.Sede;
 
 public class OrdenDeAbastecimiento {
 
-    private int idOrdenDeCompra;
-    private Date fechaOrden;
-    private boolean activo;
-    private Sede sede;
-    private Empleado empleado;
-    private ArrayList<LineaDeOrdenDeAbastecimiento> lineas;
-
     public OrdenDeAbastecimiento() {
     }
 
-    public int getIdOrdenDeCompra() {
-        return idOrdenDeCompra;
+    public int getIdOrdenDeAbastecimiento() {
+        return idOrdenDeAbastecimiento;
     }
 
-    public void setIdOrdenDeCompra(int idOrdenDeCompra) {
-        this.idOrdenDeCompra = idOrdenDeCompra;
+    public void setIdOrdenDeAbastecimiento(int idOrdenDeAbastecimiento) {
+        this.idOrdenDeAbastecimiento = idOrdenDeAbastecimiento;
     }
 
     public Date getFechaOrden() {
@@ -33,6 +26,22 @@ public class OrdenDeAbastecimiento {
         this.fechaOrden = fechaOrden;
     }
 
+    public Date getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(Date fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public boolean isEntregado() {
+        return entregado;
+    }
+
+    public void setEntregado(boolean entregado) {
+        this.entregado = entregado;
+    }
+    
     public boolean isActivo() {
         return activo;
     }
@@ -40,7 +49,7 @@ public class OrdenDeAbastecimiento {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-
+    
     public Sede getSede() {
         return sede;
     }
@@ -48,20 +57,26 @@ public class OrdenDeAbastecimiento {
     public void setSede(Sede sede) {
         this.sede = sede;
     }
-
     public Empleado getEmpleado() {
         return empleado;
     }
 
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
-    }
-
+    } 
     public ArrayList<LineaDeOrdenDeAbastecimiento> getLineas() {
         return lineas;
     }
 
     public void setLineas(ArrayList<LineaDeOrdenDeAbastecimiento> lineas) {
         this.lineas = lineas;
-    }
+    }    
+    private int idOrdenDeAbastecimiento;
+    private Date fechaOrden;
+    private Date fechaEntrega;
+    private boolean entregado;
+    private boolean activo;    
+    private Sede sede;
+    private Empleado empleado;
+    private ArrayList<LineaDeOrdenDeAbastecimiento> lineas;
 }

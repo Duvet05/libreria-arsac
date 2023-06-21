@@ -31,7 +31,8 @@ namespace ARSACSoft
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
+            if (dgvProductos.CurrentRow != null)
+                ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
             //MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedIndex + ", Categoria: " + cboCategoria.SelectedIndex , "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //System.Console.WriteLine(cboMarca.SelectedIndex +  " " + cboCategoria.SelectedIndex);
             this.DialogResult = DialogResult.OK;

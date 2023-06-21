@@ -11,7 +11,8 @@ import pe.edu.pucp.arsacsoft.producto.model.Producto;
  * @author Gino
  */
 public class LineaDeOrdenDeAbastecimiento {
-        private int idLineaOrdenDeAbastecimiento;
+
+    private int idLineaOrdenDeAbastecimiento;
     private int cantidad;
     private double costo;
     private boolean activo;
@@ -20,8 +21,6 @@ public class LineaDeOrdenDeAbastecimiento {
     public LineaDeOrdenDeAbastecimiento() {
     }
 
-    
-    
     public int getIdLineaOrdenDeAbastecimiento() {
         return idLineaOrdenDeAbastecimiento;
     }

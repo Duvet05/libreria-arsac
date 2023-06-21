@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.RRHH.model;
 
-/**
- *
- * @author User
- */
-public class ClienteMayorista extends Persona{
+public class ClienteMayorista extends Persona {
+    private String RUC;
+    private String razonSocial;
+    private String direccion;
 
     public ClienteMayorista() {
     }
@@ -28,6 +23,12 @@ public class ClienteMayorista extends Persona{
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;
     }
-    private String RUC;
-    private String razonSocial;
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 }

@@ -3,54 +3,24 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ARSACSoft
 {
     public partial class frmPrincipal : Form
     {
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+        private readonly RRHHWSClient daoRRHH;
+        private readonly empleado _empleadoLogeado;
 
-        private RRHHWSClient daoRRHH;
-        private empleado _empleadoLogeado;
-        public GroupBox BtnPedidos
-        {
-            get => grupoPedidos;
-            set => grupoPedidos = value;
-        }
-        public GroupBox BtnAlmacen
-        {
-            get => grupoAlmacen;
-            set => grupoAlmacen = value;
-        }
-        public GroupBox BtnProveedores
-        {
-            get => grupoProveedores;
-            set => grupoProveedores = value;
-        }
-        public GroupBox BtnSede
-        {
-            get => grupoSede;
-            set => grupoSede = value;
-        }
-        public GroupBox BtnContabilidad
-        {
-            get => grupoContabilidad;
-            set => grupoContabilidad = value;
-        }
-        public GroupBox BtnRRHH
-        {
-            get => grupoRRHH;
-            set => grupoRRHH = value;
-        }
-        public GroupBox BtnReportes
-        {
-            get => grupoReportes;
-            set => grupoReportes = value;
-        }
+        private frmGestionAlmacen frmAlmacen;
+        private frmGestionPedidos frmPedidos;
+        private frmGestionProveedores frmProveedores;
+        private frmGestionSedes frmSedes;
+        private frmContabilidad frmContab;
+        private frmGestionRRHH frmGestRRHH;
+        private frmReportes frmReports;
+        
         public frmPrincipal(int idEmpleado)
         {
             InitializeComponent();
@@ -60,27 +30,40 @@ namespace ARSACSoft
             _empleadoLogeado = daoRRHH.obtenerEmpleadoPorID(idEmpleado);
             UpdateEmployeeInfo();
 
+            InitializeForms();
+
             switch (_empleadoLogeado.tipo.idTipoDeEmpleado)
             {
                 case 1:
-                    OcultarBotones(this.BtnPedidos, this.BtnAlmacen, this.BtnProveedores, this.BtnContabilidad);
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoContabilidad);
                     break;
                 case 2:
-                    OcultarBotones(this.BtnAlmacen, this.BtnProveedores, this.BtnSede, this.BtnContabilidad, this.BtnRRHH);
+                    OcultarBotones(grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad, grupoRRHH);
                     break;
                 case 3:
-                    OcultarBotones(this.BtnPedidos, this.BtnContabilidad, this.BtnRRHH, this.BtnReportes);
+                    OcultarBotones(grupoPedidos, grupoContabilidad, grupoRRHH, grupoReportes);
                     break;
                 case 4:
-                    OcultarBotones(this.BtnPedidos, this.BtnAlmacen, this.BtnContabilidad);
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad);
                     break;
                 case 5:
-                    OcultarBotones(this.BtnPedidos, this.BtnAlmacen, this.BtnProveedores, this.BtnSede, this.BtnContabilidad);
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad);
                     break;
                 case 6:
                     //Gerencia
                     break;
             }
+        }
+
+        private void InitializeForms()
+        {
+            frmAlmacen = new frmGestionAlmacen();
+            frmPedidos = new frmGestionPedidos();
+            frmProveedores = new frmGestionProveedores();
+            frmSedes = new frmGestionSedes();
+            frmContab = new frmContabilidad();
+            frmGestRRHH = new frmGestionRRHH();
+            frmReports = new frmReportes();
         }
 
         private void OcultarBotones(params GroupBox[] botones)
@@ -91,16 +74,17 @@ namespace ARSACSoft
             }
         }
 
-
         private void UpdateEmployeeInfo()
         {
             lblNombreApellidoUsuario.Text = $"{_empleadoLogeado.nombre} {_empleadoLogeado.apellidos}";
             lblCargoUsuario.Text = _empleadoLogeado.tipo.descripcion;
             lblSedeUsuario.Text = _empleadoLogeado.sede.direccion;
-            if (this._empleadoLogeado.foto != null)
+            if (_empleadoLogeado.foto != null)
             {
-                MemoryStream ms = new MemoryStream(_empleadoLogeado.foto);
-                pbFotoUsuario.Image = new Bitmap(ms);
+                using (MemoryStream ms = new MemoryStream(_empleadoLogeado.foto))
+                {
+                    pbFotoUsuario.Image = new Bitmap(ms);
+                }
             }
         }
 
@@ -113,15 +97,21 @@ namespace ARSACSoft
             form.Visible = true;
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            LogOut();
-        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
 
         private void frmPrincipal_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0xA1, 0x2, 0);
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            LogOut();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -133,7 +123,6 @@ namespace ARSACSoft
         {
             LogOut();
         }
-
         private void LogOut()
         {
             if (MessageBox.Show("¿Estás seguro de que quieres cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -148,27 +137,6 @@ namespace ARSACSoft
             SendMessage(this.Handle, 0xA1, 0x2, 0);
         }
 
-
-        private void btnAlmacen_Click(object sender, EventArgs e)
-        {
-            frmGestionAlmacen frmGestAlmac = new frmGestionAlmacen();
-            DisplayForm(frmGestAlmac);
-
-            btnPedidos.ForeColor = System.Drawing.Color.Gray;
-            btnAlmacen.ForeColor = System.Drawing.Color.Black;
-            btnProveedores.ForeColor = System.Drawing.Color.Gray;
-            btnSede.ForeColor = System.Drawing.Color.Gray;
-            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
-            btnRRHH.ForeColor = System.Drawing.Color.Gray;
-            btnReportes.ForeColor = System.Drawing.Color.Gray;
-        }
-
-        private void pbAlmacen_Click(object sender, EventArgs e)
-        {
-            frmGestionAlmacen frmGestAlmac = new frmGestionAlmacen();
-            DisplayForm(frmGestAlmac);
-        }
-
         private void lblTituloARSAC_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -181,91 +149,57 @@ namespace ARSACSoft
             SendMessage(this.Handle, 0xA1, 0x2, 0);
         }
 
-        public void SetButtonColor(Button selectedButton)
+        private void SetButtonColor(Button selectedButton)
         {
-            // Establecer todos los botones en gris
-            btnPedidos.ForeColor = Color.Gray;
-            btnAlmacen.ForeColor = Color.Gray;
-            btnProveedores.ForeColor = Color.Gray;
-            btnSede.ForeColor = Color.Gray;
-            btnContabilidad.ForeColor = Color.Gray;
-            btnRRHH.ForeColor = Color.Gray;
-            btnReportes.ForeColor = Color.Gray;
+            foreach (Control control in panelContenedor.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.ForeColor = (button == selectedButton) ? Color.Black : Color.Gray;
+                }
+            }
+        }
 
-            // Establecer el botón seleccionado en negro
-            selectedButton.ForeColor = Color.Black;
+        private void btnAlmacen_Click(object sender, EventArgs e)
+        {
+            DisplayForm(frmAlmacen);
+            SetButtonColor(btnAlmacen);
         }
 
         private void btnPedidos_Click(object sender, EventArgs e)
         {
-            frmGestionPedidos frmGestPed = new frmGestionPedidos();
-            DisplayForm(frmGestPed);
-
+            DisplayForm(frmPedidos);
             SetButtonColor(btnPedidos);
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            frmGestionProveedores frmGestProveedores = new frmGestionProveedores();
-            DisplayForm(frmGestProveedores);
-
+            DisplayForm(frmProveedores);
             SetButtonColor(btnProveedores);
         }
 
         private void btnSede_Click(object sender, EventArgs e)
         {
-            frmGestionSedes frmGestSedes = new frmGestionSedes();
-            DisplayForm(frmGestSedes);
-
-            btnPedidos.ForeColor = System.Drawing.Color.Gray;
-            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
-            btnProveedores.ForeColor = System.Drawing.Color.Gray;
-            btnSede.ForeColor = System.Drawing.Color.Black;
-            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
-            btnRRHH.ForeColor = System.Drawing.Color.Gray;
-            btnReportes.ForeColor = System.Drawing.Color.Gray;
+            DisplayForm(frmSedes);
+            SetButtonColor(btnSede);
         }
 
         private void btnContabilidad_Click(object sender, EventArgs e)
         {
-            frmContabilidad frmContab = new frmContabilidad();
             DisplayForm(frmContab);
-
-            btnPedidos.ForeColor = System.Drawing.Color.Gray;
-            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
-            btnProveedores.ForeColor = System.Drawing.Color.Gray;
-            btnSede.ForeColor = System.Drawing.Color.Gray;
-            btnContabilidad.ForeColor = System.Drawing.Color.Black;
-            btnRRHH.ForeColor = System.Drawing.Color.Gray;
-            btnReportes.ForeColor = System.Drawing.Color.Gray;
+            SetButtonColor(btnContabilidad);
         }
 
         private void btnRRHH_Click(object sender, EventArgs e)
         {
-            frmGestionRRHH frmGestRRHH = new frmGestionRRHH();
             DisplayForm(frmGestRRHH);
-
-            btnPedidos.ForeColor = System.Drawing.Color.Gray;
-            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
-            btnProveedores.ForeColor = System.Drawing.Color.Gray;
-            btnSede.ForeColor = System.Drawing.Color.Gray;
-            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
-            btnRRHH.ForeColor = System.Drawing.Color.Black;
-            btnReportes.ForeColor = System.Drawing.Color.Gray;
+            SetButtonColor(btnRRHH);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            frmReportes frmReports = new frmReportes();
             DisplayForm(frmReports);
-
-            btnPedidos.ForeColor = System.Drawing.Color.Gray;
-            btnAlmacen.ForeColor = System.Drawing.Color.Gray;
-            btnProveedores.ForeColor = System.Drawing.Color.Gray;
-            btnSede.ForeColor = System.Drawing.Color.Gray;
-            btnContabilidad.ForeColor = System.Drawing.Color.Gray;
-            btnRRHH.ForeColor = System.Drawing.Color.Gray;
-            btnReportes.ForeColor = System.Drawing.Color.Black;
+            SetButtonColor(btnReportes);
         }
 
     }
