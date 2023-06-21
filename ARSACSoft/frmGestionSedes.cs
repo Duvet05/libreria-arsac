@@ -77,6 +77,7 @@ namespace ARSACSoft
             }
         }
 
+
         public void establecerEstadoTabSedes()
         {
             switch (estado)

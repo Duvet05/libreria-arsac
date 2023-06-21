@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionPedidos));
             this.gbProveedor = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCliente = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreCompleto = new System.Windows.Forms.TextBox();
             this.checkBoxFactura = new System.Windows.Forms.CheckBox();
@@ -51,14 +51,14 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.textNombreProducto = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarProd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textDescuentoPorcentaje = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dateFechaEntrega = new System.Windows.Forms.DateTimePicker();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btCorreo = new System.Windows.Forms.Button();
             this.textMonto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -73,11 +73,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textDescontadoTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btPedido = new System.Windows.Forms.Button();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
-            this.btnBuscar = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -89,7 +89,7 @@
             // 
             // gbProveedor
             // 
-            this.gbProveedor.Controls.Add(this.button3);
+            this.gbProveedor.Controls.Add(this.btnCliente);
             this.gbProveedor.Controls.Add(this.label3);
             this.gbProveedor.Controls.Add(this.txtNombreCompleto);
             this.gbProveedor.Controls.Add(this.checkBoxFactura);
@@ -104,18 +104,17 @@
             this.gbProveedor.TabIndex = 103;
             this.gbProveedor.TabStop = false;
             this.gbProveedor.Text = "Venta con Factura";
-            this.gbProveedor.Enter += new System.EventHandler(this.gbProveedor_Enter);
             // 
-            // button3
+            // btnCliente
             // 
-            this.button3.Location = new System.Drawing.Point(118, 38);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 21);
-            this.button3.TabIndex = 98;
-            this.button3.Text = "...";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCliente.Location = new System.Drawing.Point(118, 38);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Size = new System.Drawing.Size(32, 21);
+            this.btnCliente.TabIndex = 98;
+            this.btnCliente.Text = "...";
+            this.btnCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.btnBuscarCliente);
             // 
             // label3
             // 
@@ -126,7 +125,6 @@
             this.label3.Size = new System.Drawing.Size(55, 15);
             this.label3.TabIndex = 97;
             this.label3.Text = "Nombre:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtNombreCompleto
             // 
@@ -137,7 +135,6 @@
             this.txtNombreCompleto.ReadOnly = true;
             this.txtNombreCompleto.Size = new System.Drawing.Size(296, 20);
             this.txtNombreCompleto.TabIndex = 96;
-            this.txtNombreCompleto.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // checkBoxFactura
             // 
@@ -147,6 +144,7 @@
             this.checkBoxFactura.Size = new System.Drawing.Size(15, 14);
             this.checkBoxFactura.TabIndex = 95;
             this.checkBoxFactura.UseVisualStyleBackColor = true;
+            this.checkBoxFactura.CheckedChanged += new System.EventHandler(this.checkBoxFactura_CheckedChanged);
             // 
             // lblNombreCliente
             // 
@@ -157,7 +155,6 @@
             this.lblNombreCliente.Size = new System.Drawing.Size(83, 15);
             this.lblNombreCliente.TabIndex = 3;
             this.lblNombreCliente.Text = "Razon Social:";
-            this.lblNombreCliente.Click += new System.EventHandler(this.lblNombreCliente_Click);
             // 
             // txtRazonSocial
             // 
@@ -198,7 +195,7 @@
             this.groupBox1.Controls.Add(this.button12);
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.textNombreProducto);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnBuscarProd);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textDescuentoPorcentaje);
             this.groupBox1.Controls.Add(this.label8);
@@ -284,7 +281,6 @@
             this.label1.Size = new System.Drawing.Size(53, 15);
             this.label1.TabIndex = 98;
             this.label1.Text = "Cantidad:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textCantProducto
             // 
@@ -294,7 +290,6 @@
             this.textCantProducto.ReadOnly = true;
             this.textCantProducto.Size = new System.Drawing.Size(65, 20);
             this.textCantProducto.TabIndex = 97;
-            this.textCantProducto.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button12
             // 
@@ -324,16 +319,16 @@
             this.textNombreProducto.Size = new System.Drawing.Size(148, 20);
             this.textNombreProducto.TabIndex = 81;
             // 
-            // button1
+            // btnBuscarProd
             // 
-            this.button1.Location = new System.Drawing.Point(161, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 21);
-            this.button1.TabIndex = 82;
-            this.button1.Text = "...";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBuscarProd.Location = new System.Drawing.Point(161, 48);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(32, 21);
+            this.btnBuscarProd.TabIndex = 82;
+            this.btnBuscarProd.Text = "...";
+            this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscarProd.UseVisualStyleBackColor = true;
+            this.btnBuscarProd.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -374,7 +369,6 @@
             this.groupBox3.TabIndex = 105;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del Entrega";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label13
             // 
@@ -392,15 +386,15 @@
             this.dateFechaEntrega.Size = new System.Drawing.Size(244, 21);
             this.dateFechaEntrega.TabIndex = 0;
             // 
-            // button10
+            // btCorreo
             // 
-            this.button10.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.button10.Location = new System.Drawing.Point(484, 408);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(200, 29);
-            this.button10.TabIndex = 108;
-            this.button10.Text = "Procesar Pedido";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btCorreo.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
+            this.btCorreo.Location = new System.Drawing.Point(484, 408);
+            this.btCorreo.Name = "btCorreo";
+            this.btCorreo.Size = new System.Drawing.Size(200, 29);
+            this.btCorreo.TabIndex = 108;
+            this.btCorreo.Text = "Procesar Pedido";
+            this.btCorreo.UseVisualStyleBackColor = true;
             // 
             // textMonto
             // 
@@ -408,7 +402,6 @@
             this.textMonto.Name = "textMonto";
             this.textMonto.Size = new System.Drawing.Size(89, 20);
             this.textMonto.TabIndex = 107;
-            this.textMonto.TextChanged += new System.EventHandler(this.textBox8_TextChanged_1);
             // 
             // label11
             // 
@@ -418,7 +411,6 @@
             this.label11.Size = new System.Drawing.Size(67, 13);
             this.label11.TabIndex = 106;
             this.label11.Text = "Monto Total:";
-            this.label11.Click += new System.EventHandler(this.label11_Click_1);
             // 
             // groupBox2
             // 
@@ -532,15 +524,15 @@
             this.label4.TabIndex = 87;
             this.label4.Text = "Cantidad:";
             // 
-            // button2
+            // btPedido
             // 
-            this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.button2.Location = new System.Drawing.Point(484, 369);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 33);
-            this.button2.TabIndex = 109;
-            this.button2.Text = "Emitir Factura por Correo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btPedido.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
+            this.btPedido.Location = new System.Drawing.Point(484, 369);
+            this.btPedido.Name = "btPedido";
+            this.btPedido.Size = new System.Drawing.Size(200, 33);
+            this.btPedido.TabIndex = 109;
+            this.btPedido.Text = "Emitir Factura por Correo";
+            this.btPedido.UseVisualStyleBackColor = true;
             // 
             // tsMenu
             // 
@@ -550,7 +542,7 @@
             this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNuevo,
             this.btnGuardar,
-            this.btnBuscar,
+            this.btnBuscarPedido,
             this.btnCancelar});
             this.tsMenu.Location = new System.Drawing.Point(0, 0);
             this.tsMenu.Name = "tsMenu";
@@ -578,15 +570,15 @@
             this.btnGuardar.Size = new System.Drawing.Size(80, 24);
             this.btnGuardar.Text = "&Guardar";
             // 
-            // btnBuscar
+            // btnBuscarPedido
             // 
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscar.Image = global::ARSACSoft.Properties.Resources.Search;
-            this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(70, 24);
-            this.btnBuscar.Text = "&Buscar";
+            this.btnBuscarPedido.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarPedido.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBuscarPedido.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscarPedido.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarPedido.Name = "btnBuscarPedido";
+            this.btnBuscarPedido.Size = new System.Drawing.Size(70, 24);
+            this.btnBuscarPedido.Text = "&Buscar";
             // 
             // btnCancelar
             // 
@@ -604,9 +596,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 470);
             this.Controls.Add(this.tsMenu);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btPedido);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.btCorreo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbProveedor);
@@ -640,14 +632,14 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textNombreProducto;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscarProd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textDescuentoPorcentaje;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dateFechaEntrega;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btCorreo;
         private System.Windows.Forms.TextBox textMonto;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -657,7 +649,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textCantProducto;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btPedido;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreCompleto;
         private System.Windows.Forms.CheckBox checkBoxFactura;
@@ -671,7 +663,7 @@
         private System.Windows.Forms.TextBox textPrecioUni;
         private System.Windows.Forms.TextBox textCantidad;
         private System.Windows.Forms.TextBox textSubTotal;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -679,7 +671,7 @@
         private System.Windows.Forms.ToolStrip tsMenu;
         private System.Windows.Forms.ToolStripButton btnNuevo;
         private System.Windows.Forms.ToolStripButton btnGuardar;
-        private System.Windows.Forms.ToolStripButton btnBuscar;
+        private System.Windows.Forms.ToolStripButton btnBuscarPedido;
         private System.Windows.Forms.ToolStripButton btnCancelar;
     }
 }
