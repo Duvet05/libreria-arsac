@@ -15,6 +15,7 @@ public interface ProveedorDAO {
     int insertar(Proveedor proveedor);
     int modificar(Proveedor proveedor);
     int eliminar(int idProveedor);
-    ArrayList<Proveedor> listarAlfabeticamente();    
+    ArrayList<Proveedor> listarAlfabeticamente();
+    ArrayList<Proveedor> listarProveedoresXNombreXRuc(String nombre);
     ArrayList<Proveedor> listarPorCategoriaDeProducto(int idCategoria);
 }

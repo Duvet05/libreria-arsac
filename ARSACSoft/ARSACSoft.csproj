@@ -352,13 +352,22 @@
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.insertarProveedorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarProveedoresAfabeticamenteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.modificarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.productoXProveedor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.proveedor.datasource">

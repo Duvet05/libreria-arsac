@@ -90,7 +90,7 @@ namespace ARSACSoft
 
         public void limpiarComponentesCliente()
         {
-            txtIDCliente.Text = "";
+            //txtIDCliente.Text = "";
             txtDNICliente.Text = "";
             txtNombreCliente.Text = "";
             txtApellidoCliente.Text = "";

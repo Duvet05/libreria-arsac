@@ -35,7 +35,7 @@ namespace ARSACSoft
         {
             try
             {
-                //dgvProveedores.DataSource = daoProveedores.(txtNombreRUC.Text);
+                dgvProveedores.DataSource = daoProveedores.listarProveedoresXNombreXRUC(txtNombreRUC.Text);
 
             }
             catch (Exception ex)

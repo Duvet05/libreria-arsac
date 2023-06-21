@@ -4,9 +4,12 @@ package pe.edu.pucp.arsacsoft.services;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
+import pe.edu.pucp.arsacsoft.proveedores.dao.ProductoXProveedorDAO;
 
 import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
 import pe.edu.pucp.arsacsoft.proveedores.dao.ProveedorDAO;
+import pe.edu.pucp.arsacsoft.proveedores.model.ProductoXProveedor;
+import pe.edu.pucp.arsacsoft.proveedores.mysql.ProductoXProveedorMySQL;
 import pe.edu.pucp.arsacsoft.proveedores.mysql.ProveedorMySQL;
 
 /**
@@ -17,6 +20,7 @@ import pe.edu.pucp.arsacsoft.proveedores.mysql.ProveedorMySQL;
 public class ProveedoresWS {
 
     ProveedorDAO daoProveedor = new ProveedorMySQL();
+    ProductoXProveedorDAO daoProductoPorProveedor = new ProductoXProveedorMySQL();
     
     @WebMethod(operationName = "listarProveedoresPorCategoria")
     public ArrayList<Proveedor> listarProveedoresPorCategoria(int idCategoria) {
@@ -34,6 +38,17 @@ public class ProveedoresWS {
         ArrayList<Proveedor> proveedores = null;
         try {
             proveedores = daoProveedor.listarAlfabeticamente();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return proveedores;
+    }
+    
+    @WebMethod(operationName = "listarProveedoresXNombreXRUC")
+    public ArrayList<Proveedor> listarProveedoresXNombreXRUC(String nombre) {
+        ArrayList<Proveedor> proveedores = null;
+        try {
+            proveedores = daoProveedor.listarProveedoresXNombreXRuc(nombre);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -71,5 +86,19 @@ public class ProveedoresWS {
             System.out.println(ex.getMessage());
         }
         return resultado;
+    }
+    /*Productos por proveedor*/
+    
+    @WebMethod(operationName = "listarProductosXProveedor")
+    public ArrayList<ProductoXProveedor> listarProductosXProveedor(String nombre, int _fid_categoria, 
+                                int _fid_marca, int _fid_proveedor) {
+        ArrayList<ProductoXProveedor> productos = null;
+        try {
+            productos = daoProductoPorProveedor.listarProductosXProveedor(nombre, _fid_categoria,_fid_marca,
+                                    _fid_proveedor);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return productos;
     }
 }

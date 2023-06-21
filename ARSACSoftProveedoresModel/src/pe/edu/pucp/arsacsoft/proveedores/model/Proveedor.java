@@ -11,7 +11,7 @@ public class Proveedor {
     private String direccion;
     private String telefono;
     private boolean activo;
-    private ArrayList<Producto> productos;
+    private ArrayList<ProductoXProveedor> productosXProveedor;
 
     public Proveedor() {
     }
@@ -64,11 +64,13 @@ public class Proveedor {
         this.activo = activo;
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
+    public ArrayList<ProductoXProveedor> getProductosXProveedor() {
+        return productosXProveedor;
     }
 
-    public void setProductos(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public void setProductosXProveedor(ArrayList<ProductoXProveedor> productos) {
+        this.productosXProveedor = productosXProveedor;
     }
+
+
 }

@@ -16,13 +16,32 @@ namespace ARSACSoft.AlmacenWS {
     public interface AlmacenWS {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
+            "EmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
+            "EmpleadoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse eliminarOrdenCompra(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request);
+        ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse listarOrdenesCompraPorIdDNINombreEmpleado(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse> eliminarOrdenCompraAsync(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
+            "EmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
+            "EmpleadoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse> listarOrdenesCompraPorIdDNINombreEmpleadoAsync(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
+            "CompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
+            "CompraResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse listarLineasOrdenCompraPorIdOrdenCompra(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
+            "CompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
+            "CompraResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> listarLineasOrdenCompraPorIdOrdenCompraAsync(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/insertarOrdenCompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/insertarOrdenCompraResponse")]
@@ -45,72 +64,18 @@ namespace ARSACSoft.AlmacenWS {
         System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.modificarOrdenCompraResponse> modificarOrdenCompraAsync(ARSACSoft.AlmacenWS.modificarOrdenCompraRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
-            "CompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
-            "CompraResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse listarLineasOrdenCompraPorIdOrdenCompra(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request);
+        ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse eliminarOrdenCompra(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
-            "CompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasOrdenCompraPorIdOrden" +
-            "CompraResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> listarLineasOrdenCompraPorIdOrdenCompraAsync(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
-            "EmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
-            "EmpleadoResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse listarOrdenesCompraPorIdDNINombreEmpleado(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
-            "EmpleadoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesCompraPorIdDNINombre" +
-            "EmpleadoResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse> listarOrdenesCompraPorIdDNINombreEmpleadoAsync(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenCompra", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarOrdenCompraRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int idOrdenCompra;
-        
-        public eliminarOrdenCompraRequest() {
-        }
-        
-        public eliminarOrdenCompraRequest(int idOrdenCompra) {
-            this.idOrdenCompra = idOrdenCompra;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenCompraResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarOrdenCompraResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarOrdenCompraResponse() {
-        }
-        
-        public eliminarOrdenCompraResponse(int @return) {
-            this.@return = @return;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/eliminarOrdenCompraResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse> eliminarOrdenCompraAsync(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -282,7 +247,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -389,7 +354,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -491,7 +456,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -635,7 +600,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -695,7 +660,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -811,7 +776,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -899,7 +864,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -959,7 +924,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1103,7 +1068,7 @@ namespace ARSACSoft.AlmacenWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1164,7 +1129,7 @@ namespace ARSACSoft.AlmacenWS {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1282,6 +1247,78 @@ namespace ARSACSoft.AlmacenWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesCompraPorIdDNINombreEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesCompraPorIdDNINombreEmpleadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string idDNINombreEmpleado;
+        
+        public listarOrdenesCompraPorIdDNINombreEmpleadoRequest() {
+        }
+        
+        public listarOrdenesCompraPorIdDNINombreEmpleadoRequest(string idDNINombreEmpleado) {
+            this.idDNINombreEmpleado = idDNINombreEmpleado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesCompraPorIdDNINombreEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesCompraPorIdDNINombreEmpleadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.AlmacenWS.ordenDeCompra[] @return;
+        
+        public listarOrdenesCompraPorIdDNINombreEmpleadoResponse() {
+        }
+        
+        public listarOrdenesCompraPorIdDNINombreEmpleadoResponse(ARSACSoft.AlmacenWS.ordenDeCompra[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasOrdenCompraPorIdOrdenCompra", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasOrdenCompraPorIdOrdenCompraRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idOrdenCompra;
+        
+        public listarLineasOrdenCompraPorIdOrdenCompraRequest() {
+        }
+        
+        public listarLineasOrdenCompraPorIdOrdenCompraRequest(int idOrdenCompra) {
+            this.idOrdenCompra = idOrdenCompra;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasOrdenCompraPorIdOrdenCompraResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasOrdenCompraPorIdOrdenCompraResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.AlmacenWS.lineaOrdenDeCompra[] @return;
+        
+        public listarLineasOrdenCompraPorIdOrdenCompraResponse() {
+        }
+        
+        public listarLineasOrdenCompraPorIdOrdenCompraResponse(ARSACSoft.AlmacenWS.lineaOrdenDeCompra[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenCompra", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
     public partial class insertarOrdenCompraRequest {
         
@@ -1354,17 +1391,17 @@ namespace ARSACSoft.AlmacenWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasOrdenCompraPorIdOrdenCompra", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineasOrdenCompraPorIdOrdenCompraRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenCompra", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarOrdenCompraRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int idOrdenCompra;
         
-        public listarLineasOrdenCompraPorIdOrdenCompraRequest() {
+        public eliminarOrdenCompraRequest() {
         }
         
-        public listarLineasOrdenCompraPorIdOrdenCompraRequest(int idOrdenCompra) {
+        public eliminarOrdenCompraRequest(int idOrdenCompra) {
             this.idOrdenCompra = idOrdenCompra;
         }
     }
@@ -1372,53 +1409,17 @@ namespace ARSACSoft.AlmacenWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasOrdenCompraPorIdOrdenCompraResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineasOrdenCompraPorIdOrdenCompraResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.AlmacenWS.lineaOrdenDeCompra[] @return;
-        
-        public listarLineasOrdenCompraPorIdOrdenCompraResponse() {
-        }
-        
-        public listarLineasOrdenCompraPorIdOrdenCompraResponse(ARSACSoft.AlmacenWS.lineaOrdenDeCompra[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesCompraPorIdDNINombreEmpleado", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesCompraPorIdDNINombreEmpleadoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenCompraResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarOrdenCompraResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string idDNINombreEmpleado;
+        public int @return;
         
-        public listarOrdenesCompraPorIdDNINombreEmpleadoRequest() {
+        public eliminarOrdenCompraResponse() {
         }
         
-        public listarOrdenesCompraPorIdDNINombreEmpleadoRequest(string idDNINombreEmpleado) {
-            this.idDNINombreEmpleado = idDNINombreEmpleado;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesCompraPorIdDNINombreEmpleadoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesCompraPorIdDNINombreEmpleadoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.AlmacenWS.ordenDeCompra[] @return;
-        
-        public listarOrdenesCompraPorIdDNINombreEmpleadoResponse() {
-        }
-        
-        public listarOrdenesCompraPorIdDNINombreEmpleadoResponse(ARSACSoft.AlmacenWS.ordenDeCompra[] @return) {
+        public eliminarOrdenCompraResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -1451,26 +1452,49 @@ namespace ARSACSoft.AlmacenWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse ARSACSoft.AlmacenWS.AlmacenWS.eliminarOrdenCompra(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request) {
-            return base.Channel.eliminarOrdenCompra(request);
+        ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse ARSACSoft.AlmacenWS.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleado(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request) {
+            return base.Channel.listarOrdenesCompraPorIdDNINombreEmpleado(request);
         }
         
-        public int eliminarOrdenCompra(int idOrdenCompra) {
-            ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest();
-            inValue.idOrdenCompra = idOrdenCompra;
-            ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse retVal = ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).eliminarOrdenCompra(inValue);
+        public ARSACSoft.AlmacenWS.ordenDeCompra[] listarOrdenesCompraPorIdDNINombreEmpleado(string idDNINombreEmpleado) {
+            ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest inValue = new ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest();
+            inValue.idDNINombreEmpleado = idDNINombreEmpleado;
+            ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse retVal = ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarOrdenesCompraPorIdDNINombreEmpleado(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse> ARSACSoft.AlmacenWS.AlmacenWS.eliminarOrdenCompraAsync(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request) {
-            return base.Channel.eliminarOrdenCompraAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse> ARSACSoft.AlmacenWS.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoAsync(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request) {
+            return base.Channel.listarOrdenesCompraPorIdDNINombreEmpleadoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse> eliminarOrdenCompraAsync(int idOrdenCompra) {
-            ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse> listarOrdenesCompraPorIdDNINombreEmpleadoAsync(string idDNINombreEmpleado) {
+            ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest inValue = new ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest();
+            inValue.idDNINombreEmpleado = idDNINombreEmpleado;
+            return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarOrdenesCompraPorIdDNINombreEmpleadoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse ARSACSoft.AlmacenWS.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompra(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request) {
+            return base.Channel.listarLineasOrdenCompraPorIdOrdenCompra(request);
+        }
+        
+        public ARSACSoft.AlmacenWS.lineaOrdenDeCompra[] listarLineasOrdenCompraPorIdOrdenCompra(int idOrdenCompra) {
+            ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest();
             inValue.idOrdenCompra = idOrdenCompra;
-            return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).eliminarOrdenCompraAsync(inValue);
+            ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse retVal = ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarLineasOrdenCompraPorIdOrdenCompra(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> ARSACSoft.AlmacenWS.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraAsync(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request) {
+            return base.Channel.listarLineasOrdenCompraPorIdOrdenCompraAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> listarLineasOrdenCompraPorIdOrdenCompraAsync(int idOrdenCompra) {
+            ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest();
+            inValue.idOrdenCompra = idOrdenCompra;
+            return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarLineasOrdenCompraPorIdOrdenCompraAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1520,49 +1544,26 @@ namespace ARSACSoft.AlmacenWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse ARSACSoft.AlmacenWS.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompra(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request) {
-            return base.Channel.listarLineasOrdenCompraPorIdOrdenCompra(request);
+        ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse ARSACSoft.AlmacenWS.AlmacenWS.eliminarOrdenCompra(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request) {
+            return base.Channel.eliminarOrdenCompra(request);
         }
         
-        public ARSACSoft.AlmacenWS.lineaOrdenDeCompra[] listarLineasOrdenCompraPorIdOrdenCompra(int idOrdenCompra) {
-            ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest();
+        public int eliminarOrdenCompra(int idOrdenCompra) {
+            ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest();
             inValue.idOrdenCompra = idOrdenCompra;
-            ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse retVal = ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarLineasOrdenCompraPorIdOrdenCompra(inValue);
+            ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse retVal = ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).eliminarOrdenCompra(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> ARSACSoft.AlmacenWS.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraAsync(ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest request) {
-            return base.Channel.listarLineasOrdenCompraPorIdOrdenCompraAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse> ARSACSoft.AlmacenWS.AlmacenWS.eliminarOrdenCompraAsync(ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest request) {
+            return base.Channel.eliminarOrdenCompraAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse> listarLineasOrdenCompraPorIdOrdenCompraAsync(int idOrdenCompra) {
-            ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse> eliminarOrdenCompraAsync(int idOrdenCompra) {
+            ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.eliminarOrdenCompraRequest();
             inValue.idOrdenCompra = idOrdenCompra;
-            return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarLineasOrdenCompraPorIdOrdenCompraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse ARSACSoft.AlmacenWS.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleado(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request) {
-            return base.Channel.listarOrdenesCompraPorIdDNINombreEmpleado(request);
-        }
-        
-        public ARSACSoft.AlmacenWS.ordenDeCompra[] listarOrdenesCompraPorIdDNINombreEmpleado(string idDNINombreEmpleado) {
-            ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest inValue = new ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest();
-            inValue.idDNINombreEmpleado = idDNINombreEmpleado;
-            ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse retVal = ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarOrdenesCompraPorIdDNINombreEmpleado(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse> ARSACSoft.AlmacenWS.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoAsync(ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest request) {
-            return base.Channel.listarOrdenesCompraPorIdDNINombreEmpleadoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse> listarOrdenesCompraPorIdDNINombreEmpleadoAsync(string idDNINombreEmpleado) {
-            ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest inValue = new ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoRequest();
-            inValue.idDNINombreEmpleado = idDNINombreEmpleado;
-            return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).listarOrdenesCompraPorIdDNINombreEmpleadoAsync(inValue);
+            return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).eliminarOrdenCompraAsync(inValue);
         }
     }
 }

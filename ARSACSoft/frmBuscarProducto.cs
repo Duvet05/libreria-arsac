@@ -46,7 +46,7 @@ namespace ARSACSoft
             dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, categoriaSeleccionada, marcaSeleccionada);
 
 
-            //MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedValue + ", Categoria: " + cboCategoria.SelectedValue, "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedValue + ", Categoria: " + cboCategoria.SelectedValue, "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

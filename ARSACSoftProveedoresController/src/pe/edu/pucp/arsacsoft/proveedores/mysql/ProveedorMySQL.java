@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.config.DBManager;
 import pe.edu.pucp.arsacsoft.proveedores.dao.ProveedorDAO;
-import pe.edu.pucp.arsacsoft.producto.model.Producto;
+import pe.edu.pucp.arsacsoft.proveedores.model.ProductoXProveedor;
 import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
 
 /**
@@ -35,11 +35,11 @@ private Connection con;
             cs.setString("_RUC", proveedor.getRUC());
             cs.executeUpdate();
             proveedor.setIdProveedor(cs.getInt("_id_orden_de_compra"));
-            for(Producto prodXProveedor : proveedor.getProductos()){
+            for(ProductoXProveedor prodXProveedor : proveedor.getProductosXProveedor()){
                 cs = con.prepareCall("{INSERTAR_PRODUCTO_DE_PROVEEDOR call (?,?,?)}");
-                cs.setInt("_fid_producto", prodXProveedor.getIdProducto());
+                cs.setInt("_fid_producto", prodXProveedor.getProducto().getIdProducto());
                 cs.setInt("_fid_proveedor", proveedor.getIdProveedor());
-                cs.setDouble("_costo", prodXProveedor.getPrecioPorMayor());
+                cs.setDouble("_costo", prodXProveedor.getCosto());
                 cs.executeUpdate();
             }
             resultado = proveedor.getIdProveedor();
@@ -126,6 +126,31 @@ private Connection con;
                 Proveedor proveedorA = new Proveedor();
                 proveedorA.setIdProveedor(rs.getInt("id_proveedor"));
                 proveedorA.setActivo(rs.getBoolean("activo"));
+                proveedorA.setNombre(rs.getString("nombre"));
+                proveedorA.setRUC(rs.getString("RUC"));
+                proveedorA.setDireccion(rs.getString("direccion"));
+                proveedorA.setTelefono(rs.getString("telefono"));
+                proveedores.add(proveedorA);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return proveedores; 
+    }
+
+    @Override
+    public ArrayList<Proveedor> listarProveedoresXNombreXRuc(String nombre) {
+        ArrayList<Proveedor> proveedores = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_PROVEEDORES_POR_NOMBRE_RUC(?)}");
+            cs.setString("_nombre", nombre);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                Proveedor proveedorA = new Proveedor();
+                proveedorA.setIdProveedor(rs.getInt("id_proveedor"));
                 proveedorA.setNombre(rs.getString("nombre"));
                 proveedorA.setRUC(rs.getString("RUC"));
                 proveedorA.setDireccion(rs.getString("direccion"));
