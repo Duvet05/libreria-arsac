@@ -34,8 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreCompleto = new System.Windows.Forms.TextBox();
             this.checkBoxFactura = new System.Windows.Forms.CheckBox();
-            this.lblNombreCliente = new System.Windows.Forms.Label();
-            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
             this.lblDNICliente = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -79,6 +77,9 @@
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.btnBuscarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
+            this.lblNombreCliente = new System.Windows.Forms.Label();
+            this.AgregarCliente = new System.Windows.Forms.Button();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -90,6 +91,7 @@
             // gbProveedor
             // 
             this.gbProveedor.BackColor = System.Drawing.Color.White;
+            this.gbProveedor.Controls.Add(this.AgregarCliente);
             this.gbProveedor.Controls.Add(this.btnCliente);
             this.gbProveedor.Controls.Add(this.label3);
             this.gbProveedor.Controls.Add(this.txtNombreCompleto);
@@ -131,10 +133,10 @@
             // 
             this.txtNombreCompleto.Enabled = false;
             this.txtNombreCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCompleto.Location = new System.Drawing.Point(367, 38);
+            this.txtNombreCompleto.Location = new System.Drawing.Point(370, 38);
             this.txtNombreCompleto.Name = "txtNombreCompleto";
             this.txtNombreCompleto.ReadOnly = true;
-            this.txtNombreCompleto.Size = new System.Drawing.Size(296, 20);
+            this.txtNombreCompleto.Size = new System.Drawing.Size(293, 20);
             this.txtNombreCompleto.TabIndex = 96;
             // 
             // checkBoxFactura
@@ -146,26 +148,6 @@
             this.checkBoxFactura.TabIndex = 95;
             this.checkBoxFactura.UseVisualStyleBackColor = true;
             this.checkBoxFactura.CheckedChanged += new System.EventHandler(this.checkBoxFactura_CheckedChanged);
-            // 
-            // lblNombreCliente
-            // 
-            this.lblNombreCliente.AutoSize = true;
-            this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(174, 21);
-            this.lblNombreCliente.Name = "lblNombreCliente";
-            this.lblNombreCliente.Size = new System.Drawing.Size(83, 15);
-            this.lblNombreCliente.TabIndex = 3;
-            this.lblNombreCliente.Text = "Razon Social:";
-            // 
-            // txtRazonSocial
-            // 
-            this.txtRazonSocial.Enabled = false;
-            this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocial.Location = new System.Drawing.Point(174, 38);
-            this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.ReadOnly = true;
-            this.txtRazonSocial.Size = new System.Drawing.Size(166, 20);
-            this.txtRazonSocial.TabIndex = 2;
             // 
             // txtRUC
             // 
@@ -181,7 +163,7 @@
             // 
             this.lblDNICliente.AutoSize = true;
             this.lblDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNICliente.Location = new System.Drawing.Point(12, 21);
+            this.lblDNICliente.Location = new System.Drawing.Point(10, 21);
             this.lblDNICliente.Name = "lblDNICliente";
             this.lblDNICliente.Size = new System.Drawing.Size(36, 15);
             this.lblDNICliente.TabIndex = 0;
@@ -293,7 +275,6 @@
             this.textCantProducto.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
             this.textCantProducto.Location = new System.Drawing.Point(210, 48);
             this.textCantProducto.Name = "textCantProducto";
-            this.textCantProducto.ReadOnly = true;
             this.textCantProducto.Size = new System.Drawing.Size(65, 20);
             this.textCantProducto.TabIndex = 97;
             // 
@@ -353,7 +334,6 @@
             this.textDescuentoPorcentaje.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
             this.textDescuentoPorcentaje.Location = new System.Drawing.Point(287, 48);
             this.textDescuentoPorcentaje.Name = "textDescuentoPorcentaje";
-            this.textDescuentoPorcentaje.ReadOnly = true;
             this.textDescuentoPorcentaje.Size = new System.Drawing.Size(54, 20);
             this.textDescuentoPorcentaje.TabIndex = 91;
             // 
@@ -410,6 +390,7 @@
             // 
             this.textMonto.Location = new System.Drawing.Point(100, 222);
             this.textMonto.Name = "textMonto";
+            this.textMonto.ReadOnly = true;
             this.textMonto.Size = new System.Drawing.Size(89, 20);
             this.textMonto.TabIndex = 107;
             // 
@@ -484,6 +465,7 @@
             // 
             this.textPrecioUni.Location = new System.Drawing.Point(100, 29);
             this.textPrecioUni.Name = "textPrecioUni";
+            this.textPrecioUni.ReadOnly = true;
             this.textPrecioUni.Size = new System.Drawing.Size(89, 20);
             this.textPrecioUni.TabIndex = 110;
             // 
@@ -491,6 +473,7 @@
             // 
             this.textCantidad.Location = new System.Drawing.Point(100, 66);
             this.textCantidad.Name = "textCantidad";
+            this.textCantidad.ReadOnly = true;
             this.textCantidad.Size = new System.Drawing.Size(89, 20);
             this.textCantidad.TabIndex = 109;
             // 
@@ -498,6 +481,7 @@
             // 
             this.textSubTotal.Location = new System.Drawing.Point(100, 101);
             this.textSubTotal.Name = "textSubTotal";
+            this.textSubTotal.ReadOnly = true;
             this.textSubTotal.Size = new System.Drawing.Size(89, 20);
             this.textSubTotal.TabIndex = 108;
             // 
@@ -505,6 +489,7 @@
             // 
             this.txtIGV.Location = new System.Drawing.Point(100, 174);
             this.txtIGV.Name = "txtIGV";
+            this.txtIGV.ReadOnly = true;
             this.txtIGV.Size = new System.Drawing.Size(89, 20);
             this.txtIGV.TabIndex = 83;
             // 
@@ -524,6 +509,7 @@
             this.textDescontadoTotal.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
             this.textDescontadoTotal.Location = new System.Drawing.Point(100, 136);
             this.textDescontadoTotal.Name = "textDescontadoTotal";
+            this.textDescontadoTotal.ReadOnly = true;
             this.textDescontadoTotal.Size = new System.Drawing.Size(89, 20);
             this.textDescontadoTotal.TabIndex = 89;
             // 
@@ -607,6 +593,38 @@
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial.Enabled = false;
+            this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRazonSocial.Location = new System.Drawing.Point(197, 38);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.ReadOnly = true;
+            this.txtRazonSocial.Size = new System.Drawing.Size(163, 20);
+            this.txtRazonSocial.TabIndex = 2;
+            // 
+            // lblNombreCliente
+            // 
+            this.lblNombreCliente.AutoSize = true;
+            this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreCliente.Location = new System.Drawing.Point(194, 21);
+            this.lblNombreCliente.Name = "lblNombreCliente";
+            this.lblNombreCliente.Size = new System.Drawing.Size(83, 15);
+            this.lblNombreCliente.TabIndex = 3;
+            this.lblNombreCliente.Text = "Razon Social:";
+            // 
+            // AgregarCliente
+            // 
+            this.AgregarCliente.Image = global::ARSACSoft.Properties.Resources.person;
+            this.AgregarCliente.Location = new System.Drawing.Point(154, 37);
+            this.AgregarCliente.Name = "AgregarCliente";
+            this.AgregarCliente.Size = new System.Drawing.Size(27, 22);
+            this.AgregarCliente.TabIndex = 99;
+            this.AgregarCliente.Text = "...";
+            this.AgregarCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AgregarCliente.UseVisualStyleBackColor = true;
+            this.AgregarCliente.Click += new System.EventHandler(this.AgregarCliente_Click);
+            // 
             // frmGestionPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -644,8 +662,6 @@
 
         #endregion
         private System.Windows.Forms.GroupBox gbProveedor;
-        private System.Windows.Forms.Label lblNombreCliente;
-        private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.TextBox txtRUC;
         private System.Windows.Forms.Label lblDNICliente;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -693,5 +709,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.Button AgregarCliente;
+        private System.Windows.Forms.Label lblNombreCliente;
+        private System.Windows.Forms.TextBox txtRazonSocial;
     }
 }

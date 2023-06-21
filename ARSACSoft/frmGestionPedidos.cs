@@ -1,5 +1,6 @@
 ﻿using ARSACSoft.ProductosWS;
 using ARSACSoft.RRHHWS;
+using GMap.NET.Internals;
 using System;
 using System.Windows.Forms;
 
@@ -27,6 +28,7 @@ namespace ARSACSoft
                     btnNuevo.Enabled = true;
                     btnCancelar.Enabled = false;
                     btnBuscarPedido.Enabled = true;
+                    AgregarCliente.Enabled = false;
                     btnGuardar.Enabled = false;
                     btnAgregar.Enabled = false;
                     BtnQuitar.Enabled = false;
@@ -37,8 +39,10 @@ namespace ARSACSoft
                     txtIGV.Enabled = false;
                     textDescontadoTotal.Enabled = false;
                     textCantProducto.Enabled = false;
+                    txtRUC.Enabled = false;
                     btPedido.Enabled = false;
                     txtNombreCompleto.Enabled = false;
+                    txtRazonSocial.Enabled = false;
                     checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
@@ -56,20 +60,17 @@ namespace ARSACSoft
                     btnGuardar.Enabled = true;
                     textNombreProducto.Enabled = true;
                     btnBuscarProd.Enabled = true;
-                    textDescuentoPorcentaje.Enabled = true;
                     textMonto.Enabled = true;
                     txtIGV.Enabled = true;
                     textDescontadoTotal.Enabled = true;
                     textCantProducto.Enabled = true;
                     btPedido.Enabled = true;
-                    txtNombreCompleto.Enabled = true;
                     checkBoxFactura.Enabled = true;
                     checkBoxDescuento.Enabled = true;
                     dataGridView2.Enabled = true;
                     textPrecioUni.Enabled = true;
                     textCantidad.Enabled = true;
                     textSubTotal.Enabled = true;
-                    btnCliente.Enabled = true;
                     break;
                 case Estado.Buscar:
                     btnNuevo.Enabled = false;
@@ -87,6 +88,8 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     btPedido.Enabled = false;
                     txtNombreCompleto.Enabled = false;
+                    txtRazonSocial.Enabled = false;
+                    txtRUC.Enabled = false;
                     checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
@@ -97,6 +100,35 @@ namespace ARSACSoft
                     break;
             }
         }
+        private void checkBoxFactura_CheckedChanged(object sender, EventArgs e)
+        {
+            bool facturaChecked = checkBoxFactura.Checked;
+            txtRUC.Enabled = facturaChecked;
+            txtRazonSocial.Enabled = facturaChecked;
+            txtNombreCompleto.Enabled = facturaChecked;
+            btnCliente.Enabled = facturaChecked;
+            AgregarCliente.Enabled = facturaChecked;
+        }
+
+        private void checkBoxDescuento_CheckedChanged(object sender, EventArgs e)
+        {
+            bool facturaChecked = checkBoxDescuento.Checked;
+            textDescuentoPorcentaje.Enabled = facturaChecked;
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            frmBuscarClienteMayorista frm = new frmBuscarClienteMayorista();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _clienteMayorista = frm.ClienteMayoristaSeleccionado;
+                txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
+                txtRazonSocial.Text = _clienteMayorista.razonSocial;
+                txtRUC.Text = _clienteMayorista.RUC;
+            }
+        }
+
+
 
         public void LimpiarComponentes()
         {
@@ -139,27 +171,6 @@ namespace ARSACSoft
             }
         }
 
-        private void checkBoxFactura_CheckedChanged(object sender, EventArgs e)
-        {
-            bool facturaChecked = checkBoxFactura.Checked;
-            txtRUC.Enabled = facturaChecked;
-            txtRazonSocial.Enabled = facturaChecked;
-            txtNombreCompleto.Enabled = facturaChecked;
-            btnCliente.Enabled = facturaChecked;
-        }
-
-        private void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-            frmBuscarClienteMayorista frm = new frmBuscarClienteMayorista();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                _clienteMayorista = frm.ClienteMayoristaSeleccionado;
-                txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
-                txtRazonSocial.Text = _clienteMayorista.razonSocial;
-                txtRUC.Text = _clienteMayorista.RUC;
-            }
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             estado = Estado.Inicial;
@@ -196,9 +207,9 @@ namespace ARSACSoft
             // Evento sin implementación actualmente
         }
 
-        private void checkBoxDescuento_CheckedChanged(object sender, EventArgs e)
+        private void AgregarCliente_Click(object sender, EventArgs e)
         {
-            textDescuentoPorcentaje.Enabled = checkBoxDescuento.Checked;
+
         }
     }
 }

@@ -13,6 +13,9 @@ using static GMap.NET.Entity.OpenStreetMapRouteEntity;
 using System.Linq;
 using ARSACSoft.Properties;
 using System.Xml.Linq;
+using System.Collections.Generic;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.WindowsForms;
 
 namespace ARSACSoft
 {
@@ -32,7 +35,6 @@ namespace ARSACSoft
             ConfigureForm();
             InitializeServiceClient();
             InitializeMaps();
-            
         }
 
         private void InitializeMaps()
@@ -41,7 +43,7 @@ namespace ARSACSoft
             gMapControl1.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.CanDragMap = true;
-            gMapControl1.Position = new GMap.NET.PointLatLng(-23.973875, -46.391510); // Puedes ajustar estas coordenadas a la ubicación que deseas mostrar inicialmente
+            gMapControl1.Position = new GMap.NET.PointLatLng(-12.046374, -77.042793); // Puedes ajustar estas coordenadas a la ubicación que deseas mostrar inicialmente
             gMapControl1.MinZoom = 0;
             gMapControl1.MaxZoom = 24;
             gMapControl1.Zoom = 9;
@@ -323,7 +325,7 @@ namespace ARSACSoft
                 txtCorreoEmpleado.Text = empleado.correo;
                 txtSalario.Text = empleado.salario.ToString();
                 txtDireccion.Text = empleado.direccion;
-                
+
                 if (empleado.foto != null)
                 {
                     MemoryStream ms = new MemoryStream(empleado.foto);
@@ -494,6 +496,7 @@ namespace ARSACSoft
             estadoCliente = Estado.Nuevo;
             limpiarComponentesCliente();
             establecerEstadoFormularioCliente();
+            CargarCiudades();
 
             clienteMayorista = new clienteMayorista();
         }
@@ -519,6 +522,7 @@ namespace ARSACSoft
             clienteMayorista.telefono = txtTelefonoCliente.Text;
             clienteMayorista.RUC = txtRUC.Text;
             clienteMayorista.razonSocial = txtRazonSocial.Text;
+            clienteMayorista.direccion = txtDireccion.Text;
 
             int resultado = estadoCliente == Estado.Nuevo ? daoRRHH.insertarClienteMayorista(clienteMayorista) : daoRRHH.modificarClienteMayorista(clienteMayorista);
 
@@ -555,7 +559,7 @@ namespace ARSACSoft
                 txtTelefonoCliente.Text = clienteMayorista.telefono;
                 txtRazonSocial.Text = clienteMayorista.razonSocial;
                 txtRUC.Text = clienteMayorista.RUC;
-
+                textDireccion.Text = clienteMayorista.direccion;
                 estadoCliente = Estado.Buscar;
                 establecerEstadoFormularioCliente();
             }
@@ -712,6 +716,81 @@ namespace ARSACSoft
             if (txtRUC.Text.Length >= 20 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+
+        private List<City> ciudades;
+
+        private void CargarCiudades()
+        {
+            ciudades = new List<City>
+    {
+        new City("Lima", -12.046374, -77.042793),
+        new City("Arequipa", -16.409047, -71.537450),
+        new City("Trujillo", -8.109052, -79.024452),
+        new City("Cusco", -13.531950, -71.967463),
+        new City("Piura", -5.194490, -80.632683),
+        new City("Huancayo", -12.065194, -75.204873),
+        new City("Tacna", -18.014647, -70.253738),
+        new City("Chimbote", -9.085518, -78.578083),
+        new City("Ica", -14.068023, -75.725402)
+    };
+
+            cmbCiudades.DataSource = ciudades;
+            cmbCiudades.DisplayMember = "Nombre";
+            cmbCiudades.ValueMember = "Coordenadas";
+        }
+
+        private void cmbCiudades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            City ciudadSeleccionada = (City)cmbCiudades.SelectedItem;
+            ActualizarMapa(ciudadSeleccionada.Coordenadas);
+        }
+
+        private void ActualizarMapa(Coordenadas coordenadas)
+        {
+            gMapControl1.Overlays.Clear();
+
+            PointLatLng ubicacion = new PointLatLng(coordenadas.Latitud, coordenadas.Longitud);
+            GMapMarker marker = new GMarkerGoogle(ubicacion, GMarkerGoogleType.red_dot);
+
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            markersOverlay.Markers.Add(marker);
+            gMapControl1.Overlays.Add(markersOverlay);
+
+            gMapControl1.Position = ubicacion;
+            gMapControl1.Zoom = 10;
+        }
+
+        // Clase auxiliar para representar una ciudad y sus coordenadas
+        private class City
+        {
+            public string Nombre { get; set; }
+            public Coordenadas Coordenadas { get; set; }
+
+            public City(string nombre, double latitud, double longitud)
+            {
+                Nombre = nombre;
+                Coordenadas = new Coordenadas(latitud, longitud);
+            }
+
+            public override string ToString()
+            {
+                return Nombre;
+            }
+        }
+
+        // Clase auxiliar para representar las coordenadas de una ubicación
+        private class Coordenadas
+        {
+            public double Latitud { get; set; }
+            public double Longitud { get; set; }
+
+            public Coordenadas(double latitud, double longitud)
+            {
+                Latitud = latitud;
+                Longitud = longitud;
             }
         }
     }

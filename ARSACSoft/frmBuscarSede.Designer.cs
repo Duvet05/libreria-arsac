@@ -61,6 +61,7 @@
             this.dgvSedes.Location = new System.Drawing.Point(19, 26);
             this.dgvSedes.Name = "dgvSedes";
             this.dgvSedes.ReadOnly = true;
+            this.dgvSedes.RowHeadersVisible = false;
             this.dgvSedes.RowHeadersWidth = 51;
             this.dgvSedes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSedes.Size = new System.Drawing.Size(667, 234);
