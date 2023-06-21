@@ -22,32 +22,32 @@ public class LineaOrdenDeCompraMySQL implements LineaOrdenDeCompraDAO{
     private CallableStatement cs;
     private ResultSet rs;
     
-    @Override
-    public ArrayList<LineaOrdenDeCompra> listarPorIdOrdenCompra(int idOrdenCompra) {
-        ArrayList<LineaOrdenDeCompra> lineasOrdenCompra = new ArrayList<>();
-        try{
-            con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_LINEAS_ORDEN_VENTA_X_ID_ORDEN_VENTA(?)}");
-            cs.setInt("_id_orden_venta", idOrdenCompra);
-            rs = cs.executeQuery();
-            while(rs.next()){
-                LineaOrdenDeCompra loc = new LineaOrdenDeCompra();
-                loc.setCantidad(rs.getInt(""));
-                loc.setCosto(rs.getDouble(""));
-                loc.setIdLineaOrdenDeCompra(rs.getInt(""));
-                loc.setProducto(new Producto());
-                loc.getProducto().setIdProducto(rs.getInt("id_producto"));
-                loc.getProducto().setNombre(rs.getString("nombre"));
-                loc.getProducto().setPrecioPorMayor(rs.getDouble(""));
-                loc.getProducto().setPrecioPorMenor(rs.getDouble(""));
-                lineasOrdenCompra.add(loc);
-            }
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-        }
-        return lineasOrdenCompra;        
-    }
+//    @Override
+//    public ArrayList<LineaOrdenDeCompra> listarPorIdOrdenCompra(int idOrdenCompra) {
+//        ArrayList<LineaOrdenDeCompra> lineasOrdenCompra = new ArrayList<>();
+//        try{
+//            con = DBManager.getInstance().getConnection();
+//            cs = con.prepareCall("{call LISTAR_LINEAS_ORDEN_VENTA_X_ID_ORDEN_VENTA(?)}");
+//            cs.setInt("_id_orden_venta", idOrdenCompra);
+//            rs = cs.executeQuery();
+//            while(rs.next()){
+//                LineaOrdenDeCompra loc = new LineaOrdenDeCompra();
+//                loc.setCantidad(rs.getInt(""));
+//                loc.setCosto(rs.getDouble(""));
+//                loc.setIdLineaOrdenDeCompra(rs.getInt(""));
+//                loc.setProducto(new Producto());
+//                loc.getProducto().setIdProducto(rs.getInt("id_producto"));
+//                loc.getProducto().setNombre(rs.getString("nombre"));
+//                loc.getProducto().setPrecioPorMayor(rs.getDouble(""));
+//                loc.getProducto().setPrecioPorMenor(rs.getDouble(""));
+//                lineasOrdenCompra.add(loc);
+//            }
+//        }catch(Exception ex){
+//            System.out.println(ex.getMessage());
+//        }finally{
+//            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+//        }
+//        return lineasOrdenCompra;        
+//    }
     
 }

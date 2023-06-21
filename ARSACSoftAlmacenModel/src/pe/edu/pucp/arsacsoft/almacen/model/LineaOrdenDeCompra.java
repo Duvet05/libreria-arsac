@@ -5,6 +5,7 @@
 package pe.edu.pucp.arsacsoft.almacen.model;
 
 import pe.edu.pucp.arsacsoft.producto.model.Producto;
+import pe.edu.pucp.arsacsoft.proveedores.model.ProductoXProveedor;
 
 /**
  *
@@ -31,12 +32,12 @@ public class LineaOrdenDeCompra {
         this.cantidad = cantidad;
     }
 
-    public double getCosto() {
-        return costo;
+    public double getSubtotal() {
+        return subtotal;
     }
 
-    public void setCosto(double costo) {
-        this.costo = costo;
+    public void setSubtotal(double costo) {
+        this.subtotal = costo;
     }
 
     public boolean isActivo() {
@@ -47,16 +48,16 @@ public class LineaOrdenDeCompra {
         this.activo = activo;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public ProductoXProveedor getProductoProveedor() {
+        return productoProveedor;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setProductoProveedor(ProductoXProveedor producto) {
+        this.productoProveedor = producto;
     }
     private int idLineaOrdenDeCompra;
     private int cantidad;
-    private double costo;
+    private double subtotal;
     private boolean activo;   
-    private Producto producto;      
+    private ProductoXProveedor productoProveedor;      
 }

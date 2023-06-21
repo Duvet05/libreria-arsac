@@ -1,4 +1,5 @@
-﻿using ARSACSoft.ProductosWS;
+﻿using ARSACSoft.AlmacenWS;
+using ARSACSoft.ProductosWS;
 using ARSACSoft.Properties;
 using ARSACSoft.ProveedoresWS;
 using ARSACSoft.RRHHWS;
@@ -7,6 +8,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -16,16 +18,27 @@ namespace ARSACSoft
         private Estado _estadoPagProducto;
         private string _rutaFotoProducto = "";
         private ProductosWSClient daoProductosWS;
+        private AlmacenWSClient daoAlmacenWS;
         private ProductosWS.producto prodSeleccionado;
-        private proveedor _proveedorSeleccionado;
-        public frmGestionAlmacen()
+        private ProveedoresWS.proveedor _proveedorSeleccionado;
+
+
+        private ordenDeCompra _ordenCompra;
+        private BindingList<lineaOrdenDeCompra> _lineasOrdenDeCompra;
+
+        private RRHHWS.empleado _empleadoLogeado;
+
+        ProveedoresWS.productoXProveedor _productoDeProveedorSeleccionado;
+        public frmGestionAlmacen(RRHHWS.empleado _empleadoLogeado)
         {
+
             InitializeComponent();
             _estadoPagProducto = Estado.Inicial;
             establecerEstadoFormularioProducto();
             limpiarComponentesProducto();
             daoProductosWS = new ProductosWSClient();
-            
+            daoAlmacenWS = new AlmacenWSClient();
+            this._empleadoLogeado = _empleadoLogeado;
 
             cboCategoria.DisplayMember = "descripcion";
             cboCategoria.ValueMember = "idCategoria";
@@ -34,6 +47,8 @@ namespace ARSACSoft
             cboMarca.DisplayMember = "descripcion";
             cboMarca.ValueMember = "idMarca";
             cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
+
+            dgvListaProductosOC.AutoGenerateColumns = false;
         }
 
         private void btnSubirFoto_Click(object sender, EventArgs e)
@@ -242,11 +257,158 @@ namespace ARSACSoft
             frmBuscarProductoXProveedor formBusqProdProv = new frmBuscarProductoXProveedor(_proveedorSeleccionado);
             if (formBusqProdProv.ShowDialog() == DialogResult.OK)
             {
-                //_producto = formBusqProd.ProductoSeleccionado;
-                //txtNombreProducto.Text = _producto.nombre + " " + _producto.unidadMedida;
+                _productoDeProveedorSeleccionado = formBusqProdProv.ProductoDeProveedorSeleccionado;
+                txtCodigoProductoOC.Text = _productoDeProveedorSeleccionado.producto.idProducto.ToString();
+                txtNombreProductoOC.Text = _productoDeProveedorSeleccionado.producto.nombre;
+                txtPrecioUnitarioProdOC.Text = _productoDeProveedorSeleccionado.costo.ToString("N2");
+
                 //txtCodigoProducto.Text = _producto.idProducto.ToString();
                 //txtPrecioUnitario.Text = _producto.precio.ToString("N2");
             }
+        }
+
+        private void btnAgregarProductoOC_Click(object sender, EventArgs e)
+        {
+            if (txtCodigoProductoOC.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un producto", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (txtCantidadProdOC.Text == "" || Int32.Parse(txtCantidadProdOC.Text.Trim()) == 0)
+            {
+                MessageBox.Show("Debe ingresar una cantidad válida", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            foreach (lineaOrdenDeCompra linea in this._lineasOrdenDeCompra)
+            {
+                if (linea.productoProveedor.producto.idProducto.Equals(_productoDeProveedorSeleccionado.producto.idProducto))
+                {
+                    linea.cantidad = linea.cantidad + Int32.Parse(txtCantidadProdOC.Text);
+                    linea.subtotal = linea.cantidad * linea.productoProveedor.costo;//subtotal
+                    dgvListaProductosOC.Refresh();
+                    calcularTotal();
+                    txtTotal.Text = this._ordenCompra.costototal.ToString("N2");
+                    _productoDeProveedorSeleccionado = null;
+                    txtCodigoProductoOC.Text = "";
+                    txtNombreProductoOC.Text = "";
+                    txtPrecioUnitarioProdOC.Text = "";
+                    txtCantidadProdOC.Text = "";
+                    return;
+                }
+            }
+
+            lineaOrdenDeCompra lov = new lineaOrdenDeCompra();
+            lov.productoProveedor = new AlmacenWS.productoXProveedor();
+            lov.productoProveedor.costo = _productoDeProveedorSeleccionado.costo;
+            lov.productoProveedor.producto = new AlmacenWS.producto();
+            lov.productoProveedor.proveedor = new AlmacenWS.proveedor();
+            lov.productoProveedor.producto.marca = new AlmacenWS.marca();
+            lov.productoProveedor.producto.marca.descripcion = _productoDeProveedorSeleccionado.producto.marca.descripcion;
+            lov.productoProveedor.proveedor.idProveedor = _proveedorSeleccionado.idProveedor;
+            lov.productoProveedor.producto.idProducto = _productoDeProveedorSeleccionado.producto.idProducto;
+            lov.productoProveedor.producto.nombre = _productoDeProveedorSeleccionado.producto.nombre;
+            
+            lov.cantidad = Int32.Parse(txtCantidadProdOC.Text);
+            lov.subtotal = lov.cantidad * lov.productoProveedor.costo;
+            _lineasOrdenDeCompra.Add(lov);
+            calcularTotal();
+            txtTotal.Text = this._ordenCompra.costototal.ToString("N2");
+            _productoDeProveedorSeleccionado = null;
+            txtCodigoProductoOC.Text = "";
+            txtNombreProductoOC.Text = "";
+            txtPrecioUnitarioProdOC.Text = "";
+            txtCantidadProdOC.Text = "";
+        }
+
+        public void calcularTotal()
+        {
+            this._ordenCompra.costototal = 0;
+            foreach (lineaOrdenDeCompra lov in this._lineasOrdenDeCompra)
+            {
+                _ordenCompra.costototal = _ordenCompra.costototal + lov.subtotal;
+            }
+        }
+
+        private void btnNuevoOC_Click(object sender, EventArgs e)
+        {
+            //_estado = Estado.Nuevo;
+            //limpiarComponentes();
+            //establecerEstadoComponentes();
+            _ordenCompra = new ordenDeCompra();
+            _lineasOrdenDeCompra = new BindingList<lineaOrdenDeCompra>();
+            dgvListaProductosOC.DataSource = _lineasOrdenDeCompra;
+        }
+
+        private void dgvListaProductosOC_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                lineaOrdenDeCompra lov = (lineaOrdenDeCompra)dgvListaProductosOC.Rows[e.RowIndex].DataBoundItem;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[0].Value = lov.productoProveedor.producto.nombre;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.marca.descripcion;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[2].Value = lov.cantidad;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[3].Value = lov.productoProveedor.costo;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[4].Value = lov.subtotal;
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void btnGuardarOC_Click(object sender, EventArgs e)
+        {
+            if (txtRUCProveedorOC.Text == "")
+            {
+                MessageBox.Show("No ha seleccionado un proveedor", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (this._lineasOrdenDeCompra.Count == 0)
+            {
+                MessageBox.Show("No se han agregado productos a esta orden de venta", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            _ordenCompra.empleado = new AlmacenWS.empleado();
+            _ordenCompra.proveedor = new AlmacenWS.proveedor();
+            _ordenCompra.proveedor.idProveedor = _proveedorSeleccionado.idProveedor;
+            _ordenCompra.empleado.idPersona = _empleadoLogeado.idPersona;
+            _ordenCompra.fechaOrden = dtpFechaOrdenCompra.Value;
+            _ordenCompra.fechaOrdenSpecified = true;
+            _ordenCompra.lineas = _lineasOrdenDeCompra.ToArray();
+            if (true) //_estado == Estado.Nuevo
+            {
+                int resultado = daoAlmacenWS.insertarOrdenCompra(_ordenCompra);
+                if (resultado != 0)
+                {
+                    txtIDOrdenCompra.Text = resultado.ToString();
+                    MessageBox.Show("Se ha registrado correctamente",
+                    "Mensaje de éxito", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error con el registro",
+                    "Mensaje de éxito", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
+            }
+            //else if (_estado == Estado.Modificar)
+            //{
+            //    int resultado = _daoLogistica.modificarOrdenVenta(_ordenVenta);
+            //    if (resultado != 0)
+            //    {
+            //        txtIDOrdenVenta.Text = resultado.ToString();
+            //        MessageBox.Show("Se ha registrado correctamente",
+            //        "Mensaje de éxito", MessageBoxButtons.OK,
+            //        MessageBoxIcon.Information);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Ha ocurrido un error con el registro",
+            //        "Mensaje de éxito", MessageBoxButtons.OK,
+            //        MessageBoxIcon.Error);
+            //    }
+            //}
         }
     }
 }

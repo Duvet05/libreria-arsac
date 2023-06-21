@@ -14,7 +14,16 @@ import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
  * @author User
  */
 public class OrdenDeCompra {
-
+    private int idOrdenDeCompra;
+    private Date fechaOrden;
+    private Date fechaEntrega;
+    private double costototal;
+    private String estado;        
+    private boolean activo; 
+    private Empleado empleado;
+    private Proveedor proveedor;
+    private ArrayList<LineaOrdenDeCompra> lineas;
+     
     public OrdenDeCompra() {
     }
 
@@ -87,13 +96,5 @@ public class OrdenDeCompra {
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }    
-    private int idOrdenDeCompra;
-    private Date fechaOrden;
-    private Date fechaEntrega;
-    private double costototal;
-    private String estado;        
-    private boolean activo; 
-    private Empleado empleado;
-    private Proveedor proveedor;
-     private ArrayList<LineaOrdenDeCompra> lineas;
+    
 }

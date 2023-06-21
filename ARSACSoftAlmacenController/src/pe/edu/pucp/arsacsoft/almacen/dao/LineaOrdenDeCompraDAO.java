@@ -12,5 +12,5 @@ import pe.edu.pucp.arsacsoft.almacen.model.LineaOrdenDeCompra;
  * @author User
  */
 public interface LineaOrdenDeCompraDAO {
-    ArrayList<LineaOrdenDeCompra> listarPorIdOrdenCompra(int idOrdenCompra);
+    //ArrayList<LineaOrdenDeCompra> listarPorIdOrdenCompra(int idOrdenCompra);
 }

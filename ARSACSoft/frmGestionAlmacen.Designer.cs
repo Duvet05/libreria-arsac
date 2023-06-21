@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -64,11 +64,6 @@
             this.lblGestionSedes = new System.Windows.Forms.Label();
             this.tpEntradasYSalidas = new System.Windows.Forms.TabPage();
             this.dgvListaProductosOC = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbLineasCompra = new System.Windows.Forms.GroupBox();
             this.btnQuitarProductoOC = new System.Windows.Forms.Button();
             this.btnAgregarProductoOC = new System.Windows.Forms.Button();
@@ -127,6 +122,13 @@
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.ofdImagenProducto = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAlmacen.SuspendLayout();
             this.tpProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
@@ -470,6 +472,8 @@
             // 
             // tpEntradasYSalidas
             // 
+            this.tpEntradasYSalidas.Controls.Add(this.label1);
+            this.tpEntradasYSalidas.Controls.Add(this.txtTotal);
             this.tpEntradasYSalidas.Controls.Add(this.dgvListaProductosOC);
             this.tpEntradasYSalidas.Controls.Add(this.gbLineasCompra);
             this.tpEntradasYSalidas.Controls.Add(this.gbDatosOrdenCompra);
@@ -493,7 +497,7 @@
             this.dgvListaProductosOC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProductosOC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Unidad,
+            this.Column5,
             this.Column2,
             this.Column3,
             this.Column4});
@@ -504,51 +508,9 @@
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvListaProductosOC.RowTemplate.Height = 24;
-            this.dgvListaProductosOC.Size = new System.Drawing.Size(907, 252);
+            this.dgvListaProductosOC.Size = new System.Drawing.Size(907, 201);
             this.dgvListaProductosOC.TabIndex = 14;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column1.HeaderText = "Nombre del Producto";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 320;
-            // 
-            // Unidad
-            // 
-            this.Unidad.HeaderText = "Unidad";
-            this.Unidad.MinimumWidth = 6;
-            this.Unidad.Name = "Unidad";
-            this.Unidad.Width = 125;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column2.HeaderText = "Cant";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column3.HeaderText = "Costo Unit";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column4.HeaderText = "Subtotal";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
+            this.dgvListaProductosOC.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListaProductosOC_CellFormatting);
             // 
             // gbLineasCompra
             // 
@@ -594,21 +556,22 @@
             this.btnAgregarProductoOC.TabIndex = 97;
             this.btnAgregarProductoOC.Text = "Agregar";
             this.btnAgregarProductoOC.UseVisualStyleBackColor = true;
+            this.btnAgregarProductoOC.Click += new System.EventHandler(this.btnAgregarProductoOC_Click);
             // 
             // txtCantidadProdOC
             // 
             this.txtCantidadProdOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadProdOC.Location = new System.Drawing.Point(357, 75);
+            this.txtCantidadProdOC.Location = new System.Drawing.Point(451, 74);
             this.txtCantidadProdOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadProdOC.Name = "txtCantidadProdOC";
-            this.txtCantidadProdOC.Size = new System.Drawing.Size(152, 23);
+            this.txtCantidadProdOC.Size = new System.Drawing.Size(87, 23);
             this.txtCantidadProdOC.TabIndex = 9;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(283, 78);
+            this.label7.Location = new System.Drawing.Point(346, 78);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 18);
@@ -619,11 +582,11 @@
             // 
             this.txtPrecioUnitarioProdOC.Enabled = false;
             this.txtPrecioUnitarioProdOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioUnitarioProdOC.Location = new System.Drawing.Point(131, 75);
+            this.txtPrecioUnitarioProdOC.Location = new System.Drawing.Point(168, 71);
             this.txtPrecioUnitarioProdOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioUnitarioProdOC.Name = "txtPrecioUnitarioProdOC";
             this.txtPrecioUnitarioProdOC.ReadOnly = true;
-            this.txtPrecioUnitarioProdOC.Size = new System.Drawing.Size(132, 23);
+            this.txtPrecioUnitarioProdOC.Size = new System.Drawing.Size(148, 23);
             this.txtPrecioUnitarioProdOC.TabIndex = 7;
             // 
             // lblPrecioUnitario
@@ -641,18 +604,18 @@
             // 
             this.txtNombreProductoOC.Enabled = false;
             this.txtNombreProductoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProductoOC.Location = new System.Drawing.Point(357, 27);
+            this.txtNombreProductoOC.Location = new System.Drawing.Point(451, 27);
             this.txtNombreProductoOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProductoOC.Name = "txtNombreProductoOC";
             this.txtNombreProductoOC.ReadOnly = true;
-            this.txtNombreProductoOC.Size = new System.Drawing.Size(477, 23);
+            this.txtNombreProductoOC.Size = new System.Drawing.Size(383, 23);
             this.txtNombreProductoOC.TabIndex = 5;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(279, 30);
+            this.label8.Location = new System.Drawing.Point(346, 30);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 18);
@@ -685,11 +648,11 @@
             // 
             this.txtCodigoProductoOC.Enabled = false;
             this.txtCodigoProductoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoProductoOC.Location = new System.Drawing.Point(153, 28);
+            this.txtCodigoProductoOC.Location = new System.Drawing.Point(168, 28);
             this.txtCodigoProductoOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoProductoOC.Name = "txtCodigoProductoOC";
             this.txtCodigoProductoOC.ReadOnly = true;
-            this.txtCodigoProductoOC.Size = new System.Drawing.Size(100, 23);
+            this.txtCodigoProductoOC.Size = new System.Drawing.Size(148, 23);
             this.txtCodigoProductoOC.TabIndex = 0;
             // 
             // gbDatosOrdenCompra
@@ -834,6 +797,7 @@
             this.btnNuevoOC.Name = "btnNuevoOC";
             this.btnNuevoOC.Size = new System.Drawing.Size(198, 24);
             this.btnNuevoOC.Text = "&Nueva Orden de Compra";
+            this.btnNuevoOC.Click += new System.EventHandler(this.btnNuevoOC_Click);
             // 
             // btnGuardarOC
             // 
@@ -842,6 +806,7 @@
             this.btnGuardarOC.Name = "btnGuardarOC";
             this.btnGuardarOC.Size = new System.Drawing.Size(86, 24);
             this.btnGuardarOC.Text = "&Guardar";
+            this.btnGuardarOC.Click += new System.EventHandler(this.btnGuardarOC_Click);
             // 
             // btnBuscarOC
             // 
@@ -1184,6 +1149,72 @@
             // 
             this.ofdImagenProducto.FileName = "openFileDialog1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(737, 493);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "TOTAL:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(807, 488);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(103, 23);
+            this.txtTotal.TabIndex = 15;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Column1.HeaderText = "Nombre del Producto";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 320;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Marca";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Column2.HeaderText = "Cant";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Column3.HeaderText = "Costo Unit";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Column4.HeaderText = "Subtotal";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
             // frmGestionAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1302,11 +1333,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button btnBuscarProveedorOC;
         private System.Windows.Forms.Label lblNombreCliente;
         private System.Windows.Forms.TextBox txtRazonSocialProveedorOC;
@@ -1314,5 +1340,12 @@
         private System.Windows.Forms.Label lblDNICliente;
         private System.Windows.Forms.Button btnQuitarProductoOC;
         private System.Windows.Forms.Button btnAgregarProductoOC;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

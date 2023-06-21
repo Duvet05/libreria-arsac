@@ -297,25 +297,10 @@
     <None Include="Connected Services\AlmacenWS\AlmacenWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.eliminarOrdenCompraResponse.datasource">
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.helloResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.insertarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.lineaOrdenDeCompra.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.listarLineasOrdenCompraPorIdOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.listarOrdenesCompraPorIdDNINombreEmpleadoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.modificarOrdenCompraResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.ordenDeCompra.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">

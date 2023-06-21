@@ -57,7 +57,7 @@ namespace ARSACSoft
 
         private void InitializeForms()
         {
-            frmAlmacen = new frmGestionAlmacen();
+            frmAlmacen = new frmGestionAlmacen(_empleadoLogeado);
             frmPedidos = new frmGestionPedidos();
             frmProveedores = new frmGestionProveedores();
             frmSedes = new frmGestionSedes();

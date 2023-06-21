@@ -13,7 +13,7 @@ import pe.edu.pucp.arsacsoft.almacen.model.OrdenDeCompra;
  */
 public interface OrdenDeCompraDAO {
     int insertar(OrdenDeCompra ordenCompra);
-    int modificar(OrdenDeCompra ordenCompra);
-    int eliminar(int idOrdenCompra);
-    ArrayList<OrdenDeCompra> listarPorIdDNINombreEmpleado(String idDNINombreEmpleado);    
+//    int modificar(OrdenDeCompra ordenCompra);
+//    int eliminar(int idOrdenCompra);
+//    ArrayList<OrdenDeCompra> listarPorIdDNINombreEmpleado(String idDNINombreEmpleado);    
 }
