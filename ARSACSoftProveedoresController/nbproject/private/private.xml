@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gonzalo/Documents/GitHub/LIBRERIA_ARENALES/ARSACSoftProveedoresController/src/pe/edu/pucp/arsacsoft/proveedores/dao/ProveedorDAO.java</file>
-            <file>file:/C:/Users/Gonzalo/Documents/GitHub/LIBRERIA_ARENALES/ARSACSoftProveedoresController/src/pe/edu/pucp/arsacsoft/proveedores/mysql/ProveedorMySQL.java</file>
+            <file>file:/C:/Users/a2018/Documents/GitHub/LIBRERIA_ARENALES/ARSACSoftProveedoresController/src/pe/edu/pucp/arsacsoft/proveedores/dao/ProveedorDAO.java</file>
+            <file>file:/C:/Users/a2018/Documents/GitHub/LIBRERIA_ARENALES/ARSACSoftProveedoresController/src/pe/edu/pucp/arsacsoft/proveedores/mysql/ProveedorMySQL.java</file>
+            <file>file:/C:/Users/a2018/Documents/GitHub/LIBRERIA_ARENALES/ARSACSoftProveedoresController/src/pe/edu/pucp/arsacsoft/proveedores/mysql/ProductoXProveedorMySQL.java</file>
+            <file>file:/C:/Users/a2018/Documents/GitHub/LIBRERIA_ARENALES/ARSACSoftProveedoresController/src/pe/edu/pucp/arsacsoft/proveedores/dao/ProductoXProveedorDAO.java</file>
         </group>
     </open-files>
 </project-private>
