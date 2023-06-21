@@ -6,7 +6,7 @@ import pe.edu.pucp.arsacsoft.producto.model.Producto;
 public class Proveedor {
 
     private int idProveedor;
-    private String descripcion;
+    private String nombre;
     private String RUC;
     private String direccion;
     private String telefono;
@@ -24,12 +24,12 @@ public class Proveedor {
         this.idProveedor = idProveedor;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getRUC() {

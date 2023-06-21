@@ -20,7 +20,7 @@ namespace ARSACSoft
         {
             InitializeComponent();
             this._proveedorSeleccionado = _proveedorSeleccionado;
-            txtProveedor.Text = _proveedorSeleccionado.descripcion;
+            txtProveedor.Text = _proveedorSeleccionado.nombre;
 
             daoProductosWS = new ProductosWSClient();
             cboCategoria.DisplayMember = "descripcion";
