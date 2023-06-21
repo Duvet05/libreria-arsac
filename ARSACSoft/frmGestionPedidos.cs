@@ -9,17 +9,17 @@ namespace ARSACSoft
     {
         private ProductosWS.producto _producto;
         private Estado estado;
-        private RRHHWS.clienteMayorista _clienteMayorista;
+        private clienteMayorista _clienteMayorista;
+
         public frmGestionPedidos()
         {
             InitializeComponent();
             estado = Estado.Inicial;
-            establecerEstadoFormulario();
-            limpiarComponentes();
+            EstablecerEstadoFormulario();
+            LimpiarComponentes();
         }
 
-
-        public void establecerEstadoFormulario()
+        public void EstablecerEstadoFormulario()
         {
             switch (estado)
             {
@@ -28,6 +28,8 @@ namespace ARSACSoft
                     btnCancelar.Enabled = false;
                     btnBuscarPedido.Enabled = true;
                     btnGuardar.Enabled = false;
+                    btnAgregar.Enabled = false;
+                    BtnQuitar.Enabled = false;
                     textNombreProducto.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
@@ -46,9 +48,10 @@ namespace ARSACSoft
                     btnCliente.Enabled = false;
                     break;
                 case Estado.Nuevo:
-                case Estado.Modificar:
                     btnNuevo.Enabled = false;
                     btnCancelar.Enabled = true;
+                    btnAgregar.Enabled = true;
+                    BtnQuitar.Enabled = true;
                     btnBuscarPedido.Enabled = false;
                     btnGuardar.Enabled = true;
                     textNombreProducto.Enabled = true;
@@ -71,6 +74,8 @@ namespace ARSACSoft
                 case Estado.Buscar:
                     btnNuevo.Enabled = false;
                     btnCancelar.Enabled = true;
+                    btnAgregar.Enabled = false;
+                    BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
                     btnGuardar.Enabled = false;
                     textNombreProducto.Enabled = false;
@@ -93,8 +98,7 @@ namespace ARSACSoft
             }
         }
 
-
-        public void limpiarComponentes()
+        public void LimpiarComponentes()
         {
             // Limpiar componentes de gbProveedor
             txtRazonSocial.Text = "";
@@ -125,7 +129,7 @@ namespace ARSACSoft
             textSubTotal.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             frmBuscarProducto frm = new frmBuscarProducto();
             if (frm.ShowDialog() == DialogResult.OK)
@@ -135,13 +139,16 @@ namespace ARSACSoft
             }
         }
 
-
         private void checkBoxFactura_CheckedChanged(object sender, EventArgs e)
         {
-
+            bool facturaChecked = checkBoxFactura.Checked;
+            txtRUC.Enabled = facturaChecked;
+            txtRazonSocial.Enabled = facturaChecked;
+            txtNombreCompleto.Enabled = facturaChecked;
+            btnCliente.Enabled = facturaChecked;
         }
 
-        private void btnBuscarCliente(object sender, EventArgs e)
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             frmBuscarClienteMayorista frm = new frmBuscarClienteMayorista();
             if (frm.ShowDialog() == DialogResult.OK)
@@ -150,35 +157,43 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
-
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             estado = Estado.Inicial;
-            limpiarComponentes();
-            establecerEstadoFormulario();
+            LimpiarComponentes();
+            EstablecerEstadoFormulario();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             estado = Estado.Nuevo;
-            limpiarComponentes();
-            establecerEstadoFormulario();
+            LimpiarComponentes();
+            EstablecerEstadoFormulario();
         }
-
 
         private void btnBuscarPedido_Click(object sender, EventArgs e)
         {
             estado = Estado.Buscar;
-            establecerEstadoFormulario();
+            EstablecerEstadoFormulario();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             estado = Estado.Inicial;
-            establecerEstadoFormulario();
+            EstablecerEstadoFormulario();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            // Evento sin implementación actualmente
+        }
+
+        private void BtnQuitar_Click(object sender, EventArgs e)
+        {
+            // Evento sin implementación actualmente
         }
     }
 }
