@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tsMenu = new System.Windows.Forms.ToolStrip();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
-            this.btnBuscar = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionPedidos));
             this.gbProveedor = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -78,67 +74,18 @@
             this.textDescontadoTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.tsMenu.SuspendLayout();
+            this.tsMenu = new System.Windows.Forms.ToolStrip();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscar = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tsMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tsMenu
-            // 
-            this.tsMenu.BackColor = System.Drawing.Color.Transparent;
-            this.tsMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.tsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevo,
-            this.btnGuardar,
-            this.btnBuscar,
-            this.btnCancelar});
-            this.tsMenu.Location = new System.Drawing.Point(0, 0);
-            this.tsMenu.Name = "tsMenu";
-            this.tsMenu.Size = new System.Drawing.Size(715, 27);
-            this.tsMenu.TabIndex = 102;
-            this.tsMenu.Text = "toolStrip1";
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(85, 24);
-            this.btnNuevo.Text = "&Nueva Venta";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(60, 24);
-            this.btnGuardar.Text = "&Guardar";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscar.Image = global::ARSACSoft.Properties.Resources.Search;
-            this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(70, 24);
-            this.btnBuscar.Text = "&Buscar";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelar.Image = global::ARSACSoft.Properties.Resources.Cancel;
-            this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(82, 24);
-            this.btnCancelar.Text = "&Cancelar";
             // 
             // gbProveedor
             // 
@@ -595,24 +542,78 @@
             this.button2.Text = "Emitir Factura por Correo";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // tsMenu
+            // 
+            this.tsMenu.BackColor = System.Drawing.Color.Transparent;
+            this.tsMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNuevo,
+            this.btnGuardar,
+            this.btnBuscar,
+            this.btnCancelar});
+            this.tsMenu.Location = new System.Drawing.Point(0, 0);
+            this.tsMenu.Name = "tsMenu";
+            this.tsMenu.Size = new System.Drawing.Size(715, 27);
+            this.tsMenu.TabIndex = 110;
+            this.tsMenu.Text = "toolStrip1";
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(70, 24);
+            this.btnNuevo.Text = "&Nuevo";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(80, 24);
+            this.btnGuardar.Text = "&Guardar";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBuscar.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(70, 24);
+            this.btnBuscar.Text = "&Buscar";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelar.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(82, 24);
+            this.btnCancelar.Text = "&Cancelar";
+            // 
             // frmGestionPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 470);
+            this.Controls.Add(this.tsMenu);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbProveedor);
-            this.Controls.Add(this.tsMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmGestionPedidos";
             this.ShowInTaskbar = false;
             this.Text = "frmGestionsVentas";
-            this.tsMenu.ResumeLayout(false);
-            this.tsMenu.PerformLayout();
             this.gbProveedor.ResumeLayout(false);
             this.gbProveedor.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -622,18 +623,14 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tsMenu.ResumeLayout(false);
+            this.tsMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip tsMenu;
-        private System.Windows.Forms.ToolStripButton btnNuevo;
-        private System.Windows.Forms.ToolStripButton btnGuardar;
-        private System.Windows.Forms.ToolStripButton btnBuscar;
-        private System.Windows.Forms.ToolStripButton btnCancelar;
         private System.Windows.Forms.GroupBox gbProveedor;
         private System.Windows.Forms.Label lblNombreCliente;
         private System.Windows.Forms.TextBox txtRazonSocial;
@@ -679,5 +676,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ToolStrip tsMenu;
+        private System.Windows.Forms.ToolStripButton btnNuevo;
+        private System.Windows.Forms.ToolStripButton btnGuardar;
+        private System.Windows.Forms.ToolStripButton btnBuscar;
+        private System.Windows.Forms.ToolStripButton btnCancelar;
     }
 }
