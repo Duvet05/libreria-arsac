@@ -2,6 +2,12 @@ DROP procedure IF exists INSERTAR_SEDE;
 DROP PROCEDURE IF EXISTS LISTAR_SEDES;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_SEDE;
 DROP PROCEDURE IF EXISTS ELIMINAR_SEDE;
+DROP PROCEDURE IF EXISTS INSERTAR_ORDEN_ABASTECIMIENTO ;
+DROP PROCEDURE IF EXISTS ACTUALIZAR_ORDEN_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS ELIMINAR_ORDEN_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS LISTAR_ABASTECIMIENTO_COMPRA_X_ID_NOMBRE_DNI_EMPLEADO;
+DROP PROCEDURE IF EXISTS INSERTAR_LINEA_ORDEN_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS LISTAR_LINEAS_ORDEN_ABASTECIMIENTO_X_ID_ORDEN_ABASTECIMIENTO;
 
 DELIMITER $
 CREATE PROCEDURE INSERTAR_SEDE(
@@ -43,3 +49,83 @@ BEGIN
 	activo = false
     WHERE id_sede = _id_sede;
 END $
+
+	
+DELIMITER $
+
+CREATE PROCEDURE INSERTAR_ORDEN_ABASTECIMIENTO(
+  OUT _id_orden_de_abastecimiento INT,
+  IN _fid_empleado INT,
+  IN _fid_sede INT,
+  IN _fecha_orden DATE
+)
+BEGIN
+  INSERT INTO ordenDeAbastecimiento(fid_empleado, fid_sede, fecha_orden)
+  VALUES (_fid_empleado, _fid_sede, _fecha_orden);
+  SET _id_orden_de_abastecimiento = @@last_insert_id;
+END $	
+
+
+DELIMITER $
+
+CREATE PROCEDURE ACTUALIZAR_ORDEN_ABASTECIMIENTO(
+  IN _id_orden_de_abastecimiento INT,
+  IN _fid_empleado INT,
+  IN _fid_sede INT,
+  IN _fecha_orden DATE
+)
+BEGIN
+  UPDATE ordenDeAbastecimiento
+  SET fid_empleado = _fid_empleado,fid_sede = _fid_sede,fecha_orden = _fecha_orden 
+  WHERE id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
+END $
+
+DELIMITER $
+CREATE PROCEDURE ELIMINAR_ORDEN_ABASTECIMIENTO(
+	IN _id_orden_de_abastecimiento INT
+)
+BEGIN
+	UPDATE ordenDeAbastecimiento SET activo = 0 where id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
+END$
+
+DELIMITER $
+CREATE PROCEDURE LISTAR_ABASTECIMIENTO_COMPRA_X_ID_NOMBRE_DNI_EMPLEADO(
+    IN _id_nombre_dni_empleado VARCHAR(140)
+)
+BEGIN
+    SELECT oa.id_orden_de_abastecimiento,oa.fecha_orden, e.fid_empleado, p.id_persona,p.nombre,p.apellidos,p.DNI
+    FROM ordenDeAbastecimiento oa
+    INNER JOIN empleado e ON oa.fid_empleado = e.fid_empleado
+    INNER JOIN persona p ON e.fid_empleado = p.id_persona
+    WHERE
+        oa.activo = 1
+        AND ((CONCAT(p.nombre, ' ', p.apellidos) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
+		OR (CONVERT(oa.id_orden_de_abastecimiento, CHAR(140)) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
+		OR (p.DNI LIKE CONCAT('%', _id_nombre_dni_empleado, '%')));
+END$
+
+
+DELIMITER $
+CREATE PROCEDURE INSERTAR_LINEA_ORDEN_ABASTECIMIENTO(
+	OUT _id_linea_abastecimiento INT,
+    IN _fid_orden_de_abastecimiento INT,
+    IN _fid_producto INT,
+    IN _cantidad INT,
+)
+BEGIN
+	INSERT INTO lineaOrdenDeAbastecimiento(fid_orden_venta,fid_producto,cantidad) 
+	VALUES(_fid_orden_de_abastecimiento,_fid_producto,_cantidad);
+    SET _id_linea_abastecimiento = @@last_insert_id;
+END$
+
+
+DELIMITER $
+CREATE PROCEDURE LISTAR_LINEAS_ORDEN_ABASTECIMIENTO_X_ID_ORDEN_ABASTECIMIENTO(
+	IN _id_orden_de_abastecimiento INT
+)
+BEGIN
+	SELECT loa.id_linea_orden_abastecimiento, p.id_producto, p.nombre, p.precio_por_menor, p.precio_por_mayor, loa.cantidad 
+	FROM lineaOrdenDeAbastecimiento loa 
+	INNER JOIN producto p ON loa.fid_producto = p.id_producto 
+	WHERE loa.fid_orden_de_abastecimiento = _id_orden_de_abastecimiento AND loa.activo = 1;	
+END$
