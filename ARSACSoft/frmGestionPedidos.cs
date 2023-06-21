@@ -195,5 +195,10 @@ namespace ARSACSoft
         {
             // Evento sin implementación actualmente
         }
+
+        private void checkBoxDescuento_CheckedChanged(object sender, EventArgs e)
+        {
+            textDescuentoPorcentaje.Enabled = checkBoxDescuento.Checked;
+        }
     }
 }

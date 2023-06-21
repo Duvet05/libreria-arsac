@@ -89,6 +89,7 @@
             // 
             // gbProveedor
             // 
+            this.gbProveedor.BackColor = System.Drawing.Color.White;
             this.gbProveedor.Controls.Add(this.btnCliente);
             this.gbProveedor.Controls.Add(this.label3);
             this.gbProveedor.Controls.Add(this.txtNombreCompleto);
@@ -98,7 +99,7 @@
             this.gbProveedor.Controls.Add(this.txtRUC);
             this.gbProveedor.Controls.Add(this.lblDNICliente);
             this.gbProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.gbProveedor.Location = new System.Drawing.Point(12, 32);
+            this.gbProveedor.Location = new System.Drawing.Point(21, 38);
             this.gbProveedor.Name = "gbProveedor";
             this.gbProveedor.Size = new System.Drawing.Size(671, 70);
             this.gbProveedor.TabIndex = 103;
@@ -188,6 +189,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.checkBoxDescuento);
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.label1);
@@ -199,7 +201,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textDescuentoPorcentaje);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(12, 108);
+            this.groupBox1.Location = new System.Drawing.Point(21, 114);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(465, 248);
             this.groupBox1.TabIndex = 83;
@@ -215,6 +217,7 @@
             this.checkBoxDescuento.TabIndex = 96;
             this.checkBoxDescuento.Text = "%";
             this.checkBoxDescuento.UseVisualStyleBackColor = true;
+            this.checkBoxDescuento.CheckedChanged += new System.EventHandler(this.checkBoxDescuento_CheckedChanged);
             // 
             // dataGridView2
             // 
@@ -365,10 +368,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.dateFechaEntrega);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.groupBox3.Location = new System.Drawing.Point(12, 362);
+            this.groupBox3.Location = new System.Drawing.Point(21, 368);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(466, 75);
             this.groupBox3.TabIndex = 105;
@@ -393,13 +397,14 @@
             // 
             // btCorreo
             // 
+            this.btCorreo.BackColor = System.Drawing.Color.White;
             this.btCorreo.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.btCorreo.Location = new System.Drawing.Point(484, 408);
+            this.btCorreo.Location = new System.Drawing.Point(492, 414);
             this.btCorreo.Name = "btCorreo";
             this.btCorreo.Size = new System.Drawing.Size(200, 29);
             this.btCorreo.TabIndex = 108;
             this.btCorreo.Text = "Procesar Pedido";
-            this.btCorreo.UseVisualStyleBackColor = true;
+            this.btCorreo.UseVisualStyleBackColor = false;
             // 
             // textMonto
             // 
@@ -419,6 +424,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label7);
@@ -432,7 +438,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textDescontadoTotal);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(487, 108);
+            this.groupBox2.Location = new System.Drawing.Point(496, 114);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(196, 248);
             this.groupBox2.TabIndex = 97;
@@ -505,6 +511,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
             this.label2.Location = new System.Drawing.Point(9, 29);
             this.label2.Name = "label2";
@@ -531,17 +538,18 @@
             // 
             // btPedido
             // 
+            this.btPedido.BackColor = System.Drawing.Color.White;
             this.btPedido.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.btPedido.Location = new System.Drawing.Point(484, 369);
+            this.btPedido.Location = new System.Drawing.Point(492, 375);
             this.btPedido.Name = "btPedido";
             this.btPedido.Size = new System.Drawing.Size(200, 33);
             this.btPedido.TabIndex = 109;
             this.btPedido.Text = "Emitir Factura por Correo";
-            this.btPedido.UseVisualStyleBackColor = true;
+            this.btPedido.UseVisualStyleBackColor = false;
             // 
             // tsMenu
             // 
-            this.tsMenu.BackColor = System.Drawing.Color.Transparent;
+            this.tsMenu.BackColor = System.Drawing.Color.White;
             this.tsMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -603,6 +611,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackgroundImage = global::ARSACSoft.Properties.Resources.minimalist_desktop_131;
             this.ClientSize = new System.Drawing.Size(715, 470);
             this.Controls.Add(this.tsMenu);
             this.Controls.Add(this.btPedido);
@@ -612,6 +622,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbProveedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "frmGestionPedidos";
             this.ShowInTaskbar = false;
             this.Text = "frmGestionsVentas";
