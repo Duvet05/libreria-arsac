@@ -35,7 +35,7 @@ namespace ARSACSoft
         {
             try
             {
-                dgvProveedores.DataSource = daoProveedores.listarProveedoresXNombreRUC(txtNombreRUC.Text);
+                //dgvProveedores.DataSource = daoProveedores.(txtNombreRUC.Text);
 
             }
             catch (Exception ex)
@@ -63,13 +63,18 @@ namespace ARSACSoft
             dgvProveedores.Rows[e.RowIndex].Cells[0].Value =
                 proveed.idProveedor;
             dgvProveedores.Rows[e.RowIndex].Cells[1].Value =
-                proveed.descripcion;
+                proveed.nombre;
             dgvProveedores.Rows[e.RowIndex].Cells[2].Value =
                 proveed.direccion;
             dgvProveedores.Rows[e.RowIndex].Cells[3].Value =
                 proveed.RUC;
             dgvProveedores.Rows[e.RowIndex].Cells[4].Value =
                 proveed.telefono;
+        }
+
+        private void txtNombreRUC_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -233,7 +233,7 @@ namespace ARSACSoft
             {
                 this._proveedorSeleccionado= frmBuscProvee.ProveedorSeleccionado;
                 txtRUCProveedorOC.Text = _proveedorSeleccionado.RUC;
-                txtRazonSocialProveedorOC.Text = _proveedorSeleccionado.descripcion;
+                txtRazonSocialProveedorOC.Text = _proveedorSeleccionado.nombre;
             }
         }
 

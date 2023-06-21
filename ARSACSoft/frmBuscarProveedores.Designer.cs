@@ -71,6 +71,7 @@
             this.txtNombreRUC.Name = "txtNombreRUC";
             this.txtNombreRUC.Size = new System.Drawing.Size(173, 21);
             this.txtNombreRUC.TabIndex = 7;
+            this.txtNombreRUC.TextChanged += new System.EventHandler(this.txtNombreRUC_TextChanged);
             // 
             // label1
             // 
