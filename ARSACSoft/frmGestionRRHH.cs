@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using ARSACSoft.Properties;
 using System.Collections.Generic;
+using System.Globalization;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms;
 
@@ -60,9 +61,10 @@ namespace ARSACSoft
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     JObject jsonResult = JObject.Parse(content);
-                    if (jsonResult["results"].Count() > 0)
+
+                    if (jsonResult.TryGetValue("results", out var results) && results.Any())
                     {
-                        string address = jsonResult["results"][0]["formatted_address"].ToString();
+                        string address = results[0]?.Value<string>("formatted_address");
                         return address;
                     }
                 }
@@ -72,7 +74,6 @@ namespace ARSACSoft
                     // ...
                 }
             }
-
             return null;
         }
 
@@ -320,7 +321,7 @@ namespace ARSACSoft
                 dtpFechaContratacion.Value = _empleado.fechaContratacion;
                 cboTipoDeEmpleado.SelectedValue = _empleado.tipo.idTipoDeEmpleado;
                 txtCorreoEmpleado.Text = _empleado.correo;
-                txtSalario.Text = _empleado.salario.ToString();
+                txtSalario.Text = _empleado.salario.ToString(CultureInfo.InvariantCulture);
                 txtDireccion.Text = _empleado.direccion;
 
                 if (_empleado.foto != null)
@@ -598,13 +599,12 @@ namespace ARSACSoft
 
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
 
-            // solo permite un punto decimal
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
             {
                 e.Handled = true;
             }
@@ -763,8 +763,8 @@ namespace ARSACSoft
         // Clase auxiliar para representar una ciudad y sus coordenadas
         private class City
         {
-            public string Nombre { get; set; }
-            public Coordenadas Coordenadas { get; set; }
+            private string Nombre { get; }
+            public Coordenadas Coordenadas { get; }
 
             public City(string nombre, double latitud, double longitud)
             {
@@ -781,8 +781,8 @@ namespace ARSACSoft
         // Clase auxiliar para representar las coordenadas de una ubicación
         private class Coordenadas
         {
-            public double Latitud { get; set; }
-            public double Longitud { get; set; }
+            public double Latitud { get; }
+            public double Longitud { get; }
 
             public Coordenadas(double latitud, double longitud)
             {

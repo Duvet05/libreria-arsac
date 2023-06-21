@@ -10,9 +10,9 @@ namespace ARSACSoft
     public partial class frmPrincipal : Form
     {
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
+        private static extern void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
+        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
 
         private RRHHWSClient daoRRHH;
         private empleado _empleadoLogeado;
