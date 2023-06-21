@@ -209,7 +209,12 @@ namespace ARSACSoft
 
         private void AgregarCliente_Click(object sender, EventArgs e)
         {
-
+            frmCrearCliente frm = new frmCrearCliente();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _clienteMayorista = frm.ClienteMayoristaSeleccionado;
+                txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
+            }
         }
     }
 }

@@ -117,6 +117,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Ciudades.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="frmBienvenida.cs">
       <SubType>Form</SubType>

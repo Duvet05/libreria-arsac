@@ -202,9 +202,5 @@ namespace ARSACSoft
             SetButtonColor(btnReportes);
         }
 
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-        }
     }
 }

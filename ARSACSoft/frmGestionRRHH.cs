@@ -520,7 +520,7 @@ namespace ARSACSoft
             _clienteMayorista.telefono = txtTelefonoCliente.Text;
             _clienteMayorista.RUC = txtRUC.Text;
             _clienteMayorista.razonSocial = txtRazonSocial.Text;
-            _clienteMayorista.direccion = txtDireccion.Text;
+            _clienteMayorista.direccion = textDireccion.Text;
 
             int resultado = _estadoCliente == Estado.Nuevo ? daoRRHH.insertarClienteMayorista(_clienteMayorista) : daoRRHH.modificarClienteMayorista(_clienteMayorista);
 
@@ -722,18 +722,17 @@ namespace ARSACSoft
         private void CargarCiudades()
         {
             ciudades = new List<City>
-    {
-        new City("Lima", -12.046374, -77.042793),
-        new City("Arequipa", -16.409047, -71.537450),
-        new City("Trujillo", -8.109052, -79.024452),
-        new City("Cusco", -13.531950, -71.967463),
-        new City("Piura", -5.194490, -80.632683),
-        new City("Huancayo", -12.065194, -75.204873),
-        new City("Tacna", -18.014647, -70.253738),
-        new City("Chimbote", -9.085518, -78.578083),
-        new City("Ica", -14.068023, -75.725402)
-    };
-
+                {
+                new City("Lima", -12.046374, -77.042793),
+                new City("Arequipa", -16.409047, -71.537450),
+                new City("Trujillo", -8.109052, -79.024452),
+                new City("Cusco", -13.531950, -71.967463),
+                new City("Piura", -5.194490, -80.632683),
+                new City("Huancayo", -12.065194, -75.204873),
+                new City("Tacna", -18.014647, -70.253738),
+                new City("Chimbote", -9.085518, -78.578083),
+                new City("Ica", -14.068023, -75.725402)
+                };
             cmbCiudades.DataSource = ciudades;
             cmbCiudades.DisplayMember = "Nombre";
             cmbCiudades.ValueMember = "Coordenadas";
@@ -760,35 +759,5 @@ namespace ARSACSoft
             gMapControl1.Zoom = 10;
         }
 
-        // Clase auxiliar para representar una ciudad y sus coordenadas
-        private class City
-        {
-            private string Nombre { get; }
-            public Coordenadas Coordenadas { get; }
-
-            public City(string nombre, double latitud, double longitud)
-            {
-                Nombre = nombre;
-                Coordenadas = new Coordenadas(latitud, longitud);
-            }
-
-            public override string ToString()
-            {
-                return Nombre;
-            }
-        }
-
-        // Clase auxiliar para representar las coordenadas de una ubicación
-        private class Coordenadas
-        {
-            public double Latitud { get; }
-            public double Longitud { get; }
-
-            public Coordenadas(double latitud, double longitud)
-            {
-                Latitud = latitud;
-                Longitud = longitud;
-            }
-        }
     }
 }
