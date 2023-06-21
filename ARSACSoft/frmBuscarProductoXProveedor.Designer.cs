@@ -55,7 +55,7 @@
             this.cboCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategoria.FormattingEnabled = true;
             this.cboCategoria.Location = new System.Drawing.Point(212, 90);
-            this.cboCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(173, 21);
             this.cboCategoria.TabIndex = 65;
@@ -76,7 +76,7 @@
             this.cboMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMarca.FormattingEnabled = true;
             this.cboMarca.Location = new System.Drawing.Point(211, 60);
-            this.cboMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMarca.Margin = new System.Windows.Forms.Padding(2);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(174, 21);
             this.cboMarca.TabIndex = 63;
@@ -116,6 +116,7 @@
             this.dgvProductos.Location = new System.Drawing.Point(13, 119);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 51;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(828, 234);
@@ -240,7 +241,7 @@
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNombreProd);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscarProductoXProveedor";
             this.Text = "frmBuscarProductoXProveedor";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();

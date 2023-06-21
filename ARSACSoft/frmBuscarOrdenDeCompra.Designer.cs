@@ -94,7 +94,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(359, 43);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(206, 20);
             this.dateTimePicker2.TabIndex = 20;
@@ -102,7 +102,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(82, 43);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(206, 20);
             this.dateTimePicker1.TabIndex = 19;
@@ -156,6 +156,7 @@
             this.dgvClientes.Location = new System.Drawing.Point(10, 97);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidth = 51;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(814, 235);
@@ -213,7 +214,7 @@
             this.Controls.Add(this.txtNombreDNI);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.dgvClientes);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscarOrdenDeCompra";
             this.Text = "frmBuscarOrdenDeCompra";
             this.Load += new System.EventHandler(this.frmBuscarOrdenDeCompra_Load);

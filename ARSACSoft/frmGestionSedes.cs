@@ -21,6 +21,7 @@ namespace ARSACSoft
             daoSede = new SedesWSClient();
             establecerEstadoTabSedes();
             limpiarComponentesSedes();
+            dataGridView3.AutoGenerateColumns = false;
         }
 
         public void establecerEstadoFormulario()

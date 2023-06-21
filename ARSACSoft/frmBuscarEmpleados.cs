@@ -73,5 +73,7 @@ namespace ARSACSoft
                 // Manejo de error cuando el objeto enlazado no es un empleado
             }
         }
+
+
     }
 }

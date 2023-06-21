@@ -55,7 +55,7 @@
             // 
             this.txtNombreDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreDNI.Location = new System.Drawing.Point(263, 11);
-            this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreDNI.Name = "txtNombreDNI";
             this.txtNombreDNI.Size = new System.Drawing.Size(155, 21);
             this.txtNombreDNI.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(427, 8);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(57, 25);
             this.btnBuscar.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeleccionar.Location = new System.Drawing.Point(560, 8);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(78, 25);
             this.btnSeleccionar.TabIndex = 3;
@@ -96,9 +96,10 @@
             this.Nombre,
             this.RazonSocial});
             this.dgvClientes.Location = new System.Drawing.Point(11, 46);
-            this.dgvClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(2);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidth = 62;
             this.dgvClientes.RowTemplate.Height = 28;
             this.dgvClientes.Size = new System.Drawing.Size(627, 239);
@@ -143,7 +144,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNombreDNI);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscarClienteMayorista";
             this.Text = "Busqueda de Cliente Mayorista";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();

@@ -16,6 +16,7 @@ namespace ARSACSoft
 
             dgvSedes.AutoGenerateColumns = false;
             var sedes = daoSede.listarSedes();
+
             if (sedes != null)
             {
                 dgvSedes.DataSource = sedes;
