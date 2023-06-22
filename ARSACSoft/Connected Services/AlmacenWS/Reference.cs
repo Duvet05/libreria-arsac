@@ -24,16 +24,6 @@ namespace ARSACSoft.AlmacenWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/insertarOrdenCompraRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/insertarOrdenCompraResponse")]
         System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.insertarOrdenCompraResponse> insertarOrdenCompraAsync(ARSACSoft.AlmacenWS.insertarOrdenCompraRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.AlmacenWS.helloResponse hello(ARSACSoft.AlmacenWS.helloRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/helloResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.helloResponse> helloAsync(ARSACSoft.AlmacenWS.helloRequest request);
     }
     
     /// <remarks/>
@@ -331,7 +321,7 @@ namespace ARSACSoft.AlmacenWS {
         
         private int idSedeField;
         
-        private producto[] productosField;
+        private sedeXProducto[] productosField;
         
         private string telefonoField;
         
@@ -385,7 +375,7 @@ namespace ARSACSoft.AlmacenWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("productos", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
-        public producto[] productos {
+        public sedeXProducto[] productos {
             get {
                 return this.productosField;
             }
@@ -404,6 +394,52 @@ namespace ARSACSoft.AlmacenWS {
             set {
                 this.telefonoField = value;
                 this.RaisePropertyChanged("telefono");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class sedeXProducto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private producto productoField;
+        
+        private int stockField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public producto producto {
+            get {
+                return this.productoField;
+            }
+            set {
+                this.productoField = value;
+                this.RaisePropertyChanged("producto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int stock {
+            get {
+                return this.stockField;
+            }
+            set {
+                this.stockField = value;
+                this.RaisePropertyChanged("stock");
             }
         }
         
@@ -1316,42 +1352,6 @@ namespace ARSACSoft.AlmacenWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="hello", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class helloRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string name;
-        
-        public helloRequest() {
-        }
-        
-        public helloRequest(string name) {
-            this.name = name;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="helloResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class helloResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string @return;
-        
-        public helloResponse() {
-        }
-        
-        public helloResponse(string @return) {
-            this.@return = @return;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface AlmacenWSChannel : ARSACSoft.AlmacenWS.AlmacenWS, System.ServiceModel.IClientChannel {
     }
@@ -1400,29 +1400,6 @@ namespace ARSACSoft.AlmacenWS {
             ARSACSoft.AlmacenWS.insertarOrdenCompraRequest inValue = new ARSACSoft.AlmacenWS.insertarOrdenCompraRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).insertarOrdenCompraAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.AlmacenWS.helloResponse ARSACSoft.AlmacenWS.AlmacenWS.hello(ARSACSoft.AlmacenWS.helloRequest request) {
-            return base.Channel.hello(request);
-        }
-        
-        public string hello(string name) {
-            ARSACSoft.AlmacenWS.helloRequest inValue = new ARSACSoft.AlmacenWS.helloRequest();
-            inValue.name = name;
-            ARSACSoft.AlmacenWS.helloResponse retVal = ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).hello(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.helloResponse> ARSACSoft.AlmacenWS.AlmacenWS.helloAsync(ARSACSoft.AlmacenWS.helloRequest request) {
-            return base.Channel.helloAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.AlmacenWS.helloResponse> helloAsync(string name) {
-            ARSACSoft.AlmacenWS.helloRequest inValue = new ARSACSoft.AlmacenWS.helloRequest();
-            inValue.name = name;
-            return ((ARSACSoft.AlmacenWS.AlmacenWS)(this)).helloAsync(inValue);
         }
     }
 }

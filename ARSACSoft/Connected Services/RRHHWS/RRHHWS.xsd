@@ -68,8 +68,14 @@
       <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element name="esPrincipal" type="xs:boolean" />
       <xs:element name="idSede" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:sedeXProducto" />
       <xs:element minOccurs="0" name="telefono" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sedeXProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+      <xs:element name="stock" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="producto">
@@ -150,9 +156,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarCuentaUsuario">
+  <xs:complexType name="buscarCuenta">
     <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarCuentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="cuentaUsuario">
@@ -163,19 +174,14 @@
       <xs:element minOccurs="0" name="username" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarCuentaUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="insertarCuentaUsuarioResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarCuenta">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarCuentaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:cuentaUsuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarClientesMayoristasPorNombreDNI">
@@ -196,6 +202,16 @@
   <xs:complexType name="buscarEmpleadoResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:empleado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actualizarCuentaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarClienteMayorista">
@@ -219,12 +235,12 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="actualizarCuenta">
+  <xs:complexType name="verificarCuenta">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="actualizarCuentaResponse">
+  <xs:complexType name="verificarCuentaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
@@ -240,16 +256,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="verificarCuenta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:cuentaUsuario" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="verificarCuentaResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="eliminarEmpleado">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
@@ -260,22 +266,22 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="modificarClienteMayorista">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:clienteMayorista" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="modificarClienteMayoristaResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarEmpleado">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:empleado" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarEmpleadoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarClienteMayorista">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:clienteMayorista" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarClienteMayoristaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

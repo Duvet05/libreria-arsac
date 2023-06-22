@@ -11,11 +11,11 @@
   <message name="insertarSedeResponse">
     <part name="parameters" element="tns:insertarSedeResponse" />
   </message>
-  <message name="eliminarSede">
-    <part name="parameters" element="tns:eliminarSede" />
+  <message name="listarSedes">
+    <part name="parameters" element="tns:listarSedes" />
   </message>
-  <message name="eliminarSedeResponse">
-    <part name="parameters" element="tns:eliminarSedeResponse" />
+  <message name="listarSedesResponse">
+    <part name="parameters" element="tns:listarSedesResponse" />
   </message>
   <message name="modificarSede">
     <part name="parameters" element="tns:modificarSede" />
@@ -23,28 +23,38 @@
   <message name="modificarSedeResponse">
     <part name="parameters" element="tns:modificarSedeResponse" />
   </message>
-  <message name="listarSedes">
-    <part name="parameters" element="tns:listarSedes" />
+  <message name="eliminarSede">
+    <part name="parameters" element="tns:eliminarSede" />
   </message>
-  <message name="listarSedesResponse">
-    <part name="parameters" element="tns:listarSedesResponse" />
+  <message name="eliminarSedeResponse">
+    <part name="parameters" element="tns:eliminarSedeResponse" />
+  </message>
+  <message name="listarProductosDeSede">
+    <part name="parameters" element="tns:listarProductosDeSede" />
+  </message>
+  <message name="listarProductosDeSedeResponse">
+    <part name="parameters" element="tns:listarProductosDeSedeResponse" />
   </message>
   <portType name="SedesWS">
     <operation name="insertarSede">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest" message="tns:insertarSede" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse" message="tns:insertarSedeResponse" />
     </operation>
-    <operation name="eliminarSede">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeRequest" message="tns:eliminarSede" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeResponse" message="tns:eliminarSedeResponse" />
+    <operation name="listarSedes">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesRequest" message="tns:listarSedes" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesResponse" message="tns:listarSedesResponse" />
     </operation>
     <operation name="modificarSede">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/modificarSedeRequest" message="tns:modificarSede" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/modificarSedeResponse" message="tns:modificarSedeResponse" />
     </operation>
-    <operation name="listarSedes">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesRequest" message="tns:listarSedes" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesResponse" message="tns:listarSedesResponse" />
+    <operation name="eliminarSede">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeRequest" message="tns:eliminarSede" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeResponse" message="tns:eliminarSedeResponse" />
+    </operation>
+    <operation name="listarProductosDeSede">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeRequest" message="tns:listarProductosDeSede" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeResponse" message="tns:listarProductosDeSedeResponse" />
     </operation>
   </portType>
   <binding name="SedesWSPortBinding" type="tns:SedesWS">
@@ -58,7 +68,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarSede">
+    <operation name="listarSedes">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -76,7 +86,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarSedes">
+    <operation name="eliminarSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductosDeSede">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

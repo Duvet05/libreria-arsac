@@ -4,6 +4,8 @@
   <xs:element name="eliminarSedeResponse" type="tns:eliminarSedeResponse" />
   <xs:element name="insertarSede" type="tns:insertarSede" />
   <xs:element name="insertarSedeResponse" type="tns:insertarSedeResponse" />
+  <xs:element name="listarProductosDeSede" type="tns:listarProductosDeSede" />
+  <xs:element name="listarProductosDeSedeResponse" type="tns:listarProductosDeSedeResponse" />
   <xs:element name="listarSedes" type="tns:listarSedes" />
   <xs:element name="listarSedesResponse" type="tns:listarSedesResponse" />
   <xs:element name="modificarSede" type="tns:modificarSede" />
@@ -22,8 +24,14 @@
       <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element name="esPrincipal" type="xs:boolean" />
       <xs:element name="idSede" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:sedeXProducto" />
       <xs:element minOccurs="0" name="telefono" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sedeXProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+      <xs:element name="stock" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="producto">
@@ -92,6 +100,17 @@
   <xs:complexType name="modificarSedeResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosDeSede">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosDeSedeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sedeXProducto" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
