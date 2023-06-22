@@ -7,7 +7,6 @@ import pe.edu.pucp.arcacsoft.ordenes.dao.LineaDeOrdenDeVentaDAO;
 import pe.edu.pucp.arsacsoft.ordenes.model.LineaDeOrdenDeVenta;
 
 public class LineaOrdenDeVentaMySQL implements LineaDeOrdenDeVentaDAO {
-
     private Connection con;
     private CallableStatement cs;
 
