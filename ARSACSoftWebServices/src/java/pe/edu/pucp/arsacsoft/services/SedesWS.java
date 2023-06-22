@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.services;
 
 import java.util.ArrayList;
@@ -13,7 +9,8 @@ import pe.edu.pucp.arsacsoft.sedes.model.SedeXProducto;
 import pe.edu.pucp.arsacsoft.sedes.mysql.SedeMySQL;
 
 /**
- *
+ * Web service para operaciones relacionadas a las Sedes.
+ * 
  * @author Gino
  */
 @WebService(serviceName = "SedesWS")
@@ -21,32 +18,57 @@ public class SedesWS {
     private SedeDAO daoSede = new SedeMySQL();
     
     @WebMethod(operationName = "insertarSede")
-    public int insertarSede(Sede sede)
-    {
-        return daoSede.insertar(sede);
+    public int insertarSede(Sede sede) {
+        try {
+            return daoSede.insertar(sede);
+        } catch (Exception e) {
+            // Manejo de excepciones
+            e.printStackTrace();
+            return -1; // Código de error personalizado
+        }
     }
     
     @WebMethod(operationName = "listarSedes")
-    public ArrayList<Sede> listarSedes()
-    {
-        return daoSede.listarTodas();
+    public ArrayList<Sede> listarSedes() {
+        try {
+            return daoSede.listarTodas();
+        } catch (Exception e) {
+            // Manejo de excepciones
+            e.printStackTrace();
+            return new ArrayList<>(); // Retorna una lista vacía en caso de error
+        }
     }
     
     @WebMethod(operationName = "modificarSede")
-    public int modificarSede(Sede sede)
-    {
-        return daoSede.modificar(sede);
+    public int modificarSede(Sede sede) {
+        try {
+            return daoSede.modificar(sede);
+        } catch (Exception e) {
+            // Manejo de excepciones
+            e.printStackTrace();
+            return -1; // Código de error personalizado
+        }
     }
 
     @WebMethod(operationName = "eliminarSede")
-    public int eliminarSede(int idSede)
-    {
-        return daoSede.eliminar(idSede);
+    public int eliminarSede(int idSede) {
+        try {
+            return daoSede.eliminar(idSede);
+        } catch (Exception e) {
+            // Manejo de excepciones
+            e.printStackTrace();
+            return -1; // Código de error personalizado
+        }
     }
-    /*
+    
     @WebMethod(operationName = "listarProductosDeSede")
-    public ArrayList<SedeXProducto> listarProductoDeSede(int idSede, String nombre)
-    {
-        return daoSede.listarProductos(idSede, nombre);
-    }*/
+    public ArrayList<SedeXProducto> listarProductoDeSede(int idSede, String nombre) {
+        try {
+            return daoSede.listarProductos(idSede, nombre);
+        } catch (Exception e) {
+            // Manejo de excepciones
+            e.printStackTrace();
+            return new ArrayList<>(); // Retorna una lista vacía en caso de error
+        }
+    }
 }
