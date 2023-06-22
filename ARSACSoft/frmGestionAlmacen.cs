@@ -16,11 +16,13 @@ namespace ARSACSoft
     public partial class frmGestionAlmacen : Form
     {
         private Estado _estadoPagProducto;
+        private Estado _estadoPagOrdenCompra;
+
         private string _rutaFotoProducto = "";
         private ProductosWSClient daoProductosWS;
         private AlmacenWSClient daoAlmacenWS;
         private ProductosWS.producto prodSeleccionado;
-        private ProveedoresWS.proveedor _proveedorSeleccionado;
+        private ProveedoresWS.proveedor _proveedorSeleccionado = null;
 
 
         private ordenDeCompra _ordenCompra;
@@ -36,6 +38,11 @@ namespace ARSACSoft
             _estadoPagProducto = Estado.Inicial;
             establecerEstadoFormularioProducto();
             limpiarComponentesProducto();
+
+            _estadoPagOrdenCompra = Estado.Inicial;
+            establecerEstadoFormularioOrdenDeCompra();
+            limpiarComponentesOrdenCompra();
+
             daoProductosWS = new ProductosWSClient();
             daoAlmacenWS = new AlmacenWSClient();
             this._empleadoLogeado = _empleadoLogeado;
@@ -156,6 +163,85 @@ namespace ARSACSoft
                     break;
             }
         }
+
+        public void establecerEstadoFormularioOrdenDeCompra()
+        {
+            switch (_estadoPagOrdenCompra)
+            {
+                case Estado.Inicial:
+                    btnNuevoOC.Enabled = true;
+                    btnGuardarOC.Enabled = false;
+                    btnBuscarOC.Enabled = true;
+                    btnModificarOC.Enabled = false;
+                    btnEliminarOC.Enabled = false;
+                    btnCancelarOC.Enabled = false;
+                    btnImprimirOC.Enabled = false;
+
+                    txtIDOrdenCompra.Enabled = false;
+                    dtpFechaOrdenCompra.Enabled = false;
+                    txtRUCProveedorOC.Enabled = false;
+                    txtRazonSocialProveedorOC.Enabled= false;
+                    btnBuscarProveedorOC.Enabled = false;
+                    
+                    txtCodigoProductoOC.Enabled = false;
+                    txtNombreProductoOC.Enabled = false;
+                    txtPrecioUnitarioProdOC.Enabled = false;
+                    txtCantidadProdOC.Enabled= false;
+                    btnAgregarProductoOC.Enabled = false;
+                    btnQuitarProductoOC.Enabled= false;
+                    btnBuscarProductoOC.Enabled= false;
+
+                    break;
+                case Estado.Nuevo:
+                case Estado.Modificar:
+                    btnNuevoOC.Enabled = false;
+                    btnGuardarOC.Enabled = true;
+                    btnBuscarOC.Enabled = false;
+                    btnModificarOC.Enabled = false;
+                    btnEliminarOC.Enabled = false;
+                    btnCancelarOC.Enabled = true;
+                    btnImprimirOC.Enabled = false;
+
+                    txtIDOrdenCompra.Enabled = true;
+                    dtpFechaOrdenCompra.Enabled = true;
+                    txtRUCProveedorOC.Enabled = true;
+                    txtRazonSocialProveedorOC.Enabled = true;
+                    btnBuscarProveedorOC.Enabled = true;
+
+                    txtCodigoProductoOC.Enabled = true;
+                    txtNombreProductoOC.Enabled = true;
+                    txtPrecioUnitarioProdOC.Enabled = true;
+                    txtCantidadProdOC.Enabled = true;
+                    btnAgregarProductoOC.Enabled = true;
+                    btnQuitarProductoOC.Enabled = true;
+                    btnBuscarProductoOC.Enabled = true;
+
+                    break;
+                case Estado.Buscar:
+                    btnNuevoOC.Enabled = false;
+                    btnGuardarOC.Enabled = true;
+                    btnBuscarOC.Enabled = true;
+                    btnModificarOC.Enabled = true;
+                    btnEliminarOC.Enabled = true;
+                    btnCancelarOC.Enabled = true;
+                    btnImprimirOC.Enabled = true;
+
+                    txtIDOrdenCompra.Enabled = true;
+                    dtpFechaOrdenCompra.Enabled = true;
+                    txtRUCProveedorOC.Enabled = true;
+                    txtRazonSocialProveedorOC.Enabled = true;
+                    btnBuscarProveedorOC.Enabled = true;
+
+                    txtCodigoProductoOC.Enabled = true;
+                    txtNombreProductoOC.Enabled = true;
+                    txtPrecioUnitarioProdOC.Enabled = true;
+                    txtCantidadProdOC.Enabled = true;
+                    btnAgregarProductoOC.Enabled = true;
+                    btnQuitarProductoOC.Enabled = true;
+                    btnBuscarProductoOC.Enabled = true;
+                    break;
+            }
+        }
         public void limpiarComponentesProducto()
         {
             txtIDProducto.Text = "";
@@ -166,7 +252,18 @@ namespace ARSACSoft
             txtPrecioXMenor.Text = "";
             pbFoto.Image = null;
         }
+        public void limpiarComponentesOrdenCompra()
+        {
+            txtIDOrdenCompra.Text = "";
+            dtpFechaOrdenCompra.Value = DateTime.Today;
+            txtRUCProveedorOC.Text= "";
+            txtRazonSocialProveedorOC.Text = "";
 
+            txtCodigoProductoOC.Text = "";
+            txtNombreProductoOC.Text = "";
+            txtPrecioUnitarioProdOC.Text = "";
+            txtCantidadProdOC.Text = "";
+        }
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
             _estadoPagProducto = Estado.Nuevo;
@@ -254,6 +351,11 @@ namespace ARSACSoft
 
         private void btnBuscarProductoOC_Click(object sender, EventArgs e)
         {
+            if (_proveedorSeleccionado == null)
+            {
+                MessageBox.Show("Debe seleccionar un proveedor para la orden de compra", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             frmBuscarProductoXProveedor formBusqProdProv = new frmBuscarProductoXProveedor(_proveedorSeleccionado);
             if (formBusqProdProv.ShowDialog() == DialogResult.OK)
             {
@@ -331,11 +433,14 @@ namespace ARSACSoft
 
         private void btnNuevoOC_Click(object sender, EventArgs e)
         {
-            //_estado = Estado.Nuevo;
-            //limpiarComponentes();
-            //establecerEstadoComponentes();
+            _estadoPagOrdenCompra = Estado.Nuevo;
+            establecerEstadoFormularioOrdenDeCompra();
+            limpiarComponentesOrdenCompra();
+
+            _proveedorSeleccionado = null;
             _ordenCompra = new ordenDeCompra();
             _lineasOrdenDeCompra = new BindingList<lineaOrdenDeCompra>();
+            
             dgvListaProductosOC.DataSource = _lineasOrdenDeCompra;
         }
 
@@ -409,6 +514,26 @@ namespace ARSACSoft
             //        MessageBoxIcon.Error);
             //    }
             //}
+            _estadoPagOrdenCompra = Estado.Inicial;
+            establecerEstadoFormularioOrdenDeCompra();
+
+        }
+
+        private void btnBuscarOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelarOC_Click(object sender, EventArgs e)
+        {
+            
+            _estadoPagOrdenCompra = Estado.Inicial;
+            establecerEstadoFormularioOrdenDeCompra();
+            limpiarComponentesOrdenCompra();
+
+            _productoDeProveedorSeleccionado = null;
+            _proveedorSeleccionado = null;
+            _lineasOrdenDeCompra = null;
         }
     }
 }
