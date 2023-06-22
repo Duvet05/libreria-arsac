@@ -361,7 +361,8 @@ namespace ARSACSoft
             {
                 _productoDeProveedorSeleccionado = formBusqProdProv.ProductoDeProveedorSeleccionado;
                 txtCodigoProductoOC.Text = _productoDeProveedorSeleccionado.producto.idProducto.ToString();
-                txtNombreProductoOC.Text = _productoDeProveedorSeleccionado.producto.nombre;
+                txtNombreProductoOC.Text = _productoDeProveedorSeleccionado.producto.nombre + " " +
+                                            _productoDeProveedorSeleccionado.producto.marca.descripcion;
                 txtPrecioUnitarioProdOC.Text = _productoDeProveedorSeleccionado.costo.ToString("N2");
 
                 //txtCodigoProducto.Text = _producto.idProducto.ToString();
@@ -449,11 +450,12 @@ namespace ARSACSoft
             try
             {
                 lineaOrdenDeCompra lov = (lineaOrdenDeCompra)dgvListaProductosOC.Rows[e.RowIndex].DataBoundItem;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[0].Value = lov.productoProveedor.producto.nombre;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.marca.descripcion;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[2].Value = lov.cantidad;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[3].Value = lov.productoProveedor.costo;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[4].Value = lov.subtotal;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[0].Value = lov.productoProveedor.producto.idProducto;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.nombre + " " + lov.productoProveedor.producto.marca.descripcion;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[2].Value = lov.productoProveedor.producto.marca.descripcion;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[3].Value = lov.cantidad;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[4].Value = lov.productoProveedor.costo;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[5].Value = lov.subtotal;
             }
             catch (Exception ex)
             {
