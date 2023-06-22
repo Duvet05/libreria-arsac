@@ -542,5 +542,15 @@ namespace ARSACSoft
         {
 
         }
+
+        private void tpPromociones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
