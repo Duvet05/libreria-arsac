@@ -50,9 +50,6 @@ BEGIN
     WHERE id_sede = _id_sede;
 END $
 
-	
-DELIMITER $
-
 CREATE PROCEDURE INSERTAR_ORDEN_ABASTECIMIENTO(
   OUT _id_orden_de_abastecimiento INT,
   IN _fid_empleado INT,
@@ -64,9 +61,6 @@ BEGIN
   VALUES (_fid_empleado, _fid_sede, _fecha_orden);
   SET _id_orden_de_abastecimiento = @@last_insert_id;
 END $	
-
-
-DELIMITER $
 
 CREATE PROCEDURE ACTUALIZAR_ORDEN_ABASTECIMIENTO(
   IN _id_orden_de_abastecimiento INT,
@@ -104,13 +98,11 @@ BEGIN
 		OR (p.DNI LIKE CONCAT('%', _id_nombre_dni_empleado, '%')));
 END$
 
-
-DELIMITER $
 CREATE PROCEDURE INSERTAR_LINEA_ORDEN_ABASTECIMIENTO(
 	OUT _id_linea_abastecimiento INT,
     IN _fid_orden_de_abastecimiento INT,
     IN _fid_producto INT,
-    IN _cantidad INT,
+    IN _cantidad INT
 )
 BEGIN
 	INSERT INTO lineaOrdenDeAbastecimiento(fid_orden_venta,fid_producto,cantidad) 
@@ -118,8 +110,6 @@ BEGIN
     SET _id_linea_abastecimiento = @@last_insert_id;
 END$
 
-
-DELIMITER $
 CREATE PROCEDURE LISTAR_LINEAS_ORDEN_ABASTECIMIENTO_X_ID_ORDEN_ABASTECIMIENTO(
 	IN _id_orden_de_abastecimiento INT
 )
