@@ -330,7 +330,7 @@ namespace ARSACSoft
                 }
                 else if (e.ColumnIndex == 3)
                 {
-                    e.Value = (lov.precio * lov.cantidad).ToString();
+                    e.Value = lov.precio.ToString();
                 }
                 else if (e.ColumnIndex == 4)
                 {
