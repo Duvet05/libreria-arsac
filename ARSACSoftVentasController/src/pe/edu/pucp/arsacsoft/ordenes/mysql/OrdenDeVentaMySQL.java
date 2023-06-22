@@ -7,12 +7,10 @@ import java.util.ArrayList;
 
 import pe.edu.pucp.arsacsoft.ordenes.model.LineaDeOrdenDeVenta;
 import pe.edu.pucp.arcacsoft.ordenes.dao.LineaDeOrdenDeVentaDAO;
-
 import pe.edu.pucp.arsacsoft.ordenes.model.OrdenDeVenta;
 import pe.edu.pucp.arcacsoft.ordenes.dao.OrdenDeVentaDAO;
 import pe.edu.pucp.arsacsoft.RRHH.model.ClienteMayorista;
 import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
-
 import pe.edu.pucp.arsacsoft.config.DBManager;
 import pe.edu.pucp.arsacsoft.producto.model.Producto;
 
@@ -22,7 +20,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
     private CallableStatement cs;
     private ResultSet rs;
 
-    //INSERTAR ORDEN DE VENTA CON TODAS LAS LINEAS EN ELLA
     @Override
     public int insertar(OrdenDeVenta ordenV) {
         int resultado = 0;
@@ -64,7 +61,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         return resultado;
     }
 
-    //ACTUALIZA TODOS LOS DATOS CON OTRO OBJETO SIMILAR
     @Override
     public int modificar(OrdenDeVenta ordenV) {
         int resultado = 0;
@@ -74,8 +70,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             cs.setInt("_id_orden_de_venta", ordenV.getIdOrdenDeVenta());
             cs.setInt("_fid_cliente_mayorista", ordenV.getClienteMayorista().getIdPersona());
             cs.setDouble("_total", ordenV.getPrecioTotal());
-            cs.setDate("_fecha_orden",
-                    new java.sql.Date(ordenV.getFechaOrden().getTime()));
+            cs.setDate("_fecha_orden", new java.sql.Date(ordenV.getFechaOrden().getTime()));
             cs.executeUpdate();
             resultado = 1;
         } catch (Exception ex) {
@@ -96,8 +91,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         try {
             LineaDeOrdenDeVentaDAO daoLinea = new LineaOrdenDeVentaMySQL();
             for (LineaDeOrdenDeVenta linea : ordenV.getLineaDeOrdenDeVenta()) {
-                daoLinea.modificar(linea, ordenV.getIdOrdenDeVenta(),
-                         linea.getProducto().getIdProducto());
+                daoLinea.modificar(linea, ordenV.getIdOrdenDeVenta(), linea.getProducto().getIdProducto());
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -105,7 +99,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         return resultado;
     }
 
-    //SE CAMBIA EL ESTADO DE UNA COLUMNA - QUEDA PARA EL REGISTRO
     @Override
     public int CancelarVenta(int idOrdenDeVenta) {
         int resultado = 0;
@@ -132,7 +125,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         return resultado;
     }
 
-    //DEVUELVE LA LISTA DE PRODUCTOS DE UNA ORDEN DE VENTA
     @Override
     public ArrayList<LineaDeOrdenDeVenta> ListarProductos(int idOrdenDeVenta) {
         ArrayList<LineaDeOrdenDeVenta> lineaVenta = new ArrayList<>();
@@ -147,10 +139,8 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
                 lineaN.setCantidad(rs.getInt("cantidad"));
                 lineaN.setDescuento(rs.getDouble("descuento"));
                 lineaN.setPrecio(rs.getDouble("subtotal"));
-
                 lineaN.setProducto(new Producto());
-                lineaN.getProducto().setIdProducto(
-                        rs.getInt("fid_producto"));
+                lineaN.getProducto().setIdProducto(rs.getInt("fid_producto"));
                 lineaVenta.add(lineaN);
             }
         } catch (Exception ex) {
@@ -165,7 +155,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         return lineaVenta;
     }
 
-    //DEVUELVE UNA LISTA DE LAS ORDENES POR FECHA
     @Override
     public ArrayList<OrdenDeVenta> listarPorFecha() {
         ArrayList<OrdenDeVenta> ordenVentas = new ArrayList<>();
@@ -176,11 +165,9 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             while (rs.next()) {
                 OrdenDeVenta ordenN = new OrdenDeVenta();
                 ordenN.setActivo(rs.getBoolean("activo"));
-                ordenN.setIdOrdenDeVenta(rs.getInt(
-                        "id_orden_de_venta"));
+                ordenN.setIdOrdenDeVenta(rs.getInt("id_orden_de_venta"));
                 ordenN.setFechaOrden(rs.getDate("fecha_orden"));
                 ordenN.setPrecioTotal(rs.getDouble("total"));
-
                 ordenN.setClienteMayorista(new ClienteMayorista());
                 ordenN.setEmpleado(new Empleado());
                 ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
@@ -198,7 +185,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         return ordenVentas;
     }
 
-    //DEVUELVE UNA LISTA DE LAS ORDENES POR CLIENTE
     @Override
     public ArrayList<OrdenDeVenta> listarPorClienteMayorista() {
         ArrayList<OrdenDeVenta> ordenVentas = new ArrayList<>();
@@ -209,11 +195,9 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             while (rs.next()) {
                 OrdenDeVenta ordenN = new OrdenDeVenta();
                 ordenN.setActivo(rs.getBoolean("activo"));
-                ordenN.setIdOrdenDeVenta(rs.getInt(
-                        "id_orden_de_venta"));
+                ordenN.setIdOrdenDeVenta(rs.getInt("id_orden_de_venta"));
                 ordenN.setFechaOrden(rs.getDate("fecha_orden"));
                 ordenN.setPrecioTotal(rs.getDouble("total"));
-
                 ordenN.setClienteMayorista(new ClienteMayorista());
                 ordenN.setEmpleado(new Empleado());
                 ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
@@ -231,7 +215,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         return ordenVentas;
     }
 
-    //DEVUELVE UNA LISTA DE LAS ORDENES POR VENDEDOR
     @Override
     public ArrayList<OrdenDeVenta> listarPorVendedor(int idPersona) {
         ArrayList<OrdenDeVenta> ordenVentas = new ArrayList<>();
@@ -242,11 +225,9 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             while (rs.next()) {
                 OrdenDeVenta ordenN = new OrdenDeVenta();
                 ordenN.setActivo(rs.getBoolean("activo"));
-                ordenN.setIdOrdenDeVenta(rs.getInt(
-                        "id_orden_de_venta"));
+                ordenN.setIdOrdenDeVenta(rs.getInt("id_orden_de_venta"));
                 ordenN.setFechaOrden(rs.getDate("fecha_orden"));
                 ordenN.setPrecioTotal(rs.getDouble("total"));
-
                 ordenN.setClienteMayorista(new ClienteMayorista());
                 ordenN.setEmpleado(new Empleado());
                 ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
@@ -264,7 +245,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         return ordenVentas;
     }
 
-    //DEVUELVE UNA FILA
     @Override
     public OrdenDeVenta buscarPorID(int idOrdenDeVenta) {
         OrdenDeVenta ordenN = new OrdenDeVenta();
@@ -274,16 +254,15 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             cs.setInt("ordenID", idOrdenDeVenta);
             rs = cs.executeQuery();
 
-            ordenN.setActivo(rs.getBoolean("activo"));
-            ordenN.setIdOrdenDeVenta(rs.getInt(
-                    "id_orden_de_venta"));
-            ordenN.setFechaOrden(rs.getDate("fecha_orden"));
-            ordenN.setPrecioTotal(rs.getDouble("total"));
-
-            ordenN.setClienteMayorista(new ClienteMayorista());
-            ordenN.setEmpleado(new Empleado());
-            ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
-
+            if (rs.next()) {
+                ordenN.setActivo(rs.getBoolean("activo"));
+                ordenN.setIdOrdenDeVenta(rs.getInt("id_orden_de_venta"));
+                ordenN.setFechaOrden(rs.getDate("fecha_orden"));
+                ordenN.setPrecioTotal(rs.getDouble("total"));
+                ordenN.setClienteMayorista(new ClienteMayorista());
+                ordenN.setEmpleado(new Empleado());
+                ordenN.setLineaDeOrdenDeVenta(new ArrayList<>());
+            }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         } finally {
@@ -300,5 +279,4 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
     public int eliminar(int idOrdenDeVenta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
 }

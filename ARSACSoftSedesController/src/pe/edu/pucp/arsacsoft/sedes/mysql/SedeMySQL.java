@@ -41,11 +41,11 @@ public class SedeMySQL implements SedeDAO {
             sede.setIdSede(cs.getInt("_id_sede"));
             resultado = sede.getIdSede();
 
-            for (Producto producto : sede.getProductos()) {
+            for (SedeXProducto sxd : sede.getProductos()) {
                 cs = con.prepareCall("{call INSERTAR_PRODUCTO_EN_SEDE(?,?)}");
                 cs.clearParameters();
                 cs.setInt(1, sede.getIdSede());
-                cs.setInt(2, producto.getIdProducto());
+                cs.setInt(2, sxd.getProducto().getIdProducto());
                 cs.executeUpdate();
             }
         } catch (Exception ex) {
