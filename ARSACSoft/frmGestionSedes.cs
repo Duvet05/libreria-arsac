@@ -1,6 +1,9 @@
-﻿using ARSACSoft.ProductosWS;
+﻿using ARSACSoft.AlmacenWS;
+using ARSACSoft.ProductosWS;
 using ARSACSoft.SedeWS;
 using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -9,8 +12,9 @@ namespace ARSACSoft
     {
         private Estado estado;
         private SedesWSClient daoSede;
-        private sede sede;
+        private SedeWS.sede sede;
         private ProductosWS.producto _producto;
+        private BindingList<SedeWS.sedeXProducto> _productos;
         public frmGestionSedes()
         {
             InitializeComponent();
@@ -18,10 +22,11 @@ namespace ARSACSoft
             establecerEstadoFormulario();
             limpiarComponentes();
 
+
             daoSede = new SedesWSClient();
             establecerEstadoTabSedes();
             limpiarComponentesSedes();
-            dataGridView3.AutoGenerateColumns = false;
+            dgvProductos.AutoGenerateColumns = false;
         }
 
         public void establecerEstadoFormulario()
@@ -92,8 +97,6 @@ namespace ARSACSoft
                     txtDireccionSede.Enabled = false;
                     txtTelefonoSede.Enabled = false;
                     txtCorreoSede.Enabled = false;
-                    dtpHoraFinAtencion.Enabled = false;
-                    dtpHoraInicioAtencion.Enabled = false;
                     //rbNoSedePrincipal.Enabled = false;
                     //rbSiSedePrincipal.Enabled = false;
                     //txtDescripcionSede.Enabled = false;
@@ -111,8 +114,6 @@ namespace ARSACSoft
                     txtDireccionSede.Enabled = true;
                     txtTelefonoSede.Enabled = true;
                     txtCorreoSede.Enabled = true;
-                    dtpHoraFinAtencion.Enabled = true;
-                    dtpHoraInicioAtencion.Enabled = true;
                     //rbNoSedePrincipal.Enabled = true;
                     //rbSiSedePrincipal.Enabled = true;
                     //txtDescripcionSede.Enabled = true;
@@ -129,8 +130,6 @@ namespace ARSACSoft
                     txtDireccionSede.Enabled = false;
                     txtTelefonoSede.Enabled = false;
                     txtCorreoSede.Enabled = false;
-                    dtpHoraFinAtencion.Enabled = false;
-                    dtpHoraInicioAtencion.Enabled = false;
                     //rbNoSedePrincipal.Enabled = false;
                     //rbSiSedePrincipal.Enabled = false;
                     //txtDescripcionSede.Enabled = false;
@@ -144,7 +143,6 @@ namespace ARSACSoft
             cboSedeEmitidora.SelectedIndex = -1;
             txtNombreProducto.Text = "";
             txtStockActual.Text = "";
-            //txtStockBase.Text = "";
             txtCantidad.Text = "";
         }
 
@@ -154,11 +152,9 @@ namespace ARSACSoft
             txtDireccionSede.Text = string.Empty;
             txtTelefonoSede.Text = string.Empty;
             txtCorreoSede.Text = string.Empty;
-            dtpHoraFinAtencion.Value = DateTime.Now;
-            dtpHoraInicioAtencion.Value = DateTime.Now;
-            //rbNoSedePrincipal.Checked = false;
-            //rbSiSedePrincipal.Checked = false;
-            //txtDescripcionSede.Text = "";
+            dgvProductos.DataSource = null;
+            txtNombreProducto.Text = string.Empty;
+            txtCodigoProducto.Text= string.Empty;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -173,7 +169,7 @@ namespace ARSACSoft
             estado = Estado.Nuevo;
             limpiarComponentes();
             establecerEstadoFormulario();
-            sede = new sede();
+            sede = new SedeWS.sede();
         }
 
 
@@ -199,9 +195,9 @@ namespace ARSACSoft
                 txtCorreoSede.Text = sede.correo;
                 txtDireccionSede.Text = sede.direccion;
                 txtTelefonoSede.Text = sede.telefono;
-                //rbSiSedePrincipal.Checked = sede.esPrincipal;
-                //rbNoSedePrincipal.Checked = !sede.esPrincipal;
 
+                _productos = new BindingList<SedeWS.sedeXProducto>(daoSede.listarProductosDeSede(sede.idSede, ""));
+                dgvProductos.DataSource = _productos;
 
                 estado = Estado.Buscar;
                 establecerEstadoTabSedes();
@@ -213,8 +209,8 @@ namespace ARSACSoft
             estado = Estado.Nuevo;
             limpiarComponentesSedes();
             establecerEstadoTabSedes();
-            sede = new sede();
-
+            sede = new SedeWS.sede();
+            _productos = new BindingList<SedeWS.sedeXProducto>();
         }
 
         private void btnCancelarSede_Click(object sender, EventArgs e)
@@ -235,7 +231,7 @@ namespace ARSACSoft
             sede.direccion = txtDireccionSede.Text;
             sede.telefono = txtTelefonoSede.Text;
             sede.correo = txtCorreoSede.Text;
-            //sede.esPrincipal = rbSiSedePrincipal.Checked;
+            sede.productos = _productos.ToArray();
 
             int resultado = 0;
 
@@ -247,6 +243,7 @@ namespace ARSACSoft
             {
                 resultado = daoSede.modificarSede(sede);
             }
+            
 
             if (resultado != 0)
             {
@@ -272,14 +269,49 @@ namespace ARSACSoft
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
+            SedeWS.sedeXProducto sxp = new SedeWS.sedeXProducto();
+            sxp.producto = new SedeWS.producto();
+            sxp.producto.idProducto = _producto.idProducto;
+            sxp.producto.nombre = _producto.nombre;
+            sxp.stock = 0;
+
+            _productos.Add(sxp);
+
+            dgvProductos.DataSource = _productos;
+
+            txtCodigoProducto.Text = "";
+            textNombreProducto.Text = "";
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (dgvProductos.Rows[e.RowIndex].DataBoundItem is SedeWS.sedeXProducto sxp)
+                {
+                    dgvProductos.Rows[e.RowIndex].Cells[0].Value = sxp.producto.idProducto;
+                    dgvProductos.Rows[e.RowIndex].Cells[1].Value = sxp.producto.nombre;
+                    dgvProductos.Rows[e.RowIndex].Cells[2].Value = sxp.stock;
+                }
+                else
+                {
+                    // Maneja la situación en la que el elemento enlazado no es una 'sede'
+                }
+            }
+            catch { }
+        }
+
+        private void btnQuitarProducto_Click(object sender, EventArgs e)
         {
 
+            _productos.Remove((SedeWS.sedeXProducto)dgvProductos.CurrentRow.DataBoundItem);
+
+            dgvProductos.DataSource = _productos;
         }
+
+
     }
 }

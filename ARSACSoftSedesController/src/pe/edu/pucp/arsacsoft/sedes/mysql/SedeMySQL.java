@@ -41,7 +41,7 @@ public class SedeMySQL implements SedeDAO {
             IN _correo VARCHAR(50)
             */
             
-            cs = con.prepareCall("{call INSERTAR_SEDE(?,?,?,?,?)}");
+            cs = con.prepareCall("{call INSERTAR_SEDE(?,?,?,?)}");
             cs.registerOutParameter(1, java.sql.Types.INTEGER);
             cs.setString(2, sede.getDireccion());
             cs.setString(3, sede.getTelefono());
@@ -166,7 +166,7 @@ public class SedeMySQL implements SedeDAO {
             cs.setInt(1, idSede);
             cs.setString(2, nombre);
             
-            cs.executeUpdate();
+            rs = cs.executeQuery();
             
             while (rs.next())
             {

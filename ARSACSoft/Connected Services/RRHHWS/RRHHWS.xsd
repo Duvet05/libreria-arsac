@@ -68,8 +68,14 @@
       <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element name="esPrincipal" type="xs:boolean" />
       <xs:element name="idSede" type="xs:int" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:producto" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productos" nillable="true" type="tns:sedeXProducto" />
       <xs:element minOccurs="0" name="telefono" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sedeXProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="producto" type="tns:producto" />
+      <xs:element name="stock" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="producto">

@@ -57,7 +57,7 @@ CREATE PROCEDURE INSERTAR_PRODUCTO_EN_SEDE(
     IN _id_producto INT
 )
 BEGIN
-	INSERT INTO sedeXproducto(id_sede, id_producto, stock, activo)
+	INSERT INTO sedeXproducto(fid_sede, fid_producto, stock, activo)
     VALUES(_id_sede, _id_producto, 0, true);
 END $
 

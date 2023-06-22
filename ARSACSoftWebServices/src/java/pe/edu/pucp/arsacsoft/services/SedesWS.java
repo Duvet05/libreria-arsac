@@ -43,10 +43,10 @@ public class SedesWS {
     {
         return daoSede.eliminar(idSede);
     }
-    /*
+    
     @WebMethod(operationName = "listarProductosDeSede")
     public ArrayList<SedeXProducto> listarProductoDeSede(int idSede, String nombre)
     {
         return daoSede.listarProductos(idSede, nombre);
-    }*/
+    }
 }

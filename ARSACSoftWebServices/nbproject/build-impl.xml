@@ -848,9 +848,6 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.ARSACSoftDBManager}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
-        <ant antfile="${project.ARSACSoftOrdenesModel}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
         <ant antfile="${project.ARSACSoftProductosController}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
@@ -873,9 +870,6 @@ exists or setup the property manually. For example like this:
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.ARSACSoftSedesModel}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
-        <ant antfile="${project.ARSACSoftVentasController}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
     </target>
@@ -889,9 +883,6 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.ARSACSoftDBManager}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
-        <ant antfile="${project.ARSACSoftOrdenesModel}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
         <ant antfile="${project.ARSACSoftProductosController}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
@@ -914,9 +905,6 @@ exists or setup the property manually. For example like this:
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.ARSACSoftSedesModel}/build.xml" inheritall="false" target="jar">
-            <property name="deploy.on.save" value="false"/>
-        </ant>
-        <ant antfile="${project.ARSACSoftVentasController}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
     </target>
@@ -1072,8 +1060,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.ARSACSoftProveedoresModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.ARSACSoftSedesController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.ARSACSoftProductosController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${reference.ARSACSoftOrdenesModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${reference.ARSACSoftVentasController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.ARSACSoftAlmacenModel.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.ARSACSoftAlmacenController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.ARSACSoftProveedoresController.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
@@ -1090,8 +1076,6 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${reference.ARSACSoftProveedoresModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.ARSACSoftSedesController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.ARSACSoftProductosController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${reference.ARSACSoftOrdenesModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${reference.ARSACSoftVentasController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.ARSACSoftAlmacenModel.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.ARSACSoftAlmacenController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${reference.ARSACSoftProveedoresController.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
@@ -1512,7 +1496,6 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.ARSACSoftAlmacenController}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftAlmacenModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftDBManager}/build.xml" inheritall="false" target="clean"/>
-        <ant antfile="${project.ARSACSoftOrdenesModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProductosController}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProductosModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftProveedoresController}/build.xml" inheritall="false" target="clean"/>
@@ -1521,7 +1504,6 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.ARSACSoftRRHHModel}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftSedesController}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.ARSACSoftSedesModel}/build.xml" inheritall="false" target="clean"/>
-        <ant antfile="${project.ARSACSoftVentasController}/build.xml" inheritall="false" target="clean"/>
     </target>
     <target depends="init" name="do-clean">
         <condition property="build.dir.to.clean" value="${build.web.dir}">
