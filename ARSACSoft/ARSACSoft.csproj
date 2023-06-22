@@ -445,7 +445,43 @@
     <None Include="Connected Services\SedeWS\SedesWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.helloResponse1.datasource">
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.buscarOrdenPorIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.cancelarOrdenDeVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.lineaDeOrdenDeVenta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorFechaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.modificarOrdenDeVentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.ordenDeVenta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />

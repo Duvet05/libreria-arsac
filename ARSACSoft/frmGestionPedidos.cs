@@ -1,8 +1,12 @@
 ﻿using ARSACSoft.AlmacenWS;
 using ARSACSoft.ProductosWS;
 using ARSACSoft.RRHHWS;
+using ARSACSoft.VentasWS;
 using GMap.NET.Internals;
 using System;
+using System.ComponentModel;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -10,15 +14,20 @@ namespace ARSACSoft
     public partial class frmGestionPedidos : Form
     {
         private ProductosWS.producto _producto;
+        private VentasWS.ordenDeVenta _venta;
         private Estado estado;
-        private clienteMayorista _clienteMayorista;
-
+        private RRHHWS.clienteMayorista _clienteMayorista;
+        private BindingList<lineaDeOrdenDeVenta> _lineasOrdenDeVenta;
+        private double descuentoTotal;
         public frmGestionPedidos()
         {
             InitializeComponent();
             estado = Estado.Inicial;
             EstablecerEstadoFormulario();
             LimpiarComponentes();
+            _venta = new ordenDeVenta();
+            this._venta.precioTotal = 0;
+            dataGridView2.AutoGenerateColumns = false;
         }
 
         public void EstablecerEstadoFormulario()
@@ -116,8 +125,13 @@ namespace ARSACSoft
 
         private void checkBoxDescuento_CheckedChanged(object sender, EventArgs e)
         {
-            bool facturaChecked = checkBoxDescuento.Checked;
-            textDescuentoPorcentaje.Enabled = facturaChecked;
+            bool descuentoChecked = checkBoxDescuento.Checked;
+            textDescuentoPorcentaje.Enabled = descuentoChecked;
+
+            if (!descuentoChecked)
+            {
+                textDescuentoPorcentaje.Text = string.Empty; // Limpia el contenido del campo de descuento
+            }
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -132,34 +146,19 @@ namespace ARSACSoft
             }
         }
 
-
-
         public void LimpiarComponentes()
         {
-            // Limpiar componentes de gbProveedor
             txtRazonSocial.Text = "";
             txtRUC.Text = "";
-
-            // Limpiar componentes de groupBox1
             textNombreProducto.Text = "";
-
-            // Limpiar componentes de groupBox3
             dateFechaEntrega.Value = DateTime.Now;
             textMonto.Text = "";
-
-            // Limpiar componentes de groupBox2
             txtIGV.Text = "";
             textDescontadoTotal.Text = "";
-
-            // Limpiar componentes generales
             txtNombreCompleto.Text = "";
             checkBoxFactura.Checked = false;
             checkBoxDescuento.Checked = false;
-
-            // Limpiar componentes del DataGridView (dataGridView2)
             dataGridView2.Rows.Clear();
-
-            // Limpiar componentes adicionales
             textPrecioUni.Text = "";
             textCantidad.Text = "";
             textSubTotal.Text = "";
@@ -187,12 +186,15 @@ namespace ARSACSoft
             estado = Estado.Nuevo;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
+            _lineasOrdenDeVenta = new BindingList<lineaDeOrdenDeVenta>();
+            dataGridView2.DataSource = _lineasOrdenDeVenta;
         }
 
         private void btnBuscarPedido_Click(object sender, EventArgs e)
         {
             estado = Estado.Buscar;
             EstablecerEstadoFormulario();
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -203,12 +205,80 @@ namespace ARSACSoft
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Evento sin implementación actualmente
+            if (string.IsNullOrEmpty(textNombreProducto.Text))
+            {
+                MessageBox.Show("Debe seleccionar un producto", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textCantProducto.Text) || int.Parse(textCantProducto.Text.Trim()) == 0)
+            {
+                MessageBox.Show("Debe ingresar una cantidad válida", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            foreach (lineaDeOrdenDeVenta linea in this._lineasOrdenDeVenta)
+            {
+                if (linea.producto.idProducto.Equals(_producto.idProducto))
+                {
+                    linea.cantidad += Int32.Parse(textCantProducto.Text);
+                    linea.precio = linea.cantidad * linea.precio; // Actualizar subtotal
+                    dataGridView2.Refresh();
+                    calcularTotal(); 
+                    return;
+                }
+            }
+
+            lineaDeOrdenDeVenta lov = new lineaDeOrdenDeVenta();
+            lov.producto = new VentasWS.producto();
+            lov.producto.idProducto = _producto.idProducto;
+            lov.producto.nombre = _producto.nombre;
+            lov.cantidad = Int32.Parse(textCantProducto.Text);
+            lov.precio = lov.producto.precioPorMenor;
+
+            if (Double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
+            {
+                lov.descuento = descuento;
+            }
+            else
+            {
+                lov.descuento = 0.0;
+            }
+
+            _lineasOrdenDeVenta.Add(lov);
+
+            textCantProducto.Text = "";
+            calcularTotal();
+
+            textPrecioUni.Text = lov.precio.ToString();
+            textCantidad.Text = lov.cantidad.ToString();
+            textSubTotal.Text = (lov.precio * lov.cantidad).ToString();
         }
+
 
         private void BtnQuitar_Click(object sender, EventArgs e)
         {
-            // Evento sin implementación actualmente
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                int rowIndex = dataGridView2.SelectedRows[0].Index;
+                _lineasOrdenDeVenta.RemoveAt(rowIndex);
+                dataGridView2.Refresh();
+                calcularTotal();
+            }
+        }
+
+        public void calcularTotal()
+        {
+            _venta.precioTotal = 0;
+            descuentoTotal = 0;
+            foreach (lineaDeOrdenDeVenta linea in _lineasOrdenDeVenta)
+            {
+                _venta.precioTotal += linea.precio * linea.cantidad;
+                descuentoTotal += linea.descuento;
+            }
+            textDescontadoTotal.Text = descuentoTotal.ToString();
+            textMonto.Text = (_venta.precioTotal - descuentoTotal).ToString(); // Mostrar precio total
+            
+            txtIGV.Text = (_venta.precioTotal * 0.08).ToString();
         }
 
         private void AgregarCliente_Click(object sender, EventArgs e)
@@ -223,21 +293,71 @@ namespace ARSACSoft
             }
         }
 
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+
+                // Obtener los valores de precio y cantidad de la línea seleccionada
+                double precio = Convert.ToDouble(selectedRow.Cells["Column4"].Value);
+                int cantidad = Convert.ToInt32(selectedRow.Cells["Column3"].Value);
+
+                // Asignar los valores a los TextBox correspondientes
+                textPrecioUni.Text = precio.ToString();
+                textCantidad.Text = cantidad.ToString();
+                textSubTotal.Text = (cantidad * precio).ToString();
+            }
+        }
+
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
             {
-                lineaOrdenDeVenta lov = (lineaOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
-                dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.productoProveedor.producto.idProducto;
-                dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.nombre;
-                dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.productoProveedor.producto.marca.descripcion;
-                dataGridView2.Rows[e.RowIndex].Cells[3].Value = lov.cantidad;
-                dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.productoProveedor.costo;
-                dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.subtotal;
+                lineaDeOrdenDeVenta lov = (lineaDeOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
+                dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.producto.idProducto.ToString();
+                dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.producto.nombre;
+                dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.cantidad.ToString();
+                dataGridView2.Rows[e.RowIndex].Cells[3].Value = (lov.precio * lov.cantidad ).ToString();
+                dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento.ToString();
             }
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void textCantProducto_KeyDown(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (textCantProducto.Text.Length >= 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textDescuentoPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char decimalSeparator = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != decimalSeparator)
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == decimalSeparator && ((TextBox)sender).Text.Contains(decimalSeparator))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; // Evita el sonido de "beep" al presionar Enter
+                //btnCalcularDescuento.Focus(); // Cambia el foco al botón para realizar el cálculo
             }
         }
     }
