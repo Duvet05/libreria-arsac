@@ -9,33 +9,48 @@ namespace ARSACSoft
         private ProductosWS.producto _productoSeleccionado;
         private ProductosWSClient daoProductosWS;
 
-        public ProductosWS.producto ProductoSeleccionado { get => _productoSeleccionado; set => _productoSeleccionado = value; }
+        public ProductosWS.producto ProductoSeleccionado
+        {
+            get => _productoSeleccionado;
+            set => _productoSeleccionado = value;
+        }
+
         public frmBuscarProducto()
         {
             InitializeComponent();
             dgvProductos.AutoGenerateColumns = false;
 
             daoProductosWS = new ProductosWSClient();
+            CargarCategorias();
+            CargarMarcas();
+
+            txtNombreProd.Text = string.Empty;
+            dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, -1, -1);
+        }
+
+        private void CargarCategorias()
+        {
             cboCategoria.DisplayMember = "descripcion";
             cboCategoria.ValueMember = "idCategoria";
             cboCategoria.DataSource = daoProductosWS.listarCategoriasTodas();
+            cboCategoria.SelectedIndex = -1;
+        }
 
+        private void CargarMarcas()
+        {
             cboMarca.DisplayMember = "descripcion";
             cboMarca.ValueMember = "idMarca";
             cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
-
-            cboCategoria.SelectedIndex = -1;
             cboMarca.SelectedIndex = -1;
-            txtNombreProd.Text = string.Empty;
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             if (dgvProductos.CurrentRow != null)
+            {
                 ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
-            //MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedIndex + ", Categoria: " + cboCategoria.SelectedIndex , "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //System.Console.WriteLine(cboMarca.SelectedIndex +  " " + cboCategoria.SelectedIndex);
-            this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -44,24 +59,19 @@ namespace ARSACSoft
             int marcaSeleccionada = cboMarca.SelectedValue != null ? (int)cboMarca.SelectedValue : -1;
 
             dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, categoriaSeleccionada, marcaSeleccionada);
-
-
-            //MessageBox.Show("Producto seleccionado: Marca = " + cboMarca.SelectedValue + ", Categoria: " + cboCategoria.SelectedValue, "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            ProductosWS.producto prod= (ProductosWS.producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
-            dgvProductos.Rows[e.RowIndex].Cells[0].Value =
-                prod.nombre;
-            dgvProductos.Rows[e.RowIndex].Cells[1].Value =
-                prod.marca.descripcion;
-            dgvProductos.Rows[e.RowIndex].Cells[2].Value =
-                prod.categoria.descripcion;
-            dgvProductos.Rows[e.RowIndex].Cells[3].Value =
-                prod.precioPorMenor;
-            dgvProductos.Rows[e.RowIndex].Cells[4].Value =
-                prod.precioPorMayor;
+            if (e.RowIndex < 0 || e.RowIndex >= dgvProductos.Rows.Count)
+                return;
+
+            ProductosWS.producto prod = (ProductosWS.producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
+            dgvProductos.Rows[e.RowIndex].Cells[0].Value = prod.nombre;
+            dgvProductos.Rows[e.RowIndex].Cells[1].Value = prod.marca.descripcion;
+            dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.categoria.descripcion;
+            dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.precioPorMenor;
+            dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.precioPorMayor;
         }
     }
 }

@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionPedidos));
             this.gbProveedor = new System.Windows.Forms.GroupBox();
+            this.AgregarCliente = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreCompleto = new System.Windows.Forms.TextBox();
             this.checkBoxFactura = new System.Windows.Forms.CheckBox();
+            this.lblNombreCliente = new System.Windows.Forms.Label();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
             this.lblDNICliente = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -77,9 +80,6 @@
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.btnBuscarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.txtRazonSocial = new System.Windows.Forms.TextBox();
-            this.lblNombreCliente = new System.Windows.Forms.Label();
-            this.AgregarCliente = new System.Windows.Forms.Button();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -107,6 +107,18 @@
             this.gbProveedor.TabIndex = 103;
             this.gbProveedor.TabStop = false;
             this.gbProveedor.Text = "Venta con Factura";
+            // 
+            // AgregarCliente
+            // 
+            this.AgregarCliente.Image = global::ARSACSoft.Properties.Resources.person;
+            this.AgregarCliente.Location = new System.Drawing.Point(154, 37);
+            this.AgregarCliente.Name = "AgregarCliente";
+            this.AgregarCliente.Size = new System.Drawing.Size(27, 22);
+            this.AgregarCliente.TabIndex = 99;
+            this.AgregarCliente.Text = "...";
+            this.AgregarCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AgregarCliente.UseVisualStyleBackColor = true;
+            this.AgregarCliente.Click += new System.EventHandler(this.AgregarCliente_Click);
             // 
             // btnCliente
             // 
@@ -148,6 +160,26 @@
             this.checkBoxFactura.TabIndex = 95;
             this.checkBoxFactura.UseVisualStyleBackColor = true;
             this.checkBoxFactura.CheckedChanged += new System.EventHandler(this.checkBoxFactura_CheckedChanged);
+            // 
+            // lblNombreCliente
+            // 
+            this.lblNombreCliente.AutoSize = true;
+            this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreCliente.Location = new System.Drawing.Point(194, 21);
+            this.lblNombreCliente.Name = "lblNombreCliente";
+            this.lblNombreCliente.Size = new System.Drawing.Size(83, 15);
+            this.lblNombreCliente.TabIndex = 3;
+            this.lblNombreCliente.Text = "Razon Social:";
+            // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial.Enabled = false;
+            this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRazonSocial.Location = new System.Drawing.Point(197, 38);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.ReadOnly = true;
+            this.txtRazonSocial.Size = new System.Drawing.Size(163, 20);
+            this.txtRazonSocial.TabIndex = 2;
             // 
             // txtRUC
             // 
@@ -222,6 +254,7 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(449, 161);
             this.dataGridView2.TabIndex = 105;
+            this.dataGridView2.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView2_CellFormatting);
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -593,38 +626,6 @@
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtRazonSocial
-            // 
-            this.txtRazonSocial.Enabled = false;
-            this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocial.Location = new System.Drawing.Point(197, 38);
-            this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.ReadOnly = true;
-            this.txtRazonSocial.Size = new System.Drawing.Size(163, 20);
-            this.txtRazonSocial.TabIndex = 2;
-            // 
-            // lblNombreCliente
-            // 
-            this.lblNombreCliente.AutoSize = true;
-            this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(194, 21);
-            this.lblNombreCliente.Name = "lblNombreCliente";
-            this.lblNombreCliente.Size = new System.Drawing.Size(83, 15);
-            this.lblNombreCliente.TabIndex = 3;
-            this.lblNombreCliente.Text = "Razon Social:";
-            // 
-            // AgregarCliente
-            // 
-            this.AgregarCliente.Image = global::ARSACSoft.Properties.Resources.person;
-            this.AgregarCliente.Location = new System.Drawing.Point(154, 37);
-            this.AgregarCliente.Name = "AgregarCliente";
-            this.AgregarCliente.Size = new System.Drawing.Size(27, 22);
-            this.AgregarCliente.TabIndex = 99;
-            this.AgregarCliente.Text = "...";
-            this.AgregarCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.AgregarCliente.UseVisualStyleBackColor = true;
-            this.AgregarCliente.Click += new System.EventHandler(this.AgregarCliente_Click);
-            // 
             // frmGestionPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -640,7 +641,6 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbProveedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "frmGestionPedidos";
             this.ShowInTaskbar = false;
             this.Text = "frmGestionsVentas";

@@ -537,5 +537,10 @@ namespace ARSACSoft
             _proveedorSeleccionado = null;
             _lineasOrdenDeCompra = null;
         }
+
+        private void btnQuitarProductoOC_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

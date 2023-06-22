@@ -1,4 +1,5 @@
-﻿using ARSACSoft.ProductosWS;
+﻿using ARSACSoft.AlmacenWS;
+using ARSACSoft.ProductosWS;
 using ARSACSoft.RRHHWS;
 using GMap.NET.Internals;
 using System;
@@ -48,6 +49,7 @@ namespace ARSACSoft
                     dataGridView2.Enabled = false;
                     textPrecioUni.Enabled = false;
                     textCantidad.Enabled = false;
+                    textCantProducto.Enabled = false;
                     textSubTotal.Enabled = false;
                     btnCliente.Enabled = false;
                     break;
@@ -59,6 +61,7 @@ namespace ARSACSoft
                     btnBuscarPedido.Enabled = false;
                     btnGuardar.Enabled = true;
                     textNombreProducto.Enabled = true;
+                    textCantProducto.Enabled = true;
                     btnBuscarProd.Enabled = true;
                     textMonto.Enabled = true;
                     txtIGV.Enabled = true;
@@ -76,6 +79,7 @@ namespace ARSACSoft
                     btnNuevo.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnAgregar.Enabled = false;
+                    textCantProducto.Enabled = false;
                     BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
                     btnGuardar.Enabled = false;
@@ -214,6 +218,26 @@ namespace ARSACSoft
             {
                 _clienteMayorista = frm.ClienteMayoristaSeleccionado;
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
+                txtRazonSocial.Text = _clienteMayorista.razonSocial;
+                txtRUC.Text = _clienteMayorista.RUC;
+            }
+        }
+
+        private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                lineaOrdenDeVenta lov = (lineaOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
+                dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.productoProveedor.producto.idProducto;
+                dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.nombre;
+                dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.productoProveedor.producto.marca.descripcion;
+                dataGridView2.Rows[e.RowIndex].Cells[3].Value = lov.cantidad;
+                dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.productoProveedor.costo;
+                dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.subtotal;
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }
