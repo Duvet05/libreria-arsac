@@ -223,7 +223,7 @@ namespace ARSACSoft
                     linea.cantidad += Int32.Parse(textCantProducto.Text);
                     linea.precio = linea.cantidad * linea.precio; // Actualizar subtotal
                     dataGridView2.Refresh();
-                    calcularTotal(); 
+                    calcularTotal();
                     return;
                 }
             }
@@ -249,7 +249,7 @@ namespace ARSACSoft
             textCantProducto.Text = "";
             calcularTotal();
 
-            textPrecioUni.Text = lov.precio.ToString();
+            textPrecioUni.Text = (_producto.precioPorMenor - _producto.precioPorMenor * (lov.descuento / 100)).ToString();
             textCantidad.Text = lov.cantidad.ToString();
             textSubTotal.Text = (lov.precio * lov.cantidad).ToString();
         }
@@ -277,7 +277,7 @@ namespace ARSACSoft
             }
             textDescontadoTotal.Text = descuentoTotal.ToString();
             textMonto.Text = (_venta.precioTotal - descuentoTotal).ToString(); // Mostrar precio total
-            
+
             txtIGV.Text = (_venta.precioTotal * 0.08).ToString();
         }
 
@@ -312,18 +312,30 @@ namespace ARSACSoft
 
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            try
+            if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
             {
-                lineaDeOrdenDeVenta lov = (lineaDeOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
-                dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.producto.idProducto.ToString();
-                dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.producto.nombre;
-                dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.cantidad.ToString();
-                dataGridView2.Rows[e.RowIndex].Cells[3].Value = (lov.precio * lov.cantidad ).ToString();
-                dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento.ToString();
-            }
-            catch (Exception ex)
-            {
+                lineaDeOrdenDeVenta lov = _lineasOrdenDeVenta[e.RowIndex];
 
+                if (e.ColumnIndex == 0)
+                {
+                    e.Value = lov.producto.idProducto.ToString();
+                }
+                else if (e.ColumnIndex == 1)
+                {
+                    e.Value = lov.producto.nombre;
+                }
+                else if (e.ColumnIndex == 2)
+                {
+                    e.Value = lov.cantidad.ToString();
+                }
+                else if (e.ColumnIndex == 3)
+                {
+                    e.Value = (lov.precio * lov.cantidad).ToString();
+                }
+                else if (e.ColumnIndex == 4)
+                {
+                    e.Value = lov.descuento.ToString();
+                }
             }
         }
 
@@ -357,7 +369,7 @@ namespace ARSACSoft
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true; // Evita el sonido de "beep" al presionar Enter
-                //btnCalcularDescuento.Focus(); // Cambia el foco al botón para realizar el cálculo
+                                  //btnCalcularDescuento.Focus(); // Cambia el foco al botón para realizar el cálculo
             }
         }
     }
