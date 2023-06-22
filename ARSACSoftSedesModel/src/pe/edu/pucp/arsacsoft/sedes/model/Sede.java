@@ -18,7 +18,7 @@ public class Sede {
     private String direccion;
     private String telefono;
     private String correo;
-    private ArrayList<Producto> productos;
+    private ArrayList<SedeXProducto> productos;
     
     public Sede() {
     }
@@ -31,13 +31,15 @@ public class Sede {
         this.esPrincipal = esPrincipal;
     }
 
-    public ArrayList<Producto> getProductos() {
+    public ArrayList<SedeXProducto> getProductos() {
         return productos;
     }
 
-    public void setProductos(ArrayList<Producto> productos) {
+    public void setProductos(ArrayList<SedeXProducto> productos) {
         this.productos = productos;
     }
+
+
 
     public int getIdSede() {
         return idSede;

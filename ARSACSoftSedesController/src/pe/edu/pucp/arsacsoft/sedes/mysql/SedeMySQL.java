@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.sedes.dao.SedeDAO;
 import pe.edu.pucp.arsacsoft.sedes.model.Sede;
 import pe.edu.pucp.arsacsoft.config.DBManager;
+import pe.edu.pucp.arsacsoft.producto.model.Categoria;
+import pe.edu.pucp.arsacsoft.producto.model.Marca;
+import pe.edu.pucp.arsacsoft.producto.model.Producto;
+import pe.edu.pucp.arsacsoft.sedes.model.SedeXProducto;
 /**
  *
  * @author User
@@ -39,14 +43,23 @@ public class SedeMySQL implements SedeDAO {
             
             cs = con.prepareCall("{call INSERTAR_SEDE(?,?,?,?,?)}");
             cs.registerOutParameter(1, java.sql.Types.INTEGER);
-            cs.setBoolean(2, sede.isEsPrincipal());
-            cs.setString(3, sede.getDireccion());
-            cs.setString(4, sede.getTelefono());
-            cs.setString(5, sede.getCorreo());
+            cs.setString(2, sede.getDireccion());
+            cs.setString(3, sede.getTelefono());
+            cs.setString(4, sede.getCorreo());
             
             cs.executeUpdate();
             sede.setIdSede(cs.getInt("_id_sede"));
             resultado = sede.getIdSede();
+            
+            for (SedeXProducto sxp : sede.getProductos())
+            {
+                cs = con.prepareCall("{call INSERTAR_PRODUCTO_EN_SEDE(?,?)}");
+                cs.clearParameters();
+                cs.setInt(1, sede.getIdSede());
+                cs.setInt(2, sxp.getProducto().getIdProducto());
+                    
+                cs.executeUpdate();
+            }
             
         }
         catch(Exception ex){
@@ -139,6 +152,60 @@ public class SedeMySQL implements SedeDAO {
             try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
         }
         return resultado;
+    }
+
+    @Override
+    public ArrayList<SedeXProducto> listarProductos(int idSede, String nombre) {
+        ArrayList<SedeXProducto> productos = new ArrayList<SedeXProducto>();
+        
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            
+            cs = con.prepareCall("{call LISTAR_PRODUCTOS_DE_SEDE(?,?)}");
+            cs.setInt(1, idSede);
+            cs.setString(2, nombre);
+            
+            cs.executeUpdate();
+            
+            while (rs.next())
+            {
+                SedeXProducto sxp = new SedeXProducto();
+                
+                // p.id_producto, p.nombre, c.descripcion as categoria,
+                // m.descripcion as marca, sxp.stock
+                
+                sxp.setProducto(new Producto());
+                sxp.getProducto().setIdProducto(rs.getInt("id_producto"));
+                sxp.getProducto().setNombre(rs.getString("nombre"));
+                
+                sxp.getProducto().setMarca(new Marca());
+                sxp.getProducto().getMarca().setDescripcion(rs.getString("marca"));
+                
+                sxp.getProducto().setCategoria(new Categoria());
+                sxp.getProducto().getCategoria().setDescripcion(rs.getString("categoria"));
+                
+                sxp.setStock(rs.getInt("stock"));
+                
+                
+                
+                productos.add(sxp);
+                
+            }
+            
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
+        }
+        return productos;
+    }
+
+    @Override
+    public int eliminarProducto(int idProducto) {
+        return 0;
+        
     }
     
     

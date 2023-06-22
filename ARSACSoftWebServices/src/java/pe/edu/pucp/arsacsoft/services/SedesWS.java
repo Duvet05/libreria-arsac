@@ -9,6 +9,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import pe.edu.pucp.arsacsoft.sedes.dao.SedeDAO;
 import pe.edu.pucp.arsacsoft.sedes.model.Sede;
+import pe.edu.pucp.arsacsoft.sedes.model.SedeXProducto;
 import pe.edu.pucp.arsacsoft.sedes.mysql.SedeMySQL;
 
 /**
@@ -42,4 +43,10 @@ public class SedesWS {
     {
         return daoSede.eliminar(idSede);
     }
+    /*
+    @WebMethod(operationName = "listarProductosDeSede")
+    public ArrayList<SedeXProducto> listarProductoDeSede(int idSede, String nombre)
+    {
+        return daoSede.listarProductos(idSede, nombre);
+    }*/
 }

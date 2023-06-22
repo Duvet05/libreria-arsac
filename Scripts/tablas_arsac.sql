@@ -170,26 +170,24 @@ CREATE TABLE
 
 CREATE TABLE
     sedeXproducto (
-		id_sede_x_producto INT auto_increment,
         fid_sede INT,
         fid_producto INT,
         stock INT,
         activo boolean not null default 1,
-        PRIMARY KEY (id_sede_x_producto),
+        PRIMARY KEY (fid_sede, fid_producto),
         FOREIGN KEY (fid_sede) REFERENCES sede(id_sede),
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
 
 CREATE TABLE
     productoXproveedor(
-		id_producto_x_proveedor INT auto_increment,
         fid_producto INT,
         fid_proveedor INT,
         costo DECIMAL(10, 2),
         activo boolean not null default 1,
-        PRIMARY KEY (id_producto_x_proveedor),
-        FOREIGN KEY (fid_producto) REFERENCES proveedor(id_producto),
-        FOREIGN KEY (fid_proveedor) REFERENCES producto(id_proveedor)
+        PRIMARY KEY (fid_producto, fid_proveedor),
+        FOREIGN KEY (fid_producto) REFERENCES producto(id_producto),
+        FOREIGN KEY (fid_proveedor) REFERENCES proveedor(id_proveedor)
     ) ENGINE = InnoDB;
 
 CREATE TABLE

@@ -2,6 +2,11 @@ DROP procedure IF exists INSERTAR_SEDE;
 DROP PROCEDURE IF EXISTS LISTAR_SEDES;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_SEDE;
 DROP PROCEDURE IF EXISTS ELIMINAR_SEDE;
+
+DROP PROCEDURE IF EXISTS INSERTAR_PRODUCTO_EN_SEDE;
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE;
+DROP PROCEDURE IF EXISTS ELIMINAR_PRODUCTO_DE_SEDE;
+
 DROP PROCEDURE IF EXISTS INSERTAR_ORDEN_ABASTECIMIENTO ;
 DROP PROCEDURE IF EXISTS ACTUALIZAR_ORDEN_ABASTECIMIENTO;
 DROP PROCEDURE IF EXISTS ELIMINAR_ORDEN_ABASTECIMIENTO;
@@ -12,15 +17,14 @@ DROP PROCEDURE IF EXISTS LISTAR_LINEAS_ORDEN_ABASTECIMIENTO_X_ID_ORDEN_ABASTECIM
 DELIMITER $
 CREATE PROCEDURE INSERTAR_SEDE(
 	OUT _id_sede INT,
-    IN _es_principal BOOLEAN,
     IN _direccion VARCHAR(50),
     IN _telefono VARCHAR(50),
     IN _correo VARCHAR(50)
 )
 BEGIN
 	INSERT INTO sede(es_principal, direccion, telefono, correo, activo)
-    VALUES(_es_principal, _direccion, _telefono, _correo, true);
-	SET _id_sede = last_insert_id();
+    VALUES(false, _direccion, _telefono, _correo, true);
+	SET _id_sede = @@last_insert_id;
 END $
 CREATE PROCEDURE LISTAR_SEDES()
 BEGIN
@@ -28,14 +32,12 @@ BEGIN
 END $
 CREATE PROCEDURE ACTUALIZAR_SEDE(
 	IN _id_sede INT,
-    IN _es_principal BOOLEAN,
     IN _direccion VARCHAR(50),
     IN _telefono VARCHAR(50),
     IN _correo VARCHAR(50)
 )
 BEGIN
 	UPDATE sede set
-    es_principal = _es_principal,
     direccion = _direccion,
     telefono = _telefono,
 	correo = _correo
@@ -48,6 +50,38 @@ BEGIN
 	UPDATE sede set
 	activo = false
     WHERE id_sede = _id_sede;
+END $
+
+CREATE PROCEDURE INSERTAR_PRODUCTO_EN_SEDE(
+	IN _id_sede INT,
+    IN _id_producto INT
+)
+BEGIN
+	INSERT INTO sedeXproducto(id_sede, id_producto, stock, activo)
+    VALUES(_id_sede, _id_producto, 0, true);
+END $
+
+CREATE PROCEDURE LISTAR_PRODUCTOS_DE_SEDE(
+	IN _id_sede INT,
+    IN _nombre VARCHAR(100)
+)
+BEGIN
+	SELECT p.id_producto, p.nombre, c.descripcion as categoria, m.descripcion as marca, sxp.stock
+    from producto p
+    inner join sedeXproducto sxp on p.id_producto = sxp.fid_producto and sxp.activo = true
+    inner join categoria c on p.fid_categoria = c.id_categoria
+    inner join marca m on p.fid_marca = m.id_marca
+    where p.nombre LIKE CONCAT('%',_nombre,'%') and p.activo = true;
+END $
+
+CREATE PROCEDURE ELIMINAR_PRODUCTO_DE_SEDE(
+	IN _id_sede INT,
+    IN _id_producto INT
+)
+BEGIN
+	UPDATE sedeXproducto SET
+    activo = false
+    where id_sede = _id_sede and id_producto = _id_producto;
 END $
 
 CREATE PROCEDURE INSERTAR_ORDEN_ABASTECIMIENTO(
