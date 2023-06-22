@@ -451,7 +451,7 @@ namespace ARSACSoft
             {
                 lineaOrdenDeCompra lov = (lineaOrdenDeCompra)dgvListaProductosOC.Rows[e.RowIndex].DataBoundItem;
                 dgvListaProductosOC.Rows[e.RowIndex].Cells[0].Value = lov.productoProveedor.producto.idProducto;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.nombre + " " + lov.productoProveedor.producto.marca.descripcion;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.nombre;
                 dgvListaProductosOC.Rows[e.RowIndex].Cells[2].Value = lov.productoProveedor.producto.marca.descripcion;
                 dgvListaProductosOC.Rows[e.RowIndex].Cells[3].Value = lov.cantidad;
                 dgvListaProductosOC.Rows[e.RowIndex].Cells[4].Value = lov.productoProveedor.costo;
