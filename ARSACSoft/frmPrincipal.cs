@@ -1,4 +1,5 @@
 ﻿using ARSACSoft.RRHHWS;
+using ARSACSoft.VentasWS;
 using System;
 using System.Drawing;
 using System.IO;
@@ -11,7 +12,7 @@ namespace ARSACSoft
     public partial class frmPrincipal : Form
     {
         private readonly RRHHWSClient daoRRHH;
-        private readonly empleado _empleadoLogeado;
+        private readonly RRHHWS.empleado _empleadoLogeado;
 
         private frmGestionAlmacen frmAlmacen;
         private frmGestionPedidos frmPedidos;
@@ -214,7 +215,11 @@ namespace ARSACSoft
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            frmActualizarCredenciales frm = new frmActualizarCredenciales(_empleadoLogeado);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
 
+            }
         }
     }
 }
