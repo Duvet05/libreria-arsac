@@ -372,5 +372,19 @@ namespace ARSACSoft
                                   //btnCalcularDescuento.Focus(); // Cambia el foco al botón para realizar el cálculo
             }
         }
+
+        private void btCorreo_Click(object sender, EventArgs e)
+        {
+            estado = Estado.Inicial;
+            LimpiarComponentes();
+            EstablecerEstadoFormulario();
+        }
+
+        private void btPedido_Click(object sender, EventArgs e)
+        {
+            estado = Estado.Inicial;
+            LimpiarComponentes();
+            EstablecerEstadoFormulario();
+        }
     }
 }

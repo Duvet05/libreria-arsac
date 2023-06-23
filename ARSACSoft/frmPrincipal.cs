@@ -212,5 +212,9 @@ namespace ARSACSoft
             SetButtonColor(btnReportes);
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
