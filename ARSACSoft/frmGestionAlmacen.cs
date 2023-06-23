@@ -540,7 +540,19 @@ namespace ARSACSoft
 
         private void btnQuitarProductoOC_Click(object sender, EventArgs e)
         {
-
+            //ProveedoresWS.productoXProveedor productoXProvAux= (ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem;
+            if (dgvListaProductosOC.CurrentRow != null)
+            {
+                lineaOrdenDeCompra lov = (lineaOrdenDeCompra)dgvListaProductosOC.CurrentRow.DataBoundItem;
+                this._lineasOrdenDeCompra.Remove(lov);
+                calcularTotal();
+                txtTotal.Text = this._ordenCompra.costototal.ToString("N2");
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una linea de orden de compra", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
 
         private void tpPromociones_Click(object sender, EventArgs e)

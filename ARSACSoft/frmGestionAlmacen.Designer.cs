@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpProductos = new System.Windows.Forms.TabPage();
             this.cboMarca = new System.Windows.Forms.ComboBox();
@@ -516,8 +516,8 @@
             // 
             this.dgvListaProductosOC.AllowUserToAddRows = false;
             this.dgvListaProductosOC.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaProductosOC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProductosOC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -531,8 +531,8 @@
             this.dgvListaProductosOC.Name = "dgvListaProductosOC";
             this.dgvListaProductosOC.RowHeadersVisible = false;
             this.dgvListaProductosOC.RowHeadersWidth = 51;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaProductosOC.RowTemplate.Height = 24;
             this.dgvListaProductosOC.Size = new System.Drawing.Size(903, 201);
             this.dgvListaProductosOC.TabIndex = 14;
@@ -547,8 +547,8 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "Nombre del Producto";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -563,8 +563,8 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column2.HeaderText = "Cant";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -572,8 +572,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column3.HeaderText = "Costo Unit";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -581,8 +581,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column4.HeaderText = "Subtotal";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -701,7 +701,7 @@
             // 
             // btnBuscarProductoOC
             // 
-            this.btnBuscarProductoOC.Location = new System.Drawing.Point(839, 26);
+            this.btnBuscarProductoOC.Location = new System.Drawing.Point(839, 25);
             this.btnBuscarProductoOC.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarProductoOC.Name = "btnBuscarProductoOC";
             this.btnBuscarProductoOC.Size = new System.Drawing.Size(43, 28);
@@ -768,7 +768,7 @@
             // 
             this.lblNombreCliente.AutoSize = true;
             this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(271, 62);
+            this.lblNombreCliente.Location = new System.Drawing.Point(402, 59);
             this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreCliente.Name = "lblNombreCliente";
             this.lblNombreCliente.Size = new System.Drawing.Size(99, 18);
@@ -779,22 +779,22 @@
             // 
             this.txtRazonSocialProveedorOC.Enabled = false;
             this.txtRazonSocialProveedorOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocialProveedorOC.Location = new System.Drawing.Point(413, 59);
+            this.txtRazonSocialProveedorOC.Location = new System.Drawing.Point(537, 59);
             this.txtRazonSocialProveedorOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtRazonSocialProveedorOC.Name = "txtRazonSocialProveedorOC";
             this.txtRazonSocialProveedorOC.ReadOnly = true;
-            this.txtRazonSocialProveedorOC.Size = new System.Drawing.Size(381, 23);
+            this.txtRazonSocialProveedorOC.Size = new System.Drawing.Size(257, 23);
             this.txtRazonSocialProveedorOC.TabIndex = 7;
             // 
             // txtRUCProveedorOC
             // 
             this.txtRUCProveedorOC.Enabled = false;
             this.txtRUCProveedorOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRUCProveedorOC.Location = new System.Drawing.Point(81, 59);
+            this.txtRUCProveedorOC.Location = new System.Drawing.Point(181, 59);
             this.txtRUCProveedorOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtRUCProveedorOC.Name = "txtRUCProveedorOC";
             this.txtRUCProveedorOC.ReadOnly = true;
-            this.txtRUCProveedorOC.Size = new System.Drawing.Size(172, 23);
+            this.txtRUCProveedorOC.Size = new System.Drawing.Size(202, 23);
             this.txtRUCProveedorOC.TabIndex = 6;
             // 
             // lblDNICliente
@@ -811,17 +811,17 @@
             // dtpFechaOrdenCompra
             // 
             this.dtpFechaOrdenCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaOrdenCompra.Location = new System.Drawing.Point(413, 25);
+            this.dtpFechaOrdenCompra.Location = new System.Drawing.Point(537, 25);
             this.dtpFechaOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaOrdenCompra.Name = "dtpFechaOrdenCompra";
-            this.dtpFechaOrdenCompra.Size = new System.Drawing.Size(469, 24);
+            this.dtpFechaOrdenCompra.Size = new System.Drawing.Size(345, 24);
             this.dtpFechaOrdenCompra.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(269, 30);
+            this.label5.Location = new System.Drawing.Point(400, 27);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 18);
@@ -847,7 +847,7 @@
             this.txtIDOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDOrdenCompra.Name = "txtIDOrdenCompra";
             this.txtIDOrdenCompra.ReadOnly = true;
-            this.txtIDOrdenCompra.Size = new System.Drawing.Size(72, 24);
+            this.txtIDOrdenCompra.Size = new System.Drawing.Size(96, 24);
             this.txtIDOrdenCompra.TabIndex = 0;
             // 
             // toolStrip1

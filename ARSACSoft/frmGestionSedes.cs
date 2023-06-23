@@ -88,6 +88,7 @@ namespace ARSACSoft
                     btnBuscarSede.Enabled = true;
                     btnGuardarSede.Enabled = false;
 
+                    txtStockProductoSede.Enabled = false;
                     txtIDSede.Enabled = false;
                     txtDireccionSede.Enabled = false;
                     txtTelefonoSede.Enabled = false;
@@ -107,6 +108,7 @@ namespace ARSACSoft
                     btnBuscarSede.Enabled = false;
                     btnGuardarSede.Enabled = true;
 
+                    txtStockProductoSede.Enabled = true;
                     txtIDSede.Enabled = true;
                     txtDireccionSede.Enabled = true;
                     txtTelefonoSede.Enabled = true;
@@ -125,6 +127,7 @@ namespace ARSACSoft
                     btnBuscarSede.Enabled = false;
                     btnGuardarSede.Enabled = false;
 
+                    txtStockProductoSede.Enabled = false;
                     txtIDSede.Enabled = false;
                     txtDireccionSede.Enabled = false;
                     txtTelefonoSede.Enabled = false;

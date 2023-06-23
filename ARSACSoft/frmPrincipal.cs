@@ -31,32 +31,42 @@ namespace ARSACSoft
             UpdateEmployeeInfo();
 
             InitializeForms();
-
+            
             switch (_empleadoLogeado.tipo.idTipoDeEmpleado)
-            {
+            {   //Permisos corregidos. Si queremos ser más ambiciosos, podemos ocultar dentro de los módulos
+                //los tabs que no deberían ver
                 case 1:
-                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoContabilidad);
+                    //OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoContabilidad);
                     break;
                 case 2:
+                case 3:
                     OcultarBotones(grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad, grupoRRHH);
                     break;
-                case 3:
-                    OcultarBotones(grupoPedidos, grupoContabilidad, grupoRRHH, grupoReportes);
-                    break;
                 case 4:
+                    //OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad, grupoSede, 
+                    //    grupoReportes, grupoProveedores, grupoRRHH);
                     OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad);
                     break;
                 case 5:
-                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad);
+                    OcultarBotones(grupoPedidos, grupoContabilidad, 
+                        grupoReportes, grupoRRHH);
                     break;
                 case 6:
-                    //Gerencia
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad, grupoSede
+                        , grupoProveedores);
                     break;
             }
         }
 
         private void InitializeForms()
         {
+            //Para el que se aventure a ocultar páginas de tabs para mejorar los privilegios dentro de sistema:
+
+            //Código para desactivar páginas dados sus privilegios
+            //TabPage page2 = formPrinc.TcPrincipal.TabPages[0];
+            //formPrinc.TcPrincipal.TabPages.Remove(page2);
+
+
             frmAlmacen = new frmGestionAlmacen(_empleadoLogeado);
             frmPedidos = new frmGestionPedidos();
             frmProveedores = new frmGestionProveedores();
