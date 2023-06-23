@@ -76,6 +76,7 @@ CREATE PROCEDURE LISTAR_USUARIOS(
 BEGIN
 	SELECT count(*) as repeticiones from cuentaUsuario where usuario = _usuario;
 END $
+
 -- EMPLEADO
 
 CREATE PROCEDURE LISTAR_TIPOS_DE_EMPLEADOS(
@@ -83,8 +84,8 @@ CREATE PROCEDURE LISTAR_TIPOS_DE_EMPLEADOS(
 BEGIN
 	SELECT id_tipo_empleado, descripcion from tipoEmpleado where activo = 1;
 END $
-drop procedure if exists INSERTAR_EMPLEADO;
-delimiter $
+
+
 CREATE PROCEDURE INSERTAR_EMPLEADO(
     OUT _fid_empleado INT,
     IN _DNI VARCHAR(8),
@@ -103,7 +104,7 @@ BEGIN
     INSERT INTO persona(nombre, apellidos, DNI, correo, telefono, activo)
     VALUES(_nombre,_apellidos,_DNI,_correo, _telefono, true);
     SET _fid_empleado = LAST_INSERT_ID();
-    INSERT INTO empleado(fid_empleado, fid_sede, fid_tipo_empleado, fecha_contratacion, salario, direccion,foto) 
+    INSERT INTO empleado(fid_empleado, fid_sede, fid_tipo_empleado, fecha_contratacion, salario, direccion, foto) 
 	VALUES(_fid_empleado, _fid_sede, _fid_tipo_empleado, _fecha_contratacion, _salario, _direccion, _foto);
 END $
 
@@ -124,8 +125,7 @@ BEGIN
     where (CONCAT(p.nombre,' ',p.apellidos) LIKE CONCAT('%',_nombre_DNI,'%')) OR (p.DNI LIKE CONCAT('%',_nombre_DNI,'%'));
 END $
 
-drop procedure if exists LISTAR_EMPLEADOS_POR_NOMBRE_DNI;
-delimiter $
+
 CREATE PROCEDURE LISTAR_EMPLEADOS_POR_NOMBRE_DNI(
     IN _nombre_DNI VARCHAR(255)
 )
@@ -140,8 +140,7 @@ BEGIN
     inner join sede s on s.id_sede = e.fid_sede
     where (CONCAT(p.nombre,' ',p.apellidos) LIKE CONCAT('%',_nombre_DNI,'%')) OR (p.DNI LIKE CONCAT('%',_nombre_DNI,'%'));
 END $
-drop procedure if exists BUSCAR_EMPLEADO_ID;
-delimiter $
+
 CREATE PROCEDURE BUSCAR_EMPLEADO_ID(
     IN _idEmpleado INT
 )
@@ -205,7 +204,8 @@ CREATE PROCEDURE INSERTAR_CLIENTE_MAYORISTA(
     IN _correo VARCHAR(70),
     IN _telefono VARCHAR(70),
     IN _RUC VARCHAR(50),
-    IN _razon_social VARCHAR(50)
+    IN _razon_social VARCHAR(50),
+    IN _direccion VARCHAR(255)
 )
 BEGIN
     INSERT INTO persona(nombre, apellidos, DNI, correo, telefono, activo)
@@ -213,17 +213,16 @@ BEGIN
 	
     SET _id_cliente_mayorista = last_insert_id();
     
-    INSERT INTO clienteMayorista(RUC, razon_social)
-    VALUES(_RUC, _razon_social);
+    INSERT INTO clienteMayorista(RUC, razon_social, direccion)
+    VALUES(_RUC, _razon_social, _direccion);
 END $
 
-drop procedure if exists LISTAR_CLIENTES_MAYORISTAS_POR_NOMBRE_DNI;
-delimiter $
+
 CREATE PROCEDURE LISTAR_CLIENTES_MAYORISTAS_POR_NOMBRE_DNI(
 	IN _nombre_DNI varchar(1000)
 )
 BEGIN
-	SELECT c.fid_cliente_mayorista, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono, c.RUC, c.razon_social
+	SELECT c.fid_cliente_mayorista, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono, c.RUC, c.razon_social, c.direccion
 	from clienteMayorista c
 	inner join persona p on p.id_persona = c.fid_cliente_mayorista
 	where p.activo = 1 and
@@ -239,7 +238,8 @@ CREATE PROCEDURE ACTUALIZAR_CLIENTE_MAYORISTA(
     IN _correo VARCHAR(70),
     IN _telefono VARCHAR(70),
     IN _RUC VARCHAR(50),
-    IN _razon_social VARCHAR(50)
+    IN _razon_social VARCHAR(50),
+    IN _direccion VARCHAR(255)
 )
 BEGIN
 	UPDATE persona
@@ -249,7 +249,7 @@ BEGIN
 
 	UPDATE clienteMayorista
     SET
-    RUC = _RUC, razon_social = _razon_social
+    RUC = _RUC, razon_social = _razon_social, direccion = _direccion
     WHERE id_cliente_mayorista = _id_cliente_mayorista;
 END $
 

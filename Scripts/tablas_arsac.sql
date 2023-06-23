@@ -137,6 +137,7 @@ CREATE TABLE
         fid_cliente_mayorista INT,
         RUC VARCHAR(50),
         razon_social VARCHAR(50),
+        direccion VARCHAR(255),
         PRIMARY KEY (fid_cliente_mayorista),
         FOREIGN KEY (fid_cliente_mayorista) REFERENCES persona(id_persona)
     ) ENGINE = InnoDB;
