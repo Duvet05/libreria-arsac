@@ -85,14 +85,14 @@ namespace ARSACSoft
             {
                 string address = await GetAddressAsync(point.Lat, point.Lng);
                 // Hacer algo con la dirección...
-                textDireccion.Text = address;
+                txtDireccionCliente.Text = address;
             }
         }
         private async void button1_Click(object sender, EventArgs e)
         {
             GMap.NET.PointLatLng point = gMapControl1.Position;
             string address = await GetAddressAsync(point.Lat, point.Lng);
-            textDireccion.Text = address;
+            txtDireccionCliente.Text = address;
         }
 
         private void ConfigureForm()
@@ -134,7 +134,7 @@ namespace ARSACSoft
                     cboTipoDeEmpleado.Enabled = false;
                     txtCorreoEmpleado.Enabled = false;
                     txtSalario.Enabled = false;
-                    txtDireccion.Enabled = false;
+                    txtDireccionEmpleado.Enabled = false;
                     txtContrasena.Enabled = false;
                     txtUsuario.Enabled = false;
                     btnBuscarSede.Enabled = false;
@@ -159,7 +159,7 @@ namespace ARSACSoft
                     cboTipoDeEmpleado.Enabled = true;
                     txtCorreoEmpleado.Enabled = true;
                     txtSalario.Enabled = true;
-                    txtDireccion.Enabled = true;
+                    txtDireccionEmpleado.Enabled = true;
                     btnBuscarSede.Enabled = true;
                     cbMostrarContrasena.Enabled = true;
                     txtUsuario.Enabled = true;
@@ -183,7 +183,7 @@ namespace ARSACSoft
                     cboTipoDeEmpleado.Enabled = false;
                     txtCorreoEmpleado.Enabled = false;
                     txtSalario.Enabled = false;
-                    txtDireccion.Enabled = false;
+                    txtDireccionEmpleado.Enabled = false;
                     btnBuscarSede.Enabled = false;
 
                     txtUsuario.Enabled = false;
@@ -213,7 +213,7 @@ namespace ARSACSoft
                     txtCorreoCliente.Enabled = false;
                     txtRUC.Enabled = false;
                     txtRazonSocial.Enabled = false;
-                    textDireccion.Enabled = false;
+                    txtDireccionCliente.Enabled = false;
 
                     break;
                 case Estado.Nuevo:
@@ -235,7 +235,7 @@ namespace ARSACSoft
                     txtCorreoCliente.Enabled = true;
                     txtRUC.Enabled = true;
                     txtRazonSocial.Enabled = true;
-                    textDireccion.Enabled = true;
+                    txtDireccionCliente.Enabled = true;
                     break;
                 case Estado.Buscar:
                     btnNuevoCliente.Enabled = false;
@@ -267,7 +267,7 @@ namespace ARSACSoft
             cboTipoDeEmpleado.SelectedIndex = -1;
             txtCorreoEmpleado.Text = "";
             txtSalario.Text = "";
-            txtDireccion.Text = "";
+            txtDireccionEmpleado.Text = "";
             pbFotoEmpleado.Image = Resources.hombre;
             txtUsuario.Text = "";
             txtDireccionSede.Text = "";
@@ -326,7 +326,7 @@ namespace ARSACSoft
                 cboTipoDeEmpleado.SelectedValue = _empleado.tipo.idTipoDeEmpleado;
                 txtCorreoEmpleado.Text = _empleado.correo;
                 txtSalario.Text = _empleado.salario.ToString(CultureInfo.InvariantCulture);
-                txtDireccion.Text = _empleado.direccion;
+                txtDireccionEmpleado.Text = _empleado.direccion;
 
                 if (_empleado.foto != null)
                 {
@@ -378,7 +378,7 @@ namespace ARSACSoft
                 return;
             }
             _empleado.salario = salario;
-            _empleado.direccion = txtDireccion.Text;
+            _empleado.direccion = txtDireccionEmpleado.Text;
 
             if (!string.IsNullOrEmpty(_rutaFotoEmpleado))
             {
@@ -546,7 +546,7 @@ namespace ARSACSoft
             _clienteMayorista.telefono = txtTelefonoCliente.Text;
             _clienteMayorista.RUC = txtRUC.Text;
             _clienteMayorista.razonSocial = txtRazonSocial.Text;
-            _clienteMayorista.direccion = textDireccion.Text;
+            _clienteMayorista.direccion = txtDireccionCliente.Text;
 
             int resultado = _estadoCliente == Estado.Nuevo ? daoRRHH.insertarClienteMayorista(_clienteMayorista) : daoRRHH.modificarClienteMayorista(_clienteMayorista);
 
@@ -583,7 +583,7 @@ namespace ARSACSoft
                 txtTelefonoCliente.Text = _clienteMayorista.telefono;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
-                textDireccion.Text = _clienteMayorista.direccion;
+                txtDireccionCliente.Text = _clienteMayorista.direccion;
                 _estadoCliente = Estado.Buscar;
                 establecerEstadoFormularioCliente();
             }

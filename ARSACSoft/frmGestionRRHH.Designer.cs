@@ -42,7 +42,7 @@
             this.txtCiudad = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.botonUbicacion = new System.Windows.Forms.Button();
-            this.textDireccion = new System.Windows.Forms.TextBox();
+            this.txtDireccionCliente = new System.Windows.Forms.TextBox();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
@@ -83,7 +83,7 @@
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.txtNombreEmpleado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtDireccionEmpleado = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -221,7 +221,7 @@
             this.gbDatosCliente.Controls.Add(this.txtCiudad);
             this.gbDatosCliente.Controls.Add(this.label24);
             this.gbDatosCliente.Controls.Add(this.botonUbicacion);
-            this.gbDatosCliente.Controls.Add(this.textDireccion);
+            this.gbDatosCliente.Controls.Add(this.txtDireccionCliente);
             this.gbDatosCliente.Controls.Add(this.gMapControl1);
             this.gbDatosCliente.Controls.Add(this.txtRazonSocial);
             this.gbDatosCliente.Controls.Add(this.txtRUC);
@@ -288,14 +288,14 @@
             this.botonUbicacion.UseVisualStyleBackColor = true;
             this.botonUbicacion.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textDireccion
+            // txtDireccionCliente
             // 
-            this.textDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDireccion.Location = new System.Drawing.Point(424, 80);
-            this.textDireccion.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.textDireccion.Name = "textDireccion";
-            this.textDireccion.Size = new System.Drawing.Size(173, 21);
-            this.textDireccion.TabIndex = 23;
+            this.txtDireccionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionCliente.Location = new System.Drawing.Point(424, 80);
+            this.txtDireccionCliente.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txtDireccionCliente.Name = "txtDireccionCliente";
+            this.txtDireccionCliente.Size = new System.Drawing.Size(173, 21);
+            this.txtDireccionCliente.TabIndex = 23;
             // 
             // gMapControl1
             // 
@@ -517,7 +517,7 @@
             this.gbDatosEmpleado.Controls.Add(this.txtSalario);
             this.gbDatosEmpleado.Controls.Add(this.txtNombreEmpleado);
             this.gbDatosEmpleado.Controls.Add(this.label4);
-            this.gbDatosEmpleado.Controls.Add(this.txtDireccion);
+            this.gbDatosEmpleado.Controls.Add(this.txtDireccionEmpleado);
             this.gbDatosEmpleado.Controls.Add(this.label3);
             this.gbDatosEmpleado.Controls.Add(this.label2);
             this.gbDatosEmpleado.Controls.Add(this.label1);
@@ -745,14 +745,14 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Correo:";
             // 
-            // txtDireccion
+            // txtDireccionEmpleado
             // 
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(130, 271);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(173, 21);
-            this.txtDireccion.TabIndex = 7;
+            this.txtDireccionEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionEmpleado.Location = new System.Drawing.Point(130, 271);
+            this.txtDireccionEmpleado.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.txtDireccionEmpleado.Name = "txtDireccionEmpleado";
+            this.txtDireccionEmpleado.Size = new System.Drawing.Size(173, 21);
+            this.txtDireccionEmpleado.TabIndex = 7;
             // 
             // label3
             // 
@@ -1027,7 +1027,7 @@
         private System.Windows.Forms.GroupBox gbDatosEmpleado;
         private System.Windows.Forms.DateTimePicker dtpFechaContratacion;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtDireccionEmpleado;
         private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -1085,7 +1085,7 @@
         private System.Windows.Forms.TextBox txtIDCliente;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.CheckBox cbMostrarContrasena;
-        private System.Windows.Forms.TextBox textDireccion;
+        private System.Windows.Forms.TextBox txtDireccionCliente;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private System.Windows.Forms.Button botonUbicacion;
         private System.Windows.Forms.Label label24;

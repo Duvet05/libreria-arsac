@@ -211,10 +211,10 @@ BEGIN
     INSERT INTO persona(nombre, apellidos, DNI, correo, telefono, activo)
 	VALUES(_nombre,_apellidos,_DNI,_correo, _telefono, true);
 	
-    SET _id_cliente_mayorista = last_insert_id();
+    SET _id_cliente_mayorista = @@last_insert_id;
     
-    INSERT INTO clienteMayorista(RUC, razon_social, direccion)
-    VALUES(_RUC, _razon_social, _direccion);
+    INSERT INTO clienteMayorista(fid_cliente_mayorista, RUC, razon_social, direccion)
+    VALUES(_id_cliente_mayorista, _RUC, _razon_social, _direccion);
 END $
 
 
@@ -250,7 +250,7 @@ BEGIN
 	UPDATE clienteMayorista
     SET
     RUC = _RUC, razon_social = _razon_social, direccion = _direccion
-    WHERE id_cliente_mayorista = _id_cliente_mayorista;
+    WHERE fid_cliente_mayorista = _id_cliente_mayorista;
 END $
 
 

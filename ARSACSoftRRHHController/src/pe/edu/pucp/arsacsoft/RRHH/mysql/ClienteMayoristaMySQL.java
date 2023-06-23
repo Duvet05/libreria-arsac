@@ -26,7 +26,7 @@ public class ClienteMayoristaMySQL implements ClienteMayoristaDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_CLIENTE_MAYORISTA(?,?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{call INSERTAR_CLIENTE_MAYORISTA(?,?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter("_id_cliente_mayorista", java.sql.Types.INTEGER);
             cs.setString("_RUC",cliente.getRUC());
             cs.setString("_razon_social",cliente.getRazonSocial());
@@ -52,7 +52,7 @@ public class ClienteMayoristaMySQL implements ClienteMayoristaDAO{
         int resultado = 0;
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call ACTUALIZAR_CLIENTE_MAYORISTA(?,?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{call ACTUALIZAR_CLIENTE_MAYORISTA(?,?,?,?,?,?,?,?,?)}");
             cs.setInt("_id_cliente_mayorista", cliente.getIdPersona());
             cs.setString("_RUC", cliente.getRUC());
             cs.setString("_razon_social",cliente.getRazonSocial());
