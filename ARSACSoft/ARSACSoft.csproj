@@ -55,7 +55,7 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -119,6 +119,12 @@
     </Compile>
     <Compile Include="Ciudades.cs" />
     <Compile Include="Estado.cs" />
+    <Compile Include="frmActualizarCredenciales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActualizarCredenciales.Designer.cs">
+      <DependentUpon>frmActualizarCredenciales.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmActualizarCredenciales.resx">
+      <DependentUpon>frmActualizarCredenciales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBienvenida.resx">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
     </EmbeddedResource>
@@ -422,6 +431,9 @@
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.verificarCuentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.verificarRepeticionDeCuentaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\RRHHWS\RRHHWS.wsdl" />
     <None Include="Connected Services\RRHHWS\RRHHWS.xsd">
       <SubType>Designer</SubType>
@@ -432,7 +444,7 @@
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.insertarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarProductosDeSedeResponse1.datasource">
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarProductosDeSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarSedesResponse.datasource">
@@ -444,50 +456,14 @@
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sede.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sedeXProducto1.datasource">
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sedeXProducto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\SedesWS.wsdl" />
     <None Include="Connected Services\SedeWS\SedesWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.buscarOrdenPorIDResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.cancelarOrdenDeVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.lineaDeOrdenDeVenta.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorFechaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.modificarOrdenDeVentaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.ordenDeVenta.datasource">
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.helloResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />
@@ -695,6 +671,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

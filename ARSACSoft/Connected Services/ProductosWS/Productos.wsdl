@@ -17,12 +17,6 @@
   <message name="listarMarcaTodasResponse">
     <part name="parameters" element="tns:listarMarcaTodasResponse" />
   </message>
-  <message name="listarProductosXNombreXCategoriaXMarca">
-    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarca" />
-  </message>
-  <message name="listarProductosXNombreXCategoriaXMarcaResponse">
-    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
-  </message>
   <message name="listarCategoriasTodas">
     <part name="parameters" element="tns:listarCategoriasTodas" />
   </message>
@@ -35,6 +29,12 @@
   <message name="modificarProductoResponse">
     <part name="parameters" element="tns:modificarProductoResponse" />
   </message>
+  <message name="listarProductosXNombreXCategoriaXMarca">
+    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarca" />
+  </message>
+  <message name="listarProductosXNombreXCategoriaXMarcaResponse">
+    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
+  </message>
   <portType name="ProductosWS">
     <operation name="insertarProducto">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest" message="tns:insertarProducto" />
@@ -44,10 +44,6 @@
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasRequest" message="tns:listarMarcaTodas" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasResponse" message="tns:listarMarcaTodasResponse" />
     </operation>
-    <operation name="listarProductosXNombreXCategoriaXMarca">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaRequest" message="tns:listarProductosXNombreXCategoriaXMarca" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaResponse" message="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
-    </operation>
     <operation name="listarCategoriasTodas">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasRequest" message="tns:listarCategoriasTodas" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarCategoriasTodasResponse" message="tns:listarCategoriasTodasResponse" />
@@ -55,6 +51,10 @@
     <operation name="modificarProducto">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoRequest" message="tns:modificarProducto" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoResponse" message="tns:modificarProductoResponse" />
+    </operation>
+    <operation name="listarProductosXNombreXCategoriaXMarca">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaRequest" message="tns:listarProductosXNombreXCategoriaXMarca" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaResponse" message="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
     </operation>
   </portType>
   <binding name="ProductosWSPortBinding" type="tns:ProductosWS">
@@ -77,15 +77,6 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarProductosXNombreXCategoriaXMarca">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="listarCategoriasTodas">
       <soap:operation soapAction="" />
       <input>
@@ -96,6 +87,15 @@
       </output>
     </operation>
     <operation name="modificarProducto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductosXNombreXCategoriaXMarca">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

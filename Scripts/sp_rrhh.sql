@@ -2,6 +2,8 @@ DROP PROCEDURE IF EXISTS VERIFICAR_CUENTA_USUARIO;
 DROP PROCEDURE IF EXISTS EncryptPassword;
 DROP PROCEDURE IF EXISTS DecryptPassword;
 DROP PROCEDURE IF EXISTS INSERTAR_CUENTA_USUARIO;
+DROP PROCEDURE IF EXISTS LISTAR_USUARIOS;
+
 DROP PROCEDURE IF EXISTS LISTAR_TIPOS_DE_EMPLEADOS;
 DROP PROCEDURE IF EXISTS INSERTAR_EMPLEADO;
 DROP PROCEDURE IF EXISTS LISTAR_EMPLEADOS_POR_SEDE_NOMBRE_DNI;
@@ -68,6 +70,12 @@ BEGIN
     
 END$
 
+CREATE PROCEDURE LISTAR_USUARIOS(
+	IN _usuario VARCHAR(50)
+)
+BEGIN
+	SELECT count(*) as repeticiones from cuentaUsuario where usuario = _usuario;
+END $
 -- EMPLEADO
 
 CREATE PROCEDURE LISTAR_TIPOS_DE_EMPLEADOS(
@@ -123,7 +131,7 @@ CREATE PROCEDURE LISTAR_EMPLEADOS_POR_NOMBRE_DNI(
 )
 BEGIN
 	SELECT e.fid_empleado, p.nombre, p.apellidos, p.DNI, p.correo, p.telefono,
-    s.id_sede, s.direccion as direccion_de_sede,
+    s.id_sede, s.direccion as direccion_de_sede, s.es_principal,
     te.id_tipo_empleado, te.descripcion as tipo_empleado,
     e.fecha_contratacion, e.salario, e.direccion, e.foto
     FROM empleado e
@@ -151,7 +159,7 @@ END $
 
 
 CREATE PROCEDURE ACTUALIZAR_EMPLEADO(
-	IN _idEmpleado INT,
+	IN _id_empleado INT,
     IN _DNI VARCHAR(8),
     IN _nombre VARCHAR(70),
     IN _apellidos VARCHAR(70),
@@ -161,7 +169,8 @@ CREATE PROCEDURE ACTUALIZAR_EMPLEADO(
     IN _fid_tipo_empleado INT,
     IN _fecha_contratacion DATE,
     IN _salario DECIMAL(10,2),
-    IN _direccion VARCHAR(100)
+    IN _direccion VARCHAR(100),
+    IN _foto LONGBLOB
 )
 BEGIN
 	UPDATE persona
@@ -172,8 +181,8 @@ BEGIN
     UPDATE empleado
     SET
     fid_sede = _fid_sede, fid_tipo_empleado = _fid_tipo_empleado,
-    fecha_contratacion = _fecha_contratacion, salario = _salario, direccion = _direccion
-    where fid_empleado = _idEmpleado;
+    fecha_contratacion = _fecha_contratacion, salario = _salario, direccion = _direccion, foto = _foto
+    where fid_empleado = _id_empleado;
 END $
 
 

@@ -1,4 +1,4 @@
-@@ -1,260 +0,0 @@
+
 
 INSERT INTO parametros (nombre_empresa, ruc, direccion, telefono, email)
 VALUES ('ARSAC S.A.', '12345678901', 'Av. Los Girasoles 789, Miraflores, Lima', '923456789', 'ARSAC_SA@gmail.com');
@@ -64,6 +64,8 @@ INSERT INTO persona (nombre, apellidos, DNI, correo, telefono) VALUES
 -- INSERT para la tabla sede
 -- #######################################################################
 INSERT INTO sede (direccion, telefono, correo, es_principal) 
+VALUES ('Av. Los Girasoles 789, Miraflores, Lima', '923456789', 'ARSAC_SA@gmail.com', 1);
+INSERT INTO sede (direccion, telefono, correo, es_principal) 
 VALUES ('Av. Los Jazmines 123, Los Olivos, Lima', '987654321', 'ARSAC_SAsede1@gmail.com', 0);
 INSERT INTO sede (direccion, telefono, correo, es_principal) 
 VALUES ('Jirón Las Orquídeas 456, Barranco, Lima', '912345678', 'ARSAC_SAsede2@gmail.com', 0);
@@ -71,8 +73,7 @@ INSERT INTO sede (direccion, telefono, correo, es_principal)
 VALUES ('Jirón Los Lirios 012, San Isidro, Lima', '934567890', 'ARSAC_SAsede3@gmail.com', 0);
 INSERT INTO sede (direccion, telefono, correo, es_principal) 
 VALUES ('Av. Las Margaritas 345, Surco, Lima', '945678901', 'ARSAC_SAsede4@gmail.com', 0);
-INSERT INTO sede (direccion, telefono, correo, es_principal) 
-VALUES ('Av. Los Girasoles 789, Miraflores, Lima', '923456789', 'ARSAC_SA@gmail.com', 1);
+
 -- #######################################################################
 -- INSERT para la tabla marca
 -- #######################################################################
@@ -124,11 +125,13 @@ VALUES ('Contabilidad');
 /*
 	rrhh, reporte
 */
-
+INSERT INTO tipoEmpleado (descripcion)
+VALUES ('Recursos Humanos');
 
 -- INSERT para la tabla empleado
 INSERT INTO empleado (fid_empleado, fid_tipo_empleado, fid_sede, fecha_contratacion, salario, direccion, foto)
 VALUES (1, 1, 1, '2023-06-16', 2000.00, 'Calle Empleado 123', NULL);
+call insertar_cuenta_usuario(@id, 1, 'duvet05', 'duvet05');
 
 -- INSERT para la tabla clienteMayorista
 INSERT INTO clienteMayorista (fid_cliente_mayorista, RUC, razon_social) 
@@ -228,34 +231,3 @@ VALUES (5, 4, 'REGLA ALPHA 25CM', 3.99, 3.49);
 INSERT INTO promocion (fid_producto, porcentaje, cantidad_minima, fecha_inicio, fecha_fin, activo)
 VALUES (1, 10.00, 5, '2023-06-16', '2023-06-30', true);
 
--- INSERT para la tabla sedeXproducto
-INSERT INTO sedeXproducto (fid_sede, fid_producto, stock, activo)
-VALUES (1, 1, 100, true);
-
--- INSERT para la tabla productoXproveedor
-INSERT INTO productoXproveedor (fid_producto, fid_proveedor, costo, activo)
-VALUES (1, 1, 8.00, true);
-
--- INSERT para la tabla ordenDeAbastecimiento
-INSERT INTO ordenDeAbastecimiento (fid_empleado, fid_sede, fecha_orden, activo)
-VALUES (1, 1, '2023-06-16', true);
-
--- INSERT para la tabla lineaOrdenDeAbastecimiento
-INSERT INTO lineaOrdenDeAbastecimiento (fid_orden_de_abastecimiento, fid_producto, cantidad)
-VALUES (1, 1, 50);
-
--- INSERT para la tabla ordenDeVenta
-INSERT INTO ordenDeVenta (fid_empleado, fid_cliente_mayorista, total, fecha_orden, activo)
-VALUES (1, 1, 100.00, '2023-06-16', true);
-
--- INSERT para la tabla lineaOrdenDeVenta
-INSERT INTO lineaOrdenDeVenta (fid_orden_de_venta, fid_producto, cantidad, descuento, subtotal, activo)
-VALUES (1, 1, 2, 0.10, 18.00, true);
-
--- INSERT para la tabla ordenDeCompra
-INSERT INTO ordenDeCompra (fid_empleado, fid_proveedor, fecha_orden, total, activo)
-VALUES (1, 1, '2023-06-16', 500.00, true);
-
--- INSERT para la tabla lineaOrdenDeCompra
-INSERT INTO lineaOrdenDeCompra (fid_orden_de_compra, fid_producto, cantidad, subtotal)
-VALUES (1, 1, 10, 100.00);

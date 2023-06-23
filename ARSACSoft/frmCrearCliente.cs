@@ -22,6 +22,7 @@ namespace ARSACSoft
             InitializeComponent();
             ConfigureForm();
             InitializeMaps();
+
         }
         public clienteMayorista ClienteMayoristaSeleccionado { get => clienteMayoristaSeleccionado; set => clienteMayoristaSeleccionado = value; }
 

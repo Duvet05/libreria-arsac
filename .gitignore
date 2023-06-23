@@ -164,3 +164,4 @@ ARSACSoft/Connected Services/ProveedoresWS/ProveedoresWebService.wsdl
 /ARSACSoftVentasController/build/
 /ARSACSoftVentasController/dist/
 ARSACSoft/Connected Services/ProveedorWS/configuration.svcinfo
+/ARSACSoftDBManager/build

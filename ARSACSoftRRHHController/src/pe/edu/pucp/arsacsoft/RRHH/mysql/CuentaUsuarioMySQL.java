@@ -66,8 +66,6 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{CALL BUSCAR_CUENTA_POR_EMPLEADO(?)}");
             cs.setInt(1, idEmpleado);
-            
-
             rs = cs.executeQuery();
             if (rs.next())
             {
@@ -120,4 +118,26 @@ public class CuentaUsuarioMySQL implements CuentaUsuarioDAO {
         return resultado;
     }
 
+    @Override
+    public int verificarRepeticion(String username) {
+        int repeticiones = 0;
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{CALL LISTAR_USUARIOS(?)}");
+            cs.setString(1, username);
+            rs = cs.executeQuery();
+            while (rs.next())
+                repeticiones = rs.getInt("repeticiones");
+            
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return repeticiones;
+    }
+    
 }

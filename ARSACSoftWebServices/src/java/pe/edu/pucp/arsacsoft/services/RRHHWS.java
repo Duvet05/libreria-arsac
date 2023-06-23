@@ -145,5 +145,9 @@ public class RRHHWS {
             throw new WebServiceException("Error al buscar la cuenta de usuario", ex);
         }
     }
-
+    @WebMethod(operationName = "verificarRepeticionDeCuenta")
+    public int verificarRepeticionDeCuenta(String username)
+    {
+        return daoCuentaUsuario.verificarRepeticion(username);
+    }
 }

@@ -32,6 +32,8 @@
   <xs:element name="obtenerEmpleadoPorIDResponse" type="tns:obtenerEmpleadoPorIDResponse" />
   <xs:element name="verificarCuenta" type="tns:verificarCuenta" />
   <xs:element name="verificarCuentaResponse" type="tns:verificarCuentaResponse" />
+  <xs:element name="verificarRepeticionDeCuenta" type="tns:verificarRepeticionDeCuenta" />
+  <xs:element name="verificarRepeticionDeCuentaResponse" type="tns:verificarRepeticionDeCuentaResponse" />
   <xs:complexType name="modificarEmpleado">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:empleado" />
@@ -146,14 +148,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpleadosPorNombreDNI">
+  <xs:complexType name="verificarRepeticionDeCuenta">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEmpleadosPorNombreDNIResponse">
+  <xs:complexType name="verificarRepeticionDeCuentaResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="buscarCuenta">
@@ -172,6 +174,16 @@
       <xs:element name="idEmpleado" type="xs:int" />
       <xs:element minOccurs="0" name="password" type="xs:string" />
       <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpleadosPorNombreDNI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpleadosPorNombreDNIResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empleado" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarCuentaUsuario">
