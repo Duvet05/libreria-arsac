@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionSedes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpSede = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -50,9 +50,6 @@
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.lblCodProducto = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpHoraFinAtencion = new System.Windows.Forms.DateTimePicker();
             this.dtpHoraInicioAtencion = new System.Windows.Forms.DateTimePicker();
             this.txtCorreoSede = new System.Windows.Forms.TextBox();
@@ -112,6 +109,9 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAlmacen.SuspendLayout();
             this.tpSede.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -134,7 +134,7 @@
             this.tcAlmacen.Controls.Add(this.tpEntradasYSalidas);
             this.tcAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcAlmacen.Location = new System.Drawing.Point(9, 9);
-            this.tcAlmacen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tcAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.tcAlmacen.Name = "tcAlmacen";
             this.tcAlmacen.SelectedIndex = 0;
             this.tcAlmacen.Size = new System.Drawing.Size(697, 451);
@@ -145,9 +145,9 @@
             this.tpSede.Controls.Add(this.toolStrip1);
             this.tpSede.Controls.Add(this.groupBox3);
             this.tpSede.Location = new System.Drawing.Point(4, 29);
-            this.tpSede.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpSede.Margin = new System.Windows.Forms.Padding(2);
             this.tpSede.Name = "tpSede";
-            this.tpSede.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpSede.Padding = new System.Windows.Forms.Padding(2);
             this.tpSede.Size = new System.Drawing.Size(689, 418);
             this.tpSede.TabIndex = 2;
             this.tpSede.Text = "Sede";
@@ -242,9 +242,9 @@
             this.groupBox3.Controls.Add(this.lblIDSede);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(28, 43);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(658, 372);
             this.groupBox3.TabIndex = 124;
             this.groupBox3.TabStop = false;
@@ -262,9 +262,9 @@
             this.groupBox4.Controls.Add(this.txtCodigoProducto);
             this.groupBox4.Controls.Add(this.lblCodProducto);
             this.groupBox4.Location = new System.Drawing.Point(20, 258);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(357, 102);
             this.groupBox4.TabIndex = 142;
             this.groupBox4.TabStop = false;
@@ -368,7 +368,7 @@
             this.Column2,
             this.Column3});
             this.dgvProductos.Location = new System.Drawing.Point(400, 32);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.RowHeadersWidth = 51;
@@ -376,38 +376,13 @@
             this.dgvProductos.Size = new System.Drawing.Size(246, 328);
             this.dgvProductos.TabIndex = 141;
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column1.FillWeight = 128.9461F;
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 44;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 71.57206F;
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column3.FillWeight = 99.48186F;
-            this.Column3.HeaderText = "Stock";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 62;
-            // 
             // dtpHoraFinAtencion
             // 
             this.dtpHoraFinAtencion.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHoraFinAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHoraFinAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraFinAtencion.Location = new System.Drawing.Point(178, 195);
-            this.dtpHoraFinAtencion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHoraFinAtencion.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHoraFinAtencion.Name = "dtpHoraFinAtencion";
             this.dtpHoraFinAtencion.Size = new System.Drawing.Size(123, 21);
             this.dtpHoraFinAtencion.TabIndex = 140;
@@ -418,7 +393,7 @@
             this.dtpHoraInicioAtencion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHoraInicioAtencion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraInicioAtencion.Location = new System.Drawing.Point(178, 158);
-            this.dtpHoraInicioAtencion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpHoraInicioAtencion.Margin = new System.Windows.Forms.Padding(2);
             this.dtpHoraInicioAtencion.Name = "dtpHoraInicioAtencion";
             this.dtpHoraInicioAtencion.Size = new System.Drawing.Size(123, 21);
             this.dtpHoraInicioAtencion.TabIndex = 139;
@@ -533,9 +508,9 @@
             this.tpProductos.Controls.Add(this.btnGenerarOrden);
             this.tpProductos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.tpProductos.Location = new System.Drawing.Point(4, 29);
-            this.tpProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpProductos.Margin = new System.Windows.Forms.Padding(2);
             this.tpProductos.Name = "tpProductos";
-            this.tpProductos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpProductos.Padding = new System.Windows.Forms.Padding(2);
             this.tpProductos.Size = new System.Drawing.Size(689, 418);
             this.tpProductos.TabIndex = 0;
             this.tpProductos.Text = "Abastecimiento";
@@ -756,8 +731,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(667, 174);
             this.dataGridView1.TabIndex = 90;
@@ -835,9 +810,9 @@
             this.tpEntradasYSalidas.Controls.Add(this.groupBox1);
             this.tpEntradasYSalidas.Controls.Add(this.dataGridView2);
             this.tpEntradasYSalidas.Location = new System.Drawing.Point(4, 29);
-            this.tpEntradasYSalidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpEntradasYSalidas.Margin = new System.Windows.Forms.Padding(2);
             this.tpEntradasYSalidas.Name = "tpEntradasYSalidas";
-            this.tpEntradasYSalidas.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpEntradasYSalidas.Padding = new System.Windows.Forms.Padding(2);
             this.tpEntradasYSalidas.Size = new System.Drawing.Size(689, 418);
             this.tpEntradasYSalidas.TabIndex = 1;
             this.tpEntradasYSalidas.Text = "Lista Ordenes de Abastecimiento Sede";
@@ -914,7 +889,7 @@
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(404, 20);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(228, 20);
             this.dateTimePicker1.TabIndex = 102;
@@ -943,7 +918,7 @@
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Location = new System.Drawing.Point(404, 46);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(228, 20);
             this.dateTimePicker2.TabIndex = 99;
@@ -1015,6 +990,31 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column1.FillWeight = 128.9461F;
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 44;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 71.57206F;
+            this.Column2.HeaderText = "Direccion";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column3.FillWeight = 99.48186F;
+            this.Column3.HeaderText = "Principal";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 80;
+            // 
             // frmGestionSedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1022,7 +1022,7 @@
             this.ClientSize = new System.Drawing.Size(715, 469);
             this.Controls.Add(this.tcAlmacen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmGestionSedes";
             this.Text = "frmGestionSedes";
             this.tcAlmacen.ResumeLayout(false);
@@ -1130,9 +1130,9 @@
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.Label lblCodProducto;
         private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
