@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="productoXProveedor" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ARSACSoft.ProveedoresWS.productoXProveedor</TypeInfo>
+   <TypeInfo>ARSACSoft.ProveedoresWS.productoXProveedor, ARSACSoft, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

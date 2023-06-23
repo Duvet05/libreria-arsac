@@ -30,7 +30,7 @@ public class ProductoXProveedorMySQL implements ProductoXProveedorDAO{
         ArrayList<ProductoXProveedor> productos = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_PRODUCTO_PROVEEDOR(?, ?, ?, ?)}");
+            cs = con.prepareCall("{call LISTAR_PRODUCTOS_POR_PROVEEDOR(?, ?, ?, ?)}");
             cs.setString("_nombre", nombre);
             cs.setInt("_fid_categoria", _fid_categoria);
             cs.setInt("_fid_marca", _fid_marca);

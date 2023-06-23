@@ -27,6 +27,8 @@ namespace ARSACSoft
 
         private RRHHWSClient daoRRHH;
         private string _rutaFotoEmpleado;
+
+        private cuentaUsuario _cuentaUsuario;
         public frmGestionRRHH()
         {
             InitializeComponent();
@@ -186,6 +188,7 @@ namespace ARSACSoft
 
                     txtUsuario.Enabled = false;
                     txtDireccionSede.Enabled = false;
+                    txtContrasena.Enabled = false;
                     break;
             }
         }
@@ -268,6 +271,7 @@ namespace ARSACSoft
             pbFotoEmpleado.Image = Resources.hombre;
             txtUsuario.Text = "";
             txtDireccionSede.Text = "";
+            txtContrasena.Text = "";
         }
         public void limpiarComponentesCliente()
         {
@@ -289,7 +293,7 @@ namespace ARSACSoft
 
             _empleado = new empleado();
             _empleado.sede = new sede();
-
+            _cuentaUsuario = new cuentaUsuario();
         }
 
         private void btnBuscarSede_Click(object sender, EventArgs e)
@@ -331,12 +335,13 @@ namespace ARSACSoft
                 }
                 txtDireccionSede.Text = _empleado.sede.direccion;
 
-                cuentaUsuario cuenta = daoRRHH.buscarCuenta(_empleado.idPersona);
-                if (cuenta != null)
+                _cuentaUsuario = daoRRHH.buscarCuenta(_empleado.idPersona);
+                if (_cuentaUsuario != null)
                 {
-                    txtUsuario.Text = cuenta.username;
-                    txtContrasena.Text = cuenta.password;
+                    txtUsuario.Text = _cuentaUsuario.username;
+                    txtContrasena.Text = _cuentaUsuario.password;
                 }
+
                 _estadoEmpleado = Estado.Buscar;
                 establecerEstadoFormularioEmpleado();
 
@@ -392,14 +397,34 @@ namespace ARSACSoft
                 }
             }
 
-            int resultado = _estadoEmpleado == Estado.Nuevo ? daoRRHH.insertarEmpleado(_empleado) : daoRRHH.modificarEmpleado(_empleado);
+            // VERIFICACION DE NO REPETIR EL USERNAME DE UN EMPLEADO
+
+            if (_estadoEmpleado == Estado.Modificar && _cuentaUsuario.username != txtUsuario.Text && daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0)
+            {
+                MessageBox.Show($"Error al registrar el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (_estadoEmpleado == Estado.Nuevo && daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0)
+            {
+                MessageBox.Show($"Error al registrar el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            int resultado;
+            if (_estadoEmpleado == Estado.Nuevo)
+                resultado = daoRRHH.insertarEmpleado(_empleado);
+            else
+                resultado = daoRRHH.modificarEmpleado(_empleado);
+
+            _cuentaUsuario.username = txtUsuario.Text;
+            _cuentaUsuario.password = txtContrasena.Text;
+            _cuentaUsuario.idEmpleado = resultado;
 
             if (resultado != 0)
             {
-                cuentaUsuario nuevaCuentaUsuario = new cuentaUsuario();
-                nuevaCuentaUsuario.username = txtUsuario.Text;
-                nuevaCuentaUsuario.password = txtContrasena.Text;
-                nuevaCuentaUsuario.idEmpleado = resultado;
+  
 
                 if (_estadoEmpleado == Estado.Nuevo)
                 {
@@ -407,7 +432,8 @@ namespace ARSACSoft
                     {
                         //metodo de busqueda de nombre de usuario
                         /*Guardar cuenta de usuario*/
-                        daoRRHH.insertarCuentaUsuario(nuevaCuentaUsuario);
+
+                        daoRRHH.insertarCuentaUsuario(_cuentaUsuario);
                         /*Fin GuardarCuentaUsuario*/
                         txtIDEmpleado.Text = resultado.ToString();
                     }
@@ -421,7 +447,7 @@ namespace ARSACSoft
                 {
                     try
                     {
-                        daoRRHH.actualizarCuenta(nuevaCuentaUsuario);
+                        daoRRHH.actualizarCuenta(_cuentaUsuario);
                     }
                     catch (Exception ex)
                     {

@@ -8,4 +8,5 @@ public interface CuentaUsuarioDAO {
     int insertarCuenta(CuentaUsuario cuenta);
     CuentaUsuario buscar(int idEmpleado);
     int actualizar(CuentaUsuario cuenta);
+    int verificarRepeticion(String username);
 }

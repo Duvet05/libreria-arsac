@@ -20,6 +20,7 @@ namespace ARSACSoft
         private frmContabilidad frmContab;
         private frmGestionRRHH frmGestRRHH;
         private frmReportes frmReports;
+        //private frmActualizarCredenciales frmSettings;
         
         public frmPrincipal(int idEmpleado)
         {
@@ -32,25 +33,28 @@ namespace ARSACSoft
 
             InitializeForms();
 
-            switch (_empleadoLogeado.tipo.idTipoDeEmpleado)
+            switch (_empleadoLogeado.tipo.descripcion)
             {
-                case 1:
-                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoContabilidad);
+                case "Gerente":
+                    
                     break;
-                case 2:
+                case "Vendedor Mayorista":
                     OcultarBotones(grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad, grupoRRHH);
                     break;
-                case 3:
-                    OcultarBotones(grupoPedidos, grupoContabilidad, grupoRRHH, grupoReportes);
+                case "Vendedor Minorista":
+                    OcultarBotones(grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad, grupoRRHH);
                     break;
-                case 4:
-                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad);
+                case "Logistica":
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad, grupoRRHH);
                     break;
-                case 5:
+                case "Almacen":
+                    OcultarBotones(grupoPedidos, grupoProveedores, grupoSede, grupoContabilidad, grupoRRHH);
+                    break;
+                case "Contabilidad":
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoSede, grupoRRHH);
+                    break;
+                case "Recursos Humanos":
                     OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad);
-                    break;
-                case 6:
-                    //Gerencia
                     break;
             }
         }
@@ -64,6 +68,7 @@ namespace ARSACSoft
             frmContab = new frmContabilidad();
             frmGestRRHH = new frmGestionRRHH();
             frmReports = new frmReportes();
+            //frmSettings = new frmActualizarCredenciales(_empleadoLogeado);
         }
 
         private void OcultarBotones(params GroupBox[] botones)
@@ -202,5 +207,10 @@ namespace ARSACSoft
             SetButtonColor(btnReportes);
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            //DisplayForm(frmSettings);
+            //SetButtonColor(btnSettings);
+        }
     }
 }
