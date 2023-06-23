@@ -57,6 +57,9 @@ namespace ARSACSoft
                 password = txtContrasenha.Text
             };
 
+            // algo
+
+
             // Verificar las credenciales y obtener el ID del empleado
             int idEmpleado = _daoRRHWSClient.verificarCuenta(_cuenta);
 
