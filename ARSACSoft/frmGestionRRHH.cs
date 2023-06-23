@@ -138,7 +138,7 @@ namespace ARSACSoft
                     txtContrasena.Enabled = false;
                     txtUsuario.Enabled = false;
                     btnBuscarSede.Enabled = false;
-                    checkBox1.Enabled = false;
+                    cbMostrarContrasena.Enabled = false;
                     txtDireccionSede.Enabled = false;
                     break;
                 case Estado.Nuevo:
@@ -161,7 +161,7 @@ namespace ARSACSoft
                     txtSalario.Enabled = true;
                     txtDireccion.Enabled = true;
                     btnBuscarSede.Enabled = true;
-                    checkBox1.Enabled = true;
+                    cbMostrarContrasena.Enabled = true;
                     txtUsuario.Enabled = true;
                     txtDireccionSede.Enabled = true;
                     btnSubirPortada.Enabled = true;
@@ -401,13 +401,13 @@ namespace ARSACSoft
 
             if (_estadoEmpleado == Estado.Modificar && _cuentaUsuario.username != txtUsuario.Text && daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0)
             {
-                MessageBox.Show($"Error al registrar el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al actualizar las credenciales", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (_estadoEmpleado == Estado.Nuevo && daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0)
             {
-                MessageBox.Show($"Error al registrar el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al registrar las credenciales", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -636,9 +636,9 @@ namespace ARSACSoft
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void cbMostrarContrasena_CheckedChanged(object sender, EventArgs e)
         {
-            txtContrasena.UseSystemPasswordChar = !checkBox1.Checked;
+            txtContrasena.UseSystemPasswordChar = !cbMostrarContrasena.Checked;
         }
 
         private void txtDNIEmpleado_KeyPress(object sender, KeyPressEventArgs e)

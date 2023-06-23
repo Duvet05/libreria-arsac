@@ -91,7 +91,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtIDEmpleado = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbMostrarContrasena = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -816,7 +816,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.cbMostrarContrasena);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtContrasena);
             this.groupBox1.Controls.Add(this.lblUsuario);
@@ -830,17 +830,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la cuenta";
             // 
-            // checkBox1
+            // cbMostrarContrasena
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.checkBox1.Location = new System.Drawing.Point(98, 87);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(134, 19);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Mostrar Contraseña";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.cbMostrarContrasena.AutoSize = true;
+            this.cbMostrarContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.cbMostrarContrasena.Location = new System.Drawing.Point(98, 87);
+            this.cbMostrarContrasena.Name = "cbMostrarContrasena";
+            this.cbMostrarContrasena.Size = new System.Drawing.Size(134, 19);
+            this.cbMostrarContrasena.TabIndex = 10;
+            this.cbMostrarContrasena.Text = "Mostrar Contraseña";
+            this.cbMostrarContrasena.UseVisualStyleBackColor = true;
+            this.cbMostrarContrasena.CheckedChanged += new System.EventHandler(this.cbMostrarContrasena_CheckedChanged);
             // 
             // label22
             // 
@@ -1084,7 +1084,7 @@
         private System.Windows.Forms.TextBox txtApellidoCliente;
         private System.Windows.Forms.TextBox txtIDCliente;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbMostrarContrasena;
         private System.Windows.Forms.TextBox textDireccion;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private System.Windows.Forms.Button botonUbicacion;

@@ -16,7 +16,6 @@ namespace ARSACSoft
         private cuentaUsuario _cuenta;
         private RRHHWSClient _daoRRHH;
         private empleado _empleadoLogeado;
-        private string _username;
 
         public frmActualizarCredenciales(empleado empleadoLogeado)
         {
@@ -25,29 +24,30 @@ namespace ARSACSoft
             _empleadoLogeado = empleadoLogeado;
 
             _cuenta = _daoRRHH.buscarCuenta(empleadoLogeado.idPersona);
+            _cuenta.idEmpleado = _empleadoLogeado.idPersona;
 
             txtContrasena.Text = _cuenta.password;
             txtUsuario.Text = _cuenta.username;
-            _username = _cuenta.username;
         }
 
         private void btnGuardarSede_Click(object sender, EventArgs e)
         {
 
-            if (_username == txtUsuario.Text)
+            if (_cuenta.username == txtUsuario.Text || (
+                _cuenta.username != txtUsuario.Text && _daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) == 0))
             {
                 _cuenta.username = txtUsuario.Text;
                 _cuenta.password = txtContrasena.Text;
                 _daoRRHH.actualizarCuenta(_cuenta);
-            }
-            else if (_daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) == 0)
-            {
-                _cuenta.username = txtUsuario.Text;
-                _cuenta.password = txtContrasena.Text;
-                _daoRRHH.actualizarCuenta(_cuenta);
+                MessageBox.Show($"Se actualizaron las credenciales", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show($"Error al registrar el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al actualizar las credenciales", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void cbMostrarContrasena_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = !cbMostrarContrasena.Checked;
         }
     }
 }

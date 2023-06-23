@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActualizarCredenciales));
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbMostrarContrasena = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -49,57 +49,61 @@
             // 
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.toolStrip1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(488, 287);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(323, 182);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Credenciales";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.cbMostrarContrasena);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtContrasena);
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.txtUsuario);
-            this.groupBox1.Location = new System.Drawing.Point(21, 62);
+            this.groupBox1.Location = new System.Drawing.Point(14, 40);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(426, 182);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(284, 118);
             this.groupBox1.TabIndex = 95;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la cuenta";
             // 
-            // checkBox1
+            // cbMostrarContrasena
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.checkBox1.Location = new System.Drawing.Point(147, 134);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(194, 26);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Mostrar Contraseña";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbMostrarContrasena.AutoSize = true;
+            this.cbMostrarContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.cbMostrarContrasena.Location = new System.Drawing.Point(98, 87);
+            this.cbMostrarContrasena.Name = "cbMostrarContrasena";
+            this.cbMostrarContrasena.Size = new System.Drawing.Size(134, 19);
+            this.cbMostrarContrasena.TabIndex = 10;
+            this.cbMostrarContrasena.Text = "Mostrar Contraseña";
+            this.cbMostrarContrasena.UseVisualStyleBackColor = true;
+            this.cbMostrarContrasena.CheckedChanged += new System.EventHandler(this.cbMostrarContrasena_CheckedChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(18, 91);
+            this.label22.Location = new System.Drawing.Point(12, 59);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(108, 22);
+            this.label22.Size = new System.Drawing.Size(73, 15);
             this.label22.TabIndex = 41;
             this.label22.Text = "Contraseña:";
             // 
             // txtContrasena
             // 
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(144, 86);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContrasena.Location = new System.Drawing.Point(96, 56);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(241, 28);
+            this.txtContrasena.Size = new System.Drawing.Size(162, 21);
             this.txtContrasena.TabIndex = 13;
             this.txtContrasena.UseSystemPasswordChar = true;
             // 
@@ -107,19 +111,20 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(18, 46);
+            this.lblUsuario.Location = new System.Drawing.Point(12, 30);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(77, 22);
+            this.lblUsuario.Size = new System.Drawing.Size(53, 15);
             this.lblUsuario.TabIndex = 39;
             this.lblUsuario.Text = "Usuario:";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(144, 42);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsuario.Location = new System.Drawing.Point(96, 27);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(241, 28);
+            this.txtUsuario.Size = new System.Drawing.Size(162, 21);
             this.txtUsuario.TabIndex = 12;
             // 
             // toolStrip1
@@ -129,10 +134,10 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnGuardarSede});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Location = new System.Drawing.Point(2, 2);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(482, 37);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(319, 27);
             this.toolStrip1.TabIndex = 94;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -143,28 +148,29 @@
             this.btnGuardarSede.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarSede.Image")));
             this.btnGuardarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardarSede.Name = "btnGuardarSede";
-            this.btnGuardarSede.Size = new System.Drawing.Size(107, 32);
+            this.btnGuardarSede.Size = new System.Drawing.Size(80, 24);
             this.btnGuardarSede.Text = "&Guardar";
             this.btnGuardarSede.Click += new System.EventHandler(this.btnGuardarSede_Click);
             // 
             // Credenciales
             // 
             this.Credenciales.Controls.Add(this.tabPage1);
-            this.Credenciales.Location = new System.Drawing.Point(22, 21);
+            this.Credenciales.Location = new System.Drawing.Point(15, 14);
+            this.Credenciales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Credenciales.Name = "Credenciales";
             this.Credenciales.SelectedIndex = 0;
-            this.Credenciales.Size = new System.Drawing.Size(496, 320);
+            this.Credenciales.Size = new System.Drawing.Size(331, 208);
             this.Credenciales.TabIndex = 0;
             // 
             // frmActualizarCredenciales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 367);
+            this.ClientSize = new System.Drawing.Size(364, 239);
             this.Controls.Add(this.Credenciales);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmActualizarCredenciales";
-            this.Text = "frmActualizarCredenciales";
+            this.Text = "Actualización de credenciales";
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -183,7 +189,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnGuardarSede;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbMostrarContrasena;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.Label lblUsuario;
