@@ -7,7 +7,6 @@ package pe.edu.pucp.arsacsoft.services;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import pe.edu.pucp.arsacsoft.producto.model.Categoria;
 import pe.edu.pucp.arsacsoft.producto.model.Marca;
 import pe.edu.pucp.arsacsoft.producto.model.Producto;

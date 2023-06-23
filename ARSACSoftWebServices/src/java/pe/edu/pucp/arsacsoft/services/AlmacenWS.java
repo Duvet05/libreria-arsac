@@ -14,10 +14,6 @@ import pe.edu.pucp.arsacsoft.almacen.mysql.OrdenDeCompraMySQL;
 @WebService(serviceName = "AlmacenWS")
 public class AlmacenWS {
 
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
     private OrdenDeCompraDAO ordenDeCompraDAO = new OrdenDeCompraMySQL();
     private LineaOrdenDeCompraDAO lineaOrdenDeCompraDAO = new LineaOrdenDeCompraMySQL();
 

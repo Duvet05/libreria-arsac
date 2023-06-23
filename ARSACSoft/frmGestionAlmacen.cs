@@ -537,5 +537,20 @@ namespace ARSACSoft
             _proveedorSeleccionado = null;
             _lineasOrdenDeCompra = null;
         }
+
+        private void btnQuitarProductoOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpPromociones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
