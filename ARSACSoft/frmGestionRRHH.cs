@@ -360,6 +360,18 @@ namespace ARSACSoft
                 return;
             }
 
+            // VERIFICACION DE NO REPETIR EL CORREO
+
+            if ((_estadoEmpleado == Estado.Modificar &&
+                txtCorreoEmpleado.Text != _empleado.correo &&
+                daoRRHH.obtenerRepeticionesDeCorreo(txtCorreoEmpleado.Text) > 0) ||
+                (_estadoEmpleado == Estado.Nuevo &&
+                daoRRHH.obtenerRepeticionesDeCorreo(txtCorreoEmpleado.Text) > 0))
+            {
+                MessageBox.Show($"El correo debe ser único", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             _empleado.nombre = txtNombreEmpleado.Text;
             _empleado.apellidos = txtApellidoEmpleado.Text;
             _empleado.DNI = txtDNIEmpleado.Text;
@@ -399,15 +411,13 @@ namespace ARSACSoft
 
             // VERIFICACION DE NO REPETIR EL USERNAME DE UN EMPLEADO
 
-            if (_estadoEmpleado == Estado.Modificar && _cuentaUsuario.username != txtUsuario.Text && daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0)
+            if ((_estadoEmpleado == Estado.Modificar &&
+                _cuentaUsuario.username != txtUsuario.Text &&
+                daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0) ||
+                (_estadoEmpleado == Estado.Nuevo &&
+                daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0))
             {
-                MessageBox.Show($"Error al actualizar las credenciales", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (_estadoEmpleado == Estado.Nuevo && daoRRHH.verificarRepeticionDeCuenta(txtUsuario.Text) > 0)
-            {
-                MessageBox.Show($"Error al registrar las credenciales", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"El ususario debe ser único", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

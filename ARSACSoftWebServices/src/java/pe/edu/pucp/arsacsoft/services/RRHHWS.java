@@ -7,6 +7,7 @@ import javax.xml.ws.WebServiceException;
 import pe.edu.pucp.arsacsoft.RRHH.dao.ClienteMayoristaDAO;
 import pe.edu.pucp.arsacsoft.RRHH.dao.CuentaUsuarioDAO;
 import pe.edu.pucp.arsacsoft.RRHH.dao.EmpleadoDAO;
+import pe.edu.pucp.arsacsoft.RRHH.dao.PersonaDAO;
 import pe.edu.pucp.arsacsoft.RRHH.dao.TipoDeEmpleadoDAO;
 import pe.edu.pucp.arsacsoft.RRHH.model.ClienteMayorista;
 import pe.edu.pucp.arsacsoft.RRHH.model.CuentaUsuario;
@@ -16,6 +17,7 @@ import pe.edu.pucp.arsacsoft.RRHH.model.TipoDeEmpleado;
 import pe.edu.pucp.arsacsoft.RRHH.mysql.ClienteMayoristaMySQL;
 import pe.edu.pucp.arsacsoft.RRHH.mysql.CuentaUsuarioMySQL;
 import pe.edu.pucp.arsacsoft.RRHH.mysql.EmpleadoMySQL;
+import pe.edu.pucp.arsacsoft.RRHH.mysql.PersonaMySQL;
 import pe.edu.pucp.arsacsoft.RRHH.mysql.TipoDeEmpleadoMySQL;
 
 @WebService(serviceName = "RRHHWS")
@@ -25,6 +27,13 @@ public class RRHHWS {
     private EmpleadoDAO daoEmpleado = new EmpleadoMySQL();
     private ClienteMayoristaDAO daoCliente = new ClienteMayoristaMySQL();
     private CuentaUsuarioDAO daoCuentaUsuario = new CuentaUsuarioMySQL();
+    private PersonaDAO daoPersona = new PersonaMySQL();
+    
+    @WebMethod(operationName = "obtenerRepeticionesDeCorreo")
+    public int obtenerRepeticionesDeCorreo(String correo)
+    {
+        return daoPersona.contarRepeticionesDeCorreo(correo);
+    }
 
     @WebMethod(operationName = "listarTiposDeEmpleados")
     public ArrayList<TipoDeEmpleado> listarTiposDeEmpleados() {

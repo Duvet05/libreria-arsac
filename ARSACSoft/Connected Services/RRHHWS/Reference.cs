@@ -175,6 +175,15 @@ namespace ARSACSoft.RRHHWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarCuentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarCuentaResponse")]
         System.Threading.Tasks.Task<ARSACSoft.RRHHWS.buscarCuentaResponse> buscarCuentaAsync(ARSACSoft.RRHHWS.buscarCuentaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoResponse obtenerRepeticionesDeCorreo(ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoResponse> obtenerRepeticionesDeCorreoAsync(ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest request);
     }
     
     /// <remarks/>
@@ -1752,6 +1761,42 @@ namespace ARSACSoft.RRHHWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerRepeticionesDeCorreo", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerRepeticionesDeCorreoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        public obtenerRepeticionesDeCorreoRequest() {
+        }
+        
+        public obtenerRepeticionesDeCorreoRequest(string arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="obtenerRepeticionesDeCorreoResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class obtenerRepeticionesDeCorreoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public obtenerRepeticionesDeCorreoResponse() {
+        }
+        
+        public obtenerRepeticionesDeCorreoResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface RRHHWSChannel : ARSACSoft.RRHHWS.RRHHWS, System.ServiceModel.IClientChannel {
     }
@@ -2168,6 +2213,29 @@ namespace ARSACSoft.RRHHWS {
             ARSACSoft.RRHHWS.buscarCuentaRequest inValue = new ARSACSoft.RRHHWS.buscarCuentaRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.RRHHWS.RRHHWS)(this)).buscarCuentaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoResponse ARSACSoft.RRHHWS.RRHHWS.obtenerRepeticionesDeCorreo(ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest request) {
+            return base.Channel.obtenerRepeticionesDeCorreo(request);
+        }
+        
+        public int obtenerRepeticionesDeCorreo(string arg0) {
+            ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest inValue = new ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoResponse retVal = ((ARSACSoft.RRHHWS.RRHHWS)(this)).obtenerRepeticionesDeCorreo(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoResponse> ARSACSoft.RRHHWS.RRHHWS.obtenerRepeticionesDeCorreoAsync(ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest request) {
+            return base.Channel.obtenerRepeticionesDeCorreoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoResponse> obtenerRepeticionesDeCorreoAsync(string arg0) {
+            ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest inValue = new ARSACSoft.RRHHWS.obtenerRepeticionesDeCorreoRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.RRHHWS.RRHHWS)(this)).obtenerRepeticionesDeCorreoAsync(inValue);
         }
     }
 }
