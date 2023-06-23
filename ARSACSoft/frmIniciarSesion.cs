@@ -58,7 +58,7 @@ namespace ARSACSoft
             };
 
             // algo
-
+            // mas cmabios
 
             // Verificar las credenciales y obtener el ID del empleado
             int idEmpleado = _daoRRHWSClient.verificarCuenta(_cuenta);
