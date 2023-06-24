@@ -95,7 +95,7 @@
             this.btnModificarOC = new System.Windows.Forms.ToolStripButton();
             this.btnEliminarOC = new System.Windows.Forms.ToolStripButton();
             this.btnCancelarOC = new System.Windows.Forms.ToolStripButton();
-            this.btnImprimirOC = new System.Windows.Forms.ToolStripButton();
+            this.btnMarcarRecibidoOC = new System.Windows.Forms.ToolStripButton();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -130,6 +130,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblEstadoOrdenCompra = new System.Windows.Forms.Label();
             this.tcAlmacen.SuspendLayout();
             this.tpProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
@@ -526,7 +527,7 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvListaProductosOC.Location = new System.Drawing.Point(7, 277);
+            this.dgvListaProductosOC.Location = new System.Drawing.Point(7, 278);
             this.dgvListaProductosOC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvListaProductosOC.Name = "dgvListaProductosOC";
             this.dgvListaProductosOC.RowHeadersVisible = false;
@@ -684,6 +685,7 @@
             // 
             // gbDatosOrdenCompra
             // 
+            this.gbDatosOrdenCompra.Controls.Add(this.lblEstadoOrdenCompra);
             this.gbDatosOrdenCompra.Controls.Add(this.btnBuscarProveedorOC);
             this.gbDatosOrdenCompra.Controls.Add(this.lblNombreCliente);
             this.gbDatosOrdenCompra.Controls.Add(this.txtRazonSocialProveedorOC);
@@ -702,6 +704,7 @@
             this.gbDatosOrdenCompra.TabIndex = 11;
             this.gbDatosOrdenCompra.TabStop = false;
             this.gbDatosOrdenCompra.Text = "Datos de la Orden de Compra";
+            this.gbDatosOrdenCompra.Enter += new System.EventHandler(this.gbDatosOrdenCompra_Enter);
             // 
             // btnBuscarProveedorOC
             // 
@@ -808,9 +811,9 @@
             this.btnGuardarOC,
             this.btnBuscarOC,
             this.btnModificarOC,
-            this.btnEliminarOC,
             this.btnCancelarOC,
-            this.btnImprimirOC});
+            this.btnEliminarOC,
+            this.btnMarcarRecibidoOC});
             this.toolStrip1.Location = new System.Drawing.Point(3, 2);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(915, 27);
@@ -857,8 +860,8 @@
             this.btnEliminarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarOC.Image")));
             this.btnEliminarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEliminarOC.Name = "btnEliminarOC";
-            this.btnEliminarOC.Size = new System.Drawing.Size(87, 24);
-            this.btnEliminarOC.Text = "&Eliminar";
+            this.btnEliminarOC.Size = new System.Drawing.Size(132, 24);
+            this.btnEliminarOC.Text = "&Eliminar Orden";
             // 
             // btnCancelarOC
             // 
@@ -869,13 +872,14 @@
             this.btnCancelarOC.Text = "&Cancelar";
             this.btnCancelarOC.Click += new System.EventHandler(this.btnCancelarOC_Click);
             // 
-            // btnImprimirOC
+            // btnMarcarRecibidoOC
             // 
-            this.btnImprimirOC.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirOC.Image")));
-            this.btnImprimirOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnImprimirOC.Name = "btnImprimirOC";
-            this.btnImprimirOC.Size = new System.Drawing.Size(90, 24);
-            this.btnImprimirOC.Text = "Imprimir";
+            this.btnMarcarRecibidoOC.Image = ((System.Drawing.Image)(resources.GetObject("btnMarcarRecibidoOC.Image")));
+            this.btnMarcarRecibidoOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnMarcarRecibidoOC.Name = "btnMarcarRecibidoOC";
+            this.btnMarcarRecibidoOC.Size = new System.Drawing.Size(180, 24);
+            this.btnMarcarRecibidoOC.Text = "Marcar como recibido";
+            this.btnMarcarRecibidoOC.Click += new System.EventHandler(this.btnMarcarRecibidoOC_Click);
             // 
             // tpPromociones
             // 
@@ -1230,6 +1234,14 @@
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
             // 
+            // lblEstadoOrdenCompra
+            // 
+            this.lblEstadoOrdenCompra.AutoSize = true;
+            this.lblEstadoOrdenCompra.Location = new System.Drawing.Point(238, 0);
+            this.lblEstadoOrdenCompra.Name = "lblEstadoOrdenCompra";
+            this.lblEstadoOrdenCompra.Size = new System.Drawing.Size(0, 18);
+            this.lblEstadoOrdenCompra.TabIndex = 10;
+            // 
             // frmGestionAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1320,7 +1332,7 @@
         private System.Windows.Forms.DataGridView dgvListaProductosOC;
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ToolStripButton btnImprimirOC;
+        private System.Windows.Forms.ToolStripButton btnMarcarRecibidoOC;
         private System.Windows.Forms.Label lblPrecioUnitario;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label16;
@@ -1363,5 +1375,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Label lblEstadoOrdenCompra;
     }
 }

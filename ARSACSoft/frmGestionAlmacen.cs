@@ -7,6 +7,7 @@ using ARSACSoft.SedeWS;
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -177,7 +178,7 @@ namespace ARSACSoft
                     btnModificarOC.Enabled = false;
                     btnEliminarOC.Enabled = false;
                     btnCancelarOC.Enabled = false;
-                    btnImprimirOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
 
                     txtIDOrdenCompra.Enabled = false;
                     dtpFechaOrdenCompra.Enabled = false;
@@ -192,7 +193,6 @@ namespace ARSACSoft
                     btnAgregarProductoOC.Enabled = false;
                     btnQuitarProductoOC.Enabled= false;
                     btnBuscarProductoOC.Enabled= false;
-
                     break;
                 case Estado.Nuevo:
                 case Estado.Modificar:
@@ -202,7 +202,7 @@ namespace ARSACSoft
                     btnModificarOC.Enabled = false;
                     btnEliminarOC.Enabled = false;
                     btnCancelarOC.Enabled = true;
-                    btnImprimirOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
 
                     txtIDOrdenCompra.Enabled = true;
                     dtpFechaOrdenCompra.Enabled = true;
@@ -217,7 +217,6 @@ namespace ARSACSoft
                     btnAgregarProductoOC.Enabled = true;
                     btnQuitarProductoOC.Enabled = true;
                     btnBuscarProductoOC.Enabled = true;
-
                     break;
                 case Estado.Buscar:
                     btnNuevoOC.Enabled = false;
@@ -226,7 +225,7 @@ namespace ARSACSoft
                     btnModificarOC.Enabled = true;
                     btnEliminarOC.Enabled = true;
                     btnCancelarOC.Enabled = true;
-                    btnImprimirOC.Enabled = true;
+                    btnMarcarRecibidoOC.Enabled = true;
 
                     txtIDOrdenCompra.Enabled = true;
                     dtpFechaOrdenCompra.Enabled = true;
@@ -341,6 +340,36 @@ namespace ARSACSoft
 
         private void btnBuscarProveedorOC_Click(object sender, EventArgs e)
         {
+            //En caso quiera cambiar de proveedor cuando ya tiene productos registrados u objeto seleccionado
+            if(_lineasOrdenDeCompra.Count > 0 || _productoDeProveedorSeleccionado!=null)
+            {
+                CultureInfo.CurrentCulture = new CultureInfo("es-ES");
+                DialogResult result = MessageBox.Show("No puede cambiar de proveedor porque hay producto(s) seleccionado(s).\n\n                  ¿Borrar productos seleccionados?", "Mensaje de advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    _productoDeProveedorSeleccionado = null;
+                    txtCodigoProductoOC.Text = "";
+                    txtNombreProductoOC.Text = "";
+                    txtPrecioUnitarioProdOC.Text = "";
+                    txtCantidadProdOC.Text = "";
+
+                    _proveedorSeleccionado = null;
+                    txtRUCProveedorOC.Text = "";
+                    txtRazonSocialProveedorOC.Text = "";
+                    _lineasOrdenDeCompra.Clear();//reseteo productos guardados
+                    _ordenCompra.costototal = 0;
+
+                    txtTotal.Text = "";
+                    //dgvListaProductosOC.Rows.Clear();
+
+                }
+                else if (result == DialogResult.No)
+                {
+                    return;
+
+                }
+            }
+            
             frmBuscarProveedores frmBuscProvee = new frmBuscarProveedores();
 
             if (frmBuscProvee.ShowDialog() == DialogResult.OK)
@@ -416,6 +445,7 @@ namespace ARSACSoft
             lov.cantidad = Int32.Parse(txtCantidadProdOC.Text);
             lov.subtotal = lov.cantidad * lov.productoProveedor.costo;
             _lineasOrdenDeCompra.Add(lov);
+            dgvListaProductosOC.Refresh();
             calcularTotal();
             txtTotal.Text = this._ordenCompra.costototal.ToString("N2");
             _productoDeProveedorSeleccionado = null;
@@ -490,6 +520,7 @@ namespace ARSACSoft
                 if (resultado != 0)
                 {
                     txtIDOrdenCompra.Text = resultado.ToString();
+                    lblEstadoOrdenCompra.Text = "(En proceso)";
                     MessageBox.Show("Se ha registrado correctamente",
                     "Mensaje de éxito", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -499,6 +530,7 @@ namespace ARSACSoft
                     MessageBox.Show("Ha ocurrido un error con el registro",
                     "Mensaje de éxito", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+                    return;
                 }
             }
             //else if (_estado == Estado.Modificar)
@@ -563,6 +595,16 @@ namespace ARSACSoft
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMarcarRecibidoOC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbDatosOrdenCompra_Enter(object sender, EventArgs e)
         {
 
         }

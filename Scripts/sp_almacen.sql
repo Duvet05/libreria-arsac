@@ -117,6 +117,7 @@ BEGIN
     end if;
 END $
 -- ORDEN DE COMPRA
+drop procedure if exists INSERTAR_ORDEN_COMPRA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_ORDEN_COMPRA(
 	OUT _id_orden_de_compra INT,
@@ -126,8 +127,8 @@ CREATE PROCEDURE INSERTAR_ORDEN_COMPRA(
     IN _total DECIMAL(10, 2)
 )
 BEGIN
-    INSERT INTO ordenDeCompra (fid_empleado, fid_proveedor, fecha_orden, total)
-    VALUES (_fid_empleado, _fid_proveedor, _fecha_orden, _total);
+    INSERT INTO ordenDeCompra (fid_empleado, fid_proveedor, fecha_orden, total, estado)
+    VALUES (_fid_empleado, _fid_proveedor, _fecha_orden, _total, "EN PROCESO");
 	SET _id_orden_de_compra = @@last_insert_id;
 END$
 DELIMITER $

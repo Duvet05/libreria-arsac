@@ -250,6 +250,7 @@ CREATE TABLE
         fecha_orden DATE,
         total DECIMAL(10, 2),
         activo BOOLEAN NOT NULL DEFAULT 1,
+        estado varchar(50),
         PRIMARY KEY (id_orden_de_compra),
         FOREIGN KEY (fid_empleado) REFERENCES empleado(fid_empleado),
         FOREIGN KEY (fid_proveedor) REFERENCES proveedor(id_proveedor)
