@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="eliminarProductosDeSede" type="tns:eliminarProductosDeSede" />
+  <xs:element name="eliminarProductosDeSedeResponse" type="tns:eliminarProductosDeSedeResponse" />
   <xs:element name="eliminarSede" type="tns:eliminarSede" />
   <xs:element name="eliminarSedeResponse" type="tns:eliminarSedeResponse" />
   <xs:element name="insertarSede" type="tns:insertarSede" />
@@ -113,15 +115,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarProductosDeSede">
+  <xs:complexType name="eliminarProductosDeSede">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
-      <xs:element minOccurs="0" name="arg1" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarProductosDeSedeResponse">
+  <xs:complexType name="eliminarProductosDeSedeResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sedeXProducto" />
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

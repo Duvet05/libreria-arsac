@@ -11,6 +11,48 @@
   <message name="listarTiposDeEmpleadosResponse">
     <part name="parameters" element="tns:listarTiposDeEmpleadosResponse" />
   </message>
+  <message name="listarEmpleadosPorNombreDNI">
+    <part name="parameters" element="tns:listarEmpleadosPorNombreDNI" />
+  </message>
+  <message name="listarEmpleadosPorNombreDNIResponse">
+    <part name="parameters" element="tns:listarEmpleadosPorNombreDNIResponse" />
+  </message>
+  <message name="verificarRepeticionDeCuenta">
+    <part name="parameters" element="tns:verificarRepeticionDeCuenta" />
+  </message>
+  <message name="verificarRepeticionDeCuentaResponse">
+    <part name="parameters" element="tns:verificarRepeticionDeCuentaResponse" />
+  </message>
+  <message name="obtenerRepeticionesDeCorreo">
+    <part name="parameters" element="tns:obtenerRepeticionesDeCorreo" />
+  </message>
+  <message name="obtenerRepeticionesDeCorreoResponse">
+    <part name="parameters" element="tns:obtenerRepeticionesDeCorreoResponse" />
+  </message>
+  <message name="listarEmpleadosPorSedeNombreDNI">
+    <part name="parameters" element="tns:listarEmpleadosPorSedeNombreDNI" />
+  </message>
+  <message name="listarEmpleadosPorSedeNombreDNIResponse">
+    <part name="parameters" element="tns:listarEmpleadosPorSedeNombreDNIResponse" />
+  </message>
+  <message name="modificarEmpleado">
+    <part name="parameters" element="tns:modificarEmpleado" />
+  </message>
+  <message name="modificarEmpleadoResponse">
+    <part name="parameters" element="tns:modificarEmpleadoResponse" />
+  </message>
+  <message name="obtenerEmpleadoPorID">
+    <part name="parameters" element="tns:obtenerEmpleadoPorID" />
+  </message>
+  <message name="obtenerEmpleadoPorIDResponse">
+    <part name="parameters" element="tns:obtenerEmpleadoPorIDResponse" />
+  </message>
+  <message name="insertarClienteMayorista">
+    <part name="parameters" element="tns:insertarClienteMayorista" />
+  </message>
+  <message name="insertarClienteMayoristaResponse">
+    <part name="parameters" element="tns:insertarClienteMayoristaResponse" />
+  </message>
   <message name="insertarCuentaUsuario">
     <part name="parameters" element="tns:insertarCuentaUsuario" />
   </message>
@@ -23,47 +65,11 @@
   <message name="eliminarClienteMayoristaResponse">
     <part name="parameters" element="tns:eliminarClienteMayoristaResponse" />
   </message>
-  <message name="listarEmpleadosPorSedeNombreDNI">
-    <part name="parameters" element="tns:listarEmpleadosPorSedeNombreDNI" />
-  </message>
-  <message name="listarEmpleadosPorSedeNombreDNIResponse">
-    <part name="parameters" element="tns:listarEmpleadosPorSedeNombreDNIResponse" />
-  </message>
-  <message name="verificarRepeticionDeCuenta">
-    <part name="parameters" element="tns:verificarRepeticionDeCuenta" />
-  </message>
-  <message name="verificarRepeticionDeCuentaResponse">
-    <part name="parameters" element="tns:verificarRepeticionDeCuentaResponse" />
-  </message>
-  <message name="modificarEmpleado">
-    <part name="parameters" element="tns:modificarEmpleado" />
-  </message>
-  <message name="modificarEmpleadoResponse">
-    <part name="parameters" element="tns:modificarEmpleadoResponse" />
-  </message>
-  <message name="insertarClienteMayorista">
-    <part name="parameters" element="tns:insertarClienteMayorista" />
-  </message>
-  <message name="insertarClienteMayoristaResponse">
-    <part name="parameters" element="tns:insertarClienteMayoristaResponse" />
-  </message>
   <message name="modificarClienteMayorista">
     <part name="parameters" element="tns:modificarClienteMayorista" />
   </message>
   <message name="modificarClienteMayoristaResponse">
     <part name="parameters" element="tns:modificarClienteMayoristaResponse" />
-  </message>
-  <message name="listarEmpleadosPorNombreDNI">
-    <part name="parameters" element="tns:listarEmpleadosPorNombreDNI" />
-  </message>
-  <message name="listarEmpleadosPorNombreDNIResponse">
-    <part name="parameters" element="tns:listarEmpleadosPorNombreDNIResponse" />
-  </message>
-  <message name="obtenerEmpleadoPorID">
-    <part name="parameters" element="tns:obtenerEmpleadoPorID" />
-  </message>
-  <message name="obtenerEmpleadoPorIDResponse">
-    <part name="parameters" element="tns:obtenerEmpleadoPorIDResponse" />
   </message>
   <message name="listarClientesMayoristasPorNombreDNI">
     <part name="parameters" element="tns:listarClientesMayoristasPorNombreDNI" />
@@ -71,17 +77,11 @@
   <message name="listarClientesMayoristasPorNombreDNIResponse">
     <part name="parameters" element="tns:listarClientesMayoristasPorNombreDNIResponse" />
   </message>
-  <message name="eliminarEmpleado">
-    <part name="parameters" element="tns:eliminarEmpleado" />
+  <message name="buscarCuenta">
+    <part name="parameters" element="tns:buscarCuenta" />
   </message>
-  <message name="eliminarEmpleadoResponse">
-    <part name="parameters" element="tns:eliminarEmpleadoResponse" />
-  </message>
-  <message name="verificarCuenta">
-    <part name="parameters" element="tns:verificarCuenta" />
-  </message>
-  <message name="verificarCuentaResponse">
-    <part name="parameters" element="tns:verificarCuentaResponse" />
+  <message name="buscarCuentaResponse">
+    <part name="parameters" element="tns:buscarCuentaResponse" />
   </message>
   <message name="buscarEmpleado">
     <part name="parameters" element="tns:buscarEmpleado" />
@@ -89,11 +89,17 @@
   <message name="buscarEmpleadoResponse">
     <part name="parameters" element="tns:buscarEmpleadoResponse" />
   </message>
-  <message name="actualizarCuenta">
-    <part name="parameters" element="tns:actualizarCuenta" />
+  <message name="verificarCuenta">
+    <part name="parameters" element="tns:verificarCuenta" />
   </message>
-  <message name="actualizarCuentaResponse">
-    <part name="parameters" element="tns:actualizarCuentaResponse" />
+  <message name="verificarCuentaResponse">
+    <part name="parameters" element="tns:verificarCuentaResponse" />
+  </message>
+  <message name="eliminarEmpleado">
+    <part name="parameters" element="tns:eliminarEmpleado" />
+  </message>
+  <message name="eliminarEmpleadoResponse">
+    <part name="parameters" element="tns:eliminarEmpleadoResponse" />
   </message>
   <message name="insertarEmpleado">
     <part name="parameters" element="tns:insertarEmpleado" />
@@ -101,22 +107,44 @@
   <message name="insertarEmpleadoResponse">
     <part name="parameters" element="tns:insertarEmpleadoResponse" />
   </message>
-  <message name="buscarCuenta">
-    <part name="parameters" element="tns:buscarCuenta" />
+  <message name="actualizarCuenta">
+    <part name="parameters" element="tns:actualizarCuenta" />
   </message>
-  <message name="buscarCuentaResponse">
-    <part name="parameters" element="tns:buscarCuentaResponse" />
-  </message>
-  <message name="obtenerRepeticionesDeCorreo">
-    <part name="parameters" element="tns:obtenerRepeticionesDeCorreo" />
-  </message>
-  <message name="obtenerRepeticionesDeCorreoResponse">
-    <part name="parameters" element="tns:obtenerRepeticionesDeCorreoResponse" />
+  <message name="actualizarCuentaResponse">
+    <part name="parameters" element="tns:actualizarCuentaResponse" />
   </message>
   <portType name="RRHHWS">
     <operation name="listarTiposDeEmpleados">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarTiposDeEmpleadosRequest" message="tns:listarTiposDeEmpleados" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarTiposDeEmpleadosResponse" message="tns:listarTiposDeEmpleadosResponse" />
+    </operation>
+    <operation name="listarEmpleadosPorNombreDNI">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorNombreDNIRequest" message="tns:listarEmpleadosPorNombreDNI" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorNombreDNIResponse" message="tns:listarEmpleadosPorNombreDNIResponse" />
+    </operation>
+    <operation name="verificarRepeticionDeCuenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarRepeticionDeCuentaRequest" message="tns:verificarRepeticionDeCuenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarRepeticionDeCuentaResponse" message="tns:verificarRepeticionDeCuentaResponse" />
+    </operation>
+    <operation name="obtenerRepeticionesDeCorreo">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoRequest" message="tns:obtenerRepeticionesDeCorreo" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoResponse" message="tns:obtenerRepeticionesDeCorreoResponse" />
+    </operation>
+    <operation name="listarEmpleadosPorSedeNombreDNI">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorSedeNombreDNIRequest" message="tns:listarEmpleadosPorSedeNombreDNI" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorSedeNombreDNIResponse" message="tns:listarEmpleadosPorSedeNombreDNIResponse" />
+    </operation>
+    <operation name="modificarEmpleado">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoRequest" message="tns:modificarEmpleado" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoResponse" message="tns:modificarEmpleadoResponse" />
+    </operation>
+    <operation name="obtenerEmpleadoPorID">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDRequest" message="tns:obtenerEmpleadoPorID" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDResponse" message="tns:obtenerEmpleadoPorIDResponse" />
+    </operation>
+    <operation name="insertarClienteMayorista">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarClienteMayoristaRequest" message="tns:insertarClienteMayorista" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarClienteMayoristaResponse" message="tns:insertarClienteMayoristaResponse" />
     </operation>
     <operation name="insertarCuentaUsuario">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarCuentaUsuarioRequest" message="tns:insertarCuentaUsuario" />
@@ -126,65 +154,37 @@
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaRequest" message="tns:eliminarClienteMayorista" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarClienteMayoristaResponse" message="tns:eliminarClienteMayoristaResponse" />
     </operation>
-    <operation name="listarEmpleadosPorSedeNombreDNI">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorSedeNombreDNIRequest" message="tns:listarEmpleadosPorSedeNombreDNI" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorSedeNombreDNIResponse" message="tns:listarEmpleadosPorSedeNombreDNIResponse" />
-    </operation>
-    <operation name="verificarRepeticionDeCuenta">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarRepeticionDeCuentaRequest" message="tns:verificarRepeticionDeCuenta" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarRepeticionDeCuentaResponse" message="tns:verificarRepeticionDeCuentaResponse" />
-    </operation>
-    <operation name="modificarEmpleado">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoRequest" message="tns:modificarEmpleado" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarEmpleadoResponse" message="tns:modificarEmpleadoResponse" />
-    </operation>
-    <operation name="insertarClienteMayorista">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarClienteMayoristaRequest" message="tns:insertarClienteMayorista" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarClienteMayoristaResponse" message="tns:insertarClienteMayoristaResponse" />
-    </operation>
     <operation name="modificarClienteMayorista">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarClienteMayoristaRequest" message="tns:modificarClienteMayorista" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/modificarClienteMayoristaResponse" message="tns:modificarClienteMayoristaResponse" />
-    </operation>
-    <operation name="listarEmpleadosPorNombreDNI">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorNombreDNIRequest" message="tns:listarEmpleadosPorNombreDNI" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarEmpleadosPorNombreDNIResponse" message="tns:listarEmpleadosPorNombreDNIResponse" />
-    </operation>
-    <operation name="obtenerEmpleadoPorID">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDRequest" message="tns:obtenerEmpleadoPorID" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerEmpleadoPorIDResponse" message="tns:obtenerEmpleadoPorIDResponse" />
     </operation>
     <operation name="listarClientesMayoristasPorNombreDNI">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarClientesMayoristasPorNombreDNIRequest" message="tns:listarClientesMayoristasPorNombreDNI" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/listarClientesMayoristasPorNombreDNIResponse" message="tns:listarClientesMayoristasPorNombreDNIResponse" />
     </operation>
-    <operation name="eliminarEmpleado">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoRequest" message="tns:eliminarEmpleado" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoResponse" message="tns:eliminarEmpleadoResponse" />
-    </operation>
-    <operation name="verificarCuenta">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaRequest" message="tns:verificarCuenta" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaResponse" message="tns:verificarCuentaResponse" />
+    <operation name="buscarCuenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarCuentaRequest" message="tns:buscarCuenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarCuentaResponse" message="tns:buscarCuentaResponse" />
     </operation>
     <operation name="buscarEmpleado">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoRequest" message="tns:buscarEmpleado" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarEmpleadoResponse" message="tns:buscarEmpleadoResponse" />
     </operation>
-    <operation name="actualizarCuenta">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/actualizarCuentaRequest" message="tns:actualizarCuenta" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/actualizarCuentaResponse" message="tns:actualizarCuentaResponse" />
+    <operation name="verificarCuenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaRequest" message="tns:verificarCuenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/verificarCuentaResponse" message="tns:verificarCuentaResponse" />
+    </operation>
+    <operation name="eliminarEmpleado">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoRequest" message="tns:eliminarEmpleado" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/eliminarEmpleadoResponse" message="tns:eliminarEmpleadoResponse" />
     </operation>
     <operation name="insertarEmpleado">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoRequest" message="tns:insertarEmpleado" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/insertarEmpleadoResponse" message="tns:insertarEmpleadoResponse" />
     </operation>
-    <operation name="buscarCuenta">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarCuentaRequest" message="tns:buscarCuenta" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/buscarCuentaResponse" message="tns:buscarCuentaResponse" />
-    </operation>
-    <operation name="obtenerRepeticionesDeCorreo">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoRequest" message="tns:obtenerRepeticionesDeCorreo" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/obtenerRepeticionesDeCorreoResponse" message="tns:obtenerRepeticionesDeCorreoResponse" />
+    <operation name="actualizarCuenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/actualizarCuentaRequest" message="tns:actualizarCuenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/RRHHWS/actualizarCuentaResponse" message="tns:actualizarCuentaResponse" />
     </operation>
   </portType>
   <binding name="RRHHWSPortBinding" type="tns:RRHHWS">
@@ -198,6 +198,69 @@
         <soap:body use="literal" />
       </output>
     </operation>
+    <operation name="listarEmpleadosPorNombreDNI">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="verificarRepeticionDeCuenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerRepeticionesDeCorreo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEmpleadosPorSedeNombreDNI">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarEmpleado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerEmpleadoPorID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarClienteMayorista">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="insertarCuentaUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -216,61 +279,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarEmpleadosPorSedeNombreDNI">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="verificarRepeticionDeCuenta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="modificarEmpleado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarClienteMayorista">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="modificarClienteMayorista">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarEmpleadosPorNombreDNI">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerEmpleadoPorID">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -288,16 +297,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarEmpleado">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="verificarCuenta">
+    <operation name="buscarCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -315,7 +315,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="actualizarCuenta">
+    <operation name="verificarCuenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarEmpleado">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -333,16 +342,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="buscarCuenta">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="obtenerRepeticionesDeCorreo">
+    <operation name="actualizarCuenta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

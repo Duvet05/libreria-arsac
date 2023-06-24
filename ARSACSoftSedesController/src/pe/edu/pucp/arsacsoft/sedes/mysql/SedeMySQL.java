@@ -114,14 +114,23 @@ public class SedeMySQL implements SedeDAO {
         {
             con = DBManager.getInstance().getConnection();
             
-            cs = con.prepareCall("{call ACTUALIZAR_SEDE(?,?,?,?,?)}");
+            cs = con.prepareCall("{call ACTUALIZAR_SEDE(?,?,?,?)}");
             cs.setInt(1, sede.getIdSede());
-            cs.setBoolean(2, sede.isEsPrincipal());
-            cs.setString(3, sede.getDireccion());
-            cs.setString(4, sede.getTelefono());
-            cs.setString(5, sede.getCorreo());
+            cs.setString(2, sede.getDireccion());
+            cs.setString(3, sede.getTelefono());
+            cs.setString(4, sede.getCorreo());
             
             cs.executeUpdate();
+            
+            for (SedeXProducto sxp : sede.getProductos())
+            {
+                cs = con.prepareCall("{call INSERTAR_PRODUCTO_EN_SEDE(?,?)}");
+                cs.clearParameters();
+                cs.setInt(1, sede.getIdSede());
+                cs.setInt(2, sxp.getProducto().getIdProducto());
+                cs.executeUpdate();
+            }
+            
             resultado = 1;
         }
         catch(Exception ex){
@@ -153,61 +162,4 @@ public class SedeMySQL implements SedeDAO {
         }
         return resultado;
     }
-
-    @Override
-    public ArrayList<SedeXProducto> listarProductos(int idSede, String nombre) {
-        ArrayList<SedeXProducto> productos = new ArrayList<SedeXProducto>();
-        
-        try
-        {
-            con = DBManager.getInstance().getConnection();
-            
-            cs = con.prepareCall("{call LISTAR_PRODUCTOS_DE_SEDE(?,?)}");
-            cs.setInt(1, idSede);
-            cs.setString(2, nombre);
-            
-            rs = cs.executeQuery();
-            
-            while (rs.next())
-            {
-                SedeXProducto sxp = new SedeXProducto();
-                
-                // p.id_producto, p.nombre, c.descripcion as categoria,
-                // m.descripcion as marca, sxp.stock
-                
-                sxp.setProducto(new Producto());
-                sxp.getProducto().setIdProducto(rs.getInt("id_producto"));
-                sxp.getProducto().setNombre(rs.getString("nombre"));
-                
-                sxp.getProducto().setMarca(new Marca());
-                sxp.getProducto().getMarca().setDescripcion(rs.getString("marca"));
-                
-                sxp.getProducto().setCategoria(new Categoria());
-                sxp.getProducto().getCategoria().setDescripcion(rs.getString("categoria"));
-                
-                sxp.setStock(rs.getInt("stock"));
-                
-                
-                
-                productos.add(sxp);
-                
-            }
-            
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
-        }
-        return productos;
-    }
-
-    @Override
-    public int eliminarProducto(int idProducto) {
-        return 0;
-        
-    }
-    
-    
-    
 }

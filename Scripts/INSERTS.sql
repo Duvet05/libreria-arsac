@@ -179,51 +179,51 @@ VALUES (20, '21847052321', 'Comercializadora de Útiles Pedagógicos');
 -- #######################################################################
 -- Grupo 1 - Marca: ARTESCO
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (1, 1, 'LAPICERO ARTESCO AZUL 4MM', 5.99, 5.49);
+VALUES (1, 1, 'LAPICERO AZUL 4MM', 5.99, 5.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (2, 1, 'BORRADOR ARTESCO GRANDE', 3.99, 3.49);
+VALUES (2, 1, 'BORRADOR GRANDE', 3.99, 3.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor)
-VALUES (3, 1, 'CUADERNO ARTESCO RAYADO TAPA DURA', 9.99, 9.49);
+VALUES (3, 1, 'CUADERNO RAYADO TAPA DURA', 9.99, 9.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (4, 1, 'CINTA ARTESCO TRANSPARENTE 1.5CM', 4.99, 4.49);
+VALUES (4, 1, 'CINTA TRANSPARENTE 1.5CM', 4.99, 4.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (5, 1, 'REGLA ARTESCO 30CM', 2.99, 2.49);
+VALUES (5, 1, 'REGLA 30CM', 2.99, 2.49);
 
 -- Grupo 2 - Marca: FABER_CASTELL
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (1, 2, 'LAPICERO FABER_CASTELL NEGRO 5MM', 6.99, 6.49);
+VALUES (1, 2, 'LAPICERO NEGRO 5MM', 6.99, 6.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (2, 2, 'BORRADOR FABER_CASTELL PEQUEÑO', 2.99, 2.49);
+VALUES (2, 2, 'BORRADOR PEQUEÑO', 2.99, 2.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (3, 2, 'CUADERNO FABER_CASTELL CUADRICULADO TAPA BLANDA', 8.99, 8.49);
+VALUES (3, 2, 'CUADERNO CUADRICULADO TAPA BLANDA', 8.99, 8.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (4, 2, 'CINTA FABER_CASTELL TRANSPARENTE 2CM', 5.99, 5.49);
+VALUES (4, 2, 'CINTA TRANSPARENTE 2CM', 5.99, 5.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (5, 2, 'REGLA FABER_CASTELL 20CM', 3.99, 3.49);
+VALUES (5, 2, 'REGLA 20CM', 3.99, 3.49);
 
 -- Grupo 3 - Marca: STANDFORD
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (1, 3, 'LAPICERO STANDFORD ROJO 6MM', 7.99, 7.49);
+VALUES (1, 3, 'LAPICERO ROJO 6MM', 7.99, 7.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (2, 3, 'BORRADOR STANDFORD MEDIANO', 3.99, 3.49);
+VALUES (2, 3, 'BORRADOR MEDIANO', 3.99, 3.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (3, 3, 'CUADERNO STANDFORD RAYADO TAPA BLANDA', 7.99, 7.49);
+VALUES (3, 3, 'CUADERNO RAYADO TAPA BLANDA', 7.99, 7.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (4, 3, 'CINTA STANDFORD TRANSPARENTE 1CM', 3.99, 3.49);
+VALUES (4, 3, 'CINTA TRANSPARENTE 1CM', 3.99, 3.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (5, 3, 'REGLA STANDFORD 15CM', 2.99, 2.49);
+VALUES (5, 3, 'REGLA 15CM', 2.99, 2.49);
 
 -- Grupo 4 - Marca: ALPHA
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (1, 4, 'LAPICERO ALPHA VERDE 4.5MM', 4.99, 4.49);
+VALUES (1, 4, 'LAPICERO VERDE 4.5MM', 4.99, 4.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (2, 4, 'BORRADOR ALPHA GRANDE', 3.99, 3.49);
+VALUES (2, 4, 'BORRADOR GRANDE', 3.99, 3.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (3, 4, 'CUADERNO ALPHA CUADRICULADO TAPA DURA', 9.99, 9.49);
+VALUES (3, 4, 'CUADERNO CUADRICULADO TAPA DURA', 9.99, 9.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (4, 4, 'CINTA ALPHA TRANSPARENTE 1.2CM', 4.99, 4.49);
+VALUES (4, 4, 'CINTA TRANSPARENTE 1.2CM', 4.99, 4.49);
 INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor) 
-VALUES (5, 4, 'REGLA ALPHA 25CM', 3.99, 3.49);
+VALUES (5, 4, 'REGLA 25CM', 3.99, 3.49);
 
 -- #######################################################################
 -- INSERT para la tabla promocion

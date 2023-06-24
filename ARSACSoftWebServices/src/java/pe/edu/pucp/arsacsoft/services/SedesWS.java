@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import pe.edu.pucp.arsacsoft.sedes.dao.SedeDAO;
+import pe.edu.pucp.arsacsoft.sedes.dao.SedeXProductoDAO;
 import pe.edu.pucp.arsacsoft.sedes.model.Sede;
 import pe.edu.pucp.arsacsoft.sedes.model.SedeXProducto;
 import pe.edu.pucp.arsacsoft.sedes.mysql.SedeMySQL;
+import pe.edu.pucp.arsacsoft.sedes.mysql.SedeXProductoMySQL;
 
 /**
  *
@@ -19,6 +21,7 @@ import pe.edu.pucp.arsacsoft.sedes.mysql.SedeMySQL;
 @WebService(serviceName = "SedesWS")
 public class SedesWS {
     private SedeDAO daoSede = new SedeMySQL();
+    private SedeXProductoDAO daoSedeXProducto = new SedeXProductoMySQL();
     
     @WebMethod(operationName = "insertarSede")
     public int insertarSede(Sede sede)
@@ -44,9 +47,15 @@ public class SedesWS {
         return daoSede.eliminar(idSede);
     }
     
+    @WebMethod(operationName = "eliminarProductosDeSede")
+    public int eliminarProductosDeSede(int idSede)
+    {
+        return daoSedeXProducto.eliminarProductos(idSede);
+    }
+    
     @WebMethod(operationName = "listarProductosDeSede")
     public ArrayList<SedeXProducto> listarProductoDeSede(int idSede, String nombre)
     {
-        return daoSede.listarProductos(idSede, nombre);
+        return daoSedeXProducto.listarProductos(idSede, nombre);
     }
 }

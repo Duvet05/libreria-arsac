@@ -6,16 +6,12 @@ package pe.edu.pucp.arsacsoft.sedes.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.arsacsoft.sedes.model.Sede;
-import pe.edu.pucp.arsacsoft.sedes.model.SedeXProducto;
-
 /**
  *
  * @author User
  */
 public interface SedeDAO {
     ArrayList<Sede> listarTodas();
-    ArrayList<SedeXProducto> listarProductos(int idSede, String nombre);
-    int eliminarProducto(int idProducto);
     int insertar(Sede sede);
     int modificar(Sede sede);
     int eliminar(int idsede);      
