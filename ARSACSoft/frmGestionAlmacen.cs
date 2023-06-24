@@ -35,13 +35,7 @@ namespace ARSACSoft
         {
 
             InitializeComponent();
-            _estadoPagProducto = Estado.Inicial;
-            establecerEstadoFormularioProducto();
-            limpiarComponentesProducto();
-
-            _estadoPagOrdenCompra = Estado.Inicial;
-            establecerEstadoFormularioOrdenDeCompra();
-            limpiarComponentesOrdenCompra();
+            
 
             daoProductosWS = new ProductosWSClient();
             daoAlmacenWS = new AlmacenWSClient();
@@ -56,6 +50,14 @@ namespace ARSACSoft
             cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
 
             dgvListaProductosOC.AutoGenerateColumns = false;
+            /*****************************/
+            _estadoPagProducto = Estado.Inicial;
+            establecerEstadoFormularioProducto();
+            limpiarComponentesProducto();
+
+            _estadoPagOrdenCompra = Estado.Inicial;
+            establecerEstadoFormularioOrdenDeCompra();
+            limpiarComponentesOrdenCompra();
         }
 
         private void btnSubirFoto_Click(object sender, EventArgs e)

@@ -231,3 +231,18 @@ VALUES (5, 4, 'REGLA 25CM', 3.99, 3.49);
 INSERT INTO promocion (fid_producto, porcentaje, cantidad_minima, fecha_inicio, fecha_fin, activo)
 VALUES (1, 10.00, 5, '2023-06-16', '2023-06-30', true);
 
+-- #######################################################################
+-- INSERT para la tabla productoXProveedor
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(1,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(2,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(3,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(4,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(5,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(6,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(7,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(8,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(9,1,FLOOR(RAND() * 20) + 1, 1);
+insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(10,1,FLOOR(RAND() * 20) + 1, 1);
+
+-- #######################################################################
+
