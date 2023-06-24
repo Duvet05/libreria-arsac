@@ -242,6 +242,7 @@ CREATE TABLE
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
 
+
 CREATE TABLE
     ordenDeCompra (
         id_orden_de_compra INT AUTO_INCREMENT,
