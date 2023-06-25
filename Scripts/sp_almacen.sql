@@ -198,16 +198,24 @@ BEGIN
 END$
 
 
+drop procedure if exists LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA;
 DELIMITER $
 CREATE PROCEDURE LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA(
 	IN _id_orden_de_compra INT
 )
 BEGIN
-	SELECT loc.id_linea_orden_compra, p.id_producto, p.nombre, p.precio_por_menor, p.precio_por_mayor , loc.cantidad, loc.subtotal
+	SELECT loc.id_linea_orden_compra, loc.cantidad, loc.subtotal, loc.fid_producto,
+            p.id_producto, p.nombre,
+            pxp.costo,
+            m.descripcion marca_descripcion, m.id_marca,
+            c.id_categoria, c.descripcion categoria_descripcion
 	FROM lineaOrdenDeCompra loc 
-	INNER JOIN producto p ON loc.fid_producto = p.id_producto 
+	INNER JOIN productoXproveedor pxp ON loc.fid_producto = pxp.fid_producto
+    INNER JOIN producto p ON p.id_producto = pxp.fid_producto
+    INNER JOIN marca m ON m.id_marca = p.fid_marca
+    Inner JOIN categoria c ON c.id_categoria = p.fid_categoria
 	WHERE loc.fid_orden_de_compra = _id_orden_de_compra AND loc.activo = 1;
-END$
+END $
 
 
 

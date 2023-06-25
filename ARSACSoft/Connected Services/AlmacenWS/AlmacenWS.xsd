@@ -2,6 +2,10 @@
 <xs:schema xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="insertarOrdenCompra" type="tns:insertarOrdenCompra" />
   <xs:element name="insertarOrdenCompraResponse" type="tns:insertarOrdenCompraResponse" />
+  <xs:element name="listarLineasDeOrdenDeCompra" type="tns:listarLineasDeOrdenDeCompra" />
+  <xs:element name="listarLineasDeOrdenDeCompraResponse" type="tns:listarLineasDeOrdenDeCompraResponse" />
+  <xs:element name="listarOrdenesDeCompraXProveedor" type="tns:listarOrdenesDeCompraXProveedor" />
+  <xs:element name="listarOrdenesDeCompraXProveedorResponse" type="tns:listarOrdenesDeCompraXProveedorResponse" />
   <xs:complexType name="insertarOrdenCompra">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:ordenDeCompra" />
@@ -137,6 +141,29 @@
   <xs:complexType name="insertarOrdenCompraResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesDeCompraXProveedor">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg1" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="arg2" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesDeCompraXProveedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeCompra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLineasDeOrdenDeCompra">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLineasDeOrdenDeCompraResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaOrdenDeCompra" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
