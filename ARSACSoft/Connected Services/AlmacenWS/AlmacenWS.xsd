@@ -6,7 +6,9 @@
   <xs:element name="listarLineasDeOrdenDeCompraResponse" type="tns:listarLineasDeOrdenDeCompraResponse" />
   <xs:element name="listarOrdenesDeCompraXProveedor" type="tns:listarOrdenesDeCompraXProveedor" />
   <xs:element name="listarOrdenesDeCompraXProveedorResponse" type="tns:listarOrdenesDeCompraXProveedorResponse" />
-  <xs:complexType name="insertarOrdenCompra">
+  <xs:element name="modificarOrdenCompra" type="tns:modificarOrdenCompra" />
+  <xs:element name="modificarOrdenCompraResponse" type="tns:modificarOrdenCompraResponse" />
+  <xs:complexType name="modificarOrdenCompra">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:ordenDeCompra" />
     </xs:sequence>
@@ -136,6 +138,16 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="productosXProveedor" nillable="true" type="tns:productoXProveedor" />
       <xs:element minOccurs="0" name="RUC" type="xs:string" />
       <xs:element minOccurs="0" name="telefono" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarOrdenCompraResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarOrdenCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:ordenDeCompra" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarOrdenCompraResponse">

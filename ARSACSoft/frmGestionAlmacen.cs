@@ -204,7 +204,7 @@ namespace ARSACSoft
                     btnGuardarOC.Enabled = true;
                     btnBuscarOC.Enabled = false;
                     btnModificarOC.Enabled = false;
-                    btnEliminarOC.Enabled = false;
+                    btnEliminarOC.Enabled = true;
                     btnCancelarOC.Enabled = true;
                     btnMarcarRecibidoOC.Enabled = false;
 
@@ -525,7 +525,7 @@ namespace ARSACSoft
             _ordenCompra.fechaOrden = dtpFechaOrdenCompra.Value;
             _ordenCompra.fechaOrdenSpecified = true; //Clave************
             _ordenCompra.lineas = _lineasOrdenDeCompra.ToArray();
-            if (true) //_estado == Estado.Nuevo
+            if (_estadoPagOrdenCompra == Estado.Nuevo) //_estado == Estado.Nuevo
             {
                 int resultado = daoAlmacenWS.insertarOrdenCompra(_ordenCompra);
                 if (resultado != 0)
@@ -541,29 +541,27 @@ namespace ARSACSoft
                     MessageBox.Show("Ha ocurrido un error con el registro",
                     "Mensaje de éxito", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                    return;
                 }
             }
-            //else if (_estado == Estado.Modificar)
-            //{
-            //    int resultado = _daoLogistica.modificarOrdenVenta(_ordenVenta);
-            //    if (resultado != 0)
-            //    {
-            //        txtIDOrdenVenta.Text = resultado.ToString();
-            //        MessageBox.Show("Se ha registrado correctamente",
-            //        "Mensaje de éxito", MessageBoxButtons.OK,
-            //        MessageBoxIcon.Information);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Ha ocurrido un error con el registro",
-            //        "Mensaje de éxito", MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error);
-            //    }
-            //}
+            else if (_estadoPagOrdenCompra == Estado.Modificar)
+            {
+                int resultado = daoAlmacenWS.modificarOrdenCompra(_ordenCompra);
+                if (resultado != 0)
+                {
+                    //txtIDOrdenVenta.Text = resultado.ToString();
+                    MessageBox.Show("Se ha modificado correctamente",
+                    "Mensaje de éxito", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error con el registro de la modificacion",
+                    "Mensaje de éxito", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
+            }
             _estadoPagOrdenCompra = Estado.Inicial;
             establecerEstadoFormularioOrdenDeCompra();
-
         }
 
         private void btnBuscarOC_Click(object sender, EventArgs e)
@@ -571,31 +569,31 @@ namespace ARSACSoft
             frmBuscarOrdenDeCompra formBusqOC = new frmBuscarOrdenDeCompra();
             if (formBusqOC.ShowDialog() == DialogResult.OK)
             {
-                _ordenCompraSeleccionada = formBusqOC.OrdenCompraSeleccionada;
-                txtIDOrdenCompra.Text = _ordenCompraSeleccionada.idOrdenDeCompra.ToString();
-                dtpFechaOrdenCompra.Value = _ordenCompraSeleccionada.fechaOrden;
-                txtRUCProveedorOC.Text = _ordenCompraSeleccionada.proveedor.RUC;
-                txtRazonSocialProveedorOC.Text = _ordenCompraSeleccionada.proveedor.nombre;
+                _ordenCompra = formBusqOC.OrdenCompraSeleccionada;
+                txtIDOrdenCompra.Text = _ordenCompra.idOrdenDeCompra.ToString();
+                dtpFechaOrdenCompra.Value = _ordenCompra.fechaOrden;
+                txtRUCProveedorOC.Text = _ordenCompra.proveedor.RUC;
+                txtRazonSocialProveedorOC.Text = _ordenCompra.proveedor.nombre;
 
                 _proveedorSeleccionado = formBusqOC.ProveedorSeleccionado;
-                _lineasOrdenDeCompra= new BindingList<lineaOrdenDeCompra>(_ordenCompraSeleccionada.lineas.ToList());
-                _ordenCompra = new ordenDeCompra();
+                _lineasOrdenDeCompra= new BindingList<lineaOrdenDeCompra>(_ordenCompra.lineas.ToList());
+                //_ordenCompra = new ordenDeCompra();
 
                 dgvListaProductosOC.DataSource = _lineasOrdenDeCompra;
-                txtTotal.Text = _ordenCompraSeleccionada.costototal.ToString("N2");
+                txtTotal.Text = _ordenCompra.costototal.ToString("N2");
                 _estadoPagOrdenCompra = Estado.Buscar;
                 establecerEstadoFormularioOrdenDeCompra();
 
-                lblEstadoOrdenCompra.Text = "(" + ConvertirEstado(_ordenCompraSeleccionada.estado) + ")";
+                lblEstadoOrdenCompra.Text = "(" + ConvertirEstado(_ordenCompra.estado) + ")";
                 //De acuerdo a su estado, permitiré que accesa a un cambio de estado
-                if(_ordenCompraSeleccionada.estado == "RECIBIDO")
+                if(_ordenCompra.estado == "RECIBIDO")
                 {
                     //No permitiré que pueda cancelarlo o volver a recibirlo
                     btnEliminarOC.Enabled = false;
                     btnMarcarRecibidoOC.Enabled = false;
                     btnModificarOC.Enabled = false;
                 }
-                if (_ordenCompraSeleccionada.estado == "CANCELADO")
+                if (_ordenCompra.estado == "CANCELADO")
                 {
                     //No permitiré que pueda cancelarlo o volver a recibirlo, pero sí modificarlo
                     btnEliminarOC.Enabled = false;

@@ -16,15 +16,6 @@ namespace ARSACSoft.SedeWS {
     public interface SedesWS {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.SedeWS.insertarSedeResponse insertarSede(ARSACSoft.SedeWS.insertarSedeRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedeWS.insertarSedeRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -52,13 +43,13 @@ namespace ARSACSoft.SedeWS {
         System.Threading.Tasks.Task<ARSACSoft.SedeWS.modificarSedeResponse> modificarSedeAsync(ARSACSoft.SedeWS.modificarSedeRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.SedeWS.listarProductosDeSedeResponse listarProductosDeSede(ARSACSoft.SedeWS.listarProductosDeSedeRequest request);
+        ARSACSoft.SedeWS.insertarSedeResponse insertarSede(ARSACSoft.SedeWS.insertarSedeRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarProductosDeSedeResponse> listarProductosDeSedeAsync(ARSACSoft.SedeWS.listarProductosDeSedeRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedeWS.insertarSedeRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarProductosDeSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarProductosDeSedeResponse")]
@@ -68,6 +59,15 @@ namespace ARSACSoft.SedeWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarProductosDeSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarProductosDeSedeResponse")]
         System.Threading.Tasks.Task<ARSACSoft.SedeWS.eliminarProductosDeSedeResponse> eliminarProductosDeSedeAsync(ARSACSoft.SedeWS.eliminarProductosDeSedeRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.SedeWS.listarProductosDeSedeResponse listarProductosDeSede(ARSACSoft.SedeWS.listarProductosDeSedeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarProductosDeSedeResponse> listarProductosDeSedeAsync(ARSACSoft.SedeWS.listarProductosDeSedeRequest request);
     }
     
     /// <remarks/>
@@ -629,42 +629,6 @@ namespace ARSACSoft.SedeWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSede", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarSedeRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.SedeWS.sede arg0;
-        
-        public insertarSedeRequest() {
-        }
-        
-        public insertarSedeRequest(ARSACSoft.SedeWS.sede arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSedeResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarSedeResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarSedeResponse() {
-        }
-        
-        public insertarSedeResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="listarSedes", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
     public partial class listarSedesRequest {
         
@@ -765,40 +729,35 @@ namespace ARSACSoft.SedeWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosDeSede", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosDeSedeRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSede", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarSedeRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
+        public ARSACSoft.SedeWS.sede arg0;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg1;
-        
-        public listarProductosDeSedeRequest() {
+        public insertarSedeRequest() {
         }
         
-        public listarProductosDeSedeRequest(int arg0, string arg1) {
+        public insertarSedeRequest(ARSACSoft.SedeWS.sede arg0) {
             this.arg0 = arg0;
-            this.arg1 = arg1;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosDeSedeResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosDeSedeResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarSedeResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarSedeResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.SedeWS.sedeXProducto[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public listarProductosDeSedeResponse() {
+        public insertarSedeResponse() {
         }
         
-        public listarProductosDeSedeResponse(ARSACSoft.SedeWS.sedeXProducto[] @return) {
+        public insertarSedeResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -839,6 +798,47 @@ namespace ARSACSoft.SedeWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosDeSede", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosDeSedeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg0;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg1;
+        
+        public listarProductosDeSedeRequest() {
+        }
+        
+        public listarProductosDeSedeRequest(int arg0, string arg1) {
+            this.arg0 = arg0;
+            this.arg1 = arg1;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosDeSedeResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosDeSedeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.SedeWS.sedeXProducto[] @return;
+        
+        public listarProductosDeSedeResponse() {
+        }
+        
+        public listarProductosDeSedeResponse(ARSACSoft.SedeWS.sedeXProducto[] @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface SedesWSChannel : ARSACSoft.SedeWS.SedesWS, System.ServiceModel.IClientChannel {
     }
@@ -864,29 +864,6 @@ namespace ARSACSoft.SedeWS {
         
         public SedesWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.SedeWS.insertarSedeResponse ARSACSoft.SedeWS.SedesWS.insertarSede(ARSACSoft.SedeWS.insertarSedeRequest request) {
-            return base.Channel.insertarSede(request);
-        }
-        
-        public int insertarSede(ARSACSoft.SedeWS.sede arg0) {
-            ARSACSoft.SedeWS.insertarSedeRequest inValue = new ARSACSoft.SedeWS.insertarSedeRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.SedeWS.insertarSedeResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).insertarSede(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> ARSACSoft.SedeWS.SedesWS.insertarSedeAsync(ARSACSoft.SedeWS.insertarSedeRequest request) {
-            return base.Channel.insertarSedeAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedeWS.sede arg0) {
-            ARSACSoft.SedeWS.insertarSedeRequest inValue = new ARSACSoft.SedeWS.insertarSedeRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.SedeWS.SedesWS)(this)).insertarSedeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -957,28 +934,26 @@ namespace ARSACSoft.SedeWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.SedeWS.listarProductosDeSedeResponse ARSACSoft.SedeWS.SedesWS.listarProductosDeSede(ARSACSoft.SedeWS.listarProductosDeSedeRequest request) {
-            return base.Channel.listarProductosDeSede(request);
+        ARSACSoft.SedeWS.insertarSedeResponse ARSACSoft.SedeWS.SedesWS.insertarSede(ARSACSoft.SedeWS.insertarSedeRequest request) {
+            return base.Channel.insertarSede(request);
         }
         
-        public ARSACSoft.SedeWS.sedeXProducto[] listarProductosDeSede(int arg0, string arg1) {
-            ARSACSoft.SedeWS.listarProductosDeSedeRequest inValue = new ARSACSoft.SedeWS.listarProductosDeSedeRequest();
+        public int insertarSede(ARSACSoft.SedeWS.sede arg0) {
+            ARSACSoft.SedeWS.insertarSedeRequest inValue = new ARSACSoft.SedeWS.insertarSedeRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            ARSACSoft.SedeWS.listarProductosDeSedeResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).listarProductosDeSede(inValue);
+            ARSACSoft.SedeWS.insertarSedeResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).insertarSede(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarProductosDeSedeResponse> ARSACSoft.SedeWS.SedesWS.listarProductosDeSedeAsync(ARSACSoft.SedeWS.listarProductosDeSedeRequest request) {
-            return base.Channel.listarProductosDeSedeAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> ARSACSoft.SedeWS.SedesWS.insertarSedeAsync(ARSACSoft.SedeWS.insertarSedeRequest request) {
+            return base.Channel.insertarSedeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarProductosDeSedeResponse> listarProductosDeSedeAsync(int arg0, string arg1) {
-            ARSACSoft.SedeWS.listarProductosDeSedeRequest inValue = new ARSACSoft.SedeWS.listarProductosDeSedeRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.insertarSedeResponse> insertarSedeAsync(ARSACSoft.SedeWS.sede arg0) {
+            ARSACSoft.SedeWS.insertarSedeRequest inValue = new ARSACSoft.SedeWS.insertarSedeRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            return ((ARSACSoft.SedeWS.SedesWS)(this)).listarProductosDeSedeAsync(inValue);
+            return ((ARSACSoft.SedeWS.SedesWS)(this)).insertarSedeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1002,6 +977,31 @@ namespace ARSACSoft.SedeWS {
             ARSACSoft.SedeWS.eliminarProductosDeSedeRequest inValue = new ARSACSoft.SedeWS.eliminarProductosDeSedeRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.SedeWS.SedesWS)(this)).eliminarProductosDeSedeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.SedeWS.listarProductosDeSedeResponse ARSACSoft.SedeWS.SedesWS.listarProductosDeSede(ARSACSoft.SedeWS.listarProductosDeSedeRequest request) {
+            return base.Channel.listarProductosDeSede(request);
+        }
+        
+        public ARSACSoft.SedeWS.sedeXProducto[] listarProductosDeSede(int arg0, string arg1) {
+            ARSACSoft.SedeWS.listarProductosDeSedeRequest inValue = new ARSACSoft.SedeWS.listarProductosDeSedeRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            ARSACSoft.SedeWS.listarProductosDeSedeResponse retVal = ((ARSACSoft.SedeWS.SedesWS)(this)).listarProductosDeSede(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarProductosDeSedeResponse> ARSACSoft.SedeWS.SedesWS.listarProductosDeSedeAsync(ARSACSoft.SedeWS.listarProductosDeSedeRequest request) {
+            return base.Channel.listarProductosDeSedeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.SedeWS.listarProductosDeSedeResponse> listarProductosDeSedeAsync(int arg0, string arg1) {
+            ARSACSoft.SedeWS.listarProductosDeSedeRequest inValue = new ARSACSoft.SedeWS.listarProductosDeSedeRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            return ((ARSACSoft.SedeWS.SedesWS)(this)).listarProductosDeSedeAsync(inValue);
         }
     }
 }

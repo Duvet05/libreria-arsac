@@ -330,6 +330,9 @@
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.listarOrdenesDeCompraXProveedorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.modificarOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.ordenDeCompra.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -60,37 +60,36 @@ public class OrdenDeCompraMySQL implements OrdenDeCompraDAO{
         return resultado;
     }
 //
-//    @Override
-//    public int modificar(OrdenDeCompra ordenCompra) {
-//        int resultado = 0;
-//        try{
-//            con = DBManager.getInstance().getConnection();
-//            cs = con.prepareCall("{call ACTUALIZAR_ORDEN_COMPRA(?,?,?,?,?)}");
-//            cs.setInt("_id_orden_de_compra", ordenCompra.getIdOrdenDeCompra());
-//            cs.setInt("_fid_empleado", ordenCompra.getEmpleado().getIdPersona());
-//            cs.setInt("_fid_proveedor", ordenCompra.getProveedor().getIdProveedor());
-//            cs.setDate("_fecha_orden", new java.sql.Date(ordenCompra.getFechaOrden().getTime()));
-//            cs.setDouble("_total", ordenCompra.getCostototal());
-//            cs.executeUpdate();
-//            ordenCompra.setIdOrdenDeCompra(cs.getInt("_id_orden_de_compra"));
-//            for(LineaOrdenDeCompra lineaOrdenCompra : ordenCompra.getLineas()){
-//                cs = con.prepareCall("{call (?,?,?,?,?)}");
-//                cs.registerOutParameter("_id_linea_orden_compra", java.sql.Types.INTEGER);
-//                cs.setInt("_fid_orden_de_compra", ordenCompra.getIdOrdenDeCompra());
-//                cs.setInt("_fid_producto", lineaOrdenCompra.getProducto().getIdProducto());
-//                cs.setInt("_cantidad", lineaOrdenCompra.getCantidad());
-//                cs.setDouble("_subtotal", lineaOrdenCompra.getCosto());
-//                cs.executeUpdate();
-//            }
-//            resultado = ordenCompra.getIdOrdenDeCompra();
-//        }catch(Exception ex){
-//            System.out.println(ex.getMessage());
-//        }finally{
-//            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-//        }
-//        return resultado;        
-//    }
-//
+    @Override
+    public int modificar(OrdenDeCompra ordenCompra) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ACTUALIZAR_ORDEN_COMPRA(?,?,?,?)}");
+            cs.setInt("_id_orden_de_compra", ordenCompra.getIdOrdenDeCompra());
+            cs.setInt("_fid_empleado", ordenCompra.getEmpleado().getIdPersona());
+            cs.setDouble("_total", ordenCompra.getCostototal());
+            cs.setString("_estado", ordenCompra.getEstado());
+            cs.executeUpdate();
+            //ordenCompra.setIdOrdenDeCompra(cs.getInt("_id_orden_de_compra"));
+            for(LineaOrdenDeCompra lineaOrdenCompra : ordenCompra.getLineas()){
+                cs = con.prepareCall("{CALL INSERTAR_LINEA_ORDEN_COMPRA(?,?,?,?,?)}");
+                cs.registerOutParameter("_id_linea_orden_compra", java.sql.Types.INTEGER);
+                cs.setInt("_fid_orden_de_compra", ordenCompra.getIdOrdenDeCompra());
+                cs.setInt("_fid_producto", lineaOrdenCompra.getProductoProveedor().getProducto().getIdProducto());
+                cs.setInt("_cantidad", lineaOrdenCompra.getCantidad());
+                cs.setDouble("_subtotal", lineaOrdenCompra.getSubtotal());
+                cs.executeUpdate();
+            }
+            resultado = ordenCompra.getIdOrdenDeCompra();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;        
+    }
+
 //    @Override
 //    public int eliminar(int idOrdenCompra) {
 //        int resultado = 0;

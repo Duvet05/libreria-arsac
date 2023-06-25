@@ -41,6 +41,17 @@ public class AlmacenWS {
         return resultado;
     }
     
+    @WebMethod
+    public int modificarOrdenCompra(OrdenDeCompra ordenCompra) {
+        int resultado=0;
+        try {
+            resultado =  daoOrdenDeCompra.modificar(ordenCompra);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
     @WebMethod(operationName = "listarOrdenesDeCompraXProveedor")
     public ArrayList<OrdenDeCompra> listarOrdenesDeCompraXProveedor(int idProveedor, Date fechaInicio, 
                                         Date fechaFin, String estado) {

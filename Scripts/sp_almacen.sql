@@ -133,19 +133,22 @@ BEGIN
 END$
 DELIMITER $
 
+drop procedure if exists ACTUALIZAR_ORDEN_COMPRA;
+DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_ORDEN_COMPRA(
     IN _id_orden_de_compra INT,
     IN _fid_empleado INT,
-    IN _fid_proveedor INT,
-    IN _fecha_orden DATE,
-    IN _total DECIMAL(10, 2)
+    IN _total DECIMAL(10, 2),
+    in _estado varchar(50)
 )
 BEGIN
     UPDATE ordenDeCompra
-    SET fid_empleado = _fid_empleado,fid_proveedor = _fid_proveedor,
-        fecha_orden = _fecha_orden,total = _total
+    SET fid_empleado = _fid_empleado,
+        total = _total, estado = _estado
     WHERE id_orden_de_compra = _id_orden_de_compra;
-END$
+    
+    UPDATE lineaOrdenDeCompra SET activo = 0 WHERE fid_orden_de_compra = _id_orden_de_compra;
+END $
 
 DELIMITER $
 CREATE PROCEDURE ELIMINAR_ORDEN_COMPRA(
@@ -221,8 +224,8 @@ CREATE PROCEDURE INSERTAR_LINEA_ORDEN_COMPRA(
 	IN _subtotal DECIMAL(10, 2)
 )
 BEGIN
-  INSERT INTO lineaOrdenDeCompra (fid_orden_de_compra, fid_producto, cantidad,subtotal)
-  VALUES (_fid_orden_de_compra,_fid_producto,_cantidad,_subtotal);
+  INSERT INTO lineaOrdenDeCompra (fid_orden_de_compra, fid_producto, cantidad,subtotal, activo)
+  VALUES (_fid_orden_de_compra,_fid_producto,_cantidad,_subtotal, 1);
   SET _id_linea_orden_compra = @@last_insert_id;
 END$
 
