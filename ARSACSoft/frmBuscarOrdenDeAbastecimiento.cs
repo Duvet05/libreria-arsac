@@ -59,11 +59,11 @@ namespace ARSACSoft
             dgvOrdenes.Rows[e.RowIndex].Cells[1].Value =
                 orden.sede.direccion;
             dgvOrdenes.Rows[e.RowIndex].Cells[2].Value =
-                orden.fechaRegistro;
+                orden.fechaRegistro.AddDays(1).ToString("dd/MM/yyyy");
             dgvOrdenes.Rows[e.RowIndex].Cells[3].Value =
-                orden.fechaEntrega;
+                orden.fechaEntrega.Year == 1 ? "" : orden.fechaEntrega.AddDays(1).ToString("dd/MM/yyyy");
             dgvOrdenes.Rows[e.RowIndex].Cells[4].Value =
-                orden.fechaCancelacion;
+                orden.fechaCancelacion.Year == 1 ? "" : orden.fechaCancelacion.AddDays(1).ToString("dd/MM/yyyy");
             dgvOrdenes.Rows[e.RowIndex].Cells[5].Value =
                 orden.estado;
         }

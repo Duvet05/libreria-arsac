@@ -142,28 +142,6 @@ public class SedeMySQL implements SedeDAO {
     }
 
     @Override
-    public int eliminar(int idSede) {
-        int resultado = 0;
-        
-        try
-        {
-            con = DBManager.getInstance().getConnection();
-            
-            cs = con.prepareCall("{call ELIMINAR_SEDE(?)}");
-            cs.setInt(1, idSede);
-            
-            cs.executeUpdate();
-            resultado = 1;
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
-        }
-        return resultado;
-    }
-
-    @Override
     public ArrayList<SedeXProducto> listarProductos(int idSede)
     {
         ArrayList<SedeXProducto> productos = new ArrayList<SedeXProducto>();
@@ -207,27 +185,6 @@ public class SedeMySQL implements SedeDAO {
             try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
         }
         return productos;
-    }
-
-    @Override
-    public int eliminarProductos(int idSede) {
-        int resultado = 0;
-                
-        try
-        {
-            con = DBManager.getInstance().getConnection();
-            
-            cs = con.prepareCall("{call ELIMINAR_PRODUCTOS_DE_SEDE(?)}");
-            cs.setInt(1, idSede);
-            cs.executeUpdate();
-            resultado = 1;
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
-        }
-        return resultado;
     }
 
     @Override

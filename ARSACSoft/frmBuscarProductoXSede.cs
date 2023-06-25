@@ -71,8 +71,11 @@ namespace ARSACSoft
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            _productoDeSedeSeleccionada = (sedeXProducto)dgvProductos.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
+            if (dgvProductos.CurrentRow != null && dgvProductos.CurrentRow.DataBoundItem is sedeXProducto)
+            {
+                _productoDeSedeSeleccionada = (sedeXProducto)dgvProductos.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+            }
         }
     }
 }

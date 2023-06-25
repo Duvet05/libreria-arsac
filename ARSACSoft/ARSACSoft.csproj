@@ -462,12 +462,6 @@
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.cancelarOrdenDeAbastecimientoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarProductosDeSedeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarSedeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.entregarOrdenDeAbastecimientoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

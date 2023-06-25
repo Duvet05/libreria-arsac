@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionSedes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpSede = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -38,7 +38,6 @@
             this.btnModificarTabSede = new System.Windows.Forms.ToolStripButton();
             this.btnBuscarTabSede = new System.Windows.Forms.ToolStripButton();
             this.btnCancelarTabSede = new System.Windows.Forms.ToolStripButton();
-            this.btnEliminarTabSede = new System.Windows.Forms.ToolStripButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtIdSedeTabSede = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -90,11 +89,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvLineasTabOA = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbCafeteria = new System.Windows.Forms.CheckBox();
             this.cbSalasEstudio = new System.Windows.Forms.CheckBox();
             this.btnEntregarOrdenTabOA = new System.Windows.Forms.Button();
@@ -116,6 +110,11 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnBuscarOrdenes = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.IdLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreTabOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoriaTabOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MarcaTabOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadTabOA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAlmacen.SuspendLayout();
             this.tpSede.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -163,8 +162,7 @@
             this.btnGuardarTabSede,
             this.btnModificarTabSede,
             this.btnBuscarTabSede,
-            this.btnCancelarTabSede,
-            this.btnEliminarTabSede});
+            this.btnCancelarTabSede});
             this.toolStrip1.Location = new System.Drawing.Point(2, 2);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(685, 27);
@@ -224,17 +222,6 @@
             this.btnCancelarTabSede.Size = new System.Drawing.Size(82, 24);
             this.btnCancelarTabSede.Text = "&Can&cela&r";
             this.btnCancelarTabSede.Click += new System.EventHandler(this.btnCancelarSede_Click);
-            // 
-            // btnEliminarTabSede
-            // 
-            this.btnEliminarTabSede.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTabSede.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarTabSede.Image")));
-            this.btnEliminarTabSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminarTabSede.Name = "btnEliminarTabSede";
-            this.btnEliminarTabSede.Size = new System.Drawing.Size(74, 24);
-            this.btnEliminarTabSede.Text = "Eliminar";
-            this.btnEliminarTabSede.ToolTipText = "&Eliminar";
-            this.btnEliminarTabSede.Click += new System.EventHandler(this.btnEliminarSede_Click);
             // 
             // groupBox3
             // 
@@ -517,6 +504,7 @@
             this.btnCancelarOrdenTabOA.TabIndex = 95;
             this.btnCancelarOrdenTabOA.Text = "Cancelar";
             this.btnCancelarOrdenTabOA.UseVisualStyleBackColor = true;
+            this.btnCancelarOrdenTabOA.Click += new System.EventHandler(this.btnCancelarOrdenTabOA_Click);
             // 
             // toolStrip2
             // 
@@ -818,55 +806,21 @@
             this.dgvLineasTabOA.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvLineasTabOA.ColumnHeadersHeight = 29;
             this.dgvLineasTabOA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.IdLinea,
+            this.NombreTabOA,
+            this.CategoriaTabOA,
+            this.MarcaTabOA,
+            this.CantidadTabOA});
             this.dgvLineasTabOA.Location = new System.Drawing.Point(11, 209);
             this.dgvLineasTabOA.Name = "dgvLineasTabOA";
             this.dgvLineasTabOA.ReadOnly = true;
             this.dgvLineasTabOA.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvLineasTabOA.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLineasTabOA.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvLineasTabOA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLineasTabOA.Size = new System.Drawing.Size(667, 162);
             this.dgvLineasTabOA.TabIndex = 90;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id Linea";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Categoria";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Marca";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dgvLineasTabOA.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvLineasTabOA_CellFormatting);
             // 
             // cbCafeteria
             // 
@@ -897,6 +851,7 @@
             this.btnEntregarOrdenTabOA.TabIndex = 3;
             this.btnEntregarOrdenTabOA.Text = "Entregar";
             this.btnEntregarOrdenTabOA.UseVisualStyleBackColor = true;
+            this.btnEntregarOrdenTabOA.Click += new System.EventHandler(this.btnEntregarOrdenTabOA_Click);
             // 
             // btnNuevo
             // 
@@ -1040,6 +995,36 @@
             this.comboBox2.Size = new System.Drawing.Size(227, 23);
             this.comboBox2.TabIndex = 107;
             // 
+            // IdLinea
+            // 
+            this.IdLinea.HeaderText = "ID";
+            this.IdLinea.Name = "IdLinea";
+            this.IdLinea.ReadOnly = true;
+            // 
+            // NombreTabOA
+            // 
+            this.NombreTabOA.HeaderText = "Nombre";
+            this.NombreTabOA.Name = "NombreTabOA";
+            this.NombreTabOA.ReadOnly = true;
+            // 
+            // CategoriaTabOA
+            // 
+            this.CategoriaTabOA.HeaderText = "Categoria";
+            this.CategoriaTabOA.Name = "CategoriaTabOA";
+            this.CategoriaTabOA.ReadOnly = true;
+            // 
+            // MarcaTabOA
+            // 
+            this.MarcaTabOA.HeaderText = "Marca";
+            this.MarcaTabOA.Name = "MarcaTabOA";
+            this.MarcaTabOA.ReadOnly = true;
+            // 
+            // CantidadTabOA
+            // 
+            this.CantidadTabOA.HeaderText = "Cantidad";
+            this.CantidadTabOA.Name = "CantidadTabOA";
+            this.CantidadTabOA.ReadOnly = true;
+            // 
             // frmGestionSedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1100,7 +1085,6 @@
         private System.Windows.Forms.Label lblCodProducto;
         private System.Windows.Forms.DataGridView dgvProductosTabSede;
         private System.Windows.Forms.ToolStripButton btnBuscarTabSede;
-        private System.Windows.Forms.ToolStripButton btnEliminarTabSede;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
@@ -1145,11 +1129,6 @@
         private System.Windows.Forms.ToolStripButton btnGuardarTabOA;
         private System.Windows.Forms.ToolStripButton btnBuscarTabOA;
         private System.Windows.Forms.ToolStripButton btnCancelarTabOA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.TextBox txtDireccionSedeTabOA;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
@@ -1159,5 +1138,10 @@
         private System.Windows.Forms.TextBox txtStockSedePrincipalTabOA;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtIdOrdenTabSede;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdLinea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreTabOA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaTabOA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MarcaTabOA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadTabOA;
     }
 }

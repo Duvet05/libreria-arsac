@@ -115,11 +115,11 @@ BEGIN
 	INNER JOIN
 		categoria c
 			ON
-            c.id_categoria = p.fid_categoria and c.id_categoria = _id_categoria
+            c.id_categoria = p.fid_categoria and (c.id_categoria = _id_categoria or _id_categoria = -1)
 	INNER JOIN
 		marca m
 			ON
-            p.fid_marca = m.id_marca and m.id_marca = _id_marca
+            p.fid_marca = m.id_marca and (m.id_marca = _id_marca or _id_marca = -1)
 	INNER JOIN
 		sedeXproducto sxp
 			ON
@@ -149,7 +149,7 @@ BEGIN
   ordenDeAbastecimiento
   (fid_empleado, fid_sede, fecha_registro, fecha_entrega, fecha_cancelacion, estado, activo)
   VALUES
-  (_fid_empleado, _fid_sede, CURDATE(), NULL, NULL, 'Pendiente', 1);
+  (_fid_empleado, _fid_sede, localtime(), NULL, NULL, 'Pendiente', 1);
   SET _id_orden_de_abastecimiento = @@last_insert_id;
 END $	
 
@@ -158,7 +158,7 @@ CREATE PROCEDURE ENTREGAR_ORDEN_DE_ABASTECIMIENTO(
 )
 BEGIN
     UPDATE ordenDeAbastecimiento
-	SET fecha_entrega = CURDATE(), estado = 'Entregado'
+	SET fecha_entrega = localtime(), estado = 'Entregado'
 	WHERE id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
 END $
 
@@ -167,7 +167,7 @@ CREATE PROCEDURE CANCELAR_ORDEN_DE_ABASTECIMIENTO(
 )
 BEGIN
 	UPDATE ordenDeAbastecimiento
-	SET fecha_cancelacion = CURDATE(), estado = 'Cancelado'
+	SET fecha_cancelacion = localtime(), estado = 'Cancelado'
 	WHERE id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
 END$
 
@@ -209,6 +209,7 @@ CREATE PROCEDURE LISTAR_LINEAS_DE_ORDEN_DE_ABASTECIMIENTO(
 )
 BEGIN
 	SELECT
+		loa.id_linea_orden_abastecimiento,
 		p.id_producto,
         p.nombre,
 		c.descripcion as categoria,

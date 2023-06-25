@@ -14,10 +14,8 @@ import pe.edu.pucp.arsacsoft.sedes.model.SedeXProducto;
 public interface SedeDAO {
     ArrayList<Sede> listarTodas();
     int insertar(Sede sede);
-    int modificar(Sede sede);
-    int eliminar(int idsede);     
+    int modificar(Sede sede);     
     
     ArrayList<SedeXProducto> listarProductos(int idSede);
     ArrayList<SedeXProducto> listarProductosPorNombreMarcaCategoria(int idSede, String nombre, int idMarca, int idCategoria);
-    int eliminarProductos(int idSede);
 }

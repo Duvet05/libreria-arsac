@@ -42,18 +42,6 @@ public class SedesWS {
     {
         return daoSede.modificar(sede);
     }
-
-    @WebMethod(operationName = "eliminarSede")
-    public int eliminarSede(int idSede)
-    {
-        return daoSede.eliminar(idSede);
-    }
-    
-    @WebMethod(operationName = "eliminarProductosDeSede")
-    public int eliminarProductosDeSede(int idSede)
-    {
-        return daoSede.eliminarProductos(idSede);
-    }
     
     @WebMethod(operationName = "listarProductosDeSede")
     public ArrayList<SedeXProducto> listarProductoDeSede(int idSede)

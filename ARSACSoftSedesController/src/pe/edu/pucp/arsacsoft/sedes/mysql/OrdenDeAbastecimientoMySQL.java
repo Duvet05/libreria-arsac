@@ -62,7 +62,7 @@ public class OrdenDeAbastecimientoMySQL implements OrdenDeAbastecimientoDAO {
                 cs.registerOutParameter(1, java.sql.Types.INTEGER);
                 cs.setInt(2, orden.getIdOrdenDeAbastecimiento());
                 cs.setInt(3, linea.getProducto().getIdProducto());
-                cs.setInt(4, orden.getSede().getIdSede());
+                cs.setInt(4, linea.getCantidad());
                 cs.executeUpdate();
             }
             
@@ -193,7 +193,6 @@ public class OrdenDeAbastecimientoMySQL implements OrdenDeAbastecimientoDAO {
                 */
                 
                 orden.setIdOrdenDeAbastecimiento(rs.getInt("id_orden_de_abastecimiento"));
-                orden.setIdEmpleado(rs.getInt("fid_empleado"));
                 
                 orden.setSede(new Sede());
                 orden.getSede().setIdSede(rs.getInt("id_sede"));
@@ -203,7 +202,7 @@ public class OrdenDeAbastecimientoMySQL implements OrdenDeAbastecimientoDAO {
                 orden.setFechaEntrega(rs.getDate("fecha_entrega"));
                 orden.setFechaCancelacion(rs.getDate("fecha_cancelacion"));
 
-                orden.setEstado(rs.getString(""));
+                orden.setEstado(rs.getString("estado"));
                 
                 ordenes.add(orden);
             }
