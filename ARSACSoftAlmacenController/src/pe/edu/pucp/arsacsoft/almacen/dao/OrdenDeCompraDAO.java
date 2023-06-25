@@ -15,5 +15,5 @@ public interface OrdenDeCompraDAO {
     int insertar(OrdenDeCompra ordenCompra);
 //    int modificar(OrdenDeCompra ordenCompra);
 //    int eliminar(int idOrdenCompra);
-//    ArrayList<OrdenDeCompra> listarPorIdDNINombreEmpleado(String idDNINombreEmpleado);    
+    ArrayList<OrdenDeCompra> listarPorIdDNINombreEmpleado(String idDNINombreEmpleado);    
 }
