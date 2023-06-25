@@ -143,6 +143,12 @@
     <Compile Include="frmBuscarEmpleados.Designer.cs">
       <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarOrdenDeAbastecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarOrdenDeAbastecimiento.Designer.cs">
+      <DependentUpon>frmBuscarOrdenDeAbastecimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarOrdenDeCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,12 @@
     </Compile>
     <Compile Include="frmBuscarProductoXProveedor.Designer.cs">
       <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarProductoXSedeVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarProductoXSedeVenta.designer.cs">
+      <DependentUpon>frmBuscarProductoXSedeVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBuscarProductoXSede.cs">
       <SubType>Form</SubType>
@@ -253,6 +265,9 @@
     <EmbeddedResource Include="frmBuscarEmpleados.resx">
       <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarOrdenDeAbastecimiento.resx">
+      <DependentUpon>frmBuscarOrdenDeAbastecimiento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarOrdenDeCompra.resx">
       <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProductoXProveedor.resx">
       <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarProductoXSedeVenta.resx">
+      <DependentUpon>frmBuscarProductoXSedeVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProductoXSede.resx">
       <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
@@ -468,13 +486,34 @@
     <None Include="Connected Services\RRHHWS\RRHHWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.cancelarOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarProductosDeSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.entregarOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.insertarOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.insertarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.lineaOrdenDeAbastecimiento1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarLineasDeOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarOrdenesDeAbastecimientoPorIdEmpleadoEstadoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarProductosDeSedePorNombreMarcaCategoriaResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarProductosDeSedeResponse.datasource">
@@ -486,10 +525,22 @@
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.modificarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.obtenerStockDeProductoEnSedePrincipalResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.obtenerStockDeProductoEnSedeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.ordenDeAbastecimiento1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sede.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sedeXProducto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.verificarEntregaDeOrdenDeAbastecimientoResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\SedesWS.wsdl" />
@@ -509,6 +560,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaResponse1.datasource">
