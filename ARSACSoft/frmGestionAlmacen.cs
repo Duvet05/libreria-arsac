@@ -11,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ARSACSoft
 {
@@ -24,7 +25,7 @@ namespace ARSACSoft
         private AlmacenWSClient daoAlmacenWS;
         private ProductosWS.producto prodSeleccionado;
         private ProveedoresWS.proveedor _proveedorSeleccionado = null;
-
+        private AlmacenWS.ordenDeCompra _ordenCompraSeleccionada = null;
 
         private ordenDeCompra _ordenCompra;
         private BindingList<lineaOrdenDeCompra> _lineasOrdenDeCompra;
@@ -68,7 +69,7 @@ namespace ARSACSoft
                 if (ofdImagenProducto.ShowDialog() == DialogResult.OK)
                 {
                     _rutaFotoProducto = ofdImagenProducto.FileName;
-                    pbFoto.Image = Image.FromFile(_rutaFotoProducto);
+                    pbFoto.Image =  System.Drawing.Image.FromFile(_rutaFotoProducto);
                 }
             }
             catch (Exception ex)
@@ -193,6 +194,9 @@ namespace ARSACSoft
                     btnAgregarProductoOC.Enabled = false;
                     btnQuitarProductoOC.Enabled= false;
                     btnBuscarProductoOC.Enabled= false;
+                    /*Botones para cambios de estado del pedido recien activamos aqui*/
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
                     break;
                 case Estado.Nuevo:
                 case Estado.Modificar:
@@ -217,29 +221,36 @@ namespace ARSACSoft
                     btnAgregarProductoOC.Enabled = true;
                     btnQuitarProductoOC.Enabled = true;
                     btnBuscarProductoOC.Enabled = true;
+                    /*Botones para cambios de estado del pedido recien activamos aqui*/
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
                     break;
                 case Estado.Buscar:
                     btnNuevoOC.Enabled = false;
-                    btnGuardarOC.Enabled = true;
+                    btnGuardarOC.Enabled = false;
                     btnBuscarOC.Enabled = true;
                     btnModificarOC.Enabled = true;
-                    btnEliminarOC.Enabled = true;
                     btnCancelarOC.Enabled = true;
+                    btnEliminarOC.Enabled = true;
                     btnMarcarRecibidoOC.Enabled = true;
 
-                    txtIDOrdenCompra.Enabled = true;
-                    dtpFechaOrdenCompra.Enabled = true;
-                    txtRUCProveedorOC.Enabled = true;
-                    txtRazonSocialProveedorOC.Enabled = true;
-                    btnBuscarProveedorOC.Enabled = true;
+                    txtIDOrdenCompra.Enabled = false;
+                    dtpFechaOrdenCompra.Enabled = false;
+                    txtRUCProveedorOC.Enabled = false;
+                    txtRazonSocialProveedorOC.Enabled = false;
+                    btnBuscarProveedorOC.Enabled = false;
 
-                    txtCodigoProductoOC.Enabled = true;
-                    txtNombreProductoOC.Enabled = true;
-                    txtPrecioUnitarioProdOC.Enabled = true;
-                    txtCantidadProdOC.Enabled = true;
-                    btnAgregarProductoOC.Enabled = true;
-                    btnQuitarProductoOC.Enabled = true;
-                    btnBuscarProductoOC.Enabled = true;
+                    txtCodigoProductoOC.Enabled = false;
+                    txtNombreProductoOC.Enabled = false;
+                    txtPrecioUnitarioProdOC.Enabled = false;
+                    txtCantidadProdOC.Enabled = false;
+                    btnAgregarProductoOC.Enabled = false;
+                    btnQuitarProductoOC.Enabled = false;
+                    btnBuscarProductoOC.Enabled = false;
+
+                    /*Botones para cambios de estado del pedido recien activamos aqui*/
+                    btnEliminarOC.Enabled=true;
+                    btnMarcarRecibidoOC.Enabled = true;
                     break;
             }
         }
@@ -560,17 +571,36 @@ namespace ARSACSoft
             frmBuscarOrdenDeCompra formBusqOC = new frmBuscarOrdenDeCompra();
             if (formBusqOC.ShowDialog() == DialogResult.OK)
             {
-                //_ordenVenta = formBusqOV.OrdenVentaSeleccionada;
-                //txtDNICliente.Text = _ordenVenta.cliente.DNI;
-                //txtNombreCliente.Text = _ordenVenta.cliente.nombre + " " + _ordenVenta.cliente.apellidoPaterno;
-                //_lineasOrdenVenta = new BindingList<lineaOrdenVenta>(_ordenVenta.lineasOrdenVenta.ToList());
-                //_ordenVenta.lineasOrdenVenta = null;
-                //dgvDetalleOrdenVenta.DataSource = _lineasOrdenVenta;
-                //txtIDOrdenVenta.Text = _ordenVenta.idOrdenVenta.ToString();
-                //dtpFechaOrdenVenta.Value = _ordenVenta.fechaHora;
-                //txtTotal.Text = _ordenVenta.total.ToString("N2");
-                //_estado = Estado.Buscar;
-                //establecerEstadoComponentes();
+                _ordenCompraSeleccionada = formBusqOC.OrdenCompraSeleccionada;
+                txtIDOrdenCompra.Text = _ordenCompraSeleccionada.idOrdenDeCompra.ToString();
+                dtpFechaOrdenCompra.Value = _ordenCompraSeleccionada.fechaOrden;
+                txtRUCProveedorOC.Text = _ordenCompraSeleccionada.proveedor.RUC;
+                txtRazonSocialProveedorOC.Text = _ordenCompraSeleccionada.proveedor.nombre;
+
+                _proveedorSeleccionado = formBusqOC.ProveedorSeleccionado;
+                _lineasOrdenDeCompra= new BindingList<lineaOrdenDeCompra>(_ordenCompraSeleccionada.lineas.ToList());
+                _ordenCompra = new ordenDeCompra();
+
+                dgvListaProductosOC.DataSource = _lineasOrdenDeCompra;
+                txtTotal.Text = _ordenCompraSeleccionada.costototal.ToString("N2");
+                _estadoPagOrdenCompra = Estado.Buscar;
+                establecerEstadoFormularioOrdenDeCompra();
+
+                lblEstadoOrdenCompra.Text = "(" + ConvertirEstado(_ordenCompraSeleccionada.estado) + ")";
+                //De acuerdo a su estado, permitiré que accesa a un cambio de estado
+                if(_ordenCompraSeleccionada.estado == "RECIBIDO")
+                {
+                    //No permitiré que pueda cancelarlo o volver a recibirlo
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
+                    btnModificarOC.Enabled = false;
+                }
+                if (_ordenCompraSeleccionada.estado == "CANCELADO")
+                {
+                    //No permitiré que pueda cancelarlo o volver a recibirlo, pero sí modificarlo
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
+                }
             }
         }
 
@@ -583,7 +613,11 @@ namespace ARSACSoft
 
             _productoDeProveedorSeleccionado = null;
             _proveedorSeleccionado = null;
-            _lineasOrdenDeCompra = null;
+
+            _lineasOrdenDeCompra.Clear();//reseteo productos guardados
+            _ordenCompra.costototal = 0;
+
+            txtTotal.Text = "";
         }
 
         private void btnQuitarProductoOC_Click(object sender, EventArgs e)
@@ -621,6 +655,31 @@ namespace ARSACSoft
         private void gbDatosOrdenCompra_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnModificarOC_Click(object sender, EventArgs e)
+        {
+            _estadoPagOrdenCompra = Estado.Modificar;
+            establecerEstadoFormularioOrdenDeCompra();
+        }
+
+        private void btnEliminarOC_Click(object sender, EventArgs e)
+        {
+
+        }
+        public string ConvertirEstado(string estado)
+        {
+            switch (estado.ToUpper())
+            {
+                case "EN PROCESO":
+                    return "En proceso";
+                case "CANCELADO":
+                    return "Cancelado";
+                case "RECIBIDO":
+                    return "Recibido";
+                default:
+                    return estado;
+            }
         }
     }
 }

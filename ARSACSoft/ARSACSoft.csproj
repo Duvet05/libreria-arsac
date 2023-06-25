@@ -149,12 +149,6 @@
     <Compile Include="frmBuscarOrdenDeCompra.Designer.cs">
       <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBuscarProductoXSede.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscarProductoXSede.Designer.cs">
-      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBuscarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +160,12 @@
     </Compile>
     <Compile Include="frmBuscarProductoXProveedor.Designer.cs">
       <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarProductoXSede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarProductoXSede.designer.cs">
+      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCrearCliente.cs">
       <SubType>Form</SubType>
@@ -256,14 +256,14 @@
     <EmbeddedResource Include="frmBuscarOrdenDeCompra.resx">
       <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscarProductoXSede.resx">
-      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProducto.resx">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProductoXProveedor.resx">
       <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarProductoXSede.resx">
+      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCrearCliente.resx">
       <DependentUpon>frmCrearCliente.cs</DependentUpon>
@@ -348,7 +348,7 @@
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXNombreXCategoriaXMarcaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXSedeResponse.datasource">
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXSedeResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.marca.datasource">

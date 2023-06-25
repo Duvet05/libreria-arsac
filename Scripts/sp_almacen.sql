@@ -10,7 +10,7 @@ DROP PROCEDURE IF exists INSERTAR_LINEA_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_CATEGORIA_TODAS;
 DROP PROCEDURE IF exists LISTAR_MARCA_TODAS;
-DROP  PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE;
+
 DELIMITER $
 create procedure LISTAR_CATEGORIA_TODAS()
 begin
@@ -165,15 +165,34 @@ CREATE PROCEDURE LISTAR_ORDENES_COMPRA_X_PROVEEDOR(
     in _estado varchar(50)
 )
 BEGIN
-    SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
-			p.nombre, p.RUC, p.telefono, p.direccion
-    FROM ordenDeCompra oc
-    INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
-    WHERE
-        oc.estado = _estado AND p.activo = true
-        AND p.id_proveedor = _id_proveedor 
-        AND oc.fecha_orden >= _fecha_inicio AND oc.fecha_orden <= _fecha_fin
-	ORDER BY oc.fecha_orden DESC;
+    if (_estado = "TODOS" and _id_proveedor = -1) then
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE p.activo = true
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
+	elseif (_estado = "TODOS" and _id_proveedor != -1) then
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE p.activo = true
+			AND p.id_proveedor = _id_proveedor 
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
+	else 
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE
+			oc.estado = _estado AND p.activo = true
+			AND p.id_proveedor = _id_proveedor 
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
+    end if;
 END $
 
 
@@ -216,4 +235,6 @@ BEGIN
     Inner JOIN categoria c ON c.id_categoria = p.fid_categoria
 	WHERE loc.fid_orden_de_compra = _id_orden_de_compra AND loc.activo = 1;
 END $
+
+
 
