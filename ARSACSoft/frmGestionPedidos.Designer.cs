@@ -47,6 +47,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textCantProducto = new System.Windows.Forms.TextBox();
             this.BtnQuitar = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnBuscarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -287,6 +287,12 @@
             this.Column5.HeaderText = "Descuento";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
             // 
             // label1
             // 
@@ -557,7 +563,7 @@
             // 
             this.btPedido.BackColor = System.Drawing.Color.White;
             this.btPedido.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.btPedido.Location = new System.Drawing.Point(492, 375);
+            this.btPedido.Location = new System.Drawing.Point(492, 367);
             this.btPedido.Name = "btPedido";
             this.btPedido.Size = new System.Drawing.Size(200, 33);
             this.btPedido.TabIndex = 109;
@@ -612,12 +618,6 @@
             this.btnCancelar.Size = new System.Drawing.Size(82, 24);
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
             // 
             // frmGestionPedidos
             // 

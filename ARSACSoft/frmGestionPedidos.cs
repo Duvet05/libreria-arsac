@@ -173,7 +173,7 @@ namespace ARSACSoft
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            frmBuscarProductoXSede frm = new frmBuscarProductoXSede(_id_sede);
+            frmBuscarProductoXSedeVenta frm = new frmBuscarProductoXSedeVenta(_id_sede);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 _producto = frm.ProductoSeleccionado;
@@ -444,7 +444,7 @@ namespace ARSACSoft
             ordenV.fechaOrdenSpecified = true;
             ordenV.fechaEnvioSpecified = true;
             ordenV.fechaOrden = DateTime.Now.Date;
-            ordenV.fechaEnvio = DateTime.Now.Date;
+            ordenV.fechaEnvio = dateFechaEntrega.Value;
             ordenV.precioTotal = precioTotal;
             ordenV.empleado = new VentasWS.empleado();
             ordenV.empleado.idPersona = _id_empleado;
@@ -465,7 +465,11 @@ namespace ARSACSoft
             {
                 daoVentas.insertarOrdenDeVentaMinorista(ordenV);
             }
+            RestaurarEstadoFormulario();
+        }
 
+        private void RestaurarEstadoFormulario()
+        {
             estado = Estado.Inicial;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
