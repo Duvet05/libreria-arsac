@@ -45,7 +45,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
                 cs.setDouble(5, linea.getPrecio());
                 cs.executeUpdate();
             }
-
             resultado = ordenV.getIdOrdenDeVenta();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

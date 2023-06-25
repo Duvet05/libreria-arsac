@@ -424,7 +424,7 @@ namespace ARSACSoft
             LimpiarComponentes();
             EstablecerEstadoFormulario();
         }
-
+         
         private void btPedido_Click(object sender, EventArgs e)
         {
             // Verificar si hay elementos en la línea de orden de venta
