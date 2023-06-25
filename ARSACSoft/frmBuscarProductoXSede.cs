@@ -1,58 +1,63 @@
 ﻿using ARSACSoft.ProductosWS;
+using ARSACSoft.SedeWS;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ARSACSoft
 {
     public partial class frmBuscarProductoXSede : Form
     {
-        private ProductosWS.producto _productoSede;
-        private ProductosWSClient daoProductosWS;
-        private int _sede;
+        private SedesWSClient _daoSede;
+        private ProductosWSClient _daoProducto;
+        private sede _sedeSeleccionada;
+        private sedeXProducto _productoDeSedeSeleccionada;
 
-        public ProductosWS.producto ProductoSeleccionado
-        {
-            get => _productoSede;
-            set => _productoSede = value;
-        }
+        public sedeXProducto ProductoDeSedeSeleccionada { get => _productoDeSedeSeleccionada; set => _productoDeSedeSeleccionada = value; }
 
-        public frmBuscarProductoXSede(int idSede)
+        public frmBuscarProductoXSede(sede sedeSeleccionada)
         {
-            _sede = idSede;
             InitializeComponent();
-            dgvProductos.AutoGenerateColumns = false;
 
-            daoProductosWS = new ProductosWSClient();
-            CargarCategorias();
-            CargarMarcas();
-            txtIdSede.Text = idSede.ToString();
-            txtNombreProd.Text = string.Empty;
-            dgvProductos.DataSource = daoProductosWS.listarProductosXSede(txtNombreProd.Text, _sede, -1, -1);
-        }
+            this._sedeSeleccionada = sedeSeleccionada;
+            txtDireccionDeSede.Text = _sedeSeleccionada.direccion;
 
-        private void CargarCategorias()
-        {
+            _daoProducto = new ProductosWSClient();
+            _daoSede = new SedesWSClient();
+
             cboCategoria.DisplayMember = "descripcion";
             cboCategoria.ValueMember = "idCategoria";
-            cboCategoria.DataSource = daoProductosWS.listarCategoriasTodas();
-            cboCategoria.SelectedIndex = 0;
-        }
+            cboCategoria.DataSource = _daoProducto.listarCategoriasTodas();
 
-        private void CargarMarcas()
-        {
             cboMarca.DisplayMember = "descripcion";
             cboMarca.ValueMember = "idMarca";
-            cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
-            cboMarca.SelectedIndex = 0;
+            cboMarca.DataSource = _daoProducto.listarMarcaTodas();
+
+            cboCategoria.SelectedIndex = -1;
+            cboMarca.SelectedIndex = -1;
+            txtNombreProducto.Text = string.Empty;
+            dgvProductos.AutoGenerateColumns = false;
         }
 
-        private void btnSeleccionar_Click(object sender, EventArgs e)
+        private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvProductos.CurrentRow != null)
-            {
-                ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
-                this.DialogResult = DialogResult.OK;
-            }
+            sedeXProducto prod = (sedeXProducto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
+            dgvProductos.Rows[e.RowIndex].Cells[0].Value =
+                prod.producto.idProducto;
+            dgvProductos.Rows[e.RowIndex].Cells[1].Value =
+                prod.producto.nombre;
+            dgvProductos.Rows[e.RowIndex].Cells[2].Value =
+                prod.producto.marca.descripcion;
+            dgvProductos.Rows[e.RowIndex].Cells[3].Value =
+                prod.producto.categoria.descripcion;
+            dgvProductos.Rows[e.RowIndex].Cells[4].Value =
+                prod.stock;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -60,33 +65,16 @@ namespace ARSACSoft
             int categoriaSeleccionada = cboCategoria.SelectedValue != null ? (int)cboCategoria.SelectedValue : -1;
             int marcaSeleccionada = cboMarca.SelectedValue != null ? (int)cboMarca.SelectedValue : -1;
 
-            dgvProductos.DataSource = daoProductosWS.listarProductosXSede(txtNombreProd.Text, _sede, categoriaSeleccionada, marcaSeleccionada);
+            dgvProductos.DataSource = _daoSede.listarProductosDeSedePorNombreMarcaCategoria(_sedeSeleccionada.idSede,txtNombreProducto.Text,
+                                        marcaSeleccionada,categoriaSeleccionada);
         }
 
-        private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex < 0 || e.RowIndex >= dgvProductos.Rows.Count)
-                return;
-
-            ProductosWS.producto prod = (ProductosWS.producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
-            dgvProductos.Rows[e.RowIndex].Cells[0].Value = prod.nombre;
-            dgvProductos.Rows[e.RowIndex].Cells[1].Value = prod.marca.descripcion;
-            dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.categoria.descripcion;
-            dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.precioPorMenor;
-            dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.precioPorMayor;
-        }
-
-        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < dgvProductos.Rows.Count)
+            if (dgvProductos.CurrentRow != null && dgvProductos.CurrentRow.DataBoundItem is sedeXProducto)
             {
-                DataGridViewRow row = dgvProductos.Rows[e.RowIndex];
-                ProductoSeleccionado = (ProductosWS.producto)row.DataBoundItem;
-
-                // Llevar los campos a los dropdown y textbox
-                cboMarca.SelectedValue = ProductoSeleccionado.marca.idMarca;
-                cboCategoria.SelectedValue = ProductoSeleccionado.categoria.idCategoria;
-                txtNombreProd.Text = ProductoSeleccionado.nombre;
+                _productoDeSedeSeleccionada = (sedeXProducto)dgvProductos.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
             }
         }
     }

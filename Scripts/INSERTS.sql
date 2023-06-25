@@ -249,4 +249,33 @@ insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(9,1
 insert productoXproveedor(fid_producto, fid_proveedor, costo, activo) values(10,1,FLOOR(RAND() * 20) + 1, 1);
 
 -- #######################################################################
+-- INSERT para la tabla productoXSede
+-- Nota: Cuando se agrega un producto en la tabla producto automaticamente se agrega
+-- en de la tabla sedeXproducto para la sede principal
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 1, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 2, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 3, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 4, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 5, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 6, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 7, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 8, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 9, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 10, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 11, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 12, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 13, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 14, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 15, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 16, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 17, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 18, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 19, 50, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(1, 20, 50, true);
+
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(2, 1, 20, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(2, 2, 20, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(2, 3, 20, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(2, 4, 20, true);
+insert sedeXproducto(fid_sede, fid_producto, stock, activo) values(2, 5, 20, true);
 

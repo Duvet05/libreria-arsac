@@ -142,24 +142,97 @@ public class SedeMySQL implements SedeDAO {
     }
 
     @Override
-    public int eliminar(int idSede) {
-        int resultado = 0;
+    public ArrayList<SedeXProducto> listarProductos(int idSede)
+    {
+        ArrayList<SedeXProducto> productos = new ArrayList<SedeXProducto>();
         
         try
         {
             con = DBManager.getInstance().getConnection();
             
-            cs = con.prepareCall("{call ELIMINAR_SEDE(?)}");
+            cs = con.prepareCall("{call LISTAR_PRODUCTOS_DE_SEDE(?)}");
             cs.setInt(1, idSede);
             
-            cs.executeUpdate();
-            resultado = 1;
+            rs = cs.executeQuery();
+            
+            while (rs.next())
+            {
+                SedeXProducto sxp = new SedeXProducto();
+                
+                // p.id_producto, p.nombre, c.descripcion as categoria,
+                // m.descripcion as marca, sxp.stock
+                
+                sxp.setProducto(new Producto());
+                sxp.getProducto().setIdProducto(rs.getInt("id_producto"));
+                sxp.getProducto().setNombre(rs.getString("nombre"));
+                
+                sxp.getProducto().setMarca(new Marca());
+                sxp.getProducto().getMarca().setDescripcion(rs.getString("marca"));
+                
+                sxp.getProducto().setCategoria(new Categoria());
+                sxp.getProducto().getCategoria().setDescripcion(rs.getString("categoria"));
+                
+                sxp.setStock(rs.getInt("stock"));
+                
+                productos.add(sxp);
+                
+            }
+            
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
             try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
         }
-        return resultado;
+        return productos;
     }
+
+    @Override
+    public ArrayList<SedeXProducto> listarProductosPorNombreMarcaCategoria(int idSede, String nombre, int idMarca, int idCategoria) {
+        ArrayList<SedeXProducto> productos = new ArrayList<SedeXProducto>();
+        
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            
+            cs = con.prepareCall("{call LISTAR_PRODUCTOS_DE_SEDE_POR_NOMBRE_MARCA_CATEGORIA(?,?,?,?)}");
+            cs.setInt(1, idSede);
+            cs.setString(2, nombre);
+            cs.setInt(3, idCategoria);
+            cs.setInt(4, idMarca);
+            
+            rs = cs.executeQuery();
+            
+            while (rs.next())
+            {
+                SedeXProducto sxp = new SedeXProducto();
+                
+                // p.id_producto, p.nombre, c.descripcion as categoria,
+                // m.descripcion as marca, sxp.stock
+                
+                sxp.setProducto(new Producto());
+                sxp.getProducto().setIdProducto(rs.getInt("id_producto"));
+                sxp.getProducto().setNombre(rs.getString("nombre"));
+                
+                sxp.getProducto().setMarca(new Marca());
+                sxp.getProducto().getMarca().setDescripcion(rs.getString("marca"));
+                
+                sxp.getProducto().setCategoria(new Categoria());
+                sxp.getProducto().getCategoria().setDescripcion(rs.getString("categoria"));
+                
+                sxp.setStock(rs.getInt("stock"));
+                
+                productos.add(sxp);
+                
+            }
+            
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();} catch(Exception ex) {System.out.println(ex.getMessage());}
+        }
+        return productos;
+    }
+
 }

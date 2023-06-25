@@ -62,13 +62,13 @@ public class ProductoMySQL implements ProductoDAO {
         }
         return productos;
     }
-    
+    //Uso esto no borrar!
     @Override
     public ArrayList<Producto> listarProductosXSede(String _nombre, int _fid_sede, int _fid_categoria, int _fid_marca) {
         ArrayList<Producto> productos = new ArrayList<>();
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{CALL LISTAR_PRODUCTOS_DE_SEDE(?, ?, ?, ?)}");
+            cs = con.prepareCall("{CALL LISTAR_PRODUCTOS_DE_SEDE_VENTAS(?, ?, ?, ?)}");
             cs.setString(1, _nombre);
             cs.setInt(2, _fid_categoria);
             cs.setInt(3, _fid_marca);

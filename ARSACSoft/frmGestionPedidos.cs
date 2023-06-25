@@ -1,8 +1,4 @@
-﻿using ARSACSoft.AlmacenWS;
-using ARSACSoft.ProductosWS;
-using ARSACSoft.RRHHWS;
-using ARSACSoft.SedeWS;
-using ARSACSoft.VentasWS;
+﻿using ARSACSoft.VentasWS;
 using GMap.NET.Internals;
 using System;
 using System.ComponentModel;
@@ -22,16 +18,20 @@ namespace ARSACSoft
         private VentasWSClient daoVentas;
         private int _id_sede;
         private int _id_empleado;
+
         public frmGestionPedidos(RRHHWS.empleado _empleadoLogeado)
         {
             _id_empleado = _empleadoLogeado.idPersona;
             _id_sede = _empleadoLogeado.sede.idSede;
             InitializeComponent();
+
             estado = Estado.Inicial;
             EstablecerEstadoFormulario();
             LimpiarComponentes();
+
             _venta = new ordenDeVenta();
-            this._venta.precioTotal = 0;
+            _venta.precioTotal = 0;
+
             dataGridView2.AutoGenerateColumns = false;
         }
 
@@ -424,32 +424,31 @@ namespace ARSACSoft
             LimpiarComponentes();
             EstablecerEstadoFormulario();
         }
-         
+
         private void btPedido_Click(object sender, EventArgs e)
         {
-            // Verificar si hay elementos en la línea de orden de venta
             if (_lineasOrdenDeVenta.Count == 0)
             {
                 MostrarAdvertencia("La línea de orden de venta está vacía.");
                 return;
             }
 
-            // Verificar si el monto total es válido
             if (!double.TryParse(textMonto.Text, out double precioTotal))
             {
                 MostrarAdvertencia("El monto total no es válido.");
                 return;
             }
 
-            // Crear la orden de venta y asignar los valores
             VentasWS.ordenDeVenta ordenV = new VentasWS.ordenDeVenta();
             ordenV.lineaDeOrdenDeVenta = _lineasOrdenDeVenta.ToArray();
+            ordenV.fechaOrdenSpecified = true;
+            ordenV.fechaEnvioSpecified = true;
             ordenV.fechaOrden = DateTime.Now.Date;
+            ordenV.fechaEnvio = DateTime.Now.Date;
             ordenV.precioTotal = precioTotal;
             ordenV.empleado = new VentasWS.empleado();
             ordenV.empleado.idPersona = _id_empleado;
 
-            // Verificar si se seleccionó la opción de factura
             if (checkBoxFactura.Checked)
             {
                 if (_clienteMayorista == null)
@@ -460,8 +459,12 @@ namespace ARSACSoft
 
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
+                daoVentas.insertarOrdenDeVentaMayorista(ordenV);
             }
-            daoVentas.insertarOrdenDeVenta(ordenV);
+            else
+            {
+                daoVentas.insertarOrdenDeVentaMinorista(ordenV);
+            }
 
             estado = Estado.Inicial;
             LimpiarComponentes();

@@ -4,96 +4,68 @@ using ARSACSoft.SedeWS;
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Windows.Forms;
 
 namespace ARSACSoft
 {
     public partial class frmGestionSedes : Form
     {
+        private int _idEmpleado;
+
         private Estado estadoTabSedes;
+        private Estado estadoTabOA;
+
         private SedesWSClient daoSede;
+        
         private SedeWS.sede sede;
         private ProductosWS.producto _producto;
         private BindingList<SedeWS.sedeXProducto> _productos;
-        public frmGestionSedes()
+        private int productosIndex;
+
+        private SedeWS.ordenDeAbastecimiento _orden;
+        private SedeWS.sedeXProducto _productoDeSedeSeleccionado;
+        private BindingList<SedeWS.lineaOrdenDeAbastecimiento> _lineasOA;
+
+
+        public frmGestionSedes(int idEmpleado)
         {
             InitializeComponent();
+            
+            _idEmpleado = idEmpleado;
+
             estadoTabSedes = Estado.Inicial;
-            limpiarComponentesTabSedes();
+            estadoTabOA = Estado.Inicial;
 
 
             daoSede = new SedesWSClient();
+
             establecerEstadoTabSedes();
             limpiarComponentesTabSedes();
+            
+            establecerEstadoTabOA();
+            limpiarComponentesTabOA();
+
             dgvProductosTabSede.AutoGenerateColumns = false;
+            dgvLineasTabOA.AutoGenerateColumns = false;
         }
-        /*
-        public void establecerEstadoFormulario()
-        {
-            switch (estadoTabSedes)
-            {
-                case Estado.Inicial:
-                    btnNuevo.Enabled = true;
-                    btnModificar.Enabled = false;
-                    btnCancelar.Enabled = false;
-                    cboSedeEmitidora.Enabled = false;
-                    txtCantidad.Enabled = false;
-                    btnAgregar.Enabled = false;
-                    btnQuitar.Enabled = false;
-                    txtNombreProducto.Enabled = false;
-                    txtStockActual.Enabled = false;
-                    btnBuscarProducto.Enabled = true;
-                    btnGuardar.Enabled = false;
-                    btnGenerarOrden.Enabled = false;
-                    break;
-                case Estado.Nuevo:
-                case Estado.Modificar:
-                    btnNuevo.Enabled = false;
-                    btnModificar.Enabled = false;
-                    btnCancelar.Enabled = true;
-                    cboSedeEmitidora.Enabled = true;
-                    txtCantidad.Enabled = true;
-                    btnAgregar.Enabled = true;
-                    btnQuitar.Enabled = true;
-                    txtNombreProducto.Enabled = true;
-                    txtStockActual.Enabled = true;
-                    btnBuscarProducto.Enabled = true;
-                    btnGuardar.Enabled = true;
-                    btnGenerarOrden.Enabled = true;
-                    break;
-                case Estado.Buscar:
-                    btnNuevo.Enabled = false;
-                    btnModificar.Enabled = true;
-                    btnCancelar.Enabled = true;
-                    cboSedeEmitidora.Enabled = false;
-                    txtCantidad.Enabled = false;
-                    btnAgregar.Enabled = false;
-                    btnQuitar.Enabled = false;
-                    txtNombreProducto.Enabled = false;
-                    txtStockActual.Enabled = false;
-                    btnBuscarProducto.Enabled = false;
-                    btnGuardar.Enabled = false;
-                    btnGenerarOrden.Enabled = false;
-                    break;
-            }
-        }
-        */
+
+        // Tab Sedes
+
         public void establecerEstadoTabSedes()
         {
             switch (estadoTabSedes)
             {
                 case Estado.Inicial:
-                    btnNuevoSede.Enabled = true;
-                    btnModificarSede.Enabled = false;
-                    btnCancelarSede.Enabled = false;
-                    btnEliminarSede.Enabled = true;
-                    btnGuardarSede.Enabled = false;
-                    btnEliminarSede.Enabled = false;
+                    btnNuevoTabSede.Enabled = true;
+                    btnModificarTabSede.Enabled = false;
+                    btnCancelarTabSede.Enabled = false;
+                    btnBuscarTabSede.Enabled = true;
+                    btnGuardarTabSede.Enabled = false;
 
-                    txtIDSede.Enabled = false;
-                    txtDireccionSede.Enabled = false;
-                    txtTelefonoSede.Enabled = false;
-                    txtCorreoSede.Enabled = false;
+                    txtDireccionTabSede.Enabled = false;
+                    txtTelefonoTabSede.Enabled = false;
+                    txtCorreoTabSede.Enabled = false;
 
                     btnAgregarProductoTabSede.Enabled = false;
                     btnQuitarProductoTabSede.Enabled=false;
@@ -102,36 +74,31 @@ namespace ARSACSoft
                     break;
                 case Estado.Nuevo:
                 case Estado.Modificar:
-                    btnNuevoSede.Enabled = false;
-                    btnModificarSede.Enabled = false;
-                    btnCancelarSede.Enabled = true;
-                    btnEliminarSede.Enabled = false;
-                    btnGuardarSede.Enabled = true;
-                    btnEliminarSede.Enabled = false;
+                    btnNuevoTabSede.Enabled = false;
+                    btnModificarTabSede.Enabled = false;
+                    btnCancelarTabSede.Enabled = true;
+                    btnBuscarTabSede.Enabled = false;
+                    btnGuardarTabSede.Enabled = true;
 
-                    txtIDSede.Enabled = true;
-                    txtDireccionSede.Enabled = true;
-                    txtTelefonoSede.Enabled = true;
-                    txtCorreoSede.Enabled = true;
+                    txtDireccionTabSede.Enabled = true;
+                    txtTelefonoTabSede.Enabled = true;
+                    txtCorreoTabSede.Enabled = true;
 
-
-                    btnAgregarProductoTabSede.Enabled = true;
+                    btnAgregarProductoTabSede.Enabled = false;
                     btnQuitarProductoTabSede.Enabled = true;
                     btnBuscarProductoTabSede.Enabled = true;
 
                     break;
                 case Estado.Buscar:
-                    btnNuevoSede.Enabled = false;
-                    btnModificarSede.Enabled = true;
-                    btnCancelarSede.Enabled = true;
-                    btnEliminarSede.Enabled = false;
-                    btnGuardarSede.Enabled = false;
-                    btnEliminarSede.Enabled = true;
+                    btnNuevoTabSede.Enabled = false;
+                    btnModificarTabSede.Enabled = true;
+                    btnCancelarTabSede.Enabled = true;
+                    btnBuscarTabSede.Enabled = false;
+                    btnGuardarTabSede.Enabled = false;
 
-                    txtIDSede.Enabled = false;
-                    txtDireccionSede.Enabled = false;
-                    txtTelefonoSede.Enabled = false;
-                    txtCorreoSede.Enabled = false;
+                    txtDireccionTabSede.Enabled = false;
+                    txtTelefonoTabSede.Enabled = false;
+                    txtCorreoTabSede.Enabled = false;
 
                     btnAgregarProductoTabSede.Enabled = false;
                     btnQuitarProductoTabSede.Enabled = false;
@@ -141,75 +108,39 @@ namespace ARSACSoft
                     break;
             }
         }
-        /*
-        public void limpiarComponentes()
-        {
-            cboSedeEmitidora.SelectedIndex = -1;
-            txtNombreProducto.Text = "";
-            txtStockActual.Text = "";
-            txtCantidad.Text = "";
-        }
-        */
+
         public void limpiarComponentesTabSedes()
         {
-            txtIDSede.Text = string.Empty;
-            txtDireccionSede.Text = string.Empty;
-            txtTelefonoSede.Text = string.Empty;
-            txtCorreoSede.Text = string.Empty;
+            txtIdSedeTabSede.Text = string.Empty;
+            txtDireccionTabSede.Text = string.Empty;
+            txtTelefonoTabSede.Text = string.Empty;
+            txtCorreoTabSede.Text = string.Empty;
             dgvProductosTabSede.DataSource = null;
-            txtNombreProducto.Text = string.Empty;
+            txtNombreProductoTabOA.Text = string.Empty;
             txtIdProductoTabSede.Text= string.Empty;
         }
-        /*
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            estadoTabSedes = Estado.Inicial;
-            limpiarComponentes();
-            establecerEstadoFormulario();
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            estadoTabSedes = Estado.Nuevo;
-            limpiarComponentes();
-            establecerEstadoFormulario();
-            sede = new SedeWS.sede();
-        }
-
-
-        private void btnVerDetalle_Click(object sender, EventArgs e)
-        {
-            estadoTabSedes = Estado.Buscar;
-            establecerEstadoFormulario();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            estadoTabSedes = Estado.Modificar;
-            establecerEstadoFormulario();
-        }
-        */
+        
         private void btnBuscarSede_Click(object sender, EventArgs e)
         {
-            
-
             frmBuscarSede formBuscarSede = new frmBuscarSede();
             if (formBuscarSede.ShowDialog() == DialogResult.OK)
             {
                 sede = formBuscarSede.SedeSeleccionada;
-                txtIDSede.Text = sede.idSede.ToString();
-                txtCorreoSede.Text = sede.correo;
-                txtDireccionSede.Text = sede.direccion;
-                txtTelefonoSede.Text = sede.telefono;
+                txtIdSedeTabSede.Text = sede.idSede.ToString();
+                txtCorreoTabSede.Text = sede.correo;
+                txtDireccionTabSede.Text = sede.direccion;
+                txtTelefonoTabSede.Text = sede.telefono;
 
                 
-                SedeWS.sedeXProducto[] p = daoSede.listarProductosDeSede(sede.idSede, "");
+                SedeWS.sedeXProducto[] p = daoSede.listarProductosDeSede(sede.idSede);
                 if (p != null)
-                    _productos = new BindingList<SedeWS.sedeXProducto>(p.ToList());
+                {
+                    _productos = new BindingList<SedeWS.sedeXProducto>(p.ToList());   
+                }
                 else
                     _productos = new BindingList<SedeWS.sedeXProducto>();
 
-                
+                productosIndex = _productos.Count;
 
                 dgvProductosTabSede.DataSource = _productos;
                 estadoTabSedes = Estado.Buscar;
@@ -237,24 +168,47 @@ namespace ARSACSoft
         {
             estadoTabSedes = Estado.Modificar;
             establecerEstadoTabSedes();
+            btnQuitarProductoTabSede.Enabled = false;
+
+            if (sede.esPrincipal)
+            {
+                btnBuscarProductoTabSede.Enabled = false;
+                btnAgregarProductoTabSede.Enabled = false;
+            }
         }
 
         private void btnGuardarSede_Click(object sender, EventArgs e)
         {
-            sede.direccion = txtDireccionSede.Text;
-            sede.telefono = txtTelefonoSede.Text;
-            sede.correo = txtCorreoSede.Text;
-            sede.productos = _productos.ToArray();
+            if (txtDireccionTabSede.Text == "" ||
+                txtTelefonoTabSede.Text == "" ||
+                txtCorreoTabSede.Text == "")
+            {
+                MessageBox.Show("Todos los campos deben estar llenos", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+
+            sede.direccion = txtDireccionTabSede.Text;
+            sede.telefono = txtTelefonoTabSede.Text;
+            sede.correo = txtCorreoTabSede.Text;
+            
             int resultado = 0;
 
             if (estadoTabSedes == Estado.Nuevo)
             {
+                sede.productos = _productos.ToArray();
                 resultado = daoSede.insertarSede(sede);
             }
             else if (estadoTabSedes == Estado.Modificar)
             {
-                daoSede.eliminarProductosDeSede(sede.idSede);
+                BindingList<SedeWS.sedeXProducto> productosNuevos = new BindingList<SedeWS.sedeXProducto>();
+                
+                for (int i = productosIndex; i < _productos.Count; i++)
+                {
+                    productosNuevos.Add(_productos[i]);
+                }
+                sede.productos = productosNuevos.ToArray();
+
                 resultado = daoSede.modificarSede(sede);
             }
             
@@ -262,7 +216,7 @@ namespace ARSACSoft
             if (resultado != 0)
             {
                 MessageBox.Show("Se ha realizado la operación con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtIDSede.Text = resultado.ToString();
+                txtIdSedeTabSede.Text = resultado.ToString();
                 estadoTabSedes = Estado.Inicial;
                 establecerEstadoTabSedes();
             }
@@ -280,6 +234,8 @@ namespace ARSACSoft
                 _producto = frm.ProductoSeleccionado;
                 txtIdProductoTabSede.Text = _producto.idProducto.ToString();
                 txtNombreProductoTabSede.Text = _producto.nombre;
+
+                btnAgregarProductoTabSede.Enabled = true;
             }
         }
 
@@ -321,6 +277,9 @@ namespace ARSACSoft
 
         private void btnQuitarProductoTabSede_Click(object sender, EventArgs e)
         {
+            if (_productos.Count == 0)
+                return;
+
             if (dgvProductosTabSede.CurrentRow.DataBoundItem == null)
                 return;
 
@@ -337,30 +296,303 @@ namespace ARSACSoft
 
                 dgvProductosTabSede.Rows[e.RowIndex].Cells[0].Value = sxp.producto.idProducto;
                 dgvProductosTabSede.Rows[e.RowIndex].Cells[1].Value = sxp.producto.nombre;
-                dgvProductosTabSede.Rows[e.RowIndex].Cells[2].Value = sxp.producto.categoria.descripcion;
-                dgvProductosTabSede.Rows[e.RowIndex].Cells[3].Value = sxp.producto.marca.descripcion;
+                dgvProductosTabSede.Rows[e.RowIndex].Cells[2].Value = sxp.producto.marca.descripcion;
+                dgvProductosTabSede.Rows[e.RowIndex].Cells[3].Value = sxp.producto.categoria.descripcion;
                 dgvProductosTabSede.Rows[e.RowIndex].Cells[4].Value = sxp.stock;
             }
             catch { }
         }
 
-        private void btnEliminarSede_Click(object sender, EventArgs e)
+        // Tab Orden de abastecimiento
+
+        public void establecerEstadoTabOA()
         {
-            DialogResult resultadoInteraccion = MessageBox.Show("¿Está seguro de que desea eliminar a este cliente mayorista?", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (resultadoInteraccion == DialogResult.Yes)
+            switch (estadoTabOA)
             {
-                int resultado = daoSede.eliminarSede(sede.idSede);
-                if (resultado != 0)
+                case Estado.Inicial:
+                    btnNuevoTabOA.Enabled = true;
+                    btnGuardarTabOA.Enabled = false;
+                    btnBuscarTabOA.Enabled = true;
+                    btnCancelarTabOA.Enabled = false;
+
+                    btnBuscarSedeTabOA.Enabled = false;
+                    btnBuscarProductoTabOA.Enabled = false;
+                    txtCantidadTabOA.Enabled = false;
+                    btnAgregarTabOA.Enabled = false;
+                    btnQuitarTabOA.Enabled = false;
+                    btnEntregarOrdenTabOA.Enabled = false;
+                    btnCancelarOrdenTabOA.Enabled= false;
+
+                    break;
+                case Estado.Nuevo:
+
+                    btnNuevoTabOA.Enabled = false;
+                    btnGuardarTabOA.Enabled = true;
+                    btnBuscarTabOA.Enabled = false;
+                    btnCancelarTabOA.Enabled = true;
+
+                    btnBuscarSedeTabOA.Enabled = true;
+                    btnBuscarProductoTabOA.Enabled = false;
+                    txtCantidadTabOA.Enabled = false;
+                    btnAgregarTabOA.Enabled = false;
+                    btnQuitarTabOA.Enabled = false;
+                    btnEntregarOrdenTabOA.Enabled = false;
+                    btnCancelarOrdenTabOA.Enabled = false;
+
+
+                    break;
+                case Estado.Buscar:
+
+                    btnNuevoTabOA.Enabled = false;
+                    btnGuardarTabOA.Enabled = false;
+                    btnBuscarTabOA.Enabled = false;
+                    btnCancelarTabOA.Enabled = true;
+
+                    btnBuscarSedeTabOA.Enabled = false;
+                    btnBuscarProductoTabOA.Enabled = false;
+                    txtCantidadTabOA.Enabled = false;
+                    btnAgregarTabOA.Enabled = false;
+                    btnQuitarTabOA.Enabled = false;
+                    btnEntregarOrdenTabOA.Enabled = true;
+                    btnCancelarOrdenTabOA.Enabled = true;
+
+                    break;
+            }
+        }
+
+        public void limpiarComponentesTabOA()
+        {
+            txtCantidadTabOA.Text = "";
+            txtDireccionSedeTabOA.Text = "";
+            txtNombreProductoTabOA.Text = "";
+            txtStockSedePrincipalTabOA.Text = "";
+            txtStockTabOA.Text = "";
+        }
+
+        private void btnCancelarTabOA_Click(object sender, EventArgs e)
+        {
+            estadoTabOA = Estado.Inicial;
+            limpiarComponentesTabOA();
+            establecerEstadoTabOA();
+        }
+
+        private void btnNuevoTabOA_Click(object sender, EventArgs e)
+        {
+            estadoTabOA = Estado.Nuevo;
+            limpiarComponentesTabOA();
+            establecerEstadoTabOA();
+            _orden = new ordenDeAbastecimiento();
+            _lineasOA = new BindingList<lineaOrdenDeAbastecimiento>();
+
+        }
+
+        private void btnGuardarTabOA_Click(object sender, EventArgs e)
+        {
+            if (_orden.sede == null)
+            {
+                MessageBox.Show("Tiene que seleccionar una sede secundaria", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _orden.idEmpleado = _idEmpleado;
+            _orden.lineas = _lineasOA.ToArray();
+
+            int resultado = daoSede.insertarOrdenDeAbastecimiento(_orden);
+
+            if (resultado != 0)
+            { 
+                MessageBox.Show("Se ha registrado con éxito", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtIdOrdenTabSede.Text = resultado.ToString();
+                estadoTabOA = Estado.Inicial;
+                establecerEstadoTabOA();
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnBuscarTabOA_Click(object sender, EventArgs e)
+        {
+            frmBuscarOrdenDeAbastecimiento frm = new frmBuscarOrdenDeAbastecimiento(_idEmpleado);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _orden = frm.OrdenSeleccionada;
+
+                txtIdOrdenTabSede.Text = _orden.idOrdenDeAbastecimiento.ToString();
+                txtDireccionSedeTabOA.Text = _orden.sede.direccion;
+
+                _orden.lineas = daoSede.listarLineasDeOrdenDeAbastecimiento(_orden.idOrdenDeAbastecimiento);
+
+                dgvLineasTabOA.DataSource = _orden.lineas;
+                
+                estadoTabOA = Estado.Buscar;
+                establecerEstadoTabOA();
+
+                if (_orden.estado != "Pendiente")
                 {
-                    MessageBox.Show("Se ha eliminado correctamente", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    estadoTabSedes = Estado.Inicial;
-                    establecerEstadoTabSedes();
-                }
-                else
-                {
-                    MessageBox.Show("Ha ocurrido un error al momento de eliminar", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnEntregarOrdenTabOA.Enabled = false;
+                    btnCancelarOrdenTabOA.Enabled = false;
                 }
             }
+        }
+
+        private void btnBuscarSedeTabOA_Click(object sender, EventArgs e)
+        {
+            frmBuscarSede frm = new frmBuscarSede(true);
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _orden.sede = frm.SedeSeleccionada;
+                txtDireccionSedeTabOA.Text = _orden.sede.direccion;
+
+                btnBuscarSedeTabOA.Enabled = false;
+                btnBuscarProductoTabOA.Enabled = true;
+
+
+            }
+        }
+
+        private void btnBuscarProductoTabOA_Click(object sender, EventArgs e)
+        {
+            frmBuscarProductoXSede frm = new frmBuscarProductoXSede(_orden.sede);
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _productoDeSedeSeleccionado = frm.ProductoDeSedeSeleccionada;
+                txtNombreProductoTabOA.Text = _productoDeSedeSeleccionado.producto.nombre;
+
+                txtStockTabOA.Text = daoSede.obtenerStockDeProductoEnSede
+                    (_productoDeSedeSeleccionado.producto.idProducto, _orden.sede.idSede).ToString();
+
+                txtStockSedePrincipalTabOA.Text = daoSede.obtenerStockDeProductoEnSedePrincipal
+                    (_productoDeSedeSeleccionado.producto.idProducto).ToString();
+
+                txtCantidadTabOA.Enabled = true;
+                btnAgregarTabOA.Enabled = true;
+                btnQuitarTabOA.Enabled = true;
+            }
+        }
+
+        private void btnAgregarTabOA_Click(object sender, EventArgs e)
+        {
+
+            int cantidad = 0;
+
+            try
+            {
+               cantidad  = int.Parse(txtCantidadTabOA.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Debe de ingresar una cantidad", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int i;
+            for (i = 0; i<_lineasOA.Count; i++)
+            {
+                if (_lineasOA[i].producto.idProducto == _productoDeSedeSeleccionado.producto.idProducto)
+                {
+                    if (int.Parse(txtStockSedePrincipalTabOA.Text) < _lineasOA[i].cantidad + cantidad)
+                    {
+                        MessageBox.Show("El stock de la sede principal es menor a la cantidad ingresada", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    _lineasOA[i].cantidad += cantidad;
+                    break;
+                }
+            }
+
+            if (i == _lineasOA.Count)
+                if (int.Parse(txtStockSedePrincipalTabOA.Text) < cantidad)
+                {
+                    MessageBox.Show("El stock de la sede principal es menor a la cantidad ingresada", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+            lineaOrdenDeAbastecimiento linea = new lineaOrdenDeAbastecimiento();
+            linea.cantidad = cantidad;
+            linea.producto = _productoDeSedeSeleccionado.producto;
+
+            _lineasOA.Add(linea);
+
+            dgvLineasTabOA.DataSource = _lineasOA;
+
+            txtNombreProductoTabOA.Text = "";
+            txtStockTabOA.Text = "";
+            txtStockSedePrincipalTabOA.Text = "";
+            txtCantidadTabOA.Text = "";
+
+            _productoDeSedeSeleccionado = null;
+
+            btnAgregarTabOA.Enabled = false;
+        }
+
+        private void btnQuitarTabOA_Click(object sender, EventArgs e)
+        {
+            if (dgvLineasTabOA.CurrentRow != null && dgvLineasTabOA.CurrentRow.DataBoundItem is lineaOrdenDeAbastecimiento)
+            {
+                lineaOrdenDeAbastecimiento linea = (lineaOrdenDeAbastecimiento)dgvLineasTabOA.CurrentRow.DataBoundItem;
+
+                _lineasOA.Remove(linea);
+
+                dgvLineasTabOA.DataSource = _lineasOA;
+            }
+        }
+
+        private void dgvLineasTabOA_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                lineaOrdenDeAbastecimiento linea = (lineaOrdenDeAbastecimiento)dgvLineasTabOA.Rows[e.RowIndex].DataBoundItem;
+                dgvLineasTabOA.Rows[e.RowIndex].Cells[0].Value = linea.producto.idProducto;
+                dgvLineasTabOA.Rows[e.RowIndex].Cells[1].Value = linea.producto.nombre;
+                dgvLineasTabOA.Rows[e.RowIndex].Cells[2].Value = linea.producto.categoria.descripcion;
+                dgvLineasTabOA.Rows[e.RowIndex].Cells[3].Value = linea.producto.marca.descripcion;
+                dgvLineasTabOA.Rows[e.RowIndex].Cells[4].Value = linea.cantidad;
+            }
+            catch { }
+        }
+
+        private void btnEntregarOrdenTabOA_Click(object sender, EventArgs e)
+        {
+            // Verificacion de que hay una orden de abastecimiento seleccionada
+
+            int verificacion = daoSede.verificarEntregaDeOrdenDeAbastecimiento(_orden);
+
+            if (verificacion != 0 )
+            {
+                int resultado = daoSede.entregarOrdenDeAbastecimiento(_orden);
+
+                if (resultado != 0 )
+                {
+                    MessageBox.Show("Se ha entregado la orden de abastecimiento", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnEntregarOrdenTabOA.Enabled = false;
+                    btnCancelarOrdenTabOA.Enabled = false;
+                }
+                else
+                    MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("No se puede entregar la orden porque no hay suficiente stock en la sede principal", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void btnCancelarOrdenTabOA_Click(object sender, EventArgs e)
+        {
+            // Verificacion de que hay una orden de abastecimiento seleccionada
+
+            int resultado = daoSede.cancelarOrdenDeAbastecimiento(_orden.idOrdenDeAbastecimiento);
+
+            if (resultado != 0)
+            {
+                MessageBox.Show("Se ha cancelado la orden de abastecimiento", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnEntregarOrdenTabOA.Enabled = false;
+                btnCancelarOrdenTabOA.Enabled = false;
+            }
+            else
+                MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

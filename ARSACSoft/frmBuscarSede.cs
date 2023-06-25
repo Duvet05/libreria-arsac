@@ -1,5 +1,7 @@
 ﻿using ARSACSoft.SedeWS;
 using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -9,23 +11,25 @@ namespace ARSACSoft
         private SedesWSClient daoSede;
         private sede sedeSeleccionada;
 
-        public frmBuscarSede()
+        public frmBuscarSede(bool solo_sedes_secundarias = false)
         {
             InitializeComponent();
             daoSede = new SedesWSClient();
 
             dgvSedes.AutoGenerateColumns = false;
-            var sedes = daoSede.listarSedes();
+            BindingList<sede> sedes = new BindingList<sede>(daoSede.listarSedes().ToList());
 
-            if (sedes != null)
-            {
-                dgvSedes.DataSource = sedes;
-            }
-            else
-            {
+            if (solo_sedes_secundarias)
+                foreach (sede sede in sedes)
+                {
+                    if (sede.esPrincipal)
+                    {
+                        sedes.Remove(sede);
+                        break;
+                    }
+                }
+            dgvSedes.DataSource = sedes;
 
-                // Maneja la situación en la que 'listarSedes()' devuelve null
-            }
         }
 
         public sede SedeSeleccionada { get => sedeSeleccionada; set => sedeSeleccionada = value; }
