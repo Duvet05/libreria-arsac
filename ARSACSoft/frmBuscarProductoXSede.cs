@@ -9,6 +9,7 @@ namespace ARSACSoft
         private ProductosWS.producto _productoSede;
         private ProductosWSClient daoProductosWS;
         private int _sede;
+
         public ProductosWS.producto ProductoSeleccionado
         {
             get => _productoSede;
@@ -26,7 +27,7 @@ namespace ARSACSoft
             CargarMarcas();
             txtIdSede.Text = idSede.ToString();
             txtNombreProd.Text = string.Empty;
-            dgvProductos.DataSource = daoProductosWS.listarProductosXSede(txtNombreProd.Text, _sede, - 1, -1);
+            dgvProductos.DataSource = daoProductosWS.listarProductosXSede(txtNombreProd.Text, _sede, -1, -1);
         }
 
         private void CargarCategorias()
@@ -34,7 +35,7 @@ namespace ARSACSoft
             cboCategoria.DisplayMember = "descripcion";
             cboCategoria.ValueMember = "idCategoria";
             cboCategoria.DataSource = daoProductosWS.listarCategoriasTodas();
-            cboCategoria.SelectedIndex = -1;
+            cboCategoria.SelectedIndex = 0;
         }
 
         private void CargarMarcas()
@@ -42,7 +43,7 @@ namespace ARSACSoft
             cboMarca.DisplayMember = "descripcion";
             cboMarca.ValueMember = "idMarca";
             cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
-            cboMarca.SelectedIndex = -1;
+            cboMarca.SelectedIndex = 0;
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
@@ -73,6 +74,20 @@ namespace ARSACSoft
             dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.categoria.descripcion;
             dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.precioPorMenor;
             dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.precioPorMayor;
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvProductos.Rows.Count)
+            {
+                DataGridViewRow row = dgvProductos.Rows[e.RowIndex];
+                ProductoSeleccionado = (ProductosWS.producto)row.DataBoundItem;
+
+                // Llevar los campos a los dropdown y textbox
+                cboMarca.SelectedValue = ProductoSeleccionado.marca.idMarca;
+                cboCategoria.SelectedValue = ProductoSeleccionado.categoria.idCategoria;
+                txtNombreProd.Text = ProductoSeleccionado.nombre;
+            }
         }
     }
 }
