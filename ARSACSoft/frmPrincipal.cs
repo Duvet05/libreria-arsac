@@ -71,7 +71,7 @@ namespace ARSACSoft
             frmAlmacen = new frmGestionAlmacen(_empleadoLogeado);
             frmPedidos = new frmGestionPedidos();
             frmProveedores = new frmGestionProveedores();
-            frmSedes = new frmGestionSedes();
+            frmSedes = new frmGestionSedes(_empleadoLogeado.idPersona);
             frmContab = new frmContabilidad();
             frmGestRRHH = new frmGestionRRHH();
             frmReports = new frmReportes();

@@ -29,15 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionSedes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpSede = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnNuevoSede = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardarSede = new System.Windows.Forms.ToolStripButton();
-            this.btnModificarSede = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelarSede = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevoTabSede = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarTabSede = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarTabSede = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarTabSede = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarTabSede = new System.Windows.Forms.ToolStripButton();
+            this.btnEliminarTabSede = new System.Windows.Forms.ToolStripButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtIdSedeTabSede = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnQuitarProductoTabSede = new System.Windows.Forms.Button();
             this.btnAgregarProductoTabSede = new System.Windows.Forms.Button();
@@ -47,33 +50,46 @@
             this.txtIdProductoTabSede = new System.Windows.Forms.TextBox();
             this.lblCodProducto = new System.Windows.Forms.Label();
             this.dgvProductosTabSede = new System.Windows.Forms.DataGridView();
-            this.txtCorreoSede = new System.Windows.Forms.TextBox();
-            this.txtTelefonoSede = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCorreoTabSede = new System.Windows.Forms.TextBox();
+            this.txtTelefonoTabSede = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.txtDireccionSede = new System.Windows.Forms.TextBox();
-            this.txtIDSede = new System.Windows.Forms.TextBox();
+            this.txtDireccionTabSede = new System.Windows.Forms.TextBox();
             this.lblIDSede = new System.Windows.Forms.Label();
             this.tpProductos = new System.Windows.Forms.TabPage();
-            this.tsMenu = new System.Windows.Forms.ToolStrip();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
-            this.btnModificar = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarOrdenTabOA = new System.Windows.Forms.Button();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.btnNuevoTabOA = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarTabOA = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarTabOA = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarTabOA = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnQuitar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtIdOrdenTabSede = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnBuscarSedeTabOA = new System.Windows.Forms.Button();
+            this.txtStockSedePrincipalTabOA = new System.Windows.Forms.TextBox();
+            this.txtDireccionSedeTabOA = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnQuitarTabOA = new System.Windows.Forms.Button();
+            this.btnAgregarTabOA = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboSedeEmitidora = new System.Windows.Forms.ComboBox();
-            this.txtStockActual = new System.Windows.Forms.TextBox();
+            this.txtStockTabOA = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNombreProducto = new System.Windows.Forms.TextBox();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.txtNombreProductoTabOA = new System.Windows.Forms.TextBox();
+            this.btnBuscarProductoTabOA = new System.Windows.Forms.Button();
+            this.txtCantidadTabOA = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLineasTabOA = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,34 +97,25 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbCafeteria = new System.Windows.Forms.CheckBox();
             this.cbSalasEstudio = new System.Windows.Forms.CheckBox();
-            this.btnGenerarOrden = new System.Windows.Forms.Button();
-            this.tpEntradasYSalidas = new System.Windows.Forms.TabPage();
-            this.btnVerDetalle = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.btnBuscarOrdenes = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEntregarOrdenTabOA = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.btnEliminarSede = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
+            this.btnModificar = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnBuscarOrdenes = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.tcAlmacen.SuspendLayout();
             this.tpSede.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -116,21 +123,17 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosTabSede)).BeginInit();
             this.tpProductos.SuspendLayout();
-            this.tsMenu.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tpEntradasYSalidas.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLineasTabOA)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAlmacen
             // 
             this.tcAlmacen.Controls.Add(this.tpSede);
             this.tcAlmacen.Controls.Add(this.tpProductos);
-            this.tcAlmacen.Controls.Add(this.tpEntradasYSalidas);
             this.tcAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcAlmacen.Location = new System.Drawing.Point(9, 9);
+            this.tcAlmacen.Location = new System.Drawing.Point(7, 7);
             this.tcAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.tcAlmacen.Name = "tcAlmacen";
             this.tcAlmacen.SelectedIndex = 0;
@@ -156,73 +159,94 @@
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevoSede,
-            this.btnGuardarSede,
-            this.btnModificarSede,
-            this.toolStripButton1,
-            this.btnCancelarSede,
-            this.btnEliminarSede});
+            this.btnNuevoTabSede,
+            this.btnGuardarTabSede,
+            this.btnModificarTabSede,
+            this.btnBuscarTabSede,
+            this.btnCancelarTabSede,
+            this.btnEliminarTabSede});
             this.toolStrip1.Location = new System.Drawing.Point(2, 2);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(685, 27);
             this.toolStrip1.TabIndex = 93;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnNuevoSede
+            // btnNuevoTabSede
             // 
-            this.btnNuevoSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevoSede.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoSede.Image")));
-            this.btnNuevoSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevoSede.Name = "btnNuevoSede";
-            this.btnNuevoSede.Size = new System.Drawing.Size(70, 24);
-            this.btnNuevoSede.Text = "&Nuevo";
-            this.btnNuevoSede.Click += new System.EventHandler(this.btnNuevoSede_Click);
+            this.btnNuevoTabSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoTabSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNuevoTabSede.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoTabSede.Image")));
+            this.btnNuevoTabSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoTabSede.Name = "btnNuevoTabSede";
+            this.btnNuevoTabSede.Size = new System.Drawing.Size(70, 24);
+            this.btnNuevoTabSede.Text = "&Nuevo";
+            this.btnNuevoTabSede.Click += new System.EventHandler(this.btnNuevoSede_Click);
             // 
-            // btnGuardarSede
+            // btnGuardarTabSede
             // 
-            this.btnGuardarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardarSede.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarSede.Image")));
-            this.btnGuardarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardarSede.Name = "btnGuardarSede";
-            this.btnGuardarSede.Size = new System.Drawing.Size(80, 24);
-            this.btnGuardarSede.Text = "&Guardar";
-            this.btnGuardarSede.Click += new System.EventHandler(this.btnGuardarSede_Click);
+            this.btnGuardarTabSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarTabSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardarTabSede.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarTabSede.Image")));
+            this.btnGuardarTabSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarTabSede.Name = "btnGuardarTabSede";
+            this.btnGuardarTabSede.Size = new System.Drawing.Size(80, 24);
+            this.btnGuardarTabSede.Text = "&Guardar";
+            this.btnGuardarTabSede.Click += new System.EventHandler(this.btnGuardarSede_Click);
             // 
-            // btnModificarSede
+            // btnModificarTabSede
             // 
-            this.btnModificarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificarSede.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
-            this.btnModificarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificarSede.Name = "btnModificarSede";
-            this.btnModificarSede.Size = new System.Drawing.Size(88, 24);
-            this.btnModificarSede.Text = "&Modificar";
-            this.btnModificarSede.Click += new System.EventHandler(this.btnModificarSede_Click);
+            this.btnModificarTabSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarTabSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnModificarTabSede.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificarTabSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarTabSede.Name = "btnModificarTabSede";
+            this.btnModificarTabSede.Size = new System.Drawing.Size(88, 24);
+            this.btnModificarTabSede.Text = "&Modificar";
+            this.btnModificarTabSede.Click += new System.EventHandler(this.btnModificarSede_Click);
             // 
-            // btnCancelarSede
+            // btnBuscarTabSede
             // 
-            this.btnCancelarSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarSede.Image = global::ARSACSoft.Properties.Resources.Cancel;
-            this.btnCancelarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelarSede.Name = "btnCancelarSede";
-            this.btnCancelarSede.Size = new System.Drawing.Size(82, 24);
-            this.btnCancelarSede.Text = "&Can&cela&r";
-            this.btnCancelarSede.Click += new System.EventHandler(this.btnCancelarSede_Click);
+            this.btnBuscarTabSede.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarTabSede.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscarTabSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarTabSede.Name = "btnBuscarTabSede";
+            this.btnBuscarTabSede.Size = new System.Drawing.Size(66, 24);
+            this.btnBuscarTabSede.Text = "Buscar";
+            this.btnBuscarTabSede.Click += new System.EventHandler(this.btnBuscarSede_Click);
+            // 
+            // btnCancelarTabSede
+            // 
+            this.btnCancelarTabSede.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarTabSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelarTabSede.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelarTabSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarTabSede.Name = "btnCancelarTabSede";
+            this.btnCancelarTabSede.Size = new System.Drawing.Size(82, 24);
+            this.btnCancelarTabSede.Text = "&Can&cela&r";
+            this.btnCancelarTabSede.Click += new System.EventHandler(this.btnCancelarSede_Click);
+            // 
+            // btnEliminarTabSede
+            // 
+            this.btnEliminarTabSede.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarTabSede.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarTabSede.Image")));
+            this.btnEliminarTabSede.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminarTabSede.Name = "btnEliminarTabSede";
+            this.btnEliminarTabSede.Size = new System.Drawing.Size(74, 24);
+            this.btnEliminarTabSede.Text = "Eliminar";
+            this.btnEliminarTabSede.ToolTipText = "&Eliminar";
+            this.btnEliminarTabSede.Click += new System.EventHandler(this.btnEliminarSede_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtIdSedeTabSede);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.dgvProductosTabSede);
-            this.groupBox3.Controls.Add(this.txtCorreoSede);
-            this.groupBox3.Controls.Add(this.txtTelefonoSede);
+            this.groupBox3.Controls.Add(this.txtCorreoTabSede);
+            this.groupBox3.Controls.Add(this.txtTelefonoTabSede);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.lblNombre);
-            this.groupBox3.Controls.Add(this.txtDireccionSede);
-            this.groupBox3.Controls.Add(this.txtIDSede);
+            this.groupBox3.Controls.Add(this.txtDireccionTabSede);
             this.groupBox3.Controls.Add(this.lblIDSede);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(28, 43);
@@ -233,6 +257,14 @@
             this.groupBox3.TabIndex = 124;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Información de sede";
+            // 
+            // txtIdSedeTabSede
+            // 
+            this.txtIdSedeTabSede.Location = new System.Drawing.Point(178, 32);
+            this.txtIdSedeTabSede.Name = "txtIdSedeTabSede";
+            this.txtIdSedeTabSede.ReadOnly = true;
+            this.txtIdSedeTabSede.Size = new System.Drawing.Size(100, 21);
+            this.txtIdSedeTabSede.TabIndex = 143;
             // 
             // groupBox4
             // 
@@ -347,21 +379,63 @@
             this.dgvProductosTabSede.TabIndex = 141;
             this.dgvProductosTabSede.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductosTabSede_CellFormatting_1);
             // 
-            // txtCorreoSede
+            // ID
             // 
-            this.txtCorreoSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoSede.Location = new System.Drawing.Point(178, 125);
-            this.txtCorreoSede.Name = "txtCorreoSede";
-            this.txtCorreoSede.Size = new System.Drawing.Size(185, 21);
-            this.txtCorreoSede.TabIndex = 138;
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ID.FillWeight = 128.9461F;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 44;
             // 
-            // txtTelefonoSede
+            // Nombre
             // 
-            this.txtTelefonoSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoSede.Location = new System.Drawing.Point(178, 95);
-            this.txtTelefonoSede.Name = "txtTelefonoSede";
-            this.txtTelefonoSede.Size = new System.Drawing.Size(185, 21);
-            this.txtTelefonoSede.TabIndex = 137;
+            this.Nombre.FillWeight = 118.0748F;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Marca
+            // 
+            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Marca.FillWeight = 99.48186F;
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 67;
+            // 
+            // Categoria
+            // 
+            this.Categoria.FillWeight = 84.0581F;
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.FillWeight = 69.43918F;
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
+            // txtCorreoTabSede
+            // 
+            this.txtCorreoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreoTabSede.Location = new System.Drawing.Point(178, 125);
+            this.txtCorreoTabSede.Name = "txtCorreoTabSede";
+            this.txtCorreoTabSede.Size = new System.Drawing.Size(185, 21);
+            this.txtCorreoTabSede.TabIndex = 138;
+            // 
+            // txtTelefonoTabSede
+            // 
+            this.txtTelefonoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefonoTabSede.Location = new System.Drawing.Point(178, 95);
+            this.txtTelefonoTabSede.Name = "txtTelefonoTabSede";
+            this.txtTelefonoTabSede.Size = new System.Drawing.Size(185, 21);
+            this.txtTelefonoTabSede.TabIndex = 137;
             // 
             // label13
             // 
@@ -396,23 +470,13 @@
             this.lblNombre.TabIndex = 127;
             this.lblNombre.Text = "Dirección de la sede:";
             // 
-            // txtDireccionSede
+            // txtDireccionTabSede
             // 
-            this.txtDireccionSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionSede.Location = new System.Drawing.Point(178, 63);
-            this.txtDireccionSede.Name = "txtDireccionSede";
-            this.txtDireccionSede.Size = new System.Drawing.Size(185, 21);
-            this.txtDireccionSede.TabIndex = 126;
-            // 
-            // txtIDSede
-            // 
-            this.txtIDSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDSede.Location = new System.Drawing.Point(178, 32);
-            this.txtIDSede.Name = "txtIDSede";
-            this.txtIDSede.ReadOnly = true;
-            this.txtIDSede.Size = new System.Drawing.Size(70, 21);
-            this.txtIDSede.TabIndex = 125;
-            this.txtIDSede.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDireccionTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionTabSede.Location = new System.Drawing.Point(178, 63);
+            this.txtDireccionTabSede.Name = "txtDireccionTabSede";
+            this.txtDireccionTabSede.Size = new System.Drawing.Size(185, 21);
+            this.txtDireccionTabSede.TabIndex = 126;
             // 
             // lblIDSede
             // 
@@ -427,12 +491,13 @@
             // 
             // tpProductos
             // 
-            this.tpProductos.Controls.Add(this.tsMenu);
+            this.tpProductos.Controls.Add(this.btnCancelarOrdenTabOA);
+            this.tpProductos.Controls.Add(this.toolStrip2);
             this.tpProductos.Controls.Add(this.groupBox2);
-            this.tpProductos.Controls.Add(this.dataGridView1);
+            this.tpProductos.Controls.Add(this.dgvLineasTabOA);
             this.tpProductos.Controls.Add(this.cbCafeteria);
             this.tpProductos.Controls.Add(this.cbSalasEstudio);
-            this.tpProductos.Controls.Add(this.btnGenerarOrden);
+            this.tpProductos.Controls.Add(this.btnEntregarOrdenTabOA);
             this.tpProductos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.tpProductos.Location = new System.Drawing.Point(4, 29);
             this.tpProductos.Margin = new System.Windows.Forms.Padding(2);
@@ -443,21 +508,395 @@
             this.tpProductos.Text = "Abastecimiento";
             this.tpProductos.UseVisualStyleBackColor = true;
             // 
-            // tsMenu
+            // btnCancelarOrdenTabOA
             // 
-            this.tsMenu.BackColor = System.Drawing.Color.Transparent;
-            this.tsMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevo,
-            this.btnGuardar,
-            this.btnModificar,
-            this.btnCancelar});
-            this.tsMenu.Location = new System.Drawing.Point(2, 2);
-            this.tsMenu.Name = "tsMenu";
-            this.tsMenu.Size = new System.Drawing.Size(685, 27);
-            this.tsMenu.TabIndex = 92;
-            this.tsMenu.Text = "toolStrip1";
+            this.btnCancelarOrdenTabOA.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelarOrdenTabOA.Location = new System.Drawing.Point(360, 377);
+            this.btnCancelarOrdenTabOA.Name = "btnCancelarOrdenTabOA";
+            this.btnCancelarOrdenTabOA.Size = new System.Drawing.Size(313, 26);
+            this.btnCancelarOrdenTabOA.TabIndex = 95;
+            this.btnCancelarOrdenTabOA.Text = "Cancelar";
+            this.btnCancelarOrdenTabOA.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNuevoTabOA,
+            this.btnGuardarTabOA,
+            this.btnBuscarTabOA,
+            this.btnCancelarTabOA});
+            this.toolStrip2.Location = new System.Drawing.Point(2, 2);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(685, 27);
+            this.toolStrip2.TabIndex = 94;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // btnNuevoTabOA
+            // 
+            this.btnNuevoTabOA.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoTabOA.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNuevoTabOA.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoTabOA.Image")));
+            this.btnNuevoTabOA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoTabOA.Name = "btnNuevoTabOA";
+            this.btnNuevoTabOA.Size = new System.Drawing.Size(70, 24);
+            this.btnNuevoTabOA.Text = "&Nuevo";
+            this.btnNuevoTabOA.Click += new System.EventHandler(this.btnNuevoTabOA_Click);
+            // 
+            // btnGuardarTabOA
+            // 
+            this.btnGuardarTabOA.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarTabOA.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardarTabOA.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarTabOA.Image")));
+            this.btnGuardarTabOA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarTabOA.Name = "btnGuardarTabOA";
+            this.btnGuardarTabOA.Size = new System.Drawing.Size(80, 24);
+            this.btnGuardarTabOA.Text = "&Guardar";
+            this.btnGuardarTabOA.Click += new System.EventHandler(this.btnGuardarTabOA_Click);
+            // 
+            // btnBuscarTabOA
+            // 
+            this.btnBuscarTabOA.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarTabOA.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBuscarTabOA.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscarTabOA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarTabOA.Name = "btnBuscarTabOA";
+            this.btnBuscarTabOA.Size = new System.Drawing.Size(66, 24);
+            this.btnBuscarTabOA.Text = "Buscar";
+            this.btnBuscarTabOA.Click += new System.EventHandler(this.btnBuscarTabOA_Click);
+            // 
+            // btnCancelarTabOA
+            // 
+            this.btnCancelarTabOA.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarTabOA.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelarTabOA.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelarTabOA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarTabOA.Name = "btnCancelarTabOA";
+            this.btnCancelarTabOA.Size = new System.Drawing.Size(82, 24);
+            this.btnCancelarTabOA.Text = "&Can&cela&r";
+            this.btnCancelarTabOA.Click += new System.EventHandler(this.btnCancelarTabOA_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtIdOrdenTabSede);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.btnBuscarSedeTabOA);
+            this.groupBox2.Controls.Add(this.txtStockSedePrincipalTabOA);
+            this.groupBox2.Controls.Add(this.txtDireccionSedeTabOA);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.btnQuitarTabOA);
+            this.groupBox2.Controls.Add(this.btnAgregarTabOA);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtStockTabOA);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtNombreProductoTabOA);
+            this.groupBox2.Controls.Add(this.btnBuscarProductoTabOA);
+            this.groupBox2.Controls.Add(this.txtCantidadTabOA);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.groupBox2.Location = new System.Drawing.Point(11, 30);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(667, 173);
+            this.groupBox2.TabIndex = 91;
+            this.groupBox2.TabStop = false;
+            // 
+            // txtIdOrdenTabSede
+            // 
+            this.txtIdOrdenTabSede.Location = new System.Drawing.Point(177, 11);
+            this.txtIdOrdenTabSede.Name = "txtIdOrdenTabSede";
+            this.txtIdOrdenTabSede.ReadOnly = true;
+            this.txtIdOrdenTabSede.Size = new System.Drawing.Size(57, 21);
+            this.txtIdOrdenTabSede.TabIndex = 111;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(6, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(163, 15);
+            this.label14.TabIndex = 110;
+            this.label14.Text = "ID Orden de abastecimiento:";
+            // 
+            // btnBuscarSedeTabOA
+            // 
+            this.btnBuscarSedeTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnBuscarSedeTabOA.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarSedeTabOA.Location = new System.Drawing.Point(356, 42);
+            this.btnBuscarSedeTabOA.Name = "btnBuscarSedeTabOA";
+            this.btnBuscarSedeTabOA.Size = new System.Drawing.Size(32, 23);
+            this.btnBuscarSedeTabOA.TabIndex = 109;
+            this.btnBuscarSedeTabOA.Text = "...";
+            this.btnBuscarSedeTabOA.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscarSedeTabOA.UseVisualStyleBackColor = true;
+            this.btnBuscarSedeTabOA.Click += new System.EventHandler(this.btnBuscarSedeTabOA_Click);
+            // 
+            // txtStockSedePrincipalTabOA
+            // 
+            this.txtStockSedePrincipalTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtStockSedePrincipalTabOA.ForeColor = System.Drawing.Color.Black;
+            this.txtStockSedePrincipalTabOA.Location = new System.Drawing.Point(584, 54);
+            this.txtStockSedePrincipalTabOA.Name = "txtStockSedePrincipalTabOA";
+            this.txtStockSedePrincipalTabOA.ReadOnly = true;
+            this.txtStockSedePrincipalTabOA.Size = new System.Drawing.Size(64, 21);
+            this.txtStockSedePrincipalTabOA.TabIndex = 108;
+            // 
+            // txtDireccionSedeTabOA
+            // 
+            this.txtDireccionSedeTabOA.Enabled = false;
+            this.txtDireccionSedeTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtDireccionSedeTabOA.ForeColor = System.Drawing.Color.Black;
+            this.txtDireccionSedeTabOA.Location = new System.Drawing.Point(177, 41);
+            this.txtDireccionSedeTabOA.Name = "txtDireccionSedeTabOA";
+            this.txtDireccionSedeTabOA.ReadOnly = true;
+            this.txtDireccionSedeTabOA.Size = new System.Drawing.Size(173, 21);
+            this.txtDireccionSedeTabOA.TabIndex = 107;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(46, 74);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 15);
+            this.label12.TabIndex = 106;
+            this.label12.Text = "Nombre de producto:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(518, 97);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 15);
+            this.label10.TabIndex = 105;
+            this.label10.Text = "Cantidad:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(440, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(137, 15);
+            this.label9.TabIndex = 104;
+            this.label9.Text = "Stock en sede principal:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(60, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 15);
+            this.label2.TabIndex = 103;
+            this.label2.Text = "Direccion de sede:";
+            // 
+            // btnQuitarTabOA
+            // 
+            this.btnQuitarTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarTabOA.ForeColor = System.Drawing.Color.Black;
+            this.btnQuitarTabOA.Location = new System.Drawing.Point(584, 137);
+            this.btnQuitarTabOA.Name = "btnQuitarTabOA";
+            this.btnQuitarTabOA.Size = new System.Drawing.Size(79, 23);
+            this.btnQuitarTabOA.TabIndex = 102;
+            this.btnQuitarTabOA.Text = "Quitar";
+            this.btnQuitarTabOA.UseVisualStyleBackColor = true;
+            this.btnQuitarTabOA.Click += new System.EventHandler(this.btnQuitarTabOA_Click);
+            // 
+            // btnAgregarTabOA
+            // 
+            this.btnAgregarTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarTabOA.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarTabOA.Location = new System.Drawing.Point(498, 137);
+            this.btnAgregarTabOA.Name = "btnAgregarTabOA";
+            this.btnAgregarTabOA.Size = new System.Drawing.Size(79, 23);
+            this.btnAgregarTabOA.TabIndex = 101;
+            this.btnAgregarTabOA.Text = "Agregar";
+            this.btnAgregarTabOA.UseVisualStyleBackColor = true;
+            this.btnAgregarTabOA.Click += new System.EventHandler(this.btnAgregarTabOA_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(28, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 15);
+            this.label7.TabIndex = 100;
+            // 
+            // txtStockTabOA
+            // 
+            this.txtStockTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtStockTabOA.ForeColor = System.Drawing.Color.Black;
+            this.txtStockTabOA.Location = new System.Drawing.Point(583, 20);
+            this.txtStockTabOA.Name = "txtStockTabOA";
+            this.txtStockTabOA.ReadOnly = true;
+            this.txtStockTabOA.Size = new System.Drawing.Size(65, 21);
+            this.txtStockTabOA.TabIndex = 90;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(490, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 15);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Stock en sede:";
+            // 
+            // txtNombreProductoTabOA
+            // 
+            this.txtNombreProductoTabOA.Enabled = false;
+            this.txtNombreProductoTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtNombreProductoTabOA.ForeColor = System.Drawing.Color.Black;
+            this.txtNombreProductoTabOA.Location = new System.Drawing.Point(177, 74);
+            this.txtNombreProductoTabOA.Name = "txtNombreProductoTabOA";
+            this.txtNombreProductoTabOA.ReadOnly = true;
+            this.txtNombreProductoTabOA.Size = new System.Drawing.Size(173, 21);
+            this.txtNombreProductoTabOA.TabIndex = 81;
+            // 
+            // btnBuscarProductoTabOA
+            // 
+            this.btnBuscarProductoTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnBuscarProductoTabOA.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarProductoTabOA.Location = new System.Drawing.Point(356, 77);
+            this.btnBuscarProductoTabOA.Name = "btnBuscarProductoTabOA";
+            this.btnBuscarProductoTabOA.Size = new System.Drawing.Size(32, 23);
+            this.btnBuscarProductoTabOA.TabIndex = 82;
+            this.btnBuscarProductoTabOA.Text = "...";
+            this.btnBuscarProductoTabOA.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscarProductoTabOA.UseVisualStyleBackColor = true;
+            this.btnBuscarProductoTabOA.Click += new System.EventHandler(this.btnBuscarProductoTabOA_Click);
+            // 
+            // txtCantidadTabOA
+            // 
+            this.txtCantidadTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtCantidadTabOA.ForeColor = System.Drawing.Color.Black;
+            this.txtCantidadTabOA.Location = new System.Drawing.Point(584, 94);
+            this.txtCantidadTabOA.Name = "txtCantidadTabOA";
+            this.txtCantidadTabOA.Size = new System.Drawing.Size(64, 21);
+            this.txtCantidadTabOA.TabIndex = 83;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(28, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 15);
+            this.label4.TabIndex = 86;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(28, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 15);
+            this.label5.TabIndex = 87;
+            // 
+            // dgvLineasTabOA
+            // 
+            this.dgvLineasTabOA.AllowUserToAddRows = false;
+            this.dgvLineasTabOA.AllowUserToDeleteRows = false;
+            this.dgvLineasTabOA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLineasTabOA.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvLineasTabOA.ColumnHeadersHeight = 29;
+            this.dgvLineasTabOA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dgvLineasTabOA.Location = new System.Drawing.Point(11, 209);
+            this.dgvLineasTabOA.Name = "dgvLineasTabOA";
+            this.dgvLineasTabOA.ReadOnly = true;
+            this.dgvLineasTabOA.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLineasTabOA.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLineasTabOA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLineasTabOA.Size = new System.Drawing.Size(667, 162);
+            this.dgvLineasTabOA.TabIndex = 90;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id Linea";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Categoria";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Marca";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Cantidad";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // cbCafeteria
+            // 
+            this.cbCafeteria.AutoSize = true;
+            this.cbCafeteria.Location = new System.Drawing.Point(892, 362);
+            this.cbCafeteria.Name = "cbCafeteria";
+            this.cbCafeteria.Size = new System.Drawing.Size(93, 24);
+            this.cbCafeteria.TabIndex = 41;
+            this.cbCafeteria.Text = "Cafetería";
+            this.cbCafeteria.UseVisualStyleBackColor = true;
+            // 
+            // cbSalasEstudio
+            // 
+            this.cbSalasEstudio.AutoSize = true;
+            this.cbSalasEstudio.Location = new System.Drawing.Point(717, 362);
+            this.cbSalasEstudio.Name = "cbSalasEstudio";
+            this.cbSalasEstudio.Size = new System.Drawing.Size(146, 24);
+            this.cbSalasEstudio.TabIndex = 39;
+            this.cbSalasEstudio.Text = "Salas de estudio";
+            this.cbSalasEstudio.UseVisualStyleBackColor = true;
+            // 
+            // btnEntregarOrdenTabOA
+            // 
+            this.btnEntregarOrdenTabOA.ForeColor = System.Drawing.Color.Black;
+            this.btnEntregarOrdenTabOA.Location = new System.Drawing.Point(11, 376);
+            this.btnEntregarOrdenTabOA.Name = "btnEntregarOrdenTabOA";
+            this.btnEntregarOrdenTabOA.Size = new System.Drawing.Size(327, 26);
+            this.btnEntregarOrdenTabOA.TabIndex = 3;
+            this.btnEntregarOrdenTabOA.Text = "Entregar";
+            this.btnEntregarOrdenTabOA.UseVisualStyleBackColor = true;
             // 
             // btnNuevo
             // 
@@ -499,303 +938,86 @@
             this.btnCancelar.Size = new System.Drawing.Size(82, 24);
             this.btnCancelar.Text = "&Can&cela&r";
             // 
-            // groupBox2
+            // dataGridViewTextBoxColumn10
             // 
-            this.groupBox2.Controls.Add(this.btnQuitar);
-            this.groupBox2.Controls.Add(this.btnAgregar);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.cboSedeEmitidora);
-            this.groupBox2.Controls.Add(this.txtStockActual);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.txtNombreProducto);
-            this.groupBox2.Controls.Add(this.btnBuscarProducto);
-            this.groupBox2.Controls.Add(this.txtCantidad);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.groupBox2.Location = new System.Drawing.Point(11, 29);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(667, 161);
-            this.groupBox2.TabIndex = 91;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Administracion de Ordenes de Abastecimiento";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
-            // btnQuitar
+            // dataGridViewTextBoxColumn9
             // 
-            this.btnQuitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitar.ForeColor = System.Drawing.Color.Black;
-            this.btnQuitar.Location = new System.Drawing.Point(583, 131);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(79, 23);
-            this.btnQuitar.TabIndex = 102;
-            this.btnQuitar.Text = "Quitar";
-            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Monto total";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // btnAgregar
+            // dataGridViewTextBoxColumn8
             // 
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(492, 131);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(79, 23);
-            this.btnAgregar.TabIndex = 101;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Proveedor";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
-            // label7
+            // dataGridViewTextBoxColumn7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(28, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 15);
-            this.label7.TabIndex = 100;
-            this.label7.Text = "Sede Secundaria:";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha emisión";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // cboSedeEmitidora
+            // dataGridViewTextBoxColumn6
             // 
-            this.cboSedeEmitidora.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.cboSedeEmitidora.ForeColor = System.Drawing.Color.Black;
-            this.cboSedeEmitidora.FormattingEnabled = true;
-            this.cboSedeEmitidora.Location = new System.Drawing.Point(154, 25);
-            this.cboSedeEmitidora.Name = "cboSedeEmitidora";
-            this.cboSedeEmitidora.Size = new System.Drawing.Size(200, 23);
-            this.cboSedeEmitidora.TabIndex = 99;
+            this.dataGridViewTextBoxColumn6.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // txtStockActual
+            // comboBox1
             // 
-            this.txtStockActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtStockActual.ForeColor = System.Drawing.Color.Black;
-            this.txtStockActual.Location = new System.Drawing.Point(154, 82);
-            this.txtStockActual.Name = "txtStockActual";
-            this.txtStockActual.ReadOnly = true;
-            this.txtStockActual.Size = new System.Drawing.Size(200, 21);
-            this.txtStockActual.TabIndex = 90;
+            this.comboBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(38, 21);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(227, 23);
+            this.comboBox1.TabIndex = 96;
             // 
-            // label1
+            // dateTimePicker2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(28, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 15);
-            this.label1.TabIndex = 91;
-            this.label1.Text = "Stock Actual:";
+            this.dateTimePicker2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(404, 46);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(228, 20);
+            this.dateTimePicker2.TabIndex = 99;
             // 
-            // txtNombreProducto
+            // label6
             // 
-            this.txtNombreProducto.Enabled = false;
-            this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtNombreProducto.ForeColor = System.Drawing.Color.Black;
-            this.txtNombreProducto.Location = new System.Drawing.Point(154, 56);
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.ReadOnly = true;
-            this.txtNombreProducto.Size = new System.Drawing.Size(282, 21);
-            this.txtNombreProducto.TabIndex = 81;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(320, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 15);
+            this.label6.TabIndex = 100;
             // 
-            // btnBuscarProducto
+            // label3
             // 
-            this.btnBuscarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnBuscarProducto.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(441, 56);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(32, 23);
-            this.btnBuscarProducto.TabIndex = 82;
-            this.btnBuscarProducto.Text = "...";
-            this.btnBuscarProducto.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(322, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.TabIndex = 101;
             // 
-            // txtCantidad
+            // dateTimePicker1
             // 
-            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtCantidad.ForeColor = System.Drawing.Color.Black;
-            this.txtCantidad.Location = new System.Drawing.Point(154, 118);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(200, 21);
-            this.txtCantidad.TabIndex = 83;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(28, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 15);
-            this.label4.TabIndex = 86;
-            this.label4.Text = "Nombre de Producto:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(28, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 15);
-            this.label5.TabIndex = 87;
-            this.label5.Text = "Cantidad:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dataGridView1.ColumnHeadersHeight = 29;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 197);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(667, 174);
-            this.dataGridView1.TabIndex = 90;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Fecha emisión";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Proveedor";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Monto total";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // cbCafeteria
-            // 
-            this.cbCafeteria.AutoSize = true;
-            this.cbCafeteria.Location = new System.Drawing.Point(892, 362);
-            this.cbCafeteria.Name = "cbCafeteria";
-            this.cbCafeteria.Size = new System.Drawing.Size(93, 24);
-            this.cbCafeteria.TabIndex = 41;
-            this.cbCafeteria.Text = "Cafetería";
-            this.cbCafeteria.UseVisualStyleBackColor = true;
-            // 
-            // cbSalasEstudio
-            // 
-            this.cbSalasEstudio.AutoSize = true;
-            this.cbSalasEstudio.Location = new System.Drawing.Point(717, 362);
-            this.cbSalasEstudio.Name = "cbSalasEstudio";
-            this.cbSalasEstudio.Size = new System.Drawing.Size(146, 24);
-            this.cbSalasEstudio.TabIndex = 39;
-            this.cbSalasEstudio.Text = "Salas de estudio";
-            this.cbSalasEstudio.UseVisualStyleBackColor = true;
-            // 
-            // btnGenerarOrden
-            // 
-            this.btnGenerarOrden.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerarOrden.Location = new System.Drawing.Point(11, 376);
-            this.btnGenerarOrden.Name = "btnGenerarOrden";
-            this.btnGenerarOrden.Size = new System.Drawing.Size(667, 26);
-            this.btnGenerarOrden.TabIndex = 3;
-            this.btnGenerarOrden.Text = "Generar Orden";
-            this.btnGenerarOrden.UseVisualStyleBackColor = true;
-            // 
-            // tpEntradasYSalidas
-            // 
-            this.tpEntradasYSalidas.Controls.Add(this.btnVerDetalle);
-            this.tpEntradasYSalidas.Controls.Add(this.button3);
-            this.tpEntradasYSalidas.Controls.Add(this.button7);
-            this.tpEntradasYSalidas.Controls.Add(this.groupBox1);
-            this.tpEntradasYSalidas.Controls.Add(this.dataGridView2);
-            this.tpEntradasYSalidas.Location = new System.Drawing.Point(4, 29);
-            this.tpEntradasYSalidas.Margin = new System.Windows.Forms.Padding(2);
-            this.tpEntradasYSalidas.Name = "tpEntradasYSalidas";
-            this.tpEntradasYSalidas.Padding = new System.Windows.Forms.Padding(2);
-            this.tpEntradasYSalidas.Size = new System.Drawing.Size(689, 418);
-            this.tpEntradasYSalidas.TabIndex = 1;
-            this.tpEntradasYSalidas.Text = "Lista Ordenes de Abastecimiento Sede";
-            this.tpEntradasYSalidas.UseVisualStyleBackColor = true;
-            // 
-            // btnVerDetalle
-            // 
-            this.btnVerDetalle.Location = new System.Drawing.Point(17, 321);
-            this.btnVerDetalle.Name = "btnVerDetalle";
-            this.btnVerDetalle.Size = new System.Drawing.Size(653, 26);
-            this.btnVerDetalle.TabIndex = 94;
-            this.btnVerDetalle.Text = "Ver Detalle";
-            this.btnVerDetalle.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(18, 353);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(653, 26);
-            this.button3.TabIndex = 93;
-            this.button3.Text = "Cancelar Pedido";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(17, 385);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(653, 26);
-            this.button7.TabIndex = 92;
-            this.button7.Text = "Marcar como Entregado";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.btnBuscarOrdenes);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(18, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(652, 97);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(38, 50);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(227, 23);
-            this.comboBox2.TabIndex = 107;
-            this.comboBox2.Text = "Estado";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(404, 20);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(228, 20);
+            this.dateTimePicker1.TabIndex = 102;
             // 
             // btnBuscarOrdenes
             // 
@@ -808,173 +1030,15 @@
             this.btnBuscarOrdenes.Text = "Buscar";
             this.btnBuscarOrdenes.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // comboBox2
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(404, 20);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(228, 20);
-            this.dateTimePicker1.TabIndex = 102;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(322, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
-            this.label3.TabIndex = 101;
-            this.label3.Text = "Fecha de Final:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(320, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 15);
-            this.label6.TabIndex = 100;
-            this.label6.Text = "Fecha de Inicio:";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(404, 46);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(228, 20);
-            this.dateTimePicker2.TabIndex = 99;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(38, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(227, 23);
-            this.comboBox1.TabIndex = 96;
-            this.comboBox1.Text = "Buscar por Sede";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dataGridView2.ColumnHeadersHeight = 29;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.dataGridView2.Location = new System.Drawing.Point(18, 115);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(652, 200);
-            this.dataGridView2.TabIndex = 91;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha emisión";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Proveedor";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Monto total";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.ID.FillWeight = 128.9461F;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 44;
-            // 
-            // Nombre
-            // 
-            this.Nombre.FillWeight = 88.55611F;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Marca
-            // 
-            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Marca.FillWeight = 99.48186F;
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            this.Marca.Width = 67;
-            // 
-            // Categoria
-            // 
-            this.Categoria.FillWeight = 100.2231F;
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.FillWeight = 82.79288F;
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.Image = global::ARSACSoft.Properties.Resources.Search;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(66, 24);
-            this.toolStripButton1.Text = "Buscar";
-            this.toolStripButton1.Click += new System.EventHandler(this.btnBuscarSede_Click);
-            // 
-            // btnEliminarSede
-            // 
-            this.btnEliminarSede.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarSede.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarSede.Image")));
-            this.btnEliminarSede.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminarSede.Name = "btnEliminarSede";
-            this.btnEliminarSede.Size = new System.Drawing.Size(74, 24);
-            this.btnEliminarSede.Text = "Eliminar";
-            this.btnEliminarSede.ToolTipText = "&Eliminar";
-            this.btnEliminarSede.Click += new System.EventHandler(this.btnEliminarSede_Click);
+            this.comboBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
+            this.comboBox2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(38, 50);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(227, 23);
+            this.comboBox2.TabIndex = 107;
             // 
             // frmGestionSedes
             // 
@@ -998,15 +1062,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosTabSede)).EndInit();
             this.tpProductos.ResumeLayout(false);
             this.tpProductos.PerformLayout();
-            this.tsMenu.ResumeLayout(false);
-            this.tsMenu.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tpEntradasYSalidas.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLineasTabOA)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1014,66 +1074,21 @@
         #endregion
 
         private System.Windows.Forms.TabControl tcAlmacen;
-        private System.Windows.Forms.TabPage tpProductos;
-        private System.Windows.Forms.CheckBox cbCafeteria;
-        private System.Windows.Forms.CheckBox cbSalasEstudio;
-        private System.Windows.Forms.TabPage tpEntradasYSalidas;
-        private System.Windows.Forms.Button btnGenerarOrden;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtNombreProducto;
-        private System.Windows.Forms.Button btnBuscarProducto;
-        private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtStockActual;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button btnVerDetalle;
-        private System.Windows.Forms.ToolStrip tsMenu;
-        private System.Windows.Forms.ToolStripButton btnNuevo;
-        private System.Windows.Forms.ToolStripButton btnModificar;
-        private System.Windows.Forms.ComboBox cboSedeEmitidora;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnQuitar;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.ToolStripButton btnCancelar;
-        private System.Windows.Forms.Button btnBuscarOrdenes;
         private System.Windows.Forms.TabPage tpSede;
-        private System.Windows.Forms.ToolStripButton btnGuardar;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnNuevoSede;
-        private System.Windows.Forms.ToolStripButton btnGuardarSede;
-        private System.Windows.Forms.ToolStripButton btnModificarSede;
-        private System.Windows.Forms.ToolStripButton btnCancelarSede;
+        private System.Windows.Forms.ToolStripButton btnNuevoTabSede;
+        private System.Windows.Forms.ToolStripButton btnGuardarTabSede;
+        private System.Windows.Forms.ToolStripButton btnModificarTabSede;
+        private System.Windows.Forms.ToolStripButton btnCancelarTabSede;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtCorreoSede;
-        private System.Windows.Forms.TextBox txtTelefonoSede;
+        private System.Windows.Forms.TextBox txtCorreoTabSede;
+        private System.Windows.Forms.TextBox txtTelefonoTabSede;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtDireccionSede;
-        private System.Windows.Forms.TextBox txtIDSede;
+        private System.Windows.Forms.TextBox txtDireccionTabSede;
         private System.Windows.Forms.Label lblIDSede;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnQuitarProductoTabSede;
@@ -1084,13 +1099,65 @@
         private System.Windows.Forms.TextBox txtIdProductoTabSede;
         private System.Windows.Forms.Label lblCodProducto;
         private System.Windows.Forms.DataGridView dgvProductosTabSede;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ToolStripButton btnBuscarTabSede;
+        private System.Windows.Forms.ToolStripButton btnEliminarTabSede;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton btnEliminarSede;
+        private System.Windows.Forms.TextBox txtIdSedeTabSede;
+        private System.Windows.Forms.TabPage tpProductos;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgvLineasTabOA;
+        private System.Windows.Forms.CheckBox cbCafeteria;
+        private System.Windows.Forms.CheckBox cbSalasEstudio;
+        private System.Windows.Forms.Button btnEntregarOrdenTabOA;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCantidadTabOA;
+        private System.Windows.Forms.Button btnBuscarProductoTabOA;
+        private System.Windows.Forms.TextBox txtNombreProductoTabOA;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtStockTabOA;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnAgregarTabOA;
+        private System.Windows.Forms.Button btnQuitarTabOA;
+        private System.Windows.Forms.ToolStripButton btnNuevo;
+        private System.Windows.Forms.ToolStripButton btnGuardar;
+        private System.Windows.Forms.ToolStripButton btnModificar;
+        private System.Windows.Forms.ToolStripButton btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnBuscarOrdenes;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnCancelarOrdenTabOA;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton btnNuevoTabOA;
+        private System.Windows.Forms.ToolStripButton btnGuardarTabOA;
+        private System.Windows.Forms.ToolStripButton btnBuscarTabOA;
+        private System.Windows.Forms.ToolStripButton btnCancelarTabOA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.TextBox txtDireccionSedeTabOA;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBuscarSedeTabOA;
+        private System.Windows.Forms.TextBox txtStockSedePrincipalTabOA;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtIdOrdenTabSede;
     }
 }

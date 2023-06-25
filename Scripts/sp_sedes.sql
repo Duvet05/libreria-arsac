@@ -5,15 +5,20 @@ DROP PROCEDURE IF EXISTS ELIMINAR_SEDE;
 
 DROP PROCEDURE IF EXISTS INSERTAR_PRODUCTO_EN_SEDE;
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE;
-DROP PROCEDURE IF EXISTS ELIMINAR_PRODUCTO_DE_SEDE;
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE_POR_NOMBRE_MARCA_CATEGORIA;
 DROP PROCEDURE IF EXISTS ELIMINAR_PRODUCTOS_DE_SEDE;
 
-DROP PROCEDURE IF EXISTS INSERTAR_ORDEN_ABASTECIMIENTO ;
-DROP PROCEDURE IF EXISTS ACTUALIZAR_ORDEN_ABASTECIMIENTO;
-DROP PROCEDURE IF EXISTS ELIMINAR_ORDEN_ABASTECIMIENTO;
-DROP PROCEDURE IF EXISTS LISTAR_ABASTECIMIENTO_COMPRA_X_ID_NOMBRE_DNI_EMPLEADO;
-DROP PROCEDURE IF EXISTS INSERTAR_LINEA_ORDEN_ABASTECIMIENTO;
-DROP PROCEDURE IF EXISTS LISTAR_LINEAS_ORDEN_ABASTECIMIENTO_X_ID_ORDEN_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS INSERTAR_ORDEN_DE_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS ENTREGAR_ORDEN_DE_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS CANCELAR_ORDEN_DE_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS LISTAR_ORDENES_DE_ABASTECIMIENTO_DE_EMPLEADO;
+
+DROP PROCEDURE IF EXISTS INSERTAR_LINEA_DE_ORDEN_DE_ABASTECIMIENTO;
+DROP PROCEDURE IF EXISTS LISTAR_LINEAS_DE_ORDEN_DE_ABASTECIMIENTO;
+
+DROP PROCEDURE IF EXISTS OBTENER_STOCK_DE_PRODUCTO_EN_SEDE_PRINCIPAL;
+DROP PROCEDURE IF EXISTS OBTENER_STOCK_DE_PRODUCTO_EN_SEDE;
+DROP PROCEDURE IF EXISTS ACTUALIZAR_STOCK_DE_PRODUCTO;
 
 -- SEDE
 
@@ -67,29 +72,59 @@ BEGIN
 END $
 
 CREATE PROCEDURE LISTAR_PRODUCTOS_DE_SEDE(
-	IN _id_sede INT,
-    IN _nombre VARCHAR(100)
+	IN _id_sede INT
 )
 BEGIN
-	SELECT p.id_producto, p.nombre, c.descripcion as categoria, m.descripcion as marca, sxp.stock
-    from producto p
-    inner join sedeXproducto sxp on
-		p.id_producto = sxp.fid_producto and _id_sede = sxp.fid_sede and sxp.activo = true
-    inner join categoria c on
-		p.fid_categoria = c.id_categoria
-    inner join marca m on
-		p.fid_marca = m.id_marca
-    where p.nombre LIKE CONCAT('%',_nombre,'%') and p.activo = true;
+	SELECT
+		p.id_producto,
+        p.nombre,
+		c.descripcion as categoria,
+        m.descripcion as marca,
+        sxp.stock
+	FROM
+		producto p
+	INNER JOIN
+		categoria c
+			ON
+            c.id_categoria = p.fid_categoria
+	INNER JOIN
+		marca m
+			ON
+            p.fid_marca = m.id_marca
+	INNER JOIN
+		sedeXproducto sxp
+			ON
+            sxp.fid_sede = _id_sede and sxp.fid_producto = p.id_producto and sxp.activo = 1;
 END $
 
-CREATE PROCEDURE ELIMINAR_PRODUCTO_DE_SEDE(
+CREATE PROCEDURE LISTAR_PRODUCTOS_DE_SEDE_POR_NOMBRE_MARCA_CATEGORIA(
 	IN _id_sede INT,
-    IN _id_producto INT
+    IN _nombre VARCHAR(255),
+    IN _id_categoria INT,
+    IN _id_marca INT
 )
 BEGIN
-	UPDATE sedeXproducto SET
-    activo = false
-    where fid_sede = _id_sede and fid_producto = _id_producto;
+	SELECT
+		p.id_producto,
+        p.nombre,
+		c.descripcion as categoria,
+        m.descripcion as marca,
+        sxp.stock
+	FROM
+		producto p
+	INNER JOIN
+		categoria c
+			ON
+            c.id_categoria = p.fid_categoria and c.id_categoria = _id_categoria
+	INNER JOIN
+		marca m
+			ON
+            p.fid_marca = m.id_marca and m.id_marca = _id_marca
+	INNER JOIN
+		sedeXproducto sxp
+			ON
+            sxp.fid_sede = _id_sede and sxp.fid_producto = p.id_producto and sxp.activo = 1
+	WHERE p.nombre LIKE CONCAT('%',_nombre,'%');
 END $
 
 CREATE PROCEDURE ELIMINAR_PRODUCTOS_DE_SEDE(
@@ -104,72 +139,138 @@ END $
 
 -- ORDEN DE ABASTECIMIENTO
 
-CREATE PROCEDURE INSERTAR_ORDEN_ABASTECIMIENTO(
+CREATE PROCEDURE INSERTAR_ORDEN_DE_ABASTECIMIENTO(
   OUT _id_orden_de_abastecimiento INT,
   IN _fid_empleado INT,
-  IN _fid_sede INT,
-  IN _fecha_orden DATE
+  IN _fid_sede INT
 )
 BEGIN
-  INSERT INTO ordenDeAbastecimiento(fid_empleado, fid_sede, fecha_orden)
-  VALUES (_fid_empleado, _fid_sede, _fecha_orden);
+  INSERT INTO
+  ordenDeAbastecimiento
+  (fid_empleado, fid_sede, fecha_registro, fecha_entrega, fecha_cancelacion, estado, activo)
+  VALUES
+  (_fid_empleado, _fid_sede, CURDATE(), NULL, NULL, 'Pendiente', 1);
   SET _id_orden_de_abastecimiento = @@last_insert_id;
 END $	
 
-CREATE PROCEDURE ACTUALIZAR_ORDEN_ABASTECIMIENTO(
-  IN _id_orden_de_abastecimiento INT,
-  IN _fid_empleado INT,
-  IN _fid_sede INT,
-  IN _fecha_orden DATE
+CREATE PROCEDURE ENTREGAR_ORDEN_DE_ABASTECIMIENTO(
+  IN _id_orden_de_abastecimiento INT
 )
 BEGIN
-  UPDATE ordenDeAbastecimiento
-  SET fid_empleado = _fid_empleado,fid_sede = _fid_sede,fecha_orden = _fecha_orden 
-  WHERE id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
+    UPDATE ordenDeAbastecimiento
+	SET fecha_entrega = CURDATE(), estado = 'Entregado'
+	WHERE id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
 END $
 
-DELIMITER $
-CREATE PROCEDURE ELIMINAR_ORDEN_ABASTECIMIENTO(
+CREATE PROCEDURE CANCELAR_ORDEN_DE_ABASTECIMIENTO(
 	IN _id_orden_de_abastecimiento INT
 )
 BEGIN
-	UPDATE ordenDeAbastecimiento SET activo = 0 where id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
+	UPDATE ordenDeAbastecimiento
+	SET fecha_cancelacion = CURDATE(), estado = 'Cancelado'
+	WHERE id_orden_de_abastecimiento = _id_orden_de_abastecimiento;
 END$
 
-DELIMITER $
-CREATE PROCEDURE LISTAR_ABASTECIMIENTO_COMPRA_X_ID_NOMBRE_DNI_EMPLEADO(
-    IN _id_nombre_dni_empleado VARCHAR(140)
+CREATE PROCEDURE LISTAR_ORDENES_DE_ABASTECIMIENTO_DE_EMPLEADO(
+	IN _id_empleado INT,
+    IN _estado VARCHAR(255)
 )
 BEGIN
-    SELECT oa.id_orden_de_abastecimiento,oa.fecha_orden, e.fid_empleado, p.id_persona,p.nombre,p.apellidos,p.DNI
-    FROM ordenDeAbastecimiento oa
-    INNER JOIN empleado e ON oa.fid_empleado = e.fid_empleado
-    INNER JOIN persona p ON e.fid_empleado = p.id_persona
-    WHERE
-        oa.activo = 1
-        AND ((CONCAT(p.nombre, ' ', p.apellidos) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
-		OR (CONVERT(oa.id_orden_de_abastecimiento, CHAR(140)) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
-		OR (p.DNI LIKE CONCAT('%', _id_nombre_dni_empleado, '%')));
-END$
+	SELECT
+		oa.id_orden_de_abastecimiento,
+        s.id_sede,
+        s.direccion,
+		oa.fecha_registro,
+        oa.fecha_entrega,
+        oa.fecha_cancelacion,
+        oa.estado
+	FROM
+		ordenDeAbastecimiento oa
+	INNER JOIN
+		sede s ON s.id_sede = oa.fid_sede
+	WHERE
+		oa.fid_empleado = _id_empleado and oa.estado LIKE CONCAT('%',_estado,'%');
+END $
 
-CREATE PROCEDURE INSERTAR_LINEA_ORDEN_ABASTECIMIENTO(
-	OUT _id_linea_abastecimiento INT,
+CREATE PROCEDURE INSERTAR_LINEA_DE_ORDEN_DE_ABASTECIMIENTO(
+	OUT _id_linea_orden_abastecimiento INT,
     IN _fid_orden_de_abastecimiento INT,
     IN _fid_producto INT,
     IN _cantidad INT
 )
 BEGIN
-	INSERT INTO lineaOrdenDeAbastecimiento(fid_orden_venta,fid_producto,cantidad) 
+	INSERT INTO lineaOrdenDeAbastecimiento(fid_orden_de_abastecimiento,fid_producto,cantidad) 
 	VALUES(_fid_orden_de_abastecimiento,_fid_producto,_cantidad);
-    SET _id_linea_abastecimiento = @@last_insert_id;
+    SET _id_linea_orden_abastecimiento = @@last_insert_id;
 END$
 
-CREATE PROCEDURE LISTAR_LINEAS_ORDEN_ABASTECIMIENTO_X_ID_ORDEN_ABASTECIMIENTO(
+CREATE PROCEDURE LISTAR_LINEAS_DE_ORDEN_DE_ABASTECIMIENTO(
 	IN _id_orden_de_abastecimiento INT
 )
 BEGIN
-	SELECT loa.id_linea_orden_abastecimiento, p.id_producto, p.nombre, p.precio_por_menor, p.precio_por_mayor, loa.cantidad 
-	FROM lineaOrdenDeAbastecimiento loa 
-	INNER JOIN producto p ON loa.fid_producto = p.id_producto 
-	WHERE loa.fid_orden_de_abastecimiento = _id_orden_de_abastecimiento AND loa.activo = 1;	
+	SELECT
+		p.id_producto,
+        p.nombre,
+		c.descripcion as categoria,
+        m.descripcion as marca,
+        loa.cantidad 
+	FROM
+		producto p 
+	INNER JOIN
+		lineaOrdenDeAbastecimiento loa
+			ON
+			loa.fid_producto = p.id_producto and
+            loa.fid_orden_de_abastecimiento = _id_orden_de_abastecimiento
+	INNER JOIN
+		categoria c
+			ON
+            c.id_categoria = p.fid_categoria
+	INNER JOIN
+		marca m
+			ON
+            p.fid_marca = m.id_marca;
 END$
+
+CREATE PROCEDURE OBTENER_STOCK_DE_PRODUCTO_EN_SEDE_PRINCIPAL(
+	IN _id_producto INT
+)
+BEGIN
+	SELECT
+		sxp.stock
+	FROM
+		sedeXproducto sxp
+	INNER JOIN
+		sede s ON s.id_sede = sxp.fid_sede and s.es_principal = 1
+	WHERE sxp.fid_producto = _id_producto and sxp.activo = 1;
+END $
+
+CREATE PROCEDURE OBTENER_STOCK_DE_PRODUCTO_EN_SEDE(
+	IN _id_producto INT,
+    IN _id_sede INT
+)
+BEGIN
+	SELECT
+		sxp.stock
+	FROM
+		sedeXproducto sxp
+	WHERE sxp.fid_sede = _id_sede and sxp.fid_producto = _id_producto and sxp.activo = 1;
+END $
+
+CREATE PROCEDURE ACTUALIZAR_STOCK_DE_PRODUCTO(
+	IN _id_producto INT,
+    IN _id_sede INT,
+    IN _cantidad INT
+)
+BEGIN
+	UPDATE sedeXproducto
+    SET stock = stock - _cantidad
+    WHERE 	fid_producto = _id_producto and
+			fid_sede = (SELECT s.id_sede from sede s where s.es_principal = 1) and
+            activo = 1;
+
+	UPDATE sedeXproducto
+    SET stock = stock + _cantidad
+    WHERE 	fid_producto = _id_producto and
+			fid_sede = _id_sede and
+            activo = 1;
+END $
