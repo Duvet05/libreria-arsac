@@ -58,7 +58,7 @@
             this.panelLogin.Controls.Add(this.panel4);
             this.panelLogin.Controls.Add(this.label7);
             this.panelLogin.Location = new System.Drawing.Point(364, 119);
-            this.panelLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelLogin.Margin = new System.Windows.Forms.Padding(2);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(266, 337);
             this.panelLogin.TabIndex = 3;
@@ -67,8 +67,8 @@
             // 
             this.pbLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pbLogo.Image = global::ARSACSoft.Properties.Resources.logoARSAC_21;
-            this.pbLogo.Location = new System.Drawing.Point(88, 2);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbLogo.Location = new System.Drawing.Point(91, 2);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(75, 81);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -97,7 +97,7 @@
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.txtUsuario);
             this.panel4.Location = new System.Drawing.Point(16, 150);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(230, 179);
             this.panel4.TabIndex = 2;
@@ -107,7 +107,7 @@
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.Color.Black;
             this.btnIngresar.Location = new System.Drawing.Point(64, 131);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(94, 33);
             this.btnIngresar.TabIndex = 5;
@@ -119,7 +119,7 @@
             // 
             this.txtContrasenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasenha.Location = new System.Drawing.Point(8, 89);
-            this.txtContrasenha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContrasenha.Margin = new System.Windows.Forms.Padding(2);
             this.txtContrasenha.Name = "txtContrasenha";
             this.txtContrasenha.Size = new System.Drawing.Size(190, 28);
             this.txtContrasenha.TabIndex = 4;
@@ -143,7 +143,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Image = global::ARSACSoft.Properties.Resources._lock;
             this.pictureBox3.Location = new System.Drawing.Point(201, 89);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -155,7 +155,7 @@
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.Image = global::ARSACSoft.Properties.Resources.person;
             this.pictureBox4.Location = new System.Drawing.Point(201, 26);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(27, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -178,7 +178,7 @@
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(8, 26);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(190, 28);
             this.txtUsuario.TabIndex = 0;
@@ -200,7 +200,7 @@
             // 
             this.btnCerrar.Image = global::ARSACSoft.Properties.Resources.eliminar;
             this.btnCerrar.Location = new System.Drawing.Point(950, 1);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(30, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -226,7 +226,7 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.panelLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmIniciarSesion";
             this.Text = "Form1";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmIniciarSesion_MouseDown);

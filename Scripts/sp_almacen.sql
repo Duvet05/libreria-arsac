@@ -117,6 +117,7 @@ BEGIN
     end if;
 END $
 -- ORDEN DE COMPRA
+drop procedure if exists INSERTAR_ORDEN_COMPRA;
 DELIMITER $
 CREATE PROCEDURE INSERTAR_ORDEN_COMPRA(
 	OUT _id_orden_de_compra INT,
@@ -126,8 +127,8 @@ CREATE PROCEDURE INSERTAR_ORDEN_COMPRA(
     IN _total DECIMAL(10, 2)
 )
 BEGIN
-    INSERT INTO ordenDeCompra (fid_empleado, fid_proveedor, fecha_orden, total)
-    VALUES (_fid_empleado, _fid_proveedor, _fecha_orden, _total);
+    INSERT INTO ordenDeCompra (fid_empleado, fid_proveedor, fecha_orden, total, estado)
+    VALUES (_fid_empleado, _fid_proveedor, _fecha_orden, _total, "EN PROCESO");
 	SET _id_orden_de_compra = @@last_insert_id;
 END$
 DELIMITER $
@@ -155,21 +156,54 @@ BEGIN
 END$
 
 
+DROP PROCEDURE IF EXISTS LISTAR_ORDENES_COMPRA_X_PROVEEDOR;
 DELIMITER $
-CREATE PROCEDURE LISTAR_ORDENES_COMPRA_X_ID_NOMBRE_DNI_EMPLEADO(
-    IN _id_nombre_dni_empleado VARCHAR(140)
+CREATE PROCEDURE LISTAR_ORDENES_COMPRA_X_PROVEEDOR(
+    IN _id_proveedor INT, /*Considerar -1 para cuando queremos listar todos*/
+    in _fecha_inicio date,
+    in _fecha_fin date,
+    in _estado varchar(50)
 )
 BEGIN
-    SELECT oc.id_orden_de_compra,oc.fecha_orden,oc.total, e.fid_empleado, p.id_persona,p.nombre,p.apellidos,p.DNI
-    FROM ordenDeCompra oc
-    INNER JOIN empleado e ON oc.fid_empleado = e.fid_empleado
-    INNER JOIN persona p ON e.fid_empleado = p.id_persona
-    WHERE
-        oc.activo = 1
-        AND ((CONCAT(p.nombre, ' ', p.apellidos) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
-		OR (CONVERT(oc.id_orden_de_compra, CHAR(140)) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
-		OR (p.DNI LIKE CONCAT('%', _id_nombre_dni_empleado, '%')));
-END$
+    if (_estado = "TODOS" and _id_proveedor = -1) then
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE p.activo = true
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
+	elseif (_estado = "TODOS" and _id_proveedor != -1) then
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE p.activo = true
+			AND p.id_proveedor = _id_proveedor 
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
+	elseif (_estado != "TODOS" and _id_proveedor = -1) then
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE
+			oc.estado = _estado AND p.activo = true
+			
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
+	else 
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE
+			oc.estado = _estado AND p.activo = true
+			AND p.id_proveedor = _id_proveedor 
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
+    end if;
+END $
 
 
 
@@ -193,16 +227,24 @@ BEGIN
 END$
 
 
+drop procedure if exists LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA;
 DELIMITER $
 CREATE PROCEDURE LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA(
 	IN _id_orden_de_compra INT
 )
 BEGIN
-	SELECT loc.id_linea_orden_compra, p.id_producto, p.nombre, p.precio_por_menor, p.precio_por_mayor , loc.cantidad, loc.subtotal
+	SELECT loc.id_linea_orden_compra, loc.cantidad, loc.subtotal, loc.fid_producto,
+            p.id_producto, p.nombre,
+            pxp.costo,
+            m.descripcion marca_descripcion, m.id_marca,
+            c.id_categoria, c.descripcion categoria_descripcion
 	FROM lineaOrdenDeCompra loc 
-	INNER JOIN producto p ON loc.fid_producto = p.id_producto 
+	INNER JOIN productoXproveedor pxp ON loc.fid_producto = pxp.fid_producto
+    INNER JOIN producto p ON p.id_producto = pxp.fid_producto
+    INNER JOIN marca m ON m.id_marca = p.fid_marca
+    Inner JOIN categoria c ON c.id_categoria = p.fid_categoria
 	WHERE loc.fid_orden_de_compra = _id_orden_de_compra AND loc.activo = 1;
-END$
+END $
 
 
 

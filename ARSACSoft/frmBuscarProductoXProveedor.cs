@@ -73,8 +73,11 @@ namespace ARSACSoft
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            ProductoDeProveedorSeleccionado = (ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
+            if (dgvProductos.CurrentRow != null)
+            {
+                ProductoDeProveedorSeleccionado = (ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+            }
         }
     }
 }

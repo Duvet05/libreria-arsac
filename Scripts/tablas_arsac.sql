@@ -218,18 +218,21 @@ CREATE TABLE
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
 
-CREATE TABLE
-    ordenDeVenta (
-        id_orden_de_venta INT AUTO_INCREMENT,
-        fid_empleado INT,
-        fid_cliente_mayorista INT,
-        total DECIMAL(10, 2),
-        fecha_orden DATE,
-        activo BOOLEAN NOT NULL DEFAULT 1,
-        PRIMARY KEY (id_orden_de_venta),
-        FOREIGN KEY (fid_empleado) REFERENCES empleado(fid_empleado),
-        FOREIGN KEY (fid_cliente_mayorista) REFERENCES clienteMayorista(fid_cliente_mayorista)
-    ) ENGINE = InnoDB;
+CREATE TABLE `ordenDeVenta` (
+  `id_orden_de_venta` int NOT NULL AUTO_INCREMENT,
+  `fid_empleado` int DEFAULT NULL,
+  `fid_cliente_mayorista` int DEFAULT NULL,
+  `total` decimal(10,2) DEFAULT NULL,
+  `fecha_orden` date DEFAULT NULL,
+  `fecha_envio` date DEFAULT NULL,
+  `activo` tinyint(1) NOT NULL DEFAULT '1',
+  `estado` varchar(50) DEFAULT 'EN PROCESO',
+  PRIMARY KEY (`id_orden_de_venta`),
+  KEY `fid_empleado` (`fid_empleado`),
+  KEY `fid_cliente_mayorista` (`fid_cliente_mayorista`),
+  CONSTRAINT `ordenDeVenta_ibfk_1` FOREIGN KEY (`fid_empleado`) REFERENCES `empleado` (`fid_empleado`),
+  CONSTRAINT `ordenDeVenta_ibfk_2` FOREIGN KEY (`fid_cliente_mayorista`) REFERENCES `clienteMayorista` (`fid_cliente_mayorista`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE
     lineaOrdenDeVenta (
@@ -245,6 +248,7 @@ CREATE TABLE
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
 
+
 CREATE TABLE
     ordenDeCompra (
         id_orden_de_compra INT AUTO_INCREMENT,
@@ -253,6 +257,7 @@ CREATE TABLE
         fecha_orden DATE,
         total DECIMAL(10, 2),
         activo BOOLEAN NOT NULL DEFAULT 1,
+        estado varchar(50),
         PRIMARY KEY (id_orden_de_compra),
         FOREIGN KEY (fid_empleado) REFERENCES empleado(fid_empleado),
         FOREIGN KEY (fid_proveedor) REFERENCES proveedor(id_proveedor)

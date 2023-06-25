@@ -1,6 +1,7 @@
 package pe.edu.pucp.arsacsoft.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -14,8 +15,8 @@ import pe.edu.pucp.arsacsoft.almacen.mysql.OrdenDeCompraMySQL;
 @WebService(serviceName = "AlmacenWS")
 public class AlmacenWS {
 
-    private OrdenDeCompraDAO ordenDeCompraDAO = new OrdenDeCompraMySQL();
-    private LineaOrdenDeCompraDAO lineaOrdenDeCompraDAO = new LineaOrdenDeCompraMySQL();
+    private OrdenDeCompraDAO daoOrdenDeCompra = new OrdenDeCompraMySQL();
+    private LineaOrdenDeCompraDAO daoLineaOrdenCompra = new LineaOrdenDeCompraMySQL();
 
 //    @WebMethod
 //    public ArrayList<LineaOrdenDeCompra> listarLineasOrdenCompraPorIdOrdenCompra(
@@ -33,11 +34,34 @@ public class AlmacenWS {
     public int insertarOrdenCompra(OrdenDeCompra ordenCompra) {
         int resultado=0;
         try {
-            resultado =  ordenDeCompraDAO.insertar(ordenCompra);
+            resultado =  daoOrdenDeCompra.insertar(ordenCompra);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return resultado;
+    }
+    
+    @WebMethod(operationName = "listarOrdenesDeCompraXProveedor")
+    public ArrayList<OrdenDeCompra> listarOrdenesDeCompraXProveedor(int idProveedor, Date fechaInicio, 
+                                        Date fechaFin, String estado) {
+        ArrayList<OrdenDeCompra> ordenes = null;
+        try {
+            ordenes = daoOrdenDeCompra.listarPorProveedor(idProveedor, fechaInicio, fechaFin, estado);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return ordenes;
+    }
+    
+    @WebMethod(operationName = "listarLineasDeOrdenDeCompra")
+    public ArrayList<LineaOrdenDeCompra> listarLineasDeOrdenDeCompra(int idOrdenDeCompra) {
+        ArrayList<LineaOrdenDeCompra> lineas = null;
+        try {
+            lineas = daoOrdenDeCompra.listarLineasOrdenDeCompra(idOrdenDeCompra);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return lineas;
     }
 //
 //    @WebMethod

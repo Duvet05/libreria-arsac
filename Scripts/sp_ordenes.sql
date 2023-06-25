@@ -146,3 +146,103 @@ BEGIN
 	FROM ordenDeVenta
 	WHERE fid_empleado = _fid_empleado;
 END;$
+
+
+DELIMITER $
+CREATE DEFINER=`admin`@`%` PROCEDURE `INSERTAR_ORDEN_DE_VENTA_MINORISTA`(
+  OUT _id_orden_de_venta INT,
+  IN _fid_empleado INT,
+  IN _total DECIMAL(10,2),
+  IN _fecha_orden DATE,
+  IN _estado VARCHAR(50)
+)
+BEGIN
+  -- Insertar en la tabla de órdenes de venta
+    INSERT INTO ordenDeVenta (fid_empleado, total, fecha_orden, estado)
+    VALUES (_fid_empleado, _total, _fecha_orden, _estado);
+  -- Obtener el ID de la orden de venta insertada
+  SET _id_orden_de_venta = LAST_INSERT_ID();
+END$
+
+DELIMITER $
+CREATE DEFINER=`admin`@`%` PROCEDURE `INSERTAR_ORDEN_DE_VENTA_MAYORISTA`(
+  OUT _id_orden_de_venta INT,
+  IN _fid_empleado INT,
+  IN _fid_cliente_mayorista INT,
+  IN _total DECIMAL(10,2),
+  IN _fecha_orden DATE,
+  IN _fecha_envio DATE,
+  IN _estado VARCHAR(50)
+)
+BEGIN
+  -- Insertar en la tabla de órdenes de venta
+    INSERT INTO ordenDeVenta (fid_empleado, fid_cliente_mayorista, total, fecha_orden, fecha_envio, estado)
+    VALUES (_fid_empleado, _fid_cliente_mayorista, _total, _fecha_orden, _fecha_envio, _estado);
+  -- Obtener el ID de la orden de venta insertada
+  SET _id_orden_de_venta = LAST_INSERT_ID();
+END$
+
+
+DELIMITER $$
+CREATE DEFINER=`admin`@`%` PROCEDURE `LISTAR_PRODUCTOS_DE_SEDE_VENTAS`(
+    IN _nombre VARCHAR(100),
+    IN _fid_categoria INT,
+    IN _fid_marca INT,
+    IN _fid_sede INT
+)
+BEGIN
+   	if (_fid_categoria = -1 and _fid_marca = -1) then
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede;
+    elseif (_fid_categoria = -1 and _fid_marca != -1) then
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede
+            AND m.id_marca = _fid_marca;
+      elseif (_fid_categoria != -1 and _fid_marca = -1) then
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede
+            AND c.id_categoria = _fid_categoria;
+    ELSE
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede
+            AND m.id_marca = _fid_marca
+            AND c.id_categoria = _fid_categoria;
+    END IF;
+END$$
+DELIMITER ;

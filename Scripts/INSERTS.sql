@@ -133,6 +133,10 @@ INSERT INTO empleado (fid_empleado, fid_tipo_empleado, fid_sede, fecha_contratac
 VALUES (1, 1, 1, '2023-06-16', 2000.00, 'Calle Empleado 123', NULL);
 call insertar_cuenta_usuario(@id, 1, 'duvet05', 'duvet05');
 
+INSERT INTO empleado (fid_empleado, fid_tipo_empleado, fid_sede, fecha_contratacion, salario, direccion, foto)
+VALUES (2, 1, 1, '2022-12-24', 15000.00, 'Calle Empleado2 123', NULL);
+call insertar_cuenta_usuario(@id, 2, 'cristiano', 'ronaldo');
+
 -- INSERT para la tabla clienteMayorista
 INSERT INTO clienteMayorista (fid_cliente_mayorista, RUC, razon_social) 
 VALUES (1, '20547896321', 'Escolares Express');

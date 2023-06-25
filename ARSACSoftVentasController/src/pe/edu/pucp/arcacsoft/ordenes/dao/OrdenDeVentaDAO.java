@@ -9,7 +9,8 @@ import pe.edu.pucp.arsacsoft.ordenes.model.LineaDeOrdenDeVenta;
 import pe.edu.pucp.arsacsoft.ordenes.model.OrdenDeVenta;
 
 public interface OrdenDeVentaDAO {
-    int insertar(OrdenDeVenta ordenV);
+    int insertarMayorista(OrdenDeVenta ordenV);
+    int insertarMinorista(OrdenDeVenta ordenV);
     int modificar(OrdenDeVenta ordenV);
     int eliminar(int idOrdenDeVenta);
     ArrayList<OrdenDeVenta> listarPorFecha();    

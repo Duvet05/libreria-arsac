@@ -83,4 +83,15 @@ public class ProductosWS {
         }
         return productos;
     }
+
+    @WebMethod(operationName = "listarProductosXSede")
+    public ArrayList<Producto> listarProductosXSede(String _nombre, int _fid_sede, int _fid_categoria, int _fid_marca) {
+        ArrayList<Producto> productos = null;
+        try {
+            productos = daoProducto.listarProductosXSede(_nombre, _fid_sede, _fid_categoria, _fid_marca);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return productos;
+    }
 }

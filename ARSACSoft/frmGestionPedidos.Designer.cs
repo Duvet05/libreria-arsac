@@ -77,9 +77,9 @@
             this.btPedido = new System.Windows.Forms.Button();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardar = new System.Windows.Forms.ToolStripButton();
             this.btnBuscarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -245,7 +245,8 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
+            this.Column5,
+            this.Subtotal});
             this.dataGridView2.Location = new System.Drawing.Point(8, 77);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -571,7 +572,6 @@
             this.tsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNuevo,
-            this.btnGuardar,
             this.btnBuscarPedido,
             this.btnCancelar});
             this.tsMenu.Location = new System.Drawing.Point(0, 0);
@@ -590,17 +590,6 @@
             this.btnNuevo.Size = new System.Drawing.Size(70, 24);
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(80, 24);
-            this.btnGuardar.Text = "&Guardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnBuscarPedido
             // 
@@ -623,6 +612,12 @@
             this.btnCancelar.Size = new System.Drawing.Size(82, 24);
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
             // 
             // frmGestionPedidos
             // 
@@ -699,7 +694,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ToolStrip tsMenu;
         private System.Windows.Forms.ToolStripButton btnNuevo;
-        private System.Windows.Forms.ToolStripButton btnGuardar;
         private System.Windows.Forms.ToolStripButton btnBuscarPedido;
         private System.Windows.Forms.ToolStripButton btnCancelar;
         private System.Windows.Forms.Button AgregarCliente;
@@ -710,5 +704,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
     }
 }

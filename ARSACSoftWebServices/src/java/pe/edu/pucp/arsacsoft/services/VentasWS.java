@@ -21,13 +21,26 @@ public class VentasWS {
     private OrdenDeVentaDAO ordenDeVentaDAO = new OrdenDeVentaMySQL();
     private LineaDeOrdenDeVentaDAO lovDAO = new LineaOrdenDeVentaMySQL();
 
-    @WebMethod(operationName = "insertarOrdenDeVenta")
-    public int insertarOrdenDeVenta(OrdenDeVenta ordenV) {
+    @WebMethod(operationName = "insertarOrdenDeVentaMayorista")
+    public int insertarOrdenDeVentaMayorista(OrdenDeVenta ordenV) {
         int idOrdenDeVenta = 0;
         try {
-            idOrdenDeVenta = ordenDeVentaDAO.insertar(ordenV);
+            idOrdenDeVenta = ordenDeVentaDAO.insertarMayorista(ordenV);
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Error in insertarOrdenDeVenta: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+        return idOrdenDeVenta;
+    }
+
+    @WebMethod(operationName = "insertarOrdenDeVentaMinorista")
+    public int insertarOrdenDeVentaMinorista(OrdenDeVenta ordenV) {
+        int idOrdenDeVenta = 0;
+        try {
+            idOrdenDeVenta = ordenDeVentaDAO.insertarMinorista(ordenV);
+        } catch (Exception ex) {
+            System.out.println("Error in insertarOrdenDeVenta: " + ex.getMessage());
+            ex.printStackTrace();
         }
         return idOrdenDeVenta;
     }
