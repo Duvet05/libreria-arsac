@@ -19,4 +19,5 @@ public interface OrdenDeCompraDAO {
 //    int eliminar(int idOrdenCompra);
     ArrayList<OrdenDeCompra> listarPorProveedor(int idProveedor, Date fechaInicio, Date fechaFin, String estado);   
     ArrayList<LineaOrdenDeCompra> listarLineasOrdenDeCompra(int idOrdenCompra);
+    //ArrayList<OrdenDeCompra> listarPorIdDNINombreEmpleado(String idDNINombreEmpleado);    
 }

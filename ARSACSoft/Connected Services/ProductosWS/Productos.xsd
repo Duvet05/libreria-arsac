@@ -8,6 +8,8 @@
   <xs:element name="listarMarcaTodasResponse" type="tns:listarMarcaTodasResponse" />
   <xs:element name="listarProductosXNombreXCategoriaXMarca" type="tns:listarProductosXNombreXCategoriaXMarca" />
   <xs:element name="listarProductosXNombreXCategoriaXMarcaResponse" type="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
+  <xs:element name="listarProductosXSede" type="tns:listarProductosXSede" />
+  <xs:element name="listarProductosXSedeResponse" type="tns:listarProductosXSedeResponse" />
   <xs:element name="modificarProducto" type="tns:modificarProducto" />
   <xs:element name="modificarProductoResponse" type="tns:modificarProductoResponse" />
   <xs:complexType name="listarMarcaTodas">
@@ -94,6 +96,19 @@
   <xs:complexType name="modificarProductoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosXSede">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element name="arg1" type="xs:int" />
+      <xs:element name="arg2" type="xs:int" />
+      <xs:element name="arg3" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosXSedeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

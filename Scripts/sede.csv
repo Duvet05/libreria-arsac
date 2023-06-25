@@ -1,0 +1,6 @@
+id_sede,direccion,telefono,correo,es_principal,activo
+1,"Av. Los Girasoles 789, Miraflores, Lima",923456789,ARSAC_SA@gmail.com,1,1
+2,"Av. Los Jazmines 123, Los Olivos, Lima",987654321,ARSAC_SAsede1@gmail.com,0,1
+3,"Jirón Las Orquídeas 456, Barranco, Lima",912345678,ARSAC_SAsede2@gmail.com,0,1
+4,"Jirón Los Lirios 012, San Isidro, Lima",934567890,ARSAC_SAsede3@gmail.com,0,1
+5,"Av. Las Margaritas 345, Surco, Lima",945678901,ARSAC_SAsede4@gmail.com,0,1

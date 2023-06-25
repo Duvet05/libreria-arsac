@@ -66,21 +66,75 @@ BEGIN
     VALUES(_id_sede, _id_producto, 0, true);
 END $
 
-CREATE PROCEDURE LISTAR_PRODUCTOS_DE_SEDE(
-	IN _id_sede INT,
-    IN _nombre VARCHAR(100)
+-- #######################################################################
+-- lISTAR PRODUCTOS POR SEDES
+-- #######################################################################
+
+
+DELIMITER $
+CREATE DEFINER=`admin`@`%` PROCEDURE `LISTAR_PRODUCTOS_DE_SEDE`(
+    IN _nombre VARCHAR(100),
+    IN _fid_categoria INT,
+    IN _fid_marca INT,
+    IN _fid_sede INT
 )
 BEGIN
-	SELECT p.id_producto, p.nombre, c.descripcion as categoria, m.descripcion as marca, sxp.stock
-    from producto p
-    inner join sedeXproducto sxp on
-		p.id_producto = sxp.fid_producto and _id_sede = sxp.fid_sede and sxp.activo = true
-    inner join categoria c on
-		p.fid_categoria = c.id_categoria
-    inner join marca m on
-		p.fid_marca = m.id_marca
-    where p.nombre LIKE CONCAT('%',_nombre,'%') and p.activo = true;
-END $
+   	if (_fid_categoria = -1 and _fid_marca = -1) then
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede;
+    elseif (_fid_categoria = -1 and _fid_marca != -1) then
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede
+            AND m.id_marca = _fid_marca;
+      elseif (_fid_categoria != -1 and _fid_marca = -1) then
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede
+            AND c.id_categoria = _fid_categoria;
+    ELSE
+        SELECT p.id_producto, p.nombre, c.id_categoria, c.descripcion AS nombre_categoria,
+            m.id_marca, m.descripcion AS nombre_marca, sxp.stock,
+            p.precio_por_mayor, p.precio
+        FROM producto p
+        INNER JOIN categoria c ON p.fid_categoria = c.id_categoria
+        INNER JOIN marca m ON p.fid_marca = m.id_marca
+        INNER JOIN sedeXproducto sxp ON sxp.fid_producto = p.id_producto
+        INNER JOIN sede sed ON sed.id_sede = sxp.fid_sede
+        WHERE sxp.activo = 1
+            AND p.nombre LIKE CONCAT('%', _nombre, '%')
+            AND _fid_sede = sed.id_sede
+            AND m.id_marca = _fid_marca
+            AND c.id_categoria = _fid_categoria;
+    END IF;
+END$
+
+
 
 CREATE PROCEDURE ELIMINAR_PRODUCTO_DE_SEDE(
 	IN _id_sede INT,

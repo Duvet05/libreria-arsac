@@ -1,6 +1,7 @@
 ﻿using ARSACSoft.AlmacenWS;
 using ARSACSoft.ProductosWS;
 using ARSACSoft.RRHHWS;
+using ARSACSoft.SedeWS;
 using ARSACSoft.VentasWS;
 using GMap.NET.Internals;
 using System;
@@ -18,9 +19,13 @@ namespace ARSACSoft
         private Estado estado;
         private RRHHWS.clienteMayorista _clienteMayorista;
         private BindingList<lineaDeOrdenDeVenta> _lineasOrdenDeVenta;
-        private double descuentoTotal;
-        public frmGestionPedidos()
+        private VentasWSClient daoVentas;
+        private int _id_sede;
+        private int _id_empleado;
+        public frmGestionPedidos(RRHHWS.empleado _empleadoLogeado)
         {
+            _id_empleado = _empleadoLogeado.idPersona;
+            _id_sede = _empleadoLogeado.sede.idSede;
             InitializeComponent();
             estado = Estado.Inicial;
             EstablecerEstadoFormulario();
@@ -168,7 +173,7 @@ namespace ARSACSoft
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            frmBuscarProducto frm = new frmBuscarProducto();
+            frmBuscarProductoXSede frm = new frmBuscarProductoXSede(_id_sede);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 _producto = frm.ProductoSeleccionado;
@@ -188,6 +193,7 @@ namespace ARSACSoft
             estado = Estado.Nuevo;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
+            daoVentas = new VentasWSClient();
             _lineasOrdenDeVenta = new BindingList<lineaDeOrdenDeVenta>();
             dataGridView2.DataSource = _lineasOrdenDeVenta;
         }
@@ -198,7 +204,7 @@ namespace ARSACSoft
             EstablecerEstadoFormulario();
 
         }
-
+        //falta agregar funcion para modificar 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textNombreProducto.Text))
@@ -217,7 +223,7 @@ namespace ARSACSoft
                 if (linea.producto.idProducto.Equals(_producto.idProducto))
                 {
                     linea.cantidad += Int32.Parse(textCantProducto.Text);
-                    linea.precio = linea.cantidad * linea.precio; // Actualizar subtotal
+                    linea.descuento = Double.Parse(textDescuentoPorcentaje.Text); // Actualizar subtotal
                     UpdateTextBoxes();
                     return;
                 }
@@ -228,7 +234,7 @@ namespace ARSACSoft
             lov.producto.idProducto = _producto.idProducto;
             lov.producto.nombre = _producto.nombre;
             lov.cantidad = Int32.Parse(textCantProducto.Text);
-            lov.precio = lov.producto.precioPorMenor;
+            lov.precio = _producto.precioPorMenor;
 
             if (Double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
             {
@@ -248,6 +254,8 @@ namespace ARSACSoft
             if (dataGridView2.SelectedRows.Count > 0)
             {
                 int rowIndex = dataGridView2.SelectedRows[0].Index;
+                textNombreProducto.Text = "";
+                textDescuentoPorcentaje.Text = "";
                 _lineasOrdenDeVenta.RemoveAt(rowIndex);
                 UpdateTextBoxes();
             }
@@ -256,26 +264,31 @@ namespace ARSACSoft
         public void UpdateTextBoxes()
         {
             dataGridView2.Refresh();
-            // Actualizar los valores de los TextBox relevantes
-            // en función de los cambios en _lineasOrdenDeVenta
 
-            // Ejemplo:
+            // Actualizar los valores de los TextBox relevantes en función de los cambios en _lineasOrdenDeVenta
+            double total = 0;
+            double descuentoTotal = 0;
+            
             textCantProducto.Text = "";
-            textPrecioUni.Text = "";
-            textCantidad.Text = "";
-            textSubTotal.Text = "";
-
             foreach (lineaDeOrdenDeVenta linea in _lineasOrdenDeVenta)
             {
                 if (linea.producto.idProducto.Equals(_producto.idProducto))
                 {
-                    textCantProducto.Text = linea.cantidad.ToString();
-                    textPrecioUni.Text = (linea.precio - linea.precio * (linea.descuento / 100)).ToString();
+                    textPrecioUni.Text = (linea.precio - linea.precio * (linea.descuento / 100)).ToString("N2");
                     textCantidad.Text = linea.cantidad.ToString();
-                    textSubTotal.Text = (linea.precio * linea.cantidad).ToString();
-                    break;
+                    textSubTotal.Text = (linea.precio * linea.cantidad).ToString("N2");
+                    descuentoTotal += (linea.precio * linea.cantidad * (linea.descuento / 100));
+                    total += (linea.precio * linea.cantidad);
                 }
             }
+
+            // Calcular el IGV y el monto total
+            double igv = total * 0.18;
+            double montoTotal = total + igv - descuentoTotal;
+
+            txtIGV.Text = igv.ToString("N2");
+            textDescontadoTotal.Text = descuentoTotal.ToString("N2");
+            textMonto.Text = montoTotal.ToString("N2");
         }
 
         private void AgregarCliente_Click(object sender, EventArgs e)
@@ -303,7 +316,7 @@ namespace ARSACSoft
                 // Asignar los valores a los TextBox correspondientes
                 textPrecioUni.Text = precio.ToString();
                 textCantidad.Text = cantidad.ToString();
-                textSubTotal.Text = (cantidad * precio).ToString();
+                textSubTotal.Text = (cantidad * precio).ToString("N2");
             }
         }
 
@@ -327,11 +340,15 @@ namespace ARSACSoft
                 }
                 else if (e.ColumnIndex == 3)
                 {
-                    e.Value = lov.precio.ToString();
+                    e.Value = lov.precio.ToString("N2");
                 }
                 else if (e.ColumnIndex == 4)
                 {
-                    e.Value = lov.descuento.ToString();
+                    e.Value = lov.descuento.ToString("N2");
+                }
+                else if (e.ColumnIndex == 5)
+                {
+                    e.Value = (lov.cantidad * lov.precio).ToString("N2");
                 }
             }
         }
@@ -368,7 +385,38 @@ namespace ARSACSoft
                 e.Handled = true; // Evita el sonido de "beep" al presionar Enter
                                   //btnCalcularDescuento.Focus(); // Cambia el foco al botón para realizar el cálculo
             }
+
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false; // Permite borrar el contenido del TextBox
+            }
+
+            if (e.KeyChar != (char)Keys.Back && !char.IsControl(e.KeyChar))
+            {
+                string newText = ((TextBox)sender).Text + e.KeyChar.ToString();
+
+                if (newText.Contains(decimalSeparator))
+                {
+                    // Verificar si el número decimal tiene más de dos dígitos después del separador
+                    int decimalDigits = newText.Substring(newText.IndexOf(decimalSeparator) + 1).Length;
+                    if (decimalDigits > 2)
+                    {
+                        e.Handled = true;
+                    }
+                }
+
+                if (newText.Length > 3)
+                {
+                    // Verificar si el número entero es mayor a 100
+                    int integerValue = int.Parse(newText.Split(decimalSeparator)[0]);
+                    if (integerValue > 100)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
         }
+
 
         private void btCorreo_Click(object sender, EventArgs e)
         {
@@ -379,9 +427,50 @@ namespace ARSACSoft
 
         private void btPedido_Click(object sender, EventArgs e)
         {
+            // Verificar si hay elementos en la línea de orden de venta
+            if (_lineasOrdenDeVenta.Count == 0)
+            {
+                MostrarAdvertencia("La línea de orden de venta está vacía.");
+                return;
+            }
+
+            // Verificar si el monto total es válido
+            if (!double.TryParse(textMonto.Text, out double precioTotal))
+            {
+                MostrarAdvertencia("El monto total no es válido.");
+                return;
+            }
+
+            // Crear la orden de venta y asignar los valores
+            VentasWS.ordenDeVenta ordenV = new VentasWS.ordenDeVenta();
+            ordenV.lineaDeOrdenDeVenta = _lineasOrdenDeVenta.ToArray();
+            ordenV.fechaOrden = DateTime.Now.Date;
+            ordenV.precioTotal = precioTotal;
+            ordenV.empleado = new VentasWS.empleado();
+            ordenV.empleado.idPersona = _id_empleado;
+
+            // Verificar si se seleccionó la opción de factura
+            if (checkBoxFactura.Checked)
+            {
+                if (_clienteMayorista == null)
+                {
+                    MostrarAdvertencia("No se ha seleccionado un cliente mayorista.");
+                    return;
+                }
+
+                ordenV.clienteMayorista = new VentasWS.clienteMayorista();
+                ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
+            }
+            daoVentas.insertarOrdenDeVenta(ordenV);
+
             estado = Estado.Inicial;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
+        }
+
+        private void MostrarAdvertencia(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

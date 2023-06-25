@@ -10,7 +10,7 @@ DROP PROCEDURE IF exists INSERTAR_LINEA_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_CATEGORIA_TODAS;
 DROP PROCEDURE IF exists LISTAR_MARCA_TODAS;
-
+DROP  PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE;
 DELIMITER $
 create procedure LISTAR_CATEGORIA_TODAS()
 begin
@@ -216,6 +216,4 @@ BEGIN
     Inner JOIN categoria c ON c.id_categoria = p.fid_categoria
 	WHERE loc.fid_orden_de_compra = _id_orden_de_compra AND loc.activo = 1;
 END $
-
-
 
