@@ -425,48 +425,49 @@ namespace ARSACSoft
             EstablecerEstadoFormulario();
         }
          
-        private void btPedido_Click(object sender, EventArgs e)
-        {
-            // Verificar si hay elementos en la línea de orden de venta
-            if (_lineasOrdenDeVenta.Count == 0)
+            private void btPedido_Click(object sender, EventArgs e)
             {
-                MostrarAdvertencia("La línea de orden de venta está vacía.");
-                return;
-            }
-
-            // Verificar si el monto total es válido
-            if (!double.TryParse(textMonto.Text, out double precioTotal))
-            {
-                MostrarAdvertencia("El monto total no es válido.");
-                return;
-            }
-
-            // Crear la orden de venta y asignar los valores
-            VentasWS.ordenDeVenta ordenV = new VentasWS.ordenDeVenta();
-            ordenV.lineaDeOrdenDeVenta = _lineasOrdenDeVenta.ToArray();
-            ordenV.fechaOrden = DateTime.Now.Date;
-            ordenV.precioTotal = precioTotal;
-            ordenV.empleado = new VentasWS.empleado();
-            ordenV.empleado.idPersona = _id_empleado;
-
-            // Verificar si se seleccionó la opción de factura
-            if (checkBoxFactura.Checked)
-            {
-                if (_clienteMayorista == null)
+                // Verificar si hay elementos en la línea de orden de venta
+                if (_lineasOrdenDeVenta.Count == 0)
                 {
-                    MostrarAdvertencia("No se ha seleccionado un cliente mayorista.");
+                    MostrarAdvertencia("La línea de orden de venta está vacía.");
                     return;
                 }
 
-                ordenV.clienteMayorista = new VentasWS.clienteMayorista();
-                ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
-            }
-            daoVentas.insertarOrdenDeVenta(ordenV);
+                // Verificar si el monto total es válido
+                if (!double.TryParse(textMonto.Text, out double precioTotal))
+                {
+                    MostrarAdvertencia("El monto total no es válido.");
+                    return;
+                }
 
-            estado = Estado.Inicial;
-            LimpiarComponentes();
-            EstablecerEstadoFormulario();
-        }
+                // Crear la orden de venta y asignar los valores
+                VentasWS.ordenDeVenta ordenV = new VentasWS.ordenDeVenta();
+                ordenV.lineaDeOrdenDeVenta = _lineasOrdenDeVenta.ToArray();
+                ordenV.fechaOrdenSpecified = true;
+                ordenV.fechaEnvioSpecified = true;
+                ordenV.fechaOrden = DateTime.Now.Date;
+                ordenV.fechaEnvio = DateTime.Now.Date;
+                ordenV.precioTotal = precioTotal;
+                ordenV.empleado = new VentasWS.empleado();
+                ordenV.empleado.idPersona = _id_empleado;
+                ordenV.clienteMayorista = new VentasWS.clienteMayorista();
+                // Verificar si se seleccionó la opción de factura
+                if (checkBoxFactura.Checked)
+                {
+                    if (_clienteMayorista == null)
+                    {
+                        MostrarAdvertencia("No se ha seleccionado un cliente mayorista.");
+                        return;
+                    }
+                    ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
+                }
+                daoVentas.insertarOrdenDeVenta(ordenV);
+
+                estado = Estado.Inicial;
+                LimpiarComponentes();
+                EstablecerEstadoFormulario();
+            }
 
         private void MostrarAdvertencia(string mensaje)
         {

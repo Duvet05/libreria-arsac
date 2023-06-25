@@ -27,7 +27,8 @@ public class VentasWS {
         try {
             idOrdenDeVenta = ordenDeVentaDAO.insertar(ordenV);
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("Error in insertarOrdenDeVenta: " + ex.getMessage());
+            ex.printStackTrace();
         }
         return idOrdenDeVenta;
     }
