@@ -19,6 +19,7 @@ namespace ARSACSoft
         private Estado estado;
         private RRHHWS.clienteMayorista _clienteMayorista;
         private BindingList<lineaDeOrdenDeVenta> _lineasOrdenDeVenta;
+        private VentasWSClient daoVentas;
         private int _id_sede;
         private int _id_empleado;
         public frmGestionPedidos(RRHHWS.empleado _empleadoLogeado)
@@ -192,6 +193,7 @@ namespace ARSACSoft
             estado = Estado.Nuevo;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
+            daoVentas = new VentasWSClient();
             _lineasOrdenDeVenta = new BindingList<lineaDeOrdenDeVenta>();
             dataGridView2.DataSource = _lineasOrdenDeVenta;
         }
@@ -459,6 +461,7 @@ namespace ARSACSoft
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
             }
+            daoVentas.insertarOrdenDeVenta(ordenV);
 
             estado = Estado.Inicial;
             LimpiarComponentes();

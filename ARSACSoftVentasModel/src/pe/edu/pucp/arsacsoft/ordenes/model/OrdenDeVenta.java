@@ -16,12 +16,30 @@ import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
 public class OrdenDeVenta {
     private int idOrdenDeVenta;
     private Date fechaOrden;
+    private Date fechaEnvio;
     private double precioTotal;
     private boolean activo;
     private Empleado empleado;
     private ClienteMayorista clienteMayorista;
     private ArrayList<LineaDeOrdenDeVenta> lineaDeOrdenDeVenta;
+    private String estado;
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    public Date getFechaEnvio() {
+        return fechaEnvio;
+    }
+
+    public void setFechaEnvio(Date fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
+    }
+    
     public ArrayList<LineaDeOrdenDeVenta> getLineaDeOrdenDeVenta() {
         return lineaDeOrdenDeVenta;
     }

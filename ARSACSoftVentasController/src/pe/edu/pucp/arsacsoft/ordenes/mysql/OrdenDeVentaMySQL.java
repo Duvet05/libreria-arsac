@@ -25,15 +25,27 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_ORDEN_DE_VENTA_MAYORISTA(?,?,?,?,?,?)}");
-            cs.registerOutParameter("_id_orden_de_venta", java.sql.Types.INTEGER);
-            cs.setInt("_fid_empleado", ordenV.getEmpleado().getIdPersona());
-            cs.setInt("_fid_cliente_mayorista", ordenV.getClienteMayorista().getIdPersona());
-            cs.setDouble("_total", ordenV.getPrecioTotal());
-            cs.setDate("_fecha_orden", new java.sql.Date(ordenV.getFechaOrden().getTime()));
-            cs.setBoolean("_activo", ordenV.isActivo());
+            cs = con.prepareCall("{call INSERTAR_ORDEN_DE_VENTA_MAYORISTA(?,?,?,?,?,?,?)}");
+            cs.registerOutParameter(1, java.sql.Types.INTEGER);
+            cs.setInt(2, ordenV.getEmpleado().getIdPersona());
+            cs.setInt(3, ordenV.getClienteMayorista().getIdPersona());
+            cs.setDouble(4, ordenV.getPrecioTotal());
+            cs.setDate(5, new java.sql.Date(ordenV.getFechaOrden().getTime()));
+            cs.setDate(6, new java.sql.Date(ordenV.getFechaEnvio().getTime()));
+            cs.setString(7, ordenV.getEstado());
             cs.executeUpdate();
-            ordenV.setIdOrdenDeVenta(cs.getInt("_id_orden_de_venta"));
+            ordenV.setIdOrdenDeVenta(cs.getInt(1));
+            
+            for (LineaDeOrdenDeVenta linea : ordenV.getLineaDeOrdenDeVenta()) {
+                cs = con.prepareCall("{call INSERTAR_LINEA_ORDEN_VENTA_MAYORISTA(?,?,?,?,?)}");
+                cs.setInt(1, ordenV.getIdOrdenDeVenta());
+                cs.setInt(2, linea.getProducto().getIdProducto());
+                cs.setInt(3, linea.getCantidad());
+                cs.setDouble(4, linea.getDescuento());
+                cs.setDouble(5, linea.getPrecio());
+                cs.executeUpdate();
+            }
+
             resultado = ordenV.getIdOrdenDeVenta();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -48,15 +60,6 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-        }
-
-        try {
-            LineaDeOrdenDeVentaDAO daoLinea = new LineaOrdenDeVentaMySQL();
-            for (LineaDeOrdenDeVenta linea : ordenV.getLineaDeOrdenDeVenta()) {
-                daoLinea.insertar(linea, ordenV.getIdOrdenDeVenta());
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
         }
         return resultado;
     }
