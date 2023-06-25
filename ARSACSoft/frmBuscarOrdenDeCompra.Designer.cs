@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,11 +40,6 @@
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.dgvOrdenesCompra = new System.Windows.Forms.DataGridView();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscarProveedorOC = new System.Windows.Forms.Button();
             this.lblNombreCliente = new System.Windows.Forms.Label();
             this.txtRazonSocialProveedorOC = new System.Windows.Forms.TextBox();
@@ -54,6 +49,13 @@
             this.rbEnProceso = new System.Windows.Forms.RadioButton();
             this.rbCancelado = new System.Windows.Forms.RadioButton();
             this.rbRecibido = new System.Windows.Forms.RadioButton();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnQuitarProveedor = new System.Windows.Forms.Button();
+            this.rbTodos = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesCompra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,9 +89,9 @@
             this.label1.Location = new System.Drawing.Point(39, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 18);
+            this.label1.Size = new System.Drawing.Size(63, 18);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Entre:";
+            this.label1.Text = "Entre(*):";
             // 
             // dtpfin
             // 
@@ -125,91 +127,52 @@
             // 
             this.dgvOrdenesCompra.AllowUserToAddRows = false;
             this.dgvOrdenesCompra.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrdenesCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvOrdenesCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdenesCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOrdenesCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenesCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvOrdenesCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenesCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DNI,
-            this.s,
             this.Column1,
+            this.s,
             this.Column2,
             this.Estado});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrdenesCompra.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrdenesCompra.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvOrdenesCompra.Location = new System.Drawing.Point(13, 157);
             this.dgvOrdenesCompra.Margin = new System.Windows.Forms.Padding(4);
             this.dgvOrdenesCompra.Name = "dgvOrdenesCompra";
             this.dgvOrdenesCompra.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdenesCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenesCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvOrdenesCompra.RowHeadersVisible = false;
             this.dgvOrdenesCompra.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrdenesCompra.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOrdenesCompra.RowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvOrdenesCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrdenesCompra.Size = new System.Drawing.Size(1085, 309);
             this.dgvOrdenesCompra.TabIndex = 14;
-            // 
-            // DNI
-            // 
-            this.DNI.FillWeight = 93.64851F;
-            this.DNI.HeaderText = "ID";
-            this.DNI.MinimumWidth = 6;
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // s
-            // 
-            this.s.FillWeight = 213.9038F;
-            this.s.HeaderText = "Fecha emisión";
-            this.s.MinimumWidth = 6;
-            this.s.Name = "s";
-            this.s.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 64.14925F;
-            this.Column1.HeaderText = "Proveedor";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 64.14925F;
-            this.Column2.HeaderText = "Monto total";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            this.Estado.FillWeight = 64.14925F;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
+            this.dgvOrdenesCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenesCompra_CellContentClick);
+            this.dgvOrdenesCompra.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenesCompra_CellFormatting);
             // 
             // btnBuscarProveedorOC
             // 
@@ -228,7 +191,7 @@
             this.lblNombreCliente.AutoSize = true;
             this.lblNombreCliente.BackColor = System.Drawing.Color.Transparent;
             this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(363, 30);
+            this.lblNombreCliente.Location = new System.Drawing.Point(366, 33);
             this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreCliente.Name = "lblNombreCliente";
             this.lblNombreCliente.Size = new System.Drawing.Size(99, 18);
@@ -285,7 +248,7 @@
             // rbEnProceso
             // 
             this.rbEnProceso.AutoSize = true;
-            this.rbEnProceso.Location = new System.Drawing.Point(142, 117);
+            this.rbEnProceso.Location = new System.Drawing.Point(240, 117);
             this.rbEnProceso.Name = "rbEnProceso";
             this.rbEnProceso.Size = new System.Drawing.Size(116, 20);
             this.rbEnProceso.TabIndex = 33;
@@ -296,7 +259,7 @@
             // rbCancelado
             // 
             this.rbCancelado.AutoSize = true;
-            this.rbCancelado.Location = new System.Drawing.Point(293, 117);
+            this.rbCancelado.Location = new System.Drawing.Point(378, 117);
             this.rbCancelado.Name = "rbCancelado";
             this.rbCancelado.Size = new System.Drawing.Size(110, 20);
             this.rbCancelado.TabIndex = 34;
@@ -307,7 +270,7 @@
             // rbRecibido
             // 
             this.rbRecibido.AutoSize = true;
-            this.rbRecibido.Location = new System.Drawing.Point(435, 117);
+            this.rbRecibido.Location = new System.Drawing.Point(506, 117);
             this.rbRecibido.Name = "rbRecibido";
             this.rbRecibido.Size = new System.Drawing.Size(91, 20);
             this.rbRecibido.TabIndex = 35;
@@ -315,11 +278,81 @@
             this.rbRecibido.Text = "RECIBIDO";
             this.rbRecibido.UseVisualStyleBackColor = true;
             // 
+            // DNI
+            // 
+            this.DNI.FillWeight = 5.525574F;
+            this.DNI.HeaderText = "ID";
+            this.DNI.MinimumWidth = 6;
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            this.DNI.Width = 70;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 44.31167F;
+            this.Column1.HeaderText = "Proveedor";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 250;
+            // 
+            // s
+            // 
+            this.s.FillWeight = 58.17179F;
+            this.s.HeaderText = "Fecha emisión";
+            this.s.MinimumWidth = 6;
+            this.s.Name = "s";
+            this.s.ReadOnly = true;
+            this.s.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 124.6113F;
+            this.Column2.HeaderText = "Monto total";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Estado
+            // 
+            this.Estado.FillWeight = 267.3797F;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 180;
+            // 
+            // btnQuitarProveedor
+            // 
+            this.btnQuitarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarProveedor.Location = new System.Drawing.Point(893, 27);
+            this.btnQuitarProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnQuitarProveedor.Name = "btnQuitarProveedor";
+            this.btnQuitarProveedor.Size = new System.Drawing.Size(71, 28);
+            this.btnQuitarProveedor.TabIndex = 36;
+            this.btnQuitarProveedor.Text = "Quitar";
+            this.btnQuitarProveedor.UseVisualStyleBackColor = true;
+            this.btnQuitarProveedor.Click += new System.EventHandler(this.btnQuitarProveedor_Click);
+            // 
+            // rbTodos
+            // 
+            this.rbTodos.AutoSize = true;
+            this.rbTodos.Location = new System.Drawing.Point(142, 117);
+            this.rbTodos.Name = "rbTodos";
+            this.rbTodos.Size = new System.Drawing.Size(76, 20);
+            this.rbTodos.TabIndex = 37;
+            this.rbTodos.TabStop = true;
+            this.rbTodos.Text = "TODOS";
+            this.rbTodos.UseVisualStyleBackColor = true;
+            // 
             // frmBuscarOrdenDeCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 479);
+            this.Controls.Add(this.rbTodos);
+            this.Controls.Add(this.btnQuitarProveedor);
             this.Controls.Add(this.rbRecibido);
             this.Controls.Add(this.rbCancelado);
             this.Controls.Add(this.rbEnProceso);
@@ -355,11 +388,6 @@
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.DataGridView dgvOrdenesCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn s;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.Button btnBuscarProveedorOC;
         private System.Windows.Forms.Label lblNombreCliente;
         private System.Windows.Forms.TextBox txtRazonSocialProveedorOC;
@@ -369,5 +397,12 @@
         private System.Windows.Forms.RadioButton rbEnProceso;
         private System.Windows.Forms.RadioButton rbCancelado;
         private System.Windows.Forms.RadioButton rbRecibido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn s;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Button btnQuitarProveedor;
+        private System.Windows.Forms.RadioButton rbTodos;
     }
 }

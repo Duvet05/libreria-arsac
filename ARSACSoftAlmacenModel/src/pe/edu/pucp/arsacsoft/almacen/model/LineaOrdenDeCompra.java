@@ -13,6 +13,12 @@ import pe.edu.pucp.arsacsoft.proveedores.model.ProductoXProveedor;
  */
 public class LineaOrdenDeCompra {
 
+    private int idLineaOrdenDeCompra;
+    private int cantidad;
+    private double subtotal;
+    private boolean activo;   
+    private ProductoXProveedor productoProveedor;   
+    
     public LineaOrdenDeCompra() {
     }
 
@@ -55,9 +61,5 @@ public class LineaOrdenDeCompra {
     public void setProductoProveedor(ProductoXProveedor producto) {
         this.productoProveedor = producto;
     }
-    private int idLineaOrdenDeCompra;
-    private int cantidad;
-    private double subtotal;
-    private boolean activo;   
-    private ProductoXProveedor productoProveedor;      
+       
 }

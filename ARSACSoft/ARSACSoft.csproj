@@ -149,12 +149,6 @@
     <Compile Include="frmBuscarOrdenDeCompra.Designer.cs">
       <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBuscarProductoXSede.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscarProductoXSede.Designer.cs">
-      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBuscarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +160,12 @@
     </Compile>
     <Compile Include="frmBuscarProductoXProveedor.Designer.cs">
       <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarProductoXSede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarProductoXSede.designer.cs">
+      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCrearCliente.cs">
       <SubType>Form</SubType>
@@ -256,14 +256,14 @@
     <EmbeddedResource Include="frmBuscarOrdenDeCompra.resx">
       <DependentUpon>frmBuscarOrdenDeCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscarProductoXSede.resx">
-      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProducto.resx">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProductoXProveedor.resx">
       <DependentUpon>frmBuscarProductoXProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarProductoXSede.resx">
+      <DependentUpon>frmBuscarProductoXSede.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCrearCliente.resx">
       <DependentUpon>frmCrearCliente.cs</DependentUpon>
@@ -321,6 +321,18 @@
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.insertarOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.lineaOrdenDeCompra.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.listarLineasDeOrdenDeCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.listarOrdenesDeCompraXProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.ordenDeCompra.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -336,7 +348,7 @@
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXNombreXCategoriaXMarcaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXSedeResponse.datasource">
+    <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.listarProductosXSedeResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.marca.datasource">
@@ -481,7 +493,46 @@
     <None Include="Connected Services\SedeWS\SedesWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.buscarOrdenPorIDResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.cancelarOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.helloResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.lineaDeOrdenDeVenta1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorFechaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.modificarOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.ordenDeVenta1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />
