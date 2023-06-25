@@ -468,13 +468,34 @@
     <None Include="Connected Services\RRHHWS\RRHHWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.cancelarOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarProductosDeSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.eliminarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.entregarOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.insertarOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.insertarSedeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.lineaOrdenDeAbastecimiento1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarLineasDeOrdenDeAbastecimientoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarOrdenesDeAbastecimientoPorIdEmpleadoEstadoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarProductosDeSedePorNombreMarcaCategoriaResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.listarProductosDeSedeResponse.datasource">
@@ -486,10 +507,22 @@
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.modificarSedeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.obtenerStockDeProductoEnSedePrincipalResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.obtenerStockDeProductoEnSedeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.ordenDeAbastecimiento1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sede.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.sedeXProducto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.verificarEntregaDeOrdenDeAbastecimientoResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SedeWS\SedesWS.wsdl" />
@@ -509,6 +542,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaResponse1.datasource">

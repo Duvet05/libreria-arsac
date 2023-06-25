@@ -5,17 +5,65 @@
       <xsd:import schemaLocation="http://localhost:8080/ARSACSoftWebServices/SedesWS?xsd=1" namespace="http://services.arsacsoft.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+  <message name="insertarOrdenDeAbastecimiento">
+    <part name="parameters" element="tns:insertarOrdenDeAbastecimiento" />
+  </message>
+  <message name="insertarOrdenDeAbastecimientoResponse">
+    <part name="parameters" element="tns:insertarOrdenDeAbastecimientoResponse" />
+  </message>
+  <message name="entregarOrdenDeAbastecimiento">
+    <part name="parameters" element="tns:entregarOrdenDeAbastecimiento" />
+  </message>
+  <message name="entregarOrdenDeAbastecimientoResponse">
+    <part name="parameters" element="tns:entregarOrdenDeAbastecimientoResponse" />
+  </message>
+  <message name="obtenerStockDeProductoEnSede">
+    <part name="parameters" element="tns:obtenerStockDeProductoEnSede" />
+  </message>
+  <message name="obtenerStockDeProductoEnSedeResponse">
+    <part name="parameters" element="tns:obtenerStockDeProductoEnSedeResponse" />
+  </message>
+  <message name="cancelarOrdenDeAbastecimiento">
+    <part name="parameters" element="tns:cancelarOrdenDeAbastecimiento" />
+  </message>
+  <message name="cancelarOrdenDeAbastecimientoResponse">
+    <part name="parameters" element="tns:cancelarOrdenDeAbastecimientoResponse" />
+  </message>
+  <message name="verificarEntregaDeOrdenDeAbastecimiento">
+    <part name="parameters" element="tns:verificarEntregaDeOrdenDeAbastecimiento" />
+  </message>
+  <message name="verificarEntregaDeOrdenDeAbastecimientoResponse">
+    <part name="parameters" element="tns:verificarEntregaDeOrdenDeAbastecimientoResponse" />
+  </message>
+  <message name="listarOrdenesDeAbastecimientoPorIdEmpleadoEstado">
+    <part name="parameters" element="tns:listarOrdenesDeAbastecimientoPorIdEmpleadoEstado" />
+  </message>
+  <message name="listarOrdenesDeAbastecimientoPorIdEmpleadoEstadoResponse">
+    <part name="parameters" element="tns:listarOrdenesDeAbastecimientoPorIdEmpleadoEstadoResponse" />
+  </message>
+  <message name="obtenerStockDeProductoEnSedePrincipal">
+    <part name="parameters" element="tns:obtenerStockDeProductoEnSedePrincipal" />
+  </message>
+  <message name="obtenerStockDeProductoEnSedePrincipalResponse">
+    <part name="parameters" element="tns:obtenerStockDeProductoEnSedePrincipalResponse" />
+  </message>
+  <message name="listarLineasDeOrdenDeAbastecimiento">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeAbastecimiento" />
+  </message>
+  <message name="listarLineasDeOrdenDeAbastecimientoResponse">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeAbastecimientoResponse" />
+  </message>
+  <message name="listarProductosDeSedePorNombreMarcaCategoria">
+    <part name="parameters" element="tns:listarProductosDeSedePorNombreMarcaCategoria" />
+  </message>
+  <message name="listarProductosDeSedePorNombreMarcaCategoriaResponse">
+    <part name="parameters" element="tns:listarProductosDeSedePorNombreMarcaCategoriaResponse" />
+  </message>
   <message name="listarSedes">
     <part name="parameters" element="tns:listarSedes" />
   </message>
   <message name="listarSedesResponse">
     <part name="parameters" element="tns:listarSedesResponse" />
-  </message>
-  <message name="eliminarSede">
-    <part name="parameters" element="tns:eliminarSede" />
-  </message>
-  <message name="eliminarSedeResponse">
-    <part name="parameters" element="tns:eliminarSedeResponse" />
   </message>
   <message name="modificarSede">
     <part name="parameters" element="tns:modificarSede" />
@@ -29,12 +77,6 @@
   <message name="insertarSedeResponse">
     <part name="parameters" element="tns:insertarSedeResponse" />
   </message>
-  <message name="eliminarProductosDeSede">
-    <part name="parameters" element="tns:eliminarProductosDeSede" />
-  </message>
-  <message name="eliminarProductosDeSedeResponse">
-    <part name="parameters" element="tns:eliminarProductosDeSedeResponse" />
-  </message>
   <message name="listarProductosDeSede">
     <part name="parameters" element="tns:listarProductosDeSede" />
   </message>
@@ -42,13 +84,45 @@
     <part name="parameters" element="tns:listarProductosDeSedeResponse" />
   </message>
   <portType name="SedesWS">
+    <operation name="insertarOrdenDeAbastecimiento">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarOrdenDeAbastecimientoRequest" message="tns:insertarOrdenDeAbastecimiento" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarOrdenDeAbastecimientoResponse" message="tns:insertarOrdenDeAbastecimientoResponse" />
+    </operation>
+    <operation name="entregarOrdenDeAbastecimiento">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/entregarOrdenDeAbastecimientoRequest" message="tns:entregarOrdenDeAbastecimiento" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/entregarOrdenDeAbastecimientoResponse" message="tns:entregarOrdenDeAbastecimientoResponse" />
+    </operation>
+    <operation name="obtenerStockDeProductoEnSede">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/obtenerStockDeProductoEnSedeRequest" message="tns:obtenerStockDeProductoEnSede" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/obtenerStockDeProductoEnSedeResponse" message="tns:obtenerStockDeProductoEnSedeResponse" />
+    </operation>
+    <operation name="cancelarOrdenDeAbastecimiento">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/cancelarOrdenDeAbastecimientoRequest" message="tns:cancelarOrdenDeAbastecimiento" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/cancelarOrdenDeAbastecimientoResponse" message="tns:cancelarOrdenDeAbastecimientoResponse" />
+    </operation>
+    <operation name="verificarEntregaDeOrdenDeAbastecimiento">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/verificarEntregaDeOrdenDeAbastecimientoRequest" message="tns:verificarEntregaDeOrdenDeAbastecimiento" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/verificarEntregaDeOrdenDeAbastecimientoResponse" message="tns:verificarEntregaDeOrdenDeAbastecimientoResponse" />
+    </operation>
+    <operation name="listarOrdenesDeAbastecimientoPorIdEmpleadoEstado">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarOrdenesDeAbastecimientoPorIdEmpleadoEstadoRequest" message="tns:listarOrdenesDeAbastecimientoPorIdEmpleadoEstado" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarOrdenesDeAbastecimientoPorIdEmpleadoEstadoResponse" message="tns:listarOrdenesDeAbastecimientoPorIdEmpleadoEstadoResponse" />
+    </operation>
+    <operation name="obtenerStockDeProductoEnSedePrincipal">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/obtenerStockDeProductoEnSedePrincipalRequest" message="tns:obtenerStockDeProductoEnSedePrincipal" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/obtenerStockDeProductoEnSedePrincipalResponse" message="tns:obtenerStockDeProductoEnSedePrincipalResponse" />
+    </operation>
+    <operation name="listarLineasDeOrdenDeAbastecimiento">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarLineasDeOrdenDeAbastecimientoRequest" message="tns:listarLineasDeOrdenDeAbastecimiento" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarLineasDeOrdenDeAbastecimientoResponse" message="tns:listarLineasDeOrdenDeAbastecimientoResponse" />
+    </operation>
+    <operation name="listarProductosDeSedePorNombreMarcaCategoria">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedePorNombreMarcaCategoriaRequest" message="tns:listarProductosDeSedePorNombreMarcaCategoria" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedePorNombreMarcaCategoriaResponse" message="tns:listarProductosDeSedePorNombreMarcaCategoriaResponse" />
+    </operation>
     <operation name="listarSedes">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesRequest" message="tns:listarSedes" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarSedesResponse" message="tns:listarSedesResponse" />
-    </operation>
-    <operation name="eliminarSede">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeRequest" message="tns:eliminarSede" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarSedeResponse" message="tns:eliminarSedeResponse" />
     </operation>
     <operation name="modificarSede">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/modificarSedeRequest" message="tns:modificarSede" />
@@ -58,10 +132,6 @@
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeRequest" message="tns:insertarSede" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/insertarSedeResponse" message="tns:insertarSedeResponse" />
     </operation>
-    <operation name="eliminarProductosDeSede">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarProductosDeSedeRequest" message="tns:eliminarProductosDeSede" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/eliminarProductosDeSedeResponse" message="tns:eliminarProductosDeSedeResponse" />
-    </operation>
     <operation name="listarProductosDeSede">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeRequest" message="tns:listarProductosDeSede" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/SedesWS/listarProductosDeSedeResponse" message="tns:listarProductosDeSedeResponse" />
@@ -69,7 +139,7 @@
   </portType>
   <binding name="SedesWSPortBinding" type="tns:SedesWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarSedes">
+    <operation name="insertarOrdenDeAbastecimiento">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -78,7 +148,79 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="eliminarSede">
+    <operation name="entregarOrdenDeAbastecimiento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerStockDeProductoEnSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="cancelarOrdenDeAbastecimiento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="verificarEntregaDeOrdenDeAbastecimiento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrdenesDeAbastecimientoPorIdEmpleadoEstado">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerStockDeProductoEnSedePrincipal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarLineasDeOrdenDeAbastecimiento">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductosDeSedePorNombreMarcaCategoria">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarSedes">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -97,15 +239,6 @@
       </output>
     </operation>
     <operation name="insertarSede">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarProductosDeSede">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
