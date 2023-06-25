@@ -8,6 +8,8 @@
   <xs:element name="listarMarcaTodasResponse" type="tns:listarMarcaTodasResponse" />
   <xs:element name="listarProductosXNombreXCategoriaXMarca" type="tns:listarProductosXNombreXCategoriaXMarca" />
   <xs:element name="listarProductosXNombreXCategoriaXMarcaResponse" type="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
+  <xs:element name="listarProductosXSede" type="tns:listarProductosXSede" />
+  <xs:element name="listarProductosXSedeResponse" type="tns:listarProductosXSedeResponse" />
   <xs:element name="modificarProducto" type="tns:modificarProducto" />
   <xs:element name="modificarProductoResponse" type="tns:modificarProductoResponse" />
   <xs:complexType name="listarMarcaTodas">
@@ -23,6 +25,21 @@
       <xs:element name="activo" type="xs:boolean" />
       <xs:element minOccurs="0" name="descripcion" type="xs:string" />
       <xs:element name="idMarca" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarCategoriasTodas">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarCategoriasTodasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:categoria" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="categoria">
+    <xs:sequence>
+      <xs:element name="activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element name="idCategoria" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarProducto">
@@ -43,13 +60,6 @@
       <xs:element minOccurs="0" name="promocion" type="tns:promocion" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="categoria">
-    <xs:sequence>
-      <xs:element name="activo" type="xs:boolean" />
-      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
-      <xs:element name="idCategoria" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="promocion">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
@@ -64,14 +74,6 @@
   <xs:complexType name="insertarProductoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarCategoriasTodas">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarCategoriasTodasResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:categoria" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarProductosXNombreXCategoriaXMarca">
@@ -94,6 +96,19 @@
   <xs:complexType name="modificarProductoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosXSede">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element name="arg1" type="xs:int" />
+      <xs:element name="arg2" type="xs:int" />
+      <xs:element name="arg3" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProductosXSedeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

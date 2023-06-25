@@ -146,3 +146,4 @@ BEGIN
 	FROM ordenDeVenta
 	WHERE fid_empleado = _fid_empleado;
 END;$
+
