@@ -8,8 +8,10 @@
   <xs:element name="eliminarOrdenDeVentaResponse" type="tns:eliminarOrdenDeVentaResponse" />
   <xs:element name="insertarLineaOrdenDeVenta" type="tns:insertarLineaOrdenDeVenta" />
   <xs:element name="insertarLineaOrdenDeVentaResponse" type="tns:insertarLineaOrdenDeVentaResponse" />
-  <xs:element name="insertarOrdenDeVenta" type="tns:insertarOrdenDeVenta" />
-  <xs:element name="insertarOrdenDeVentaResponse" type="tns:insertarOrdenDeVentaResponse" />
+  <xs:element name="insertarOrdenDeVentaMayorista" type="tns:insertarOrdenDeVentaMayorista" />
+  <xs:element name="insertarOrdenDeVentaMayoristaResponse" type="tns:insertarOrdenDeVentaMayoristaResponse" />
+  <xs:element name="insertarOrdenDeVentaMinorista" type="tns:insertarOrdenDeVentaMinorista" />
+  <xs:element name="insertarOrdenDeVentaMinoristaResponse" type="tns:insertarOrdenDeVentaMinoristaResponse" />
   <xs:element name="listarLineasDeOrdenDeVenta" type="tns:listarLineasDeOrdenDeVenta" />
   <xs:element name="listarLineasDeOrdenDeVentaResponse" type="tns:listarLineasDeOrdenDeVentaResponse" />
   <xs:element name="listarOrdenesPorClienteMayorista" type="tns:listarOrdenesPorClienteMayorista" />
@@ -22,7 +24,7 @@
   <xs:element name="modificarLineaOrdenDeVentaResponse" type="tns:modificarLineaOrdenDeVentaResponse" />
   <xs:element name="modificarOrdenDeVenta" type="tns:modificarOrdenDeVenta" />
   <xs:element name="modificarOrdenDeVentaResponse" type="tns:modificarOrdenDeVentaResponse" />
-  <xs:complexType name="insertarOrdenDeVenta">
+  <xs:complexType name="insertarOrdenDeVentaMayorista">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:ordenDeVenta" />
     </xs:sequence>
@@ -147,7 +149,7 @@
       <xs:element minOccurs="0" name="producto" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarOrdenDeVentaResponse">
+  <xs:complexType name="insertarOrdenDeVentaMayoristaResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
@@ -203,6 +205,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarOrdenesPorClienteMayorista">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesPorClienteMayoristaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarOrdenesPorVendedor">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
@@ -213,12 +223,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarOrdenesPorClienteMayorista">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarOrdenesPorClienteMayoristaResponse">
+  <xs:complexType name="insertarOrdenDeVentaMinorista">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
+      <xs:element minOccurs="0" name="arg0" type="tns:ordenDeVenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarOrdenDeVentaMinoristaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarLineasDeOrdenDeVenta">

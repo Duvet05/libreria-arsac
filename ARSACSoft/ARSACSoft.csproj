@@ -508,7 +508,10 @@
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaResponse1.datasource">
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.lineaDeOrdenDeVenta1.datasource">
