@@ -39,7 +39,6 @@ namespace ARSACSoft
                     btnCancelar.Enabled = false;
                     btnBuscarPedido.Enabled = true;
                     AgregarCliente.Enabled = false;
-                    btnGuardar.Enabled = false;
                     btnAgregar.Enabled = false;
                     BtnQuitar.Enabled = false;
                     textNombreProducto.Enabled = false;
@@ -68,7 +67,6 @@ namespace ARSACSoft
                     btnAgregar.Enabled = true;
                     BtnQuitar.Enabled = true;
                     btnBuscarPedido.Enabled = false;
-                    btnGuardar.Enabled = true;
                     textNombreProducto.Enabled = true;
                     textCantProducto.Enabled = true;
                     btnBuscarProd.Enabled = true;
@@ -91,7 +89,6 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
-                    btnGuardar.Enabled = false;
                     textNombreProducto.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
@@ -121,13 +118,18 @@ namespace ARSACSoft
             txtNombreCompleto.Enabled = facturaChecked;
             btnCliente.Enabled = facturaChecked;
             AgregarCliente.Enabled = facturaChecked;
+            if (!facturaChecked)
+            {
+                txtRUC.Text = string.Empty;
+                txtRazonSocial.Text = string.Empty;
+                txtNombreCompleto.Text = string.Empty; // Limpia el contenido del campo de factura
+            }
         }
 
         private void checkBoxDescuento_CheckedChanged(object sender, EventArgs e)
         {
             bool descuentoChecked = checkBoxDescuento.Checked;
             textDescuentoPorcentaje.Enabled = descuentoChecked;
-
             if (!descuentoChecked)
             {
                 textDescuentoPorcentaje.Text = string.Empty; // Limpia el contenido del campo de descuento
@@ -197,12 +199,6 @@ namespace ARSACSoft
 
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            estado = Estado.Inicial;
-            EstablecerEstadoFormulario();
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textNombreProducto.Text))
@@ -222,8 +218,7 @@ namespace ARSACSoft
                 {
                     linea.cantidad += Int32.Parse(textCantProducto.Text);
                     linea.precio = linea.cantidad * linea.precio; // Actualizar subtotal
-                    dataGridView2.Refresh();
-                    calcularTotal();
+                    UpdateTextBoxes();
                     return;
                 }
             }
@@ -243,15 +238,8 @@ namespace ARSACSoft
             {
                 lov.descuento = 0.0;
             }
-
             _lineasOrdenDeVenta.Add(lov);
-
-            textCantProducto.Text = "";
-            calcularTotal();
-
-            textPrecioUni.Text = (_producto.precioPorMenor - _producto.precioPorMenor * (lov.descuento / 100)).ToString();
-            textCantidad.Text = lov.cantidad.ToString();
-            textSubTotal.Text = (lov.precio * lov.cantidad).ToString();
+            UpdateTextBoxes();
         }
 
 
@@ -261,24 +249,33 @@ namespace ARSACSoft
             {
                 int rowIndex = dataGridView2.SelectedRows[0].Index;
                 _lineasOrdenDeVenta.RemoveAt(rowIndex);
-                dataGridView2.Refresh();
-                calcularTotal();
+                UpdateTextBoxes();
             }
         }
 
-        public void calcularTotal()
+        public void UpdateTextBoxes()
         {
-            _venta.precioTotal = 0;
-            descuentoTotal = 0;
+            dataGridView2.Refresh();
+            // Actualizar los valores de los TextBox relevantes
+            // en función de los cambios en _lineasOrdenDeVenta
+
+            // Ejemplo:
+            textCantProducto.Text = "";
+            textPrecioUni.Text = "";
+            textCantidad.Text = "";
+            textSubTotal.Text = "";
+
             foreach (lineaDeOrdenDeVenta linea in _lineasOrdenDeVenta)
             {
-                _venta.precioTotal += linea.precio * linea.cantidad;
-                descuentoTotal += linea.descuento;
+                if (linea.producto.idProducto.Equals(_producto.idProducto))
+                {
+                    textCantProducto.Text = linea.cantidad.ToString();
+                    textPrecioUni.Text = (linea.precio - linea.precio * (linea.descuento / 100)).ToString();
+                    textCantidad.Text = linea.cantidad.ToString();
+                    textSubTotal.Text = (linea.precio * linea.cantidad).ToString();
+                    break;
+                }
             }
-            textDescontadoTotal.Text = descuentoTotal.ToString();
-            textMonto.Text = (_venta.precioTotal - descuentoTotal).ToString(); // Mostrar precio total
-
-            txtIGV.Text = (_venta.precioTotal * 0.08).ToString();
         }
 
         private void AgregarCliente_Click(object sender, EventArgs e)
