@@ -94,6 +94,16 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="modificarSede">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:sede" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarSedeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarProductosDeSede">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
@@ -103,16 +113,6 @@
   <xs:complexType name="listarProductosDeSedeResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sedeXProducto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="modificarSede">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:sede" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="modificarSedeResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarProductosDeSede">

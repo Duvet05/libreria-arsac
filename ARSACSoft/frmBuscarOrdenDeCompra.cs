@@ -69,6 +69,7 @@ namespace ARSACSoft
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            //dgvOrdenesCompra.Rows.Clear();
             if(_proveedorSeleccionado == null)
             {
                 string estado = rbEnProceso.Checked ? "EN PROCESO" : (rbCancelado.Checked ? "CANCELADO" : (rbRecibido.Checked ? "RECIBIDO" : "TODOS"));

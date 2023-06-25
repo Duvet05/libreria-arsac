@@ -182,6 +182,16 @@ BEGIN
 			AND p.id_proveedor = _id_proveedor 
 			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
 		ORDER BY oc.fecha_orden DESC;
+	elseif (_estado != "TODOS" and _id_proveedor = -1) then
+		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+				p.nombre, p.RUC, p.telefono, p.direccion
+		FROM ordenDeCompra oc
+		INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
+		WHERE
+			oc.estado = _estado AND p.activo = true
+			
+			AND DATE(oc.fecha_orden) >= DATE(_fecha_inicio) AND DATE(oc.fecha_orden) <= DATE(_fecha_fin)
+		ORDER BY oc.fecha_orden DESC;
 	else 
 		SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
 				p.nombre, p.RUC, p.telefono, p.direccion
