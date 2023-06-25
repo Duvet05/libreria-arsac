@@ -19,10 +19,12 @@ namespace ARSACSoft
         private Estado estado;
         private RRHHWS.clienteMayorista _clienteMayorista;
         private BindingList<lineaDeOrdenDeVenta> _lineasOrdenDeVenta;
-        private int _sede;
-        public frmGestionPedidos(int idSede)
+        private int _id_sede;
+        private int _id_empleado;
+        public frmGestionPedidos(RRHHWS.empleado _empleadoLogeado)
         {
-            _sede = idSede;
+            _id_empleado = _empleadoLogeado.idPersona;
+            _id_sede = _empleadoLogeado.sede.idSede;
             InitializeComponent();
             estado = Estado.Inicial;
             EstablecerEstadoFormulario();
@@ -170,7 +172,7 @@ namespace ARSACSoft
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            frmBuscarProductoXSede frm = new frmBuscarProductoXSede(_sede);
+            frmBuscarProductoXSede frm = new frmBuscarProductoXSede(_id_sede);
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 _producto = frm.ProductoSeleccionado;
@@ -423,9 +425,49 @@ namespace ARSACSoft
 
         private void btPedido_Click(object sender, EventArgs e)
         {
+            // Verificar si hay elementos en la línea de orden de venta
+            if (_lineasOrdenDeVenta.Count == 0)
+            {
+                MostrarAdvertencia("La línea de orden de venta está vacía.");
+                return;
+            }
+
+            // Verificar si el monto total es válido
+            if (!double.TryParse(textMonto.Text, out double precioTotal))
+            {
+                MostrarAdvertencia("El monto total no es válido.");
+                return;
+            }
+
+            // Crear la orden de venta y asignar los valores
+            VentasWS.ordenDeVenta ordenV = new VentasWS.ordenDeVenta();
+            ordenV.lineaDeOrdenDeVenta = _lineasOrdenDeVenta.ToArray();
+            ordenV.fechaOrden = DateTime.Now.Date;
+            ordenV.precioTotal = precioTotal;
+            ordenV.empleado = new VentasWS.empleado();
+            ordenV.empleado.idPersona = _id_empleado;
+
+            // Verificar si se seleccionó la opción de factura
+            if (checkBoxFactura.Checked)
+            {
+                if (_clienteMayorista == null)
+                {
+                    MostrarAdvertencia("No se ha seleccionado un cliente mayorista.");
+                    return;
+                }
+
+                ordenV.clienteMayorista = new VentasWS.clienteMayorista();
+                ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
+            }
+
             estado = Estado.Inicial;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
+        }
+
+        private void MostrarAdvertencia(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
