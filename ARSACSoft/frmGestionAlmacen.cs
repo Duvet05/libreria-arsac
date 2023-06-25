@@ -512,7 +512,7 @@ namespace ARSACSoft
             _ordenCompra.proveedor.idProveedor = _proveedorSeleccionado.idProveedor;
             _ordenCompra.empleado.idPersona = _empleadoLogeado.idPersona;
             _ordenCompra.fechaOrden = dtpFechaOrdenCompra.Value;
-            _ordenCompra.fechaOrdenSpecified = true;
+            _ordenCompra.fechaOrdenSpecified = true; //Clave************
             _ordenCompra.lineas = _lineasOrdenDeCompra.ToArray();
             if (true) //_estado == Estado.Nuevo
             {
@@ -557,7 +557,21 @@ namespace ARSACSoft
 
         private void btnBuscarOC_Click(object sender, EventArgs e)
         {
-
+            frmBuscarOrdenDeCompra formBusqOC = new frmBuscarOrdenDeCompra();
+            if (formBusqOC.ShowDialog() == DialogResult.OK)
+            {
+                //_ordenVenta = formBusqOV.OrdenVentaSeleccionada;
+                //txtDNICliente.Text = _ordenVenta.cliente.DNI;
+                //txtNombreCliente.Text = _ordenVenta.cliente.nombre + " " + _ordenVenta.cliente.apellidoPaterno;
+                //_lineasOrdenVenta = new BindingList<lineaOrdenVenta>(_ordenVenta.lineasOrdenVenta.ToList());
+                //_ordenVenta.lineasOrdenVenta = null;
+                //dgvDetalleOrdenVenta.DataSource = _lineasOrdenVenta;
+                //txtIDOrdenVenta.Text = _ordenVenta.idOrdenVenta.ToString();
+                //dtpFechaOrdenVenta.Value = _ordenVenta.fechaHora;
+                //txtTotal.Text = _ordenVenta.total.ToString("N2");
+                //_estado = Estado.Buscar;
+                //establecerEstadoComponentes();
+            }
         }
 
         private void btnCancelarOC_Click(object sender, EventArgs e)

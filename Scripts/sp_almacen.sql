@@ -156,21 +156,25 @@ BEGIN
 END$
 
 
+DROP PROCEDURE IF EXISTS LISTAR_ORDENES_COMPRA_X_PROVEEDOR;
 DELIMITER $
-CREATE PROCEDURE LISTAR_ORDENES_COMPRA_X_ID_NOMBRE_DNI_EMPLEADO(
-    IN _id_nombre_dni_empleado VARCHAR(140)
+CREATE PROCEDURE LISTAR_ORDENES_COMPRA_X_PROVEEDOR(
+    IN _id_proveedor INT, /*Considerar -1 para cuando queremos listar todos*/
+    in _fecha_inicio date,
+    in _fecha_fin date,
+    in _estado varchar(50)
 )
 BEGIN
-    SELECT oc.id_orden_de_compra,oc.fecha_orden,oc.total, e.fid_empleado, p.id_persona,p.nombre,p.apellidos,p.DNI
+    SELECT oc.id_orden_de_compra,oc.fecha_orden, oc.fid_empleado, oc.fid_proveedor, oc.total, oc.estado, 
+			p.nombre, p.RUC, p.telefono, p.direccion
     FROM ordenDeCompra oc
-    INNER JOIN empleado e ON oc.fid_empleado = e.fid_empleado
-    INNER JOIN persona p ON e.fid_empleado = p.id_persona
+    INNER JOIN proveedor p ON p.id_proveedor = oc.fid_proveedor
     WHERE
-        oc.activo = 1
-        AND ((CONCAT(p.nombre, ' ', p.apellidos) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
-		OR (CONVERT(oc.id_orden_de_compra, CHAR(140)) LIKE CONCAT('%', _id_nombre_dni_empleado, '%'))
-		OR (p.DNI LIKE CONCAT('%', _id_nombre_dni_empleado, '%')));
-END$
+        oc.estado = _estado AND p.activo = true
+        AND p.id_proveedor = _id_proveedor 
+        AND oc.fecha_orden >= _fecha_inicio AND oc.fecha_orden <= _fecha_fin
+	ORDER BY oc.fecha_orden DESC;
+END $
 
 
 
