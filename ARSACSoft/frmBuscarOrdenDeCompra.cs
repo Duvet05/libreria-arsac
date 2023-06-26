@@ -133,5 +133,16 @@ namespace ARSACSoft
             txtRUCProveedorOC.Text = "";
             txtRazonSocialProveedorOC.Text = "";
         }
+
+        private void btnQuitarProveedor_MouseHover(object sender, EventArgs e)
+        {
+            lblMensajeQuitar.Text = "No filtrar por un proveedor en específico. Se mostrarán las órdenes de compra" +
+                " de todos los proveedores.";
+        }
+
+        private void btnQuitarProveedor_MouseLeave(object sender, EventArgs e)
+        {
+            lblMensajeQuitar.Text = "";
+        }
     }
 }
