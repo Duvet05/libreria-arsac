@@ -16,7 +16,7 @@ public class LineaOrdenDeVentaMySQL implements LineaDeOrdenDeVentaDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_LINEA_ORDEN_VENTA_MAYORISTA(?,?,?,?,?)}");
+            cs = con.prepareCall("{call INSERTAR_LINEA_ORDEN_VENTA(?,?,?,?,?)}");
             cs.setInt("_fid_orden_de_venta", idOrdenVenta);
             cs.setInt("_fid_producto", lineaOrden.getProducto().getIdProducto());
             cs.setInt("_cantidad", lineaOrden.getCantidad());
