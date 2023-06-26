@@ -137,6 +137,7 @@ namespace ARSACSoft
                     txtDireccionEmpleado.Enabled = false;
                     txtContrasena.Enabled = false;
                     txtUsuario.Enabled = false;
+                    button1.Enabled = false;
                     btnBuscarSede.Enabled = false;
                     cbMostrarContrasena.Enabled = false;
                     txtDireccionSede.Enabled = false;
@@ -150,6 +151,7 @@ namespace ARSACSoft
                     btnEliminarEmpleado.Enabled = false;
                     btnCancelarEmpleado.Enabled = true;
                     txtContrasena.Enabled = true;
+                    button1.Enabled = true;
                     txtIDEmpleado.Enabled = true;
                     txtDNIEmpleado.Enabled = true;
                     txtNombreEmpleado.Enabled = true;
@@ -185,7 +187,7 @@ namespace ARSACSoft
                     txtSalario.Enabled = false;
                     txtDireccionEmpleado.Enabled = false;
                     btnBuscarSede.Enabled = false;
-
+                    button1.Enabled = false;
                     txtUsuario.Enabled = false;
                     txtDireccionSede.Enabled = false;
                     txtContrasena.Enabled = false;
@@ -803,5 +805,14 @@ namespace ARSACSoft
             gMapControl1.Zoom = 10;
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmBursarDireccion frm = new frmBursarDireccion();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtDireccionEmpleado.Text = frm.direccionSeleccionada;
+            }
+        }
     }
 }

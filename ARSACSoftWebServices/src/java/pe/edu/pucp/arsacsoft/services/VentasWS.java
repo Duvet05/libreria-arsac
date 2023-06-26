@@ -154,4 +154,26 @@ public class VentasWS {
         }
         return resultado;
     }
+
+    @WebMethod(operationName = "verificarStockSuficiente")
+    public int verificarStockSuficiente(int idSede, int idProducto, int cantidad) {
+        int tieneStock = 0;
+        try {
+            // Comprobar si los parámetros son válidos
+            if (idProducto <= 0 || idSede <= 0 || cantidad <= 0) {
+                throw new IllegalArgumentException("Los parámetros proporcionados son inválidos");
+            }
+
+            // Lógica para verificar el stock del producto con el ID dado
+            tieneStock = lovDAO.verificarStockSuficiente(idSede, idProducto, cantidad);
+
+        } catch (IllegalArgumentException ex) {
+            // Manejar la excepción de parámetros inválidos
+            System.out.println("Error: " + ex.getMessage());
+        } catch (Exception ex) {
+            // Manejar otras excepciones
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return tieneStock;
+    }
 }

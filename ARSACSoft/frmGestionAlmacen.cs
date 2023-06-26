@@ -177,9 +177,9 @@ namespace ARSACSoft
                     btnGuardarOC.Enabled = false;
                     btnBuscarOC.Enabled = true;
                     btnModificarOC.Enabled = false;
-                    btnEliminarOC.Enabled = false;
+                    //btnEliminarOC.Enabled = false;
                     btnCancelarOC.Enabled = false;
-                    btnMarcarRecibidoOC.Enabled = false;
+                    //btnMarcarRecibidoOC.Enabled = false;
 
                     txtIDOrdenCompra.Enabled = false;
                     dtpFechaOrdenCompra.Enabled = false;
@@ -195,6 +195,9 @@ namespace ARSACSoft
                     btnQuitarProductoOC.Enabled= false;
                     btnBuscarProductoOC.Enabled= false;
                     /*Botones para cambios de estado del pedido recien activamos aqui*/
+                    btnEliminarOC.Visible=false;
+                    btnMarcarRecibidoOC.Visible=false;
+
                     btnEliminarOC.Enabled = false;
                     btnMarcarRecibidoOC.Enabled = false;
                     break;
@@ -204,11 +207,11 @@ namespace ARSACSoft
                     btnGuardarOC.Enabled = true;
                     btnBuscarOC.Enabled = false;
                     btnModificarOC.Enabled = false;
-                    btnEliminarOC.Enabled = true;
+                    //btnEliminarOC.Enabled = true;
                     btnCancelarOC.Enabled = true;
-                    btnMarcarRecibidoOC.Enabled = false;
+                    //btnMarcarRecibidoOC.Enabled = false;
 
-                    txtIDOrdenCompra.Enabled = true;
+                    txtIDOrdenCompra.Enabled = false;
                     dtpFechaOrdenCompra.Enabled = true;
                     txtRUCProveedorOC.Enabled = true;
                     txtRazonSocialProveedorOC.Enabled = true;
@@ -222,17 +225,20 @@ namespace ARSACSoft
                     btnQuitarProductoOC.Enabled = true;
                     btnBuscarProductoOC.Enabled = true;
                     /*Botones para cambios de estado del pedido recien activamos aqui*/
+                    btnEliminarOC.Visible = false;
+                    btnMarcarRecibidoOC.Visible = false;
+
                     btnEliminarOC.Enabled = false;
                     btnMarcarRecibidoOC.Enabled = false;
                     break;
                 case Estado.Buscar:
-                    btnNuevoOC.Enabled = false;
+                    btnNuevoOC.Enabled = true;
                     btnGuardarOC.Enabled = false;
                     btnBuscarOC.Enabled = true;
                     btnModificarOC.Enabled = true;
-                    btnCancelarOC.Enabled = true;
-                    btnEliminarOC.Enabled = true;
-                    btnMarcarRecibidoOC.Enabled = true;
+                    btnCancelarOC.Enabled = false;
+                    //btnEliminarOC.Enabled = true;
+                    //btnMarcarRecibidoOC.Enabled = true;
 
                     txtIDOrdenCompra.Enabled = false;
                     dtpFechaOrdenCompra.Enabled = false;
@@ -249,6 +255,9 @@ namespace ARSACSoft
                     btnBuscarProductoOC.Enabled = false;
 
                     /*Botones para cambios de estado del pedido recien activamos aqui*/
+                    btnEliminarOC.Visible = true;
+                    btnMarcarRecibidoOC.Visible = true;
+
                     btnEliminarOC.Enabled=true;
                     btnMarcarRecibidoOC.Enabled = true;
                     break;
@@ -525,6 +534,7 @@ namespace ARSACSoft
             _ordenCompra.fechaOrden = dtpFechaOrdenCompra.Value;
             _ordenCompra.fechaOrdenSpecified = true; //Clave************
             _ordenCompra.lineas = _lineasOrdenDeCompra.ToArray();
+            _ordenCompra.estado = "EN PROCESO";//Si la OC estuvo en proceso o cancelado, ahora estará en proceso.
             if (_estadoPagOrdenCompra == Estado.Nuevo) //_estado == Estado.Nuevo
             {
                 int resultado = daoAlmacenWS.insertarOrdenCompra(_ordenCompra);
@@ -535,6 +545,11 @@ namespace ARSACSoft
                     MessageBox.Show("Se ha registrado correctamente",
                     "Mensaje de éxito", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+                    _estadoPagOrdenCompra = Estado.Inicial;
+                    establecerEstadoFormularioOrdenDeCompra();
+
+                    return;
                 }
                 else
                 {
@@ -549,6 +564,7 @@ namespace ARSACSoft
                 if (resultado != 0)
                 {
                     //txtIDOrdenVenta.Text = resultado.ToString();
+                    lblEstadoOrdenCompra.Text = "(En proceso)";
                     MessageBox.Show("Se ha modificado correctamente",
                     "Mensaje de éxito", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -559,9 +575,11 @@ namespace ARSACSoft
                     "Mensaje de éxito", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 }
+
+                _estadoPagOrdenCompra = Estado.Buscar;
+                establecerEstadoFormularioOrdenDeCompra();
             }
-            _estadoPagOrdenCompra = Estado.Inicial;
-            establecerEstadoFormularioOrdenDeCompra();
+            
         }
 
         private void btnBuscarOC_Click(object sender, EventArgs e)
@@ -585,13 +603,14 @@ namespace ARSACSoft
                 establecerEstadoFormularioOrdenDeCompra();
 
                 lblEstadoOrdenCompra.Text = "(" + ConvertirEstado(_ordenCompra.estado) + ")";
-                //De acuerdo a su estado, permitiré que accesa a un cambio de estado
+                //De acuerdo a su estado, permitiré que acceda a un cambio de estado
                 if(_ordenCompra.estado == "RECIBIDO")
                 {
                     //No permitiré que pueda cancelarlo o volver a recibirlo
                     btnEliminarOC.Enabled = false;
                     btnMarcarRecibidoOC.Enabled = false;
                     btnModificarOC.Enabled = false;
+
                 }
                 if (_ordenCompra.estado == "CANCELADO")
                 {
@@ -661,10 +680,7 @@ namespace ARSACSoft
             establecerEstadoFormularioOrdenDeCompra();
         }
 
-        private void btnEliminarOC_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
         public string ConvertirEstado(string estado)
         {
             switch (estado.ToUpper())
@@ -677,6 +693,53 @@ namespace ARSACSoft
                     return "Recibido";
                 default:
                     return estado;
+            }
+        }
+
+        private void btnMarcarRecibidoOC_Click_1(object sender, EventArgs e)
+        {
+            CultureInfo.CurrentCulture = new CultureInfo("es-ES");
+            DialogResult result = MessageBox.Show("¿Registrar orden de compra como recibida?", "Mensaje de advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int resultado = daoAlmacenWS.registrarIngresoDeMercaderiaDeOrdenCompra(_ordenCompra);
+                if (resultado != 0)
+                {
+                    MessageBox.Show("Se Registró correctamente nueva mercadería en almacén principal", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
+                    btnModificarOC.Enabled = false;
+                    lblEstadoOrdenCompra.Text = "(Recibido)";
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar cancelar la orden de compra", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+        }
+
+        private void btnEliminarOC_Click_1(object sender, EventArgs e)
+        {
+            CultureInfo.CurrentCulture = new CultureInfo("es-ES");
+            DialogResult result = MessageBox.Show("¿Cancelar orden de compra?", "Mensaje de advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int resultado = daoAlmacenWS.cancelarOrdenCompra(_ordenCompra.idOrdenDeCompra);
+                if (resultado != 0)
+                {
+                    MessageBox.Show("Orden de compra cancelada", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
+                    lblEstadoOrdenCompra.Text = "(Cancelado)";
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar cancelar la orden de compra", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
         }
     }

@@ -246,3 +246,55 @@ BEGIN
     END IF;
 END$$
 DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`admin`@`%` PROCEDURE `VERIFICAR_STOCK_SUFICIENTE`(
+    IN _fid_sede INT,
+    IN _fid_producto INT,
+    IN _cantidad DOUBLE,
+    OUT _stock_suficiente INT
+)
+BEGIN
+    DECLARE _stock_disponible DOUBLE;
+
+    -- Obtener el stock disponible del producto en la sede
+    SELECT stock
+    INTO _stock_disponible
+    FROM sedeXproducto
+    WHERE fid_sede = _fid_sede AND fid_producto = _fid_producto;
+
+    -- Verificar si hay suficiente stock para atender el pedido
+    IF _stock_disponible >= _cantidad THEN
+        SET _stock_suficiente = 1; -- Hay suficiente stock
+    ELSE
+        SET _stock_suficiente = 0; -- No hay suficiente stock
+    END IF;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`admin`@`%` PROCEDURE `INSERTAR_LINEA_ORDEN_VENTA`(
+  IN _fid_orden_de_venta INT,
+  IN _fid_producto INT,
+  IN _cantidad INT,
+  IN _descuento DECIMAL(10, 2),
+  IN _subtotal DECIMAL(10, 2)
+)
+BEGIN
+  DECLARE cantidad_actual INT;
+  INSERT INTO lineaOrdenDeVenta (fid_orden_de_venta, fid_producto, cantidad, descuento, subtotal)
+  VALUES (_fid_orden_de_venta, _fid_producto, _cantidad, _descuento, _subtotal);
+  
+    -- Obtener la cantidad actual del producto en la sede
+  SELECT stock INTO cantidad_actual
+  FROM sedeXproducto
+  WHERE fid_producto = _fid_producto AND fid_sede = _fid_sede;
+  
+  -- Restar la cantidad vendida a la cantidad actual del producto en la sede
+  UPDATE sedeXproducto
+  SET stock = cantidad_actual - _cantidad
+  WHERE fid_producto = _fid_producto AND fid_sede = _fid_sede;
+END$$
+DELIMITER ;

@@ -12,8 +12,27 @@ public class Proveedor {
     private String telefono;
     private boolean activo;
     private ArrayList<ProductoXProveedor> productosXProveedor;
+    private int cantProductos;
 
+    public int getCantProductos() {
+        return cantProductos;
+    }
+
+    public void setCantProductos(int cantProductos) {
+        this.cantProductos = cantProductos;
+    }
+
+    public Proveedor(String nombre, String RUC, String direccion, String telefono) {
+        this.nombre = nombre;
+        this.RUC = RUC;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.cantProductos = 0;
+    }
+    
+    
     public Proveedor() {
+        this.cantProductos = 0;
     }
 
     public int getIdProveedor() {
@@ -69,7 +88,7 @@ public class Proveedor {
     }
 
     public void setProductosXProveedor(ArrayList<ProductoXProveedor> productos) {
-        this.productosXProveedor = productosXProveedor;
+        this.productosXProveedor = productos;
     }
 
 

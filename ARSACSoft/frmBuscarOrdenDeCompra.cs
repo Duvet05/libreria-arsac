@@ -109,16 +109,16 @@ namespace ARSACSoft
             dgvOrdenesCompra.Rows[e.RowIndex].
                 Cells[4].Value = ordenCompra.estado;
 
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[0].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[1].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[2].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[3].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[4].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[0].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[1].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[2].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[3].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[4].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
 
         }
 
@@ -132,6 +132,17 @@ namespace ARSACSoft
             _proveedorSeleccionado = null;
             txtRUCProveedorOC.Text = "";
             txtRazonSocialProveedorOC.Text = "";
+        }
+
+        private void btnQuitarProveedor_MouseHover(object sender, EventArgs e)
+        {
+            lblMensajeQuitar.Text = "No filtrar por un proveedor en específico. Se mostrarán las órdenes de compra" +
+                " de todos los proveedores.";
+        }
+
+        private void btnQuitarProveedor_MouseLeave(object sender, EventArgs e)
+        {
+            lblMensajeQuitar.Text = "";
         }
     }
 }

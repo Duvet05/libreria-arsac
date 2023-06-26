@@ -105,6 +105,7 @@
             this.btnCancelarEmpleado = new System.Windows.Forms.ToolStripButton();
             this.tcRRHH = new System.Windows.Forms.TabControl();
             this.ofdFotoEmpleado = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gbDatosCliente.SuspendLayout();
@@ -496,6 +497,7 @@
             // gbDatosEmpleado
             // 
             this.gbDatosEmpleado.BackColor = System.Drawing.Color.White;
+            this.gbDatosEmpleado.Controls.Add(this.button1);
             this.gbDatosEmpleado.Controls.Add(this.label23);
             this.gbDatosEmpleado.Controls.Add(this.btnSubirPortada);
             this.gbDatosEmpleado.Controls.Add(this.pbFotoEmpleado);
@@ -751,7 +753,7 @@
             this.txtDireccionEmpleado.Location = new System.Drawing.Point(130, 271);
             this.txtDireccionEmpleado.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtDireccionEmpleado.Name = "txtDireccionEmpleado";
-            this.txtDireccionEmpleado.Size = new System.Drawing.Size(173, 21);
+            this.txtDireccionEmpleado.Size = new System.Drawing.Size(141, 21);
             this.txtDireccionEmpleado.TabIndex = 7;
             // 
             // label3
@@ -983,6 +985,18 @@
             // 
             this.ofdFotoEmpleado.FileName = "openFileDialog1";
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(275, 271);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(28, 23);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // frmGestionRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1091,5 +1105,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox cmbCiudades;
         private System.Windows.Forms.Label txtCiudad;
+        private System.Windows.Forms.Button button1;
     }
 }

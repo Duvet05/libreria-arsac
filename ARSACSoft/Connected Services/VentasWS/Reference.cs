@@ -150,6 +150,16 @@ namespace ARSACSoft.VentasWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDResponse")]
         System.Threading.Tasks.Task<ARSACSoft.VentasWS.buscarOrdenPorIDResponse> buscarOrdenPorIDAsync(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.verificarStockSuficienteResponse verificarStockSuficiente(ARSACSoft.VentasWS.verificarStockSuficienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.verificarStockSuficienteResponse> verificarStockSuficienteAsync(ARSACSoft.VentasWS.verificarStockSuficienteRequest request);
     }
     
     /// <remarks/>
@@ -163,6 +173,8 @@ namespace ARSACSoft.VentasWS {
         private bool activoField;
         
         private clienteMayorista clienteMayoristaField;
+        
+        private string direccionField;
         
         private empleado empleadoField;
         
@@ -208,6 +220,18 @@ namespace ARSACSoft.VentasWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public empleado empleado {
             get {
                 return this.empleadoField;
@@ -219,7 +243,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string estado {
             get {
                 return this.estadoField;
@@ -231,7 +255,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public System.DateTime fechaEnvio {
             get {
                 return this.fechaEnvioField;
@@ -255,7 +279,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public System.DateTime fechaOrden {
             get {
                 return this.fechaOrdenField;
@@ -279,7 +303,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public int idOrdenDeVenta {
             get {
                 return this.idOrdenDeVentaField;
@@ -291,7 +315,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lineaDeOrdenDeVenta", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute("lineaDeOrdenDeVenta", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=8)]
         public lineaDeOrdenDeVenta[] lineaDeOrdenDeVenta {
             get {
                 return this.lineaDeOrdenDeVentaField;
@@ -303,7 +327,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public double precioTotal {
             get {
                 return this.precioTotalField;
@@ -1749,6 +1773,52 @@ namespace ARSACSoft.VentasWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficiente", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg0;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg2;
+        
+        public verificarStockSuficienteRequest() {
+        }
+        
+        public verificarStockSuficienteRequest(int arg0, int arg1, int arg2) {
+            this.arg0 = arg0;
+            this.arg1 = arg1;
+            this.arg2 = arg2;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="verificarStockSuficienteResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class verificarStockSuficienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public verificarStockSuficienteResponse() {
+        }
+        
+        public verificarStockSuficienteResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface VentasWSChannel : ARSACSoft.VentasWS.VentasWS, System.ServiceModel.IClientChannel {
     }
@@ -2052,6 +2122,33 @@ namespace ARSACSoft.VentasWS {
             ARSACSoft.VentasWS.buscarOrdenPorIDRequest inValue = new ARSACSoft.VentasWS.buscarOrdenPorIDRequest();
             inValue.arg0 = arg0;
             return ((ARSACSoft.VentasWS.VentasWS)(this)).buscarOrdenPorIDAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.VentasWS.verificarStockSuficienteResponse ARSACSoft.VentasWS.VentasWS.verificarStockSuficiente(ARSACSoft.VentasWS.verificarStockSuficienteRequest request) {
+            return base.Channel.verificarStockSuficiente(request);
+        }
+        
+        public int verificarStockSuficiente(int arg0, int arg1, int arg2) {
+            ARSACSoft.VentasWS.verificarStockSuficienteRequest inValue = new ARSACSoft.VentasWS.verificarStockSuficienteRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            ARSACSoft.VentasWS.verificarStockSuficienteResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).verificarStockSuficiente(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.verificarStockSuficienteResponse> ARSACSoft.VentasWS.VentasWS.verificarStockSuficienteAsync(ARSACSoft.VentasWS.verificarStockSuficienteRequest request) {
+            return base.Channel.verificarStockSuficienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.verificarStockSuficienteResponse> verificarStockSuficienteAsync(int arg0, int arg1, int arg2) {
+            ARSACSoft.VentasWS.verificarStockSuficienteRequest inValue = new ARSACSoft.VentasWS.verificarStockSuficienteRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).verificarStockSuficienteAsync(inValue);
         }
     }
 }

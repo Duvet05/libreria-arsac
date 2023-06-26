@@ -15,4 +15,5 @@ public interface LineaDeOrdenDeVentaDAO {
     int insertar(LineaDeOrdenDeVenta lineaOrden,int idOrdenVenta);
     int modificar(LineaDeOrdenDeVenta lineaOrden,int idOrdenVenta,int idProducto);
     int eliminar(int idOrdenVenta,int idProducto);
+    int verificarStockSuficiente(int idSede, int idProducto, int cantidad);
 }
