@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpProductos = new System.Windows.Forms.TabPage();
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblNotificacion = new System.Windows.Forms.Label();
-            this.pbNotificacion = new System.Windows.Forms.PictureBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPrecioXMayor = new System.Windows.Forms.TextBox();
@@ -49,20 +48,15 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.cbCafeteria = new System.Windows.Forms.CheckBox();
             this.cbSalasEstudio = new System.Windows.Forms.CheckBox();
-            this.btnSubirFoto = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtIDProducto = new System.Windows.Forms.TextBox();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.lblIDSede = new System.Windows.Forms.Label();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
-            this.btnNuevoProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnBuscarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnModificarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelarProducto = new System.Windows.Forms.ToolStripButton();
             this.lblGestionSedes = new System.Windows.Forms.Label();
             this.tpEntradasYSalidas = new System.Windows.Forms.TabPage();
+            this.btnMarcarRecibidoOC = new System.Windows.Forms.Button();
+            this.btnEliminarOC = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.dgvListaProductosOC = new System.Windows.Forms.DataGridView();
@@ -96,11 +90,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtIDOrdenCompra = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnNuevoOC = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardarOC = new System.Windows.Forms.ToolStripButton();
-            this.btnBuscarOC = new System.Windows.Forms.ToolStripButton();
-            this.btnModificarOC = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelarOC = new System.Windows.Forms.ToolStripButton();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -124,17 +113,26 @@
             this.label19 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.ofdImagenProducto = new System.Windows.Forms.OpenFileDialog();
+            this.pbNotificacion = new System.Windows.Forms.PictureBox();
+            this.btnSubirFoto = new System.Windows.Forms.Button();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.btnNuevoProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevoOC = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarOC = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.ofdImagenProducto = new System.Windows.Forms.OpenFileDialog();
-            this.btnMarcarRecibidoOC = new System.Windows.Forms.Button();
-            this.btnEliminarOC = new System.Windows.Forms.Button();
             this.tcAlmacen.SuspendLayout();
             this.tpProductos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.tsMenu.SuspendLayout();
             this.tpEntradasYSalidas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductosOC)).BeginInit();
@@ -144,6 +142,8 @@
             this.tpPromociones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAlmacen
@@ -186,7 +186,7 @@
             this.tpProductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpProductos.Name = "tpProductos";
             this.tpProductos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpProductos.Size = new System.Drawing.Size(921, 517);
+            this.tpProductos.Size = new System.Drawing.Size(930, 530);
             this.tpProductos.TabIndex = 0;
             this.tpProductos.Text = "Productos";
             this.tpProductos.UseVisualStyleBackColor = true;
@@ -222,17 +222,6 @@
             this.lblNotificacion.Name = "lblNotificacion";
             this.lblNotificacion.Size = new System.Drawing.Size(0, 25);
             this.lblNotificacion.TabIndex = 54;
-            // 
-            // pbNotificacion
-            // 
-            this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
-            this.pbNotificacion.Location = new System.Drawing.Point(11, 481);
-            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbNotificacion.Name = "pbNotificacion";
-            this.pbNotificacion.Size = new System.Drawing.Size(29, 30);
-            this.pbNotificacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNotificacion.TabIndex = 53;
-            this.pbNotificacion.TabStop = false;
             // 
             // cboCategoria
             // 
@@ -320,19 +309,6 @@
             this.cbSalasEstudio.Text = "Salas de estudio";
             this.cbSalasEstudio.UseVisualStyleBackColor = true;
             // 
-            // btnSubirFoto
-            // 
-            this.btnSubirFoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubirFoto.BackgroundImage")));
-            this.btnSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubirFoto.Location = new System.Drawing.Point(227, 270);
-            this.btnSubirFoto.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSubirFoto.Name = "btnSubirFoto";
-            this.btnSubirFoto.Size = new System.Drawing.Size(61, 42);
-            this.btnSubirFoto.TabIndex = 27;
-            this.btnSubirFoto.UseVisualStyleBackColor = true;
-            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
-            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
@@ -365,17 +341,6 @@
             this.txtIDProducto.TabIndex = 23;
             this.txtIDProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pbFoto
-            // 
-            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFoto.Location = new System.Drawing.Point(32, 90);
-            this.pbFoto.Margin = new System.Windows.Forms.Padding(4);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(255, 222);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 24;
-            this.pbFoto.TabStop = false;
-            // 
             // lblIDSede
             // 
             this.lblIDSede.AutoSize = true;
@@ -401,64 +366,9 @@
             this.btnCancelarProducto});
             this.tsMenu.Location = new System.Drawing.Point(3, 2);
             this.tsMenu.Name = "tsMenu";
-            this.tsMenu.Size = new System.Drawing.Size(915, 30);
+            this.tsMenu.Size = new System.Drawing.Size(924, 30);
             this.tsMenu.TabIndex = 4;
             this.tsMenu.Text = "toolStrip1";
-            // 
-            // btnNuevoProducto
-            // 
-            this.btnNuevoProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
-            this.btnNuevoProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevoProducto.Name = "btnNuevoProducto";
-            this.btnNuevoProducto.Size = new System.Drawing.Size(84, 27);
-            this.btnNuevoProducto.Text = "&Nuevo";
-            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
-            // 
-            // btnGuardarProducto
-            // 
-            this.btnGuardarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProducto.Image")));
-            this.btnGuardarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardarProducto.Name = "btnGuardarProducto";
-            this.btnGuardarProducto.Size = new System.Drawing.Size(96, 27);
-            this.btnGuardarProducto.Text = "&Guardar";
-            this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
-            this.btnBuscarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(84, 27);
-            this.btnBuscarProducto.Text = "&Buscar";
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnModificarProducto
-            // 
-            this.btnModificarProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarProducto.Image")));
-            this.btnModificarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificarProducto.Name = "btnModificarProducto";
-            this.btnModificarProducto.Size = new System.Drawing.Size(97, 27);
-            this.btnModificarProducto.Text = "Modificar";
-            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
-            // 
-            // btnCancelarProducto
-            // 
-            this.btnCancelarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarProducto.Image")));
-            this.btnCancelarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelarProducto.Name = "btnCancelarProducto";
-            this.btnCancelarProducto.Size = new System.Drawing.Size(100, 27);
-            this.btnCancelarProducto.Text = "&Cancelar";
-            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
             // lblGestionSedes
             // 
@@ -492,6 +402,32 @@
             this.tpEntradasYSalidas.Text = "Entradas";
             this.tpEntradasYSalidas.UseVisualStyleBackColor = true;
             // 
+            // btnMarcarRecibidoOC
+            // 
+            this.btnMarcarRecibidoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarcarRecibidoOC.ForeColor = System.Drawing.Color.Blue;
+            this.btnMarcarRecibidoOC.Location = new System.Drawing.Point(632, 34);
+            this.btnMarcarRecibidoOC.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMarcarRecibidoOC.Name = "btnMarcarRecibidoOC";
+            this.btnMarcarRecibidoOC.Size = new System.Drawing.Size(282, 32);
+            this.btnMarcarRecibidoOC.TabIndex = 100;
+            this.btnMarcarRecibidoOC.Text = "Orden de Compra Recibida";
+            this.btnMarcarRecibidoOC.UseVisualStyleBackColor = true;
+            this.btnMarcarRecibidoOC.Click += new System.EventHandler(this.btnMarcarRecibidoOC_Click_1);
+            // 
+            // btnEliminarOC
+            // 
+            this.btnEliminarOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarOC.ForeColor = System.Drawing.Color.Red;
+            this.btnEliminarOC.Location = new System.Drawing.Point(632, 1);
+            this.btnEliminarOC.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarOC.Name = "btnEliminarOC";
+            this.btnEliminarOC.Size = new System.Drawing.Size(282, 32);
+            this.btnEliminarOC.TabIndex = 99;
+            this.btnEliminarOC.Text = "Cancelar Orden de Compra";
+            this.btnEliminarOC.UseVisualStyleBackColor = true;
+            this.btnEliminarOC.Click += new System.EventHandler(this.btnEliminarOC_Click_1);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -519,8 +455,8 @@
             // 
             this.dgvListaProductosOC.AllowUserToAddRows = false;
             this.dgvListaProductosOC.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaProductosOC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProductosOC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -534,8 +470,8 @@
             this.dgvListaProductosOC.Name = "dgvListaProductosOC";
             this.dgvListaProductosOC.RowHeadersVisible = false;
             this.dgvListaProductosOC.RowHeadersWidth = 51;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaProductosOC.RowTemplate.Height = 24;
             this.dgvListaProductosOC.Size = new System.Drawing.Size(903, 201);
             this.dgvListaProductosOC.TabIndex = 14;
@@ -550,8 +486,8 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "Nombre del Producto";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -566,8 +502,8 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column2.HeaderText = "Cantidad";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -575,8 +511,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column3.HeaderText = "Costo Unit.";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -584,8 +520,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column4.HeaderText = "Subtotal";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -641,7 +577,7 @@
             // txtCantidadProdOC
             // 
             this.txtCantidadProdOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadProdOC.Location = new System.Drawing.Point(451, 74);
+            this.txtCantidadProdOC.Location = new System.Drawing.Point(511, 71);
             this.txtCantidadProdOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadProdOC.Name = "txtCantidadProdOC";
             this.txtCantidadProdOC.Size = new System.Drawing.Size(87, 23);
@@ -651,7 +587,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(347, 78);
+            this.label7.Location = new System.Drawing.Point(365, 76);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 18);
@@ -666,7 +602,7 @@
             this.txtPrecioUnitarioProdOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioUnitarioProdOC.Name = "txtPrecioUnitarioProdOC";
             this.txtPrecioUnitarioProdOC.ReadOnly = true;
-            this.txtPrecioUnitarioProdOC.Size = new System.Drawing.Size(148, 23);
+            this.txtPrecioUnitarioProdOC.Size = new System.Drawing.Size(175, 23);
             this.txtPrecioUnitarioProdOC.TabIndex = 7;
             // 
             // lblPrecioUnitario
@@ -684,18 +620,18 @@
             // 
             this.txtNombreProductoOC.Enabled = false;
             this.txtNombreProductoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProductoOC.Location = new System.Drawing.Point(451, 27);
+            this.txtNombreProductoOC.Location = new System.Drawing.Point(511, 25);
             this.txtNombreProductoOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProductoOC.Name = "txtNombreProductoOC";
             this.txtNombreProductoOC.ReadOnly = true;
-            this.txtNombreProductoOC.Size = new System.Drawing.Size(383, 23);
+            this.txtNombreProductoOC.Size = new System.Drawing.Size(341, 23);
             this.txtNombreProductoOC.TabIndex = 5;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(347, 30);
+            this.label8.Location = new System.Drawing.Point(365, 28);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 18);
@@ -704,7 +640,7 @@
             // 
             // btnBuscarProductoOC
             // 
-            this.btnBuscarProductoOC.Location = new System.Drawing.Point(839, 25);
+            this.btnBuscarProductoOC.Location = new System.Drawing.Point(857, 23);
             this.btnBuscarProductoOC.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarProductoOC.Name = "btnBuscarProductoOC";
             this.btnBuscarProductoOC.Size = new System.Drawing.Size(43, 28);
@@ -732,7 +668,7 @@
             this.txtCodigoProductoOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoProductoOC.Name = "txtCodigoProductoOC";
             this.txtCodigoProductoOC.ReadOnly = true;
-            this.txtCodigoProductoOC.Size = new System.Drawing.Size(148, 23);
+            this.txtCodigoProductoOC.Size = new System.Drawing.Size(175, 23);
             this.txtCodigoProductoOC.TabIndex = 0;
             // 
             // gbDatosOrdenCompra
@@ -769,7 +705,7 @@
             // 
             // btnBuscarProveedorOC
             // 
-            this.btnBuscarProveedorOC.Location = new System.Drawing.Point(844, 57);
+            this.btnBuscarProveedorOC.Location = new System.Drawing.Point(860, 57);
             this.btnBuscarProveedorOC.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarProveedorOC.Name = "btnBuscarProveedorOC";
             this.btnBuscarProveedorOC.Size = new System.Drawing.Size(40, 28);
@@ -782,7 +718,7 @@
             // 
             this.lblNombreCliente.AutoSize = true;
             this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(402, 59);
+            this.lblNombreCliente.Location = new System.Drawing.Point(365, 59);
             this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreCliente.Name = "lblNombreCliente";
             this.lblNombreCliente.Size = new System.Drawing.Size(99, 18);
@@ -793,11 +729,11 @@
             // 
             this.txtRazonSocialProveedorOC.Enabled = false;
             this.txtRazonSocialProveedorOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocialProveedorOC.Location = new System.Drawing.Point(537, 59);
+            this.txtRazonSocialProveedorOC.Location = new System.Drawing.Point(511, 57);
             this.txtRazonSocialProveedorOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtRazonSocialProveedorOC.Name = "txtRazonSocialProveedorOC";
             this.txtRazonSocialProveedorOC.ReadOnly = true;
-            this.txtRazonSocialProveedorOC.Size = new System.Drawing.Size(257, 23);
+            this.txtRazonSocialProveedorOC.Size = new System.Drawing.Size(341, 23);
             this.txtRazonSocialProveedorOC.TabIndex = 7;
             // 
             // txtRUCProveedorOC
@@ -808,7 +744,7 @@
             this.txtRUCProveedorOC.Margin = new System.Windows.Forms.Padding(4);
             this.txtRUCProveedorOC.Name = "txtRUCProveedorOC";
             this.txtRUCProveedorOC.ReadOnly = true;
-            this.txtRUCProveedorOC.Size = new System.Drawing.Size(202, 23);
+            this.txtRUCProveedorOC.Size = new System.Drawing.Size(167, 23);
             this.txtRUCProveedorOC.TabIndex = 6;
             // 
             // lblDNICliente
@@ -825,17 +761,17 @@
             // dtpFechaOrdenCompra
             // 
             this.dtpFechaOrdenCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaOrdenCompra.Location = new System.Drawing.Point(537, 25);
+            this.dtpFechaOrdenCompra.Location = new System.Drawing.Point(511, 25);
             this.dtpFechaOrdenCompra.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaOrdenCompra.Name = "dtpFechaOrdenCompra";
-            this.dtpFechaOrdenCompra.Size = new System.Drawing.Size(345, 24);
+            this.dtpFechaOrdenCompra.Size = new System.Drawing.Size(388, 24);
             this.dtpFechaOrdenCompra.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(400, 27);
+            this.label5.Location = new System.Drawing.Point(363, 27);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 18);
@@ -879,51 +815,6 @@
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnNuevoOC
-            // 
-            this.btnNuevoOC.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoOC.Image")));
-            this.btnNuevoOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevoOC.Name = "btnNuevoOC";
-            this.btnNuevoOC.Size = new System.Drawing.Size(198, 24);
-            this.btnNuevoOC.Text = "&Nueva Orden de Compra";
-            this.btnNuevoOC.Click += new System.EventHandler(this.btnNuevoOC_Click);
-            // 
-            // btnGuardarOC
-            // 
-            this.btnGuardarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarOC.Image")));
-            this.btnGuardarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardarOC.Name = "btnGuardarOC";
-            this.btnGuardarOC.Size = new System.Drawing.Size(86, 24);
-            this.btnGuardarOC.Text = "&Guardar";
-            this.btnGuardarOC.Click += new System.EventHandler(this.btnGuardarOC_Click);
-            // 
-            // btnBuscarOC
-            // 
-            this.btnBuscarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarOC.Image")));
-            this.btnBuscarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscarOC.Name = "btnBuscarOC";
-            this.btnBuscarOC.Size = new System.Drawing.Size(76, 24);
-            this.btnBuscarOC.Text = "&Buscar";
-            this.btnBuscarOC.Click += new System.EventHandler(this.btnBuscarOC_Click);
-            // 
-            // btnModificarOC
-            // 
-            this.btnModificarOC.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
-            this.btnModificarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificarOC.Name = "btnModificarOC";
-            this.btnModificarOC.Size = new System.Drawing.Size(97, 24);
-            this.btnModificarOC.Text = "&Modificar";
-            this.btnModificarOC.Click += new System.EventHandler(this.btnModificarOC_Click);
-            // 
-            // btnCancelarOC
-            // 
-            this.btnCancelarOC.Image = global::ARSACSoft.Properties.Resources.Cancel;
-            this.btnCancelarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelarOC.Name = "btnCancelarOC";
-            this.btnCancelarOC.Size = new System.Drawing.Size(83, 24);
-            this.btnCancelarOC.Text = "Limpiar";
-            this.btnCancelarOC.Click += new System.EventHandler(this.btnCancelarOC_Click);
-            // 
             // tpPromociones
             // 
             this.tpPromociones.Controls.Add(this.textBox14);
@@ -948,7 +839,7 @@
             this.tpPromociones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpPromociones.Name = "tpPromociones";
             this.tpPromociones.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpPromociones.Size = new System.Drawing.Size(921, 517);
+            this.tpPromociones.Size = new System.Drawing.Size(930, 530);
             this.tpPromociones.TabIndex = 2;
             this.tpPromociones.Text = "Promociones";
             this.tpPromociones.UseVisualStyleBackColor = true;
@@ -1179,9 +1070,148 @@
             this.toolStripButton11});
             this.toolStrip2.Location = new System.Drawing.Point(3, 2);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(915, 30);
+            this.toolStrip2.Size = new System.Drawing.Size(924, 30);
             this.toolStrip2.TabIndex = 5;
             this.toolStrip2.Text = "toolStrip1";
+            // 
+            // ofdImagenProducto
+            // 
+            this.ofdImagenProducto.FileName = "openFileDialog1";
+            // 
+            // pbNotificacion
+            // 
+            this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
+            this.pbNotificacion.Location = new System.Drawing.Point(11, 481);
+            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbNotificacion.Name = "pbNotificacion";
+            this.pbNotificacion.Size = new System.Drawing.Size(29, 30);
+            this.pbNotificacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNotificacion.TabIndex = 53;
+            this.pbNotificacion.TabStop = false;
+            // 
+            // btnSubirFoto
+            // 
+            this.btnSubirFoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubirFoto.BackgroundImage")));
+            this.btnSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubirFoto.Location = new System.Drawing.Point(227, 270);
+            this.btnSubirFoto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubirFoto.Name = "btnSubirFoto";
+            this.btnSubirFoto.Size = new System.Drawing.Size(61, 42);
+            this.btnSubirFoto.TabIndex = 27;
+            this.btnSubirFoto.UseVisualStyleBackColor = true;
+            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFoto.Location = new System.Drawing.Point(32, 90);
+            this.pbFoto.Margin = new System.Windows.Forms.Padding(4);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(255, 222);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 24;
+            this.pbFoto.TabStop = false;
+            // 
+            // btnNuevoProducto
+            // 
+            this.btnNuevoProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
+            this.btnNuevoProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoProducto.Name = "btnNuevoProducto";
+            this.btnNuevoProducto.Size = new System.Drawing.Size(84, 27);
+            this.btnNuevoProducto.Text = "&Nuevo";
+            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
+            // 
+            // btnGuardarProducto
+            // 
+            this.btnGuardarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProducto.Image")));
+            this.btnGuardarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarProducto.Name = "btnGuardarProducto";
+            this.btnGuardarProducto.Size = new System.Drawing.Size(96, 27);
+            this.btnGuardarProducto.Text = "&Guardar";
+            this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            this.btnBuscarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(84, 27);
+            this.btnBuscarProducto.Text = "&Buscar";
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnModificarProducto
+            // 
+            this.btnModificarProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnModificarProducto.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarProducto.Name = "btnModificarProducto";
+            this.btnModificarProducto.Size = new System.Drawing.Size(97, 27);
+            this.btnModificarProducto.Text = "Modificar";
+            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
+            // 
+            // btnCancelarProducto
+            // 
+            this.btnCancelarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarProducto.Image")));
+            this.btnCancelarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarProducto.Name = "btnCancelarProducto";
+            this.btnCancelarProducto.Size = new System.Drawing.Size(90, 27);
+            this.btnCancelarProducto.Text = "Limpiar";
+            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
+            // 
+            // btnNuevoOC
+            // 
+            this.btnNuevoOC.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoOC.Image")));
+            this.btnNuevoOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoOC.Name = "btnNuevoOC";
+            this.btnNuevoOC.Size = new System.Drawing.Size(198, 24);
+            this.btnNuevoOC.Text = "&Nueva Orden de Compra";
+            this.btnNuevoOC.Click += new System.EventHandler(this.btnNuevoOC_Click);
+            // 
+            // btnGuardarOC
+            // 
+            this.btnGuardarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarOC.Image")));
+            this.btnGuardarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarOC.Name = "btnGuardarOC";
+            this.btnGuardarOC.Size = new System.Drawing.Size(86, 24);
+            this.btnGuardarOC.Text = "&Guardar";
+            this.btnGuardarOC.Click += new System.EventHandler(this.btnGuardarOC_Click);
+            // 
+            // btnBuscarOC
+            // 
+            this.btnBuscarOC.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarOC.Name = "btnBuscarOC";
+            this.btnBuscarOC.Size = new System.Drawing.Size(76, 24);
+            this.btnBuscarOC.Text = "&Buscar";
+            this.btnBuscarOC.Click += new System.EventHandler(this.btnBuscarOC_Click);
+            // 
+            // btnModificarOC
+            // 
+            this.btnModificarOC.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarOC.Name = "btnModificarOC";
+            this.btnModificarOC.Size = new System.Drawing.Size(97, 24);
+            this.btnModificarOC.Text = "&Modificar";
+            this.btnModificarOC.Click += new System.EventHandler(this.btnModificarOC_Click);
+            // 
+            // btnCancelarOC
+            // 
+            this.btnCancelarOC.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarOC.Name = "btnCancelarOC";
+            this.btnCancelarOC.Size = new System.Drawing.Size(83, 24);
+            this.btnCancelarOC.Text = "Limpiar";
+            this.btnCancelarOC.Click += new System.EventHandler(this.btnCancelarOC_Click);
             // 
             // toolStripButton7
             // 
@@ -1223,36 +1253,6 @@
             this.toolStripButton11.Size = new System.Drawing.Size(100, 27);
             this.toolStripButton11.Text = "&Cancelar";
             // 
-            // ofdImagenProducto
-            // 
-            this.ofdImagenProducto.FileName = "openFileDialog1";
-            // 
-            // btnMarcarRecibidoOC
-            // 
-            this.btnMarcarRecibidoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMarcarRecibidoOC.ForeColor = System.Drawing.Color.Blue;
-            this.btnMarcarRecibidoOC.Location = new System.Drawing.Point(632, 34);
-            this.btnMarcarRecibidoOC.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMarcarRecibidoOC.Name = "btnMarcarRecibidoOC";
-            this.btnMarcarRecibidoOC.Size = new System.Drawing.Size(282, 32);
-            this.btnMarcarRecibidoOC.TabIndex = 100;
-            this.btnMarcarRecibidoOC.Text = "Orden de Compra Recibida";
-            this.btnMarcarRecibidoOC.UseVisualStyleBackColor = true;
-            this.btnMarcarRecibidoOC.Click += new System.EventHandler(this.btnMarcarRecibidoOC_Click_1);
-            // 
-            // btnEliminarOC
-            // 
-            this.btnEliminarOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarOC.ForeColor = System.Drawing.Color.Red;
-            this.btnEliminarOC.Location = new System.Drawing.Point(632, 1);
-            this.btnEliminarOC.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminarOC.Name = "btnEliminarOC";
-            this.btnEliminarOC.Size = new System.Drawing.Size(282, 32);
-            this.btnEliminarOC.TabIndex = 99;
-            this.btnEliminarOC.Text = "Cancelar Orden de Compra";
-            this.btnEliminarOC.UseVisualStyleBackColor = true;
-            this.btnEliminarOC.Click += new System.EventHandler(this.btnEliminarOC_Click_1);
-            // 
             // frmGestionAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1267,8 +1267,6 @@
             this.tcAlmacen.ResumeLayout(false);
             this.tpProductos.ResumeLayout(false);
             this.tpProductos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.tsMenu.ResumeLayout(false);
             this.tsMenu.PerformLayout();
             this.tpEntradasYSalidas.ResumeLayout(false);
@@ -1285,6 +1283,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
