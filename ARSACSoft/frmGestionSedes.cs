@@ -314,7 +314,7 @@ namespace ARSACSoft
                     btnGuardarTabOA.Enabled = false;
                     btnBuscarTabOA.Enabled = true;
                     btnCancelarTabOA.Enabled = false;
-
+                    button1.Enabled = false;
                     btnBuscarSedeTabOA.Enabled = false;
                     btnBuscarProductoTabOA.Enabled = false;
                     txtCantidadTabOA.Enabled = false;
@@ -330,7 +330,7 @@ namespace ARSACSoft
                     btnGuardarTabOA.Enabled = true;
                     btnBuscarTabOA.Enabled = false;
                     btnCancelarTabOA.Enabled = true;
-
+                    button1.Enabled = true;
                     btnBuscarSedeTabOA.Enabled = true;
                     btnBuscarProductoTabOA.Enabled = false;
                     txtCantidadTabOA.Enabled = false;
@@ -347,7 +347,7 @@ namespace ARSACSoft
                     btnGuardarTabOA.Enabled = false;
                     btnBuscarTabOA.Enabled = false;
                     btnCancelarTabOA.Enabled = true;
-
+                    button1.Enabled = false;
                     btnBuscarSedeTabOA.Enabled = false;
                     btnBuscarProductoTabOA.Enabled = false;
                     txtCantidadTabOA.Enabled = false;
@@ -593,6 +593,16 @@ namespace ARSACSoft
             }
             else
                 MessageBox.Show("Ha ocurrido un error con la operación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmBursarDireccion frm = new frmBursarDireccion();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtDireccionTabSede.Text = frm.direccionSeleccionada;
+            }
         }
     }
 }
