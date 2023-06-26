@@ -159,4 +159,10 @@ public class RRHHWS {
     {
         return daoCuentaUsuario.verificarRepeticion(username);
     }
+    
+    @WebMethod(operationName = "obtenerDireccionDeSedeDeEmpleado")
+    public String obtenerDireccionDeSedeDeEmpleado(int idEmpleado)
+    {
+        return daoEmpleado.obtenerDireccionDeSede(idEmpleado);
+    }
 }

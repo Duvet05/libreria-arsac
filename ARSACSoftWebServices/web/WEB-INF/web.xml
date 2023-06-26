@@ -4,9 +4,17 @@
         <servlet-name>ReporteDeRoles</servlet-name>
         <servlet-class>pe.edu.pucp.arsacsoft.servlet.ReporteDeRoles</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BoletaDeVenta</servlet-name>
+        <servlet-class>pe.edu.pucp.arsacsoft.servlets.BoletaDeVenta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ReporteDeRoles</servlet-name>
         <url-pattern>/ReporteDeRoles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BoletaDeVenta</servlet-name>
+        <url-pattern>/BoletaDeVenta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
