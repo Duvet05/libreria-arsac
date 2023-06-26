@@ -159,13 +159,14 @@ CREATE TABLE
 
 CREATE TABLE
     promocion (
+	id_promocion INT AUTO_INCREMENT,
         fid_producto INT,
         porcentaje DECIMAL(10, 2),
         cantidad_minima INT,
         fecha_inicio DATE,
         fecha_fin DATE,
         activo boolean not null default 1,
-        PRIMARY KEY (fid_producto),
+        PRIMARY KEY (id_promocion),
         FOREIGN KEY (fid_producto) REFERENCES producto(id_producto)
     ) ENGINE = InnoDB;
 
