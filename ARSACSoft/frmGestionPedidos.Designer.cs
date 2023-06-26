@@ -58,8 +58,6 @@
             this.textDescuentoPorcentaje = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dateFechaEntrega = new System.Windows.Forms.DateTimePicker();
             this.btCorreo = new System.Windows.Forms.Button();
             this.textMonto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -80,6 +78,11 @@
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnBuscarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.dateFechaEntrega = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.btnBuscarDireccion = new System.Windows.Forms.Button();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -111,9 +114,9 @@
             // AgregarCliente
             // 
             this.AgregarCliente.Image = global::ARSACSoft.Properties.Resources.person;
-            this.AgregarCliente.Location = new System.Drawing.Point(154, 37);
+            this.AgregarCliente.Location = new System.Drawing.Point(149, 37);
             this.AgregarCliente.Name = "AgregarCliente";
-            this.AgregarCliente.Size = new System.Drawing.Size(27, 22);
+            this.AgregarCliente.Size = new System.Drawing.Size(29, 22);
             this.AgregarCliente.TabIndex = 99;
             this.AgregarCliente.Text = "...";
             this.AgregarCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -122,9 +125,9 @@
             // 
             // btnCliente
             // 
-            this.btnCliente.Location = new System.Drawing.Point(118, 38);
+            this.btnCliente.Location = new System.Drawing.Point(118, 37);
             this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(32, 21);
+            this.btnCliente.Size = new System.Drawing.Size(29, 22);
             this.btnCliente.TabIndex = 98;
             this.btnCliente.Text = "...";
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -165,7 +168,7 @@
             // 
             this.lblNombreCliente.AutoSize = true;
             this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(194, 21);
+            this.lblNombreCliente.Location = new System.Drawing.Point(189, 21);
             this.lblNombreCliente.Name = "lblNombreCliente";
             this.lblNombreCliente.Size = new System.Drawing.Size(83, 15);
             this.lblNombreCliente.TabIndex = 3;
@@ -175,7 +178,7 @@
             // 
             this.txtRazonSocial.Enabled = false;
             this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocial.Location = new System.Drawing.Point(197, 38);
+            this.txtRazonSocial.Location = new System.Drawing.Point(192, 38);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.ReadOnly = true;
             this.txtRazonSocial.Size = new System.Drawing.Size(163, 20);
@@ -385,41 +388,28 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.btnBuscarDireccion);
+            this.groupBox3.Controls.Add(this.txtDireccion);
+            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.dateFechaEntrega);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.groupBox3.Location = new System.Drawing.Point(21, 368);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(466, 75);
+            this.groupBox3.Size = new System.Drawing.Size(466, 90);
             this.groupBox3.TabIndex = 105;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del Entrega";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(18, 25);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(176, 15);
-            this.label13.TabIndex = 88;
-            this.label13.Text = "Fecha de Tentativa de Entrega:";
-            // 
-            // dateFechaEntrega
-            // 
-            this.dateFechaEntrega.Location = new System.Drawing.Point(200, 24);
-            this.dateFechaEntrega.Name = "dateFechaEntrega";
-            this.dateFechaEntrega.Size = new System.Drawing.Size(244, 21);
-            this.dateFechaEntrega.TabIndex = 0;
-            // 
             // btCorreo
             // 
             this.btCorreo.BackColor = System.Drawing.Color.White;
-            this.btCorreo.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
+            this.btCorreo.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCorreo.Location = new System.Drawing.Point(492, 414);
             this.btCorreo.Name = "btCorreo";
-            this.btCorreo.Size = new System.Drawing.Size(200, 29);
+            this.btCorreo.Size = new System.Drawing.Size(200, 45);
             this.btCorreo.TabIndex = 108;
-            this.btCorreo.Text = "Procesar Pedido";
+            this.btCorreo.Text = "Enviar Factura a Correo";
             this.btCorreo.UseVisualStyleBackColor = false;
             this.btCorreo.Click += new System.EventHandler(this.btCorreo_Click);
             // 
@@ -562,12 +552,12 @@
             // btPedido
             // 
             this.btPedido.BackColor = System.Drawing.Color.White;
-            this.btPedido.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F);
+            this.btPedido.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPedido.Location = new System.Drawing.Point(492, 367);
             this.btPedido.Name = "btPedido";
-            this.btPedido.Size = new System.Drawing.Size(200, 33);
+            this.btPedido.Size = new System.Drawing.Size(200, 46);
             this.btPedido.TabIndex = 109;
-            this.btPedido.Text = "Emitir Factura por Correo";
+            this.btPedido.Text = "Emitir";
             this.btPedido.UseVisualStyleBackColor = false;
             this.btPedido.Click += new System.EventHandler(this.btPedido_Click);
             // 
@@ -619,6 +609,50 @@
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // dateFechaEntrega
+            // 
+            this.dateFechaEntrega.Location = new System.Drawing.Point(141, 24);
+            this.dateFechaEntrega.Name = "dateFechaEntrega";
+            this.dateFechaEntrega.Size = new System.Drawing.Size(291, 21);
+            this.dateFechaEntrega.TabIndex = 0;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(11, 27);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(107, 15);
+            this.label13.TabIndex = 88;
+            this.label13.Text = "Fecha de Entrega:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 62);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 15);
+            this.label12.TabIndex = 107;
+            this.label12.Text = "Direccion:";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(141, 59);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(256, 20);
+            this.txtDireccion.TabIndex = 106;
+            // 
+            // btnBuscarDireccion
+            // 
+            this.btnBuscarDireccion.Location = new System.Drawing.Point(403, 58);
+            this.btnBuscarDireccion.Name = "btnBuscarDireccion";
+            this.btnBuscarDireccion.Size = new System.Drawing.Size(29, 22);
+            this.btnBuscarDireccion.TabIndex = 100;
+            this.btnBuscarDireccion.Text = "...";
+            this.btnBuscarDireccion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscarDireccion.UseVisualStyleBackColor = true;
+            this.btnBuscarDireccion.Click += new System.EventHandler(this.btnBuscarDireccion_Click);
+            // 
             // frmGestionPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,8 +700,6 @@
         private System.Windows.Forms.TextBox textDescuentoPorcentaje;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateFechaEntrega;
         private System.Windows.Forms.Button btCorreo;
         private System.Windows.Forms.TextBox textMonto;
         private System.Windows.Forms.Label label11;
@@ -705,5 +737,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker dateFechaEntrega;
+        private System.Windows.Forms.Button btnBuscarDireccion;
     }
 }

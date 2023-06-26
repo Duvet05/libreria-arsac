@@ -21,8 +21,17 @@ public class OrdenDeVenta {
     private boolean activo;
     private Empleado empleado;
     private ClienteMayorista clienteMayorista;
+    private String direccion;
     private ArrayList<LineaDeOrdenDeVenta> lineaDeOrdenDeVenta;
     private String estado;
+    
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
     public String getEstado() {
         return estado;

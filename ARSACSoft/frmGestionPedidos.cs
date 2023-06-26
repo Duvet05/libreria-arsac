@@ -47,6 +47,7 @@ namespace ARSACSoft
                     btnAgregar.Enabled = false;
                     BtnQuitar.Enabled = false;
                     textNombreProducto.Enabled = false;
+                    btCorreo.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
                     textMonto.Enabled = false;
@@ -68,6 +69,7 @@ namespace ARSACSoft
                     break;
                 case Estado.Nuevo:
                     btnNuevo.Enabled = false;
+                    btCorreo.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnAgregar.Enabled = true;
                     BtnQuitar.Enabled = true;
@@ -150,6 +152,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -300,6 +303,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -448,7 +452,7 @@ namespace ARSACSoft
             ordenV.precioTotal = precioTotal;
             ordenV.empleado = new VentasWS.empleado();
             ordenV.empleado.idPersona = _id_empleado;
-
+            //ordenV.d
             if (checkBoxFactura.Checked)
             {
                 if (_clienteMayorista == null)
@@ -459,25 +463,33 @@ namespace ARSACSoft
 
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
+                ordenV.direccion = txtDireccion.Text;
                 daoVentas.insertarOrdenDeVentaMayorista(ordenV);
             }
             else
             {
                 daoVentas.insertarOrdenDeVentaMinorista(ordenV);
             }
+
             RestaurarEstadoFormulario();
         }
 
         private void RestaurarEstadoFormulario()
         {
             estado = Estado.Inicial;
-            LimpiarComponentes();
+            //LimpiarComponentes();
+            btCorreo.Enabled = true;
             EstablecerEstadoFormulario();
         }
 
         private void MostrarAdvertencia(string mensaje)
         {
             MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnBuscarDireccion_Click(object sender, EventArgs e)
+        {
+              
         }
     }
 }
