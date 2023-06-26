@@ -7,6 +7,19 @@ DROP PROCEDURE IF EXISTS ELIMINAR_PROVEEDOR;
 
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_POR_PROVEEDOR;
 
+DROP PROCEDURE IF EXISTS LISTAR_TODAS_ORDENES_COMPRA_X_PROVEEDOR;
+
+DELIMITER $
+CREATE PROCEDURE LISTAR_TODAS_ORDENES_COMPRA_X_PROVEEDOR(
+    IN _fid_proveedor int
+)
+BEGIN
+	select c.id_orden_de_compra, c.fecha_orden, fid_proveedor,p.nombre, c.total, c.estado, c.activo AS 'Vigente'
+		from ordenDeCompra c
+			inner join proveedor p on p.id_proveedor = c.fid_proveedor
+		where p.id_proveedor = _fid_proveedor;
+END $
+
 DELIMITER $
 CREATE PROCEDURE INSERTAR_PROVEEDOR(
 	OUT _id_proveedor INT,

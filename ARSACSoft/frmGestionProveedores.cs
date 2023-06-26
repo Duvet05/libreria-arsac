@@ -197,5 +197,10 @@ namespace ARSACSoft
                 Console.WriteLine("Error en el formato de celda: " + ex.Message);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
