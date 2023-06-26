@@ -4,6 +4,7 @@ using ARSACSoft.Properties;
 using ARSACSoft.ProveedoresWS;
 using ARSACSoft.RRHHWS;
 using ARSACSoft.SedeWS;
+using ARSACSoft.VentasWS;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -22,6 +23,7 @@ namespace ARSACSoft
         private ProveedoresWSClient daoProveedorWS;
         private ProveedoresWS.proveedor _proveedorSeleccionado;
 
+        //private BindingList<productoXProveedor> _lineasOrdenDeVenta;
         private RRHHWS.empleado _empleadoLogeado;
 
         public frmGestionProveedores(RRHHWS.empleado _empleadoLogeado)
@@ -30,6 +32,7 @@ namespace ARSACSoft
 
             daoProveedorWS = new ProveedoresWSClient();
             this._empleadoLogeado = _empleadoLogeado;
+            dgvProductos.AutoGenerateColumns = false;
         }
 
 
@@ -65,6 +68,7 @@ namespace ARSACSoft
             _estadoPagProveedor = Estado.Nuevo;
             LimpiarComponentes();
             establecerEstadoFormularioProveedor();
+           // dgvProductos.DataSource = _productosVendedor;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -82,9 +86,11 @@ namespace ARSACSoft
                 if (_proveedorSeleccionado.activo == true)
                     txtEstado.Text = "PROVEEDOR VIGENTE";
                 else txtEstado.Text = "PROVEEDOR NO VIGENTE";
-
+                
                 _estadoPagProveedor = Estado.Buscar;
                 establecerEstadoFormularioProveedor();
+                dgvProductos.DataSource = daoProveedorWS.listarProductosXProveedor(string.Empty,
+                -1, -1, _proveedorSeleccionado.idProveedor);
             }
         }
                 
@@ -122,6 +128,7 @@ namespace ARSACSoft
                     txtTelefono.ReadOnly = false;
                     txtEstado.Enabled = false;
                     txtEstado.ReadOnly = true;
+                    //dgvProductos.Rows.Clear();
                     btnBuscarDirrecion.Enabled = true;
                     break;
                 case Estado.Buscar:
@@ -132,6 +139,7 @@ namespace ARSACSoft
                     txtDireccion.Enabled = false;
                     txtNombreProveedor.Enabled = false;
                     txtRUC.Enabled = false;
+                    dgvProductos.Rows.Clear();
                     txtTelefono.Enabled = false;
                     txtEstado.Enabled = false;
                     btnBuscarDirrecion.Enabled = false;
@@ -166,5 +174,28 @@ namespace ARSACSoft
             }
         }
 
+        private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0 || e.RowIndex >= dgvProductos.Rows.Count)
+                    return;
+
+                if (dgvProductos.Rows[e.RowIndex].DataBoundItem is ProveedoresWS.productoXProveedor prod)
+                {
+                    dgvProductos.Rows[e.RowIndex].Cells[0].Value = prod.producto.idProducto;
+                    dgvProductos.Rows[e.RowIndex].Cells[1].Value = prod.producto.nombre;
+                    dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.producto.marca.descripcion;
+                    dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.producto.categoria.descripcion;
+                    dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.producto.precioPorMenor;
+                    dgvProductos.Rows[e.RowIndex].Cells[5].Value = prod.producto.precioPorMayor;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de la excepción
+                Console.WriteLine("Error en el formato de celda: " + ex.Message);
+            }
+        }
     }
     }

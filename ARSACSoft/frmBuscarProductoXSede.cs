@@ -78,6 +78,15 @@ namespace ARSACSoft
             }
         }
 
-
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProductos.CurrentRow != null)
+            {
+                ProductoDeSedeSeleccionada = (sedeXProducto)dgvProductos.CurrentRow.DataBoundItem;
+                txtNombreProducto.Text = ProductoDeSedeSeleccionada.producto.nombre;
+                cboMarca.SelectedValue = ProductoDeSedeSeleccionada.producto.marca.idMarca;
+                cboCategoria.SelectedValue = ProductoDeSedeSeleccionada.producto.categoria.idCategoria;
+            }
+        }
     }
 }

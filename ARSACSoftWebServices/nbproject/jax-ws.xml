@@ -19,6 +19,9 @@
     <service name="RRHHWS">
       <implementation-class>pe.edu.pucp.arsacsoft.services.RRHHWS</implementation-class>
     </service>
+    <service name="ReporteWS">
+      <implementation-class>pe.edu.pucp.arsacsoft.services.ReporteWS</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
