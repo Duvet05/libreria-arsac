@@ -102,16 +102,4 @@ public class ProveedoresWS {
         }
         return productos;
     }
-    
-    @WebMethod(operationName = "listarTodasOrdenesCompraXProveedor")
-    public ArrayList<OrdenDeCompra> listarTodasOrdenesCompraXProveedor(
-            String nombre_proveedor) {
-        ArrayList<OrdenDeCompra> ordenesXProveedor = null;
-        try {
-            ordenesXProveedor = daoProductoPorProveedor.listarTodasOrdenesCompraXProveedor(nombre_proveedor);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return ordenesXProveedor;
-    }
 }

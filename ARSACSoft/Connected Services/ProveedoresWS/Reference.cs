@@ -105,6 +105,8 @@ namespace ARSACSoft.ProveedoresWS {
         
         private bool activoField;
         
+        private int cantProductosField;
+        
         private string direccionField;
         
         private int idProveedorField;
@@ -131,6 +133,18 @@ namespace ARSACSoft.ProveedoresWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int cantProductos {
+            get {
+                return this.cantProductosField;
+            }
+            set {
+                this.cantProductosField = value;
+                this.RaisePropertyChanged("cantProductos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public string direccion {
             get {
                 return this.direccionField;
@@ -142,7 +156,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public int idProveedor {
             get {
                 return this.idProveedorField;
@@ -154,7 +168,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string nombre {
             get {
                 return this.nombreField;
@@ -166,7 +180,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("productosXProveedor", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute("productosXProveedor", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
         public productoXProveedor[] productosXProveedor {
             get {
                 return this.productosXProveedorField;
@@ -178,7 +192,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public string RUC {
             get {
                 return this.rUCField;
@@ -190,7 +204,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public string telefono {
             get {
                 return this.telefonoField;

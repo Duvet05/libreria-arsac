@@ -8,6 +8,8 @@
   <xs:element name="listarLineasDeOrdenDeCompraResponse" type="tns:listarLineasDeOrdenDeCompraResponse" />
   <xs:element name="listarOrdenesDeCompraXProveedor" type="tns:listarOrdenesDeCompraXProveedor" />
   <xs:element name="listarOrdenesDeCompraXProveedorResponse" type="tns:listarOrdenesDeCompraXProveedorResponse" />
+  <xs:element name="listarTodasOrdenesCompraXProveedor" type="tns:listarTodasOrdenesCompraXProveedor" />
+  <xs:element name="listarTodasOrdenesCompraXProveedorResponse" type="tns:listarTodasOrdenesCompraXProveedorResponse" />
   <xs:element name="modificarOrdenCompra" type="tns:modificarOrdenCompra" />
   <xs:element name="modificarOrdenCompraResponse" type="tns:modificarOrdenCompraResponse" />
   <xs:element name="registrarIngresoDeMercaderiaDeOrdenCompra" type="tns:registrarIngresoDeMercaderiaDeOrdenCompra" />
@@ -136,6 +138,7 @@
   <xs:complexType name="proveedor">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="cantProductos" type="xs:int" />
       <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element name="idProveedor" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
@@ -200,6 +203,16 @@
   <xs:complexType name="listarLineasDeOrdenDeCompraResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaOrdenDeCompra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodasOrdenesCompraXProveedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodasOrdenesCompraXProveedorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeCompra" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

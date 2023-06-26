@@ -142,6 +142,12 @@
     <Compile Include="frmBuscarClienteMayorista.designer.cs">
       <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarDireccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarDireccion.Designer.cs">
+      <DependentUpon>frmBuscarDireccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     <EmbeddedResource Include="frmBuscarClienteMayorista.resx">
       <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarDireccion.resx">
+      <DependentUpon>frmBuscarDireccion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarEmpleados.resx">
       <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,6 +347,9 @@
     <None Include="Connected Services\AlmacenWS\AlmacenWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.cancelarOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.helloResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -353,10 +365,16 @@
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.listarOrdenesDeCompraXProveedorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.listarTodasOrdenesCompraXProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.modificarOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.ordenDeCompra.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.registrarIngresoDeMercaderiaDeOrdenCompraResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">
@@ -605,6 +623,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.ordenDeVenta1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.verificarStockSuficienteResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />

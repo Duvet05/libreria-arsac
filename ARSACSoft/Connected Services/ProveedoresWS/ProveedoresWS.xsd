@@ -22,6 +22,7 @@
   <xs:complexType name="proveedor">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="cantProductos" type="xs:int" />
       <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element name="idProveedor" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
