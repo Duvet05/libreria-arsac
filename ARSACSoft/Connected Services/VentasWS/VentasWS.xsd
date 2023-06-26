@@ -234,16 +234,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarLineasDeOrdenDeVenta">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarLineasDeOrdenDeVentaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaDeOrdenDeVenta" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="buscarOrdenPorID">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
@@ -252,6 +242,16 @@
   <xs:complexType name="buscarOrdenPorIDResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:ordenDeVenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLineasDeOrdenDeVenta">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarLineasDeOrdenDeVentaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:lineaDeOrdenDeVenta" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="eliminarOrdenDeVenta">
