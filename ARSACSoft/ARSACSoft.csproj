@@ -142,12 +142,6 @@
     <Compile Include="frmBuscarClienteMayorista.designer.cs">
       <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBuscarDireccion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscarDireccion.Designer.cs">
-      <DependentUpon>frmBuscarDireccion.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBuscarEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,9 +266,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarClienteMayorista.resx">
       <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscarDireccion.resx">
-      <DependentUpon>frmBuscarDireccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarEmpleados.resx">
       <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>
