@@ -231,6 +231,8 @@ namespace ARSACSoft
                 MessageBox.Show("Debe ingresar una cantidad válida", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
+            //verificar stock en sede
             foreach (lineaDeOrdenDeVenta linea in this._lineasOrdenDeVenta)
             {
                 if (linea.producto.idProducto.Equals(_producto.idProducto))
@@ -442,6 +444,7 @@ namespace ARSACSoft
 
         private void btPedido_Click(object sender, EventArgs e)
         {
+            
             if (_lineasOrdenDeVenta.Count == 0)
             {
                 MostrarAdvertencia("La línea de orden de venta está vacía.");
@@ -481,7 +484,7 @@ namespace ARSACSoft
             {
                 daoVentas.insertarOrdenDeVentaMinorista(ordenV);
             }
-
+            //descontar productos sedes
             RestaurarEstadoFormulario();
         }
 
