@@ -71,7 +71,6 @@
             this.txtNombreRUC.Name = "txtNombreRUC";
             this.txtNombreRUC.Size = new System.Drawing.Size(229, 24);
             this.txtNombreRUC.TabIndex = 7;
-            this.txtNombreRUC.TextChanged += new System.EventHandler(this.txtNombreRUC_TextChanged);
             // 
             // label1
             // 
@@ -82,7 +81,6 @@
             this.label1.Size = new System.Drawing.Size(274, 18);
             this.label1.TabIndex = 6;
             this.label1.Text = "Ingrese el nombre o RUC del proveedor:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dgvProveedores
             // 

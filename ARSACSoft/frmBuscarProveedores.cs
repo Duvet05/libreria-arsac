@@ -26,11 +26,6 @@ namespace ARSACSoft
             dgvProveedores.AutoGenerateColumns = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -46,9 +41,10 @@ namespace ARSACSoft
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
+
             if (dgvProveedores.CurrentRow != null)
             {
-                _proveedorSeleccionado = (proveedor)dgvProveedores.CurrentRow.DataBoundItem;
+                _proveedorSeleccionado = (ProveedoresWS.proveedor)dgvProveedores.CurrentRow.DataBoundItem;
                 this.DialogResult = DialogResult.OK;
             }
             else
@@ -59,21 +55,15 @@ namespace ARSACSoft
 
         private void dgvProveedores_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            proveedor proveed = (proveedor)dgvProveedores.Rows[e.RowIndex].DataBoundItem;
-            dgvProveedores.Rows[e.RowIndex].Cells[0].Value =
-                proveed.idProveedor;
-            dgvProveedores.Rows[e.RowIndex].Cells[1].Value =
-                proveed.nombre;
-            dgvProveedores.Rows[e.RowIndex].Cells[2].Value =
-                proveed.direccion;
-            dgvProveedores.Rows[e.RowIndex].Cells[3].Value =
-                proveed.RUC;
-            dgvProveedores.Rows[e.RowIndex].Cells[4].Value =
-                proveed.telefono;
-        }
+            if (e.RowIndex < 0 || e.RowIndex >= dgvProveedores.Rows.Count)
+                return;
 
-        private void txtNombreRUC_TextChanged(object sender, EventArgs e)
-        {
+            proveedor proveed = (proveedor)dgvProveedores.Rows[e.RowIndex].DataBoundItem;
+            dgvProveedores.Rows[e.RowIndex].Cells[0].Value = proveed.idProveedor;
+            dgvProveedores.Rows[e.RowIndex].Cells[1].Value = proveed.nombre;
+            dgvProveedores.Rows[e.RowIndex].Cells[2].Value = proveed.direccion;
+            dgvProveedores.Rows[e.RowIndex].Cells[3].Value = proveed.RUC;
+            dgvProveedores.Rows[e.RowIndex].Cells[4].Value = proveed.telefono;
 
         }
     }
