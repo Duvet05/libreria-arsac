@@ -524,7 +524,9 @@ namespace ARSACSoft
             }
             else
             {
-                daoVentas.insertarOrdenDeVentaMinorista(ordenV);
+                ordenV.idOrdenDeVenta = daoVentas.insertarOrdenDeVentaMinorista(ordenV);
+                frmBoletaDeVenta frm = new frmBoletaDeVenta(ordenV.idOrdenDeVenta, _id_empleado);
+                frm.ShowDialog();
             }
             //descontar productos sedes
             RestaurarEstadoFormulario();

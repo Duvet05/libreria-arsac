@@ -26,17 +26,6 @@
   <xs:element name="obtenerStockDeProductoEnSedeResponse" type="tns:obtenerStockDeProductoEnSedeResponse" />
   <xs:element name="verificarEntregaDeOrdenDeAbastecimiento" type="tns:verificarEntregaDeOrdenDeAbastecimiento" />
   <xs:element name="verificarEntregaDeOrdenDeAbastecimientoResponse" type="tns:verificarEntregaDeOrdenDeAbastecimientoResponse" />
-  <xs:complexType name="obtenerStockDeProductoEnSede">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:int" />
-      <xs:element name="arg1" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="obtenerStockDeProductoEnSedeResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarOrdenesDeAbastecimientoPorIdEmpleadoEstado">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
@@ -123,6 +112,17 @@
       <xs:element name="stock" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="obtenerStockDeProductoEnSede">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element name="arg1" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerStockDeProductoEnSedeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarProductosDeSedePorNombreMarcaCategoria">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
@@ -136,16 +136,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sedeXProducto" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarOrdenDeAbastecimiento">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:ordenDeAbastecimiento" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarOrdenDeAbastecimientoResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="verificarEntregaDeOrdenDeAbastecimiento">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:ordenDeAbastecimiento" />
@@ -156,12 +146,12 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="entregarOrdenDeAbastecimiento">
+  <xs:complexType name="insertarOrdenDeAbastecimiento">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:ordenDeAbastecimiento" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="entregarOrdenDeAbastecimientoResponse">
+  <xs:complexType name="insertarOrdenDeAbastecimientoResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
@@ -174,6 +164,16 @@
   <xs:complexType name="listarProductosDeSedeResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sedeXProducto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entregarOrdenDeAbastecimiento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:ordenDeAbastecimiento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entregarOrdenDeAbastecimientoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="cancelarOrdenDeAbastecimiento">

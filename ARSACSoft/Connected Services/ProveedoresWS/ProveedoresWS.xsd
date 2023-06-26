@@ -22,6 +22,7 @@
   <xs:complexType name="proveedor">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="cantProductos" type="xs:int" />
       <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element name="idProveedor" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
@@ -91,14 +92,14 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarProveedoresPorCategoria">
+  <xs:complexType name="modificarProveedor">
     <xs:sequence>
-      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg0" type="tns:proveedor" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarProveedoresPorCategoriaResponse">
+  <xs:complexType name="modificarProveedorResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarProveedoresAfabeticamente">
@@ -109,12 +110,22 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="modificarProveedor">
+  <xs:complexType name="listarProveedoresPorCategoria">
     <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:proveedor" />
+      <xs:element name="arg0" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="modificarProveedorResponse">
+  <xs:complexType name="listarProveedoresPorCategoriaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProveedor">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarProveedorResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
@@ -130,16 +141,6 @@
   <xs:complexType name="listarProductosXProveedorResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:productoXProveedor" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarProveedor">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="eliminarProveedorResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

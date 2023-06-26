@@ -136,6 +136,7 @@
   <xs:complexType name="proveedor">
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
+      <xs:element name="cantProductos" type="xs:int" />
       <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element name="idProveedor" type="xs:int" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
@@ -149,22 +150,22 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="insertarOrdenCompra">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:ordenDeCompra" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="insertarOrdenCompraResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="cancelarOrdenCompra">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="cancelarOrdenCompraResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarOrdenCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:ordenDeCompra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarOrdenCompraResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
