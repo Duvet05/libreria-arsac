@@ -104,7 +104,6 @@
             // 
             // btnBuscarSede
             // 
-            this.btnBuscarSede.Enabled = false;
             this.btnBuscarSede.Image = global::ARSACSoft.Properties.Resources.Search;
             this.btnBuscarSede.Location = new System.Drawing.Point(230, 11);
             this.btnBuscarSede.Margin = new System.Windows.Forms.Padding(2);
