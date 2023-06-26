@@ -28,7 +28,7 @@ public class ReporteWS {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "generarBoletaDeVenta")
-    public byte[] generarBoletaDeVenta(int idOrdenDeVenta, int idEmpleado) {
+    public byte[] generarBoletaDeVenta(int idOrdenDeVenta, String direccionDeSede) {
         
         byte[] reporteBytes = null;
         Connection con = null;
@@ -42,15 +42,15 @@ public class ReporteWS {
                     ReporteWS.class.getResource("/pe/edu/pucp/arsacsoft/reports/BoletaDeVenta.jasper")
                 );
             
-            String rutaImagen =
-            ReporteWS.class.getResource("/pe/edu/pucp/arsacsoft/img/logoARSAC_2.png").getPath();
-            Image imagen = (new ImageIcon(rutaImagen)).getImage();
+            //String rutaImagen =
+            //BoletaDeVenta.class.getResource("/pe/edu/pucp/arsacsoft/img/logoARSAC_2.png").getPath();
+            //Image imagen = (new ImageIcon(rutaImagen)).getImage();
             
             // Conjunto de parametros
             HashMap parametros = new HashMap();
             parametros.put("id_orden_de_venta", idOrdenDeVenta);
-            parametros.put("fid_empleado", idEmpleado);
-            parametros.put("Imagen", imagen);
+            parametros.put("direccion_de_sede", direccionDeSede);
+            //parametros.put("Imagen", imagen);
 
             JasperPrint jp = JasperFillManager.fillReport
             (reporte, parametros, con);

@@ -1,4 +1,5 @@
 ﻿using ARSACSoft.ReporteWS;
+using ARSACSoft.RRHHWS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,14 +16,17 @@ namespace ARSACSoft
     public partial class frmBoletaDeVenta : Form
     {
         private ReporteWSClient _daoReporte;
+        private RRHHWSClient _daoRRHH;
 
         public frmBoletaDeVenta(int idOrdenDeventa, int idEmpleado)
         {
             InitializeComponent();
 
             _daoReporte = new ReporteWSClient();
+            _daoRRHH = new RRHHWSClient();
 
-            byte[] arreglo = _daoReporte.generarBoletaDeVenta(idOrdenDeventa, idEmpleado);
+            string direccionDeSede = _daoRRHH.obtenerDireccionDeSedeDeEmpleado(idEmpleado);
+            byte[] arreglo = _daoReporte.generarBoletaDeVenta(idOrdenDeventa, direccionDeSede);
             File.WriteAllBytes("BoletaDeVenta" + idOrdenDeventa + ".pdf", arreglo);
             axBoletaDeVenta.LoadFile("BoletaDeVenta" + idOrdenDeventa + ".pdf");
 

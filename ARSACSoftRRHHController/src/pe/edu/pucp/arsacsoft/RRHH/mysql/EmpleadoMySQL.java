@@ -257,4 +257,30 @@ public class EmpleadoMySQL implements EmpleadoDAO {
         }
         return emp;
     }
+
+    @Override
+    public String obtenerDireccionDeSede(int idEmpleado) {
+        String direccion = null;
+        
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call OBTENER_DIRECCION_DE_SEDE_DE_EMPLEADO(?)}");
+            cs.setInt(1, idEmpleado);
+            rs = cs.executeQuery();
+            rs.next();
+            direccion = rs.getString("direccion");
+        }
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        
+        return direccion;
+    }
 }

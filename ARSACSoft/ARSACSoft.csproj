@@ -500,6 +500,9 @@
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.modificarEmpleadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.obtenerDireccionDeSedeDeEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -15,9 +15,8 @@ namespace ARSACSoft.ReporteWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", ConfigurationName="ReporteWS.ReporteWS")]
     public interface ReporteWS {
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el espacio de nombres de partes de mensaje () no coincide con el valor predeterminado (http://services.arsacsoft.pucp.edu.pe/).
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento arg1 del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ReporteWS/generarBoletaDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ReporteWS/generarBoletaDeVentaResponse")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ARSACSoft.ReporteWS.generarBoletaDeVentaResponse generarBoletaDeVenta(ARSACSoft.ReporteWS.generarBoletaDeVentaRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ReporteWS/generarBoletaDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ReporteWS/generarBoletaDeVentaResponse")]
@@ -27,19 +26,36 @@ namespace ARSACSoft.ReporteWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="generarBoletaDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class generarBoletaDeVentaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public int arg0;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=1)]
-        public int arg1;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="generarBoletaDeVenta", Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        public ARSACSoft.ReporteWS.generarBoletaDeVentaRequestBody Body;
         
         public generarBoletaDeVentaRequest() {
         }
         
-        public generarBoletaDeVentaRequest(int arg0, int arg1) {
+        public generarBoletaDeVentaRequest(ARSACSoft.ReporteWS.generarBoletaDeVentaRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class generarBoletaDeVentaRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int arg0;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string arg1;
+        
+        public generarBoletaDeVentaRequestBody() {
+        }
+        
+        public generarBoletaDeVentaRequestBody(int arg0, string arg1) {
             this.arg0 = arg0;
             this.arg1 = arg1;
         }
@@ -48,16 +64,33 @@ namespace ARSACSoft.ReporteWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="generarBoletaDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class generarBoletaDeVentaResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="", Order=0)]
-        public byte[] @return;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="generarBoletaDeVentaResponse", Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        public ARSACSoft.ReporteWS.generarBoletaDeVentaResponseBody Body;
         
         public generarBoletaDeVentaResponse() {
         }
         
-        public generarBoletaDeVentaResponse(byte[] @return) {
+        public generarBoletaDeVentaResponse(ARSACSoft.ReporteWS.generarBoletaDeVentaResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class generarBoletaDeVentaResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public byte[] @return;
+        
+        public generarBoletaDeVentaResponseBody() {
+        }
+        
+        public generarBoletaDeVentaResponseBody(byte[] @return) {
             this.@return = @return;
         }
     }
@@ -94,12 +127,13 @@ namespace ARSACSoft.ReporteWS {
             return base.Channel.generarBoletaDeVenta(request);
         }
         
-        public byte[] generarBoletaDeVenta(int arg0, int arg1) {
+        public byte[] generarBoletaDeVenta(int arg0, string arg1) {
             ARSACSoft.ReporteWS.generarBoletaDeVentaRequest inValue = new ARSACSoft.ReporteWS.generarBoletaDeVentaRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
+            inValue.Body = new ARSACSoft.ReporteWS.generarBoletaDeVentaRequestBody();
+            inValue.Body.arg0 = arg0;
+            inValue.Body.arg1 = arg1;
             ARSACSoft.ReporteWS.generarBoletaDeVentaResponse retVal = ((ARSACSoft.ReporteWS.ReporteWS)(this)).generarBoletaDeVenta(inValue);
-            return retVal.@return;
+            return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -107,10 +141,11 @@ namespace ARSACSoft.ReporteWS {
             return base.Channel.generarBoletaDeVentaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.ReporteWS.generarBoletaDeVentaResponse> generarBoletaDeVentaAsync(int arg0, int arg1) {
+        public System.Threading.Tasks.Task<ARSACSoft.ReporteWS.generarBoletaDeVentaResponse> generarBoletaDeVentaAsync(int arg0, string arg1) {
             ARSACSoft.ReporteWS.generarBoletaDeVentaRequest inValue = new ARSACSoft.ReporteWS.generarBoletaDeVentaRequest();
-            inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
+            inValue.Body = new ARSACSoft.ReporteWS.generarBoletaDeVentaRequestBody();
+            inValue.Body.arg0 = arg0;
+            inValue.Body.arg1 = arg1;
             return ((ARSACSoft.ReporteWS.ReporteWS)(this)).generarBoletaDeVentaAsync(inValue);
         }
     }

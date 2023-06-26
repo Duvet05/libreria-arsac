@@ -14,28 +14,13 @@ DROP PROCEDURE IF EXISTS LISTAR_ORDEN_MAYORISTA_POR_FECHA;
 DROP PROCEDURE IF EXISTS LISTAR_ORDEN_MAYORISTA_POR_CLIENTES;
 DROP PROCEDURE IF EXISTS LISTAR_ORDEN_MAYORISTA_POR_VENDEDOR;
 
-DELIMITER $
-CREATE PROCEDURE INSERTAR_ORDEN_DE_VENTA_MAYORISTA(
-  OUT _id_orden_de_venta INT,
-  IN _fid_empleado INT,
-  IN _fid_cliente_mayorista INT,
-  IN _total DECIMAL(10, 2),
-  IN _fecha_orden DATE,
-  IN _activo BOOLEAN
-)
-BEGIN
-  -- Insertar en la tabla de órdenes de venta
- INSERT INTO ordenDeVenta (fid_cliente_mayorista,fid_empleado, total, fecha_orden,activo)
-  VALUES (_fid_cliente_mayorista,_fid_empleado, _total, _fecha_orden,_activo);
-  
-  -- Obtener el ID de la orden de venta insertada
-  SET _id_orden_de_venta = LAST_INSERT_ID();
-END;$
-
-
-
+DROP PROCEDURE IF EXISTS INSERTAR_ORDEN_DE_VENTA_MINORISTA;
+DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE_VENTAS;
+DROP PROCEDURE IF EXISTS VERIFICAR_STOCK_SUFICIENTE;
+DROP PROCEDURE IF EXISTS INSERTAR_LINEA_ORDEN_VENTA;
 
 DELIMITER $
+
 CREATE PROCEDURE INSERTAR_LINEA_ORDEN_VENTA_MAYORISTA(
   IN _fid_orden_de_venta INT,
   IN _fid_producto INT,
@@ -46,13 +31,12 @@ CREATE PROCEDURE INSERTAR_LINEA_ORDEN_VENTA_MAYORISTA(
 BEGIN
   INSERT INTO lineaOrdenDeVenta (fid_orden_de_venta, fid_producto, cantidad, descuento, subtotal)
   VALUES (_fid_orden_de_venta, _fid_producto, _cantidad, _descuento, _subtotal);
-END;$
+END$
 
 -- #######################################################################
 -- ORDEN DE VENTA MAYORISTA- MODIFICAR
 -- #######################################################################
 
-DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_ORDEN_DE_VENTA(
     IN _id_orden_de_venta INT,
     IN _fid_cliente_mayorista INT,
@@ -66,10 +50,9 @@ BEGIN
         total = _total,
         fecha_orden = _fecha_orden
     WHERE id_orden_de_venta = _id_orden_de_venta;
-END;$
+END$
 
 
-DELIMITER $
 CREATE PROCEDURE ACTUALIZAR_LINEA_ORDEN_DE_VENTA (
     IN _fid_orden_de_venta INT,
     IN _fid_producto INT,
@@ -86,12 +69,12 @@ BEGIN
         activo = _activo
     WHERE fid_orden_de_venta = _fid_orden_de_venta
         AND fid_producto = _fid_producto;
-END;$
+END$
 
 -- #######################################################################
 -- ORDEN DE VENTA MAYORISTA- CANCELAR
 -- #######################################################################
-DELIMITER $
+
 CREATE PROCEDURE CANCELAR_VENTA_MAYORISTA(
 	IN _id_orden_de_venta INT
 )
@@ -99,12 +82,12 @@ BEGIN
     UPDATE ordenDeVenta
     SET activo = false
     WHERE id_orden_de_venta = _id_orden_de_venta;
-END;$
+END$
 
 -- #######################################################################
 -- lISTAR
 -- #######################################################################
-DELIMITER $
+
 CREATE PROCEDURE LISTAR_PRODUCTOS_ORDEN_MAYORISTA (
 IN _orden_venta_id INT
 )
@@ -112,32 +95,32 @@ BEGIN
     SELECT fid_producto,cantidad,descuento,subtotal,activo as "estado" 
     FROM lineaOrdenDeVenta 
 	WHERE fid_orden_de_venta = 1 AND activo = 1;
-END;$
+END$
 -- #######################################################################
 -- lISTAR FECHA
 -- #######################################################################
-DELIMITER $
+
 CREATE PROCEDURE LISTAR_ORDEN_MAYORISTA_POR_FECHA()
 BEGIN
     SELECT *
     FROM ordenDeVenta
     ORDER BY fecha_orden DESC;
-END;$
+END$
 -- #######################################################################
 -- lISTAR CLIENTE
 -- #######################################################################
-DELIMITER $
+
 CREATE PROCEDURE LISTAR_ORDEN_MAYORISTA_POR_CLIENTES()
 BEGIN
     SELECT *
     FROM ordenDeVenta
     ORDER BY fid_cliente_mayorista DESC;
-END;$
+END$
 
 -- #######################################################################
 -- lISTAR CLIENTE
 -- #######################################################################
-DELIMITER $
+
 CREATE PROCEDURE LISTAR_ORDEN_MAYORISTA_POR_VENDEDOR(
 IN _fid_empleado INT
 )
@@ -145,11 +128,11 @@ BEGIN
     SELECT *
 	FROM ordenDeVenta
 	WHERE fid_empleado = _fid_empleado;
-END;$
+END$
 
+-- VENTA MINORISTA
 
-DELIMITER $
-CREATE DEFINER=`admin`@`%` PROCEDURE `INSERTAR_ORDEN_DE_VENTA_MINORISTA`(
+CREATE PROCEDURE INSERTAR_ORDEN_DE_VENTA_MINORISTA(
   OUT _id_orden_de_venta INT,
   IN _fid_empleado INT,
   IN _total DECIMAL(10,2),
@@ -164,8 +147,7 @@ BEGIN
   SET _id_orden_de_venta = LAST_INSERT_ID();
 END$
 
-DELIMITER $
-CREATE DEFINER=`admin`@`%` PROCEDURE `INSERTAR_ORDEN_DE_VENTA_MAYORISTA`(
+CREATE PROCEDURE INSERTAR_ORDEN_DE_VENTA_MAYORISTA(
   OUT _id_orden_de_venta INT,
   IN _fid_empleado INT,
   IN _fid_cliente_mayorista INT,
@@ -182,9 +164,7 @@ BEGIN
   SET _id_orden_de_venta = LAST_INSERT_ID();
 END$
 
-
-DELIMITER $$
-CREATE DEFINER=`admin`@`%` PROCEDURE `LISTAR_PRODUCTOS_DE_SEDE_VENTAS`(
+CREATE PROCEDURE LISTAR_PRODUCTOS_DE_SEDE_VENTAS(
     IN _nombre VARCHAR(100),
     IN _fid_categoria INT,
     IN _fid_marca INT,
@@ -244,12 +224,10 @@ BEGIN
             AND m.id_marca = _fid_marca
             AND c.id_categoria = _fid_categoria;
     END IF;
-END$$
-DELIMITER ;
+END$
 
 
-DELIMITER $$
-CREATE DEFINER=`admin`@`%` PROCEDURE `VERIFICAR_STOCK_SUFICIENTE`(
+CREATE PROCEDURE VERIFICAR_STOCK_SUFICIENTE(
     IN _fid_sede INT,
     IN _fid_producto INT,
     IN _cantidad DOUBLE,
@@ -270,12 +248,9 @@ BEGIN
     ELSE
         SET _stock_suficiente = 0; -- No hay suficiente stock
     END IF;
-END$$
-DELIMITER ;
+END $
 
-
-DELIMITER $$
-CREATE DEFINER=`admin`@`%` PROCEDURE `INSERTAR_LINEA_ORDEN_VENTA`(
+CREATE PROCEDURE INSERTAR_LINEA_ORDEN_VENTA(
   IN _fid_orden_de_venta INT,
   IN _fid_producto INT,
   IN _cantidad INT,
@@ -283,18 +258,17 @@ CREATE DEFINER=`admin`@`%` PROCEDURE `INSERTAR_LINEA_ORDEN_VENTA`(
   IN _subtotal DECIMAL(10, 2)
 )
 BEGIN
-  DECLARE cantidad_actual INT;
+  DECLARE _fid_empleado INT;
+  
   INSERT INTO lineaOrdenDeVenta (fid_orden_de_venta, fid_producto, cantidad, descuento, subtotal)
   VALUES (_fid_orden_de_venta, _fid_producto, _cantidad, _descuento, _subtotal);
   
-    -- Obtener la cantidad actual del producto en la sede
-  SELECT stock INTO cantidad_actual
-  FROM sedeXproducto
-  WHERE fid_producto = _fid_producto AND fid_sede = _fid_sede;
+  SELECT fid_empleado into _fid_empleado from ordenDeVenta where id_orden_de_venta = _fid_orden_de_venta;
   
   -- Restar la cantidad vendida a la cantidad actual del producto en la sede
   UPDATE sedeXproducto
-  SET stock = cantidad_actual - _cantidad
-  WHERE fid_producto = _fid_producto AND fid_sede = _fid_sede;
-END$$
-DELIMITER ;
+  SET stock = stock - _cantidad
+  WHERE fid_producto = _fid_producto AND
+  fid_sede = (SELECT e.fid_sede FROM empleado e WHERE e.fid_empleado = _fid_empleado);
+
+END $
