@@ -44,9 +44,11 @@ namespace ARSACSoft
                     btnCancelar.Enabled = false;
                     btnBuscarPedido.Enabled = true;
                     AgregarCliente.Enabled = false;
+                    dateFechaEntrega.Enabled = false;
                     btnAgregar.Enabled = false;
                     BtnQuitar.Enabled = false;
                     textNombreProducto.Enabled = false;
+                    btCorreo.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
                     textMonto.Enabled = false;
@@ -55,6 +57,8 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     txtRUC.Enabled = false;
                     btPedido.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
+                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     checkBoxFactura.Enabled = false;
@@ -68,6 +72,7 @@ namespace ARSACSoft
                     break;
                 case Estado.Nuevo:
                     btnNuevo.Enabled = false;
+                    btCorreo.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnAgregar.Enabled = true;
                     BtnQuitar.Enabled = true;
@@ -94,6 +99,7 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
                     textNombreProducto.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
@@ -102,6 +108,7 @@ namespace ARSACSoft
                     textDescontadoTotal.Enabled = false;
                     textCantProducto.Enabled = false;
                     btPedido.Enabled = false;
+                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     txtRUC.Enabled = false;
@@ -123,12 +130,19 @@ namespace ARSACSoft
             txtNombreCompleto.Enabled = facturaChecked;
             btnCliente.Enabled = facturaChecked;
             AgregarCliente.Enabled = facturaChecked;
+            txtDireccion.Enabled = facturaChecked;
+            dateFechaEntrega.Enabled = facturaChecked;
+            btnBuscarDireccion.Enabled = facturaChecked;
             if (!facturaChecked)
             {
                 txtRUC.Text = string.Empty;
+                txtDireccion.Text = string.Empty;
+                dateFechaEntrega.Value = DateTime.Now;
                 txtRazonSocial.Text = string.Empty;
                 txtNombreCompleto.Text = string.Empty; // Limpia el contenido del campo de factura
             }
+            UpdateTextBoxes();
+
         }
 
         private void checkBoxDescuento_CheckedChanged(object sender, EventArgs e)
@@ -150,6 +164,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -218,34 +233,55 @@ namespace ARSACSoft
                 MessageBox.Show("Debe ingresar una cantidad válida", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            foreach (lineaDeOrdenDeVenta linea in this._lineasOrdenDeVenta)
+
+            // Verificar stock en sede
+            int idProducto = _producto.idProducto;
+            int cantidad = int.Parse(textCantProducto.Text);
+
+            // Obtener el ID de la sede desde algún lugar (por ejemplo, una variable o un control en el formulario)
+
+            // Llamar al método para verificar el stock suficiente en la sede
+            int tieneStock = daoVentas.verificarStockSuficiente(_id_sede, idProducto, cantidad);
+
+            if (tieneStock == 1)
             {
-                if (linea.producto.idProducto.Equals(_producto.idProducto))
+                // El stock es suficiente, continuar con la lógica de agregar el producto a la orden
+                foreach (lineaDeOrdenDeVenta linea in this._lineasOrdenDeVenta)
                 {
-                    linea.cantidad += Int32.Parse(textCantProducto.Text);
-                    linea.descuento = Double.Parse(textDescuentoPorcentaje.Text); // Actualizar subtotal
-                    UpdateTextBoxes();
-                    return;
+                    if (linea.producto.idProducto.Equals(_producto.idProducto))
+                    {
+                        linea.cantidad += cantidad;
+                        linea.descuento = Double.Parse(textDescuentoPorcentaje.Text); // Actualizar subtotal
+                        UpdateTextBoxes();
+                        return;
+                    }
                 }
-            }
 
-            lineaDeOrdenDeVenta lov = new lineaDeOrdenDeVenta();
-            lov.producto = new VentasWS.producto();
-            lov.producto.idProducto = _producto.idProducto;
-            lov.producto.nombre = _producto.nombre;
-            lov.cantidad = Int32.Parse(textCantProducto.Text);
-            lov.precio = _producto.precioPorMenor;
+                lineaDeOrdenDeVenta lov = new lineaDeOrdenDeVenta();
+                lov.producto = new VentasWS.producto();
+                lov.producto.idProducto = _producto.idProducto;
+                lov.producto.precioPorMayor = _producto.precioPorMayor;
+                lov.producto.precioPorMenor = _producto.precioPorMenor;
+                lov.producto.nombre = _producto.nombre;
+                lov.cantidad = cantidad;
 
-            if (Double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
-            {
-                lov.descuento = descuento;
+
+                if (Double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
+                {
+                    lov.descuento = descuento;
+                }
+                else
+                {
+                    lov.descuento = 0.0;
+                }
+                _lineasOrdenDeVenta.Add(lov);
+                UpdateTextBoxes();
             }
             else
             {
-                lov.descuento = 0.0;
+                // No hay suficiente stock, mostrar un mensaje de advertencia
+                MessageBox.Show("No hay suficiente stock disponible para agregar este producto a la orden.", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            _lineasOrdenDeVenta.Add(lov);
-            UpdateTextBoxes();
         }
 
 
@@ -258,6 +294,9 @@ namespace ARSACSoft
                 textDescuentoPorcentaje.Text = "";
                 _lineasOrdenDeVenta.RemoveAt(rowIndex);
                 UpdateTextBoxes();
+                textSubTotal.Text = "";
+                textCantidad.Text = "";
+                textPrecioUni.Text = "";
             }
         }
 
@@ -272,9 +311,17 @@ namespace ARSACSoft
             textCantProducto.Text = "";
             foreach (lineaDeOrdenDeVenta linea in _lineasOrdenDeVenta)
             {
+                if (checkBoxFactura.Checked)
+                {
+                    linea.precio = linea.producto.precioPorMayor;
+                }
+                else
+                {
+                    linea.precio = linea.producto.precioPorMenor;
+                }
                 if (linea.producto.idProducto.Equals(_producto.idProducto))
                 {
-                    textPrecioUni.Text = (linea.precio - linea.precio * (linea.descuento / 100)).ToString("N2");
+                    textPrecioUni.Text = linea.precio.ToString("N2");
                     textCantidad.Text = linea.cantidad.ToString();
                     textSubTotal.Text = (linea.precio * linea.cantidad).ToString("N2");
                     descuentoTotal += (linea.precio * linea.cantidad * (linea.descuento / 100));
@@ -300,6 +347,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -309,14 +357,25 @@ namespace ARSACSoft
             {
                 DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
 
-                // Obtener los valores de precio y cantidad de la línea seleccionada
-                double precio = Convert.ToDouble(selectedRow.Cells["Column4"].Value);
-                int cantidad = Convert.ToInt32(selectedRow.Cells["Column3"].Value);
+                if (selectedRow.DataBoundItem is lineaDeOrdenDeVenta linea)
+                {
+                    textNombreProducto.Text = linea.producto.nombre;
+                    textCantProducto.Text = linea.cantidad.ToString();
+                    textDescuentoPorcentaje.Text = linea.descuento.ToString();
 
-                // Asignar los valores a los TextBox correspondientes
-                textPrecioUni.Text = precio.ToString();
-                textCantidad.Text = cantidad.ToString();
-                textSubTotal.Text = (cantidad * precio).ToString("N2");
+                    // Habilitar la edición de los valores de cantidad y descuento
+                    textCantProducto.Enabled = true;
+                    textDescuentoPorcentaje.Enabled = true;
+                }
+            }
+            else
+            {
+                // No hay filas seleccionadas, limpiar los campos de texto y deshabilitar la edición
+                textNombreProducto.Text = string.Empty;
+                textCantProducto.Text = string.Empty;
+                textDescuentoPorcentaje.Text = string.Empty;
+                textCantProducto.Enabled = false;
+                textDescuentoPorcentaje.Enabled = false;
             }
         }
 
@@ -325,7 +384,6 @@ namespace ARSACSoft
             if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
             {
                 lineaDeOrdenDeVenta lov = _lineasOrdenDeVenta[e.RowIndex];
-
                 if (e.ColumnIndex == 0)
                 {
                     e.Value = lov.producto.idProducto.ToString();
@@ -420,6 +478,7 @@ namespace ARSACSoft
 
         private void btCorreo_Click(object sender, EventArgs e)
         {
+            btCorreo.Enabled = false;
             estado = Estado.Inicial;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
@@ -427,6 +486,7 @@ namespace ARSACSoft
 
         private void btPedido_Click(object sender, EventArgs e)
         {
+            
             if (_lineasOrdenDeVenta.Count == 0)
             {
                 MostrarAdvertencia("La línea de orden de venta está vacía.");
@@ -448,7 +508,7 @@ namespace ARSACSoft
             ordenV.precioTotal = precioTotal;
             ordenV.empleado = new VentasWS.empleado();
             ordenV.empleado.idPersona = _id_empleado;
-
+            //ordenV.d
             if (checkBoxFactura.Checked)
             {
                 if (_clienteMayorista == null)
@@ -459,25 +519,38 @@ namespace ARSACSoft
 
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
+                ordenV.direccion = txtDireccion.Text;
                 daoVentas.insertarOrdenDeVentaMayorista(ordenV);
             }
             else
             {
                 daoVentas.insertarOrdenDeVentaMinorista(ordenV);
             }
+            //descontar productos sedes
             RestaurarEstadoFormulario();
         }
 
         private void RestaurarEstadoFormulario()
         {
             estado = Estado.Inicial;
-            LimpiarComponentes();
+            //LimpiarComponentes();
             EstablecerEstadoFormulario();
+            btCorreo.Enabled = true;
         }
 
         private void MostrarAdvertencia(string mensaje)
         {
             MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnBuscarDireccion_Click(object sender, EventArgs e)
+        {
+            frmBursarDireccion frm = new frmBursarDireccion();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtDireccion.Text = frm.direccionSeleccionada;
+            }
         }
     }
 }

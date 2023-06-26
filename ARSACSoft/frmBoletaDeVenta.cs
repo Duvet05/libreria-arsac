@@ -12,11 +12,9 @@ namespace ARSACSoft
 {
     public partial class frmBoletaDeVenta : Form
     {
-        public frmBoletaDeVenta(int idOrdenDeVenta, int idEmpleado)
+        public frmBoletaDeVenta()
         {
             InitializeComponent();
-
-            
         }
     }
 }
