@@ -44,6 +44,7 @@ namespace ARSACSoft
                     btnCancelar.Enabled = false;
                     btnBuscarPedido.Enabled = true;
                     AgregarCliente.Enabled = false;
+                    dateFechaEntrega.Enabled = false;
                     btnAgregar.Enabled = false;
                     BtnQuitar.Enabled = false;
                     textNombreProducto.Enabled = false;
@@ -56,6 +57,8 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     txtRUC.Enabled = false;
                     btPedido.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
+                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     checkBoxFactura.Enabled = false;
@@ -96,6 +99,7 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
                     textNombreProducto.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
@@ -104,6 +108,7 @@ namespace ARSACSoft
                     textDescontadoTotal.Enabled = false;
                     textCantProducto.Enabled = false;
                     btPedido.Enabled = false;
+                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     txtRUC.Enabled = false;
@@ -125,9 +130,14 @@ namespace ARSACSoft
             txtNombreCompleto.Enabled = facturaChecked;
             btnCliente.Enabled = facturaChecked;
             AgregarCliente.Enabled = facturaChecked;
+            txtDireccion.Enabled = facturaChecked;
+            dateFechaEntrega.Enabled = facturaChecked;
+            btnBuscarDireccion.Enabled = facturaChecked;
             if (!facturaChecked)
             {
                 txtRUC.Text = string.Empty;
+                txtDireccion.Text = string.Empty;
+                dateFechaEntrega.Value = DateTime.Now;
                 txtRazonSocial.Text = string.Empty;
                 txtNombreCompleto.Text = string.Empty; // Limpia el contenido del campo de factura
             }
@@ -424,6 +434,7 @@ namespace ARSACSoft
 
         private void btCorreo_Click(object sender, EventArgs e)
         {
+            btCorreo.Enabled = false;
             estado = Estado.Inicial;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
@@ -478,8 +489,8 @@ namespace ARSACSoft
         {
             estado = Estado.Inicial;
             //LimpiarComponentes();
-            btCorreo.Enabled = true;
             EstablecerEstadoFormulario();
+            btCorreo.Enabled = true;
         }
 
         private void MostrarAdvertencia(string mensaje)
