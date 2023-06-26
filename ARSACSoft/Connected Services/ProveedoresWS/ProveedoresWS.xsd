@@ -14,9 +14,14 @@
   <xs:element name="listarProveedoresXNombreXRUCResponse" type="tns:listarProveedoresXNombreXRUCResponse" />
   <xs:element name="modificarProveedor" type="tns:modificarProveedor" />
   <xs:element name="modificarProveedorResponse" type="tns:modificarProveedorResponse" />
-  <xs:complexType name="insertarProveedor">
+  <xs:complexType name="listarProveedoresXNombreXRUC">
     <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="tns:proveedor" />
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProveedoresXNombreXRUCResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="proveedor">
@@ -76,19 +81,14 @@
       <xs:element minOccurs="0" name="producto" type="tns:producto" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="insertarProveedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:proveedor" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="insertarProveedorResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarProveedoresXNombreXRUC">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="arg0" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarProveedoresXNombreXRUCResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarProveedoresPorCategoria">
