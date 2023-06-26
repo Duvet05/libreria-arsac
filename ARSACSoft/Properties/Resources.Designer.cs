@@ -93,6 +93,26 @@ namespace ARSACSoft.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agregar_archivo {
+            get {
+                object obj = ResourceManager.GetObject("agregar-archivo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap agregar_archivo__1_ {
+            get {
+                object obj = ResourceManager.GetObject("agregar-archivo (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap borrar {
             get {
                 object obj = ResourceManager.GetObject("borrar", resourceCulture);
@@ -116,6 +136,16 @@ namespace ARSACSoft.Properties {
         internal static System.Drawing.Bitmap boton_editar1 {
             get {
                 object obj = ResourceManager.GetObject("boton-editar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boton_editar2 {
+            get {
+                object obj = ResourceManager.GetObject("boton-editar2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +186,26 @@ namespace ARSACSoft.Properties {
         internal static System.Drawing.Bitmap contabilidad {
             get {
                 object obj = ResourceManager.GetObject("contabilidad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editar {
+            get {
+                object obj = ResourceManager.GetObject("editar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("editar (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,6 +263,26 @@ namespace ARSACSoft.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap guardar_el_archivo {
+            get {
+                object obj = ResourceManager.GetObject("guardar-el-archivo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hoja_en_blanco {
+            get {
+                object obj = ResourceManager.GetObject("hoja-en-blanco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hombre {
             get {
                 object obj = ResourceManager.GetObject("hombre", resourceCulture);
@@ -256,6 +326,16 @@ namespace ARSACSoft.Properties {
         internal static System.Drawing.Bitmap imgSalir2 {
             get {
                 object obj = ResourceManager.GetObject("imgSalir2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap limpieza_de_datos {
+            get {
+                object obj = ResourceManager.GetObject("limpieza-de-datos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +413,79 @@ namespace ARSACSoft.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lupa {
+            get {
+                object obj = ResourceManager.GetObject("lupa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupa__1_ {
+            get {
+                object obj = ResourceManager.GetObject("lupa (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupa__2_ {
+            get {
+                object obj = ResourceManager.GetObject("lupa (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimalist_desktop_131 {
             get {
                 object obj = ResourceManager.GetObject("minimalist-desktop-131", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nuevo_documento {
+            get {
+                object obj = ResourceManager.GetObject("nuevo-documento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nuevo_documento__1_ {
+            get {
+                object obj = ResourceManager.GetObject("nuevo-documento (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nuevo_documento__2_ {
+            get {
+                object obj = ResourceManager.GetObject("nuevo-documento (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nuevo_documento__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("nuevo-documento (2)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +516,16 @@ namespace ARSACSoft.Properties {
         internal static System.Drawing.Bitmap reporte_de_negocios {
             get {
                 object obj = ResourceManager.GetObject("reporte-de-negocios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap salvar {
+            get {
+                object obj = ResourceManager.GetObject("salvar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
