@@ -7,6 +7,7 @@ import pe.edu.pucp.arcacsoft.ordenes.dao.LineaDeOrdenDeVentaDAO;
 import pe.edu.pucp.arsacsoft.ordenes.model.LineaDeOrdenDeVenta;
 
 public class LineaOrdenDeVentaMySQL implements LineaDeOrdenDeVentaDAO {
+
     private Connection con;
     private CallableStatement cs;
 
@@ -75,4 +76,35 @@ public class LineaOrdenDeVentaMySQL implements LineaDeOrdenDeVentaDAO {
     public int eliminar(int idOrdenVenta, int idProducto) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public int verificarStockSuficiente(int idSede, int idProducto, int cantidad) {
+        int resultado = 0;
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call VERIFICAR_STOCK_SUFICIENTE(?,?,?,?)}");
+            cs.registerOutParameter("_stock_suficiente", java.sql.Types.INTEGER);
+            cs.setInt("_fid_sede", idSede);
+            cs.setInt("_fid_producto", idProducto);
+            cs.setDouble("_cantidad", cantidad);
+            cs.executeUpdate();
+            resultado = cs.getInt("_stock_suficiente"); // Obtener el valor del parámetro de salida
+        } catch (Exception ex) {
+            System.out.println("Error al verificar el stock: " + ex.getMessage());
+            resultado = -1; // Opcional: Establecer un valor especial para indicar un error
+        } finally {
+            try {
+                if (cs != null) {
+                    cs.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception ex) {
+                System.out.println("Error al cerrar la conexión: " + ex.getMessage());
+            }
+        }
+        return resultado;
+    }
+
 }

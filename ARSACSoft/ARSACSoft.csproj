@@ -156,7 +156,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Ciudades.cs" />
-    <Compile Include="CorreoAPI.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="frmActualizarCredenciales.cs">
       <SubType>Form</SubType>
@@ -640,11 +639,13 @@
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.ordenDeVenta1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.verificarStockSuficienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />
     <None Include="Connected Services\VentasWS\VentasWS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="JSONs\credenciales.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
