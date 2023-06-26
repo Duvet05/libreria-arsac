@@ -14,4 +14,5 @@ import pe.edu.pucp.arsacsoft.proveedores.model.ProductoXProveedor;
 public interface ProductoXProveedorDAO {
     ArrayList<ProductoXProveedor> listarProductosXProveedor(String nombre, int _fid_categoria, 
                                 int _fid_marca, int _fid_proveedor);
+    //Array
 }
