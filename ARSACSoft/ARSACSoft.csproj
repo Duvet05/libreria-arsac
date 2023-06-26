@@ -432,7 +432,13 @@
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.modificarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.ordenDeCompra.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.productoXProveedor.datasource">
