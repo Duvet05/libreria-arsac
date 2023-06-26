@@ -55,16 +55,19 @@ namespace ARSACSoft
 
         private void dgvProveedores_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex < 0 || e.RowIndex >= dgvProveedores.Rows.Count)
-                return;
+            try
+            {
+                proveedor proveed = (proveedor)dgvProveedores.Rows[e.RowIndex].DataBoundItem;
+                dgvProveedores.Rows[e.RowIndex].Cells[0].Value = proveed.idProveedor;
+                dgvProveedores.Rows[e.RowIndex].Cells[1].Value = proveed.nombre;
+                dgvProveedores.Rows[e.RowIndex].Cells[2].Value = proveed.direccion;
+                dgvProveedores.Rows[e.RowIndex].Cells[3].Value = proveed.RUC;
+                dgvProveedores.Rows[e.RowIndex].Cells[4].Value = proveed.telefono;
+                        }
+            catch (Exception ex)
+            {
 
-            proveedor proveed = (proveedor)dgvProveedores.Rows[e.RowIndex].DataBoundItem;
-            dgvProveedores.Rows[e.RowIndex].Cells[0].Value = proveed.idProveedor;
-            dgvProveedores.Rows[e.RowIndex].Cells[1].Value = proveed.nombre;
-            dgvProveedores.Rows[e.RowIndex].Cells[2].Value = proveed.direccion;
-            dgvProveedores.Rows[e.RowIndex].Cells[3].Value = proveed.RUC;
-            dgvProveedores.Rows[e.RowIndex].Cells[4].Value = proveed.telefono;
-
+            }
         }
     }
 }
