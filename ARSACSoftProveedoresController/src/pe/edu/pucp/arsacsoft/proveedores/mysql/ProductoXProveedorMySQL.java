@@ -14,6 +14,7 @@ import pe.edu.pucp.arsacsoft.producto.model.Marca;
 import pe.edu.pucp.arsacsoft.producto.model.Producto;
 import pe.edu.pucp.arsacsoft.proveedores.dao.ProductoXProveedorDAO;
 import pe.edu.pucp.arsacsoft.proveedores.model.ProductoXProveedor;
+import pe.edu.pucp.arsacsoft.almacen.model.OrdenDeCompra;
 import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
 
 /**
@@ -62,6 +63,39 @@ public class ProductoXProveedorMySQL implements ProductoXProveedorDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return productos;     
+    }
+
+    @Override
+    public ArrayList<OrdenDeCompra> listarTodasOrdenesCompraXProveedor(
+            String nombre_Proveedor) {
+        ArrayList<OrdenDeCompra> ordenesCompra = new ArrayList<>();
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_TODAS_ORDENES_COMPRA_X_PROVEEDOR(?)}");
+            cs.setString("_nombre_proveedor", nombre_Proveedor);
+            rs = cs.executeQuery();
+            while(rs.next()){
+                OrdenDeCompra ordenXProveedor = new OrdenDeCompra();
+                ordenXProveedor.setProveedor(new Proveedor());
+                
+                ordenXProveedor.getProveedor().setIdProveedor(rs.getInt("idProveedor"));
+                ordenXProveedor.getProveedor().setNombre(rs.getString("nombreProveedor"));
+                
+                ordenXProveedor.setIdOrdenDeCompra(rs.getInt("id_ordenCompra"));
+                ordenXProveedor.setFechaOrden(rs.getDate("fechaOrden"));
+                ordenXProveedor.setCostototal(rs.getDouble("total"));
+                ordenXProveedor.setEstado(rs.getString("estado"));
+                ordenXProveedor.setActivo(rs.getBoolean("vigente"));
+                
+                
+                ordenesCompra.add(ordenXProveedor);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return ordenesCompra;
     }
    
 }
