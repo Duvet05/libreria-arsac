@@ -10,7 +10,11 @@ DROP PROCEDURE IF exists INSERTAR_LINEA_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA;
 DROP PROCEDURE IF exists LISTAR_CATEGORIA_TODAS;
 DROP PROCEDURE IF exists LISTAR_MARCA_TODAS;
-
+DROP PROCEDURE IF EXISTS INSERTAR_PROMOCION;
+DROP PROCEDURE IF EXISTS MODIFICAR_PROMOCION;
+DROP PROCEDURE IF EXISTS ELIMINAR_PROMOCION;
+DROP PROCEDURE IF EXISTS LISTAR_PROMOCION_POR_NOMBRE;
+	
 DELIMITER $
 create procedure LISTAR_CATEGORIA_TODAS()
 begin
@@ -276,5 +280,54 @@ BEGIN
 	WHERE loc.fid_orden_de_compra = _id_orden_de_compra AND loc.activo = 1;
 END $
 
+DELIMITER $
+
+CREATE PROCEDURE INSERTAR_PROMOCION(
+  OUT _id_promocion INT,
+  IN _fid_producto INT,
+  IN _porcentaje DECIMAL(10, 2),
+  IN _cantidad_minima INT,
+  IN _fecha_inicio DATE,
+  IN _fecha_fin DATE
+)
+BEGIN
+  INSERT INTO promocion (fid_producto, porcentaje, cantidad_minima, fecha_inicio, fecha_fin)
+  VALUES (_fid_producto,_porcentaje,_cantidad_minima,_fecha_inicio,_fecha_fin);
+  SET _id_promocion = @@last_insert_id;
+END$
+
+DELIMITER $
+
+CREATE PROCEDURE ACTUALIZAR_PROMOCION(
+  IN _id_promocion INT,
+  IN _fid_producto INT,
+  IN _porcentaje DECIMAL(10, 2),
+  IN _cantidad_minima INT,
+  IN _fecha_inicio DATE,
+  IN _fecha_fin DATE
+)
+BEGIN
+  UPDATE promocion
+  SET fid_producto = _fid_producto,porcentaje = _porcentaje,cantidad_minima = _cantidad_minima,
+      fecha_inicio = _fecha_inicio,fecha_fin = _fecha_fin
+  WHERE id_promocion = _id_promocion;
+END$
+
+DELIMITER $
+CREATE PROCEDURE ELIMINAR_PROMOCION(
+	IN _id_promocion INT
+)
+BEGIN
+	UPDATE promocion SET activo = 0 where id_promocion = _id_promocion;
+END$
+
+CREATE PROCEDURE LISTAR_PROMOCIONES_POR_NOMBRE_PRODUCTO(
+	IN _nombre VARCHAR(50))
+BEGIN
+    SELECT p.id_promocion ,pr.nombre , p.fecha_inicio ,p.fecha_fin , p.cantidad_minima , p.porcentaje
+    FROM promocion p
+    INNER JOIN producto pr ON p.fid_producto = pr.id_producto
+    WHERE pr.nombre = productName;
+END$
 
 
