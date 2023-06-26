@@ -103,7 +103,7 @@ public class ProveedoresWS {
         return productos;
     }
     
-    @WebMethod(operationName = "listarTodasOrdenesCompraXProveedor")
+            @WebMethod(operationName = "listarTodasOrdenesCompraXProveedor")
     public ArrayList<OrdenDeCompra> listarTodasOrdenesCompraXProveedor(
             String nombre_proveedor) {
         ArrayList<OrdenDeCompra> ordenesXProveedor = null;
@@ -114,4 +114,6 @@ public class ProveedoresWS {
         }
         return ordenesXProveedor;
     }
+
 }
+

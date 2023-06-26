@@ -381,9 +381,25 @@ namespace ARSACSoft
 
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+
+            lineaDeOrdenDeVenta lov = (lineaDeOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
+
+            dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.producto.idProducto;
+            dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.producto.nombre;
+            dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.cantidad;
+            dataGridView2.Rows[e.RowIndex].Cells[3].Value = lov.producto.precioPorMenor;
+            dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento;
+            dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.precio;
+
+            /*
             if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
             {
                 lineaDeOrdenDeVenta lov = _lineasOrdenDeVenta[e.RowIndex];
+
+
+
+
+
                 if (e.ColumnIndex == 0)
                 {
                     e.Value = lov.producto.idProducto.ToString();
@@ -408,7 +424,7 @@ namespace ARSACSoft
                 {
                     e.Value = (lov.cantidad * lov.precio).ToString("N2");
                 }
-            }
+            }*/
         }
 
         private void textCantProducto_KeyDown(object sender, KeyPressEventArgs e)
@@ -524,7 +540,10 @@ namespace ARSACSoft
             }
             else
             {
-                daoVentas.insertarOrdenDeVentaMinorista(ordenV);
+                ordenV.idOrdenDeVenta = daoVentas.insertarOrdenDeVentaMinorista(ordenV);
+                
+                frmBoletaDeVenta frm = new frmBoletaDeVenta(ordenV.idOrdenDeVenta, _id_empleado);
+                frm.ShowDialog();
             }
             //descontar productos sedes
             RestaurarEstadoFormulario();
@@ -552,5 +571,6 @@ namespace ARSACSoft
                 txtDireccion.Text = frm.direccionSeleccionada;
             }
         }
+
     }
 }

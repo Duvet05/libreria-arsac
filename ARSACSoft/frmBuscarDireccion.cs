@@ -19,6 +19,7 @@ namespace ARSACSoft
         public frmBursarDireccion()
         {
             InitializeComponent();
+
             InitializeMaps();
         }
         public string direccionSeleccionada { get => _direccionSeleccionada; set => _direccionSeleccionada = value; }

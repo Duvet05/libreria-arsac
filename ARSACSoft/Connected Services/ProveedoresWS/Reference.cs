@@ -16,36 +16,34 @@ namespace ARSACSoft.ProveedoresWS {
     public interface ProveedoresWS {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
-            "Request", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
-            "Response")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse listarProveedoresPorCategoria(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request);
+        ARSACSoft.ProveedoresWS.eliminarProveedorResponse eliminarProveedor(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
-            "Request", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
-            "Response")]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse> listarProveedoresPorCategoriaAsync(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.eliminarProveedorResponse> eliminarProveedorAsync(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorRequ" +
-            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorResp" +
-            "onse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
+            "equest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
+            "esponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse listarProductosXProveedor(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request);
+        ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse listarProveedoresXNombreXRUC(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorRequ" +
-            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorResp" +
-            "onse")]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse> listarProductosXProveedorAsync(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
+            "equest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
+            "esponse")]
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse> listarProveedoresXNombreXRUCAsync(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresAfabeticamen" +
             "teRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresAfabeticamen" +
             "teResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ARSACSoft.ProveedoresWS.listarProveedoresAfabeticamenteResponse listarProveedoresAfabeticamente(ARSACSoft.ProveedoresWS.listarProveedoresAfabeticamenteRequest request);
         
@@ -57,6 +55,7 @@ namespace ARSACSoft.ProveedoresWS {
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/insertarProveedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/insertarProveedorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ARSACSoft.ProveedoresWS.insertarProveedorResponse insertarProveedor(ARSACSoft.ProveedoresWS.insertarProveedorRequest request);
         
@@ -64,17 +63,23 @@ namespace ARSACSoft.ProveedoresWS {
         System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.insertarProveedorResponse> insertarProveedorAsync(ARSACSoft.ProveedoresWS.insertarProveedorRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorRequ" +
+            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorResp" +
+            "onse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.ProveedoresWS.eliminarProveedorResponse eliminarProveedor(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request);
+        ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse listarProductosXProveedor(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/eliminarProveedorResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.eliminarProveedorResponse> eliminarProveedorAsync(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorRequ" +
+            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProductosXProveedorResp" +
+            "onse")]
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse> listarProductosXProveedorAsync(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/modificarProveedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/modificarProveedorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         ARSACSoft.ProveedoresWS.modificarProveedorResponse modificarProveedor(ARSACSoft.ProveedoresWS.modificarProveedorRequest request);
         
@@ -82,21 +87,72 @@ namespace ARSACSoft.ProveedoresWS {
         System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.modificarProveedorResponse> modificarProveedorAsync(ARSACSoft.ProveedoresWS.modificarProveedorRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
-            "equest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
-            "esponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
+            "Request", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
+            "Response")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse listarProveedoresXNombreXRUC(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request);
+        ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse listarProveedoresPorCategoria(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
-            "equest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresXNombreXRUCR" +
-            "esponse")]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse> listarProveedoresXNombreXRUCAsync(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
+            "Request", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarProveedoresPorCategoria" +
+            "Response")]
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse> listarProveedoresPorCategoriaAsync(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarTodasOrdenesCompraXProv" +
+            "eedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarTodasOrdenesCompraXProv" +
+            "eedorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse listarTodasOrdenesCompraXProveedor(ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarTodasOrdenesCompraXProv" +
+            "eedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/ProveedoresWS/listarTodasOrdenesCompraXProv" +
+            "eedorResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse> listarTodasOrdenesCompraXProveedorAsync(ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProveedor", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarProveedorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg0;
+        
+        public eliminarProveedorRequest() {
+        }
+        
+        public eliminarProveedorRequest(int arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProveedorResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarProveedorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public eliminarProveedorResponse() {
+        }
+        
+        public eliminarProveedorResponse(int @return) {
+            this.@return = @return;
+        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -104,6 +160,8 @@ namespace ARSACSoft.ProveedoresWS {
     public partial class proveedor : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool activoField;
+        
+        private int cantProductosField;
         
         private string direccionField;
         
@@ -131,6 +189,18 @@ namespace ARSACSoft.ProveedoresWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int cantProductos {
+            get {
+                return this.cantProductosField;
+            }
+            set {
+                this.cantProductosField = value;
+                this.RaisePropertyChanged("cantProductos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public string direccion {
             get {
                 return this.direccionField;
@@ -142,7 +212,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public int idProveedor {
             get {
                 return this.idProveedorField;
@@ -154,7 +224,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string nombre {
             get {
                 return this.nombreField;
@@ -166,7 +236,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("productosXProveedor", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute("productosXProveedor", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
         public productoXProveedor[] productosXProveedor {
             get {
                 return this.productosXProveedorField;
@@ -178,7 +248,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public string RUC {
             get {
                 return this.rUCField;
@@ -190,7 +260,7 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public string telefono {
             get {
                 return this.telefonoField;
@@ -212,7 +282,7 @@ namespace ARSACSoft.ProveedoresWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -286,7 +356,7 @@ namespace ARSACSoft.ProveedoresWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -430,7 +500,7 @@ namespace ARSACSoft.ProveedoresWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -490,7 +560,699 @@ namespace ARSACSoft.ProveedoresWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class lineaOrdenDeCompra : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private int cantidadField;
+        
+        private int idLineaOrdenDeCompraField;
+        
+        private productoXProveedor productoProveedorField;
+        
+        private double subtotalField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                this.cantidadField = value;
+                this.RaisePropertyChanged("cantidad");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idLineaOrdenDeCompra {
+            get {
+                return this.idLineaOrdenDeCompraField;
+            }
+            set {
+                this.idLineaOrdenDeCompraField = value;
+                this.RaisePropertyChanged("idLineaOrdenDeCompra");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public productoXProveedor productoProveedor {
+            get {
+                return this.productoProveedorField;
+            }
+            set {
+                this.productoProveedorField = value;
+                this.RaisePropertyChanged("productoProveedor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double subtotal {
+            get {
+                return this.subtotalField;
+            }
+            set {
+                this.subtotalField = value;
+                this.RaisePropertyChanged("subtotal");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class tipoDeEmpleado : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private string descripcionField;
+        
+        private int idTipoDeEmpleadoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+                this.RaisePropertyChanged("descripcion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idTipoDeEmpleado {
+            get {
+                return this.idTipoDeEmpleadoField;
+            }
+            set {
+                this.idTipoDeEmpleadoField = value;
+                this.RaisePropertyChanged("idTipoDeEmpleado");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class sedeXProducto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private producto productoField;
+        
+        private int stockField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public producto producto {
+            get {
+                return this.productoField;
+            }
+            set {
+                this.productoField = value;
+                this.RaisePropertyChanged("producto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int stock {
+            get {
+                return this.stockField;
+            }
+            set {
+                this.stockField = value;
+                this.RaisePropertyChanged("stock");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class sede : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string correoField;
+        
+        private string direccionField;
+        
+        private bool esPrincipalField;
+        
+        private int idSedeField;
+        
+        private sedeXProducto[] productosField;
+        
+        private string telefonoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string correo {
+            get {
+                return this.correoField;
+            }
+            set {
+                this.correoField = value;
+                this.RaisePropertyChanged("correo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public bool esPrincipal {
+            get {
+                return this.esPrincipalField;
+            }
+            set {
+                this.esPrincipalField = value;
+                this.RaisePropertyChanged("esPrincipal");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int idSede {
+            get {
+                return this.idSedeField;
+            }
+            set {
+                this.idSedeField = value;
+                this.RaisePropertyChanged("idSede");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("productos", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
+        public sedeXProducto[] productos {
+            get {
+                return this.productosField;
+            }
+            set {
+                this.productosField = value;
+                this.RaisePropertyChanged("productos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string telefono {
+            get {
+                return this.telefonoField;
+            }
+            set {
+                this.telefonoField = value;
+                this.RaisePropertyChanged("telefono");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class persona : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private string apellidosField;
+        
+        private string correoField;
+        
+        private string dNIField;
+        
+        private int idPersonaField;
+        
+        private string nombreField;
+        
+        private string telefonoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string apellidos {
+            get {
+                return this.apellidosField;
+            }
+            set {
+                this.apellidosField = value;
+                this.RaisePropertyChanged("apellidos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string correo {
+            get {
+                return this.correoField;
+            }
+            set {
+                this.correoField = value;
+                this.RaisePropertyChanged("correo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string DNI {
+            get {
+                return this.dNIField;
+            }
+            set {
+                this.dNIField = value;
+                this.RaisePropertyChanged("DNI");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public int idPersona {
+            get {
+                return this.idPersonaField;
+            }
+            set {
+                this.idPersonaField = value;
+                this.RaisePropertyChanged("idPersona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string telefono {
+            get {
+                return this.telefonoField;
+            }
+            set {
+                this.telefonoField = value;
+                this.RaisePropertyChanged("telefono");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class empleado : persona {
+        
+        private string direccionField;
+        
+        private System.DateTime fechaContratacionField;
+        
+        private bool fechaContratacionFieldSpecified;
+        
+        private byte[] fotoField;
+        
+        private double salarioField;
+        
+        private sede sedeField;
+        
+        private tipoDeEmpleado tipoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public System.DateTime fechaContratacion {
+            get {
+                return this.fechaContratacionField;
+            }
+            set {
+                this.fechaContratacionField = value;
+                this.RaisePropertyChanged("fechaContratacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaContratacionSpecified {
+            get {
+                return this.fechaContratacionFieldSpecified;
+            }
+            set {
+                this.fechaContratacionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaContratacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=2)]
+        public byte[] foto {
+            get {
+                return this.fotoField;
+            }
+            set {
+                this.fotoField = value;
+                this.RaisePropertyChanged("foto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public double salario {
+            get {
+                return this.salarioField;
+            }
+            set {
+                this.salarioField = value;
+                this.RaisePropertyChanged("salario");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public sede sede {
+            get {
+                return this.sedeField;
+            }
+            set {
+                this.sedeField = value;
+                this.RaisePropertyChanged("sede");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public tipoDeEmpleado tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                this.tipoField = value;
+                this.RaisePropertyChanged("tipo");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class ordenDeCompra : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private double costototalField;
+        
+        private empleado empleadoField;
+        
+        private string estadoField;
+        
+        private System.DateTime fechaEntregaField;
+        
+        private bool fechaEntregaFieldSpecified;
+        
+        private System.DateTime fechaOrdenField;
+        
+        private bool fechaOrdenFieldSpecified;
+        
+        private int idOrdenDeCompraField;
+        
+        private lineaOrdenDeCompra[] lineasField;
+        
+        private proveedor proveedorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public double costototal {
+            get {
+                return this.costototalField;
+            }
+            set {
+                this.costototalField = value;
+                this.RaisePropertyChanged("costototal");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public empleado empleado {
+            get {
+                return this.empleadoField;
+            }
+            set {
+                this.empleadoField = value;
+                this.RaisePropertyChanged("empleado");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                this.estadoField = value;
+                this.RaisePropertyChanged("estado");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public System.DateTime fechaEntrega {
+            get {
+                return this.fechaEntregaField;
+            }
+            set {
+                this.fechaEntregaField = value;
+                this.RaisePropertyChanged("fechaEntrega");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaEntregaSpecified {
+            get {
+                return this.fechaEntregaFieldSpecified;
+            }
+            set {
+                this.fechaEntregaFieldSpecified = value;
+                this.RaisePropertyChanged("fechaEntregaSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public System.DateTime fechaOrden {
+            get {
+                return this.fechaOrdenField;
+            }
+            set {
+                this.fechaOrdenField = value;
+                this.RaisePropertyChanged("fechaOrden");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaOrdenSpecified {
+            get {
+                return this.fechaOrdenFieldSpecified;
+            }
+            set {
+                this.fechaOrdenFieldSpecified = value;
+                this.RaisePropertyChanged("fechaOrdenSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public int idOrdenDeCompra {
+            get {
+                return this.idOrdenDeCompraField;
+            }
+            set {
+                this.idOrdenDeCompraField = value;
+                this.RaisePropertyChanged("idOrdenDeCompra");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("lineas", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+        public lineaOrdenDeCompra[] lineas {
+            get {
+                return this.lineasField;
+            }
+            set {
+                this.lineasField = value;
+                this.RaisePropertyChanged("lineas");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public proveedor proveedor {
+            get {
+                return this.proveedorField;
+            }
+            set {
+                this.proveedorField = value;
+                this.RaisePropertyChanged("proveedor");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -634,7 +1396,7 @@ namespace ARSACSoft.ProveedoresWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -696,86 +1458,35 @@ namespace ARSACSoft.ProveedoresWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresPorCategoria", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProveedoresPorCategoriaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
-        
-        public listarProveedoresPorCategoriaRequest() {
-        }
-        
-        public listarProveedoresPorCategoriaRequest(int arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresPorCategoriaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProveedoresPorCategoriaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.ProveedoresWS.proveedor[] @return;
-        
-        public listarProveedoresPorCategoriaResponse() {
-        }
-        
-        public listarProveedoresPorCategoriaResponse(ARSACSoft.ProveedoresWS.proveedor[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosXProveedor", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosXProveedorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresXNombreXRUC", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProveedoresXNombreXRUCRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string arg0;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg1;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg2;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg3;
-        
-        public listarProductosXProveedorRequest() {
+        public listarProveedoresXNombreXRUCRequest() {
         }
         
-        public listarProductosXProveedorRequest(string arg0, int arg1, int arg2, int arg3) {
+        public listarProveedoresXNombreXRUCRequest(string arg0) {
             this.arg0 = arg0;
-            this.arg1 = arg1;
-            this.arg2 = arg2;
-            this.arg3 = arg3;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosXProveedorResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosXProveedorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresXNombreXRUCResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProveedoresXNombreXRUCResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.ProveedoresWS.productoXProveedor[] @return;
+        public ARSACSoft.ProveedoresWS.proveedor[] @return;
         
-        public listarProductosXProveedorResponse() {
+        public listarProveedoresXNombreXRUCResponse() {
         }
         
-        public listarProductosXProveedorResponse(ARSACSoft.ProveedoresWS.productoXProveedor[] @return) {
+        public listarProveedoresXNombreXRUCResponse(ARSACSoft.ProveedoresWS.proveedor[] @return) {
             this.@return = @return;
         }
     }
@@ -847,35 +1558,50 @@ namespace ARSACSoft.ProveedoresWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProveedor", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarProveedorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosXProveedor", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosXProveedorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
+        public string arg0;
         
-        public eliminarProveedorRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg2;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg3;
+        
+        public listarProductosXProveedorRequest() {
         }
         
-        public eliminarProveedorRequest(int arg0) {
+        public listarProductosXProveedorRequest(string arg0, int arg1, int arg2, int arg3) {
             this.arg0 = arg0;
+            this.arg1 = arg1;
+            this.arg2 = arg2;
+            this.arg3 = arg3;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarProveedorResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarProveedorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosXProveedorResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosXProveedorResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.ProveedoresWS.productoXProveedor[] @return;
         
-        public eliminarProveedorResponse() {
+        public listarProductosXProveedorResponse() {
         }
         
-        public eliminarProveedorResponse(int @return) {
+        public listarProductosXProveedorResponse(ARSACSoft.ProveedoresWS.productoXProveedor[] @return) {
             this.@return = @return;
         }
     }
@@ -919,17 +1645,17 @@ namespace ARSACSoft.ProveedoresWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresXNombreXRUC", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProveedoresXNombreXRUCRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresPorCategoria", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProveedoresPorCategoriaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string arg0;
+        public int arg0;
         
-        public listarProveedoresXNombreXRUCRequest() {
+        public listarProveedoresPorCategoriaRequest() {
         }
         
-        public listarProveedoresXNombreXRUCRequest(string arg0) {
+        public listarProveedoresPorCategoriaRequest(int arg0) {
             this.arg0 = arg0;
         }
     }
@@ -937,17 +1663,53 @@ namespace ARSACSoft.ProveedoresWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresXNombreXRUCResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProveedoresXNombreXRUCResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProveedoresPorCategoriaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProveedoresPorCategoriaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public ARSACSoft.ProveedoresWS.proveedor[] @return;
         
-        public listarProveedoresXNombreXRUCResponse() {
+        public listarProveedoresPorCategoriaResponse() {
         }
         
-        public listarProveedoresXNombreXRUCResponse(ARSACSoft.ProveedoresWS.proveedor[] @return) {
+        public listarProveedoresPorCategoriaResponse(ARSACSoft.ProveedoresWS.proveedor[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodasOrdenesCompraXProveedor", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarTodasOrdenesCompraXProveedorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string arg0;
+        
+        public listarTodasOrdenesCompraXProveedorRequest() {
+        }
+        
+        public listarTodasOrdenesCompraXProveedorRequest(string arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarTodasOrdenesCompraXProveedorResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarTodasOrdenesCompraXProveedorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.ProveedoresWS.ordenDeCompra[] @return;
+        
+        public listarTodasOrdenesCompraXProveedorResponse() {
+        }
+        
+        public listarTodasOrdenesCompraXProveedorResponse(ARSACSoft.ProveedoresWS.ordenDeCompra[] @return) {
             this.@return = @return;
         }
     }
@@ -980,55 +1742,49 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresPorCategoria(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request) {
-            return base.Channel.listarProveedoresPorCategoria(request);
+        ARSACSoft.ProveedoresWS.eliminarProveedorResponse ARSACSoft.ProveedoresWS.ProveedoresWS.eliminarProveedor(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request) {
+            return base.Channel.eliminarProveedor(request);
         }
         
-        public ARSACSoft.ProveedoresWS.proveedor[] listarProveedoresPorCategoria(int arg0) {
-            ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest();
+        public int eliminarProveedor(int arg0) {
+            ARSACSoft.ProveedoresWS.eliminarProveedorRequest inValue = new ARSACSoft.ProveedoresWS.eliminarProveedorRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresPorCategoria(inValue);
+            ARSACSoft.ProveedoresWS.eliminarProveedorResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).eliminarProveedor(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresPorCategoriaAsync(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request) {
-            return base.Channel.listarProveedoresPorCategoriaAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.eliminarProveedorResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.eliminarProveedorAsync(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request) {
+            return base.Channel.eliminarProveedorAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse> listarProveedoresPorCategoriaAsync(int arg0) {
-            ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.eliminarProveedorResponse> eliminarProveedorAsync(int arg0) {
+            ARSACSoft.ProveedoresWS.eliminarProveedorRequest inValue = new ARSACSoft.ProveedoresWS.eliminarProveedorRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresPorCategoriaAsync(inValue);
+            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).eliminarProveedorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse ARSACSoft.ProveedoresWS.ProveedoresWS.listarProductosXProveedor(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request) {
-            return base.Channel.listarProductosXProveedor(request);
+        ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresXNombreXRUC(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request) {
+            return base.Channel.listarProveedoresXNombreXRUC(request);
         }
         
-        public ARSACSoft.ProveedoresWS.productoXProveedor[] listarProductosXProveedor(string arg0, int arg1, int arg2, int arg3) {
-            ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest inValue = new ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest();
+        public ARSACSoft.ProveedoresWS.proveedor[] listarProveedoresXNombreXRUC(string arg0) {
+            ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            inValue.arg2 = arg2;
-            inValue.arg3 = arg3;
-            ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProductosXProveedor(inValue);
+            ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresXNombreXRUC(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.listarProductosXProveedorAsync(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request) {
-            return base.Channel.listarProductosXProveedorAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresXNombreXRUCAsync(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request) {
+            return base.Channel.listarProveedoresXNombreXRUCAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse> listarProductosXProveedorAsync(string arg0, int arg1, int arg2, int arg3) {
-            ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest inValue = new ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse> listarProveedoresXNombreXRUCAsync(string arg0) {
+            ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            inValue.arg2 = arg2;
-            inValue.arg3 = arg3;
-            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProductosXProveedorAsync(inValue);
+            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresXNombreXRUCAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1076,26 +1832,32 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ProveedoresWS.eliminarProveedorResponse ARSACSoft.ProveedoresWS.ProveedoresWS.eliminarProveedor(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request) {
-            return base.Channel.eliminarProveedor(request);
+        ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse ARSACSoft.ProveedoresWS.ProveedoresWS.listarProductosXProveedor(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request) {
+            return base.Channel.listarProductosXProveedor(request);
         }
         
-        public int eliminarProveedor(int arg0) {
-            ARSACSoft.ProveedoresWS.eliminarProveedorRequest inValue = new ARSACSoft.ProveedoresWS.eliminarProveedorRequest();
+        public ARSACSoft.ProveedoresWS.productoXProveedor[] listarProductosXProveedor(string arg0, int arg1, int arg2, int arg3) {
+            ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest inValue = new ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.ProveedoresWS.eliminarProveedorResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).eliminarProveedor(inValue);
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            inValue.arg3 = arg3;
+            ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProductosXProveedor(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.eliminarProveedorResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.eliminarProveedorAsync(ARSACSoft.ProveedoresWS.eliminarProveedorRequest request) {
-            return base.Channel.eliminarProveedorAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.listarProductosXProveedorAsync(ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest request) {
+            return base.Channel.listarProductosXProveedorAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.eliminarProveedorResponse> eliminarProveedorAsync(int arg0) {
-            ARSACSoft.ProveedoresWS.eliminarProveedorRequest inValue = new ARSACSoft.ProveedoresWS.eliminarProveedorRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProductosXProveedorResponse> listarProductosXProveedorAsync(string arg0, int arg1, int arg2, int arg3) {
+            ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest inValue = new ARSACSoft.ProveedoresWS.listarProductosXProveedorRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).eliminarProveedorAsync(inValue);
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            inValue.arg3 = arg3;
+            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProductosXProveedorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1122,26 +1884,49 @@ namespace ARSACSoft.ProveedoresWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresXNombreXRUC(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request) {
-            return base.Channel.listarProveedoresXNombreXRUC(request);
+        ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresPorCategoria(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request) {
+            return base.Channel.listarProveedoresPorCategoria(request);
         }
         
-        public ARSACSoft.ProveedoresWS.proveedor[] listarProveedoresXNombreXRUC(string arg0) {
-            ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest();
+        public ARSACSoft.ProveedoresWS.proveedor[] listarProveedoresPorCategoria(int arg0) {
+            ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresXNombreXRUC(inValue);
+            ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresPorCategoria(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresXNombreXRUCAsync(ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest request) {
-            return base.Channel.listarProveedoresXNombreXRUCAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.listarProveedoresPorCategoriaAsync(ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest request) {
+            return base.Channel.listarProveedoresPorCategoriaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse> listarProveedoresXNombreXRUCAsync(string arg0) {
-            ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaResponse> listarProveedoresPorCategoriaAsync(int arg0) {
+            ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest inValue = new ARSACSoft.ProveedoresWS.listarProveedoresPorCategoriaRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresXNombreXRUCAsync(inValue);
+            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarProveedoresPorCategoriaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse ARSACSoft.ProveedoresWS.ProveedoresWS.listarTodasOrdenesCompraXProveedor(ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest request) {
+            return base.Channel.listarTodasOrdenesCompraXProveedor(request);
+        }
+        
+        public ARSACSoft.ProveedoresWS.ordenDeCompra[] listarTodasOrdenesCompraXProveedor(string arg0) {
+            ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest inValue = new ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse retVal = ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarTodasOrdenesCompraXProveedor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse> ARSACSoft.ProveedoresWS.ProveedoresWS.listarTodasOrdenesCompraXProveedorAsync(ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest request) {
+            return base.Channel.listarTodasOrdenesCompraXProveedorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse> listarTodasOrdenesCompraXProveedorAsync(string arg0) {
+            ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest inValue = new ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.ProveedoresWS.ProveedoresWS)(this)).listarTodasOrdenesCompraXProveedorAsync(inValue);
         }
     }
 }

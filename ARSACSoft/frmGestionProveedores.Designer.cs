@@ -359,11 +359,11 @@
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNuevo.Name = "btnNuevo";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.btnNuevo.Size = new System.Drawing.Size(84, 27);
-=======
+//=======
             this.btnNuevo.Size = new System.Drawing.Size(70, 24);
->>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
+//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -374,11 +374,11 @@
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardar.Name = "btnGuardar";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.btnGuardar.Size = new System.Drawing.Size(96, 27);
-=======
+//======
             this.btnGuardar.Size = new System.Drawing.Size(80, 24);
->>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
+//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -389,11 +389,11 @@
             this.btnBuscar.Image = global::ARSACSoft.Properties.Resources.Search;
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.btnBuscar.Size = new System.Drawing.Size(84, 27);
-=======
+///=======
             this.btnBuscar.Size = new System.Drawing.Size(70, 24);
->>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
+//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -404,13 +404,13 @@
             this.btnCancelar.Image = global::ARSACSoft.Properties.Resources.Cancel;
             this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelar.Name = "btnCancelar";
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.btnCancelar.Size = new System.Drawing.Size(90, 27);
             this.btnCancelar.Text = "Limpiar";
-=======
+//=======
             this.btnCancelar.Size = new System.Drawing.Size(82, 24);
             this.btnCancelar.Text = "&Cancelar";
->>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
+//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblGestionSedes
@@ -494,21 +494,21 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.dataGridView2.Location = new System.Drawing.Point(25, 158);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-=======
+//=======
             this.dataGridView2.Location = new System.Drawing.Point(19, 56);
->>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
+//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-<<<<<<< HEAD
+//</<<<<<< HEAD
             this.dataGridView2.Size = new System.Drawing.Size(872, 336);
-=======
+//=======
             this.dataGridView2.Size = new System.Drawing.Size(654, 345);
->>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
+//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.dataGridView2.TabIndex = 75;
             // 
             // dataGridViewTextBoxColumn6

@@ -136,11 +136,23 @@
     <Compile Include="frmBienvenida.Designer.cs">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBoletaDeVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBoletaDeVenta.Designer.cs">
+      <DependentUpon>frmBoletaDeVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarClienteMayorista.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBuscarClienteMayorista.designer.cs">
       <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarDireccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarDireccion.Designer.cs">
+      <DependentUpon>frmBuscarDireccion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBuscarEmpleados.cs">
       <SubType>Form</SubType>
@@ -264,8 +276,14 @@
     <EmbeddedResource Include="frmBienvenida.resx">
       <DependentUpon>frmBienvenida.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBoletaDeVenta.resx">
+      <DependentUpon>frmBoletaDeVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarClienteMayorista.resx">
       <DependentUpon>frmBuscarClienteMayorista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarDireccion.resx">
+      <DependentUpon>frmBuscarDireccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarEmpleados.resx">
       <DependentUpon>frmBuscarEmpleados.cs</DependentUpon>
@@ -338,6 +356,9 @@
     <None Include="Connected Services\AlmacenWS\AlmacenWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.cancelarOrdenCompraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.helloResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -357,6 +378,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.ordenDeCompra.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.registrarIngresoDeMercaderiaDeOrdenCompraResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">
@@ -408,7 +432,13 @@
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarProveedoresXNombreXRUCResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.listarTodasOrdenesCompraXProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.modificarProveedorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.ordenDeCompra.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.productoXProveedor.datasource">
@@ -474,6 +504,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.modificarEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.obtenerDireccionDeSedeDeEmpleadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.obtenerEmpleadoPorIDResponse.datasource">
@@ -605,6 +638,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.ordenDeVenta1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.verificarStockSuficienteResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\VentasWS.wsdl" />
@@ -830,52 +866,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\nuevo-documento.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\salvar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lupa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lupa %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\boton-editar2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\limpieza-de-datos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nuevo-documento %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\editar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lupa %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guardar-el-archivo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nuevo-documento %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\agregar-archivo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hoja-en-blanco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\agregar-archivo %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nuevo-documento %282%291.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\editar %281%29.png" />
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

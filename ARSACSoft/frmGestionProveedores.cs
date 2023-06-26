@@ -43,6 +43,7 @@ namespace ARSACSoft
             prov.RUC = txtRUC.Text;
             prov.nombre = txtNombreProveedor.Text;
             prov.telefono = txtTelefono.Text;
+            prov.activo = true;
 
             
             int resultado = daoProveedorWS.insertarProveedor(prov);

@@ -96,6 +96,7 @@ public class AlmacenWS {
         }
         return lineas;
     }
+}
 //
 //    @WebMethod
 //    public int modificarOrdenCompra(@WebParam(name = "ordenCompra") OrdenDeCompra ordenCompra) {
@@ -130,4 +131,5 @@ public class AlmacenWS {
 //            return new ArrayList<>();
 //        }
 //    }
-}
+    
+
