@@ -33,6 +33,7 @@
     <xs:sequence>
       <xs:element name="activo" type="xs:boolean" />
       <xs:element minOccurs="0" name="clienteMayorista" type="tns:clienteMayorista" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
       <xs:element minOccurs="0" name="empleado" type="tns:empleado" />
       <xs:element minOccurs="0" name="estado" type="xs:string" />
       <xs:element minOccurs="0" name="fechaEnvio" type="xs:dateTime" />

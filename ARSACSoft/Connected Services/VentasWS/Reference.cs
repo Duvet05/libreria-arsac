@@ -164,6 +164,8 @@ namespace ARSACSoft.VentasWS {
         
         private clienteMayorista clienteMayoristaField;
         
+        private string direccionField;
+        
         private empleado empleadoField;
         
         private string estadoField;
@@ -208,6 +210,18 @@ namespace ARSACSoft.VentasWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public empleado empleado {
             get {
                 return this.empleadoField;
@@ -219,7 +233,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string estado {
             get {
                 return this.estadoField;
@@ -231,7 +245,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public System.DateTime fechaEnvio {
             get {
                 return this.fechaEnvioField;
@@ -255,7 +269,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public System.DateTime fechaOrden {
             get {
                 return this.fechaOrdenField;
@@ -279,7 +293,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public int idOrdenDeVenta {
             get {
                 return this.idOrdenDeVentaField;
@@ -291,7 +305,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lineaDeOrdenDeVenta", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute("lineaDeOrdenDeVenta", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=8)]
         public lineaDeOrdenDeVenta[] lineaDeOrdenDeVenta {
             get {
                 return this.lineaDeOrdenDeVentaField;
@@ -303,7 +317,7 @@ namespace ARSACSoft.VentasWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public double precioTotal {
             get {
                 return this.precioTotalField;

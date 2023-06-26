@@ -44,9 +44,11 @@ namespace ARSACSoft
                     btnCancelar.Enabled = false;
                     btnBuscarPedido.Enabled = true;
                     AgregarCliente.Enabled = false;
+                    dateFechaEntrega.Enabled = false;
                     btnAgregar.Enabled = false;
                     BtnQuitar.Enabled = false;
                     textNombreProducto.Enabled = false;
+                    btCorreo.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
                     textMonto.Enabled = false;
@@ -55,6 +57,8 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     txtRUC.Enabled = false;
                     btPedido.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
+                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     checkBoxFactura.Enabled = false;
@@ -68,6 +72,7 @@ namespace ARSACSoft
                     break;
                 case Estado.Nuevo:
                     btnNuevo.Enabled = false;
+                    btCorreo.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnAgregar.Enabled = true;
                     BtnQuitar.Enabled = true;
@@ -94,6 +99,7 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
                     textNombreProducto.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
@@ -102,6 +108,7 @@ namespace ARSACSoft
                     textDescontadoTotal.Enabled = false;
                     textCantProducto.Enabled = false;
                     btPedido.Enabled = false;
+                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     txtRUC.Enabled = false;
@@ -123,9 +130,14 @@ namespace ARSACSoft
             txtNombreCompleto.Enabled = facturaChecked;
             btnCliente.Enabled = facturaChecked;
             AgregarCliente.Enabled = facturaChecked;
+            txtDireccion.Enabled = facturaChecked;
+            dateFechaEntrega.Enabled = facturaChecked;
+            btnBuscarDireccion.Enabled = facturaChecked;
             if (!facturaChecked)
             {
                 txtRUC.Text = string.Empty;
+                txtDireccion.Text = string.Empty;
+                dateFechaEntrega.Value = DateTime.Now;
                 txtRazonSocial.Text = string.Empty;
                 txtNombreCompleto.Text = string.Empty; // Limpia el contenido del campo de factura
             }
@@ -150,6 +162,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -300,6 +313,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -420,6 +434,7 @@ namespace ARSACSoft
 
         private void btCorreo_Click(object sender, EventArgs e)
         {
+            btCorreo.Enabled = false;
             estado = Estado.Inicial;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
@@ -448,7 +463,7 @@ namespace ARSACSoft
             ordenV.precioTotal = precioTotal;
             ordenV.empleado = new VentasWS.empleado();
             ordenV.empleado.idPersona = _id_empleado;
-
+            //ordenV.d
             if (checkBoxFactura.Checked)
             {
                 if (_clienteMayorista == null)
@@ -459,25 +474,33 @@ namespace ARSACSoft
 
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
+                ordenV.direccion = txtDireccion.Text;
                 daoVentas.insertarOrdenDeVentaMayorista(ordenV);
             }
             else
             {
                 daoVentas.insertarOrdenDeVentaMinorista(ordenV);
             }
+
             RestaurarEstadoFormulario();
         }
 
         private void RestaurarEstadoFormulario()
         {
             estado = Estado.Inicial;
-            LimpiarComponentes();
+            //LimpiarComponentes();
             EstablecerEstadoFormulario();
+            btCorreo.Enabled = true;
         }
 
         private void MostrarAdvertencia(string mensaje)
         {
             MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnBuscarDireccion_Click(object sender, EventArgs e)
+        {
+              
         }
     }
 }

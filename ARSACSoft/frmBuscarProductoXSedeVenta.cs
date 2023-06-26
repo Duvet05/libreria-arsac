@@ -34,7 +34,7 @@ namespace ARSACSoft
             cboCategoria.DisplayMember = "descripcion";
             cboCategoria.ValueMember = "idCategoria";
             cboCategoria.DataSource = daoProductosWS.listarCategoriasTodas();
-            cboCategoria.SelectedIndex = -1;
+            cboCategoria.SelectedIndex = 0;
         }
 
         private void CargarMarcas()
@@ -42,7 +42,7 @@ namespace ARSACSoft
             cboMarca.DisplayMember = "descripcion";
             cboMarca.ValueMember = "idMarca";
             cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
-            cboMarca.SelectedIndex = -1;
+            cboMarca.SelectedIndex = 0;
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
