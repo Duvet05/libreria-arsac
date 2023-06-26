@@ -104,6 +104,7 @@ namespace ARSACSoft
                     txtRUC.Enabled = false;
                     txtTelefono.Enabled = false;
                     txtEstado.Enabled = false;
+                    btnBuscarDirrecion.Enabled = false;
 
                     break;
                 case Estado.Nuevo:
@@ -121,6 +122,7 @@ namespace ARSACSoft
                     txtTelefono.ReadOnly = false;
                     txtEstado.Enabled = false;
                     txtEstado.ReadOnly = true;
+                    btnBuscarDirrecion.Enabled = true;
                     break;
                 case Estado.Buscar:
                     btnNuevo.Enabled = false;
@@ -132,6 +134,7 @@ namespace ARSACSoft
                     txtRUC.Enabled = false;
                     txtTelefono.Enabled = false;
                     txtEstado.Enabled = false;
+                    btnBuscarDirrecion.Enabled = false;
                     break;
             }
         }
@@ -152,5 +155,16 @@ namespace ARSACSoft
             LimpiarComponentes();
             establecerEstadoFormularioProveedor();
         }
+
+        private void btnBuscarDirrecion_Click(object sender, EventArgs e)
+        {
+            frmBursarDireccion frm = new frmBursarDireccion();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtDireccion.Text = frm.direccionSeleccionada;
+            }
+        }
+
     }
     }
