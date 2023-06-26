@@ -545,7 +545,12 @@ namespace ARSACSoft
 
         private void btnBuscarDireccion_Click(object sender, EventArgs e)
         {
-              
+            frmBursarDireccion frm = new frmBursarDireccion();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtDireccion.Text = frm.direccionSeleccionada;
+            }
         }
     }
 }
