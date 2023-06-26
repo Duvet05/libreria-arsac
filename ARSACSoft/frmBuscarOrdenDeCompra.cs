@@ -109,16 +109,16 @@ namespace ARSACSoft
             dgvOrdenesCompra.Rows[e.RowIndex].
                 Cells[4].Value = ordenCompra.estado;
 
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[0].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[1].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[2].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[3].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
-            dgvOrdenesCompra.Rows[e.RowIndex].Cells[4].Style.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[0].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[1].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[2].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[3].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
+            //dgvOrdenesCompra.Rows[e.RowIndex].Cells[4].Style.Alignment =
+            //    DataGridViewContentAlignment.MiddleRight;
 
         }
 
