@@ -644,6 +644,7 @@
     <None Include="Connected Services\VentasWS\VentasWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="JSONs\credenciales.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -849,6 +850,7 @@
   <ItemGroup>
     <None Include="Resources\settings.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
