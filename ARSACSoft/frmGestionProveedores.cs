@@ -166,5 +166,28 @@ namespace ARSACSoft
             }
         }
 
+        private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0 || e.RowIndex >= dgvProductos.Rows.Count)
+                    return;
+
+                if (dgvProductos.Rows[e.RowIndex].DataBoundItem is ProveedoresWS.productoXProveedor prod)
+                {
+                    dgvProductos.Rows[e.RowIndex].Cells[0].Value = prod.producto.idProducto;
+                    dgvProductos.Rows[e.RowIndex].Cells[1].Value = prod.producto.nombre;
+                    dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.producto.marca.descripcion;
+                    dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.producto.categoria.descripcion;
+                    dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.producto.precioPorMenor;
+                    dgvProductos.Rows[e.RowIndex].Cells[5].Value = prod.producto.precioPorMayor;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de la excepción
+                Console.WriteLine("Error en el formato de celda: " + ex.Message);
+            }
+        }
     }
     }

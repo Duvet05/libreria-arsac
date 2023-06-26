@@ -29,30 +29,37 @@ namespace ARSACSoft
             cboMarca.ValueMember = "idMarca";
             cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
 
-            cboCategoria.SelectedIndex = -1;
-            cboMarca.SelectedIndex = -1;
+            cboCategoria.SelectedIndex = 0;
+            cboMarca.SelectedIndex = 0;
             txtNombreProd.Text = string.Empty;
             dgvProductos.AutoGenerateColumns = false;
+            dgvProductos.DataSource = daoProveedoresWS.listarProductosXProveedor(txtNombreProd.Text,
+                -1, -1, _proveedorSeleccionado.idProveedor);
         }
 
         private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            
-            ProveedoresWS.productoXProveedor prod = (ProveedoresWS.productoXProveedor)dgvProductos.Rows[e.RowIndex].DataBoundItem;
-            dgvProductos.Rows[e.RowIndex].Cells[0].Value =
-                prod.producto.idProducto;
-            dgvProductos.Rows[e.RowIndex].Cells[1].Value =
-                prod.producto.nombre;
-            dgvProductos.Rows[e.RowIndex].Cells[2].Value =
-                prod.producto.marca.descripcion;
-            dgvProductos.Rows[e.RowIndex].Cells[3].Value =
-                prod.producto.categoria.descripcion;
-            dgvProductos.Rows[e.RowIndex].Cells[4].Value =
-                prod.producto.precioPorMenor;
-            dgvProductos.Rows[e.RowIndex].Cells[5].Value =
-                prod.producto.precioPorMayor;
-            dgvProductos.Rows[e.RowIndex].Cells[6].Value =
-                prod.costo;
+            try
+            {
+                if (e.RowIndex < 0 || e.RowIndex >= dgvProductos.Rows.Count)
+                    return;
+
+                if (dgvProductos.Rows[e.RowIndex].DataBoundItem is ProveedoresWS.productoXProveedor prod)
+                {
+                    dgvProductos.Rows[e.RowIndex].Cells[0].Value = prod.producto.idProducto;
+                    dgvProductos.Rows[e.RowIndex].Cells[1].Value = prod.producto.nombre;
+                    dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.producto.marca.descripcion;
+                    dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.producto.categoria.descripcion;
+                    dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.producto.precioPorMenor;
+                    dgvProductos.Rows[e.RowIndex].Cells[5].Value = prod.producto.precioPorMayor;
+                    dgvProductos.Rows[e.RowIndex].Cells[6].Value = prod.costo;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de la excepción
+                Console.WriteLine("Error en el formato de celda: " + ex.Message);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -66,10 +73,18 @@ namespace ARSACSoft
 
         }
 
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProductos.CurrentRow != null)
+            {
+                ProductoDeProveedorSeleccionado = (ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem;
+                txtNombreProd.Text = ProductoDeProveedorSeleccionado.producto.nombre;
+                cboMarca.SelectedValue = ProductoDeProveedorSeleccionado.producto.marca.idMarca;
+                cboCategoria.SelectedValue = ProductoDeProveedorSeleccionado.producto.categoria.idCategoria;
+            }
         }
+
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {

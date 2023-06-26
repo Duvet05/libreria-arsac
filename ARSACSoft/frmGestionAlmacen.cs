@@ -211,7 +211,7 @@ namespace ARSACSoft
                     btnCancelarOC.Enabled = true;
                     //btnMarcarRecibidoOC.Enabled = false;
 
-                    txtIDOrdenCompra.Enabled = true;
+                    txtIDOrdenCompra.Enabled = false;
                     dtpFechaOrdenCompra.Enabled = true;
                     txtRUCProveedorOC.Enabled = true;
                     txtRazonSocialProveedorOC.Enabled = true;

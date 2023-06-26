@@ -74,5 +74,17 @@ namespace ARSACSoft
             dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.precioPorMenor;
             dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.precioPorMayor;
         }
+
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProductos.CurrentRow != null)
+            {
+                ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
+                txtNombreProd.Text = ProductoSeleccionado.nombre;
+                cboMarca.SelectedValue = ProductoSeleccionado.marca.idMarca;
+                cboCategoria.SelectedValue = ProductoSeleccionado.categoria.idCategoria;
+            }
+        }
+
     }
 }
