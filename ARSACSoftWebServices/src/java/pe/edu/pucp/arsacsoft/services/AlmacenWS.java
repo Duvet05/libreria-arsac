@@ -52,6 +52,28 @@ public class AlmacenWS {
         return resultado;
     }
     
+    @WebMethod(operationName = "cancelarOrdenCompra")
+    public int cancelarOrdenCompra(int IdOrdenCompra) {
+        int resultado=0;
+        try {
+            resultado =  daoOrdenDeCompra.cancelar(IdOrdenCompra);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
+    @WebMethod(operationName = "registrarIngresoDeMercaderiaDeOrdenCompra")
+    public int registrarIngresoDeMercaderiaDeOrdenCompra(OrdenDeCompra ordenCompra) {
+        int resultado=0;
+        try {
+            resultado =  daoOrdenDeCompra.registrarIngresoDeMercaderia(ordenCompra);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resultado;
+    }
+    
     @WebMethod(operationName = "listarOrdenesDeCompraXProveedor")
     public ArrayList<OrdenDeCompra> listarOrdenesDeCompraXProveedor(int idProveedor, Date fechaInicio, 
                                         Date fechaFin, String estado) {

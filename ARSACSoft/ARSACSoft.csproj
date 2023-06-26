@@ -372,6 +372,9 @@
     <None Include="Connected Services\AlmacenWS\AlmacenWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.cancelarOrdenCompraResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.helloResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -391,6 +394,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.ordenDeCompra.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.registrarIngresoDeMercaderiaDeOrdenCompraResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.categoria.datasource">

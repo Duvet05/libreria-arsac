@@ -680,10 +680,7 @@ namespace ARSACSoft
             establecerEstadoFormularioOrdenDeCompra();
         }
 
-        private void btnEliminarOC_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
         public string ConvertirEstado(string estado)
         {
             switch (estado.ToUpper())
@@ -701,12 +698,49 @@ namespace ARSACSoft
 
         private void btnMarcarRecibidoOC_Click_1(object sender, EventArgs e)
         {
-
+            CultureInfo.CurrentCulture = new CultureInfo("es-ES");
+            DialogResult result = MessageBox.Show("¿Registrar orden de compra como recibida?", "Mensaje de advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int resultado = daoAlmacenWS.registrarIngresoDeMercaderiaDeOrdenCompra(_ordenCompra);
+                if (resultado != 0)
+                {
+                    MessageBox.Show("Se Registró correctamente nueva mercadería en almacén principal", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
+                    btnModificarOC.Enabled = false;
+                    lblEstadoOrdenCompra.Text = "(Recibido)";
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar cancelar la orden de compra", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
         }
 
         private void btnEliminarOC_Click_1(object sender, EventArgs e)
         {
-
+            CultureInfo.CurrentCulture = new CultureInfo("es-ES");
+            DialogResult result = MessageBox.Show("¿Cancelar orden de compra?", "Mensaje de advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int resultado = daoAlmacenWS.cancelarOrdenCompra(_ordenCompra.idOrdenDeCompra);
+                if (resultado != 0)
+                {
+                    MessageBox.Show("Orden de compra cancelada", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnEliminarOC.Enabled = false;
+                    btnMarcarRecibidoOC.Enabled = false;
+                    lblEstadoOrdenCompra.Text = "(Cancelado)";
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar cancelar la orden de compra", "Mensaje de advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
         }
     }
 }

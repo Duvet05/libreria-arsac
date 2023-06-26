@@ -26,7 +26,7 @@ begin
     where activo = 1;
 end $
 
-
+drop procedure if exists INSERTAR_PRODUCTO;
 delimiter $
 CREATE PROCEDURE INSERTAR_PRODUCTO(
 	OUT _id_producto INT,
@@ -41,6 +41,8 @@ BEGIN
     INSERT INTO producto (fid_categoria, fid_marca, nombre, precio, precio_por_mayor, foto)
     VALUES (_fid_categoria, _fid_marca, _nombre, _precio, _precio_por_mayor, _foto);
     set _id_producto = @@last_insert_id;
+    
+    INSERT INTO sedeXproducto(fid_sede, fid_producto, stock, activo) values (1,@@last_insert_id,0,1);
 END$
 DELIMITER $
 
@@ -150,14 +152,25 @@ BEGIN
     UPDATE lineaOrdenDeCompra SET activo = 0 WHERE fid_orden_de_compra = _id_orden_de_compra;
 END $
 
+
+drop procedure if exists CANCELAR_ORDEN_COMPRA;
 DELIMITER $
-CREATE PROCEDURE ELIMINAR_ORDEN_COMPRA(
+CREATE PROCEDURE CANCELAR_ORDEN_COMPRA(
 	IN _id_orden_de_compra INT
 )
 BEGIN
-	UPDATE ordenDeCompra SET activo = 0 where id_orden_de_compra = _id_orden_de_compra;
+	UPDATE ordenDeCompra SET estado = "CANCELADO" where id_orden_de_compra = _id_orden_de_compra;
 END$
 
+
+drop procedure if exists ACTUALIZAR_ORDEN_COMPRA_RECIBIDA;
+DELIMITER $
+CREATE PROCEDURE ACTUALIZAR_ORDEN_COMPRA_RECIBIDA(
+	IN _id_orden_de_compra INT
+)
+BEGIN
+	UPDATE ordenDeCompra SET estado = "RECIBIDO" where id_orden_de_compra = _id_orden_de_compra;
+END$
 
 DROP PROCEDURE IF EXISTS LISTAR_ORDENES_COMPRA_X_PROVEEDOR;
 DELIMITER $
@@ -227,6 +240,20 @@ BEGIN
   INSERT INTO lineaOrdenDeCompra (fid_orden_de_compra, fid_producto, cantidad,subtotal, activo)
   VALUES (_fid_orden_de_compra,_fid_producto,_cantidad,_subtotal, 1);
   SET _id_linea_orden_compra = @@last_insert_id;
+END$
+
+drop procedure if exists ACTUALIZAR_STOCK_ALMACEN_PRINCIPAL_POR_LINEA_ORDEN_COMPRA;
+DELIMITER $
+CREATE PROCEDURE ACTUALIZAR_STOCK_ALMACEN_PRINCIPAL_POR_LINEA_ORDEN_COMPRA(
+	IN _fid_producto INT,
+	IN _cantidad INT
+)
+BEGIN
+	select stock into @stock_actual_producto from sedeXproducto 
+    where fid_sede = 1 and fid_producto = _fid_producto;
+    
+    UPDATE sedeXproducto SET stock = (@stock_actual_producto + _cantidad) 
+    where fid_sede = 1 and fid_producto = _fid_producto;
 END$
 
 

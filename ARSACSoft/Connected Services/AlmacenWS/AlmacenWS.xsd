@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cancelarOrdenCompra" type="tns:cancelarOrdenCompra" />
+  <xs:element name="cancelarOrdenCompraResponse" type="tns:cancelarOrdenCompraResponse" />
   <xs:element name="insertarOrdenCompra" type="tns:insertarOrdenCompra" />
   <xs:element name="insertarOrdenCompraResponse" type="tns:insertarOrdenCompraResponse" />
   <xs:element name="listarLineasDeOrdenDeCompra" type="tns:listarLineasDeOrdenDeCompra" />
@@ -8,6 +10,8 @@
   <xs:element name="listarOrdenesDeCompraXProveedorResponse" type="tns:listarOrdenesDeCompraXProveedorResponse" />
   <xs:element name="modificarOrdenCompra" type="tns:modificarOrdenCompra" />
   <xs:element name="modificarOrdenCompraResponse" type="tns:modificarOrdenCompraResponse" />
+  <xs:element name="registrarIngresoDeMercaderiaDeOrdenCompra" type="tns:registrarIngresoDeMercaderiaDeOrdenCompra" />
+  <xs:element name="registrarIngresoDeMercaderiaDeOrdenCompraResponse" type="tns:registrarIngresoDeMercaderiaDeOrdenCompraResponse" />
   <xs:complexType name="modificarOrdenCompra">
     <xs:sequence>
       <xs:element minOccurs="0" name="arg0" type="tns:ordenDeCompra" />
@@ -151,6 +155,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarOrdenCompraResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelarOrdenCompra">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelarOrdenCompraResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarIngresoDeMercaderiaDeOrdenCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:ordenDeCompra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrarIngresoDeMercaderiaDeOrdenCompraResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>

@@ -156,7 +156,7 @@ public class OrdenDeCompraMySQL implements OrdenDeCompraDAO{
 //            cs.executeUpdate();
     @Override
     public ArrayList<LineaOrdenDeCompra> listarLineasOrdenDeCompra(int idOrdenCompra) {
-       ArrayList<LineaOrdenDeCompra> lineas = new ArrayList<>();
+        ArrayList<LineaOrdenDeCompra> lineas = new ArrayList<>();
         try{
             con = DBManager.getInstance().getConnection();
             cs = con.prepareCall("{call LISTAR_LINEAS_ORDEN_COMPRA_X_ID_ORDEN_COMPRA(?)}");
@@ -188,5 +188,47 @@ public class OrdenDeCompraMySQL implements OrdenDeCompraDAO{
             try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
         }
         return lineas; 
+    }
+
+    @Override
+    public int cancelar(int idOrdenCompra) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call CANCELAR_ORDEN_COMPRA(?)}");
+            cs.setInt("_id_orden_de_compra", idOrdenCompra);
+            cs.executeUpdate();
+            resultado = 1;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
+    }
+
+    @Override
+    public int registrarIngresoDeMercaderia(OrdenDeCompra ordenCompra) {
+        int resultado = 0;
+        try{
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call ACTUALIZAR_ORDEN_COMPRA_RECIBIDA(?)}");
+            cs.setInt("_id_orden_de_compra", ordenCompra.getIdOrdenDeCompra());
+            cs.executeUpdate();
+            //ordenCompra.setIdOrdenDeCompra(cs.getInt("_id_orden_de_compra"));
+            for(LineaOrdenDeCompra lineaOrdenCompra : ordenCompra.getLineas()){
+                cs = con.prepareCall("{CALL ACTUALIZAR_STOCK_ALMACEN_PRINCIPAL_POR_LINEA_ORDEN_COMPRA(?,?)}");
+                                            //id de sede principal es 1, por eso no pedimos su parámetro en el prodecimiento
+                cs.setInt("_fid_producto", lineaOrdenCompra.getProductoProveedor().getProducto().getIdProducto());
+                cs.setInt("_cantidad", lineaOrdenCompra.getCantidad());
+                cs.executeUpdate();
+            }
+            resultado = ordenCompra.getIdOrdenDeCompra();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        return resultado;
     }
 }
