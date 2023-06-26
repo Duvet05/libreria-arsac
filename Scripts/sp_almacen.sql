@@ -324,10 +324,10 @@ END$
 CREATE PROCEDURE LISTAR_PROMOCIONES_POR_NOMBRE_PRODUCTO(
 	IN _nombre VARCHAR(50))
 BEGIN
-    SELECT p.id_promocion ,pr.nombre , p.fecha_inicio ,p.fecha_fin , p.cantidad_minima , p.porcentaje
+    SELECT p.id_promocion ,pr.id_producto ,pr.nombre , p.fecha_inicio ,p.fecha_fin , p.cantidad_minima , p.porcentaje
     FROM promocion p
     INNER JOIN producto pr ON p.fid_producto = pr.id_producto
-    WHERE pr.nombre = productName;
+    WHERE pr.nombre = _nombre;
 END$
 
 
