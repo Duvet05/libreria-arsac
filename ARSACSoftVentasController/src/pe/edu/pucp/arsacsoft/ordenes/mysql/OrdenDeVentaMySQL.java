@@ -38,7 +38,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             ordenV.setIdOrdenDeVenta(cs.getInt(1));
 
             for (LineaDeOrdenDeVenta linea : ordenV.getLineaDeOrdenDeVenta()) {
-                cs = con.prepareCall("{call INSERTAR_LINEA_ORDEN_VENTA_MAYORISTA(?,?,?,?,?)}");
+                cs = con.prepareCall("{call INSERTAR_LINEA_ORDEN_VENTA(?,?,?,?,?)}");
                 cs.setInt(1, ordenV.getIdOrdenDeVenta());
                 cs.setInt(2, linea.getProducto().getIdProducto());
                 cs.setInt(3, linea.getCantidad());
@@ -81,7 +81,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             ordenV.setIdOrdenDeVenta(cs.getInt(1));
 
             for (LineaDeOrdenDeVenta linea : ordenV.getLineaDeOrdenDeVenta()) {
-                cs = con.prepareCall("{call INSERTAR_LINEA_ORDEN_VENTA_MAYORISTA(?,?,?,?,?)}");
+                cs = con.prepareCall("{call INSERTAR_LINEA_ORDEN_VENTA(?,?,?,?,?)}");
                 cs.setInt(1, ordenV.getIdOrdenDeVenta());
                 cs.setInt(2, linea.getProducto().getIdProducto());
                 cs.setInt(3, linea.getCantidad());

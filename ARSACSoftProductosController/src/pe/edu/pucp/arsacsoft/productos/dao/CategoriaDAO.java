@@ -13,4 +13,5 @@ import pe.edu.pucp.arsacsoft.producto.model.Categoria;
  */
 public interface CategoriaDAO {
      ArrayList <Categoria> listarTodas();
+     
 }

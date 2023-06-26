@@ -803,5 +803,14 @@ namespace ARSACSoft
             gMapControl1.Zoom = 10;
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmBursarDireccion frm = new frmBursarDireccion();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtDireccionEmpleado.Text = frm.direccionSeleccionada;
+            }
+        }
     }
 }

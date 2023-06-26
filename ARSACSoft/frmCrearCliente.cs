@@ -16,7 +16,7 @@ namespace ARSACSoft
 
         private clienteMayorista clienteMayoristaSeleccionado;
 
-        private RRHHWSClient daoRRHH;
+        private RRHHWSClient daoRRHH = new RRHHWSClient();
         public frmCrearCliente()
         {
             InitializeComponent();
