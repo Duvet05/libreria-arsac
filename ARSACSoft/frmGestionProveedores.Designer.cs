@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionProveedores));
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpAdministrar = new System.Windows.Forms.TabPage();
+            this.btnBuscarDirrecion = new System.Windows.Forms.Button();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -40,6 +41,11 @@
             this.lblRUC = new System.Windows.Forms.Label();
             this.txtRUC = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNombreProveedor = new System.Windows.Forms.Label();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.cbCafeteria = new System.Windows.Forms.CheckBox();
@@ -61,11 +67,6 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcAlmacen.SuspendLayout();
             this.tpAdministrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,6 +89,7 @@
             // 
             // tpAdministrar
             // 
+            this.tpAdministrar.Controls.Add(this.btnBuscarDirrecion);
             this.tpAdministrar.Controls.Add(this.txtEstado);
             this.tpAdministrar.Controls.Add(this.lblEstado);
             this.tpAdministrar.Controls.Add(this.txtTelefono);
@@ -113,13 +115,25 @@
             this.tpAdministrar.Text = "Administrar";
             this.tpAdministrar.UseVisualStyleBackColor = true;
             // 
+            // btnBuscarDirrecion
+            // 
+            this.btnBuscarDirrecion.Enabled = false;
+            this.btnBuscarDirrecion.Location = new System.Drawing.Point(622, 43);
+            this.btnBuscarDirrecion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscarDirrecion.Name = "btnBuscarDirrecion";
+            this.btnBuscarDirrecion.Size = new System.Drawing.Size(28, 23);
+            this.btnBuscarDirrecion.TabIndex = 107;
+            this.btnBuscarDirrecion.Text = "...";
+            this.btnBuscarDirrecion.UseVisualStyleBackColor = true;
+            this.btnBuscarDirrecion.Click += new System.EventHandler(this.btnBuscarDirrecion_Click);
+            // 
             // txtEstado
             // 
             this.txtEstado.Enabled = false;
             this.txtEstado.Location = new System.Drawing.Point(115, 95);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.ReadOnly = true;
-            this.txtEstado.Size = new System.Drawing.Size(229, 21);
+            this.txtEstado.Size = new System.Drawing.Size(215, 21);
             this.txtEstado.TabIndex = 106;
             // 
             // lblEstado
@@ -137,16 +151,16 @@
             this.txtTelefono.Location = new System.Drawing.Point(435, 70);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ReadOnly = true;
-            this.txtTelefono.Size = new System.Drawing.Size(229, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(215, 21);
             this.txtTelefono.TabIndex = 104;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Enabled = false;
-            this.txtDireccion.Location = new System.Drawing.Point(435, 41);
+            this.txtDireccion.Location = new System.Drawing.Point(435, 44);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ReadOnly = true;
-            this.txtDireccion.Size = new System.Drawing.Size(229, 21);
+            this.txtDireccion.Size = new System.Drawing.Size(189, 21);
             this.txtDireccion.TabIndex = 103;
             // 
             // lblTelefono
@@ -184,7 +198,7 @@
             this.txtRUC.Location = new System.Drawing.Point(115, 41);
             this.txtRUC.Name = "txtRUC";
             this.txtRUC.ReadOnly = true;
-            this.txtRUC.Size = new System.Drawing.Size(229, 21);
+            this.txtRUC.Size = new System.Drawing.Size(215, 21);
             this.txtRUC.TabIndex = 99;
             // 
             // dataGridView1
@@ -209,6 +223,44 @@
             this.dataGridView1.Size = new System.Drawing.Size(654, 242);
             this.dataGridView1.TabIndex = 72;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.FillWeight = 59.74645F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.FillWeight = 170.6412F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Proveedor";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // RUC
+            // 
+            this.RUC.FillWeight = 53.98247F;
+            this.RUC.HeaderText = "RUC";
+            this.RUC.Name = "RUC";
+            this.RUC.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.FillWeight = 53.98247F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Estado";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            this.Telefono.FillWeight = 53.98247F;
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
             // lblNombreProveedor
             // 
             this.lblNombreProveedor.AutoSize = true;
@@ -227,7 +279,7 @@
             this.txtNombreProveedor.Location = new System.Drawing.Point(115, 68);
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.ReadOnly = true;
-            this.txtNombreProveedor.Size = new System.Drawing.Size(229, 21);
+            this.txtNombreProveedor.Size = new System.Drawing.Size(215, 21);
             this.txtNombreProveedor.TabIndex = 10;
             // 
             // cbCafeteria
@@ -429,44 +481,6 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 59.74645F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.FillWeight = 170.6412F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Proveedor";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // RUC
-            // 
-            this.RUC.FillWeight = 53.98247F;
-            this.RUC.HeaderText = "RUC";
-            this.RUC.Name = "RUC";
-            this.RUC.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.FillWeight = 53.98247F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Estado";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.FillWeight = 53.98247F;
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
             // frmGestionProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,5 +543,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RUC;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.Button btnBuscarDirrecion;
     }
 }
