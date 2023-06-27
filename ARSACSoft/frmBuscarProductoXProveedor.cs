@@ -94,5 +94,10 @@ namespace ARSACSoft
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

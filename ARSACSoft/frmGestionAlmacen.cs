@@ -104,8 +104,11 @@ namespace ARSACSoft
                 txtPrecioXMayor.Text = prodSeleccionado.precioPorMayor.ToString("N2");
                 txtPrecioXMenor.Text = prodSeleccionado.precioPorMenor.ToString("N2");
 
-                MemoryStream ms = new MemoryStream(prodSeleccionado.foto);
-                pbFoto.Image = new Bitmap(ms);
+                if (prodSeleccionado.foto != null)
+                {
+                    MemoryStream ms = new MemoryStream(prodSeleccionado.foto);
+                    pbFoto.Image = new Bitmap(ms);
+                }
 
                 _estadoPagProducto = Estado.Buscar;
                 establecerEstadoFormularioProducto();
@@ -266,8 +269,8 @@ namespace ARSACSoft
         {
             txtIDProducto.Text = "";
             txtNombreProducto.Text = "";
-            cboMarca.SelectedIndex = -1;
-            cboCategoria.SelectedIndex = -1;
+            //cboMarca.SelectedIndex = -1;
+            //cboCategoria.SelectedIndex = -1;
             txtPrecioXMayor.Text = "";
             txtPrecioXMenor.Text = "";
             pbFoto.Image = null;
@@ -302,14 +305,40 @@ namespace ARSACSoft
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
 
+            if (txtNombreProducto.Text == "")
+            {
+                MessageBox.Show("El producto requiere de un nombre para su registro",
+                    "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if ((int)cboMarca.SelectedValue == -1)
+            {
+                MessageBox.Show("Debe seleccionar una marca para el producto", 
+                    "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if ((int)cboCategoria.SelectedValue == -1)
+            {
+                MessageBox.Show("Debe seleccionar una categoria para el producto",
+                    "Mensaje de Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             ProductosWS.producto prod = new ProductosWS.producto();
             prod.nombre = txtNombreProducto.Text;
             prod.marca = new ProductosWS.marca();
             prod.marca.idMarca = (int)cboMarca.SelectedValue;
             prod.categoria  = new ProductosWS.categoria();
             prod.categoria.idCategoria = (int)cboCategoria.SelectedValue;
-            prod.precioPorMayor = Double.Parse(txtPrecioXMayor.Text);
-            prod.precioPorMenor = Double.Parse(txtPrecioXMenor.Text);
+
+            double.TryParse(txtPrecioXMayor.Text, out double precioXMayor);
+            prod.precioPorMayor = precioXMayor;
+
+            double.TryParse(txtPrecioXMenor.Text, out double precioXMenor);
+            prod.precioPorMenor = precioXMenor;
+
 
             if (_rutaFotoProducto != "")
             {
@@ -348,7 +377,16 @@ namespace ARSACSoft
                 else
                     MessageBox.Show("Ha ocurrido un error con la modificación", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            //Luego de guardar el producto, en caso no haya ingresado el algún precio, lo pondremos
+
+            if(prod.precioPorMayor == 0)
+            {
+                txtPrecioXMayor.Text = "0.00";
+            }
+            if(prod.precioPorMenor== 0)
+            {
+                txtPrecioXMenor.Text = "0.00";
+            }
         }
 
         private void btnModificarProducto_Click(object sender, EventArgs e)
@@ -740,6 +778,11 @@ namespace ARSACSoft
                     return;
                 }
             }
+        }
+
+        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

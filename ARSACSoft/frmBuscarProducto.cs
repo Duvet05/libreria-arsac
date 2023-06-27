@@ -25,7 +25,7 @@ namespace ARSACSoft
             CargarMarcas();
 
             txtNombreProd.Text = string.Empty;
-            dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, -1, -1);
+            //dgvProductos.DataSource = daoProductosWS.listarProductosXNombreXCategoriaXMarca(txtNombreProd.Text, -1, -1);
         }
 
         private void CargarCategorias()
@@ -33,7 +33,7 @@ namespace ARSACSoft
             cboCategoria.DisplayMember = "descripcion";
             cboCategoria.ValueMember = "idCategoria";
             cboCategoria.DataSource = daoProductosWS.listarCategoriasTodas();
-            cboCategoria.SelectedIndex = -1;
+            //cboCategoria.SelectedIndex = -1;
         }
 
         private void CargarMarcas()
@@ -41,7 +41,7 @@ namespace ARSACSoft
             cboMarca.DisplayMember = "descripcion";
             cboMarca.ValueMember = "idMarca";
             cboMarca.DataSource = daoProductosWS.listarMarcaTodas();
-            cboMarca.SelectedIndex = -1;
+            //cboMarca.SelectedIndex = -1;
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
@@ -76,13 +76,13 @@ namespace ARSACSoft
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvProductos.CurrentRow != null)
-            {
-                ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
-                txtNombreProd.Text = ProductoSeleccionado.nombre;
-                cboMarca.SelectedValue = ProductoSeleccionado.marca.idMarca;
-                cboCategoria.SelectedValue = ProductoSeleccionado.categoria.idCategoria;
-            }
+            //if (dgvProductos.CurrentRow != null)
+            //{
+            //    ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
+            //    txtNombreProd.Text = ProductoSeleccionado.nombre;
+            //    cboMarca.SelectedValue = ProductoSeleccionado.marca.idMarca;
+            //    cboCategoria.SelectedValue = ProductoSeleccionado.categoria.idCategoria;
+            //}
         }
     }
 }
