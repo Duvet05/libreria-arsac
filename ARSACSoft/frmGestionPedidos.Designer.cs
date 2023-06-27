@@ -66,11 +66,11 @@
             this.btnBuscarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarDireccion = new System.Windows.Forms.Button();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateFechaEntrega = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.btnBuscarDireccion = new System.Windows.Forms.Button();
             this.gbProveedor.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -490,44 +490,9 @@
             this.groupBox2.TabIndex = 111;
             this.groupBox2.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 107;
-            this.label2.Text = "Fecha de entrega:";
-            // 
-            // dateFechaEntrega
-            // 
-            this.dateFechaEntrega.Location = new System.Drawing.Point(99, 8);
-            this.dateFechaEntrega.Name = "dateFechaEntrega";
-            this.dateFechaEntrega.Size = new System.Drawing.Size(211, 20);
-            this.dateFechaEntrega.TabIndex = 106;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 108;
-            this.label4.Text = "Direccion:";
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Enabled = false;
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(99, 34);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ReadOnly = true;
-            this.txtDireccion.Size = new System.Drawing.Size(173, 20);
-            this.txtDireccion.TabIndex = 100;
-            // 
             // btnBuscarDireccion
             // 
-            this.btnBuscarDireccion.Location = new System.Drawing.Point(278, 34);
+            this.btnBuscarDireccion.Location = new System.Drawing.Point(278, 36);
             this.btnBuscarDireccion.Name = "btnBuscarDireccion";
             this.btnBuscarDireccion.Size = new System.Drawing.Size(32, 21);
             this.btnBuscarDireccion.TabIndex = 106;
@@ -535,6 +500,41 @@
             this.btnBuscarDireccion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscarDireccion.UseVisualStyleBackColor = true;
             this.btnBuscarDireccion.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Enabled = false;
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(99, 36);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ReadOnly = true;
+            this.txtDireccion.Size = new System.Drawing.Size(173, 20);
+            this.txtDireccion.TabIndex = 100;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 108;
+            this.label4.Text = "Direccion:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 13);
+            this.label2.TabIndex = 107;
+            this.label2.Text = "Fecha de entrega:";
+            // 
+            // dateFechaEntrega
+            // 
+            this.dateFechaEntrega.Location = new System.Drawing.Point(99, 10);
+            this.dateFechaEntrega.Name = "dateFechaEntrega";
+            this.dateFechaEntrega.Size = new System.Drawing.Size(211, 20);
+            this.dateFechaEntrega.TabIndex = 106;
             // 
             // frmGestionPedidos
             // 

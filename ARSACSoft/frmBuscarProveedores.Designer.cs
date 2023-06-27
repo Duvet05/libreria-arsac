@@ -45,7 +45,7 @@
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(576, 8);
+            this.btnSeleccionar.Location = new System.Drawing.Point(576, 9);
             this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(108, 23);
@@ -68,7 +68,7 @@
             // txtNombreRUC
             // 
             this.txtNombreRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreRUC.Location = new System.Drawing.Point(240, 13);
+            this.txtNombreRUC.Location = new System.Drawing.Point(240, 10);
             this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreRUC.Name = "txtNombreRUC";
             this.txtNombreRUC.Size = new System.Drawing.Size(173, 21);

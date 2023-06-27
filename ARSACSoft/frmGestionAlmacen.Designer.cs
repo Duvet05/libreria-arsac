@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpProductos = new System.Windows.Forms.TabPage();
             this.cboMarca = new System.Windows.Forms.ComboBox();
@@ -153,7 +153,7 @@
             this.tcAlmacen.Controls.Add(this.tpPromociones);
             this.tcAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcAlmacen.Location = new System.Drawing.Point(9, 10);
-            this.tcAlmacen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tcAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.tcAlmacen.Name = "tcAlmacen";
             this.tcAlmacen.SelectedIndex = 0;
             this.tcAlmacen.Size = new System.Drawing.Size(704, 462);
@@ -183,9 +183,9 @@
             this.tpProductos.Controls.Add(this.lblGestionSedes);
             this.tpProductos.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.tpProductos.Location = new System.Drawing.Point(4, 29);
-            this.tpProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpProductos.Margin = new System.Windows.Forms.Padding(2);
             this.tpProductos.Name = "tpProductos";
-            this.tpProductos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpProductos.Padding = new System.Windows.Forms.Padding(2);
             this.tpProductos.Size = new System.Drawing.Size(696, 429);
             this.tpProductos.TabIndex = 0;
             this.tpProductos.Text = "Productos";
@@ -195,8 +195,8 @@
             // 
             this.cboMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(402, 127);
-            this.cboMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMarca.Location = new System.Drawing.Point(418, 183);
+            this.cboMarca.Margin = new System.Windows.Forms.Padding(2);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(224, 23);
             this.cboMarca.TabIndex = 56;
@@ -207,7 +207,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(237, 164);
+            this.label9.Location = new System.Drawing.Point(253, 220);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 15);
             this.label9.TabIndex = 55;
@@ -226,7 +226,7 @@
             // 
             this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
             this.pbNotificacion.Location = new System.Drawing.Point(8, 391);
-            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(2);
             this.pbNotificacion.Name = "pbNotificacion";
             this.pbNotificacion.Size = new System.Drawing.Size(22, 24);
             this.pbNotificacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -237,8 +237,8 @@
             // 
             this.cboCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(402, 158);
-            this.cboCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCategoria.Location = new System.Drawing.Point(418, 214);
+            this.cboCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(224, 23);
             this.cboCategoria.TabIndex = 52;
@@ -248,7 +248,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(237, 221);
+            this.label3.Location = new System.Drawing.Point(253, 277);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 15);
             this.label3.TabIndex = 50;
@@ -257,7 +257,7 @@
             // txtPrecioXMayor
             // 
             this.txtPrecioXMayor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioXMayor.Location = new System.Drawing.Point(402, 221);
+            this.txtPrecioXMayor.Location = new System.Drawing.Point(418, 277);
             this.txtPrecioXMayor.Name = "txtPrecioXMayor";
             this.txtPrecioXMayor.Size = new System.Drawing.Size(224, 21);
             this.txtPrecioXMayor.TabIndex = 49;
@@ -267,7 +267,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(237, 191);
+            this.label2.Location = new System.Drawing.Point(253, 247);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 48;
@@ -276,7 +276,7 @@
             // txtPrecioXMenor
             // 
             this.txtPrecioXMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioXMenor.Location = new System.Drawing.Point(402, 191);
+            this.txtPrecioXMenor.Location = new System.Drawing.Point(418, 247);
             this.txtPrecioXMenor.Name = "txtPrecioXMenor";
             this.txtPrecioXMenor.Size = new System.Drawing.Size(224, 21);
             this.txtPrecioXMenor.TabIndex = 47;
@@ -286,7 +286,7 @@
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDireccion.Location = new System.Drawing.Point(237, 134);
+            this.lblDireccion.Location = new System.Drawing.Point(253, 190);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(58, 15);
             this.lblDireccion.TabIndex = 43;
@@ -317,7 +317,7 @@
             this.btnSubirFoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubirFoto.BackgroundImage")));
             this.btnSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubirFoto.Location = new System.Drawing.Point(170, 219);
+            this.btnSubirFoto.Location = new System.Drawing.Point(186, 275);
             this.btnSubirFoto.Name = "btnSubirFoto";
             this.btnSubirFoto.Size = new System.Drawing.Size(46, 34);
             this.btnSubirFoto.TabIndex = 27;
@@ -329,7 +329,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNombre.Location = new System.Drawing.Point(237, 102);
+            this.lblNombre.Location = new System.Drawing.Point(253, 158);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(139, 15);
             this.lblNombre.TabIndex = 26;
@@ -338,7 +338,7 @@
             // txtNombreProducto
             // 
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(400, 99);
+            this.txtNombreProducto.Location = new System.Drawing.Point(418, 155);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(225, 21);
             this.txtNombreProducto.TabIndex = 25;
@@ -346,7 +346,7 @@
             // txtIDProducto
             // 
             this.txtIDProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDProducto.Location = new System.Drawing.Point(401, 73);
+            this.txtIDProducto.Location = new System.Drawing.Point(418, 129);
             this.txtIDProducto.Name = "txtIDProducto";
             this.txtIDProducto.ReadOnly = true;
             this.txtIDProducto.Size = new System.Drawing.Size(70, 21);
@@ -356,7 +356,7 @@
             // pbFoto
             // 
             this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFoto.Location = new System.Drawing.Point(24, 73);
+            this.pbFoto.Location = new System.Drawing.Point(40, 129);
             this.pbFoto.Name = "pbFoto";
             this.pbFoto.Size = new System.Drawing.Size(192, 181);
             this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -368,7 +368,7 @@
             this.lblIDSede.AutoSize = true;
             this.lblIDSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIDSede.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblIDSede.Location = new System.Drawing.Point(237, 73);
+            this.lblIDSede.Location = new System.Drawing.Point(253, 129);
             this.lblIDSede.Name = "lblIDSede";
             this.lblIDSede.Size = new System.Drawing.Size(93, 15);
             this.lblIDSede.TabIndex = 22;
@@ -451,7 +451,7 @@
             this.lblGestionSedes.AutoSize = true;
             this.lblGestionSedes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGestionSedes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblGestionSedes.Location = new System.Drawing.Point(5, 38);
+            this.lblGestionSedes.Location = new System.Drawing.Point(6, 56);
             this.lblGestionSedes.Name = "lblGestionSedes";
             this.lblGestionSedes.Size = new System.Drawing.Size(156, 16);
             this.lblGestionSedes.TabIndex = 3;
@@ -469,9 +469,9 @@
             this.tpEntradasYSalidas.Controls.Add(this.toolStrip1);
             this.tpEntradasYSalidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpEntradasYSalidas.Location = new System.Drawing.Point(4, 29);
-            this.tpEntradasYSalidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpEntradasYSalidas.Margin = new System.Windows.Forms.Padding(2);
             this.tpEntradasYSalidas.Name = "tpEntradasYSalidas";
-            this.tpEntradasYSalidas.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpEntradasYSalidas.Padding = new System.Windows.Forms.Padding(2);
             this.tpEntradasYSalidas.Size = new System.Drawing.Size(696, 429);
             this.tpEntradasYSalidas.TabIndex = 1;
             this.tpEntradasYSalidas.Text = "Entradas";
@@ -526,8 +526,8 @@
             // 
             this.dgvListaProductosOC.AllowUserToAddRows = false;
             this.dgvListaProductosOC.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvListaProductosOC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProductosOC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -537,12 +537,12 @@
             this.Column3,
             this.Column4});
             this.dgvListaProductosOC.Location = new System.Drawing.Point(5, 233);
-            this.dgvListaProductosOC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvListaProductosOC.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListaProductosOC.Name = "dgvListaProductosOC";
             this.dgvListaProductosOC.RowHeadersVisible = false;
             this.dgvListaProductosOC.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvListaProductosOC.RowTemplate.Height = 24;
             this.dgvListaProductosOC.Size = new System.Drawing.Size(677, 163);
             this.dgvListaProductosOC.TabIndex = 14;
@@ -557,8 +557,8 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column1.HeaderText = "Nombre del Producto";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -573,8 +573,8 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column2.HeaderText = "Cantidad";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -582,8 +582,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column3.HeaderText = "Costo Unit.";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -591,8 +591,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle17;
             this.Column4.HeaderText = "Subtotal";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -929,9 +929,9 @@
             this.tpPromociones.Controls.Add(this.toolStrip2);
             this.tpPromociones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpPromociones.Location = new System.Drawing.Point(4, 29);
-            this.tpPromociones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpPromociones.Margin = new System.Windows.Forms.Padding(2);
             this.tpPromociones.Name = "tpPromociones";
-            this.tpPromociones.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpPromociones.Padding = new System.Windows.Forms.Padding(2);
             this.tpPromociones.Size = new System.Drawing.Size(696, 429);
             this.tpPromociones.TabIndex = 2;
             this.tpPromociones.Text = "Promociones";
@@ -941,7 +941,7 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(293, 108);
+            this.textBox14.Location = new System.Drawing.Point(299, 109);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(89, 20);
             this.textBox14.TabIndex = 31;
@@ -950,7 +950,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(209, 110);
+            this.label15.Location = new System.Drawing.Point(216, 110);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(81, 15);
             this.label15.TabIndex = 30;
@@ -968,7 +968,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(352, 140);
+            this.label20.Location = new System.Drawing.Point(386, 143);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(12, 15);
             this.label20.TabIndex = 26;
@@ -976,19 +976,19 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(391, 139);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker2.Location = new System.Drawing.Point(419, 140);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(206, 21);
+            this.dateTimePicker2.Size = new System.Drawing.Size(255, 21);
             this.dateTimePicker2.TabIndex = 25;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(124, 140);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(131, 140);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(206, 21);
+            this.dateTimePicker1.Size = new System.Drawing.Size(236, 21);
             this.dateTimePicker1.TabIndex = 24;
             // 
             // button1
@@ -1062,7 +1062,7 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(124, 108);
+            this.textBox9.Location = new System.Drawing.Point(131, 109);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(76, 20);
             this.textBox9.TabIndex = 17;
@@ -1071,7 +1071,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(7, 112);
+            this.label16.Location = new System.Drawing.Point(7, 111);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 15);
             this.label16.TabIndex = 16;
@@ -1081,7 +1081,7 @@
             // 
             this.textBox10.Enabled = false;
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(124, 76);
+            this.textBox10.Location = new System.Drawing.Point(131, 75);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(76, 20);
@@ -1101,17 +1101,17 @@
             // 
             this.textBox11.Enabled = false;
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(293, 39);
+            this.textBox11.Location = new System.Drawing.Point(299, 40);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(333, 20);
+            this.textBox11.Size = new System.Drawing.Size(339, 20);
             this.textBox11.TabIndex = 13;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(209, 41);
+            this.label18.Location = new System.Drawing.Point(216, 41);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(59, 15);
             this.label18.TabIndex = 12;
@@ -1131,7 +1131,7 @@
             // 
             this.textBox12.Enabled = false;
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(124, 40);
+            this.textBox12.Location = new System.Drawing.Point(131, 41);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(76, 20);
@@ -1206,7 +1206,7 @@
             this.Controls.Add(this.tcAlmacen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmGestionAlmacen";
             this.Text = "frmGestionAlmacen";
             this.tcAlmacen.ResumeLayout(false);

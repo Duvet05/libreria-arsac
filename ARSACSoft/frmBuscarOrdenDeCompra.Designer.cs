@@ -41,11 +41,6 @@
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.dgvOrdenesCompra = new System.Windows.Forms.DataGridView();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscarProveedorOC = new System.Windows.Forms.Button();
             this.lblNombreCliente = new System.Windows.Forms.Label();
             this.txtRazonSocialProveedorOC = new System.Windows.Forms.TextBox();
@@ -59,6 +54,11 @@
             this.rbTodos = new System.Windows.Forms.RadioButton();
             this.lblMensajeQuitar = new System.Windows.Forms.Label();
             this.pbNotificacion = new System.Windows.Forms.PictureBox();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.s = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +98,7 @@
             // 
             this.dtpfin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpfin.Location = new System.Drawing.Point(422, 59);
-            this.dtpfin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpfin.Margin = new System.Windows.Forms.Padding(2);
             this.dtpfin.Name = "dtpfin";
             this.dtpfin.Size = new System.Drawing.Size(242, 21);
             this.dtpfin.TabIndex = 20;
@@ -107,7 +107,7 @@
             // 
             this.dtpInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpInicio.Location = new System.Drawing.Point(107, 59);
-            this.dtpInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpInicio.Margin = new System.Windows.Forms.Padding(2);
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(242, 21);
             this.dtpInicio.TabIndex = 19;
@@ -129,6 +129,7 @@
             this.dgvOrdenesCompra.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvOrdenesCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvOrdenesCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,51 +173,6 @@
             this.dgvOrdenesCompra.TabIndex = 14;
             this.dgvOrdenesCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenesCompra_CellContentClick);
             this.dgvOrdenesCompra.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenesCompra_CellFormatting);
-            // 
-            // DNI
-            // 
-            this.DNI.FillWeight = 5.525574F;
-            this.DNI.HeaderText = "ID";
-            this.DNI.MinimumWidth = 6;
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            this.DNI.Width = 70;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 44.31167F;
-            this.Column1.HeaderText = "Proveedor";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 250;
-            // 
-            // s
-            // 
-            this.s.FillWeight = 58.17179F;
-            this.s.HeaderText = "Fecha emisión";
-            this.s.MinimumWidth = 6;
-            this.s.Name = "s";
-            this.s.ReadOnly = true;
-            this.s.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 124.6113F;
-            this.Column2.HeaderText = "Monto total";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Estado
-            // 
-            this.Estado.FillWeight = 267.3797F;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.MinimumWidth = 6;
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 180;
             // 
             // btnBuscarProveedorOC
             // 
@@ -287,7 +243,7 @@
             // 
             this.rbEnProceso.AutoSize = true;
             this.rbEnProceso.Location = new System.Drawing.Point(180, 95);
-            this.rbEnProceso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbEnProceso.Margin = new System.Windows.Forms.Padding(2);
             this.rbEnProceso.Name = "rbEnProceso";
             this.rbEnProceso.Size = new System.Drawing.Size(95, 17);
             this.rbEnProceso.TabIndex = 33;
@@ -299,7 +255,7 @@
             // 
             this.rbCancelado.AutoSize = true;
             this.rbCancelado.Location = new System.Drawing.Point(284, 95);
-            this.rbCancelado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbCancelado.Margin = new System.Windows.Forms.Padding(2);
             this.rbCancelado.Name = "rbCancelado";
             this.rbCancelado.Size = new System.Drawing.Size(90, 17);
             this.rbCancelado.TabIndex = 34;
@@ -311,7 +267,7 @@
             // 
             this.rbRecibido.AutoSize = true;
             this.rbRecibido.Location = new System.Drawing.Point(380, 95);
-            this.rbRecibido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbRecibido.Margin = new System.Windows.Forms.Padding(2);
             this.rbRecibido.Name = "rbRecibido";
             this.rbRecibido.Size = new System.Drawing.Size(76, 17);
             this.rbRecibido.TabIndex = 35;
@@ -336,7 +292,7 @@
             // 
             this.rbTodos.AutoSize = true;
             this.rbTodos.Location = new System.Drawing.Point(106, 95);
-            this.rbTodos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbTodos.Margin = new System.Windows.Forms.Padding(2);
             this.rbTodos.Name = "rbTodos";
             this.rbTodos.Size = new System.Drawing.Size(63, 17);
             this.rbTodos.TabIndex = 37;
@@ -357,12 +313,61 @@
             // 
             this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
             this.pbNotificacion.Location = new System.Drawing.Point(9, 359);
-            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(2);
             this.pbNotificacion.Name = "pbNotificacion";
             this.pbNotificacion.Size = new System.Drawing.Size(22, 24);
             this.pbNotificacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbNotificacion.TabIndex = 54;
             this.pbNotificacion.TabStop = false;
+            // 
+            // DNI
+            // 
+            this.DNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DNI.FillWeight = 5.525574F;
+            this.DNI.HeaderText = "ID";
+            this.DNI.MinimumWidth = 6;
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            this.DNI.Width = 44;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 44.31167F;
+            this.Column1.HeaderText = "Proveedor";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // s
+            // 
+            this.s.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.s.FillWeight = 58.17179F;
+            this.s.HeaderText = "Fecha emisión";
+            this.s.MinimumWidth = 6;
+            this.s.Name = "s";
+            this.s.ReadOnly = true;
+            this.s.Width = 113;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column2.FillWeight = 124.6113F;
+            this.Column2.HeaderText = "Monto total";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 93;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Estado.FillWeight = 267.3797F;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 6;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 70;
             // 
             // frmBuscarOrdenDeCompra
             // 
@@ -390,7 +395,7 @@
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvOrdenesCompra);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscarOrdenDeCompra";
             this.Text = "frmBuscarOrdenDeCompra";
             this.Load += new System.EventHandler(this.frmBuscarOrdenDeCompra_Load);
@@ -419,14 +424,14 @@
         private System.Windows.Forms.RadioButton rbEnProceso;
         private System.Windows.Forms.RadioButton rbCancelado;
         private System.Windows.Forms.RadioButton rbRecibido;
+        private System.Windows.Forms.Button btnQuitarProveedor;
+        private System.Windows.Forms.RadioButton rbTodos;
+        private System.Windows.Forms.Label lblMensajeQuitar;
+        private System.Windows.Forms.PictureBox pbNotificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn s;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.Button btnQuitarProveedor;
-        private System.Windows.Forms.RadioButton rbTodos;
-        private System.Windows.Forms.Label lblMensajeQuitar;
-        private System.Windows.Forms.PictureBox pbNotificacion;
     }
 }

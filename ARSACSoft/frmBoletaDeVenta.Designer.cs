@@ -48,6 +48,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.axBoletaDeVenta);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBoletaDeVenta";
             this.Text = "frmBoletaDeVenta";
             ((System.ComponentModel.ISupportInitialize)(this.axBoletaDeVenta)).EndInit();
