@@ -45,15 +45,9 @@
             this.lblNombreApellidoUsuario = new System.Windows.Forms.Label();
             this.pbFotoUsuario = new System.Windows.Forms.PictureBox();
             this.panelMenuPrincipal = new System.Windows.Forms.Panel();
-            this.grupoReportes = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.grupoRRHH = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnRRHH = new System.Windows.Forms.Button();
-            this.grupoContabilidad = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnContabilidad = new System.Windows.Forms.Button();
             this.grupoSede = new System.Windows.Forms.GroupBox();
             this.pbCompras = new System.Windows.Forms.PictureBox();
             this.btnSede = new System.Windows.Forms.Button();
@@ -73,12 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrarSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoUsuario)).BeginInit();
             this.panelMenuPrincipal.SuspendLayout();
-            this.grupoReportes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.grupoRRHH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.grupoContabilidad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grupoSede.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCompras)).BeginInit();
             this.grupoProveedores.SuspendLayout();
@@ -98,7 +88,7 @@
             this.panelBarraVentana.Controls.Add(this.btnCerrar);
             this.panelBarraVentana.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarraVentana.Location = new System.Drawing.Point(266, 0);
-            this.panelBarraVentana.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBarraVentana.Margin = new System.Windows.Forms.Padding(2);
             this.panelBarraVentana.Name = "panelBarraVentana";
             this.panelBarraVentana.Size = new System.Drawing.Size(714, 65);
             this.panelBarraVentana.TabIndex = 13;
@@ -122,7 +112,7 @@
             this.pbLogoARSAC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pbLogoARSAC.Image = global::ARSACSoft.Properties.Resources.logoARSAC_21;
             this.pbLogoARSAC.Location = new System.Drawing.Point(0, -1);
-            this.pbLogoARSAC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbLogoARSAC.Margin = new System.Windows.Forms.Padding(2);
             this.pbLogoARSAC.Name = "pbLogoARSAC";
             this.pbLogoARSAC.Size = new System.Drawing.Size(60, 65);
             this.pbLogoARSAC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -134,7 +124,7 @@
             // 
             this.btnCerrar.Image = global::ARSACSoft.Properties.Resources.eliminar;
             this.btnCerrar.Location = new System.Drawing.Point(681, 2);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(30, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,7 +137,7 @@
             this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(266, 65);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(714, 469);
             this.panelContenedor.TabIndex = 14;
@@ -168,7 +158,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(266, 534);
             this.panel1.TabIndex = 12;
@@ -178,7 +168,7 @@
             this.btnSettings.BackgroundImage = global::ARSACSoft.Properties.Resources.settings;
             this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSettings.Location = new System.Drawing.Point(26, 491);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(37, 32);
             this.btnSettings.TabIndex = 23;
@@ -216,7 +206,7 @@
             this.pbCerrarSesion.BackColor = System.Drawing.Color.White;
             this.pbCerrarSesion.Image = global::ARSACSoft.Properties.Resources.imgSalir2;
             this.pbCerrarSesion.Location = new System.Drawing.Point(92, 494);
-            this.pbCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.pbCerrarSesion.Name = "pbCerrarSesion";
             this.pbCerrarSesion.Size = new System.Drawing.Size(27, 27);
             this.pbCerrarSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +220,7 @@
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
             this.btnCerrarSesion.Location = new System.Drawing.Point(81, 489);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(165, 36);
             this.btnCerrarSesion.TabIndex = 11;
@@ -268,7 +258,7 @@
             // 
             this.pbFotoUsuario.Image = global::ARSACSoft.Properties.Resources.hombre;
             this.pbFotoUsuario.Location = new System.Drawing.Point(26, 29);
-            this.pbFotoUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbFotoUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.pbFotoUsuario.Name = "pbFotoUsuario";
             this.pbFotoUsuario.Size = new System.Drawing.Size(75, 81);
             this.pbFotoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,68 +268,26 @@
             // panelMenuPrincipal
             // 
             this.panelMenuPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.panelMenuPrincipal.Controls.Add(this.grupoReportes);
             this.panelMenuPrincipal.Controls.Add(this.grupoRRHH);
-            this.panelMenuPrincipal.Controls.Add(this.grupoContabilidad);
             this.panelMenuPrincipal.Controls.Add(this.grupoSede);
             this.panelMenuPrincipal.Controls.Add(this.grupoProveedores);
             this.panelMenuPrincipal.Controls.Add(this.grupoAlmacen);
             this.panelMenuPrincipal.Controls.Add(this.grupoPedidos);
             this.panelMenuPrincipal.Location = new System.Drawing.Point(-1, 129);
-            this.panelMenuPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenuPrincipal.Name = "panelMenuPrincipal";
             this.panelMenuPrincipal.Size = new System.Drawing.Size(266, 347);
             this.panelMenuPrincipal.TabIndex = 22;
-            // 
-            // grupoReportes
-            // 
-            this.grupoReportes.Controls.Add(this.pictureBox3);
-            this.grupoReportes.Controls.Add(this.btnReportes);
-            this.grupoReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grupoReportes.Location = new System.Drawing.Point(0, 294);
-            this.grupoReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grupoReportes.Name = "grupoReportes";
-            this.grupoReportes.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grupoReportes.Size = new System.Drawing.Size(266, 49);
-            this.grupoReportes.TabIndex = 7;
-            this.grupoReportes.TabStop = false;
-            this.grupoReportes.Text = " ";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Image = global::ARSACSoft.Properties.Resources.reporte_de_negocios;
-            this.pictureBox3.Location = new System.Drawing.Point(38, 11);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 33;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.BackColor = System.Drawing.Color.White;
-            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.Color.Black;
-            this.btnReportes.Location = new System.Drawing.Point(11, 6);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(30, 32, 30, 81);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(243, 36);
-            this.btnReportes.TabIndex = 32;
-            this.btnReportes.Text = "Reportes";
-            this.btnReportes.UseVisualStyleBackColor = false;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // grupoRRHH
             // 
             this.grupoRRHH.Controls.Add(this.pictureBox2);
             this.grupoRRHH.Controls.Add(this.btnRRHH);
             this.grupoRRHH.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grupoRRHH.Location = new System.Drawing.Point(0, 245);
-            this.grupoRRHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoRRHH.Location = new System.Drawing.Point(0, 196);
+            this.grupoRRHH.Margin = new System.Windows.Forms.Padding(2);
             this.grupoRRHH.Name = "grupoRRHH";
-            this.grupoRRHH.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoRRHH.Padding = new System.Windows.Forms.Padding(2);
             this.grupoRRHH.Size = new System.Drawing.Size(266, 49);
             this.grupoRRHH.TabIndex = 6;
             this.grupoRRHH.TabStop = false;
@@ -350,7 +298,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Image = global::ARSACSoft.Properties.Resources.equipo;
             this.pictureBox2.Location = new System.Drawing.Point(38, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 27);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -371,55 +319,15 @@
             this.btnRRHH.UseVisualStyleBackColor = false;
             this.btnRRHH.Click += new System.EventHandler(this.btnRRHH_Click);
             // 
-            // grupoContabilidad
-            // 
-            this.grupoContabilidad.Controls.Add(this.pictureBox1);
-            this.grupoContabilidad.Controls.Add(this.btnContabilidad);
-            this.grupoContabilidad.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grupoContabilidad.Location = new System.Drawing.Point(0, 196);
-            this.grupoContabilidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grupoContabilidad.Name = "grupoContabilidad";
-            this.grupoContabilidad.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grupoContabilidad.Size = new System.Drawing.Size(266, 49);
-            this.grupoContabilidad.TabIndex = 5;
-            this.grupoContabilidad.TabStop = false;
-            this.grupoContabilidad.Text = " ";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::ARSACSoft.Properties.Resources.contabilidad;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnContabilidad
-            // 
-            this.btnContabilidad.BackColor = System.Drawing.Color.White;
-            this.btnContabilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContabilidad.ForeColor = System.Drawing.Color.Black;
-            this.btnContabilidad.Location = new System.Drawing.Point(11, 6);
-            this.btnContabilidad.Margin = new System.Windows.Forms.Padding(30, 32, 30, 81);
-            this.btnContabilidad.Name = "btnContabilidad";
-            this.btnContabilidad.Size = new System.Drawing.Size(243, 36);
-            this.btnContabilidad.TabIndex = 28;
-            this.btnContabilidad.Text = "Contabilidad";
-            this.btnContabilidad.UseVisualStyleBackColor = false;
-            this.btnContabilidad.Click += new System.EventHandler(this.btnContabilidad_Click);
-            // 
             // grupoSede
             // 
             this.grupoSede.Controls.Add(this.pbCompras);
             this.grupoSede.Controls.Add(this.btnSede);
             this.grupoSede.Dock = System.Windows.Forms.DockStyle.Top;
             this.grupoSede.Location = new System.Drawing.Point(0, 147);
-            this.grupoSede.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoSede.Margin = new System.Windows.Forms.Padding(2);
             this.grupoSede.Name = "grupoSede";
-            this.grupoSede.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoSede.Padding = new System.Windows.Forms.Padding(2);
             this.grupoSede.Size = new System.Drawing.Size(266, 49);
             this.grupoSede.TabIndex = 4;
             this.grupoSede.TabStop = false;
@@ -430,7 +338,7 @@
             this.pbCompras.BackColor = System.Drawing.Color.White;
             this.pbCompras.Image = global::ARSACSoft.Properties.Resources.sede;
             this.pbCompras.Location = new System.Drawing.Point(38, 11);
-            this.pbCompras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbCompras.Margin = new System.Windows.Forms.Padding(2);
             this.pbCompras.Name = "pbCompras";
             this.pbCompras.Size = new System.Drawing.Size(27, 27);
             this.pbCompras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -457,9 +365,9 @@
             this.grupoProveedores.Controls.Add(this.btnProveedores);
             this.grupoProveedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.grupoProveedores.Location = new System.Drawing.Point(0, 98);
-            this.grupoProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.grupoProveedores.Name = "grupoProveedores";
-            this.grupoProveedores.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoProveedores.Padding = new System.Windows.Forms.Padding(2);
             this.grupoProveedores.Size = new System.Drawing.Size(266, 49);
             this.grupoProveedores.TabIndex = 3;
             this.grupoProveedores.TabStop = false;
@@ -470,7 +378,7 @@
             this.pbEmpleados.BackColor = System.Drawing.Color.White;
             this.pbEmpleados.Image = global::ARSACSoft.Properties.Resources.logoEmpleados;
             this.pbEmpleados.Location = new System.Drawing.Point(38, 11);
-            this.pbEmpleados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbEmpleados.Margin = new System.Windows.Forms.Padding(2);
             this.pbEmpleados.Name = "pbEmpleados";
             this.pbEmpleados.Size = new System.Drawing.Size(27, 27);
             this.pbEmpleados.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -497,9 +405,9 @@
             this.grupoAlmacen.Controls.Add(this.btnAlmacen);
             this.grupoAlmacen.Dock = System.Windows.Forms.DockStyle.Top;
             this.grupoAlmacen.Location = new System.Drawing.Point(0, 49);
-            this.grupoAlmacen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.grupoAlmacen.Name = "grupoAlmacen";
-            this.grupoAlmacen.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoAlmacen.Padding = new System.Windows.Forms.Padding(2);
             this.grupoAlmacen.Size = new System.Drawing.Size(266, 49);
             this.grupoAlmacen.TabIndex = 2;
             this.grupoAlmacen.TabStop = false;
@@ -510,7 +418,7 @@
             this.pbAlmacen.BackColor = System.Drawing.Color.White;
             this.pbAlmacen.Image = global::ARSACSoft.Properties.Resources.logoAlmacen;
             this.pbAlmacen.Location = new System.Drawing.Point(38, 11);
-            this.pbAlmacen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbAlmacen.Margin = new System.Windows.Forms.Padding(2);
             this.pbAlmacen.Name = "pbAlmacen";
             this.pbAlmacen.Size = new System.Drawing.Size(27, 27);
             this.pbAlmacen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -539,9 +447,9 @@
             this.grupoPedidos.Dock = System.Windows.Forms.DockStyle.Top;
             this.grupoPedidos.ForeColor = System.Drawing.Color.Transparent;
             this.grupoPedidos.Location = new System.Drawing.Point(0, 0);
-            this.grupoPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoPedidos.Margin = new System.Windows.Forms.Padding(2);
             this.grupoPedidos.Name = "grupoPedidos";
-            this.grupoPedidos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grupoPedidos.Padding = new System.Windows.Forms.Padding(2);
             this.grupoPedidos.Size = new System.Drawing.Size(266, 49);
             this.grupoPedidos.TabIndex = 1;
             this.grupoPedidos.TabStop = false;
@@ -552,7 +460,7 @@
             this.pbVentas.BackColor = System.Drawing.Color.White;
             this.pbVentas.Image = global::ARSACSoft.Properties.Resources.logoVentas;
             this.pbVentas.Location = new System.Drawing.Point(38, 11);
-            this.pbVentas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbVentas.Margin = new System.Windows.Forms.Padding(2);
             this.pbVentas.Name = "pbVentas";
             this.pbVentas.Size = new System.Drawing.Size(27, 27);
             this.pbVentas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -582,7 +490,7 @@
             this.Controls.Add(this.panelBarraVentana);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPrincipal";
             this.Text = "frmPrincipal";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmPrincipal_MouseDown);
@@ -595,12 +503,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCerrarSesion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoUsuario)).EndInit();
             this.panelMenuPrincipal.ResumeLayout(false);
-            this.grupoReportes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.grupoRRHH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.grupoContabilidad.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grupoSede.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbCompras)).EndInit();
             this.grupoProveedores.ResumeLayout(false);
@@ -630,22 +534,16 @@
         private System.Windows.Forms.Label lblSedeUsuario;
         private System.Windows.Forms.Panel panelMenuPrincipal;
         private System.Windows.Forms.GroupBox grupoPedidos;
-        private System.Windows.Forms.GroupBox grupoReportes;
         private System.Windows.Forms.GroupBox grupoRRHH;
-        private System.Windows.Forms.GroupBox grupoContabilidad;
         private System.Windows.Forms.GroupBox grupoSede;
         private System.Windows.Forms.GroupBox grupoProveedores;
         private System.Windows.Forms.GroupBox grupoAlmacen;
-        private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnRRHH;
-        private System.Windows.Forms.Button btnContabilidad;
         private System.Windows.Forms.Button btnSede;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnAlmacen;
         private System.Windows.Forms.Button btnPedidos;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pbCompras;
         private System.Windows.Forms.PictureBox pbEmpleados;
         private System.Windows.Forms.PictureBox pbAlmacen;

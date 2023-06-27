@@ -1,35 +1,38 @@
 # LIBRERIA_ARENALES SAC
 
 # Catálogo de Requisitos Funcionales:
-![WhatsApp Image 2023-05-29 at 10 56 31 PM](https://github.com/Duvet05/LIBRERIA_ARENALES/assets/69012359/b95f747f-8075-43c4-af08-dcab2bea094a)
 
-## RF’s de Administración de sistema
-- RF1: El sistema permitirá al gerente y administrador el manejo CRUD de los empleados como usuarios del sistema.
-- RF2: El sistema permitirá al gerente y administrador el manejo CRUD de los tipos de empleados del sistema.
-- RF3: El sistema permitirá a los usuarios emplear un método de autenticación para el ingreso al programa basado en un usuario y contraseña. 
-- RF4: El sistema permitirá al gerente y administrador el manejo CRUD de las sedes.
+## RF’s de Recursos Humanos
+- RF1: El sistema permitirá al usuario de recursos humanos registrar un nuevo empleado en el sistema.
+- RF2: El sistema permitirá al usuario de recursos humanos modificar los datos de un empleado.
+- RF3: El sistema permitirá al usuario de recursos humanos registrar un nuevo cliente mayorista en el sistema.
+- RF4: El sistema permitirá al usuario de recursos humanos modificar los datos de un cliente mayorista.
 
 ## RF’s del Almacén
-- RF5: El sistema permitirá al usuario almacenero el manejo CRUD de las Ordenes de Compra.
-- RF6: El sistema permitirá al usuario alamcenero el manejo CRUD de los proveedores.
-- RF7: El sistema permitirá al usuario almacenero el manejo CRUD de los productos.
-- RF8: El sistema permitirá al usuario almacenero el manejo CRUD de las categorias de los productos.
-- RF9: El sistema permitirá al usuario almacenero el manejo CRUD de las marcas de los productos.
-- RF10: El sistema permitirá al usuario almacenero el manejo CRUD de los costos de los productos por cada proveedor.
+- RF5: El sistema permitirá al usuario de almacén registrar un nuevo producto.
+- RF6: El sistema permitirá al usuario de almacén buscar un producto en base a criterios de búsqueda.
+- RF7: El sistema permitirá al usuario de almacén modificar los datos de un producto.
+- RF8: El sistema permitirá al usuario de almacén registrar una orden de compra a un proveedor.
+- RF9: El sistema permitirá al usuario de almacén buscar una orden de compra en base a criterios de búsqueda.
+- RF10: El sistema permitirá al usuario de almacén modificar el estado de una orden de compra a recibido o cancelado.
+- RF11: El sistema permitirá al usuario de almacén registrar un nuevo proveedor.
+- RF14: El sistema permitirá al usuario de almacén registrar los productos que ofrece un proveedor.
+- RF12: El sistema permitirá al usuario de almacén buscar un proveedor en base a criterios de búsqueda.
 
 ## RF's de Logística
-- RF11: El sistema permitirá al usuario de logística el manejo CRUD de las Ordenes de abastecimiento de las sedes.
-- RF12: El sistema permitirá al usuario de logística el manejo CRUD de los productos disponibles en cada sede.
-- RF13: El sistema permitirá al usuario de logística el manejo CRUD de promociones para cada producto.
-
-## RF’s Contabilidad
-- RF14: El sistema permitirá al usuario de logística la creacion de informes para diferentes aspectos del negocio, como ventas, inventario, finanzas, etc.
-- RF15: El sistema permitirá al usuario contador la lectura del historial de todas las compras y ventas realizadas por la empresa.
+- RF13: El sistema permitirá al usuario de logística registrar una nueva sede.
+- RF14: El sistema permitirá al usuario de logística registrar los productos que ofrece una sede.
+- RF15: El sistema permitirá al usuario de logística modificar los datos de una sede.
+- RF16: El sistema permitirá al usuario de logística registrar una nueva orden de abastecimiento.
+- RF17: El sistema permitirá al usuario de logística buscar una orden de abastecimiento en base a criterios de búsqueda.
+- RF18: El sistema permitirá al usuario de logística modifcar el estado de una orden de abastecimiento a entregado o cancelado.
 
 ## RF’s de Ventas
-- RF16: El sistema permitirá al usuario vendedor el manejo CRUD de una Orden De Venta minorista. 
-- RF17: El sistema permitirá al usuario vendedor el manejo CRUD de una Orden De Venta mayorista.
-- RF18: El sistema permitirá al usuario vendedor el manejo CRUD de una Linea de Orden De Venta.
-- RF19: El sistema permitirá al usuario vendedor el manejo CRUD de los clientes mayoristas.
-- RF20: El sistema permitirá al usuario vendedor generar un documento de venta por Orden De venta.
-
+- RF19: El sistema permitirá al usuario de ventas minoristas el registro de una orden de venta minorista.
+- RF20: El sistema permitirá al usuario de ventas minoristas la generación de una boleta de venta como archivo pdf.
+- RF21: El sistema permitirá al usuario de ventas mayoristas el registro de una orden de venta mayorista donde se indica el cliente mayorista.
+- RF22: El sistema permitirá al usuario de ventas minoristas y mayoristas la búsqueda de una orden de venta en base a criterios de búsqueda.
+ 
+## RF’s Generales
+- RF23: El sistema permitirá a cualquier usuario emplear un método de autenticación para el ingreso al sistema basado en un usuario y contraseña. 
+- RF24: El sistema permitirá a cualquier usuario modificar su usuario y contraseña.
