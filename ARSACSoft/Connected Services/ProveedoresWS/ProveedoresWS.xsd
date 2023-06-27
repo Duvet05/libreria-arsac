@@ -52,6 +52,7 @@
       <xs:element name="precioPorMayor" type="xs:double" />
       <xs:element name="precioPorMenor" type="xs:double" />
       <xs:element minOccurs="0" name="promocion" type="tns:promocion" />
+      <xs:element name="stockTmp" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="categoria">
@@ -94,20 +95,20 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarProveedoresAfabeticamente">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarProveedoresAfabeticamenteResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="listarProveedoresPorCategoria">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarProveedoresPorCategoriaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarProveedoresAfabeticamente">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarProveedoresAfabeticamenteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proveedor" />
     </xs:sequence>

@@ -88,17 +88,17 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(232, 34);
             this.button1.TabIndex = 48;
-            this.button1.Text = "Seleccionar";
+            this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // botonUbicacion
             // 
-            this.botonUbicacion.Location = new System.Drawing.Point(161, 215);
+            this.botonUbicacion.Location = new System.Drawing.Point(144, 215);
             this.botonUbicacion.Name = "botonUbicacion";
-            this.botonUbicacion.Size = new System.Drawing.Size(92, 23);
+            this.botonUbicacion.Size = new System.Drawing.Size(109, 23);
             this.botonUbicacion.TabIndex = 9;
-            this.botonUbicacion.Text = "Seleccionar";
+            this.botonUbicacion.Text = "Seleccionar Punto";
             this.botonUbicacion.UseVisualStyleBackColor = true;
             this.botonUbicacion.Click += new System.EventHandler(this.button1_Click);
             // 
