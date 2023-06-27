@@ -10,10 +10,6 @@ DROP PROCEDURE IF EXISTS ACTUALIZAR_LINEA_ORDEN_DE_VENTA;
 DROP PROCEDURE IF EXISTS CANCELAR_VENTA_MAYORISTA;
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_ORDEN_MAYORISTA;
 
-DROP PROCEDURE IF EXISTS LISTAR_ORDEN_MAYORISTA_POR_FECHA;
-DROP PROCEDURE IF EXISTS LISTAR_ORDEN_MAYORISTA_POR_CLIENTES;
-DROP PROCEDURE IF EXISTS LISTAR_ORDEN_MAYORISTA_POR_VENDEDOR;
-
 DROP PROCEDURE IF EXISTS INSERTAR_ORDEN_DE_VENTA_MINORISTA;
 DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE_VENTAS;
 DROP PROCEDURE IF EXISTS VERIFICAR_STOCK_SUFICIENTE;
@@ -88,33 +84,26 @@ END$
 -- lISTAR
 -- #######################################################################
 
-CREATE PROCEDURE LISTAR_PRODUCTOS_ORDEN_MAYORISTA (
-IN _orden_venta_id INT
+CREATE PROCEDURE LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO (
+	IN _fecha_inicio DATE,
+    IN _fecha_fin DATE
 )
 BEGIN
-    SELECT fid_producto,cantidad,descuento,subtotal,activo as "estado" 
-    FROM lineaOrdenDeVenta 
-	WHERE fid_orden_de_venta = 1 AND activo = 1;
-END$
--- #######################################################################
--- lISTAR FECHA
--- #######################################################################
-
-CREATE PROCEDURE LISTAR_ORDEN_MAYORISTA_POR_FECHA()
-BEGIN
-    SELECT *
-    FROM ordenDeVenta
-    ORDER BY fecha_orden DESC;
-END$
--- #######################################################################
--- lISTAR CLIENTE
--- #######################################################################
-
-CREATE PROCEDURE LISTAR_ORDEN_MAYORISTA_POR_CLIENTES()
-BEGIN
-    SELECT *
-    FROM ordenDeVenta
-    ORDER BY fid_cliente_mayorista DESC;
+    SELECT
+		ov.id_orden_de_venta,
+        p1.nombre,
+        p2.nombre,
+        ov.fecha_orden,
+        ov.fecha_envio
+	FROM
+		ordenDeVenta ov
+	INNER JOIN
+		persona p1
+        ON
+        p1.id_persona = ov.fid_empleado
+	INNER JOIN
+		
+    
 END$
 
 -- #######################################################################
