@@ -27,7 +27,7 @@ namespace ARSACSoft
         //private BindingList<productoXProveedor> _lineasOrdenDeVenta;
         private RRHHWS.empleado _empleadoLogeado;
         private ProveedoresWS.proveedor _prov;
-
+        AlmacenWSClient daoAlmacenWS;
         public frmGestionProveedores(RRHHWS.empleado _empleadoLogeado)
         {
             InitializeComponent();
@@ -36,8 +36,13 @@ namespace ARSACSoft
             establecerEstadoFormularioProveedor();
 
             daoProveedorWS = new ProveedoresWSClient();
+            daoAlmacenWS = new AlmacenWSClient();
+
             this._empleadoLogeado = _empleadoLogeado;
             dgvProductos.AutoGenerateColumns = false;
+
+            dgvOrdenesCompra.AutoGenerateColumns = false;
+            rbTodos.Checked = true;
         }
 
 
@@ -346,6 +351,73 @@ namespace ARSACSoft
 
             btnBuscar.Enabled = false;
             btnAgregarProductoTabSede.Enabled = false;
+        }
+
+        private void btnBuscarProveedorOC_Click(object sender, EventArgs e)
+        {
+            frmBuscarProveedores frmBuscProvee = new frmBuscarProveedores();
+
+            if (frmBuscProvee.ShowDialog() == DialogResult.OK)
+            {
+                this._proveedorSeleccionado = frmBuscProvee.ProveedorSeleccionado;
+                txtRUCProveedorOC.Text = _proveedorSeleccionado.RUC;
+                txtRazonSocialProveedorOC.Text = _proveedorSeleccionado.nombre;
+            }
+        }
+
+        private void btnQuitarProveedor_Click(object sender, EventArgs e)
+        {
+            _proveedorSeleccionado = null;
+            txtRUCProveedorOC.Text = "";
+            txtRazonSocialProveedorOC.Text = "";
+        }
+
+        private void btnBuscarHistorialCompras_Click(object sender, EventArgs e)
+        {
+            //dgvOrdenesCompra.Rows.Clear();
+            if (_proveedorSeleccionado == null)
+            {
+                string estado = rbEnProceso.Checked ? "EN PROCESO" : (rbCancelado.Checked ? "CANCELADO" : (rbRecibido.Checked ? "RECIBIDO" : "TODOS"));
+
+                dgvOrdenesCompra.DataSource = daoAlmacenWS.listarOrdenesDeCompraXProveedor(
+                    -1, dtpInicio.Value, dtpfin.Value, estado);
+            }
+            else
+            {
+                string estado = rbEnProceso.Checked ? "EN PROCESO" : (rbCancelado.Checked ? "CANCELADO" : (rbRecibido.Checked ? "RECIBIDO" : "TODOS"));
+
+                dgvOrdenesCompra.DataSource = daoAlmacenWS.listarOrdenesDeCompraXProveedor(
+                    _proveedorSeleccionado.idProveedor, dtpInicio.Value, dtpfin.Value, estado);
+            }
+        }
+
+        private void dgvOrdenesCompra_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            AlmacenWS.ordenDeCompra ordenCompra = (AlmacenWS.ordenDeCompra)
+                dgvOrdenesCompra.Rows[e.RowIndex].DataBoundItem;
+            dgvOrdenesCompra.Rows[e.RowIndex].
+                Cells[0].Value = ordenCompra.idOrdenDeCompra;
+            dgvOrdenesCompra.Rows[e.RowIndex].
+                Cells[1].Value = ordenCompra.proveedor.nombre;
+            dgvOrdenesCompra.Rows[e.RowIndex].
+                Cells[2].Value = ordenCompra.fechaOrden.ToString("dd-MM-yyyy");
+
+            dgvOrdenesCompra.Rows[e.RowIndex].
+                Cells[3].Value = ordenCompra.costototal.ToString("N2");
+
+            dgvOrdenesCompra.Rows[e.RowIndex].
+                Cells[4].Value = ordenCompra.estado;
+        }
+
+        private void btnQuitarProveedor_MouseHover(object sender, EventArgs e)
+        {
+            lblMensajeQuitar.Text = "No filtrar por un proveedor en específico. Se mostrarán las órdenes de compra" +
+                " de todos los proveedores.";
+        }
+
+        private void btnQuitarProveedor_MouseLeave(object sender, EventArgs e)
+        {
+            lblMensajeQuitar.Text = "";
         }
     }
     }
