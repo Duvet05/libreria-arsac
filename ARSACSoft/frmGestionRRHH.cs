@@ -814,5 +814,10 @@ namespace ARSACSoft
                 txtDireccionEmpleado.Text = frm.direccionSeleccionada;
             }
         }
+
+        private void txtSalario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

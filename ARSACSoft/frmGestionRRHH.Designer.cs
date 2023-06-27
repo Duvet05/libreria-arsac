@@ -253,7 +253,7 @@
             this.cmbCiudades.Enabled = false;
             this.cmbCiudades.FormattingEnabled = true;
             this.cmbCiudades.Location = new System.Drawing.Point(424, 47);
-            this.cmbCiudades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCiudades.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCiudades.Name = "cmbCiudades";
             this.cmbCiudades.Size = new System.Drawing.Size(173, 23);
             this.cmbCiudades.TabIndex = 22;
@@ -539,7 +539,7 @@
             // 
             this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(275, 271);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(28, 23);
             this.button1.TabIndex = 40;
@@ -603,7 +603,7 @@
             // 
             this.btnBuscarSede.Enabled = false;
             this.btnBuscarSede.Location = new System.Drawing.Point(275, 299);
-            this.btnBuscarSede.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscarSede.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarSede.Name = "btnBuscarSede";
             this.btnBuscarSede.Size = new System.Drawing.Size(28, 23);
             this.btnBuscarSede.TabIndex = 9;
@@ -658,7 +658,7 @@
             this.cboTipoDeEmpleado.Enabled = false;
             this.cboTipoDeEmpleado.FormattingEnabled = true;
             this.cboTipoDeEmpleado.Location = new System.Drawing.Point(447, 32);
-            this.cboTipoDeEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTipoDeEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.cboTipoDeEmpleado.Name = "cboTipoDeEmpleado";
             this.cboTipoDeEmpleado.Size = new System.Drawing.Size(188, 23);
             this.cboTipoDeEmpleado.TabIndex = 10;
@@ -738,6 +738,7 @@
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(76, 21);
             this.txtSalario.TabIndex = 6;
+            this.txtSalario.TextChanged += new System.EventHandler(this.txtSalario_TextChanged);
             this.txtSalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalario_KeyPress);
             // 
             // txtNombreEmpleado
@@ -836,9 +837,9 @@
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Location = new System.Drawing.Point(351, 204);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(284, 118);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;

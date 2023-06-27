@@ -101,6 +101,7 @@
             // 
             this.dgvOrdenes.AllowUserToAddRows = false;
             this.dgvOrdenes.AllowUserToDeleteRows = false;
+            this.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -112,44 +113,42 @@
             this.dgvOrdenes.Location = new System.Drawing.Point(26, 61);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
+            this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.Size = new System.Drawing.Size(762, 257);
             this.dgvOrdenes.TabIndex = 5;
             this.dgvOrdenes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenes_CellFormatting);
             // 
             // ID
             // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 40;
+            this.ID.Width = 43;
             // 
             // DireccionDeSede
             // 
             this.DireccionDeSede.HeaderText = "Direccion de sede";
             this.DireccionDeSede.Name = "DireccionDeSede";
             this.DireccionDeSede.ReadOnly = true;
-            this.DireccionDeSede.Width = 140;
             // 
             // FechaRegistro
             // 
             this.FechaRegistro.HeaderText = "Fecha de registro";
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 140;
             // 
             // FechaEntrega
             // 
             this.FechaEntrega.HeaderText = "Fecha de entrega";
             this.FechaEntrega.Name = "FechaEntrega";
             this.FechaEntrega.ReadOnly = true;
-            this.FechaEntrega.Width = 140;
             // 
             // FehaCancelacion
             // 
             this.FehaCancelacion.HeaderText = "Fecha de cancelacion";
             this.FehaCancelacion.Name = "FehaCancelacion";
             this.FehaCancelacion.ReadOnly = true;
-            this.FehaCancelacion.Width = 140;
             // 
             // Estado
             // 
