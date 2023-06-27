@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarOrdenDeVenta));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpfin = new System.Windows.Forms.DateTimePicker();
@@ -105,6 +104,7 @@
             // 
             this.dgvOrdenes.AllowUserToAddRows = false;
             this.dgvOrdenes.AllowUserToDeleteRows = false;
+            this.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -114,30 +114,30 @@
             this.dgvOrdenes.Location = new System.Drawing.Point(12, 86);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
+            this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.Size = new System.Drawing.Size(659, 352);
             this.dgvOrdenes.TabIndex = 30;
             this.dgvOrdenes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenes_CellFormatting);
             // 
             // ID
             // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 50;
+            this.ID.Width = 43;
             // 
             // FechaOrden
             // 
             this.FechaOrden.HeaderText = "Fecha de orden";
             this.FechaOrden.Name = "FechaOrden";
             this.FechaOrden.ReadOnly = true;
-            this.FechaOrden.Width = 130;
             // 
             // FechaEnvio
             // 
             this.FechaEnvio.HeaderText = "Fecha de envío";
             this.FechaEnvio.Name = "FechaEnvio";
             this.FechaEnvio.ReadOnly = true;
-            this.FechaEnvio.Width = 130;
             // 
             // Total
             // 
@@ -157,7 +157,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpfin);
             this.Controls.Add(this.dtpInicio);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscarOrdenDeVenta";
             this.Text = "frmBuscarOrdenDeVenta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();

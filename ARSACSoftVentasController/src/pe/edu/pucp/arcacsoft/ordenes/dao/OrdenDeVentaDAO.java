@@ -21,7 +21,7 @@ public interface OrdenDeVentaDAO {
     OrdenDeVenta buscarPorID(int idOrdenDeVenta);
     public int CancelarVenta(int idOrdenDeVenta);
     public ArrayList<LineaDeOrdenDeVenta> ListarProductos(int idOrdenDeVenta);
-    ArrayList<OrdenDeVenta> listarPorPeriodo(Date fechaInicio, Date fechaFin);
+    ArrayList<OrdenDeVenta> listarPorPeriodo(int idEmpleado, Date fechaInicio, Date fechaFin);
     ArrayList<LineaDeOrdenDeVenta> listarLineasDeOrdenDeVenta(int idOrdenDeVenta);
 }
 

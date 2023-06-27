@@ -17,21 +17,27 @@ namespace ARSACSoft
         private ordenDeVenta ordenSeleccionada;
         private int _id_empleado;
 
+
+
+
+
         public ordenDeVenta OrdenSeleccionada { get => ordenSeleccionada; set => ordenSeleccionada = value; }
 
-        public frmBuscarOrdenDeVenta(int _id_empleado)
+        public frmBuscarOrdenDeVenta(int id_empleado)
         {
             InitializeComponent();
 
             daoVentas = new VentasWSClient();
 
             dgvOrdenes.AutoGenerateColumns = false;
+
+            _id_empleado = id_empleado;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             BindingList<ordenDeVenta> o =
-                new BindingList<ordenDeVenta>(daoVentas.listarOrdenesDeVentaPorPeriodo(dtpInicio.Value, dtpfin.Value).ToList());
+                new BindingList<ordenDeVenta>(daoVentas.listarOrdenesDeVentaPorPeriodo(_id_empleado, dtpInicio.Value, dtpfin.Value).ToList());
             dgvOrdenes.DataSource = o;
         }
 

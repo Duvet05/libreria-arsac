@@ -26,7 +26,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_ORDEN_DE_VENTA_MAYORISTA(?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{call INSERTAR_ORDEN_DE_VENTA_MAYORISTA(?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter(1, java.sql.Types.INTEGER);
             cs.setInt(2, ordenV.getEmpleado().getIdPersona());
             cs.setInt(3, ordenV.getClienteMayorista().getIdPersona());
@@ -35,6 +35,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             cs.setDate(5, new java.sql.Date(ordenV.getFechaOrden().getDate()));
             cs.setDate(6, new java.sql.Date(ordenV.getFechaEnvio().getDate()));
             cs.setString(7, ordenV.getEstado());
+            cs.setString(8, ordenV.getDireccion());
             cs.executeUpdate();
             ordenV.setIdOrdenDeVenta(cs.getInt(1));
 
@@ -330,15 +331,16 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
     }
 
     @Override
-    public ArrayList<OrdenDeVenta> listarPorPeriodo(Date fechaInicio, Date fechaFin) {
+    public ArrayList<OrdenDeVenta> listarPorPeriodo(int idEmpleado, Date fechaInicio, Date fechaFin) {
         ArrayList<OrdenDeVenta> ordenes = new ArrayList<OrdenDeVenta>();
         
         try
         {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO(?,?)}");
-            cs.setDate(1, (new java.sql.Date(fechaInicio.getTime())));
-            cs.setDate(2, (new java.sql.Date(fechaFin.getTime())));
+            cs = con.prepareCall("{call LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO(?,?,?)}");
+            cs.setInt(1, idEmpleado);
+            cs.setDate(2, (new java.sql.Date(fechaInicio.getTime())));
+            cs.setDate(3, (new java.sql.Date(fechaFin.getTime())));
             
             rs = cs.executeQuery();
             
@@ -411,7 +413,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
                 linea.getProducto().setPrecioPorMenor(rs.getDouble("precio"));
                 linea.getProducto().setPrecioPorMayor(rs.getDouble("precio_por_mayor"));
                 linea.setDescuento(rs.getDouble("descuento"));
-                linea.setPrecio(rs.getDouble("precio"));
+                linea.setPrecio(rs.getDouble("subtotal"));
                 
                 lineas.add(linea);
             }

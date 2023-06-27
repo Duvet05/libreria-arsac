@@ -177,11 +177,11 @@ public class VentasWS {
         }
         return tieneStock;
     }
-    
+
     @WebMethod(operationName = "listarOrdenesDeVentaPorPeriodo")
-    public ArrayList<OrdenDeVenta> listarOrdenesDeVentaPorPeriodo(Date fechaInicio, Date fechaFin)
+    public ArrayList<OrdenDeVenta> listarOrdenesDeVentaPorPeriodo(int idEmpleado, Date fechaInicio, Date fechaFin)
     {
-        return ordenDeVentaDAO.listarPorPeriodo(fechaInicio, fechaFin);
+        return ordenDeVentaDAO.listarPorPeriodo(idEmpleado, fechaInicio, fechaFin);
     }
     
     @WebMethod(operationName = "listarLineasDeOrdenDeVentaPorID")
