@@ -60,6 +60,8 @@ namespace ARSACSoft
                     checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
+                    txtDireccion.Enabled = false;
                     textCantProducto.Enabled = false;
                     btnCliente.Enabled = false;
                     break;
@@ -84,6 +86,8 @@ namespace ARSACSoft
                     btnNuevo.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnAgregar.Enabled = false;
+                    btnBuscarDireccion.Enabled = false;
+                    txtDireccion.Enabled = false;
                     textCantProducto.Enabled = false;
                     BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
@@ -111,11 +115,14 @@ namespace ARSACSoft
             txtNombreCompleto.Enabled = facturaChecked;
             btnCliente.Enabled = facturaChecked;
             AgregarCliente.Enabled = facturaChecked;
+            txtDireccion.Enabled = facturaChecked;
             dateFechaEntrega.Enabled = facturaChecked;
+            btnBuscarDireccion.Enabled = facturaChecked;
             if (!facturaChecked)
             {
                 txtRUC.Text = string.Empty;
                 dateFechaEntrega.Value = DateTime.Now;
+                txtDireccion.Text = string.Empty;
                 txtRazonSocial.Text = string.Empty;
                 txtNombreCompleto.Text = string.Empty; // Limpia el contenido del campo de factura
             }
@@ -142,6 +149,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -155,6 +163,7 @@ namespace ARSACSoft
             txtNombreCompleto.Text = "";
             checkBoxFactura.Checked = false;
             checkBoxDescuento.Checked = false;
+            txtDireccion.Text = "";
             dataGridView2.Rows.Clear();
         }
 
@@ -166,6 +175,7 @@ namespace ARSACSoft
                 _producto = frm.ProductoSeleccionado;
                 textNombreProducto.Text = _producto.nombre.ToString();
                 textCantProducto.Enabled = true;
+                checkBoxDescuento.Checked = false;
             }
         }
 
@@ -308,6 +318,15 @@ namespace ARSACSoft
             textCantProducto.Text = "";
             foreach (lineaDeOrdenDeVenta linea in _lineasOrdenDeVenta)
             {
+                if (checkBoxFactura.Checked)
+                {
+                    linea.precio = linea.producto.precioPorMayor;
+                }
+                else
+                {
+                    linea.precio = linea.producto.precioPorMenor;
+                }
+
                 montoTotal += linea.precio;
             }
 
@@ -323,6 +342,7 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
+                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -354,49 +374,20 @@ namespace ARSACSoft
 
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-
-
-
             if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
             {
                 try
                 {
                     lineaDeOrdenDeVenta lov = (lineaDeOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
+                    lov.precio = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
                     dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.producto.idProducto;
                     dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.producto.nombre;
                     dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.cantidad;
                     dataGridView2.Rows[e.RowIndex].Cells[3].Value = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
-                    dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento;
-                    dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.precio;
+                    dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento.ToString("N2");
+                    dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.precio.ToString("N2");
                 }
                 catch { }
-
-
-                /*
-                double precio = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
-
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        e.Value = lov.producto.idProducto.ToString();
-                        break;
-                    case 1:
-                        e.Value = lov.producto.nombre;
-                        break;
-                    case 2:
-                        e.Value = lov.cantidad.ToString();
-                        break;
-                    case 3:
-                        e.Value = precio.ToString("N2");
-                        break;
-                    case 4:
-                        e.Value = lov.descuento.ToString("N2");
-                        break;
-                    case 5:
-                        e.Value = lov.precio.ToString("N2");
-                        break;
-                }
-                */
             }
         }
 
@@ -452,11 +443,15 @@ namespace ARSACSoft
                     }
                 }
 
-                if (newText.Length > 3)
+                if (newText.Length > 6)
                 {
-                    // Verificar si el número entero es mayor a 100
+                    e.Handled = true;
+                }
+                else if (newText.Length > 3)
+                {
+                    // Verificar si el número entero es mayor a 99
                     int integerValue = int.Parse(newText.Split(decimalSeparator)[0]);
-                    if (integerValue > 100)
+                    if (integerValue > 99)
                     {
                         e.Handled = true;
                     }
@@ -497,7 +492,6 @@ namespace ARSACSoft
             ordenV.precioTotal = precioTotal;
             ordenV.empleado = new VentasWS.empleado();
             ordenV.empleado.idPersona = _id_empleado;
-            //ordenV.d
             if (checkBoxFactura.Checked)
             {
                 if (_clienteMayorista == null)
@@ -534,7 +528,13 @@ namespace ARSACSoft
             MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmBursarDireccion frm = new frmBursarDireccion();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                txtDireccion.Text = frm.direccionSeleccionada;
+            }
+        }
     }
 }

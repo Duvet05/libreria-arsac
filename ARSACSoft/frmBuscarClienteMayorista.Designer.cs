@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarClienteMayorista));
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreDNI = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -144,6 +145,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNombreDNI);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscarClienteMayorista";
             this.Text = "Busqueda de Cliente Mayorista";

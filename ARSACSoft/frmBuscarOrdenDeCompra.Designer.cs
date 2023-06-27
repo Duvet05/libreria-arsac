@@ -66,10 +66,9 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(779, 117);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(584, 95);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(147, 28);
+            this.btnBuscar.Size = new System.Drawing.Size(110, 23);
             this.btnBuscar.TabIndex = 25;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -79,10 +78,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(504, 76);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(378, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 18);
+            this.label2.Size = new System.Drawing.Size(14, 15);
             this.label2.TabIndex = 23;
             this.label2.Text = "Y";
             // 
@@ -90,38 +88,36 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 77);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(29, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 18);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 22;
             this.label1.Text = "(*)Entre:";
             // 
             // dtpfin
             // 
             this.dtpfin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpfin.Location = new System.Drawing.Point(563, 73);
-            this.dtpfin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpfin.Location = new System.Drawing.Point(422, 59);
+            this.dtpfin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpfin.Name = "dtpfin";
-            this.dtpfin.Size = new System.Drawing.Size(322, 24);
+            this.dtpfin.Size = new System.Drawing.Size(242, 21);
             this.dtpfin.TabIndex = 20;
             // 
             // dtpInicio
             // 
             this.dtpInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpInicio.Location = new System.Drawing.Point(143, 73);
-            this.dtpInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpInicio.Location = new System.Drawing.Point(107, 59);
+            this.dtpInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(322, 24);
+            this.dtpInicio.Size = new System.Drawing.Size(242, 21);
             this.dtpInicio.TabIndex = 19;
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(948, 117);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSeleccionar.Location = new System.Drawing.Point(711, 95);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(150, 28);
+            this.btnSeleccionar.Size = new System.Drawing.Size(112, 23);
             this.btnSeleccionar.TabIndex = 17;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -156,8 +152,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrdenesCompra.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvOrdenesCompra.Location = new System.Drawing.Point(13, 157);
-            this.dgvOrdenesCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvOrdenesCompra.Location = new System.Drawing.Point(10, 128);
             this.dgvOrdenesCompra.Name = "dgvOrdenesCompra";
             this.dgvOrdenesCompra.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -173,7 +168,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvOrdenesCompra.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrdenesCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenesCompra.Size = new System.Drawing.Size(1085, 277);
+            this.dgvOrdenesCompra.Size = new System.Drawing.Size(814, 225);
             this.dgvOrdenesCompra.TabIndex = 14;
             this.dgvOrdenesCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenesCompra_CellContentClick);
             this.dgvOrdenesCompra.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenesCompra_CellFormatting);
@@ -226,10 +221,9 @@
             // btnBuscarProveedorOC
             // 
             this.btnBuscarProveedorOC.BackColor = System.Drawing.Color.White;
-            this.btnBuscarProveedorOC.Location = new System.Drawing.Point(845, 27);
-            this.btnBuscarProveedorOC.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarProveedorOC.Location = new System.Drawing.Point(634, 22);
             this.btnBuscarProveedorOC.Name = "btnBuscarProveedorOC";
-            this.btnBuscarProveedorOC.Size = new System.Drawing.Size(40, 28);
+            this.btnBuscarProveedorOC.Size = new System.Drawing.Size(30, 23);
             this.btnBuscarProveedorOC.TabIndex = 31;
             this.btnBuscarProveedorOC.Text = "...";
             this.btnBuscarProveedorOC.UseVisualStyleBackColor = false;
@@ -240,10 +234,9 @@
             this.lblNombreCliente.AutoSize = true;
             this.lblNombreCliente.BackColor = System.Drawing.Color.Transparent;
             this.lblNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCliente.Location = new System.Drawing.Point(366, 33);
-            this.lblNombreCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreCliente.Location = new System.Drawing.Point(274, 27);
             this.lblNombreCliente.Name = "lblNombreCliente";
-            this.lblNombreCliente.Size = new System.Drawing.Size(99, 18);
+            this.lblNombreCliente.Size = new System.Drawing.Size(81, 15);
             this.lblNombreCliente.TabIndex = 30;
             this.lblNombreCliente.Text = "Razón social:";
             // 
@@ -252,11 +245,10 @@
             this.txtRazonSocialProveedorOC.BackColor = System.Drawing.SystemColors.Control;
             this.txtRazonSocialProveedorOC.Enabled = false;
             this.txtRazonSocialProveedorOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocialProveedorOC.Location = new System.Drawing.Point(498, 28);
-            this.txtRazonSocialProveedorOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRazonSocialProveedorOC.Location = new System.Drawing.Point(374, 23);
             this.txtRazonSocialProveedorOC.Name = "txtRazonSocialProveedorOC";
             this.txtRazonSocialProveedorOC.ReadOnly = true;
-            this.txtRazonSocialProveedorOC.Size = new System.Drawing.Size(328, 24);
+            this.txtRazonSocialProveedorOC.Size = new System.Drawing.Size(247, 21);
             this.txtRazonSocialProveedorOC.TabIndex = 29;
             // 
             // txtRUCProveedorOC
@@ -264,11 +256,10 @@
             this.txtRUCProveedorOC.BackColor = System.Drawing.SystemColors.Control;
             this.txtRUCProveedorOC.Enabled = false;
             this.txtRUCProveedorOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRUCProveedorOC.Location = new System.Drawing.Point(142, 28);
-            this.txtRUCProveedorOC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRUCProveedorOC.Location = new System.Drawing.Point(106, 23);
             this.txtRUCProveedorOC.Name = "txtRUCProveedorOC";
             this.txtRUCProveedorOC.ReadOnly = true;
-            this.txtRUCProveedorOC.Size = new System.Drawing.Size(202, 24);
+            this.txtRUCProveedorOC.Size = new System.Drawing.Size(152, 21);
             this.txtRUCProveedorOC.TabIndex = 28;
             // 
             // lblDNICliente
@@ -276,10 +267,9 @@
             this.lblDNICliente.AutoSize = true;
             this.lblDNICliente.BackColor = System.Drawing.Color.Transparent;
             this.lblDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNICliente.Location = new System.Drawing.Point(38, 33);
-            this.lblDNICliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDNICliente.Location = new System.Drawing.Point(28, 27);
             this.lblDNICliente.Name = "lblDNICliente";
-            this.lblDNICliente.Size = new System.Drawing.Size(45, 18);
+            this.lblDNICliente.Size = new System.Drawing.Size(36, 15);
             this.lblDNICliente.TabIndex = 27;
             this.lblDNICliente.Text = "RUC:";
             // 
@@ -287,19 +277,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 117);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(29, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 18);
+            this.label3.Size = new System.Drawing.Size(48, 15);
             this.label3.TabIndex = 32;
             this.label3.Text = "Estado:";
             // 
             // rbEnProceso
             // 
             this.rbEnProceso.AutoSize = true;
-            this.rbEnProceso.Location = new System.Drawing.Point(240, 117);
+            this.rbEnProceso.Location = new System.Drawing.Point(180, 95);
+            this.rbEnProceso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbEnProceso.Name = "rbEnProceso";
-            this.rbEnProceso.Size = new System.Drawing.Size(116, 20);
+            this.rbEnProceso.Size = new System.Drawing.Size(95, 17);
             this.rbEnProceso.TabIndex = 33;
             this.rbEnProceso.TabStop = true;
             this.rbEnProceso.Text = "EN PROCESO";
@@ -308,9 +298,10 @@
             // rbCancelado
             // 
             this.rbCancelado.AutoSize = true;
-            this.rbCancelado.Location = new System.Drawing.Point(378, 117);
+            this.rbCancelado.Location = new System.Drawing.Point(284, 95);
+            this.rbCancelado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbCancelado.Name = "rbCancelado";
-            this.rbCancelado.Size = new System.Drawing.Size(110, 20);
+            this.rbCancelado.Size = new System.Drawing.Size(90, 17);
             this.rbCancelado.TabIndex = 34;
             this.rbCancelado.TabStop = true;
             this.rbCancelado.Text = "CANCELADO";
@@ -319,9 +310,10 @@
             // rbRecibido
             // 
             this.rbRecibido.AutoSize = true;
-            this.rbRecibido.Location = new System.Drawing.Point(506, 117);
+            this.rbRecibido.Location = new System.Drawing.Point(380, 95);
+            this.rbRecibido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbRecibido.Name = "rbRecibido";
-            this.rbRecibido.Size = new System.Drawing.Size(91, 20);
+            this.rbRecibido.Size = new System.Drawing.Size(76, 17);
             this.rbRecibido.TabIndex = 35;
             this.rbRecibido.TabStop = true;
             this.rbRecibido.Text = "RECIBIDO";
@@ -330,10 +322,9 @@
             // btnQuitarProveedor
             // 
             this.btnQuitarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarProveedor.Location = new System.Drawing.Point(893, 27);
-            this.btnQuitarProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnQuitarProveedor.Location = new System.Drawing.Point(670, 22);
             this.btnQuitarProveedor.Name = "btnQuitarProveedor";
-            this.btnQuitarProveedor.Size = new System.Drawing.Size(71, 28);
+            this.btnQuitarProveedor.Size = new System.Drawing.Size(53, 23);
             this.btnQuitarProveedor.TabIndex = 36;
             this.btnQuitarProveedor.Text = "Quitar";
             this.btnQuitarProveedor.UseVisualStyleBackColor = true;
@@ -344,9 +335,10 @@
             // rbTodos
             // 
             this.rbTodos.AutoSize = true;
-            this.rbTodos.Location = new System.Drawing.Point(142, 117);
+            this.rbTodos.Location = new System.Drawing.Point(106, 95);
+            this.rbTodos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(76, 20);
+            this.rbTodos.Size = new System.Drawing.Size(63, 17);
             this.rbTodos.TabIndex = 37;
             this.rbTodos.TabStop = true;
             this.rbTodos.Text = "TODOS";
@@ -355,27 +347,28 @@
             // lblMensajeQuitar
             // 
             this.lblMensajeQuitar.AutoSize = true;
-            this.lblMensajeQuitar.Location = new System.Drawing.Point(51, 449);
+            this.lblMensajeQuitar.Location = new System.Drawing.Point(38, 365);
+            this.lblMensajeQuitar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMensajeQuitar.Name = "lblMensajeQuitar";
-            this.lblMensajeQuitar.Size = new System.Drawing.Size(0, 16);
+            this.lblMensajeQuitar.Size = new System.Drawing.Size(0, 13);
             this.lblMensajeQuitar.TabIndex = 38;
             // 
             // pbNotificacion
             // 
             this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
-            this.pbNotificacion.Location = new System.Drawing.Point(12, 442);
-            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbNotificacion.Location = new System.Drawing.Point(9, 359);
+            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbNotificacion.Name = "pbNotificacion";
-            this.pbNotificacion.Size = new System.Drawing.Size(29, 30);
+            this.pbNotificacion.Size = new System.Drawing.Size(22, 24);
             this.pbNotificacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbNotificacion.TabIndex = 54;
             this.pbNotificacion.TabStop = false;
             // 
             // frmBuscarOrdenDeCompra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 479);
+            this.ClientSize = new System.Drawing.Size(832, 389);
             this.Controls.Add(this.pbNotificacion);
             this.Controls.Add(this.lblMensajeQuitar);
             this.Controls.Add(this.rbTodos);
@@ -396,7 +389,8 @@
             this.Controls.Add(this.dtpInicio);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvOrdenesCompra);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmBuscarOrdenDeCompra";
             this.Text = "frmBuscarOrdenDeCompra";
             this.Load += new System.EventHandler(this.frmBuscarOrdenDeCompra_Load);

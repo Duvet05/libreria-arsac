@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarProductoXSede));
             this.txtDireccionDeSede = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
@@ -234,6 +235,7 @@
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNombreProducto);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscarProductoXSede";
             this.Text = "frmBuscarProductoXSede";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
