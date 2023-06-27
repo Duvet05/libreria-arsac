@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 import pe.edu.pucp.arsacsoft.ordenes.model.LineaDeOrdenDeVenta;
 import pe.edu.pucp.arcacsoft.ordenes.dao.LineaDeOrdenDeVentaDAO;
@@ -326,6 +327,106 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
     @Override
     public int eliminar(int idOrdenDeVenta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public ArrayList<OrdenDeVenta> listarPorPeriodo(Date fechaInicio, Date fechaFin) {
+        ArrayList<OrdenDeVenta> ordenes = new ArrayList<OrdenDeVenta>();
+        
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO(?,?)}");
+            cs.setDate(1, (new java.sql.Date(fechaInicio.getTime())));
+            cs.setDate(2, (new java.sql.Date(fechaFin.getTime())));
+            
+            rs = cs.executeQuery();
+            
+            while (rs.next())
+            {
+                OrdenDeVenta orden = new OrdenDeVenta();
+                
+                /*
+                ov.id_orden_de_venta,
+		ov.fid_cliente_mayorista,
+                ov.fecha_orden,
+                ov.fecha_envio,
+                ov.total
+                */
+                
+                orden.setIdOrdenDeVenta(rs.getInt("id_orden_de_venta"));
+                orden.setClienteMayorista(new ClienteMayorista());
+                orden.getClienteMayorista().setIdPersona(rs.getInt("fid_cliente_mayorista"));
+                orden.setFechaOrden(new java.util.Date((rs.getDate("fecha_orden")).getTime()));
+                if (rs.getDate("fecha_envio") != null)
+                    orden.setFechaEnvio(new java.util.Date((rs.getDate("fecha_envio")).getTime()));
+                orden.setPrecioTotal(rs.getDouble("total"));
+                
+                ordenes.add(orden);
+            }
+            
+            
+            
+        }catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        
+        return ordenes;
+    }
+
+    @Override
+    public ArrayList<LineaDeOrdenDeVenta> listarLineasDeOrdenDeVenta(int idOrdenDeVenta) {
+        ArrayList<LineaDeOrdenDeVenta> lineas = new ArrayList<LineaDeOrdenDeVenta>();
+        
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_LINEAS_DE_ORDEN_DE_VENTA(?)}");
+            cs.setInt(1, idOrdenDeVenta);
+            rs= cs.executeQuery();
+            while (rs.next())
+            {
+                LineaDeOrdenDeVenta linea = new LineaDeOrdenDeVenta();
+                
+                /*
+                    p.id_producto,
+                    p.nombre,
+                    lov.cantidad,
+                    p.precio,
+                    p.precio_por_mayor,
+                    lov.descuento,
+                    lov.precio
+                */
+                
+                linea.setProducto(new Producto());
+                linea.getProducto().setIdProducto(rs.getInt("id_producto"));
+                linea.getProducto().setNombre(rs.getString("nombre"));
+                linea.setCantidad(rs.getInt("cantidad"));
+                linea.getProducto().setPrecioPorMenor(rs.getDouble("precio"));
+                linea.getProducto().setPrecioPorMayor(rs.getDouble("precio_por_mayor"));
+                linea.setDescuento(rs.getDouble("descuento"));
+                linea.setPrecio(rs.getDouble("precio"));
+                
+                lineas.add(linea);
+            }
+            
+        }catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        
+        return lineas;
     }
 
 }

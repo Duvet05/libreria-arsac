@@ -15,6 +15,10 @@ DROP PROCEDURE IF EXISTS LISTAR_PRODUCTOS_DE_SEDE_VENTAS;
 DROP PROCEDURE IF EXISTS VERIFICAR_STOCK_SUFICIENTE;
 DROP PROCEDURE IF EXISTS INSERTAR_LINEA_ORDEN_VENTA;
 
+DROP PROCEDURE IF EXISTS LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO;
+DROP PROCEDURE IF EXISTS BUSCAR_CLIENTE_MAYORISTA;
+DROP PROCEDURE IF EXISTS LISTAR_LINEAS_DE_ORDEN_DE_VENTA;
+
 DELIMITER $
 
 CREATE PROCEDURE INSERTAR_LINEA_ORDEN_VENTA_MAYORISTA(
@@ -83,7 +87,7 @@ END$
 -- #######################################################################
 -- lISTAR
 -- #######################################################################
-
+DELIMITER $
 CREATE PROCEDURE LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO (
 	IN _fecha_inicio DATE,
     IN _fecha_fin DATE
@@ -91,20 +95,57 @@ CREATE PROCEDURE LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO (
 BEGIN
     SELECT
 		ov.id_orden_de_venta,
-        p1.nombre,
-        p2.nombre,
+		ov.fid_cliente_mayorista,
         ov.fecha_orden,
-        ov.fecha_envio
+        ov.fecha_envio,
+        ov.total
 	FROM
 		ordenDeVenta ov
-	INNER JOIN
-		persona p1
-        ON
-        p1.id_persona = ov.fid_empleado
-	INNER JOIN
-		
-    
+	WHERE
+		DATE_SUB(_fecha_inicio, INTERVAL 1 DAY) <= DATE(ov.fecha_orden) AND
+        DATE(ov.fecha_orden) <= DATE_SUB(_fecha_fin, INTERVAL 1 DAY);
 END$
+
+CREATE PROCEDURE BUSCAR_CLIENTE_MAYORISTA(
+	IN _id_cliente_mayorista INT
+)
+BEGIN
+	SELECT
+		p.nombre,
+        p.apellidos,
+        c.RUC,
+        c.razon_social
+	FROM
+		clienteMayorista c
+        INNER JOIN
+        persona p
+        ON
+        p.id_persona = c.fid_cliente_mayorista
+	WHERE
+		c.fid_cliente_mayorista = _id_cliente_mayorista;
+END $
+
+CREATE PROCEDURE  LISTAR_LINEAS_DE_ORDEN_DE_VENTA(
+	IN _id_orden_de_venta INT
+)
+BEGIN
+	SELECT
+		p.id_producto,
+        p.nombre,
+        lov.cantidad,
+        p.precio,
+        p.precio_por_mayor,
+        lov.descuento,
+        lov.precio
+	FROM
+		lineaOdenDeVenta lov
+        INNER JOIN
+        producto p
+			ON
+			lov.fid_producto = p.id_producto
+	WHERE
+		lov.fid_orden_de_venta = _id_orden_de_venta;
+END $
 
 -- #######################################################################
 -- lISTAR CLIENTE

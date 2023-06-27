@@ -32,15 +32,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpfin = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreDeEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaEnvio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -81,41 +80,42 @@
             this.dtpInicio.Size = new System.Drawing.Size(242, 21);
             this.dtpInicio.TabIndex = 24;
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(483, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBuscar.Location = new System.Drawing.Point(483, 46);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(88, 23);
+            this.btnBuscar.TabIndex = 28;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnSeleccionar
             // 
-            this.button2.Location = new System.Drawing.Point(577, 46);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Seleccionar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Location = new System.Drawing.Point(577, 46);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(94, 23);
+            this.btnSeleccionar.TabIndex = 29;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
-            // dataGridView1
+            // dgvOrdenes
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvOrdenes.AllowUserToAddRows = false;
+            this.dgvOrdenes.AllowUserToDeleteRows = false;
+            this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.NombreDeEmpleado,
-            this.NombreCliente,
             this.FechaOrden,
-            this.FechaEnvio});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 86);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(659, 352);
-            this.dataGridView1.TabIndex = 30;
+            this.FechaEnvio,
+            this.Total});
+            this.dgvOrdenes.Location = new System.Drawing.Point(12, 86);
+            this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.ReadOnly = true;
+            this.dgvOrdenes.Size = new System.Drawing.Size(659, 352);
+            this.dgvOrdenes.TabIndex = 30;
+            this.dgvOrdenes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenes_CellFormatting);
             // 
             // ID
             // 
@@ -124,47 +124,41 @@
             this.ID.ReadOnly = true;
             this.ID.Width = 50;
             // 
-            // NombreDeEmpleado
-            // 
-            this.NombreDeEmpleado.HeaderText = "Nombre de empleado";
-            this.NombreDeEmpleado.Name = "NombreDeEmpleado";
-            this.NombreDeEmpleado.ReadOnly = true;
-            this.NombreDeEmpleado.Width = 150;
-            // 
-            // NombreCliente
-            // 
-            this.NombreCliente.HeaderText = "Nombre de cliente mayorista";
-            this.NombreCliente.Name = "NombreCliente";
-            this.NombreCliente.ReadOnly = true;
-            this.NombreCliente.Width = 170;
-            // 
             // FechaOrden
             // 
             this.FechaOrden.HeaderText = "Fecha de orden";
             this.FechaOrden.Name = "FechaOrden";
             this.FechaOrden.ReadOnly = true;
+            this.FechaOrden.Width = 130;
             // 
             // FechaEnvio
             // 
             this.FechaEnvio.HeaderText = "Fecha de envío";
             this.FechaEnvio.Name = "FechaEnvio";
             this.FechaEnvio.ReadOnly = true;
+            this.FechaEnvio.Width = 130;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // frmBuscarOrdenDeVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dgvOrdenes);
+            this.Controls.Add(this.btnSeleccionar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpfin);
             this.Controls.Add(this.dtpInicio);
             this.Name = "frmBuscarOrdenDeVenta";
             this.Text = "frmBuscarOrdenDeVenta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,13 +170,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpfin;
         private System.Windows.Forms.DateTimePicker dtpInicio;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnSeleccionar;
+        private System.Windows.Forms.DataGridView dgvOrdenes;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreDeEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaEnvio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

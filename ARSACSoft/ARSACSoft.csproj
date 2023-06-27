@@ -470,10 +470,16 @@
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.actualizarCuentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.buscarClienteMayoristaPorIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.buscarCuentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.buscarEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.clienteMayorista.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.cuentaUsuario.datasource">
@@ -628,7 +634,13 @@
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.lineaDeOrdenDeVenta1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse1.datasource">

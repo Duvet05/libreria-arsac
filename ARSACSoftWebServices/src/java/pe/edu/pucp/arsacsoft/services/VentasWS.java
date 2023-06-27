@@ -1,6 +1,7 @@
 package pe.edu.pucp.arsacsoft.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.ws.rs.PathParam;
@@ -175,5 +176,17 @@ public class VentasWS {
             System.out.println("Error: " + ex.getMessage());
         }
         return tieneStock;
+    }
+    
+    @WebMethod(operationName = "listarOrdenesDeVentaPorPeriodo")
+    public ArrayList<OrdenDeVenta> listarOrdenesDeVentaPorPeriodo(Date fechaInicio, Date fechaFin)
+    {
+        return ordenDeVentaDAO.listarPorPeriodo(fechaInicio, fechaFin);
+    }
+    
+    @WebMethod(operationName = "listarLineasDeOrdenDeVentaPorID")
+    public ArrayList<LineaDeOrdenDeVenta> listarLineasDeOrdenDeVentaPorID(int idOrdenDeVenta)
+    {
+        return ordenDeVentaDAO.listarLineasDeOrdenDeVenta(idOrdenDeVenta);
     }
 }

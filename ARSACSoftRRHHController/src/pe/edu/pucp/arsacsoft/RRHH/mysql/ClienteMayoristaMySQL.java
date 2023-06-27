@@ -118,5 +118,34 @@ public class ClienteMayoristaMySQL implements ClienteMayoristaDAO{
         }
         return clientes;              
     }
+
+    @Override
+    public ClienteMayorista buscarPorID(int idClienteMayorista) {
+        
+        ClienteMayorista cliente = null;
+        
+        try
+        {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call BUSCAR_CLIENTE_MAYORISTA(?)}");
+            cs.setInt(1, idClienteMayorista);
+            rs = cs.executeQuery();
+            rs.next();
+            
+            cliente = new ClienteMayorista();
+            cliente.setNombre(rs.getString("nombre"));
+            cliente.setApellidos(rs.getString("nombre"));
+            cliente.setRUC(rs.getString("RUC"));
+            cliente.setRazonSocial(rs.getString("razon_social"));
+            
+            
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+        }
+        
+        return cliente;
+    }
     
 }
