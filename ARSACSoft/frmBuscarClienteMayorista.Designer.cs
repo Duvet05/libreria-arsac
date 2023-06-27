@@ -55,7 +55,7 @@
             // txtNombreDNI
             // 
             this.txtNombreDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreDNI.Location = new System.Drawing.Point(263, 11);
+            this.txtNombreDNI.Location = new System.Drawing.Point(266, 11);
             this.txtNombreDNI.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreDNI.Name = "txtNombreDNI";
             this.txtNombreDNI.Size = new System.Drawing.Size(155, 21);
@@ -64,7 +64,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(427, 8);
+            this.btnBuscar.Location = new System.Drawing.Point(430, 8);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(57, 25);
@@ -109,20 +109,24 @@
             // 
             // idCliente
             // 
+            this.idCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.idCliente.HeaderText = "ID Cliente";
-            this.idCliente.MinimumWidth = 8;
+            this.idCliente.MinimumWidth = 33;
             this.idCliente.Name = "idCliente";
             this.idCliente.ReadOnly = true;
+            this.idCliente.Width = 78;
             // 
             // DNI
             // 
+            this.DNI.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DNI.HeaderText = "DNI";
-            this.DNI.MinimumWidth = 8;
+            this.DNI.MinimumWidth = 80;
             this.DNI.Name = "DNI";
             this.DNI.ReadOnly = true;
             // 
             // Nombre
             // 
+            this.Nombre.FillWeight = 200F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.MinimumWidth = 8;
             this.Nombre.Name = "Nombre";
@@ -130,6 +134,7 @@
             // 
             // RazonSocial
             // 
+            this.RazonSocial.FillWeight = 200F;
             this.RazonSocial.HeaderText = "Razon Social";
             this.RazonSocial.MinimumWidth = 8;
             this.RazonSocial.Name = "RazonSocial";

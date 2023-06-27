@@ -44,8 +44,13 @@
             // 
             // btnSeleccionar
             // 
+<<<<<<< HEAD
             this.btnSeleccionar.Location = new System.Drawing.Point(768, 10);
             this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.btnSeleccionar.Location = new System.Drawing.Point(576, 9);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 709da0500a7f1bd1b382a1850c4b42bd0554f024
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(144, 28);
             this.btnSeleccionar.TabIndex = 9;
@@ -67,8 +72,13 @@
             // txtNombreRUC
             // 
             this.txtNombreRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.txtNombreRUC.Location = new System.Drawing.Point(320, 16);
             this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+=======
+            this.txtNombreRUC.Location = new System.Drawing.Point(240, 10);
+            this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> 709da0500a7f1bd1b382a1850c4b42bd0554f024
             this.txtNombreRUC.Name = "txtNombreRUC";
             this.txtNombreRUC.Size = new System.Drawing.Size(229, 24);
             this.txtNombreRUC.TabIndex = 7;
