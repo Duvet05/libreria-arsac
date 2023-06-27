@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpProductos = new System.Windows.Forms.TabPage();
             this.cboMarca = new System.Windows.Forms.ComboBox();
@@ -497,7 +497,7 @@
             // 
             this.btnMarcarRecibidoOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarcarRecibidoOC.ForeColor = System.Drawing.Color.Blue;
-            this.btnMarcarRecibidoOC.Location = new System.Drawing.Point(632, 34);
+            this.btnMarcarRecibidoOC.Location = new System.Drawing.Point(632, 1);
             this.btnMarcarRecibidoOC.Margin = new System.Windows.Forms.Padding(4);
             this.btnMarcarRecibidoOC.Name = "btnMarcarRecibidoOC";
             this.btnMarcarRecibidoOC.Size = new System.Drawing.Size(282, 32);
@@ -510,7 +510,7 @@
             // 
             this.btnEliminarOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarOC.ForeColor = System.Drawing.Color.Red;
-            this.btnEliminarOC.Location = new System.Drawing.Point(632, 1);
+            this.btnEliminarOC.Location = new System.Drawing.Point(632, 34);
             this.btnEliminarOC.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarOC.Name = "btnEliminarOC";
             this.btnEliminarOC.Size = new System.Drawing.Size(282, 32);
@@ -546,8 +546,8 @@
             // 
             this.dgvListaProductosOC.AllowUserToAddRows = false;
             this.dgvListaProductosOC.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvListaProductosOC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProductosOC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column6,
@@ -561,8 +561,8 @@
             this.dgvListaProductosOC.Name = "dgvListaProductosOC";
             this.dgvListaProductosOC.RowHeadersVisible = false;
             this.dgvListaProductosOC.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProductosOC.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvListaProductosOC.RowTemplate.Height = 24;
             this.dgvListaProductosOC.Size = new System.Drawing.Size(903, 201);
             this.dgvListaProductosOC.TabIndex = 14;
@@ -577,8 +577,8 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle26;
             this.Column1.HeaderText = "Nombre del Producto";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -593,8 +593,8 @@
             // 
             // Column2
             // 
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle27;
             this.Column2.HeaderText = "Cantidad";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -602,8 +602,8 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle28;
             this.Column3.HeaderText = "Costo Unit.";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -611,8 +611,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle29;
             this.Column4.HeaderText = "Subtotal";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionProveedores));
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpAdministrar = new System.Windows.Forms.TabPage();
@@ -81,7 +81,7 @@
             // 
             this.tcAlmacen.Controls.Add(this.tpAdministrar);
             this.tcAlmacen.Controls.Add(this.tpHistorialCompras);
-            this.tcAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.tcAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcAlmacen.Location = new System.Drawing.Point(12, 12);
             this.tcAlmacen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tcAlmacen.Name = "tcAlmacen";
@@ -107,12 +107,13 @@
             this.tpAdministrar.Controls.Add(this.cbSalasEstudio);
             this.tpAdministrar.Controls.Add(this.tsMenu);
             this.tpAdministrar.Controls.Add(this.lblGestionSedes);
+            this.tpAdministrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpAdministrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tpAdministrar.Location = new System.Drawing.Point(4, 27);
+            this.tpAdministrar.Location = new System.Drawing.Point(4, 34);
             this.tpAdministrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAdministrar.Name = "tpAdministrar";
             this.tpAdministrar.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpAdministrar.Size = new System.Drawing.Size(921, 524);
+            this.tpAdministrar.Size = new System.Drawing.Size(921, 517);
             this.tpAdministrar.TabIndex = 0;
             this.tpAdministrar.Text = "Administrar";
             this.tpAdministrar.UseVisualStyleBackColor = true;
@@ -132,7 +133,7 @@
             this.Precio,
             this.PrecioPorMayor});
             this.dgvProductos.Location = new System.Drawing.Point(39, 192);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersVisible = false;
@@ -178,8 +179,8 @@
             // Precio
             // 
             this.Precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Format = "N2";
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "N2";
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle2;
             this.Precio.FillWeight = 89.0638F;
             this.Precio.HeaderText = "Precio unitario";
             this.Precio.MinimumWidth = 6;
@@ -213,7 +214,7 @@
             // 
             this.txtEstado.Enabled = false;
             this.txtEstado.Location = new System.Drawing.Point(153, 117);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(4);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.ReadOnly = true;
             this.txtEstado.Size = new System.Drawing.Size(285, 24);
@@ -233,7 +234,7 @@
             // 
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(580, 86);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(285, 24);
@@ -243,7 +244,7 @@
             // 
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Location = new System.Drawing.Point(580, 54);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(241, 24);
@@ -285,7 +286,7 @@
             // 
             this.txtRUC.Enabled = false;
             this.txtRUC.Location = new System.Drawing.Point(153, 50);
-            this.txtRUC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRUC.Margin = new System.Windows.Forms.Padding(4);
             this.txtRUC.Name = "txtRUC";
             this.txtRUC.ReadOnly = true;
             this.txtRUC.Size = new System.Drawing.Size(285, 24);
@@ -308,7 +309,7 @@
             this.txtNombreProveedor.Enabled = false;
             this.txtNombreProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtNombreProveedor.Location = new System.Drawing.Point(153, 84);
-            this.txtNombreProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.ReadOnly = true;
             this.txtNombreProveedor.Size = new System.Drawing.Size(285, 24);
@@ -318,7 +319,7 @@
             // 
             this.cbCafeteria.AutoSize = true;
             this.cbCafeteria.Location = new System.Drawing.Point(1189, 446);
-            this.cbCafeteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCafeteria.Margin = new System.Windows.Forms.Padding(4);
             this.cbCafeteria.Name = "cbCafeteria";
             this.cbCafeteria.Size = new System.Drawing.Size(89, 22);
             this.cbCafeteria.TabIndex = 41;
@@ -329,7 +330,7 @@
             // 
             this.cbSalasEstudio.AutoSize = true;
             this.cbSalasEstudio.Location = new System.Drawing.Point(956, 446);
-            this.cbSalasEstudio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSalasEstudio.Margin = new System.Windows.Forms.Padding(4);
             this.cbSalasEstudio.Name = "cbSalasEstudio";
             this.cbSalasEstudio.Size = new System.Drawing.Size(139, 22);
             this.cbSalasEstudio.TabIndex = 39;
@@ -359,11 +360,7 @@
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNuevo.Name = "btnNuevo";
-//<<<<<<< HEAD
             this.btnNuevo.Size = new System.Drawing.Size(84, 27);
-//=======
-            this.btnNuevo.Size = new System.Drawing.Size(70, 24);
-//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -374,11 +371,7 @@
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardar.Name = "btnGuardar";
-//<<<<<<< HEAD
             this.btnGuardar.Size = new System.Drawing.Size(96, 27);
-//======
-            this.btnGuardar.Size = new System.Drawing.Size(80, 24);
-//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -389,11 +382,7 @@
             this.btnBuscar.Image = global::ARSACSoft.Properties.Resources.Search;
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
-//<<<<<<< HEAD
             this.btnBuscar.Size = new System.Drawing.Size(84, 27);
-///=======
-            this.btnBuscar.Size = new System.Drawing.Size(70, 24);
-//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -404,13 +393,8 @@
             this.btnCancelar.Image = global::ARSACSoft.Properties.Resources.Cancel;
             this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelar.Name = "btnCancelar";
-//<<<<<<< HEAD
-            this.btnCancelar.Size = new System.Drawing.Size(90, 27);
-            this.btnCancelar.Text = "Limpiar";
-//=======
-            this.btnCancelar.Size = new System.Drawing.Size(82, 24);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 27);
             this.btnCancelar.Text = "&Cancelar";
-//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblGestionSedes
@@ -432,11 +416,11 @@
             this.tpHistorialCompras.Controls.Add(this.label2);
             this.tpHistorialCompras.Controls.Add(this.textBox1);
             this.tpHistorialCompras.Controls.Add(this.dataGridView2);
-            this.tpHistorialCompras.Location = new System.Drawing.Point(4, 27);
+            this.tpHistorialCompras.Location = new System.Drawing.Point(4, 34);
             this.tpHistorialCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpHistorialCompras.Name = "tpHistorialCompras";
             this.tpHistorialCompras.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpHistorialCompras.Size = new System.Drawing.Size(921, 524);
+            this.tpHistorialCompras.Size = new System.Drawing.Size(921, 517);
             this.tpHistorialCompras.TabIndex = 1;
             this.tpHistorialCompras.Text = "Historial de compras";
             this.tpHistorialCompras.UseVisualStyleBackColor = true;
@@ -444,7 +428,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(795, 36);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 28);
             this.button1.TabIndex = 102;
@@ -454,7 +438,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(659, 36);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 28);
             this.button2.TabIndex = 101;
@@ -476,7 +460,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(257, 36);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(337, 24);
             this.textBox1.TabIndex = 99;
@@ -494,21 +478,13 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
-//<<<<<<< HEAD
-            this.dataGridView2.Location = new System.Drawing.Point(25, 158);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-//=======
             this.dataGridView2.Location = new System.Drawing.Point(19, 56);
-//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-//</<<<<<< HEAD
-            this.dataGridView2.Size = new System.Drawing.Size(872, 336);
-//=======
             this.dataGridView2.Size = new System.Drawing.Size(654, 345);
-//>>>>>>> cd1560ee3af0fe32c5a8f372986b32caf2b6f112
             this.dataGridView2.TabIndex = 75;
             // 
             // dataGridViewTextBoxColumn6
