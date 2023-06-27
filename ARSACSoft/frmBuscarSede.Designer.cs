@@ -120,7 +120,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmBuscarSede";
-            this.Text = "frmBuscarSede";
+            this.Text = "Ver Sedes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSedes)).EndInit();
             this.ResumeLayout(false);
 

@@ -50,7 +50,7 @@
             this.Controls.Add(this.axBoletaDeVenta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBoletaDeVenta";
-            this.Text = "frmBoletaDeVenta";
+            this.Text = "Ver Boleta";
             ((System.ComponentModel.ISupportInitialize)(this.axBoletaDeVenta)).EndInit();
             this.ResumeLayout(false);
 
