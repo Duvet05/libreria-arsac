@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarEmpleados));
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNombreDNI = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.IdEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sede = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SedePrincipal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNombreDNI = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,43 @@
             this.dgvEmpleados.Size = new System.Drawing.Size(676, 256);
             this.dgvEmpleados.TabIndex = 0;
             this.dgvEmpleados.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvEmpleados_CellFormatting);
+            // 
+            // IdEmpleado
+            // 
+            this.IdEmpleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.IdEmpleado.HeaderText = "ID";
+            this.IdEmpleado.MinimumWidth = 8;
+            this.IdEmpleado.Name = "IdEmpleado";
+            this.IdEmpleado.ReadOnly = true;
+            this.IdEmpleado.Width = 43;
+            // 
+            // NombreCompleto
+            // 
+            this.NombreCompleto.HeaderText = "Nombre Completo";
+            this.NombreCompleto.MinimumWidth = 8;
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.MinimumWidth = 8;
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            // 
+            // Sede
+            // 
+            this.Sede.HeaderText = "Sede";
+            this.Sede.MinimumWidth = 8;
+            this.Sede.Name = "Sede";
+            this.Sede.ReadOnly = true;
+            // 
+            // SedePrincipal
+            // 
+            this.SedePrincipal.HeaderText = "Sede Principal";
+            this.SedePrincipal.MinimumWidth = 8;
+            this.SedePrincipal.Name = "SedePrincipal";
+            this.SedePrincipal.ReadOnly = true;
             // 
             // label1
             // 
@@ -106,46 +143,6 @@
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
-            // 
-            // IdEmpleado
-            // 
-            this.IdEmpleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.IdEmpleado.HeaderText = "ID";
-            this.IdEmpleado.MinimumWidth = 8;
-            this.IdEmpleado.Name = "IdEmpleado";
-            this.IdEmpleado.ReadOnly = true;
-            this.IdEmpleado.Width = 43;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.HeaderText = "Nombre Completo";
-            this.NombreCompleto.MinimumWidth = 8;
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.MinimumWidth = 20;
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            this.Tipo.Width = 53;
-            // 
-            // Sede
-            // 
-            this.Sede.HeaderText = "Sede";
-            this.Sede.MinimumWidth = 8;
-            this.Sede.Name = "Sede";
-            this.Sede.ReadOnly = true;
-            // 
-            // SedePrincipal
-            // 
-            this.SedePrincipal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.SedePrincipal.HeaderText = "Sede Principal";
-            this.SedePrincipal.MinimumWidth = 8;
-            this.SedePrincipal.Name = "SedePrincipal";
-            this.SedePrincipal.ReadOnly = true;
             // 
             // frmBuscarEmpleados
             // 

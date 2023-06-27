@@ -89,7 +89,6 @@ END$
 -- #######################################################################
 DELIMITER $
 CREATE PROCEDURE LISTAR_ORDENES_DE_VENTA_REGISTRADAS_EN_PERIODO (
-	IN _id_empleado INT,
 	IN _fecha_inicio DATE,
     IN _fecha_fin DATE
 )
@@ -103,7 +102,6 @@ BEGIN
 	FROM
 		ordenDeVenta ov
 	WHERE
-		ov.fid_empleado = _id_empleado AND
 		DATE_SUB(_fecha_inicio, INTERVAL 1 DAY) <= DATE(ov.fecha_orden) AND
         DATE(ov.fecha_orden) <= DATE_SUB(_fecha_fin, INTERVAL 1 DAY);
 END$
@@ -127,7 +125,6 @@ BEGIN
 		c.fid_cliente_mayorista = _id_cliente_mayorista;
 END $
 
-DELIMITER $
 CREATE PROCEDURE  LISTAR_LINEAS_DE_ORDEN_DE_VENTA(
 	IN _id_orden_de_venta INT
 )
@@ -139,9 +136,9 @@ BEGIN
         p.precio,
         p.precio_por_mayor,
         lov.descuento,
-        lov.subtotal
+        lov.precio
 	FROM
-		lineaOrdenDeVenta lov
+		lineaOdenDeVenta lov
         INNER JOIN
         producto p
 			ON

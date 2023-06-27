@@ -47,7 +47,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(410, 15);
+            this.label2.Location = new System.Drawing.Point(410, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 15);
             this.label2.TabIndex = 27;
@@ -105,7 +105,6 @@
             // 
             this.dgvOrdenes.AllowUserToAddRows = false;
             this.dgvOrdenes.AllowUserToDeleteRows = false;
-            this.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -115,30 +114,30 @@
             this.dgvOrdenes.Location = new System.Drawing.Point(12, 86);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
-            this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.Size = new System.Drawing.Size(659, 352);
             this.dgvOrdenes.TabIndex = 30;
             this.dgvOrdenes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenes_CellFormatting);
             // 
             // ID
             // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 43;
+            this.ID.Width = 50;
             // 
             // FechaOrden
             // 
             this.FechaOrden.HeaderText = "Fecha de orden";
             this.FechaOrden.Name = "FechaOrden";
             this.FechaOrden.ReadOnly = true;
+            this.FechaOrden.Width = 130;
             // 
             // FechaEnvio
             // 
             this.FechaEnvio.HeaderText = "Fecha de envío";
             this.FechaEnvio.Name = "FechaEnvio";
             this.FechaEnvio.ReadOnly = true;
+            this.FechaEnvio.Width = 130;
             // 
             // Total
             // 

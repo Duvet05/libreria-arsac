@@ -32,9 +32,8 @@
   <xs:element name="verificarStockSuficienteResponse" type="tns:verificarStockSuficienteResponse" />
   <xs:complexType name="listarOrdenesDeVentaPorPeriodo">
     <xs:sequence>
-      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg0" type="xs:dateTime" />
       <xs:element minOccurs="0" name="arg1" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="arg2" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarOrdenesDeVentaPorPeriodoResponse">
