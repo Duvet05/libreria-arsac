@@ -39,16 +39,15 @@
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sede = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SedePrincipal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ESTADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(576, 8);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSeleccionar.Location = new System.Drawing.Point(768, 10);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(108, 23);
+            this.btnSeleccionar.Size = new System.Drawing.Size(144, 28);
             this.btnSeleccionar.TabIndex = 9;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -56,10 +55,10 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(416, 8);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscar.Location = new System.Drawing.Point(555, 10);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(59, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(79, 31);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -68,20 +67,19 @@
             // txtNombreRUC
             // 
             this.txtNombreRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreRUC.Location = new System.Drawing.Point(240, 13);
-            this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombreRUC.Location = new System.Drawing.Point(320, 16);
+            this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombreRUC.Name = "txtNombreRUC";
-            this.txtNombreRUC.Size = new System.Drawing.Size(173, 21);
+            this.txtNombreRUC.Size = new System.Drawing.Size(229, 24);
             this.txtNombreRUC.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 13);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(11, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 15);
+            this.label1.Size = new System.Drawing.Size(274, 18);
             this.label1.TabIndex = 6;
             this.label1.Text = "Ingrese el nombre o RUC del proveedor:";
             // 
@@ -96,16 +94,15 @@
             this.NombreCompleto,
             this.Tipo,
             this.Sede,
-            this.SedePrincipal,
-            this.ESTADO});
-            this.dgvProveedores.Location = new System.Drawing.Point(8, 42);
-            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(2);
+            this.SedePrincipal});
+            this.dgvProveedores.Location = new System.Drawing.Point(11, 52);
+            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.ReadOnly = true;
             this.dgvProveedores.RowHeadersVisible = false;
             this.dgvProveedores.RowHeadersWidth = 62;
             this.dgvProveedores.RowTemplate.Height = 28;
-            this.dgvProveedores.Size = new System.Drawing.Size(676, 256);
+            this.dgvProveedores.Size = new System.Drawing.Size(901, 315);
             this.dgvProveedores.TabIndex = 5;
             this.dgvProveedores.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProveedores_CellFormatting);
             // 
@@ -116,7 +113,7 @@
             this.IdEmpleado.MinimumWidth = 8;
             this.IdEmpleado.Name = "IdEmpleado";
             this.IdEmpleado.ReadOnly = true;
-            this.IdEmpleado.Width = 43;
+            this.IdEmpleado.Width = 49;
             // 
             // NombreCompleto
             // 
@@ -146,26 +143,20 @@
             this.SedePrincipal.MinimumWidth = 8;
             this.SedePrincipal.Name = "SedePrincipal";
             this.SedePrincipal.ReadOnly = true;
-            this.SedePrincipal.Width = 74;
-            // 
-            // ESTADO
-            // 
-            this.ESTADO.HeaderText = "Estado";
-            this.ESTADO.Name = "ESTADO";
-            this.ESTADO.ReadOnly = true;
+            this.SedePrincipal.Width = 90;
             // 
             // frmBuscarProveedores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 306);
+            this.ClientSize = new System.Drawing.Size(923, 377);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNombreRUC);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProveedores);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmBuscarProveedores";
             this.Text = "frmBuscarProveedores";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
@@ -186,6 +177,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sede;
         private System.Windows.Forms.DataGridViewTextBoxColumn SedePrincipal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ESTADO;
     }
 }

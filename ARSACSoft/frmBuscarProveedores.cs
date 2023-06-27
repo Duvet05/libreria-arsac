@@ -65,7 +65,7 @@ namespace ARSACSoft
                     dgvProveedores.Rows[e.RowIndex].Cells[2].Value = prov.direccion;
                     dgvProveedores.Rows[e.RowIndex].Cells[3].Value = prov.RUC;
                     dgvProveedores.Rows[e.RowIndex].Cells[4].Value = prov.telefono;
-                    dgvProveedores.Rows[e.RowIndex].Cells[5].Value = prov.activo;
+                    //dgvProveedores.Rows[e.RowIndex].Cells[5].Value = prov.activo;
                 }
             }
             catch (Exception ex)

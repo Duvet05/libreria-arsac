@@ -52,7 +52,7 @@ namespace ARSACSoft
                     dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.producto.categoria.descripcion;
                     dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.producto.precioPorMenor;
                     dgvProductos.Rows[e.RowIndex].Cells[5].Value = prod.producto.precioPorMayor;
-                    dgvProductos.Rows[e.RowIndex].Cells[6].Value = prod.costo;
+                    dgvProductos.Rows[e.RowIndex].Cells[6].Value = prod.costo.ToString("N2");
                 }
             }
             catch (Exception ex)

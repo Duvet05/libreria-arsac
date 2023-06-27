@@ -5,24 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/ARSACSoftWebServices/Productos?xsd=1" namespace="http://services.arsacsoft.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarProductosXNombreXCategoriaXMarca">
-    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarca" />
-  </message>
-  <message name="listarProductosXNombreXCategoriaXMarcaResponse">
-    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
-  </message>
-  <message name="listarMarcaTodas">
-    <part name="parameters" element="tns:listarMarcaTodas" />
-  </message>
-  <message name="listarMarcaTodasResponse">
-    <part name="parameters" element="tns:listarMarcaTodasResponse" />
-  </message>
-  <message name="insertarProducto">
-    <part name="parameters" element="tns:insertarProducto" />
-  </message>
-  <message name="insertarProductoResponse">
-    <part name="parameters" element="tns:insertarProductoResponse" />
-  </message>
   <message name="modificarProducto">
     <part name="parameters" element="tns:modificarProducto" />
   </message>
@@ -41,19 +23,25 @@
   <message name="listarProductosXSedeResponse">
     <part name="parameters" element="tns:listarProductosXSedeResponse" />
   </message>
+  <message name="listarProductosXNombreXCategoriaXMarca">
+    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarca" />
+  </message>
+  <message name="listarProductosXNombreXCategoriaXMarcaResponse">
+    <part name="parameters" element="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
+  </message>
+  <message name="listarMarcaTodas">
+    <part name="parameters" element="tns:listarMarcaTodas" />
+  </message>
+  <message name="listarMarcaTodasResponse">
+    <part name="parameters" element="tns:listarMarcaTodasResponse" />
+  </message>
+  <message name="insertarProducto">
+    <part name="parameters" element="tns:insertarProducto" />
+  </message>
+  <message name="insertarProductoResponse">
+    <part name="parameters" element="tns:insertarProductoResponse" />
+  </message>
   <portType name="ProductosWS">
-    <operation name="listarProductosXNombreXCategoriaXMarca">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaRequest" message="tns:listarProductosXNombreXCategoriaXMarca" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaResponse" message="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
-    </operation>
-    <operation name="listarMarcaTodas">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasRequest" message="tns:listarMarcaTodas" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasResponse" message="tns:listarMarcaTodasResponse" />
-    </operation>
-    <operation name="insertarProducto">
-      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest" message="tns:insertarProducto" />
-      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse" message="tns:insertarProductoResponse" />
-    </operation>
     <operation name="modificarProducto">
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoRequest" message="tns:modificarProducto" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/modificarProductoResponse" message="tns:modificarProductoResponse" />
@@ -66,36 +54,21 @@
       <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXSedeRequest" message="tns:listarProductosXSede" />
       <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXSedeResponse" message="tns:listarProductosXSedeResponse" />
     </operation>
+    <operation name="listarProductosXNombreXCategoriaXMarca">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaRequest" message="tns:listarProductosXNombreXCategoriaXMarca" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarProductosXNombreXCategoriaXMarcaResponse" message="tns:listarProductosXNombreXCategoriaXMarcaResponse" />
+    </operation>
+    <operation name="listarMarcaTodas">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasRequest" message="tns:listarMarcaTodas" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/listarMarcaTodasResponse" message="tns:listarMarcaTodasResponse" />
+    </operation>
+    <operation name="insertarProducto">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoRequest" message="tns:insertarProducto" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/ProductosWS/insertarProductoResponse" message="tns:insertarProductoResponse" />
+    </operation>
   </portType>
   <binding name="ProductosWSPortBinding" type="tns:ProductosWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarProductosXNombreXCategoriaXMarca">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarMarcaTodas">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarProducto">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="modificarProducto">
       <soap:operation soapAction="" />
       <input>
@@ -115,6 +88,33 @@
       </output>
     </operation>
     <operation name="listarProductosXSede">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductosXNombreXCategoriaXMarca">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarMarcaTodas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarProducto">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

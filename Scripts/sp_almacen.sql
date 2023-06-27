@@ -153,7 +153,7 @@ BEGIN
         total = _total, estado = _estado
     WHERE id_orden_de_compra = _id_orden_de_compra;
     
-    /*UPDATE lineaOrdenDeCompra SET activo = 0 WHERE fid_orden_de_compra = _id_orden_de_compra;*/
+    UPDATE lineaOrdenDeCompra SET activo = 0 WHERE fid_orden_de_compra = _id_orden_de_compra;
 END $
 
 
@@ -164,6 +164,7 @@ CREATE PROCEDURE CANCELAR_ORDEN_COMPRA(
 )
 BEGIN
 	UPDATE ordenDeCompra SET estado = "CANCELADO" where id_orden_de_compra = _id_orden_de_compra;
+    
 END$
 
 

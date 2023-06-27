@@ -526,7 +526,7 @@ namespace ARSACSoft
             _estadoPagOrdenCompra = Estado.Nuevo;
             establecerEstadoFormularioOrdenDeCompra();
             limpiarComponentesOrdenCompra();
-
+            lblEstadoOrdenCompra.Text = "";
             _proveedorSeleccionado = null;
             _ordenCompra = new ordenDeCompra();
             _lineasOrdenDeCompra = new BindingList<lineaOrdenDeCompra>();
@@ -543,8 +543,15 @@ namespace ARSACSoft
                 dgvListaProductosOC.Rows[e.RowIndex].Cells[1].Value = lov.productoProveedor.producto.nombre;
                 dgvListaProductosOC.Rows[e.RowIndex].Cells[2].Value = lov.productoProveedor.producto.marca.descripcion;
                 dgvListaProductosOC.Rows[e.RowIndex].Cells[3].Value = lov.cantidad;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[4].Value = lov.productoProveedor.costo;
-                dgvListaProductosOC.Rows[e.RowIndex].Cells[5].Value = lov.subtotal;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[4].Value = lov.productoProveedor.costo.ToString("N2");
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[5].Value = lov.subtotal.ToString("N2");
+
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[3].Style.Alignment =
+                    DataGridViewContentAlignment.MiddleRight;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[4].Style.Alignment =
+                    DataGridViewContentAlignment.MiddleRight;
+                dgvListaProductosOC.Rows[e.RowIndex].Cells[5].Style.Alignment =
+                    DataGridViewContentAlignment.MiddleRight;
             }
             catch (Exception ex)
             {
@@ -670,7 +677,7 @@ namespace ARSACSoft
 
             _lineasOrdenDeCompra.Clear();//reseteo productos guardados
             _ordenCompra.costototal = 0;
-
+            lblEstadoOrdenCompra.Text = "";
             txtTotal.Text = "";
         }
 
