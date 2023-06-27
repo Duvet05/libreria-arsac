@@ -88,6 +88,7 @@ public class ProductoMySQL implements ProductoDAO {
                 producto.setPrecioPorMayor(rs.getDouble("precio_por_mayor"));
                 producto.setPrecioPorMenor(rs.getDouble("precio"));
                 // producto.setFoto(rs.getBytes("foto")); // Asegúrate de que la columna "foto" esté presente en el resultado de la consulta
+                producto.setStockTmp(rs.getInt("stock"));
                 productos.add(producto);
             }
         } catch (Exception ex) {
@@ -177,5 +178,6 @@ public class ProductoMySQL implements ProductoDAO {
         }
         return resultado;
     }
+
 
 }

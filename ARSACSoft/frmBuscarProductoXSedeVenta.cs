@@ -1,4 +1,5 @@
 ﻿using ARSACSoft.ProductosWS;
+using ARSACSoft.SedeWS;
 using System;
 using System.Windows.Forms;
 
@@ -20,13 +21,16 @@ namespace ARSACSoft
             _sede = idSede;
             InitializeComponent();
             dgvProductos.AutoGenerateColumns = false;
-
             daoProductosWS = new ProductosWSClient();
             CargarCategorias();
             CargarMarcas();
             txtIdSede.Text = idSede.ToString();
             txtNombreProd.Text = string.Empty;
             dgvProductos.DataSource = daoProductosWS.listarProductosXSede(txtNombreProd.Text, _sede, -1, -1);
+
+            dgvProductos.SelectionChanged -= dgvProductos_SelectionChanged; // Remover el evento dgvProductos_SelectionChanged
+            dgvProductos.ClearSelection();
+            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
         }
 
         private void CargarCategorias()
@@ -60,6 +64,8 @@ namespace ARSACSoft
             int marcaSeleccionada = cboMarca.SelectedValue != null ? (int)cboMarca.SelectedValue : -1;
 
             dgvProductos.DataSource = daoProductosWS.listarProductosXSede(txtNombreProd.Text, _sede, categoriaSeleccionada, marcaSeleccionada);
+            dgvProductos.ClearSelection();
+            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
         }
 
         private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -73,6 +79,7 @@ namespace ARSACSoft
             dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.categoria.descripcion;
             dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.precioPorMenor;
             dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.precioPorMayor;
+            dgvProductos.Rows[e.RowIndex].Cells[5].Value = prod.stockTmp;  
         }
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
@@ -80,7 +87,7 @@ namespace ARSACSoft
             if (dgvProductos.CurrentRow != null)
             {
                 ProductoSeleccionado = (ProductosWS.producto)dgvProductos.CurrentRow.DataBoundItem;
-                txtNombreProd.Text = ProductoSeleccionado.nombre;
+                //txtNombreProd.Text = ProductoSeleccionado.nombre;
                 cboMarca.SelectedValue = ProductoSeleccionado.marca.idMarca;
                 cboCategoria.SelectedValue = ProductoSeleccionado.categoria.idCategoria;
             }

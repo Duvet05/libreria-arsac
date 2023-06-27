@@ -18,6 +18,16 @@ public class Producto {
     private Categoria categoria;
     private Promocion promocion;
     
+    private int stockTmp;
+
+    public int getStockTmp() {
+        return stockTmp;
+    }
+
+    public void setStockTmp(int stockTmp) {
+        this.stockTmp = stockTmp;
+    }
+    
     public int getIdProducto() {
         return idProducto;
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarOrdenDeAbastecimiento));
             this.rbPendiente = new System.Windows.Forms.RadioButton();
             this.rbEntregado = new System.Windows.Forms.RadioButton();
             this.rbCancelado = new System.Windows.Forms.RadioButton();
@@ -167,6 +168,7 @@
             this.Controls.Add(this.rbCancelado);
             this.Controls.Add(this.rbEntregado);
             this.Controls.Add(this.rbPendiente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscarOrdenDeAbastecimiento";
             this.Text = "frmBuscarOrdenDeAbastecimiento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();

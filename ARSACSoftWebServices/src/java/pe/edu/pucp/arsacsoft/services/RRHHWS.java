@@ -165,4 +165,10 @@ public class RRHHWS {
     {
         return daoEmpleado.obtenerDireccionDeSede(idEmpleado);
     }
+    
+    @WebMethod(operationName = "buscarClienteMayoristaPorID")
+    public ClienteMayorista buscarClienteMayoristaPorID(int idCliente)
+    {
+        return daoCliente.buscarPorID(idCliente);
+    }
 }

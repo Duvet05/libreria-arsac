@@ -17,4 +17,5 @@ public interface ClienteMayoristaDAO {
     int modificar(ClienteMayorista cliente);
     int eliminar(int idclientemayorista);
     ArrayList<Persona> listarPorNombreDNI(String DNINombre);     
+    ClienteMayorista buscarPorID(int idClienteMayorista);
 }
