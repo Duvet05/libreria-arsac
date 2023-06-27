@@ -183,8 +183,8 @@ CREATE TABLE
 
 CREATE TABLE
     productoXproveedor(
+		fid_proveedor INT,
         fid_producto INT,
-        fid_proveedor INT,
         costo DECIMAL(10, 2),
         activo boolean not null default 1,
         PRIMARY KEY (fid_producto, fid_proveedor),

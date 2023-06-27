@@ -34,6 +34,8 @@ BEGIN
 	SET _id_proveedor = @@last_insert_id;
 END $
 
+
+
 delimiter $
 CREATE PROCEDURE LISTAR_PROVEEDORES_POR_NOMBRE_RUC(
 	IN _nombre VARCHAR(1000)
@@ -44,6 +46,8 @@ BEGIN
     where (nombre LIKE CONCAT('%',_nombre,'%') or RUC LIKE CONCAT('%',_nombre,'%'))and activo = 1;
 END $
 
+drop procedure if exists ACTUALIZAR_PROVEEDOR;
+delimiter $
 CREATE PROCEDURE ACTUALIZAR_PROVEEDOR(
 	IN _id_proveedor INT,
 	IN _nombre VARCHAR(100),
@@ -58,8 +62,10 @@ BEGIN
     telefono = _telefono,
     RUC = _RUC
     where id_proveedor = _id_proveedor;
+    
+    /*UPDATE productoXproveedor SET activo = 0 WHERE fid_proveedor = _id_proveedor;*/
 END $
-
+/*call ACTUALIZAR_PROVEEDOR(1,"PRINCIPAL", "DIR", "96556565", "666565");*/
 CREATE PROCEDURE ELIMINAR_PROVEEDOR(
 	IN _id_proveedor INT
 )
@@ -126,4 +132,16 @@ BEGIN
 		WHERE pxp.activo = 1 AND 
 		p.nombre LIKE CONCAT('%',_nombre,'%') and _fid_proveedor = prov.id_proveedor and m.id_marca = _fid_marca and c.id_categoria = _fid_categoria;
     end if;
+END $
+
+drop procedure if exists INSERTAR_PRODUCTO_DE_PROVEEDOR;
+delimiter $
+CREATE PROCEDURE INSERTAR_PRODUCTO_DE_PROVEEDOR(
+	IN _id_proveedor INT,
+    IN _id_producto INT,
+    IN _costo decimal(10,2)
+)
+BEGIN
+	INSERT INTO productoXproveedor(fid_producto, fid_proveedor, costo, activo)
+    VALUES(_id_producto, _id_proveedor, _costo, true);
 END $

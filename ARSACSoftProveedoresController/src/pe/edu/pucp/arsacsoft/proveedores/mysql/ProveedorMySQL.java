@@ -37,14 +37,14 @@ private Connection con;
             proveedor.setIdProveedor(cs.getInt("_id_proveedor"));
             
             if(proveedor.getCantProductos()!=0){
-                proveedor.setIdProveedor(cs.getInt("_id_orden_de_compra"));
                 for(ProductoXProveedor prodXProveedor : proveedor.getProductosXProveedor()){
-                    cs = con.prepareCall("{INSERTAR_PRODUCTO_DE_PROVEEDOR call (?,?,?)}");
-                    cs.setInt("_fid_producto", prodXProveedor.getProducto().getIdProducto());
-                    cs.setInt("_fid_proveedor", proveedor.getIdProveedor());
+                    cs = con.prepareCall("{call INSERTAR_PRODUCTO_DE_PROVEEDOR(?,?,?)}");
+                    cs.setInt("_id_producto", prodXProveedor.getProducto().getIdProducto());
+                    cs.setInt("_id_proveedor", proveedor.getIdProveedor());
                     cs.setDouble("_costo", prodXProveedor.getCosto());
                     cs.executeUpdate();
                 }
+                
             }
             resultado = proveedor.getIdProveedor();
         }catch(Exception ex){
@@ -67,7 +67,19 @@ private Connection con;
             cs.setString("_telefono", proveedor.getTelefono());
             cs.setString("_RUC", proveedor.getRUC());
             cs.executeUpdate();
-            resultado = 1;
+            //proveedor.setIdProveedor(cs.getInt("_id_proveedor"));
+            
+            if(proveedor.getCantProductos()!=0){
+                for(ProductoXProveedor prodXProveedor : proveedor.getProductosXProveedor()){
+                    cs = con.prepareCall("{call INSERTAR_PRODUCTO_DE_PROVEEDOR(?,?,?)}");
+                    cs.setInt("_id_producto", prodXProveedor.getProducto().getIdProducto());
+                    cs.setInt("_id_proveedor", proveedor.getIdProveedor());
+                    cs.setDouble("_costo", prodXProveedor.getCosto());
+                    cs.executeUpdate();
+                }
+                
+            }
+            resultado = proveedor.getIdProveedor();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }finally{
