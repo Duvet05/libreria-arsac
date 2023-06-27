@@ -7,6 +7,7 @@ using ARSACSoft.SedeWS;
 using ARSACSoft.VentasWS;
 using System;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -226,6 +227,7 @@ namespace ARSACSoft
     
         public void LimpiarComponentes()
         {
+            txtIDProveedor.Text = "";
             txtDireccion.Text = "";
             txtRUC.Text = "";
             txtNombreProveedor.Text = "";
@@ -287,14 +289,53 @@ namespace ARSACSoft
 
         private void btnAgregarProductoTabSede_Click(object sender, EventArgs e)
         {
-            if (_producto == null)
+            if(txtCosto.Text == "" || (Double.Parse(txtCosto.Text) <=0 ))
+            {
+                MessageBox.Show("Ingrese un costo válido.", "Mensaje de advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+            
+            if (_producto == null)
+            {
+                MessageBox.Show("No ha seleccionado un producto.", "Mensaje de advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            foreach (ProveedoresWS.productoXProveedor  p in _productos)
+            foreach (ProveedoresWS.productoXProveedor p in _productos)
             {
                 if (p.producto.idProducto == _producto.idProducto)
+                {
+
+                    MessageBox.Show("El producto ya se encuentra.", "Mensaje de advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtIdProductoTabSede.Text = "";
+                    txtNombreProductoTabSede.Text = "";
+                    txtCosto.Text = "";
+                    _producto = null;
                     return;
+                }
             }
+            //for (int i = 0; i < _productos.Count; i++)
+            //{
+            //    if (_productos[i].producto.idProducto == _producto.idProducto)
+            //    {
+            //        if(txtCosto.Text == "")
+            //            _productos[i].costo = 0;
+            //        else
+            //            _productos[i].costo = Double.Parse(txtCosto.Text);
+                    
+            //        MessageBox.Show("El producto ya se encuentra.", "Mensaje de advertencia",
+            //            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        txtIdProductoTabSede.Text = "";
+            //        txtNombreProductoTabSede.Text = "";
+            //        txtCosto.Text = "";
+            //        _producto = null;
+            //        return; 
+            //    }
+            //}
+
 
 
             ProveedoresWS.productoXProveedor pxp = new ProveedoresWS.productoXProveedor();
@@ -328,15 +369,39 @@ namespace ARSACSoft
 
         private void btnQuitarProductoTabSede_Click(object sender, EventArgs e)
         {
-            if (_productos.Count == 0)
-                return;
+            if(_estadoPagProveedor == Estado.Nuevo)
+            {
+                if (_productos.Count == 0)
+                    return;
 
-            if (dgvProductos.CurrentRow.DataBoundItem == null)
-                return;
+                if (dgvProductos.CurrentRow.DataBoundItem == null)
+                    return;
 
-            _productos.Remove((ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem);
+                _productos.Remove((ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem);
 
-            dgvProductos.DataSource = _productos;
+                dgvProductos.DataSource = _productos;
+            }
+            if(_estadoPagProveedor == Estado.Modificar)
+            {
+                if (_productos.Count == 0)
+                    return;
+
+                if (dgvProductos.CurrentRow.DataBoundItem == null)
+                    return;
+
+                ProveedoresWS.productoXProveedor p = (ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem;
+                if (dgvProductos.CurrentRow.Index >= productosIndex)
+                {
+                    btnQuitarProductoTabSede.Enabled = true;
+                    _productos.Remove((ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem);
+                    dgvProductos.DataSource = _productos;
+                }
+                else
+                {
+                    MessageBox.Show("No puedes quitar un producto existente.", "Mensaje de advertencia",
+                       MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
 
 
         }
@@ -346,7 +411,7 @@ namespace ARSACSoft
             _estadoPagProveedor = Estado.Modificar;
             establecerEstadoFormularioProveedor();
 
-            btnQuitarProductoTabSede.Enabled = false;
+            //btnQuitarProductoTabSede.Enabled = false;
 
 
             btnBuscar.Enabled = false;
