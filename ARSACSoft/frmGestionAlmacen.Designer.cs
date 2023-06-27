@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAlmacen));
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpProductos = new System.Windows.Forms.TabPage();
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblNotificacion = new System.Windows.Forms.Label();
+            this.pbNotificacion = new System.Windows.Forms.PictureBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPrecioXMayor = new System.Windows.Forms.TextBox();
@@ -48,11 +49,18 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.cbCafeteria = new System.Windows.Forms.CheckBox();
             this.cbSalasEstudio = new System.Windows.Forms.CheckBox();
+            this.btnSubirFoto = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtIDProducto = new System.Windows.Forms.TextBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.lblIDSede = new System.Windows.Forms.Label();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
+            this.btnNuevoProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarProducto = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarProducto = new System.Windows.Forms.ToolStripButton();
             this.lblGestionSedes = new System.Windows.Forms.Label();
             this.tpEntradasYSalidas = new System.Windows.Forms.TabPage();
             this.btnMarcarRecibidoOC = new System.Windows.Forms.Button();
@@ -90,6 +98,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtIDOrdenCompra = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnNuevoOC = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnBuscarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarOC = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarOC = new System.Windows.Forms.ToolStripButton();
             this.tpPromociones = new System.Windows.Forms.TabPage();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -113,26 +126,15 @@
             this.label19 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.ofdImagenProducto = new System.Windows.Forms.OpenFileDialog();
-            this.pbNotificacion = new System.Windows.Forms.PictureBox();
-            this.btnSubirFoto = new System.Windows.Forms.Button();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
-            this.btnNuevoProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnBuscarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnModificarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelarProducto = new System.Windows.Forms.ToolStripButton();
-            this.btnNuevoOC = new System.Windows.Forms.ToolStripButton();
-            this.btnGuardarOC = new System.Windows.Forms.ToolStripButton();
-            this.btnBuscarOC = new System.Windows.Forms.ToolStripButton();
-            this.btnModificarOC = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelarOC = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.ofdImagenProducto = new System.Windows.Forms.OpenFileDialog();
             this.tcAlmacen.SuspendLayout();
             this.tpProductos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.tsMenu.SuspendLayout();
             this.tpEntradasYSalidas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductosOC)).BeginInit();
@@ -142,8 +144,6 @@
             this.tpPromociones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.toolStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAlmacen
@@ -222,6 +222,17 @@
             this.lblNotificacion.Name = "lblNotificacion";
             this.lblNotificacion.Size = new System.Drawing.Size(0, 25);
             this.lblNotificacion.TabIndex = 54;
+            // 
+            // pbNotificacion
+            // 
+            this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
+            this.pbNotificacion.Location = new System.Drawing.Point(11, 481);
+            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbNotificacion.Name = "pbNotificacion";
+            this.pbNotificacion.Size = new System.Drawing.Size(29, 30);
+            this.pbNotificacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNotificacion.TabIndex = 53;
+            this.pbNotificacion.TabStop = false;
             // 
             // cboCategoria
             // 
@@ -309,6 +320,19 @@
             this.cbSalasEstudio.Text = "Salas de estudio";
             this.cbSalasEstudio.UseVisualStyleBackColor = true;
             // 
+            // btnSubirFoto
+            // 
+            this.btnSubirFoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubirFoto.BackgroundImage")));
+            this.btnSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubirFoto.Location = new System.Drawing.Point(227, 270);
+            this.btnSubirFoto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubirFoto.Name = "btnSubirFoto";
+            this.btnSubirFoto.Size = new System.Drawing.Size(61, 42);
+            this.btnSubirFoto.TabIndex = 27;
+            this.btnSubirFoto.UseVisualStyleBackColor = true;
+            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
+            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
@@ -341,6 +365,17 @@
             this.txtIDProducto.TabIndex = 23;
             this.txtIDProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pbFoto
+            // 
+            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFoto.Location = new System.Drawing.Point(32, 90);
+            this.pbFoto.Margin = new System.Windows.Forms.Padding(4);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(255, 222);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 24;
+            this.pbFoto.TabStop = false;
+            // 
             // lblIDSede
             // 
             this.lblIDSede.AutoSize = true;
@@ -369,6 +404,61 @@
             this.tsMenu.Size = new System.Drawing.Size(924, 30);
             this.tsMenu.TabIndex = 4;
             this.tsMenu.Text = "toolStrip1";
+            // 
+            // btnNuevoProducto
+            // 
+            this.btnNuevoProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
+            this.btnNuevoProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoProducto.Name = "btnNuevoProducto";
+            this.btnNuevoProducto.Size = new System.Drawing.Size(84, 27);
+            this.btnNuevoProducto.Text = "&Nuevo";
+            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
+            // 
+            // btnGuardarProducto
+            // 
+            this.btnGuardarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProducto.Image")));
+            this.btnGuardarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarProducto.Name = "btnGuardarProducto";
+            this.btnGuardarProducto.Size = new System.Drawing.Size(96, 27);
+            this.btnGuardarProducto.Text = "&Guardar";
+            this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            this.btnBuscarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(84, 27);
+            this.btnBuscarProducto.Text = "&Buscar";
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnModificarProducto
+            // 
+            this.btnModificarProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnModificarProducto.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarProducto.Name = "btnModificarProducto";
+            this.btnModificarProducto.Size = new System.Drawing.Size(97, 27);
+            this.btnModificarProducto.Text = "Modificar";
+            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
+            // 
+            // btnCancelarProducto
+            // 
+            this.btnCancelarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarProducto.Image")));
+            this.btnCancelarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarProducto.Name = "btnCancelarProducto";
+            this.btnCancelarProducto.Size = new System.Drawing.Size(90, 27);
+            this.btnCancelarProducto.Text = "Limpiar";
+            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
             // lblGestionSedes
             // 
@@ -815,6 +905,51 @@
             this.toolStrip1.TabIndex = 10;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnNuevoOC
+            // 
+            this.btnNuevoOC.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoOC.Image")));
+            this.btnNuevoOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoOC.Name = "btnNuevoOC";
+            this.btnNuevoOC.Size = new System.Drawing.Size(198, 24);
+            this.btnNuevoOC.Text = "&Nueva Orden de Compra";
+            this.btnNuevoOC.Click += new System.EventHandler(this.btnNuevoOC_Click);
+            // 
+            // btnGuardarOC
+            // 
+            this.btnGuardarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarOC.Image")));
+            this.btnGuardarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarOC.Name = "btnGuardarOC";
+            this.btnGuardarOC.Size = new System.Drawing.Size(86, 24);
+            this.btnGuardarOC.Text = "&Guardar";
+            this.btnGuardarOC.Click += new System.EventHandler(this.btnGuardarOC_Click);
+            // 
+            // btnBuscarOC
+            // 
+            this.btnBuscarOC.Image = global::ARSACSoft.Properties.Resources.Search;
+            this.btnBuscarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarOC.Name = "btnBuscarOC";
+            this.btnBuscarOC.Size = new System.Drawing.Size(76, 24);
+            this.btnBuscarOC.Text = "&Buscar";
+            this.btnBuscarOC.Click += new System.EventHandler(this.btnBuscarOC_Click);
+            // 
+            // btnModificarOC
+            // 
+            this.btnModificarOC.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
+            this.btnModificarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarOC.Name = "btnModificarOC";
+            this.btnModificarOC.Size = new System.Drawing.Size(97, 24);
+            this.btnModificarOC.Text = "&Modificar";
+            this.btnModificarOC.Click += new System.EventHandler(this.btnModificarOC_Click);
+            // 
+            // btnCancelarOC
+            // 
+            this.btnCancelarOC.Image = global::ARSACSoft.Properties.Resources.Cancel;
+            this.btnCancelarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarOC.Name = "btnCancelarOC";
+            this.btnCancelarOC.Size = new System.Drawing.Size(83, 24);
+            this.btnCancelarOC.Text = "Limpiar";
+            this.btnCancelarOC.Click += new System.EventHandler(this.btnCancelarOC_Click);
+            // 
             // tpPromociones
             // 
             this.tpPromociones.Controls.Add(this.textBox14);
@@ -1074,145 +1209,6 @@
             this.toolStrip2.TabIndex = 5;
             this.toolStrip2.Text = "toolStrip1";
             // 
-            // ofdImagenProducto
-            // 
-            this.ofdImagenProducto.FileName = "openFileDialog1";
-            // 
-            // pbNotificacion
-            // 
-            this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
-            this.pbNotificacion.Location = new System.Drawing.Point(11, 481);
-            this.pbNotificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pbNotificacion.Name = "pbNotificacion";
-            this.pbNotificacion.Size = new System.Drawing.Size(29, 30);
-            this.pbNotificacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNotificacion.TabIndex = 53;
-            this.pbNotificacion.TabStop = false;
-            // 
-            // btnSubirFoto
-            // 
-            this.btnSubirFoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSubirFoto.BackgroundImage")));
-            this.btnSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubirFoto.Location = new System.Drawing.Point(227, 270);
-            this.btnSubirFoto.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSubirFoto.Name = "btnSubirFoto";
-            this.btnSubirFoto.Size = new System.Drawing.Size(61, 42);
-            this.btnSubirFoto.TabIndex = 27;
-            this.btnSubirFoto.UseVisualStyleBackColor = true;
-            this.btnSubirFoto.Click += new System.EventHandler(this.btnSubirFoto_Click);
-            // 
-            // pbFoto
-            // 
-            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFoto.Location = new System.Drawing.Point(32, 90);
-            this.pbFoto.Margin = new System.Windows.Forms.Padding(4);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(255, 222);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 24;
-            this.pbFoto.TabStop = false;
-            // 
-            // btnNuevoProducto
-            // 
-            this.btnNuevoProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
-            this.btnNuevoProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevoProducto.Name = "btnNuevoProducto";
-            this.btnNuevoProducto.Size = new System.Drawing.Size(84, 27);
-            this.btnNuevoProducto.Text = "&Nuevo";
-            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
-            // 
-            // btnGuardarProducto
-            // 
-            this.btnGuardarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProducto.Image")));
-            this.btnGuardarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardarProducto.Name = "btnGuardarProducto";
-            this.btnGuardarProducto.Size = new System.Drawing.Size(96, 27);
-            this.btnGuardarProducto.Text = "&Guardar";
-            this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
-            this.btnBuscarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(84, 27);
-            this.btnBuscarProducto.Text = "&Buscar";
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnModificarProducto
-            // 
-            this.btnModificarProducto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificarProducto.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
-            this.btnModificarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificarProducto.Name = "btnModificarProducto";
-            this.btnModificarProducto.Size = new System.Drawing.Size(97, 27);
-            this.btnModificarProducto.Text = "Modificar";
-            this.btnModificarProducto.Click += new System.EventHandler(this.btnModificarProducto_Click);
-            // 
-            // btnCancelarProducto
-            // 
-            this.btnCancelarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarProducto.Image")));
-            this.btnCancelarProducto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelarProducto.Name = "btnCancelarProducto";
-            this.btnCancelarProducto.Size = new System.Drawing.Size(90, 27);
-            this.btnCancelarProducto.Text = "Limpiar";
-            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
-            // 
-            // btnNuevoOC
-            // 
-            this.btnNuevoOC.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoOC.Image")));
-            this.btnNuevoOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevoOC.Name = "btnNuevoOC";
-            this.btnNuevoOC.Size = new System.Drawing.Size(198, 24);
-            this.btnNuevoOC.Text = "&Nueva Orden de Compra";
-            this.btnNuevoOC.Click += new System.EventHandler(this.btnNuevoOC_Click);
-            // 
-            // btnGuardarOC
-            // 
-            this.btnGuardarOC.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarOC.Image")));
-            this.btnGuardarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGuardarOC.Name = "btnGuardarOC";
-            this.btnGuardarOC.Size = new System.Drawing.Size(86, 24);
-            this.btnGuardarOC.Text = "&Guardar";
-            this.btnGuardarOC.Click += new System.EventHandler(this.btnGuardarOC_Click);
-            // 
-            // btnBuscarOC
-            // 
-            this.btnBuscarOC.Image = global::ARSACSoft.Properties.Resources.Search;
-            this.btnBuscarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscarOC.Name = "btnBuscarOC";
-            this.btnBuscarOC.Size = new System.Drawing.Size(76, 24);
-            this.btnBuscarOC.Text = "&Buscar";
-            this.btnBuscarOC.Click += new System.EventHandler(this.btnBuscarOC_Click);
-            // 
-            // btnModificarOC
-            // 
-            this.btnModificarOC.Image = global::ARSACSoft.Properties.Resources.boton_editar1;
-            this.btnModificarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnModificarOC.Name = "btnModificarOC";
-            this.btnModificarOC.Size = new System.Drawing.Size(97, 24);
-            this.btnModificarOC.Text = "&Modificar";
-            this.btnModificarOC.Click += new System.EventHandler(this.btnModificarOC_Click);
-            // 
-            // btnCancelarOC
-            // 
-            this.btnCancelarOC.Image = global::ARSACSoft.Properties.Resources.Cancel;
-            this.btnCancelarOC.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelarOC.Name = "btnCancelarOC";
-            this.btnCancelarOC.Size = new System.Drawing.Size(83, 24);
-            this.btnCancelarOC.Text = "Limpiar";
-            this.btnCancelarOC.Click += new System.EventHandler(this.btnCancelarOC_Click);
-            // 
             // toolStripButton7
             // 
             this.toolStripButton7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1253,6 +1249,10 @@
             this.toolStripButton11.Size = new System.Drawing.Size(100, 27);
             this.toolStripButton11.Text = "&Cancelar";
             // 
+            // ofdImagenProducto
+            // 
+            this.ofdImagenProducto.FileName = "openFileDialog1";
+            // 
             // frmGestionAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1267,6 +1267,8 @@
             this.tcAlmacen.ResumeLayout(false);
             this.tpProductos.ResumeLayout(false);
             this.tpProductos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.tsMenu.ResumeLayout(false);
             this.tsMenu.PerformLayout();
             this.tpEntradasYSalidas.ResumeLayout(false);
@@ -1283,8 +1285,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNotificacion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
