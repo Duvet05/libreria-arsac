@@ -531,14 +531,14 @@ namespace ARSACSoft
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
                 daoVentas.insertarOrdenDeVentaMayorista(ordenV);
                 _venta = ordenV;
-                MessageBox.Show("Se ha registrado correctamente", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Se ha registrado correctamente", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
             {
                 ordenV.idOrdenDeVenta = daoVentas.insertarOrdenDeVentaMinorista(ordenV);
                 _venta = ordenV;
-                MessageBox.Show("Se ha registrado correctamente", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Se ha registrado correctamente", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btCorreo.Enabled = true;
             }
             //descontar productos sedes

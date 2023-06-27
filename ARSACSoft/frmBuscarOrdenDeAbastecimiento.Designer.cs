@@ -170,7 +170,7 @@
             this.Controls.Add(this.rbPendiente);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscarOrdenDeAbastecimiento";
-            this.Text = "frmBuscarOrdenDeAbastecimiento";
+            this.Text = "Buscar Abastecimientos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

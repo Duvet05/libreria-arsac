@@ -237,7 +237,7 @@
             this.Controls.Add(this.txtNombreProducto);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscarProductoXSede";
-            this.Text = "frmBuscarProductoXSede";
+            this.Text = "Buscar Producto";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
