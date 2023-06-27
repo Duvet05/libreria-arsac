@@ -318,6 +318,8 @@ namespace ARSACSoft.VentasWS {
         
         private promocion promocionField;
         
+        private int stockTmpField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public bool activo {
@@ -423,6 +425,18 @@ namespace ARSACSoft.VentasWS {
             set {
                 this.promocionField = value;
                 this.RaisePropertyChanged("promocion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public int stockTmp {
+            get {
+                return this.stockTmpField;
+            }
+            set {
+                this.stockTmpField = value;
+                this.RaisePropertyChanged("stockTmp");
             }
         }
         
@@ -1414,18 +1428,23 @@ namespace ARSACSoft.VentasWS {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public System.DateTime arg0;
+        public int arg0;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public System.DateTime arg1;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime arg2;
+        
         public listarOrdenesDeVentaPorPeriodoRequest() {
         }
         
-        public listarOrdenesDeVentaPorPeriodoRequest(System.DateTime arg0, System.DateTime arg1) {
+        public listarOrdenesDeVentaPorPeriodoRequest(int arg0, System.DateTime arg1, System.DateTime arg2) {
             this.arg0 = arg0;
             this.arg1 = arg1;
+            this.arg2 = arg2;
         }
     }
     
@@ -1979,10 +1998,11 @@ namespace ARSACSoft.VentasWS {
             return base.Channel.listarOrdenesDeVentaPorPeriodo(request);
         }
         
-        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesDeVentaPorPeriodo(System.DateTime arg0, System.DateTime arg1) {
+        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesDeVentaPorPeriodo(int arg0, System.DateTime arg1, System.DateTime arg2) {
             ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest inValue = new ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
             ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesDeVentaPorPeriodo(inValue);
             return retVal.@return;
         }
@@ -1992,10 +2012,11 @@ namespace ARSACSoft.VentasWS {
             return base.Channel.listarOrdenesDeVentaPorPeriodoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse> listarOrdenesDeVentaPorPeriodoAsync(System.DateTime arg0, System.DateTime arg1) {
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse> listarOrdenesDeVentaPorPeriodoAsync(int arg0, System.DateTime arg1, System.DateTime arg2) {
             ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest inValue = new ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest();
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
             return ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesDeVentaPorPeriodoAsync(inValue);
         }
         

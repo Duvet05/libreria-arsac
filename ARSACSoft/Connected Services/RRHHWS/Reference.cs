@@ -681,6 +681,8 @@ namespace ARSACSoft.RRHHWS {
         
         private promocion promocionField;
         
+        private int stockTmpField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public bool activo {
@@ -786,6 +788,18 @@ namespace ARSACSoft.RRHHWS {
             set {
                 this.promocionField = value;
                 this.RaisePropertyChanged("promocion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public int stockTmp {
+            get {
+                return this.stockTmpField;
+            }
+            set {
+                this.stockTmpField = value;
+                this.RaisePropertyChanged("stockTmp");
             }
         }
         
