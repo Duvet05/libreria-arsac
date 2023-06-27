@@ -1,9 +1,11 @@
-﻿using ARSACSoft.VentasWS;
+﻿using ARSACSoft.RRHHWS;
+using ARSACSoft.VentasWS;
 using GMap.NET.Internals;
 using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Windows.Forms;
 
 namespace ARSACSoft
@@ -18,6 +20,7 @@ namespace ARSACSoft
         private VentasWSClient daoVentas;
         private int _id_sede;
         private int _id_empleado;
+        private bool _es_mayorista;
 
         public frmGestionPedidos(RRHHWS.empleado _empleadoLogeado)
         {
@@ -29,10 +32,17 @@ namespace ARSACSoft
             EstablecerEstadoFormulario();
             LimpiarComponentes();
 
+            daoVentas = new VentasWSClient();
+
             _venta = new ordenDeVenta();
             _venta.precioTotal = 0;
 
             dataGridView2.AutoGenerateColumns = false;
+
+            _es_mayorista = _empleadoLogeado.tipo.descripcion == "Vendedor Mayorista";
+            checkBoxFactura.Enabled = _es_mayorista;
+
+
         }
 
         public void EstablecerEstadoFormulario()
@@ -57,7 +67,6 @@ namespace ARSACSoft
                     btPedido.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
-                    checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
                     btnBuscarDireccion.Enabled = false;
@@ -78,7 +87,6 @@ namespace ARSACSoft
                     textMonto.Enabled = true;
                     textCantProducto.Enabled = true;
                     btPedido.Enabled = true;
-                    checkBoxFactura.Enabled = true;
                     checkBoxDescuento.Enabled = true;
                     dataGridView2.Enabled = true;
                     break;
@@ -100,7 +108,6 @@ namespace ARSACSoft
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     txtRUC.Enabled = false;
-                    checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
                     btnCliente.Enabled = false;
@@ -164,7 +171,7 @@ namespace ARSACSoft
             checkBoxFactura.Checked = false;
             checkBoxDescuento.Checked = false;
             txtDireccion.Text = "";
-            dataGridView2.Rows.Clear();
+            dataGridView2.DataSource = null;
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
@@ -198,14 +205,38 @@ namespace ARSACSoft
 
         private void btnBuscarPedido_Click(object sender, EventArgs e)
         {
-            estado = Estado.Buscar;
-            EstablecerEstadoFormulario();
+            frmBuscarOrdenDeVenta frm = new frmBuscarOrdenDeVenta(_id_empleado);
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                _venta = frm.OrdenSeleccionada;
+
+                if (_venta.clienteMayorista.idPersona != 0)
+                {
+                    RRHHWSClient daoRRHH = new RRHHWSClient();
+                    RRHHWS.clienteMayorista c = daoRRHH.buscarClienteMayoristaPorID(_venta.clienteMayorista.idPersona);
+
+                    txtNombreCompleto.Text = c.nombre + " " + c.apellidos;
+                    txtRUC.Text = c.RUC;
+                    txtRazonSocial.Text = c.razonSocial;
+
+                    dateFechaEntrega.Value = _venta.fechaEnvio;
+
+                }
+
+                dataGridView2.DataSource = daoVentas.listarLineasDeOrdenDeVentaPorID(_venta.idOrdenDeVenta);
+
+                textMonto.Text = _venta.precioTotal.ToString();
+
+                estado = Estado.Buscar;
+                EstablecerEstadoFormulario();
+            }
 
         }
 
         private void calcularSubtotal(lineaDeOrdenDeVenta lov)
         {
-            if (checkBoxFactura.Checked)
+            if (_es_mayorista)
             {
                 if (double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
                 {
@@ -270,7 +301,7 @@ namespace ARSACSoft
                 }
                 else
                 {
-                    
+
                     lineaDeOrdenDeVenta lov = new lineaDeOrdenDeVenta
                     {
                         producto = new VentasWS.producto
@@ -318,14 +349,6 @@ namespace ARSACSoft
             textCantProducto.Text = "";
             foreach (lineaDeOrdenDeVenta linea in _lineasOrdenDeVenta)
             {
-                if (checkBoxFactura.Checked)
-                {
-                    linea.precio = linea.producto.precioPorMayor;
-                }
-                else
-                {
-                    linea.precio = linea.producto.precioPorMenor;
-                }
 
                 montoTotal += linea.precio;
             }
@@ -374,18 +397,18 @@ namespace ARSACSoft
 
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
+            //if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
             {
                 try
                 {
                     lineaDeOrdenDeVenta lov = (lineaDeOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
-                    lov.precio = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
+                    //lov.precio = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
                     dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.producto.idProducto;
                     dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.producto.nombre;
                     dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.cantidad;
                     dataGridView2.Rows[e.RowIndex].Cells[3].Value = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
-                    dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento.ToString("N2");
-                    dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.precio.ToString("N2");
+                    dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento;
+                    dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.precio;
                 }
                 catch { }
             }
@@ -463,6 +486,10 @@ namespace ARSACSoft
         private void btCorreo_Click(object sender, EventArgs e)
         {
             btCorreo.Enabled = false;
+
+            frmBoletaDeVenta frm = new frmBoletaDeVenta(_venta.idOrdenDeVenta, _id_empleado);
+            frm.ShowDialog();
+
             estado = Estado.Inicial;
             LimpiarComponentes();
             EstablecerEstadoFormulario();
@@ -470,7 +497,7 @@ namespace ARSACSoft
 
         private void btPedido_Click(object sender, EventArgs e)
         {
-            
+
             if (_lineasOrdenDeVenta.Count == 0)
             {
                 MostrarAdvertencia("La línea de orden de venta está vacía.");
@@ -503,13 +530,16 @@ namespace ARSACSoft
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
                 daoVentas.insertarOrdenDeVentaMayorista(ordenV);
+                _venta = ordenV;
+                MessageBox.Show("Se ha registrado correctamente", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
             else
             {
                 ordenV.idOrdenDeVenta = daoVentas.insertarOrdenDeVentaMinorista(ordenV);
-                
-                frmBoletaDeVenta frm = new frmBoletaDeVenta(ordenV.idOrdenDeVenta, _id_empleado);
-                frm.ShowDialog();
+                _venta = ordenV;
+                MessageBox.Show("Se ha registrado correctamente", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btCorreo.Enabled = true;
             }
             //descontar productos sedes
             RestaurarEstadoFormulario();
