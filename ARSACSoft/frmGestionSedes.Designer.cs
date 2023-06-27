@@ -262,7 +262,7 @@
             // txtIdSedeTabSede
             // 
             this.txtIdSedeTabSede.Location = new System.Drawing.Point(237, 39);
-            this.txtIdSedeTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdSedeTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdSedeTabSede.Name = "txtIdSedeTabSede";
             this.txtIdSedeTabSede.ReadOnly = true;
             this.txtIdSedeTabSede.Size = new System.Drawing.Size(132, 24);
@@ -277,6 +277,7 @@
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.txtIdProductoTabSede);
             this.groupBox4.Controls.Add(this.lblCodProducto);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(497, 54);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
@@ -290,7 +291,7 @@
             // 
             this.btnQuitarProductoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitarProductoTabSede.Location = new System.Drawing.Point(261, 91);
-            this.btnQuitarProductoTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuitarProductoTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitarProductoTabSede.Name = "btnQuitarProductoTabSede";
             this.btnQuitarProductoTabSede.Size = new System.Drawing.Size(105, 28);
             this.btnQuitarProductoTabSede.TabIndex = 151;
@@ -302,7 +303,7 @@
             // 
             this.btnAgregarProductoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarProductoTabSede.Location = new System.Drawing.Point(148, 92);
-            this.btnAgregarProductoTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarProductoTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarProductoTabSede.Name = "btnAgregarProductoTabSede";
             this.btnAgregarProductoTabSede.Size = new System.Drawing.Size(105, 28);
             this.btnAgregarProductoTabSede.TabIndex = 150;
@@ -313,7 +314,7 @@
             // btnBuscarProductoTabSede
             // 
             this.btnBuscarProductoTabSede.Location = new System.Drawing.Point(244, 28);
-            this.btnBuscarProductoTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarProductoTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarProductoTabSede.Name = "btnBuscarProductoTabSede";
             this.btnBuscarProductoTabSede.Size = new System.Drawing.Size(43, 28);
             this.btnBuscarProductoTabSede.TabIndex = 149;
@@ -326,7 +327,7 @@
             this.txtNombreProductoTabSede.Enabled = false;
             this.txtNombreProductoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProductoTabSede.Location = new System.Drawing.Point(112, 60);
-            this.txtNombreProductoTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreProductoTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProductoTabSede.Name = "txtNombreProductoTabSede";
             this.txtNombreProductoTabSede.ReadOnly = true;
             this.txtNombreProductoTabSede.Size = new System.Drawing.Size(253, 23);
@@ -348,7 +349,7 @@
             this.txtIdProductoTabSede.Enabled = false;
             this.txtIdProductoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProductoTabSede.Location = new System.Drawing.Point(112, 30);
-            this.txtIdProductoTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdProductoTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdProductoTabSede.Name = "txtIdProductoTabSede";
             this.txtIdProductoTabSede.ReadOnly = true;
             this.txtIdProductoTabSede.Size = new System.Drawing.Size(123, 23);
@@ -436,7 +437,7 @@
             // 
             this.txtCorreoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreoTabSede.Location = new System.Drawing.Point(237, 154);
-            this.txtCorreoTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreoTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreoTabSede.Name = "txtCorreoTabSede";
             this.txtCorreoTabSede.Size = new System.Drawing.Size(245, 24);
             this.txtCorreoTabSede.TabIndex = 138;
@@ -445,7 +446,7 @@
             // 
             this.txtTelefonoTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefonoTabSede.Location = new System.Drawing.Point(237, 117);
-            this.txtTelefonoTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefonoTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefonoTabSede.Name = "txtTelefonoTabSede";
             this.txtTelefonoTabSede.Size = new System.Drawing.Size(245, 24);
             this.txtTelefonoTabSede.TabIndex = 137;
@@ -490,7 +491,7 @@
             // 
             this.txtDireccionTabSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccionTabSede.Location = new System.Drawing.Point(237, 78);
-            this.txtDireccionTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccionTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccionTabSede.Name = "txtDireccionTabSede";
             this.txtDireccionTabSede.Size = new System.Drawing.Size(201, 24);
             this.txtDireccionTabSede.TabIndex = 126;
@@ -530,7 +531,7 @@
             // 
             this.btnCancelarOrdenTabOA.ForeColor = System.Drawing.Color.Black;
             this.btnCancelarOrdenTabOA.Location = new System.Drawing.Point(480, 464);
-            this.btnCancelarOrdenTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelarOrdenTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelarOrdenTabOA.Name = "btnCancelarOrdenTabOA";
             this.btnCancelarOrdenTabOA.Size = new System.Drawing.Size(417, 32);
             this.btnCancelarOrdenTabOA.TabIndex = 95;
@@ -621,9 +622,9 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.groupBox2.Location = new System.Drawing.Point(15, 37);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(889, 213);
             this.groupBox2.TabIndex = 91;
             this.groupBox2.TabStop = false;
@@ -631,7 +632,7 @@
             // txtIdOrdenTabSede
             // 
             this.txtIdOrdenTabSede.Location = new System.Drawing.Point(236, 17);
-            this.txtIdOrdenTabSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdOrdenTabSede.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdOrdenTabSede.Name = "txtIdOrdenTabSede";
             this.txtIdOrdenTabSede.ReadOnly = true;
             this.txtIdOrdenTabSede.Size = new System.Drawing.Size(75, 24);
@@ -653,7 +654,7 @@
             this.btnBuscarSedeTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnBuscarSedeTabOA.ForeColor = System.Drawing.Color.Black;
             this.btnBuscarSedeTabOA.Location = new System.Drawing.Point(475, 54);
-            this.btnBuscarSedeTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarSedeTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarSedeTabOA.Name = "btnBuscarSedeTabOA";
             this.btnBuscarSedeTabOA.Size = new System.Drawing.Size(43, 28);
             this.btnBuscarSedeTabOA.TabIndex = 109;
@@ -667,7 +668,7 @@
             this.txtStockSedePrincipalTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtStockSedePrincipalTabOA.ForeColor = System.Drawing.Color.Black;
             this.txtStockSedePrincipalTabOA.Location = new System.Drawing.Point(759, 70);
-            this.txtStockSedePrincipalTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStockSedePrincipalTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.txtStockSedePrincipalTabOA.Name = "txtStockSedePrincipalTabOA";
             this.txtStockSedePrincipalTabOA.ReadOnly = true;
             this.txtStockSedePrincipalTabOA.Size = new System.Drawing.Size(84, 24);
@@ -679,7 +680,7 @@
             this.txtDireccionSedeTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtDireccionSedeTabOA.ForeColor = System.Drawing.Color.Black;
             this.txtDireccionSedeTabOA.Location = new System.Drawing.Point(236, 54);
-            this.txtDireccionSedeTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccionSedeTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccionSedeTabOA.Name = "txtDireccionSedeTabOA";
             this.txtDireccionSedeTabOA.ReadOnly = true;
             this.txtDireccionSedeTabOA.Size = new System.Drawing.Size(229, 24);
@@ -738,7 +739,7 @@
             this.btnQuitarTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitarTabOA.ForeColor = System.Drawing.Color.Black;
             this.btnQuitarTabOA.Location = new System.Drawing.Point(779, 169);
-            this.btnQuitarTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuitarTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitarTabOA.Name = "btnQuitarTabOA";
             this.btnQuitarTabOA.Size = new System.Drawing.Size(105, 28);
             this.btnQuitarTabOA.TabIndex = 102;
@@ -751,7 +752,7 @@
             this.btnAgregarTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarTabOA.ForeColor = System.Drawing.Color.Black;
             this.btnAgregarTabOA.Location = new System.Drawing.Point(664, 169);
-            this.btnAgregarTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarTabOA.Name = "btnAgregarTabOA";
             this.btnAgregarTabOA.Size = new System.Drawing.Size(105, 28);
             this.btnAgregarTabOA.TabIndex = 101;
@@ -775,7 +776,7 @@
             this.txtStockTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtStockTabOA.ForeColor = System.Drawing.Color.Black;
             this.txtStockTabOA.Location = new System.Drawing.Point(757, 25);
-            this.txtStockTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStockTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.txtStockTabOA.Name = "txtStockTabOA";
             this.txtStockTabOA.ReadOnly = true;
             this.txtStockTabOA.Size = new System.Drawing.Size(85, 24);
@@ -799,7 +800,7 @@
             this.txtNombreProductoTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtNombreProductoTabOA.ForeColor = System.Drawing.Color.Black;
             this.txtNombreProductoTabOA.Location = new System.Drawing.Point(236, 91);
-            this.txtNombreProductoTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreProductoTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProductoTabOA.Name = "txtNombreProductoTabOA";
             this.txtNombreProductoTabOA.ReadOnly = true;
             this.txtNombreProductoTabOA.Size = new System.Drawing.Size(229, 24);
@@ -810,7 +811,7 @@
             this.btnBuscarProductoTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnBuscarProductoTabOA.ForeColor = System.Drawing.Color.Black;
             this.btnBuscarProductoTabOA.Location = new System.Drawing.Point(475, 90);
-            this.btnBuscarProductoTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarProductoTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarProductoTabOA.Name = "btnBuscarProductoTabOA";
             this.btnBuscarProductoTabOA.Size = new System.Drawing.Size(43, 28);
             this.btnBuscarProductoTabOA.TabIndex = 82;
@@ -824,7 +825,7 @@
             this.txtCantidadTabOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.txtCantidadTabOA.ForeColor = System.Drawing.Color.Black;
             this.txtCantidadTabOA.Location = new System.Drawing.Point(759, 116);
-            this.txtCantidadTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantidadTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadTabOA.Name = "txtCantidadTabOA";
             this.txtCantidadTabOA.Size = new System.Drawing.Size(84, 24);
             this.txtCantidadTabOA.TabIndex = 83;
@@ -866,7 +867,7 @@
             this.MarcaTabOA,
             this.CantidadTabOA});
             this.dgvLineasTabOA.Location = new System.Drawing.Point(15, 241);
-            this.dgvLineasTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLineasTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLineasTabOA.Name = "dgvLineasTabOA";
             this.dgvLineasTabOA.ReadOnly = true;
             this.dgvLineasTabOA.RowHeadersVisible = false;
@@ -917,7 +918,7 @@
             // 
             this.cbCafeteria.AutoSize = true;
             this.cbCafeteria.Location = new System.Drawing.Point(1189, 446);
-            this.cbCafeteria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCafeteria.Margin = new System.Windows.Forms.Padding(4);
             this.cbCafeteria.Name = "cbCafeteria";
             this.cbCafeteria.Size = new System.Drawing.Size(113, 29);
             this.cbCafeteria.TabIndex = 41;
@@ -928,7 +929,7 @@
             // 
             this.cbSalasEstudio.AutoSize = true;
             this.cbSalasEstudio.Location = new System.Drawing.Point(956, 446);
-            this.cbSalasEstudio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbSalasEstudio.Margin = new System.Windows.Forms.Padding(4);
             this.cbSalasEstudio.Name = "cbSalasEstudio";
             this.cbSalasEstudio.Size = new System.Drawing.Size(179, 29);
             this.cbSalasEstudio.TabIndex = 39;
@@ -939,7 +940,7 @@
             // 
             this.btnEntregarOrdenTabOA.ForeColor = System.Drawing.Color.Black;
             this.btnEntregarOrdenTabOA.Location = new System.Drawing.Point(15, 463);
-            this.btnEntregarOrdenTabOA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEntregarOrdenTabOA.Margin = new System.Windows.Forms.Padding(4);
             this.btnEntregarOrdenTabOA.Name = "btnEntregarOrdenTabOA";
             this.btnEntregarOrdenTabOA.Size = new System.Drawing.Size(436, 32);
             this.btnEntregarOrdenTabOA.TabIndex = 3;

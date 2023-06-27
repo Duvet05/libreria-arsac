@@ -77,7 +77,7 @@ VALUES ('Av. Las Margaritas 345, Surco, Lima', '945678901', 'ARSAC_SAsede4@gmail
 -- #######################################################################
 -- INSERT para la tabla marca
 -- #######################################################################
-INSERT INTO marca(id_marca, descripcion) values (-1, '[SIN MARCA]');
+INSERT INTO marca(id_marca, descripcion) values (-1, '[NO SELECCIONADO]');
 INSERT INTO marca (descripcion) VALUES ('ARTESCO');
 INSERT INTO marca (descripcion) VALUES ('FABER_CASTELL');
 INSERT INTO marca (descripcion) VALUES ('STANDFORD');
@@ -86,7 +86,7 @@ INSERT INTO marca (descripcion) VALUES ('ALPHA');
 -- #######################################################################
 -- INSERT para la tabla categoria
 -- #######################################################################
-INSERT INTO categoria(id_categoria, descripcion) values (-1, '[SIN CATEGORIA]');
+INSERT INTO categoria(id_categoria, descripcion) values (-1, '[NO SELECCIONADO]');
 INSERT INTO categoria (descripcion) VALUES ('LAPICEROS');
 INSERT INTO categoria (descripcion) VALUES ('BORRADORES');
 INSERT INTO categoria (descripcion) VALUES ('CUADERNOS');
