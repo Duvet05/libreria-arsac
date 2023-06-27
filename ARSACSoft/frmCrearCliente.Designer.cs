@@ -315,6 +315,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label11);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCrearCliente";
             this.Tag = "Crear Cliente";
             this.Text = "Crear Cliente";

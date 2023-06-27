@@ -50,9 +50,9 @@
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.toolStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(323, 182);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Credenciales";
@@ -66,9 +66,9 @@
             this.groupBox1.Controls.Add(this.lblUsuario);
             this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Location = new System.Drawing.Point(14, 40);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(284, 118);
             this.groupBox1.TabIndex = 95;
             this.groupBox1.TabStop = false;
@@ -156,7 +156,7 @@
             // 
             this.Credenciales.Controls.Add(this.tabPage1);
             this.Credenciales.Location = new System.Drawing.Point(15, 14);
-            this.Credenciales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Credenciales.Margin = new System.Windows.Forms.Padding(2);
             this.Credenciales.Name = "Credenciales";
             this.Credenciales.SelectedIndex = 0;
             this.Credenciales.Size = new System.Drawing.Size(331, 208);
@@ -168,7 +168,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 239);
             this.Controls.Add(this.Credenciales);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmActualizarCredenciales";
             this.Text = "Actualización de credenciales";
             this.tabPage1.ResumeLayout(false);

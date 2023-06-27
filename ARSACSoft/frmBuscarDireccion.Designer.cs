@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBursarDireccion));
             this.label24 = new System.Windows.Forms.Label();
             this.textDireccion = new System.Windows.Forms.TextBox();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
@@ -122,6 +123,7 @@
             this.Controls.Add(this.botonUbicacion);
             this.Controls.Add(this.textDireccion);
             this.Controls.Add(this.gMapControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBursarDireccion";
             this.Tag = "Buscar Direccion";
             this.Text = "Buscar Direccion";

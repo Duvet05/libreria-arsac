@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarOrdenDeVenta));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpfin = new System.Windows.Forms.DateTimePicker();
@@ -162,6 +163,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpfin);
             this.Controls.Add(this.dtpInicio);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBuscarOrdenDeVenta";
             this.Text = "frmBuscarOrdenDeVenta";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
