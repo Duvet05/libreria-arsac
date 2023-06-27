@@ -52,20 +52,15 @@ namespace ARSACSoft
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
                     textMonto.Enabled = false;
-                    txtIGV.Enabled = false;
-                    textDescontadoTotal.Enabled = false;
                     textCantProducto.Enabled = false;
                     txtRUC.Enabled = false;
                     btPedido.Enabled = false;
-                    btnBuscarDireccion.Enabled = false;
-                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
                     textCantProducto.Enabled = false;
-                    textSubTotal.Enabled = false;
                     btnCliente.Enabled = false;
                     break;
                 case Estado.Nuevo:
@@ -79,14 +74,11 @@ namespace ARSACSoft
                     textCantProducto.Enabled = true;
                     btnBuscarProd.Enabled = true;
                     textMonto.Enabled = true;
-                    txtIGV.Enabled = true;
-                    textDescontadoTotal.Enabled = true;
                     textCantProducto.Enabled = true;
                     btPedido.Enabled = true;
                     checkBoxFactura.Enabled = true;
                     checkBoxDescuento.Enabled = true;
                     dataGridView2.Enabled = true;
-                    textSubTotal.Enabled = true;
                     break;
                 case Estado.Buscar:
                     btnNuevo.Enabled = false;
@@ -95,23 +87,18 @@ namespace ARSACSoft
                     textCantProducto.Enabled = false;
                     BtnQuitar.Enabled = false;
                     btnBuscarPedido.Enabled = false;
-                    btnBuscarDireccion.Enabled = false;
                     textNombreProducto.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
                     textMonto.Enabled = false;
-                    txtIGV.Enabled = false;
-                    textDescontadoTotal.Enabled = false;
                     textCantProducto.Enabled = false;
                     btPedido.Enabled = false;
-                    txtDireccion.Enabled = false;
                     txtNombreCompleto.Enabled = false;
                     txtRazonSocial.Enabled = false;
                     txtRUC.Enabled = false;
                     checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
-                    textSubTotal.Enabled = false;
                     btnCliente.Enabled = false;
                     break;
             }
@@ -124,13 +111,10 @@ namespace ARSACSoft
             txtNombreCompleto.Enabled = facturaChecked;
             btnCliente.Enabled = facturaChecked;
             AgregarCliente.Enabled = facturaChecked;
-            txtDireccion.Enabled = facturaChecked;
             dateFechaEntrega.Enabled = facturaChecked;
-            btnBuscarDireccion.Enabled = facturaChecked;
             if (!facturaChecked)
             {
                 txtRUC.Text = string.Empty;
-                txtDireccion.Text = string.Empty;
                 dateFechaEntrega.Value = DateTime.Now;
                 txtRazonSocial.Text = string.Empty;
                 txtNombreCompleto.Text = string.Empty; // Limpia el contenido del campo de factura
@@ -158,7 +142,6 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
-                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -169,13 +152,10 @@ namespace ARSACSoft
             textNombreProducto.Text = "";
             dateFechaEntrega.Value = DateTime.Now;
             textMonto.Text = "";
-            txtIGV.Text = "";
-            textDescontadoTotal.Text = "";
             txtNombreCompleto.Text = "";
             checkBoxFactura.Checked = false;
             checkBoxDescuento.Checked = false;
             dataGridView2.Rows.Clear();
-            textSubTotal.Text = "";
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
@@ -185,6 +165,7 @@ namespace ARSACSoft
             {
                 _producto = frm.ProductoSeleccionado;
                 textNombreProducto.Text = _producto.nombre.ToString();
+                textCantProducto.Enabled = true;
             }
         }
 
@@ -211,6 +192,31 @@ namespace ARSACSoft
             EstablecerEstadoFormulario();
 
         }
+
+        private void calcularSubtotal(lineaDeOrdenDeVenta lov)
+        {
+            if (checkBoxFactura.Checked)
+            {
+                if (double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
+                {
+                    lov.descuento = (_producto.precioPorMayor * lov.cantidad) * (descuento / 100);
+                }
+                else
+                    lov.descuento = 0.0;
+                lov.precio = (_producto.precioPorMayor * lov.cantidad) - lov.descuento;
+            }
+            else
+            {
+                if (double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
+                {
+                    lov.descuento = (_producto.precioPorMenor * lov.cantidad) * (descuento / 100);
+                }
+                else
+                    lov.descuento = 0.0;
+                lov.precio = (_producto.precioPorMenor * lov.cantidad) - lov.descuento;
+            }
+        }
+
         //falta agregar funcion para modificar 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -250,11 +256,11 @@ namespace ARSACSoft
                     }
 
                     lineaExistente.cantidad = nuevaCantidad;
-                    lineaExistente.descuento = double.Parse(textDescuentoPorcentaje.Text);
-                    UpdateTextBoxes();
+                    calcularSubtotal(lineaExistente);
                 }
                 else
                 {
+                    
                     lineaDeOrdenDeVenta lov = new lineaDeOrdenDeVenta
                     {
                         producto = new VentasWS.producto
@@ -264,13 +270,13 @@ namespace ARSACSoft
                             precioPorMenor = _producto.precioPorMenor,
                             nombre = _producto.nombre
                         },
-                        cantidad = cantidad,
-                        descuento = double.TryParse(textDescuentoPorcentaje.Text, out double descuento) ? descuento : 0.0
+                        cantidad = cantidad
                     };
 
+                    calcularSubtotal(lov);
                     _lineasOrdenDeVenta.Add(lov);
-                    UpdateTextBoxes();
                 }
+                UpdateTextBoxes();
             }
             else
             {
@@ -289,7 +295,6 @@ namespace ARSACSoft
                 textDescuentoPorcentaje.Text = "";
                 _lineasOrdenDeVenta.RemoveAt(rowIndex);
                 UpdateTextBoxes();
-                textSubTotal.Text = "";
             }
         }
 
@@ -298,35 +303,14 @@ namespace ARSACSoft
             dataGridView2.Refresh();
 
             // Actualizar los valores de los TextBox relevantes en función de los cambios en _lineasOrdenDeVenta
-            double total = 0;
-            double descuentoTotal = 0;
-            
+            double montoTotal = 0;
+
             textCantProducto.Text = "";
             foreach (lineaDeOrdenDeVenta linea in _lineasOrdenDeVenta)
             {
-                if (checkBoxFactura.Checked)
-                {
-                    linea.precio = linea.producto.precioPorMayor;
-                }
-                else
-                {
-                    linea.precio = linea.producto.precioPorMenor;
-                }
-
-                if (linea.producto.idProducto.Equals(_producto.idProducto))
-                {
-                    descuentoTotal += (linea.precio * linea.cantidad * (linea.descuento / 100));
-                    total += (linea.precio * linea.cantidad);
-                }
+                montoTotal += linea.precio;
             }
 
-            // Calcular el IGV y el monto total
-            double igv = total * 0.18;
-            double montoTotal = total + igv - descuentoTotal;
-            
-            textSubTotal.Text = total.ToString("N2");
-            txtIGV.Text = igv.ToString("N2");
-            textDescontadoTotal.Text = descuentoTotal.ToString("N2");
             textMonto.Text = montoTotal.ToString("N2");
         }
 
@@ -339,7 +323,6 @@ namespace ARSACSoft
                 txtNombreCompleto.Text = _clienteMayorista.nombre + " " + _clienteMayorista.apellidos;
                 txtRazonSocial.Text = _clienteMayorista.razonSocial;
                 txtRUC.Text = _clienteMayorista.RUC;
-                txtDireccion.Text = _clienteMayorista.direccion;
             }
         }
 
@@ -372,9 +355,24 @@ namespace ARSACSoft
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
+
+
             if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
             {
-                lineaDeOrdenDeVenta lov = _lineasOrdenDeVenta[e.RowIndex];
+                try
+                {
+                    lineaDeOrdenDeVenta lov = (lineaDeOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
+                    dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.producto.idProducto;
+                    dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.producto.nombre;
+                    dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.cantidad;
+                    dataGridView2.Rows[e.RowIndex].Cells[3].Value = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
+                    dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento;
+                    dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.precio;
+                }
+                catch { }
+
+
+                /*
                 double precio = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
 
                 switch (e.ColumnIndex)
@@ -395,9 +393,10 @@ namespace ARSACSoft
                         e.Value = lov.descuento.ToString("N2");
                         break;
                     case 5:
-                        e.Value = (lov.cantidad * precio).ToString("N2");
+                        e.Value = lov.precio.ToString("N2");
                         break;
                 }
+                */
             }
         }
 
@@ -509,7 +508,6 @@ namespace ARSACSoft
 
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
-                ordenV.direccion = txtDireccion.Text;
                 daoVentas.insertarOrdenDeVentaMayorista(ordenV);
             }
             else
@@ -536,15 +534,6 @@ namespace ARSACSoft
             MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void btnBuscarDireccion_Click(object sender, EventArgs e)
-        {
-            frmBursarDireccion frm = new frmBursarDireccion();
-
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-                txtDireccion.Text = frm.direccionSeleccionada;
-            }
-        }
 
 
     }
