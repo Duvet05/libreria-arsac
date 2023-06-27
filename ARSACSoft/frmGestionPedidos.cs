@@ -64,8 +64,6 @@ namespace ARSACSoft
                     checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
-                    textPrecioUni.Enabled = false;
-                    textCantidad.Enabled = false;
                     textCantProducto.Enabled = false;
                     textSubTotal.Enabled = false;
                     btnCliente.Enabled = false;
@@ -88,8 +86,6 @@ namespace ARSACSoft
                     checkBoxFactura.Enabled = true;
                     checkBoxDescuento.Enabled = true;
                     dataGridView2.Enabled = true;
-                    textPrecioUni.Enabled = true;
-                    textCantidad.Enabled = true;
                     textSubTotal.Enabled = true;
                     break;
                 case Estado.Buscar:
@@ -115,8 +111,6 @@ namespace ARSACSoft
                     checkBoxFactura.Enabled = false;
                     checkBoxDescuento.Enabled = false;
                     dataGridView2.Enabled = false;
-                    textPrecioUni.Enabled = false;
-                    textCantidad.Enabled = false;
                     textSubTotal.Enabled = false;
                     btnCliente.Enabled = false;
                     break;
@@ -181,8 +175,6 @@ namespace ARSACSoft
             checkBoxFactura.Checked = false;
             checkBoxDescuento.Checked = false;
             dataGridView2.Rows.Clear();
-            textPrecioUni.Text = "";
-            textCantidad.Text = "";
             textSubTotal.Text = "";
         }
 
@@ -245,37 +237,40 @@ namespace ARSACSoft
 
             if (tieneStock == 1)
             {
-                // El stock es suficiente, continuar con la lógica de agregar el producto a la orden
-                foreach (lineaDeOrdenDeVenta linea in this._lineasOrdenDeVenta)
+                lineaDeOrdenDeVenta lineaExistente = _lineasOrdenDeVenta.FirstOrDefault(linea => linea.producto.nombre == textNombreProducto.Text);
+
+                if (lineaExistente != null)
                 {
-                    if (linea.producto.idProducto.Equals(_producto.idProducto))
+                    int nuevaCantidad = lineaExistente.cantidad + cantidad;
+
+                    if (daoVentas.verificarStockSuficiente(_id_sede, idProducto, nuevaCantidad) != 1)
                     {
-                        linea.cantidad += cantidad;
-                        linea.descuento = Double.Parse(textDescuentoPorcentaje.Text); // Actualizar subtotal
-                        UpdateTextBoxes();
+                        MostrarAdvertencia("No hay suficiente stock disponible para agregar este producto a la orden.");
                         return;
                     }
-                }
 
-                lineaDeOrdenDeVenta lov = new lineaDeOrdenDeVenta();
-                lov.producto = new VentasWS.producto();
-                lov.producto.idProducto = _producto.idProducto;
-                lov.producto.precioPorMayor = _producto.precioPorMayor;
-                lov.producto.precioPorMenor = _producto.precioPorMenor;
-                lov.producto.nombre = _producto.nombre;
-                lov.cantidad = cantidad;
-
-
-                if (Double.TryParse(textDescuentoPorcentaje.Text, out double descuento))
-                {
-                    lov.descuento = descuento;
+                    lineaExistente.cantidad = nuevaCantidad;
+                    lineaExistente.descuento = double.Parse(textDescuentoPorcentaje.Text);
+                    UpdateTextBoxes();
                 }
                 else
                 {
-                    lov.descuento = 0.0;
+                    lineaDeOrdenDeVenta lov = new lineaDeOrdenDeVenta
+                    {
+                        producto = new VentasWS.producto
+                        {
+                            idProducto = _producto.idProducto,
+                            precioPorMayor = _producto.precioPorMayor,
+                            precioPorMenor = _producto.precioPorMenor,
+                            nombre = _producto.nombre
+                        },
+                        cantidad = cantidad,
+                        descuento = double.TryParse(textDescuentoPorcentaje.Text, out double descuento) ? descuento : 0.0
+                    };
+
+                    _lineasOrdenDeVenta.Add(lov);
+                    UpdateTextBoxes();
                 }
-                _lineasOrdenDeVenta.Add(lov);
-                UpdateTextBoxes();
             }
             else
             {
@@ -295,8 +290,6 @@ namespace ARSACSoft
                 _lineasOrdenDeVenta.RemoveAt(rowIndex);
                 UpdateTextBoxes();
                 textSubTotal.Text = "";
-                textCantidad.Text = "";
-                textPrecioUni.Text = "";
             }
         }
 
@@ -319,11 +312,9 @@ namespace ARSACSoft
                 {
                     linea.precio = linea.producto.precioPorMenor;
                 }
+
                 if (linea.producto.idProducto.Equals(_producto.idProducto))
                 {
-                    textPrecioUni.Text = linea.precio.ToString("N2");
-                    textCantidad.Text = linea.cantidad.ToString();
-                    textSubTotal.Text = (linea.precio * linea.cantidad).ToString("N2");
                     descuentoTotal += (linea.precio * linea.cantidad * (linea.descuento / 100));
                     total += (linea.precio * linea.cantidad);
                 }
@@ -332,7 +323,8 @@ namespace ARSACSoft
             // Calcular el IGV y el monto total
             double igv = total * 0.18;
             double montoTotal = total + igv - descuentoTotal;
-
+            
+            textSubTotal.Text = total.ToString("N2");
             txtIGV.Text = igv.ToString("N2");
             textDescontadoTotal.Text = descuentoTotal.ToString("N2");
             textMonto.Text = montoTotal.ToString("N2");
@@ -360,12 +352,10 @@ namespace ARSACSoft
                 if (selectedRow.DataBoundItem is lineaDeOrdenDeVenta linea)
                 {
                     textNombreProducto.Text = linea.producto.nombre;
-                    textCantProducto.Text = linea.cantidad.ToString();
+                    textCantProducto.Text = string.Empty;
                     textDescuentoPorcentaje.Text = linea.descuento.ToString();
 
                     // Habilitar la edición de los valores de cantidad y descuento
-                    textCantProducto.Enabled = true;
-                    textDescuentoPorcentaje.Enabled = true;
                 }
             }
             else
@@ -382,49 +372,33 @@ namespace ARSACSoft
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
-            lineaDeOrdenDeVenta lov = (lineaDeOrdenDeVenta)dataGridView2.Rows[e.RowIndex].DataBoundItem;
-
-            dataGridView2.Rows[e.RowIndex].Cells[0].Value = lov.producto.idProducto;
-            dataGridView2.Rows[e.RowIndex].Cells[1].Value = lov.producto.nombre;
-            dataGridView2.Rows[e.RowIndex].Cells[2].Value = lov.cantidad;
-            dataGridView2.Rows[e.RowIndex].Cells[3].Value = lov.producto.precioPorMenor;
-            dataGridView2.Rows[e.RowIndex].Cells[4].Value = lov.descuento;
-            dataGridView2.Rows[e.RowIndex].Cells[5].Value = lov.precio;
-
-            /*
             if (e.RowIndex >= 0 && e.RowIndex < _lineasOrdenDeVenta.Count)
             {
                 lineaDeOrdenDeVenta lov = _lineasOrdenDeVenta[e.RowIndex];
+                double precio = checkBoxFactura.Checked ? lov.producto.precioPorMayor : lov.producto.precioPorMenor;
 
-
-
-
-
-                if (e.ColumnIndex == 0)
+                switch (e.ColumnIndex)
                 {
-                    e.Value = lov.producto.idProducto.ToString();
+                    case 0:
+                        e.Value = lov.producto.idProducto.ToString();
+                        break;
+                    case 1:
+                        e.Value = lov.producto.nombre;
+                        break;
+                    case 2:
+                        e.Value = lov.cantidad.ToString();
+                        break;
+                    case 3:
+                        e.Value = precio.ToString("N2");
+                        break;
+                    case 4:
+                        e.Value = lov.descuento.ToString("N2");
+                        break;
+                    case 5:
+                        e.Value = (lov.cantidad * precio).ToString("N2");
+                        break;
                 }
-                else if (e.ColumnIndex == 1)
-                {
-                    e.Value = lov.producto.nombre;
-                }
-                else if (e.ColumnIndex == 2)
-                {
-                    e.Value = lov.cantidad.ToString();
-                }
-                else if (e.ColumnIndex == 3)
-                {
-                    e.Value = lov.precio.ToString("N2");
-                }
-                else if (e.ColumnIndex == 4)
-                {
-                    e.Value = lov.descuento.ToString("N2");
-                }
-                else if (e.ColumnIndex == 5)
-                {
-                    e.Value = (lov.cantidad * lov.precio).ToString("N2");
-                }
-            }*/
+            }
         }
 
         private void textCantProducto_KeyDown(object sender, KeyPressEventArgs e)
@@ -571,6 +545,7 @@ namespace ARSACSoft
                 txtDireccion.Text = frm.direccionSeleccionada;
             }
         }
+
 
     }
 }

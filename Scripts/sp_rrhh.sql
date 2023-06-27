@@ -187,7 +187,7 @@ BEGIN
 	UPDATE persona
     SET
     nombre = _nombre, apellidos = _apellidos, DNI = _DNI, correo = _correo, telefono = _telefono
-    where id_persona = _idEmpleado;
+    where id_persona = _id_empleado;
     
     UPDATE empleado
     SET

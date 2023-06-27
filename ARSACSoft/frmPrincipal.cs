@@ -32,29 +32,31 @@ namespace ARSACSoft
             UpdateEmployeeInfo();
 
             InitializeForms();
-            
-            switch (_empleadoLogeado.tipo.idTipoDeEmpleado)
+            /*
+                private System.Windows.Forms.GroupBox grupoPedidos;
+                private System.Windows.Forms.GroupBox grupoRRHH;
+                private System.Windows.Forms.GroupBox grupoSede;
+                private System.Windows.Forms.GroupBox grupoProveedores;
+                private System.Windows.Forms.GroupBox grupoAlmacen;
+             */
+
+            switch (_empleadoLogeado.tipo.descripcion)
             {   //Permisos corregidos. Si queremos ser más ambiciosos, podemos ocultar dentro de los módulos
                 //los tabs que no deberían ver
-                case 1:
-                    //OcultarBotones(grupoPedidos, grupoAlmacen, grupoProveedores, grupoContabilidad);
+                case "Gerente":
                     break;
-                case 2:
-                case 3:
-                    OcultarBotones(grupoAlmacen, grupoProveedores, grupoSede, grupoContabilidad, grupoRRHH);
+                case "Vendedor Minorista":
+                case "Vendedor Mayorista":
+                    OcultarBotones(grupoRRHH, grupoSede, grupoProveedores, grupoAlmacen);
                     break;
-                case 4:
-                    //OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad, grupoSede, 
-                    //    grupoReportes, grupoProveedores, grupoRRHH);
-                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad);
+                case "Logistica":
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoRRHH, grupoProveedores);
                     break;
-                case 5:
-                    OcultarBotones(grupoPedidos, grupoContabilidad, 
-                        grupoReportes, grupoRRHH);
+                case "Almacen":
+                    OcultarBotones(grupoPedidos, grupoRRHH,  grupoSede);
                     break;
-                case 6:
-                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoContabilidad, grupoSede
-                        , grupoProveedores);
+                case "Recursos Humanos":
+                    OcultarBotones(grupoPedidos, grupoAlmacen, grupoSede, grupoProveedores);
                     break;
             }
         }
@@ -195,22 +197,11 @@ namespace ARSACSoft
             SetButtonColor(btnSede);
         }
 
-        private void btnContabilidad_Click(object sender, EventArgs e)
-        {
-            DisplayForm(frmContab);
-            SetButtonColor(btnContabilidad);
-        }
 
         private void btnRRHH_Click(object sender, EventArgs e)
         {
             DisplayForm(frmGestRRHH);
             SetButtonColor(btnRRHH);
-        }
-
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            DisplayForm(frmReports);
-            SetButtonColor(btnReportes);
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
