@@ -16,26 +16,26 @@ namespace ARSACSoft.VentasWS {
     public interface VentasWS {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse modificarLineaOrdenDeVenta(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request);
+        ARSACSoft.VentasWS.buscarOrdenPorIDResponse buscarOrdenPorID(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaResponse" +
-            "")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse> modificarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.buscarOrdenPorIDResponse> buscarOrdenPorIDAsync(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaResponse" +
+            "")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.modificarOrdenDeVentaResponse modificarOrdenDeVenta(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request);
+        ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse listarLineasDeOrdenDeVenta(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarOrdenDeVentaResponse> modificarOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaResponse" +
+            "")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse> listarLineasDeOrdenDeVentaAsync(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/cancelarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/cancelarOrdenDeVentaResponse")]
@@ -46,84 +46,6 @@ namespace ARSACSoft.VentasWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/cancelarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/cancelarOrdenDeVentaResponse")]
         System.Threading.Tasks.Task<ARSACSoft.VentasWS.cancelarOrdenDeVentaResponse> cancelarOrdenDeVentaAsync(ARSACSoft.VentasWS.cancelarOrdenDeVentaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse listarOrdenesPorVendedor(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse> listarOrdenesPorVendedorAsync(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.listarOrdenesPorFechaResponse listarOrdenesPorFecha(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorFechaResponse> listarOrdenesPorFechaAsync(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
-            "quest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
-            "sponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse listarOrdenesPorClienteMayorista(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
-            "quest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
-            "sponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse> listarOrdenesPorClienteMayoristaAsync(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse insertarLineaOrdenDeVenta(ARSACSoft.VentasWS.insertarLineaOrdenDeVentaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse> insertarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.insertarLineaOrdenDeVentaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.verificarStockSuficienteResponse verificarStockSuficiente(ARSACSoft.VentasWS.verificarStockSuficienteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.verificarStockSuficienteResponse> verificarStockSuficienteAsync(ARSACSoft.VentasWS.verificarStockSuficienteRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse eliminarOrdenDeVenta(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse> eliminarOrdenDeVentaAsync(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaReque" +
-            "st", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaRespo" +
-            "nse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse insertarOrdenDeVentaMayorista(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaReque" +
-            "st", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse> insertarOrdenDeVentaMayoristaAsync(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMinoristaReque" +
@@ -140,30 +62,38 @@ namespace ARSACSoft.VentasWS {
         System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse> insertarOrdenDeVentaMinoristaAsync(ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaResponse" +
-            "")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse listarLineasDeOrdenDeVenta(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request);
+        ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse insertarLineaOrdenDeVenta(ARSACSoft.VentasWS.insertarLineaOrdenDeVentaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaResponse" +
-            "")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse> listarLineasDeOrdenDeVentaAsync(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarLineaOrdenDeVentaResponse> insertarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.insertarLineaOrdenDeVentaRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoRequ" +
-            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoResp" +
-            "onse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaReque" +
+            "st", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaRespo" +
+            "nse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse listarOrdenesDeVentaPorPeriodo(ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest request);
+        ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse insertarOrdenDeVentaMayorista(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoRequ" +
-            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoResp" +
-            "onse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse> listarOrdenesDeVentaPorPeriodoAsync(ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaReque" +
+            "st", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse> insertarOrdenDeVentaMayoristaAsync(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.verificarStockSuficienteResponse verificarStockSuficiente(ARSACSoft.VentasWS.verificarStockSuficienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.verificarStockSuficienteResponse> verificarStockSuficienteAsync(ARSACSoft.VentasWS.verificarStockSuficienteRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaPorIDReq" +
@@ -180,822 +110,88 @@ namespace ARSACSoft.VentasWS {
         System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse> listarLineasDeOrdenDeVentaPorIDAsync(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoRequ" +
+            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoResp" +
+            "onse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ARSACSoft.VentasWS.buscarOrdenPorIDResponse buscarOrdenPorID(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request);
+        ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse listarOrdenesDeVentaPorPeriodo(ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDResponse")]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.buscarOrdenPorIDResponse> buscarOrdenPorIDAsync(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoRequ" +
+            "est", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoResp" +
+            "onse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoResponse> listarOrdenesDeVentaPorPeriodoAsync(ARSACSoft.VentasWS.listarOrdenesDeVentaPorPeriodoRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
+            "quest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
+            "sponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse listarOrdenesPorClienteMayorista(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
+            "quest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse> listarOrdenesPorClienteMayoristaAsync(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse eliminarOrdenDeVenta(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse> eliminarOrdenDeVentaAsync(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.modificarOrdenDeVentaResponse modificarOrdenDeVenta(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarOrdenDeVentaResponse> modificarOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse listarOrdenesPorVendedor(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse> listarOrdenesPorVendedorAsync(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaResponse" +
+            "")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse modificarLineaOrdenDeVenta(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaResponse" +
+            "")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse> modificarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(persona))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ARSACSoft.VentasWS.listarOrdenesPorFechaResponse listarOrdenesPorFecha(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaRequest", ReplyAction="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaResponse")]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorFechaResponse> listarOrdenesPorFechaAsync(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class lineaDeOrdenDeVenta : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool activoField;
-        
-        private int cantidadField;
-        
-        private double descuentoField;
-        
-        private int idLineaDeOrdenDeVentaField;
-        
-        private double precioField;
-        
-        private producto productoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool activo {
-            get {
-                return this.activoField;
-            }
-            set {
-                this.activoField = value;
-                this.RaisePropertyChanged("activo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int cantidad {
-            get {
-                return this.cantidadField;
-            }
-            set {
-                this.cantidadField = value;
-                this.RaisePropertyChanged("cantidad");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public double descuento {
-            get {
-                return this.descuentoField;
-            }
-            set {
-                this.descuentoField = value;
-                this.RaisePropertyChanged("descuento");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int idLineaDeOrdenDeVenta {
-            get {
-                return this.idLineaDeOrdenDeVentaField;
-            }
-            set {
-                this.idLineaDeOrdenDeVentaField = value;
-                this.RaisePropertyChanged("idLineaDeOrdenDeVenta");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public double precio {
-            get {
-                return this.precioField;
-            }
-            set {
-                this.precioField = value;
-                this.RaisePropertyChanged("precio");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public producto producto {
-            get {
-                return this.productoField;
-            }
-            set {
-                this.productoField = value;
-                this.RaisePropertyChanged("producto");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class producto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool activoField;
-        
-        private categoria categoriaField;
-        
-        private byte[] fotoField;
-        
-        private int idProductoField;
-        
-        private marca marcaField;
-        
-        private string nombreField;
-        
-        private double precioPorMayorField;
-        
-        private double precioPorMenorField;
-        
-        private promocion promocionField;
-        
-        private int stockTmpField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool activo {
-            get {
-                return this.activoField;
-            }
-            set {
-                this.activoField = value;
-                this.RaisePropertyChanged("activo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public categoria categoria {
-            get {
-                return this.categoriaField;
-            }
-            set {
-                this.categoriaField = value;
-                this.RaisePropertyChanged("categoria");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=2)]
-        public byte[] foto {
-            get {
-                return this.fotoField;
-            }
-            set {
-                this.fotoField = value;
-                this.RaisePropertyChanged("foto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int idProducto {
-            get {
-                return this.idProductoField;
-            }
-            set {
-                this.idProductoField = value;
-                this.RaisePropertyChanged("idProducto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public marca marca {
-            get {
-                return this.marcaField;
-            }
-            set {
-                this.marcaField = value;
-                this.RaisePropertyChanged("marca");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public double precioPorMayor {
-            get {
-                return this.precioPorMayorField;
-            }
-            set {
-                this.precioPorMayorField = value;
-                this.RaisePropertyChanged("precioPorMayor");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public double precioPorMenor {
-            get {
-                return this.precioPorMenorField;
-            }
-            set {
-                this.precioPorMenorField = value;
-                this.RaisePropertyChanged("precioPorMenor");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public promocion promocion {
-            get {
-                return this.promocionField;
-            }
-            set {
-                this.promocionField = value;
-                this.RaisePropertyChanged("promocion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
-        public int stockTmp {
-            get {
-                return this.stockTmpField;
-            }
-            set {
-                this.stockTmpField = value;
-                this.RaisePropertyChanged("stockTmp");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class categoria : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool activoField;
-        
-        private string descripcionField;
-        
-        private int idCategoriaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool activo {
-            get {
-                return this.activoField;
-            }
-            set {
-                this.activoField = value;
-                this.RaisePropertyChanged("activo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string descripcion {
-            get {
-                return this.descripcionField;
-            }
-            set {
-                this.descripcionField = value;
-                this.RaisePropertyChanged("descripcion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idCategoria {
-            get {
-                return this.idCategoriaField;
-            }
-            set {
-                this.idCategoriaField = value;
-                this.RaisePropertyChanged("idCategoria");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class tipoDeEmpleado : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool activoField;
-        
-        private string descripcionField;
-        
-        private int idTipoDeEmpleadoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool activo {
-            get {
-                return this.activoField;
-            }
-            set {
-                this.activoField = value;
-                this.RaisePropertyChanged("activo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string descripcion {
-            get {
-                return this.descripcionField;
-            }
-            set {
-                this.descripcionField = value;
-                this.RaisePropertyChanged("descripcion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idTipoDeEmpleado {
-            get {
-                return this.idTipoDeEmpleadoField;
-            }
-            set {
-                this.idTipoDeEmpleadoField = value;
-                this.RaisePropertyChanged("idTipoDeEmpleado");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class sedeXProducto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private producto productoField;
-        
-        private int stockField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public producto producto {
-            get {
-                return this.productoField;
-            }
-            set {
-                this.productoField = value;
-                this.RaisePropertyChanged("producto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int stock {
-            get {
-                return this.stockField;
-            }
-            set {
-                this.stockField = value;
-                this.RaisePropertyChanged("stock");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class sede : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string correoField;
-        
-        private string direccionField;
-        
-        private bool esPrincipalField;
-        
-        private int idSedeField;
-        
-        private sedeXProducto[] productosField;
-        
-        private string telefonoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string correo {
-            get {
-                return this.correoField;
-            }
-            set {
-                this.correoField = value;
-                this.RaisePropertyChanged("correo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string direccion {
-            get {
-                return this.direccionField;
-            }
-            set {
-                this.direccionField = value;
-                this.RaisePropertyChanged("direccion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public bool esPrincipal {
-            get {
-                return this.esPrincipalField;
-            }
-            set {
-                this.esPrincipalField = value;
-                this.RaisePropertyChanged("esPrincipal");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int idSede {
-            get {
-                return this.idSedeField;
-            }
-            set {
-                this.idSedeField = value;
-                this.RaisePropertyChanged("idSede");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("productos", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
-        public sedeXProducto[] productos {
-            get {
-                return this.productosField;
-            }
-            set {
-                this.productosField = value;
-                this.RaisePropertyChanged("productos");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string telefono {
-            get {
-                return this.telefonoField;
-            }
-            set {
-                this.telefonoField = value;
-                this.RaisePropertyChanged("telefono");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(clienteMayorista))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class persona : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool activoField;
-        
-        private string apellidosField;
-        
-        private string correoField;
-        
-        private string dNIField;
-        
-        private int idPersonaField;
-        
-        private string nombreField;
-        
-        private string telefonoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public bool activo {
-            get {
-                return this.activoField;
-            }
-            set {
-                this.activoField = value;
-                this.RaisePropertyChanged("activo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string apellidos {
-            get {
-                return this.apellidosField;
-            }
-            set {
-                this.apellidosField = value;
-                this.RaisePropertyChanged("apellidos");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string correo {
-            get {
-                return this.correoField;
-            }
-            set {
-                this.correoField = value;
-                this.RaisePropertyChanged("correo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string DNI {
-            get {
-                return this.dNIField;
-            }
-            set {
-                this.dNIField = value;
-                this.RaisePropertyChanged("DNI");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public int idPersona {
-            get {
-                return this.idPersonaField;
-            }
-            set {
-                this.idPersonaField = value;
-                this.RaisePropertyChanged("idPersona");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public string telefono {
-            get {
-                return this.telefonoField;
-            }
-            set {
-                this.telefonoField = value;
-                this.RaisePropertyChanged("telefono");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class empleado : persona {
-        
-        private string direccionField;
-        
-        private System.DateTime fechaContratacionField;
-        
-        private bool fechaContratacionFieldSpecified;
-        
-        private byte[] fotoField;
-        
-        private double salarioField;
-        
-        private sede sedeField;
-        
-        private tipoDeEmpleado tipoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string direccion {
-            get {
-                return this.direccionField;
-            }
-            set {
-                this.direccionField = value;
-                this.RaisePropertyChanged("direccion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public System.DateTime fechaContratacion {
-            get {
-                return this.fechaContratacionField;
-            }
-            set {
-                this.fechaContratacionField = value;
-                this.RaisePropertyChanged("fechaContratacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaContratacionSpecified {
-            get {
-                return this.fechaContratacionFieldSpecified;
-            }
-            set {
-                this.fechaContratacionFieldSpecified = value;
-                this.RaisePropertyChanged("fechaContratacionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=2)]
-        public byte[] foto {
-            get {
-                return this.fotoField;
-            }
-            set {
-                this.fotoField = value;
-                this.RaisePropertyChanged("foto");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public double salario {
-            get {
-                return this.salarioField;
-            }
-            set {
-                this.salarioField = value;
-                this.RaisePropertyChanged("salario");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public sede sede {
-            get {
-                return this.sedeField;
-            }
-            set {
-                this.sedeField = value;
-                this.RaisePropertyChanged("sede");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public tipoDeEmpleado tipo {
-            get {
-                return this.tipoField;
-            }
-            set {
-                this.tipoField = value;
-                this.RaisePropertyChanged("tipo");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class clienteMayorista : persona {
-        
-        private string direccionField;
-        
-        private string rUCField;
-        
-        private string razonSocialField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string direccion {
-            get {
-                return this.direccionField;
-            }
-            set {
-                this.direccionField = value;
-                this.RaisePropertyChanged("direccion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string RUC {
-            get {
-                return this.rUCField;
-            }
-            set {
-                this.rUCField = value;
-                this.RaisePropertyChanged("RUC");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string razonSocial {
-            get {
-                return this.razonSocialField;
-            }
-            set {
-                this.razonSocialField = value;
-                this.RaisePropertyChanged("razonSocial");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1181,7 +377,556 @@ namespace ARSACSoft.VentasWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class clienteMayorista : persona {
+        
+        private string direccionField;
+        
+        private string rUCField;
+        
+        private string razonSocialField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string RUC {
+            get {
+                return this.rUCField;
+            }
+            set {
+                this.rUCField = value;
+                this.RaisePropertyChanged("RUC");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string razonSocial {
+            get {
+                return this.razonSocialField;
+            }
+            set {
+                this.razonSocialField = value;
+                this.RaisePropertyChanged("razonSocial");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(empleado))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(clienteMayorista))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class persona : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private string apellidosField;
+        
+        private string correoField;
+        
+        private string dNIField;
+        
+        private int idPersonaField;
+        
+        private string nombreField;
+        
+        private string telefonoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string apellidos {
+            get {
+                return this.apellidosField;
+            }
+            set {
+                this.apellidosField = value;
+                this.RaisePropertyChanged("apellidos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string correo {
+            get {
+                return this.correoField;
+            }
+            set {
+                this.correoField = value;
+                this.RaisePropertyChanged("correo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string DNI {
+            get {
+                return this.dNIField;
+            }
+            set {
+                this.dNIField = value;
+                this.RaisePropertyChanged("DNI");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public int idPersona {
+            get {
+                return this.idPersonaField;
+            }
+            set {
+                this.idPersonaField = value;
+                this.RaisePropertyChanged("idPersona");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string telefono {
+            get {
+                return this.telefonoField;
+            }
+            set {
+                this.telefonoField = value;
+                this.RaisePropertyChanged("telefono");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class lineaDeOrdenDeVenta : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private int cantidadField;
+        
+        private double descuentoField;
+        
+        private int idLineaDeOrdenDeVentaField;
+        
+        private double precioField;
+        
+        private producto productoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                this.cantidadField = value;
+                this.RaisePropertyChanged("cantidad");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public double descuento {
+            get {
+                return this.descuentoField;
+            }
+            set {
+                this.descuentoField = value;
+                this.RaisePropertyChanged("descuento");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int idLineaDeOrdenDeVenta {
+            get {
+                return this.idLineaDeOrdenDeVentaField;
+            }
+            set {
+                this.idLineaDeOrdenDeVentaField = value;
+                this.RaisePropertyChanged("idLineaDeOrdenDeVenta");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double precio {
+            get {
+                return this.precioField;
+            }
+            set {
+                this.precioField = value;
+                this.RaisePropertyChanged("precio");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public producto producto {
+            get {
+                return this.productoField;
+            }
+            set {
+                this.productoField = value;
+                this.RaisePropertyChanged("producto");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class producto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private categoria categoriaField;
+        
+        private byte[] fotoField;
+        
+        private int idProductoField;
+        
+        private marca marcaField;
+        
+        private string nombreField;
+        
+        private double precioPorMayorField;
+        
+        private double precioPorMenorField;
+        
+        private promocion promocionField;
+        
+        private int stockTmpField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public categoria categoria {
+            get {
+                return this.categoriaField;
+            }
+            set {
+                this.categoriaField = value;
+                this.RaisePropertyChanged("categoria");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=2)]
+        public byte[] foto {
+            get {
+                return this.fotoField;
+            }
+            set {
+                this.fotoField = value;
+                this.RaisePropertyChanged("foto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int idProducto {
+            get {
+                return this.idProductoField;
+            }
+            set {
+                this.idProductoField = value;
+                this.RaisePropertyChanged("idProducto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public marca marca {
+            get {
+                return this.marcaField;
+            }
+            set {
+                this.marcaField = value;
+                this.RaisePropertyChanged("marca");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public double precioPorMayor {
+            get {
+                return this.precioPorMayorField;
+            }
+            set {
+                this.precioPorMayorField = value;
+                this.RaisePropertyChanged("precioPorMayor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public double precioPorMenor {
+            get {
+                return this.precioPorMenorField;
+            }
+            set {
+                this.precioPorMenorField = value;
+                this.RaisePropertyChanged("precioPorMenor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public promocion promocion {
+            get {
+                return this.promocionField;
+            }
+            set {
+                this.promocionField = value;
+                this.RaisePropertyChanged("promocion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public int stockTmp {
+            get {
+                return this.stockTmpField;
+            }
+            set {
+                this.stockTmpField = value;
+                this.RaisePropertyChanged("stockTmp");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class categoria : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private string descripcionField;
+        
+        private int idCategoriaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+                this.RaisePropertyChanged("descripcion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idCategoria {
+            get {
+                return this.idCategoriaField;
+            }
+            set {
+                this.idCategoriaField = value;
+                this.RaisePropertyChanged("idCategoria");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class marca : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool activoField;
+        
+        private string descripcionField;
+        
+        private int idMarcaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool activo {
+            get {
+                return this.activoField;
+            }
+            set {
+                this.activoField = value;
+                this.RaisePropertyChanged("activo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+                this.RaisePropertyChanged("descripcion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idMarca {
+            get {
+                return this.idMarcaField;
+            }
+            set {
+                this.idMarcaField = value;
+                this.RaisePropertyChanged("idMarca");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1325,18 +1070,18 @@ namespace ARSACSoft.VentasWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
-    public partial class marca : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class tipoDeEmpleado : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool activoField;
         
         private string descripcionField;
         
-        private int idMarcaField;
+        private int idTipoDeEmpleadoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -1364,13 +1109,13 @@ namespace ARSACSoft.VentasWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idMarca {
+        public int idTipoDeEmpleado {
             get {
-                return this.idMarcaField;
+                return this.idTipoDeEmpleadoField;
             }
             set {
-                this.idMarcaField = value;
-                this.RaisePropertyChanged("idMarca");
+                this.idTipoDeEmpleadoField = value;
+                this.RaisePropertyChanged("idTipoDeEmpleado");
             }
         }
         
@@ -1384,48 +1129,293 @@ namespace ARSACSoft.VentasWS {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarLineaOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class modificarLineaOrdenDeVentaRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class sedeXProducto : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0;
+        private producto productoField;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg1;
+        private int stockField;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg2;
-        
-        public modificarLineaOrdenDeVentaRequest() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public producto producto {
+            get {
+                return this.productoField;
+            }
+            set {
+                this.productoField = value;
+                this.RaisePropertyChanged("producto");
+            }
         }
         
-        public modificarLineaOrdenDeVentaRequest(ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0, int arg1, int arg2) {
-            this.arg0 = arg0;
-            this.arg1 = arg1;
-            this.arg2 = arg2;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int stock {
+            get {
+                return this.stockField;
+            }
+            set {
+                this.stockField = value;
+                this.RaisePropertyChanged("stock");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class sede : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string correoField;
+        
+        private string direccionField;
+        
+        private bool esPrincipalField;
+        
+        private int idSedeField;
+        
+        private sedeXProducto[] productosField;
+        
+        private string telefonoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string correo {
+            get {
+                return this.correoField;
+            }
+            set {
+                this.correoField = value;
+                this.RaisePropertyChanged("correo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public bool esPrincipal {
+            get {
+                return this.esPrincipalField;
+            }
+            set {
+                this.esPrincipalField = value;
+                this.RaisePropertyChanged("esPrincipal");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public int idSede {
+            get {
+                return this.idSedeField;
+            }
+            set {
+                this.idSedeField = value;
+                this.RaisePropertyChanged("idSede");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("productos", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=4)]
+        public sedeXProducto[] productos {
+            get {
+                return this.productosField;
+            }
+            set {
+                this.productosField = value;
+                this.RaisePropertyChanged("productos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string telefono {
+            get {
+                return this.telefonoField;
+            }
+            set {
+                this.telefonoField = value;
+                this.RaisePropertyChanged("telefono");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/")]
+    public partial class empleado : persona {
+        
+        private string direccionField;
+        
+        private System.DateTime fechaContratacionField;
+        
+        private bool fechaContratacionFieldSpecified;
+        
+        private byte[] fotoField;
+        
+        private double salarioField;
+        
+        private sede sedeField;
+        
+        private tipoDeEmpleado tipoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public System.DateTime fechaContratacion {
+            get {
+                return this.fechaContratacionField;
+            }
+            set {
+                this.fechaContratacionField = value;
+                this.RaisePropertyChanged("fechaContratacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaContratacionSpecified {
+            get {
+                return this.fechaContratacionFieldSpecified;
+            }
+            set {
+                this.fechaContratacionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaContratacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=2)]
+        public byte[] foto {
+            get {
+                return this.fotoField;
+            }
+            set {
+                this.fotoField = value;
+                this.RaisePropertyChanged("foto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public double salario {
+            get {
+                return this.salarioField;
+            }
+            set {
+                this.salarioField = value;
+                this.RaisePropertyChanged("salario");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public sede sede {
+            get {
+                return this.sedeField;
+            }
+            set {
+                this.sedeField = value;
+                this.RaisePropertyChanged("sede");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public tipoDeEmpleado tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                this.tipoField = value;
+                this.RaisePropertyChanged("tipo");
+            }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarLineaOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class modificarLineaOrdenDeVentaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarOrdenPorID", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarOrdenPorIDRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        public int arg0;
         
-        public modificarLineaOrdenDeVentaResponse() {
+        public buscarOrdenPorIDRequest() {
         }
         
-        public modificarLineaOrdenDeVentaResponse(int @return) {
+        public buscarOrdenPorIDRequest(int arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarOrdenPorIDResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class buscarOrdenPorIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.VentasWS.ordenDeVenta @return;
+        
+        public buscarOrdenPorIDResponse() {
+        }
+        
+        public buscarOrdenPorIDResponse(ARSACSoft.VentasWS.ordenDeVenta @return) {
             this.@return = @return;
         }
     }
@@ -1433,17 +1423,17 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class modificarOrdenDeVentaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasDeOrdenDeVentaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.ordenDeVenta arg0;
+        public int arg0;
         
-        public modificarOrdenDeVentaRequest() {
+        public listarLineasDeOrdenDeVentaRequest() {
         }
         
-        public modificarOrdenDeVentaRequest(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+        public listarLineasDeOrdenDeVentaRequest(int arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1451,17 +1441,17 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class modificarOrdenDeVentaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasDeOrdenDeVentaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] @return;
         
-        public modificarOrdenDeVentaResponse() {
+        public listarLineasDeOrdenDeVentaResponse() {
         }
         
-        public modificarOrdenDeVentaResponse(int @return) {
+        public listarLineasDeOrdenDeVentaResponse(ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] @return) {
             this.@return = @return;
         }
     }
@@ -1505,17 +1495,17 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorVendedor", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesPorVendedorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMinorista", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarOrdenDeVentaMinoristaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
+        public ARSACSoft.VentasWS.ordenDeVenta arg0;
         
-        public listarOrdenesPorVendedorRequest() {
+        public insertarOrdenDeVentaMinoristaRequest() {
         }
         
-        public listarOrdenesPorVendedorRequest(int arg0) {
+        public insertarOrdenDeVentaMinoristaRequest(ARSACSoft.VentasWS.ordenDeVenta arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1523,73 +1513,17 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorVendedorResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesPorVendedorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMinoristaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarOrdenDeVentaMinoristaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.ordenDeVenta[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
         
-        public listarOrdenesPorVendedorResponse() {
+        public insertarOrdenDeVentaMinoristaResponse() {
         }
         
-        public listarOrdenesPorVendedorResponse(ARSACSoft.VentasWS.ordenDeVenta[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorFecha", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesPorFechaRequest {
-        
-        public listarOrdenesPorFechaRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorFechaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesPorFechaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.ordenDeVenta[] @return;
-        
-        public listarOrdenesPorFechaResponse() {
-        }
-        
-        public listarOrdenesPorFechaResponse(ARSACSoft.VentasWS.ordenDeVenta[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorClienteMayorista", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesPorClienteMayoristaRequest {
-        
-        public listarOrdenesPorClienteMayoristaRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorClienteMayoristaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarOrdenesPorClienteMayoristaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.ordenDeVenta[] @return;
-        
-        public listarOrdenesPorClienteMayoristaResponse() {
-        }
-        
-        public listarOrdenesPorClienteMayoristaResponse(ARSACSoft.VentasWS.ordenDeVenta[] @return) {
+        public insertarOrdenDeVentaMinoristaResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -1631,6 +1565,42 @@ namespace ARSACSoft.VentasWS {
         }
         
         public insertarLineaOrdenDeVentaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMayorista", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarOrdenDeVentaMayoristaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.VentasWS.ordenDeVenta arg0;
+        
+        public insertarOrdenDeVentaMayoristaRequest() {
+        }
+        
+        public insertarOrdenDeVentaMayoristaRequest(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMayoristaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class insertarOrdenDeVentaMayoristaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public insertarOrdenDeVentaMayoristaResponse() {
+        }
+        
+        public insertarOrdenDeVentaMayoristaResponse(int @return) {
             this.@return = @return;
         }
     }
@@ -1684,17 +1654,17 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarOrdenDeVentaRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVentaPorID", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasDeOrdenDeVentaPorIDRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int arg0;
         
-        public eliminarOrdenDeVentaRequest() {
+        public listarLineasDeOrdenDeVentaPorIDRequest() {
         }
         
-        public eliminarOrdenDeVentaRequest(int arg0) {
+        public listarLineasDeOrdenDeVentaPorIDRequest(int arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1702,125 +1672,17 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class eliminarOrdenDeVentaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public eliminarOrdenDeVentaResponse() {
-        }
-        
-        public eliminarOrdenDeVentaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMayorista", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarOrdenDeVentaMayoristaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.ordenDeVenta arg0;
-        
-        public insertarOrdenDeVentaMayoristaRequest() {
-        }
-        
-        public insertarOrdenDeVentaMayoristaRequest(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMayoristaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarOrdenDeVentaMayoristaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarOrdenDeVentaMayoristaResponse() {
-        }
-        
-        public insertarOrdenDeVentaMayoristaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMinorista", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarOrdenDeVentaMinoristaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.ordenDeVenta arg0;
-        
-        public insertarOrdenDeVentaMinoristaRequest() {
-        }
-        
-        public insertarOrdenDeVentaMinoristaRequest(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarOrdenDeVentaMinoristaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class insertarOrdenDeVentaMinoristaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
-        
-        public insertarOrdenDeVentaMinoristaResponse() {
-        }
-        
-        public insertarOrdenDeVentaMinoristaResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineasDeOrdenDeVentaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
-        
-        public listarLineasDeOrdenDeVentaRequest() {
-        }
-        
-        public listarLineasDeOrdenDeVentaRequest(int arg0) {
-            this.arg0 = arg0;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineasDeOrdenDeVentaResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVentaPorIDResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarLineasDeOrdenDeVentaPorIDResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] @return;
         
-        public listarLineasDeOrdenDeVentaResponse() {
+        public listarLineasDeOrdenDeVentaPorIDResponse() {
         }
         
-        public listarLineasDeOrdenDeVentaResponse(ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] @return) {
+        public listarLineasDeOrdenDeVentaPorIDResponse(ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] @return) {
             this.@return = @return;
         }
     }
@@ -1869,35 +1731,27 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVentaPorID", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineasDeOrdenDeVentaPorIDRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorClienteMayorista", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesPorClienteMayoristaRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int arg0;
-        
-        public listarLineasDeOrdenDeVentaPorIDRequest() {
-        }
-        
-        public listarLineasDeOrdenDeVentaPorIDRequest(int arg0) {
-            this.arg0 = arg0;
+        public listarOrdenesPorClienteMayoristaRequest() {
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarLineasDeOrdenDeVentaPorIDResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarLineasDeOrdenDeVentaPorIDResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorClienteMayoristaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesPorClienteMayoristaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] @return;
+        public ARSACSoft.VentasWS.ordenDeVenta[] @return;
         
-        public listarLineasDeOrdenDeVentaPorIDResponse() {
+        public listarOrdenesPorClienteMayoristaResponse() {
         }
         
-        public listarLineasDeOrdenDeVentaPorIDResponse(ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] @return) {
+        public listarOrdenesPorClienteMayoristaResponse(ARSACSoft.VentasWS.ordenDeVenta[] @return) {
             this.@return = @return;
         }
     }
@@ -1905,17 +1759,17 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarOrdenPorID", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarOrdenPorIDRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarOrdenDeVentaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int arg0;
         
-        public buscarOrdenPorIDRequest() {
+        public eliminarOrdenDeVentaRequest() {
         }
         
-        public buscarOrdenPorIDRequest(int arg0) {
+        public eliminarOrdenDeVentaRequest(int arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1923,17 +1777,163 @@ namespace ARSACSoft.VentasWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="buscarOrdenPorIDResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class buscarOrdenPorIDResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class eliminarOrdenDeVentaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ARSACSoft.VentasWS.ordenDeVenta @return;
+        public int @return;
         
-        public buscarOrdenPorIDResponse() {
+        public eliminarOrdenDeVentaResponse() {
         }
         
-        public buscarOrdenPorIDResponse(ARSACSoft.VentasWS.ordenDeVenta @return) {
+        public eliminarOrdenDeVentaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class modificarOrdenDeVentaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.VentasWS.ordenDeVenta arg0;
+        
+        public modificarOrdenDeVentaRequest() {
+        }
+        
+        public modificarOrdenDeVentaRequest(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class modificarOrdenDeVentaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificarOrdenDeVentaResponse() {
+        }
+        
+        public modificarOrdenDeVentaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorVendedor", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesPorVendedorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg0;
+        
+        public listarOrdenesPorVendedorRequest() {
+        }
+        
+        public listarOrdenesPorVendedorRequest(int arg0) {
+            this.arg0 = arg0;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorVendedorResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesPorVendedorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.VentasWS.ordenDeVenta[] @return;
+        
+        public listarOrdenesPorVendedorResponse() {
+        }
+        
+        public listarOrdenesPorVendedorResponse(ARSACSoft.VentasWS.ordenDeVenta[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarLineaOrdenDeVenta", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class modificarLineaOrdenDeVentaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg1;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int arg2;
+        
+        public modificarLineaOrdenDeVentaRequest() {
+        }
+        
+        public modificarLineaOrdenDeVentaRequest(ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0, int arg1, int arg2) {
+            this.arg0 = arg0;
+            this.arg1 = arg1;
+            this.arg2 = arg2;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="modificarLineaOrdenDeVentaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class modificarLineaOrdenDeVentaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public modificarLineaOrdenDeVentaResponse() {
+        }
+        
+        public modificarLineaOrdenDeVentaResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorFecha", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesPorFechaRequest {
+        
+        public listarOrdenesPorFechaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarOrdenesPorFechaResponse", WrapperNamespace="http://services.arsacsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarOrdenesPorFechaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.arsacsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ARSACSoft.VentasWS.ordenDeVenta[] @return;
+        
+        public listarOrdenesPorFechaResponse() {
+        }
+        
+        public listarOrdenesPorFechaResponse(ARSACSoft.VentasWS.ordenDeVenta[] @return) {
             this.@return = @return;
         }
     }
@@ -1966,53 +1966,49 @@ namespace ARSACSoft.VentasWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.modificarLineaOrdenDeVenta(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request) {
-            return base.Channel.modificarLineaOrdenDeVenta(request);
+        ARSACSoft.VentasWS.buscarOrdenPorIDResponse ARSACSoft.VentasWS.VentasWS.buscarOrdenPorID(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request) {
+            return base.Channel.buscarOrdenPorID(request);
         }
         
-        public int modificarLineaOrdenDeVenta(ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0, int arg1, int arg2) {
-            ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest();
+        public ARSACSoft.VentasWS.ordenDeVenta buscarOrdenPorID(int arg0) {
+            ARSACSoft.VentasWS.buscarOrdenPorIDRequest inValue = new ARSACSoft.VentasWS.buscarOrdenPorIDRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            inValue.arg2 = arg2;
-            ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).modificarLineaOrdenDeVenta(inValue);
+            ARSACSoft.VentasWS.buscarOrdenPorIDResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).buscarOrdenPorID(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.modificarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request) {
-            return base.Channel.modificarLineaOrdenDeVentaAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.buscarOrdenPorIDResponse> ARSACSoft.VentasWS.VentasWS.buscarOrdenPorIDAsync(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request) {
+            return base.Channel.buscarOrdenPorIDAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse> modificarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0, int arg1, int arg2) {
-            ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.buscarOrdenPorIDResponse> buscarOrdenPorIDAsync(int arg0) {
+            ARSACSoft.VentasWS.buscarOrdenPorIDRequest inValue = new ARSACSoft.VentasWS.buscarOrdenPorIDRequest();
             inValue.arg0 = arg0;
-            inValue.arg1 = arg1;
-            inValue.arg2 = arg2;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).modificarLineaOrdenDeVentaAsync(inValue);
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).buscarOrdenPorIDAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.modificarOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.modificarOrdenDeVenta(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request) {
-            return base.Channel.modificarOrdenDeVenta(request);
+        ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVenta(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request) {
+            return base.Channel.listarLineasDeOrdenDeVenta(request);
         }
         
-        public int modificarOrdenDeVenta(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            ARSACSoft.VentasWS.modificarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarOrdenDeVentaRequest();
+        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] listarLineasDeOrdenDeVenta(int arg0) {
+            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.modificarOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).modificarOrdenDeVenta(inValue);
+            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVenta(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.modificarOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request) {
-            return base.Channel.modificarOrdenDeVentaAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVentaAsync(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request) {
+            return base.Channel.listarLineasDeOrdenDeVentaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarOrdenDeVentaResponse> modificarOrdenDeVentaAsync(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            ARSACSoft.VentasWS.modificarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarOrdenDeVentaRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse> listarLineasDeOrdenDeVentaAsync(int arg0) {
+            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).modificarOrdenDeVentaAsync(inValue);
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVentaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2039,68 +2035,26 @@ namespace ARSACSoft.VentasWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse ARSACSoft.VentasWS.VentasWS.listarOrdenesPorVendedor(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request) {
-            return base.Channel.listarOrdenesPorVendedor(request);
+        ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMinorista(ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest request) {
+            return base.Channel.insertarOrdenDeVentaMinorista(request);
         }
         
-        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesPorVendedor(int arg0) {
-            ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest();
+        public int insertarOrdenDeVentaMinorista(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorVendedor(inValue);
+            ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMinorista(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse> ARSACSoft.VentasWS.VentasWS.listarOrdenesPorVendedorAsync(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request) {
-            return base.Channel.listarOrdenesPorVendedorAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse> ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMinoristaAsync(ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest request) {
+            return base.Channel.insertarOrdenDeVentaMinoristaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse> listarOrdenesPorVendedorAsync(int arg0) {
-            ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse> insertarOrdenDeVentaMinoristaAsync(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorVendedorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.listarOrdenesPorFechaResponse ARSACSoft.VentasWS.VentasWS.listarOrdenesPorFecha(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request) {
-            return base.Channel.listarOrdenesPorFecha(request);
-        }
-        
-        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesPorFecha() {
-            ARSACSoft.VentasWS.listarOrdenesPorFechaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorFechaRequest();
-            ARSACSoft.VentasWS.listarOrdenesPorFechaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorFecha(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorFechaResponse> ARSACSoft.VentasWS.VentasWS.listarOrdenesPorFechaAsync(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request) {
-            return base.Channel.listarOrdenesPorFechaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorFechaResponse> listarOrdenesPorFechaAsync() {
-            ARSACSoft.VentasWS.listarOrdenesPorFechaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorFechaRequest();
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorFechaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse ARSACSoft.VentasWS.VentasWS.listarOrdenesPorClienteMayorista(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request) {
-            return base.Channel.listarOrdenesPorClienteMayorista(request);
-        }
-        
-        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesPorClienteMayorista() {
-            ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest();
-            ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorClienteMayorista(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse> ARSACSoft.VentasWS.VentasWS.listarOrdenesPorClienteMayoristaAsync(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request) {
-            return base.Channel.listarOrdenesPorClienteMayoristaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse> listarOrdenesPorClienteMayoristaAsync() {
-            ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest();
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorClienteMayoristaAsync(inValue);
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMinoristaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2126,6 +2080,29 @@ namespace ARSACSoft.VentasWS {
             inValue.arg0 = arg0;
             inValue.arg1 = arg1;
             return ((ARSACSoft.VentasWS.VentasWS)(this)).insertarLineaOrdenDeVentaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMayorista(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request) {
+            return base.Channel.insertarOrdenDeVentaMayorista(request);
+        }
+        
+        public int insertarOrdenDeVentaMayorista(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMayorista(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse> ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMayoristaAsync(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request) {
+            return base.Channel.insertarOrdenDeVentaMayoristaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse> insertarOrdenDeVentaMayoristaAsync(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMayoristaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2156,95 +2133,26 @@ namespace ARSACSoft.VentasWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.eliminarOrdenDeVenta(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request) {
-            return base.Channel.eliminarOrdenDeVenta(request);
+        ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVentaPorID(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest request) {
+            return base.Channel.listarLineasDeOrdenDeVentaPorID(request);
         }
         
-        public int eliminarOrdenDeVenta(int arg0) {
-            ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest();
+        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] listarLineasDeOrdenDeVentaPorID(int arg0) {
+            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).eliminarOrdenDeVenta(inValue);
+            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVentaPorID(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.eliminarOrdenDeVentaAsync(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request) {
-            return base.Channel.eliminarOrdenDeVentaAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse> ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVentaPorIDAsync(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest request) {
+            return base.Channel.listarLineasDeOrdenDeVentaPorIDAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse> eliminarOrdenDeVentaAsync(int arg0) {
-            ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse> listarLineasDeOrdenDeVentaPorIDAsync(int arg0) {
+            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).eliminarOrdenDeVentaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMayorista(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request) {
-            return base.Channel.insertarOrdenDeVentaMayorista(request);
-        }
-        
-        public int insertarOrdenDeVentaMayorista(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMayorista(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse> ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMayoristaAsync(ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest request) {
-            return base.Channel.insertarOrdenDeVentaMayoristaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaResponse> insertarOrdenDeVentaMayoristaAsync(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMayoristaRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMayoristaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMinorista(ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest request) {
-            return base.Channel.insertarOrdenDeVentaMinorista(request);
-        }
-        
-        public int insertarOrdenDeVentaMinorista(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMinorista(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse> ARSACSoft.VentasWS.VentasWS.insertarOrdenDeVentaMinoristaAsync(ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest request) {
-            return base.Channel.insertarOrdenDeVentaMinoristaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaResponse> insertarOrdenDeVentaMinoristaAsync(ARSACSoft.VentasWS.ordenDeVenta arg0) {
-            ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest inValue = new ARSACSoft.VentasWS.insertarOrdenDeVentaMinoristaRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).insertarOrdenDeVentaMinoristaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVenta(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request) {
-            return base.Channel.listarLineasDeOrdenDeVenta(request);
-        }
-        
-        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] listarLineasDeOrdenDeVenta(int arg0) {
-            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVenta(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVentaAsync(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest request) {
-            return base.Channel.listarLineasDeOrdenDeVentaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaResponse> listarLineasDeOrdenDeVentaAsync(int arg0) {
-            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVentaAsync(inValue);
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVentaPorIDAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2273,49 +2181,141 @@ namespace ARSACSoft.VentasWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVentaPorID(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest request) {
-            return base.Channel.listarLineasDeOrdenDeVentaPorID(request);
+        ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse ARSACSoft.VentasWS.VentasWS.listarOrdenesPorClienteMayorista(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request) {
+            return base.Channel.listarOrdenesPorClienteMayorista(request);
         }
         
-        public ARSACSoft.VentasWS.lineaDeOrdenDeVenta[] listarLineasDeOrdenDeVentaPorID(int arg0) {
-            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest();
-            inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVentaPorID(inValue);
+        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesPorClienteMayorista() {
+            ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest();
+            ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorClienteMayorista(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse> ARSACSoft.VentasWS.VentasWS.listarLineasDeOrdenDeVentaPorIDAsync(ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest request) {
-            return base.Channel.listarLineasDeOrdenDeVentaPorIDAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse> ARSACSoft.VentasWS.VentasWS.listarOrdenesPorClienteMayoristaAsync(ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest request) {
+            return base.Channel.listarOrdenesPorClienteMayoristaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDResponse> listarLineasDeOrdenDeVentaPorIDAsync(int arg0) {
-            ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest inValue = new ARSACSoft.VentasWS.listarLineasDeOrdenDeVentaPorIDRequest();
-            inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarLineasDeOrdenDeVentaPorIDAsync(inValue);
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaResponse> listarOrdenesPorClienteMayoristaAsync() {
+            ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorClienteMayoristaRequest();
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorClienteMayoristaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ARSACSoft.VentasWS.buscarOrdenPorIDResponse ARSACSoft.VentasWS.VentasWS.buscarOrdenPorID(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request) {
-            return base.Channel.buscarOrdenPorID(request);
+        ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.eliminarOrdenDeVenta(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request) {
+            return base.Channel.eliminarOrdenDeVenta(request);
         }
         
-        public ARSACSoft.VentasWS.ordenDeVenta buscarOrdenPorID(int arg0) {
-            ARSACSoft.VentasWS.buscarOrdenPorIDRequest inValue = new ARSACSoft.VentasWS.buscarOrdenPorIDRequest();
+        public int eliminarOrdenDeVenta(int arg0) {
+            ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest();
             inValue.arg0 = arg0;
-            ARSACSoft.VentasWS.buscarOrdenPorIDResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).buscarOrdenPorID(inValue);
+            ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).eliminarOrdenDeVenta(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ARSACSoft.VentasWS.buscarOrdenPorIDResponse> ARSACSoft.VentasWS.VentasWS.buscarOrdenPorIDAsync(ARSACSoft.VentasWS.buscarOrdenPorIDRequest request) {
-            return base.Channel.buscarOrdenPorIDAsync(request);
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.eliminarOrdenDeVentaAsync(ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest request) {
+            return base.Channel.eliminarOrdenDeVentaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.buscarOrdenPorIDResponse> buscarOrdenPorIDAsync(int arg0) {
-            ARSACSoft.VentasWS.buscarOrdenPorIDRequest inValue = new ARSACSoft.VentasWS.buscarOrdenPorIDRequest();
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.eliminarOrdenDeVentaResponse> eliminarOrdenDeVentaAsync(int arg0) {
+            ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.eliminarOrdenDeVentaRequest();
             inValue.arg0 = arg0;
-            return ((ARSACSoft.VentasWS.VentasWS)(this)).buscarOrdenPorIDAsync(inValue);
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).eliminarOrdenDeVentaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.VentasWS.modificarOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.modificarOrdenDeVenta(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request) {
+            return base.Channel.modificarOrdenDeVenta(request);
+        }
+        
+        public int modificarOrdenDeVenta(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            ARSACSoft.VentasWS.modificarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarOrdenDeVentaRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.VentasWS.modificarOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).modificarOrdenDeVenta(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.modificarOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarOrdenDeVentaRequest request) {
+            return base.Channel.modificarOrdenDeVentaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarOrdenDeVentaResponse> modificarOrdenDeVentaAsync(ARSACSoft.VentasWS.ordenDeVenta arg0) {
+            ARSACSoft.VentasWS.modificarOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarOrdenDeVentaRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).modificarOrdenDeVentaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse ARSACSoft.VentasWS.VentasWS.listarOrdenesPorVendedor(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request) {
+            return base.Channel.listarOrdenesPorVendedor(request);
+        }
+        
+        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesPorVendedor(int arg0) {
+            ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest();
+            inValue.arg0 = arg0;
+            ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorVendedor(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse> ARSACSoft.VentasWS.VentasWS.listarOrdenesPorVendedorAsync(ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest request) {
+            return base.Channel.listarOrdenesPorVendedorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorVendedorResponse> listarOrdenesPorVendedorAsync(int arg0) {
+            ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorVendedorRequest();
+            inValue.arg0 = arg0;
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorVendedorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse ARSACSoft.VentasWS.VentasWS.modificarLineaOrdenDeVenta(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request) {
+            return base.Channel.modificarLineaOrdenDeVenta(request);
+        }
+        
+        public int modificarLineaOrdenDeVenta(ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0, int arg1, int arg2) {
+            ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).modificarLineaOrdenDeVenta(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse> ARSACSoft.VentasWS.VentasWS.modificarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest request) {
+            return base.Channel.modificarLineaOrdenDeVentaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.modificarLineaOrdenDeVentaResponse> modificarLineaOrdenDeVentaAsync(ARSACSoft.VentasWS.lineaDeOrdenDeVenta arg0, int arg1, int arg2) {
+            ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest inValue = new ARSACSoft.VentasWS.modificarLineaOrdenDeVentaRequest();
+            inValue.arg0 = arg0;
+            inValue.arg1 = arg1;
+            inValue.arg2 = arg2;
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).modificarLineaOrdenDeVentaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ARSACSoft.VentasWS.listarOrdenesPorFechaResponse ARSACSoft.VentasWS.VentasWS.listarOrdenesPorFecha(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request) {
+            return base.Channel.listarOrdenesPorFecha(request);
+        }
+        
+        public ARSACSoft.VentasWS.ordenDeVenta[] listarOrdenesPorFecha() {
+            ARSACSoft.VentasWS.listarOrdenesPorFechaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorFechaRequest();
+            ARSACSoft.VentasWS.listarOrdenesPorFechaResponse retVal = ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorFecha(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorFechaResponse> ARSACSoft.VentasWS.VentasWS.listarOrdenesPorFechaAsync(ARSACSoft.VentasWS.listarOrdenesPorFechaRequest request) {
+            return base.Channel.listarOrdenesPorFechaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ARSACSoft.VentasWS.listarOrdenesPorFechaResponse> listarOrdenesPorFechaAsync() {
+            ARSACSoft.VentasWS.listarOrdenesPorFechaRequest inValue = new ARSACSoft.VentasWS.listarOrdenesPorFechaRequest();
+            return ((ARSACSoft.VentasWS.VentasWS)(this)).listarOrdenesPorFechaAsync(inValue);
         }
     }
 }

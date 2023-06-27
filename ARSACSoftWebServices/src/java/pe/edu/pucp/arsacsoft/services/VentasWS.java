@@ -177,16 +177,14 @@ public class VentasWS {
         }
         return tieneStock;
     }
-    
+
     @WebMethod(operationName = "listarOrdenesDeVentaPorPeriodo")
-    public ArrayList<OrdenDeVenta> listarOrdenesDeVentaPorPeriodo(Date fechaInicio, Date fechaFin)
-    {
+    public ArrayList<OrdenDeVenta> listarOrdenesDeVentaPorPeriodo(Date fechaInicio, Date fechaFin) {
         return ordenDeVentaDAO.listarPorPeriodo(fechaInicio, fechaFin);
     }
-    
+
     @WebMethod(operationName = "listarLineasDeOrdenDeVentaPorID")
-    public ArrayList<LineaDeOrdenDeVenta> listarLineasDeOrdenDeVentaPorID(int idOrdenDeVenta)
-    {
+    public ArrayList<LineaDeOrdenDeVenta> listarLineasDeOrdenDeVentaPorID(int idOrdenDeVenta) {
         return ordenDeVentaDAO.listarLineasDeOrdenDeVenta(idOrdenDeVenta);
     }
 }

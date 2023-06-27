@@ -266,20 +266,20 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarOrdenesPorClienteMayorista">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarOrdenesPorClienteMayoristaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarOrdenesPorVendedor">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarOrdenesPorVendedorResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarOrdenesPorClienteMayorista">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarOrdenesPorClienteMayoristaResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ordenDeVenta" />
     </xs:sequence>

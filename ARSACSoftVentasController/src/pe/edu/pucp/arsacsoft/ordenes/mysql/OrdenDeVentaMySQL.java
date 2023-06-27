@@ -26,7 +26,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
         int resultado = 0;
         try {
             con = DBManager.getInstance().getConnection();
-            cs = con.prepareCall("{call INSERTAR_ORDEN_DE_VENTA_MAYORISTA(?,?,?,?,?,?,?)}");
+            cs = con.prepareCall("{call INSERTAR_ORDEN_DE_VENTA_MAYORISTA(?,?,?,?,?,?,?,?)}");
             cs.registerOutParameter(1, java.sql.Types.INTEGER);
             cs.setInt(2, ordenV.getEmpleado().getIdPersona());
             cs.setInt(3, ordenV.getClienteMayorista().getIdPersona());
@@ -35,6 +35,7 @@ public class OrdenDeVentaMySQL implements OrdenDeVentaDAO {
             cs.setDate(5, new java.sql.Date(ordenV.getFechaOrden().getDate()));
             cs.setDate(6, new java.sql.Date(ordenV.getFechaEnvio().getDate()));
             cs.setString(7, ordenV.getEstado());
+            cs.setString(8, ordenV.getDireccion());
             cs.executeUpdate();
             ordenV.setIdOrdenDeVenta(cs.getInt(1));
 
