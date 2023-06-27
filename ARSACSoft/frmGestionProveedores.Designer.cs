@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionProveedores));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAlmacen = new System.Windows.Forms.TabControl();
             this.tpAdministrar = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -535,8 +535,8 @@
             this.btnCancelar.Image = global::ARSACSoft.Properties.Resources.Cancel;
             this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 27);
-            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 27);
+            this.btnCancelar.Text = "Limpiar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblGestionSedes
@@ -585,7 +585,7 @@
             // pbNotificacion
             // 
             this.pbNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("pbNotificacion.Image")));
-            this.pbNotificacion.Location = new System.Drawing.Point(-83, 450);
+            this.pbNotificacion.Location = new System.Drawing.Point(13, 476);
             this.pbNotificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbNotificacion.Name = "pbNotificacion";
             this.pbNotificacion.Size = new System.Drawing.Size(29, 30);
@@ -596,7 +596,7 @@
             // lblMensajeQuitar
             // 
             this.lblMensajeQuitar.AutoSize = true;
-            this.lblMensajeQuitar.Location = new System.Drawing.Point(-44, 457);
+            this.lblMensajeQuitar.Location = new System.Drawing.Point(51, 483);
             this.lblMensajeQuitar.Name = "lblMensajeQuitar";
             this.lblMensajeQuitar.Size = new System.Drawing.Size(0, 18);
             this.lblMensajeQuitar.TabIndex = 73;
@@ -790,8 +790,8 @@
             // 
             this.dgvOrdenesCompra.AllowUserToAddRows = false;
             this.dgvOrdenesCompra.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrdenesCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOrdenesCompra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrdenesCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenesCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DNI,
@@ -805,10 +805,10 @@
             this.dgvOrdenesCompra.ReadOnly = true;
             this.dgvOrdenesCompra.RowHeadersVisible = false;
             this.dgvOrdenesCompra.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrdenesCompra.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOrdenesCompra.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrdenesCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenesCompra.Size = new System.Drawing.Size(885, 334);
+            this.dgvOrdenesCompra.Size = new System.Drawing.Size(885, 301);
             this.dgvOrdenesCompra.TabIndex = 55;
             this.dgvOrdenesCompra.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvOrdenesCompra_CellFormatting);
             // 
