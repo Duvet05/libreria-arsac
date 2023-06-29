@@ -50,9 +50,9 @@ namespace ARSACSoft
                     dgvProductos.Rows[e.RowIndex].Cells[1].Value = prod.producto.nombre;
                     dgvProductos.Rows[e.RowIndex].Cells[2].Value = prod.producto.marca.descripcion;
                     dgvProductos.Rows[e.RowIndex].Cells[3].Value = prod.producto.categoria.descripcion;
-                    dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.producto.precioPorMenor;
-                    dgvProductos.Rows[e.RowIndex].Cells[5].Value = prod.producto.precioPorMayor;
-                    dgvProductos.Rows[e.RowIndex].Cells[6].Value = prod.costo.ToString("N2");
+                    //dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.producto.precioPorMenor;
+                    //dgvProductos.Rows[e.RowIndex].Cells[5].Value = prod.producto.precioPorMayor;
+                    dgvProductos.Rows[e.RowIndex].Cells[4].Value = prod.costo.ToString("N2");
                 }
             }
             catch (Exception ex)

@@ -29,26 +29,23 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarProductoXProveedor));
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioPorMayor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProveedor = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,8 +111,6 @@
             this.Producto,
             this.Marca,
             this.Categoria,
-            this.Precio,
-            this.PrecioPorMayor,
             this.costo});
             this.dgvProductos.Location = new System.Drawing.Point(13, 119);
             this.dgvProductos.Name = "dgvProductos";
@@ -127,64 +122,6 @@
             this.dgvProductos.TabIndex = 61;
             this.dgvProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductos_CellFormatting);
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 17.48135F;
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            this.Producto.FillWeight = 107.4251F;
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // Marca
-            // 
-            this.Marca.FillWeight = 48.50356F;
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            this.Categoria.FillWeight = 65.71369F;
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.MinimumWidth = 6;
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            dataGridViewCellStyle2.Format = "N2";
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Precio.FillWeight = 89.0638F;
-            this.Precio.HeaderText = "Precio unitario";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // PrecioPorMayor
-            // 
-            this.PrecioPorMayor.FillWeight = 120.7872F;
-            this.PrecioPorMayor.HeaderText = "Precio por mayor";
-            this.PrecioPorMayor.MinimumWidth = 6;
-            this.PrecioPorMayor.Name = "PrecioPorMayor";
-            this.PrecioPorMayor.ReadOnly = true;
-            // 
-            // costo
-            // 
-            this.costo.FillWeight = 163.8594F;
-            this.costo.HeaderText = "Costo";
-            this.costo.MinimumWidth = 6;
-            this.costo.Name = "costo";
-            this.costo.ReadOnly = true;
             // 
             // label1
             // 
@@ -245,6 +182,48 @@
             this.txtProveedor.Size = new System.Drawing.Size(294, 21);
             this.txtProveedor.TabIndex = 67;
             // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 17.48135F;
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            this.Producto.FillWeight = 107.4251F;
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            // 
+            // Marca
+            // 
+            this.Marca.FillWeight = 48.50356F;
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            // 
+            // Categoria
+            // 
+            this.Categoria.FillWeight = 65.71369F;
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.MinimumWidth = 6;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            // 
+            // costo
+            // 
+            this.costo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.costo.FillWeight = 163.8594F;
+            this.costo.HeaderText = "Costo";
+            this.costo.MinimumWidth = 6;
+            this.costo.Name = "costo";
+            this.costo.ReadOnly = true;
+            this.costo.Width = 59;
+            // 
             // frmBuscarProductoXProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,8 +267,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioPorMayor;
         private System.Windows.Forms.DataGridViewTextBoxColumn costo;
     }
 }
