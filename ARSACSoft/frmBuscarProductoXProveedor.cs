@@ -79,7 +79,7 @@ namespace ARSACSoft
             if (dgvProductos.CurrentRow != null)
             {
                 ProductoDeProveedorSeleccionado = (ProveedoresWS.productoXProveedor)dgvProductos.CurrentRow.DataBoundItem;
-                txtNombreProd.Text = ProductoDeProveedorSeleccionado.producto.nombre;
+                //txtNombreProd.Text = ProductoDeProveedorSeleccionado.producto.nombre;
                 cboMarca.SelectedValue = ProductoDeProveedorSeleccionado.producto.marca.idMarca;
                 cboCategoria.SelectedValue = ProductoDeProveedorSeleccionado.producto.categoria.idCategoria;
             }
@@ -95,9 +95,5 @@ namespace ARSACSoft
             }
         }
 
-        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

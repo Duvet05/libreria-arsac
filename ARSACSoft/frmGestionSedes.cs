@@ -62,7 +62,7 @@ namespace ARSACSoft
                     btnCancelarTabSede.Enabled = false;
                     btnBuscarTabSede.Enabled = true;
                     btnGuardarTabSede.Enabled = false;
-
+                    button1.Enabled = false;
                     txtDireccionTabSede.Enabled = false;
                     txtTelefonoTabSede.Enabled = false;
                     txtCorreoTabSede.Enabled = false;
@@ -77,6 +77,7 @@ namespace ARSACSoft
                     btnNuevoTabSede.Enabled = false;
                     btnModificarTabSede.Enabled = false;
                     btnCancelarTabSede.Enabled = true;
+                    button1.Enabled = true;
                     btnBuscarTabSede.Enabled = false;
                     btnGuardarTabSede.Enabled = true;
 
@@ -95,7 +96,7 @@ namespace ARSACSoft
                     btnCancelarTabSede.Enabled = true;
                     btnBuscarTabSede.Enabled = false;
                     btnGuardarTabSede.Enabled = false;
-
+                    button1.Enabled = false;
                     txtDireccionTabSede.Enabled = false;
                     txtTelefonoTabSede.Enabled = false;
                     txtCorreoTabSede.Enabled = false;
