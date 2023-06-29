@@ -39,10 +39,8 @@ namespace ARSACSoft
 
             dataGridView2.AutoGenerateColumns = false;
 
-            _es_mayorista = _empleadoLogeado.tipo.descripcion == "Vendedor Mayorista";
-            checkBoxFactura.Enabled = _es_mayorista;
-
-
+            _es_mayorista = (_empleadoLogeado.tipo.descripcion == "Vendedor Mayorista") || 
+                (_empleadoLogeado.tipo.descripcion == "Gerente");
         }
 
         public void EstablecerEstadoFormulario()
@@ -58,6 +56,7 @@ namespace ARSACSoft
                     btnAgregar.Enabled = false;
                     BtnQuitar.Enabled = false;
                     textNombreProducto.Enabled = false;
+                    checkBoxFactura.Enabled = false;
                     btCorreo.Enabled = false;
                     btnBuscarProd.Enabled = false;
                     textDescuentoPorcentaje.Enabled = false;
@@ -78,6 +77,7 @@ namespace ARSACSoft
                     btnNuevo.Enabled = false;
                     btCorreo.Enabled = false;
                     btnCancelar.Enabled = true;
+                    checkBoxFactura.Enabled = _es_mayorista;
                     btnAgregar.Enabled = true;
                     BtnQuitar.Enabled = true;
                     btnBuscarPedido.Enabled = false;
@@ -94,6 +94,7 @@ namespace ARSACSoft
                     btnNuevo.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnAgregar.Enabled = false;
+                    checkBoxFactura.Enabled = false;
                     btnBuscarDireccion.Enabled = false;
                     txtDireccion.Enabled = false;
                     textCantProducto.Enabled = false;
@@ -133,8 +134,8 @@ namespace ARSACSoft
                 txtRazonSocial.Text = string.Empty;
                 txtNombreCompleto.Text = string.Empty; // Limpia el contenido del campo de factura
             }
-            UpdateTextBoxes();
-
+            checkBoxFactura.Enabled = false;
+            //UpdateTextBoxes();
         }
 
         private void checkBoxDescuento_CheckedChanged(object sender, EventArgs e)
@@ -529,10 +530,10 @@ namespace ARSACSoft
 
                 ordenV.clienteMayorista = new VentasWS.clienteMayorista();
                 ordenV.clienteMayorista.idPersona = _clienteMayorista.idPersona;
-                daoVentas.insertarOrdenDeVentaMayorista(ordenV);
+                ordenV.idOrdenDeVenta = daoVentas.insertarOrdenDeVentaMayorista(ordenV);
                 _venta = ordenV;
                 MessageBox.Show("Se ha registrado correctamente", "Mensaje de confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                btCorreo.Enabled = true;
             }
             else
             {

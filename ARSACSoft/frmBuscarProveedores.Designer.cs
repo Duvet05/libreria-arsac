@@ -45,7 +45,7 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.Location = new System.Drawing.Point(576, 8);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(108, 23);
             this.btnSeleccionar.TabIndex = 9;
@@ -56,7 +56,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(416, 8);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(59, 25);
             this.btnBuscar.TabIndex = 8;
@@ -68,7 +68,7 @@
             // 
             this.txtNombreRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreRUC.Location = new System.Drawing.Point(240, 13);
-            this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombreRUC.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreRUC.Name = "txtNombreRUC";
             this.txtNombreRUC.Size = new System.Drawing.Size(173, 21);
             this.txtNombreRUC.TabIndex = 7;
@@ -97,12 +97,13 @@
             this.Sede,
             this.SedePrincipal});
             this.dgvProveedores.Location = new System.Drawing.Point(8, 42);
-            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.ReadOnly = true;
             this.dgvProveedores.RowHeadersVisible = false;
             this.dgvProveedores.RowHeadersWidth = 62;
             this.dgvProveedores.RowTemplate.Height = 28;
+            this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(676, 256);
             this.dgvProveedores.TabIndex = 5;
             this.dgvProveedores.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProveedores_CellFormatting);
@@ -157,7 +158,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProveedores);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBuscarProveedores";
             this.Text = "Buscar Proveedores";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
