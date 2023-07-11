@@ -1,4 +1,4 @@
-# LIBRERIA ARSAC
+# Libreria ARSAC
 
 # Catálogo de Requisitos Funcionales:
 
