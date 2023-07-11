@@ -1,4 +1,4 @@
-# LIBRERIA_ARENALES SAC
+# LIBRERIA ARSAC
 
 # Catálogo de Requisitos Funcionales:
 
