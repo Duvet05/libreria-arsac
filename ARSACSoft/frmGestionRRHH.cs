@@ -140,6 +140,7 @@ namespace ARSACSoft
                     button1.Enabled = false;
                     btnBuscarSede.Enabled = false;
                     cbMostrarContrasena.Enabled = false;
+                    cmbCiudades.Enabled = false;
                     txtDireccionSede.Enabled = false;
                     break;
                 case Estado.Nuevo:
@@ -152,6 +153,7 @@ namespace ARSACSoft
                     btnCancelarEmpleado.Enabled = true;
                     txtContrasena.Enabled = true;
                     button1.Enabled = true;
+                    cmbCiudades.Enabled = true;
                     txtIDEmpleado.Enabled = true;
                     txtDNIEmpleado.Enabled = true;
                     txtNombreEmpleado.Enabled = true;

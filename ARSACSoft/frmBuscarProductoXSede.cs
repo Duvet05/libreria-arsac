@@ -83,7 +83,7 @@ namespace ARSACSoft
             if (dgvProductos.CurrentRow != null)
             {
                 ProductoDeSedeSeleccionada = (sedeXProducto)dgvProductos.CurrentRow.DataBoundItem;
-                txtNombreProducto.Text = ProductoDeSedeSeleccionada.producto.nombre;
+                //txtNombreProducto.Text = ProductoDeSedeSeleccionada.producto.nombre;
                 cboMarca.SelectedValue = ProductoDeSedeSeleccionada.producto.marca.idMarca;
                 cboCategoria.SelectedValue = ProductoDeSedeSeleccionada.producto.categoria.idCategoria;
             }
