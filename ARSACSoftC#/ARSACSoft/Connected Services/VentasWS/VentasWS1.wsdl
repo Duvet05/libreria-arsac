@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="VentasWS" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:31992/ARSACSoftWebServices/VentasWS?xsd=1" namespace="http://services.arsacsoft.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="buscarOrdenPorID">
+    <part name="parameters" element="tns:buscarOrdenPorID" />
+  </message>
+  <message name="buscarOrdenPorIDResponse">
+    <part name="parameters" element="tns:buscarOrdenPorIDResponse" />
+  </message>
+  <message name="listarLineasDeOrdenDeVentaPorID">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeVentaPorID" />
+  </message>
+  <message name="listarLineasDeOrdenDeVentaPorIDResponse">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeVentaPorIDResponse" />
+  </message>
+  <message name="listarOrdenesPorFecha">
+    <part name="parameters" element="tns:listarOrdenesPorFecha" />
+  </message>
+  <message name="listarOrdenesPorFechaResponse">
+    <part name="parameters" element="tns:listarOrdenesPorFechaResponse" />
+  </message>
+  <message name="listarOrdenesPorClienteMayorista">
+    <part name="parameters" element="tns:listarOrdenesPorClienteMayorista" />
+  </message>
+  <message name="listarOrdenesPorClienteMayoristaResponse">
+    <part name="parameters" element="tns:listarOrdenesPorClienteMayoristaResponse" />
+  </message>
+  <message name="listarOrdenesDeVentaPorPeriodo">
+    <part name="parameters" element="tns:listarOrdenesDeVentaPorPeriodo" />
+  </message>
+  <message name="listarOrdenesDeVentaPorPeriodoResponse">
+    <part name="parameters" element="tns:listarOrdenesDeVentaPorPeriodoResponse" />
+  </message>
+  <message name="verificarStockSuficiente">
+    <part name="parameters" element="tns:verificarStockSuficiente" />
+  </message>
+  <message name="verificarStockSuficienteResponse">
+    <part name="parameters" element="tns:verificarStockSuficienteResponse" />
+  </message>
+  <message name="modificarOrdenDeVenta">
+    <part name="parameters" element="tns:modificarOrdenDeVenta" />
+  </message>
+  <message name="modificarOrdenDeVentaResponse">
+    <part name="parameters" element="tns:modificarOrdenDeVentaResponse" />
+  </message>
+  <message name="eliminarOrdenDeVenta">
+    <part name="parameters" element="tns:eliminarOrdenDeVenta" />
+  </message>
+  <message name="eliminarOrdenDeVentaResponse">
+    <part name="parameters" element="tns:eliminarOrdenDeVentaResponse" />
+  </message>
+  <message name="insertarLineaOrdenDeVenta">
+    <part name="parameters" element="tns:insertarLineaOrdenDeVenta" />
+  </message>
+  <message name="insertarLineaOrdenDeVentaResponse">
+    <part name="parameters" element="tns:insertarLineaOrdenDeVentaResponse" />
+  </message>
+  <message name="modificarLineaOrdenDeVenta">
+    <part name="parameters" element="tns:modificarLineaOrdenDeVenta" />
+  </message>
+  <message name="modificarLineaOrdenDeVentaResponse">
+    <part name="parameters" element="tns:modificarLineaOrdenDeVentaResponse" />
+  </message>
+  <message name="insertarOrdenDeVentaMinorista">
+    <part name="parameters" element="tns:insertarOrdenDeVentaMinorista" />
+  </message>
+  <message name="insertarOrdenDeVentaMinoristaResponse">
+    <part name="parameters" element="tns:insertarOrdenDeVentaMinoristaResponse" />
+  </message>
+  <message name="listarOrdenesPorVendedor">
+    <part name="parameters" element="tns:listarOrdenesPorVendedor" />
+  </message>
+  <message name="listarOrdenesPorVendedorResponse">
+    <part name="parameters" element="tns:listarOrdenesPorVendedorResponse" />
+  </message>
+  <message name="listarLineasDeOrdenDeVenta">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeVenta" />
+  </message>
+  <message name="listarLineasDeOrdenDeVentaResponse">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeVentaResponse" />
+  </message>
+  <message name="insertarOrdenDeVentaMayorista">
+    <part name="parameters" element="tns:insertarOrdenDeVentaMayorista" />
+  </message>
+  <message name="insertarOrdenDeVentaMayoristaResponse">
+    <part name="parameters" element="tns:insertarOrdenDeVentaMayoristaResponse" />
+  </message>
+  <message name="cancelarOrdenDeVenta">
+    <part name="parameters" element="tns:cancelarOrdenDeVenta" />
+  </message>
+  <message name="cancelarOrdenDeVentaResponse">
+    <part name="parameters" element="tns:cancelarOrdenDeVentaResponse" />
+  </message>
+  <portType name="VentasWS">
+    <operation name="buscarOrdenPorID">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDRequest" message="tns:buscarOrdenPorID" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/buscarOrdenPorIDResponse" message="tns:buscarOrdenPorIDResponse" />
+    </operation>
+    <operation name="listarLineasDeOrdenDeVentaPorID">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaPorIDRequest" message="tns:listarLineasDeOrdenDeVentaPorID" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaPorIDResponse" message="tns:listarLineasDeOrdenDeVentaPorIDResponse" />
+    </operation>
+    <operation name="listarOrdenesPorFecha">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaRequest" message="tns:listarOrdenesPorFecha" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorFechaResponse" message="tns:listarOrdenesPorFechaResponse" />
+    </operation>
+    <operation name="listarOrdenesPorClienteMayorista">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaRequest" message="tns:listarOrdenesPorClienteMayorista" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorClienteMayoristaResponse" message="tns:listarOrdenesPorClienteMayoristaResponse" />
+    </operation>
+    <operation name="listarOrdenesDeVentaPorPeriodo">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoRequest" message="tns:listarOrdenesDeVentaPorPeriodo" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesDeVentaPorPeriodoResponse" message="tns:listarOrdenesDeVentaPorPeriodoResponse" />
+    </operation>
+    <operation name="verificarStockSuficiente">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteRequest" message="tns:verificarStockSuficiente" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/verificarStockSuficienteResponse" message="tns:verificarStockSuficienteResponse" />
+    </operation>
+    <operation name="modificarOrdenDeVenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaRequest" message="tns:modificarOrdenDeVenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarOrdenDeVentaResponse" message="tns:modificarOrdenDeVentaResponse" />
+    </operation>
+    <operation name="eliminarOrdenDeVenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaRequest" message="tns:eliminarOrdenDeVenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/eliminarOrdenDeVentaResponse" message="tns:eliminarOrdenDeVentaResponse" />
+    </operation>
+    <operation name="insertarLineaOrdenDeVenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaRequest" message="tns:insertarLineaOrdenDeVenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarLineaOrdenDeVentaResponse" message="tns:insertarLineaOrdenDeVentaResponse" />
+    </operation>
+    <operation name="modificarLineaOrdenDeVenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaRequest" message="tns:modificarLineaOrdenDeVenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/modificarLineaOrdenDeVentaResponse" message="tns:modificarLineaOrdenDeVentaResponse" />
+    </operation>
+    <operation name="insertarOrdenDeVentaMinorista">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMinoristaRequest" message="tns:insertarOrdenDeVentaMinorista" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMinoristaResponse" message="tns:insertarOrdenDeVentaMinoristaResponse" />
+    </operation>
+    <operation name="listarOrdenesPorVendedor">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorRequest" message="tns:listarOrdenesPorVendedor" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarOrdenesPorVendedorResponse" message="tns:listarOrdenesPorVendedorResponse" />
+    </operation>
+    <operation name="listarLineasDeOrdenDeVenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaRequest" message="tns:listarLineasDeOrdenDeVenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/listarLineasDeOrdenDeVentaResponse" message="tns:listarLineasDeOrdenDeVentaResponse" />
+    </operation>
+    <operation name="insertarOrdenDeVentaMayorista">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaRequest" message="tns:insertarOrdenDeVentaMayorista" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/insertarOrdenDeVentaMayoristaResponse" message="tns:insertarOrdenDeVentaMayoristaResponse" />
+    </operation>
+    <operation name="cancelarOrdenDeVenta">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/cancelarOrdenDeVentaRequest" message="tns:cancelarOrdenDeVenta" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/VentasWS/cancelarOrdenDeVentaResponse" message="tns:cancelarOrdenDeVentaResponse" />
+    </operation>
+  </portType>
+  <binding name="VentasWSPortBinding" type="tns:VentasWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="buscarOrdenPorID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarLineasDeOrdenDeVentaPorID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrdenesPorFecha">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrdenesPorClienteMayorista">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrdenesDeVentaPorPeriodo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="verificarStockSuficiente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarOrdenDeVenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarOrdenDeVenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarLineaOrdenDeVenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarLineaOrdenDeVenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarOrdenDeVentaMinorista">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrdenesPorVendedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarLineasDeOrdenDeVenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarOrdenDeVentaMayorista">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="cancelarOrdenDeVenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="VentasWS">
+    <port name="VentasWSPort" binding="tns:VentasWSPortBinding">
+      <soap:address location="http://localhost:31992/ARSACSoftWebServices/VentasWS" />
+    </port>
+  </service>
+</definitions>

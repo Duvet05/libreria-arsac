@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.services;
 
 import java.util.ArrayList;
@@ -17,17 +13,12 @@ import pe.edu.pucp.arsacsoft.productos.mysql.CategoriaMySQL;
 import pe.edu.pucp.arsacsoft.productos.mysql.MarcaMySQL;
 import pe.edu.pucp.arsacsoft.productos.mysql.ProductoMySQL;
 
-/**
- *
- * @author Gonzalo
- */
 @WebService(serviceName = "Productos")
 public class ProductosWS {
 
     CategoriaDAO daoCategoria = new CategoriaMySQL();
     ProductoDAO daoProducto = new ProductoMySQL();
-    
-    
+
     @WebMethod(operationName = "listarCategoriasTodas")
     public ArrayList<Categoria> listarCategoriasTodas() {
         ArrayList<Categoria> categorias = null;
@@ -38,8 +29,9 @@ public class ProductosWS {
         }
         return categorias;
     }
-    
+
     MarcaDAO daoMarca = new MarcaMySQL();
+
     @WebMethod(operationName = "listarMarcaTodas")
     public ArrayList<Marca> listarMarcaTodas() {
         ArrayList<Marca> marcas = null;
@@ -50,7 +42,7 @@ public class ProductosWS {
         }
         return marcas;
     }
-    
+
     @WebMethod(operationName = "insertarProducto")
     public int insertarProducto(Producto prod) {
         int resultado = 0;
@@ -61,7 +53,7 @@ public class ProductosWS {
         }
         return resultado;
     }
-    
+
     @WebMethod(operationName = "modificarProducto")
     public int modificarProducto(Producto prod) {
         int resultado = 0;
@@ -72,7 +64,7 @@ public class ProductosWS {
         }
         return resultado;
     }
-    
+
     @WebMethod(operationName = "listarProductosXNombreXCategoriaXMarca")
     public ArrayList<Producto> listarProductosXNombreXCategoriaXMarca(String nombre, int _fid_categoria, int _fid_marca) {
         ArrayList<Producto> productos = null;

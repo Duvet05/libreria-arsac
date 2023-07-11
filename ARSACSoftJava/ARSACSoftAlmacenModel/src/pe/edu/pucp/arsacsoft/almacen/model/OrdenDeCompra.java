@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.almacen.model;
 
 import java.util.ArrayList;
@@ -9,21 +5,18 @@ import java.util.Date;
 import pe.edu.pucp.arsacsoft.RRHH.model.Empleado;
 import pe.edu.pucp.arsacsoft.proveedores.model.Proveedor;
 
-/**
- *
- * @author User
- */
 public class OrdenDeCompra {
+
     private int idOrdenDeCompra;
     private Date fechaOrden;
     private Date fechaEntrega;
     private double costototal;
-    private String estado;        
-    private boolean activo; 
+    private String estado;
+    private boolean activo;
     private Empleado empleado;
     private Proveedor proveedor;
     private ArrayList<LineaOrdenDeCompra> lineas;
-     
+
     public OrdenDeCompra() {
     }
 
@@ -50,7 +43,7 @@ public class OrdenDeCompra {
     public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
-    
+
     public double getCostototal() {
         return costototal;
     }
@@ -73,8 +66,8 @@ public class OrdenDeCompra {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
-    }    
-    
+    }
+
     public Empleado getEmpleado() {
         return empleado;
     }
@@ -82,19 +75,20 @@ public class OrdenDeCompra {
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
+
     public ArrayList<LineaOrdenDeCompra> getLineas() {
         return lineas;
     }
 
     public void setLineas(ArrayList<LineaOrdenDeCompra> lineas) {
         this.lineas = lineas;
-    }    
+    }
+
     public Proveedor getProveedor() {
         return proveedor;
     }
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
-    }    
-    
+    }
 }

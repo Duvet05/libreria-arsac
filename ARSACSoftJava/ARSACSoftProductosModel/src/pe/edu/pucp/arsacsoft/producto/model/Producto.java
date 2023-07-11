@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.producto.model;
-/**
- *
- * @author User
- */
+
 public class Producto {
+
     private int idProducto;
     private String nombre;
     private double precioPorMenor;
@@ -17,7 +11,7 @@ public class Producto {
     private Marca marca;
     private Categoria categoria;
     private Promocion promocion;
-    
+
     private int stockTmp;
 
     public int getStockTmp() {
@@ -27,7 +21,7 @@ public class Producto {
     public void setStockTmp(int stockTmp) {
         this.stockTmp = stockTmp;
     }
-    
+
     public int getIdProducto() {
         return idProducto;
     }
@@ -91,6 +85,7 @@ public class Producto {
     public void setPromocion(Promocion promocion) {
         this.promocion = promocion;
     }
+
     public byte[] getFoto() {
         return foto;
     }
@@ -98,7 +93,7 @@ public class Producto {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-    
+
     public Producto() {
     }
 }

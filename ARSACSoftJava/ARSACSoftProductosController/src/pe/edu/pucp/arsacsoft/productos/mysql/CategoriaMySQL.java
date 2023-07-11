@@ -16,33 +16,40 @@ import pe.edu.pucp.arsacsoft.producto.model.Categoria;
  *
  * @author User
  */
-public class CategoriaMySQL implements CategoriaDAO{
+public class CategoriaMySQL implements CategoriaDAO {
+
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
+
     @Override
     public ArrayList<Categoria> listarTodas() {
-            ArrayList<Categoria> categorias = new ArrayList<>();
-            try
-            {
-                con = DBManager.getInstance().getConnection();
-                cs = con.prepareCall("{call LISTAR_CATEGORIA_TODAS()}");
-                rs = cs.executeQuery();
-                while (rs.next())
-                {
-                    Categoria categoria = new Categoria();
-                    categoria.setIdCategoria(rs.getInt("id_categoria"));
-                    categoria.setDescripcion(rs.getString("descripcion"));
-                    categorias.add(categoria);
-                }
-            }catch (Exception ex){
+        ArrayList<Categoria> categorias = new ArrayList<>();
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_CATEGORIA_TODAS()}");
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                Categoria categoria = new Categoria();
+                categoria.setIdCategoria(rs.getInt("id_categoria"));
+                categoria.setDescripcion(rs.getString("descripcion"));
+                categorias.add(categoria);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                rs.close();
+            } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-            finally{
-                try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-                try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
-            return categorias;        
+        }
+        return categorias;
     }
-    
+
 }

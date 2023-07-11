@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.productos.mysql;
 
 import java.sql.CallableStatement;
@@ -12,37 +8,40 @@ import pe.edu.pucp.arsacsoft.config.DBManager;
 import pe.edu.pucp.arsacsoft.producto.model.Marca;
 import pe.edu.pucp.arsacsoft.productos.dao.MarcaDAO;
 
-/**
- *
- * @author User
- */
-public class MarcaMySQL implements MarcaDAO{
+public class MarcaMySQL implements MarcaDAO {
+
     private Connection con;
     private CallableStatement cs;
     private ResultSet rs;
+
     @Override
     public ArrayList<Marca> listarTodas() {
-            ArrayList<Marca> marcas = new ArrayList<>();
-            try
-            {
-                con = DBManager.getInstance().getConnection();
-                cs = con.prepareCall("{call LISTAR_MARCA_TODAS()}");
-                rs = cs.executeQuery();
-                while (rs.next())
-                {
-                    Marca marca = new Marca();
-                    marca.setIdMarca(rs.getInt("id_marca"));
-                    marca.setDescripcion(rs.getString("descripcion"));
-                    marcas.add(marca);
-                }
-            }catch (Exception ex){
+        ArrayList<Marca> marcas = new ArrayList<>();
+        try {
+            con = DBManager.getInstance().getConnection();
+            cs = con.prepareCall("{call LISTAR_MARCA_TODAS()}");
+            rs = cs.executeQuery();
+            while (rs.next()) {
+                Marca marca = new Marca();
+                marca.setIdMarca(rs.getInt("id_marca"));
+                marca.setDescripcion(rs.getString("descripcion"));
+                marcas.add(marca);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            try {
+                rs.close();
+            } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-            finally{
-                try{rs.close();}catch(Exception ex){System.out.println(ex.getMessage());}
-                try{con.close();}catch(Exception ex){System.out.println(ex.getMessage());}
+            try {
+                con.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
-            return marcas;            
+        }
+        return marcas;
     }
-    
+
 }

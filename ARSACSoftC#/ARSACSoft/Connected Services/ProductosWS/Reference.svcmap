@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/Productos?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:31992/ARSACSoftWebServices/Productos?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Productos.xsd" MetadataType="Schema" ID="0a3f852c-0468-4c64-aab7-9cd082372fb1" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/Productos?xsd=1" />
-    <MetadataFile FileName="Productos.wsdl" MetadataType="Wsdl" ID="dd840748-1e77-4872-af95-689d9e68362e" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/Productos?wsdl" />
+    <MetadataFile FileName="Productos1.xsd" MetadataType="Schema" ID="ecd91310-ca36-4138-9cb7-9f04c9ac3724" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/Productos?xsd=1" />
+    <MetadataFile FileName="Productos1.wsdl" MetadataType="Wsdl" ID="f3178827-d9ea-4727-9cc7-a43081e352d0" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/Productos?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

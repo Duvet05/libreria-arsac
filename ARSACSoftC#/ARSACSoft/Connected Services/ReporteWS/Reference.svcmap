@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/ReporteWS?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:31992/ARSACSoftWebServices/ReporteWS?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ReporteWS.xsd" MetadataType="Schema" ID="866257a2-8a07-4206-9b92-951d6dc183f9" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ReporteWS?xsd=1" />
-    <MetadataFile FileName="ReporteWS.wsdl" MetadataType="Wsdl" ID="fc2fce25-624f-426b-bcb9-e63475d101df" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ReporteWS?WSDL" />
+    <MetadataFile FileName="ReporteWS1.wsdl" MetadataType="Wsdl" ID="ec8072a8-50c4-49f7-96ea-f369582048aa" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/ReporteWS?WSDL" />
+    <MetadataFile FileName="ReporteWS1.xsd" MetadataType="Schema" ID="f677227c-b9af-44ed-9fce-519c250e37fa" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/ReporteWS?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

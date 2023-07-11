@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/VentasWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:31992/ARSACSoftWebServices/VentasWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VentasWS.xsd" MetadataType="Schema" ID="51579bd4-8700-4142-8ceb-ff1be036d114" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/VentasWS?xsd=1" />
-    <MetadataFile FileName="VentasWS.wsdl" MetadataType="Wsdl" ID="408a4770-83ed-4afd-a62c-67c3d69d28f2" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/VentasWS?wsdl" />
+    <MetadataFile FileName="VentasWS1.xsd" MetadataType="Schema" ID="3701fc13-8124-4adf-ad23-4f11a6344201" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/VentasWS?xsd=1" />
+    <MetadataFile FileName="VentasWS1.wsdl" MetadataType="Wsdl" ID="9f69ea3d-5b9b-460e-8588-353a8d2ebff6" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/VentasWS?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

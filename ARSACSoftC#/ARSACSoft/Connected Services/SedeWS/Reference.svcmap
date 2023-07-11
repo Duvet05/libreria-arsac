@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/SedesWS?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:31992/ARSACSoftWebServices/SedesWS?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SedesWS.wsdl" MetadataType="Wsdl" ID="c7380ab2-063d-4477-b835-14be40f1271f" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/SedesWS?WSDL" />
-    <MetadataFile FileName="SedesWS.xsd" MetadataType="Schema" ID="5702eff5-ac3f-4c7c-8ef1-ea8e3ac5eb8a" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/SedesWS?xsd=1" />
+    <MetadataFile FileName="SedesWS1.wsdl" MetadataType="Wsdl" ID="4400f4b8-e899-40a6-8006-63f1886f0a0c" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/SedesWS?WSDL" />
+    <MetadataFile FileName="SedesWS1.xsd" MetadataType="Schema" ID="247df0ab-446c-434a-a898-efb389fb9f38" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/SedesWS?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

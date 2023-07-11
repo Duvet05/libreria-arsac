@@ -362,8 +362,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\AlmacenWS\AlmacenWS.wsdl" />
-    <None Include="Connected Services\AlmacenWS\AlmacenWS.xsd">
+    <None Include="Connected Services\AlmacenWS\AlmacenWS1.wsdl" />
+    <None Include="Connected Services\AlmacenWS\AlmacenWS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\AlmacenWS\ARSACSoft.AlmacenWS.cancelarOrdenCompraResponse.datasource">
@@ -420,8 +420,8 @@
     <None Include="Connected Services\ProductosWS\ARSACSoft.ProductosWS.producto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ProductosWS\Productos.wsdl" />
-    <None Include="Connected Services\ProductosWS\Productos.xsd">
+    <None Include="Connected Services\ProductosWS\Productos1.wsdl" />
+    <None Include="Connected Services\ProductosWS\Productos1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.eliminarProveedorResponse.datasource">
@@ -457,15 +457,15 @@
     <None Include="Connected Services\ProveedoresWS\ARSACSoft.ProveedoresWS.proveedor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ProveedoresWS\ProveedoresWS.wsdl" />
-    <None Include="Connected Services\ProveedoresWS\ProveedoresWS.xsd">
+    <None Include="Connected Services\ProveedoresWS\ProveedoresWS1.wsdl" />
+    <None Include="Connected Services\ProveedoresWS\ProveedoresWS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ReporteWS\ARSACSoft.ReporteWS.generarBoletaDeVentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ReporteWS\ReporteWS.wsdl" />
-    <None Include="Connected Services\ReporteWS\ReporteWS.xsd">
+    <None Include="Connected Services\ReporteWS\ReporteWS1.wsdl" />
+    <None Include="Connected Services\ReporteWS\ReporteWS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.actualizarCuentaResponse.datasource">
@@ -543,8 +543,8 @@
     <None Include="Connected Services\RRHHWS\ARSACSoft.RRHHWS.verificarRepeticionDeCuentaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\RRHHWS\RRHHWS.wsdl" />
-    <None Include="Connected Services\RRHHWS\RRHHWS.xsd">
+    <None Include="Connected Services\RRHHWS\RRHHWS1.wsdl" />
+    <None Include="Connected Services\RRHHWS\RRHHWS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.cancelarOrdenDeAbastecimientoResponse1.datasource">
@@ -604,8 +604,8 @@
     <None Include="Connected Services\SedeWS\ARSACSoft.SedeWS.verificarEntregaDeOrdenDeAbastecimientoResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SedeWS\SedesWS.wsdl" />
-    <None Include="Connected Services\SedeWS\SedesWS.xsd">
+    <None Include="Connected Services\SedeWS\SedesWS1.wsdl" />
+    <None Include="Connected Services\SedeWS\SedesWS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.buscarOrdenPorIDResponse1.datasource">
@@ -665,8 +665,8 @@
     <None Include="Connected Services\VentasWS\ARSACSoft.VentasWS.verificarStockSuficienteResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\VentasWS\VentasWS.wsdl" />
-    <None Include="Connected Services\VentasWS\VentasWS.xsd">
+    <None Include="Connected Services\VentasWS\VentasWS1.wsdl" />
+    <None Include="Connected Services\VentasWS\VentasWS1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

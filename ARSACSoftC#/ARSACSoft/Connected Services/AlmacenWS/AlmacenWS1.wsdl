@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.arsacsoft.pucp.edu.pe/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="AlmacenWS" targetNamespace="http://services.arsacsoft.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:31992/ARSACSoftWebServices/AlmacenWS?xsd=1" namespace="http://services.arsacsoft.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="registrarIngresoDeMercaderiaDeOrdenCompra">
+    <part name="parameters" element="tns:registrarIngresoDeMercaderiaDeOrdenCompra" />
+  </message>
+  <message name="registrarIngresoDeMercaderiaDeOrdenCompraResponse">
+    <part name="parameters" element="tns:registrarIngresoDeMercaderiaDeOrdenCompraResponse" />
+  </message>
+  <message name="insertarOrdenCompra">
+    <part name="parameters" element="tns:insertarOrdenCompra" />
+  </message>
+  <message name="insertarOrdenCompraResponse">
+    <part name="parameters" element="tns:insertarOrdenCompraResponse" />
+  </message>
+  <message name="cancelarOrdenCompra">
+    <part name="parameters" element="tns:cancelarOrdenCompra" />
+  </message>
+  <message name="cancelarOrdenCompraResponse">
+    <part name="parameters" element="tns:cancelarOrdenCompraResponse" />
+  </message>
+  <message name="modificarOrdenCompra">
+    <part name="parameters" element="tns:modificarOrdenCompra" />
+  </message>
+  <message name="modificarOrdenCompraResponse">
+    <part name="parameters" element="tns:modificarOrdenCompraResponse" />
+  </message>
+  <message name="listarOrdenesDeCompraXProveedor">
+    <part name="parameters" element="tns:listarOrdenesDeCompraXProveedor" />
+  </message>
+  <message name="listarOrdenesDeCompraXProveedorResponse">
+    <part name="parameters" element="tns:listarOrdenesDeCompraXProveedorResponse" />
+  </message>
+  <message name="listarLineasDeOrdenDeCompra">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeCompra" />
+  </message>
+  <message name="listarLineasDeOrdenDeCompraResponse">
+    <part name="parameters" element="tns:listarLineasDeOrdenDeCompraResponse" />
+  </message>
+  <portType name="AlmacenWS">
+    <operation name="registrarIngresoDeMercaderiaDeOrdenCompra">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/registrarIngresoDeMercaderiaDeOrdenCompraRequest" message="tns:registrarIngresoDeMercaderiaDeOrdenCompra" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/registrarIngresoDeMercaderiaDeOrdenCompraResponse" message="tns:registrarIngresoDeMercaderiaDeOrdenCompraResponse" />
+    </operation>
+    <operation name="insertarOrdenCompra">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/insertarOrdenCompraRequest" message="tns:insertarOrdenCompra" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/insertarOrdenCompraResponse" message="tns:insertarOrdenCompraResponse" />
+    </operation>
+    <operation name="cancelarOrdenCompra">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/cancelarOrdenCompraRequest" message="tns:cancelarOrdenCompra" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/cancelarOrdenCompraResponse" message="tns:cancelarOrdenCompraResponse" />
+    </operation>
+    <operation name="modificarOrdenCompra">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/modificarOrdenCompraRequest" message="tns:modificarOrdenCompra" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/modificarOrdenCompraResponse" message="tns:modificarOrdenCompraResponse" />
+    </operation>
+    <operation name="listarOrdenesDeCompraXProveedor">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesDeCompraXProveedorRequest" message="tns:listarOrdenesDeCompraXProveedor" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarOrdenesDeCompraXProveedorResponse" message="tns:listarOrdenesDeCompraXProveedorResponse" />
+    </operation>
+    <operation name="listarLineasDeOrdenDeCompra">
+      <input wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasDeOrdenDeCompraRequest" message="tns:listarLineasDeOrdenDeCompra" />
+      <output wsam:Action="http://services.arsacsoft.pucp.edu.pe/AlmacenWS/listarLineasDeOrdenDeCompraResponse" message="tns:listarLineasDeOrdenDeCompraResponse" />
+    </operation>
+  </portType>
+  <binding name="AlmacenWSPortBinding" type="tns:AlmacenWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="registrarIngresoDeMercaderiaDeOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="cancelarOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarOrdenCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarOrdenesDeCompraXProveedor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarLineasDeOrdenDeCompra">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="AlmacenWS">
+    <port name="AlmacenWSPort" binding="tns:AlmacenWSPortBinding">
+      <soap:address location="http://localhost:31992/ARSACSoftWebServices/AlmacenWS" />
+    </port>
+  </service>
+</definitions>

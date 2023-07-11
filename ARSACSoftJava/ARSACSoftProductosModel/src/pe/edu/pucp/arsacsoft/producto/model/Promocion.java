@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pe.edu.pucp.arsacsoft.producto.model;
 
 import java.util.Date;
 
-/**
- *
- * @author User
- */
 public class Promocion {
+
     private int idPromocion;
     private double porcentaje;
     private int cantidadminima;
@@ -18,9 +11,10 @@ public class Promocion {
     private Date fechaFin;
     private boolean activo;
     private Producto producto;
-    
+
     public Promocion() {
     }
+
     public int getIdPromocion() {
         return idPromocion;
     }
@@ -67,12 +61,13 @@ public class Promocion {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
-    }    
+    }
+
     public Producto getProducto() {
         return producto;
     }
 
     public void setProducto(Producto producto) {
         this.producto = producto;
-    }    
+    }
 }

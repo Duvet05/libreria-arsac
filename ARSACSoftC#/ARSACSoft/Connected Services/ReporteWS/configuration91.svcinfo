@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="mgfdznS6IvIlonDUelHxd6ytonUjOSFbVmh4IjPEh98=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="auwMXZOUKPtT0NUJNpecDy/FOy1ZvqsputfLvDvU8OY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ReporteWSPortBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ReporteWSPort" contract="ReporteWS.ReporteWS" bindingType="basicHttpBinding" address="http://localhost:8080/ARSACSoftWebServices/ReporteWS" bindingConfiguration="ReporteWSPortBinding">
+    <endpoint name="ReporteWSPort" contract="ReporteWS.ReporteWS" bindingType="basicHttpBinding" address="http://localhost:31992/ARSACSoftWebServices/ReporteWS" bindingConfiguration="ReporteWSPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/ARSACSoftWebServices/ReporteWS</serializedValue>
+          <serializedValue>http://localhost:31992/ARSACSoftWebServices/ReporteWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/AlmacenWS?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:31992/ARSACSoftWebServices/AlmacenWS?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AlmacenWS.xsd" MetadataType="Schema" ID="9e5f2028-6785-4982-84ac-6289fa1d0878" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/AlmacenWS?xsd=1" />
-    <MetadataFile FileName="AlmacenWS.wsdl" MetadataType="Wsdl" ID="b8c7cbcf-3273-4740-9bc1-52065338bcc4" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/AlmacenWS?WSDL" />
+    <MetadataFile FileName="AlmacenWS1.xsd" MetadataType="Schema" ID="60e2ba5c-c109-425b-b0d8-3c038b8b1592" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/AlmacenWS?xsd=1" />
+    <MetadataFile FileName="AlmacenWS1.wsdl" MetadataType="Wsdl" ID="66f3d462-ca3f-4ab5-9b2b-0fc9c2db6ff6" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/AlmacenWS?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

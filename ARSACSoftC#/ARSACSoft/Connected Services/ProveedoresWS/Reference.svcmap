@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:31992/ARSACSoftWebServices/ProveedoresWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProveedoresWS.wsdl" MetadataType="Wsdl" ID="72348763-3054-46b5-80e4-fb743dc191e4" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?wsdl" />
-    <MetadataFile FileName="ProveedoresWS.xsd" MetadataType="Schema" ID="90f2adb2-887f-4ae7-8756-f385111a4d2d" SourceId="1" SourceUrl="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS?xsd=1" />
+    <MetadataFile FileName="ProveedoresWS1.wsdl" MetadataType="Wsdl" ID="4199ed70-cd3b-4a2c-b1ed-c5986b4550df" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/ProveedoresWS?wsdl" />
+    <MetadataFile FileName="ProveedoresWS1.xsd" MetadataType="Schema" ID="03e8e90f-274a-4b10-b58e-f6b89cb24147" SourceId="1" SourceUrl="http://localhost:31992/ARSACSoftWebServices/ProveedoresWS?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

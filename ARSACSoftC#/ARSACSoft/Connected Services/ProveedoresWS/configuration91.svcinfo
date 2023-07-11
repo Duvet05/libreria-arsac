@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="9gfHFCsMuOb9k7040C0gfSAkd6X2LR5prE3ybpfo9fE=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="vrBf0xFKhPA8UC/9aDKPhYxO0fHc0c7QXuvdcE3RY48=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ProveedoresWSPortBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ProveedoresWSPort" contract="ProveedoresWS.ProveedoresWS" bindingType="basicHttpBinding" address="http://localhost:8080/ARSACSoftWebServices/ProveedoresWS" bindingConfiguration="ProveedoresWSPortBinding">
+    <endpoint name="ProveedoresWSPort" contract="ProveedoresWS.ProveedoresWS" bindingType="basicHttpBinding" address="http://localhost:31992/ARSACSoftWebServices/ProveedoresWS" bindingConfiguration="ProveedoresWSPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/ARSACSoftWebServices/ProveedoresWS</serializedValue>
+          <serializedValue>http://localhost:31992/ARSACSoftWebServices/ProveedoresWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
